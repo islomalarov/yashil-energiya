@@ -1,0 +1,21 @@
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+.link {
+  color: #2b2b2b;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+}
+.link:hover {
+  color: #12903e;
+}
+.language {
+  display: flex;
+  align-items: center;
+}

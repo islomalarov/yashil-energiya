@@ -1,0 +1,30 @@
+.hero {
+  position: relative;
+}
+.info {
+  position: absolute;
+  top: 0;
+}
+.title {
+  padding-top: 91px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 700;
+}
+.bg {
+  width: 100%;
+  background-size: contain;
+}
+.descr {
+  padding-top: 12px;
+  color: #fff;
+  font-size: 20px;
+  display: flex;
+  p {
+    font-weight: 100;
+  }
+  & span {
+    display: block;
+    margin: 0 30px;
+  }
+}
