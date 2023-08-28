@@ -1,0 +1,20 @@
+.links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 35px 0 100px;
+  & li {
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 0.1);
+    padding: 20px 30px 27px 29px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    & a {
+      color: #12903e;
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+}

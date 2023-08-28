@@ -7,7 +7,9 @@ html,
 body {
   height: 100%;
 }
-
+ul {
+  list-style: none;
+}
 button,
 select {
   background: none;
@@ -29,4 +31,10 @@ a {
 }
 .main {
   flex: 1 1 auto;
+}
+.title {
+  color: #2b2b2b;
+  font-size: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
