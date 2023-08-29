@@ -6,7 +6,7 @@ import emblem1 from "@/public/emblems/emblem1.png";
 import emblem2 from "@/public/emblems/emblem2.png";
 import emblem3 from "@/public/emblems/emblem3.png";
 import emblem4 from "@/public/emblems/emblem4.png";
-interface LinksArray {
+interface LinkObj {
   img: StaticImageData;
   body: string;
   url: string;
@@ -21,7 +21,7 @@ export const TheLinks = () => {
     {
       img: emblem2,
       body: "База данных по законодательству Республики Узбекистан",
-      url: "www.lex.uz",
+      url: "lex.uz",
     },
     {
       img: emblem3,
@@ -36,23 +36,25 @@ export const TheLinks = () => {
     {
       img: emblem1,
       body: "Законодательная палата Олий Мажлиса",
-      url: "www.parlament.gov.uz",
+      url: "parliament.gov.uz",
     },
     {
       img: emblem1,
       body: "Государственный Налоговый комитет Республики Узбекистан",
-      url: "pm.www.soliq.uz",
+      url: "www.soliq.uz",
     },
   ];
   return (
     <div className="container">
       <h3 className="title">Полезные ссылки</h3>
       <ul className={styles.links}>
-        {links.map((link: any) => (
+        {links.map((link: LinkObj) => (
           <li key={link.body}>
             <Image src={link.img} width={80} height={80} alt="" />
             <p>{link.body}</p>
-            <a href={link.url}>{link.url}</a>
+            <Link href={`https://${link.url}`} passHref>
+              {link.url}
+            </Link>
           </li>
         ))}
       </ul>
