@@ -4,13 +4,13 @@ import styles from "./page.module.scss";
 import "../../scss/globals.scss";
 
 export const TheHeader = () => {
-  // const [links] = useSate([
-  //   { url: "/", title: "Главная" },
-  //   { url: "/about", title: "О Компании" },
-  //   { url: "/news", title: "Новости" },
-  //   { url: "/projects", title: "Проекты" },
-  //   { url: "/contacts", title: "Контакты" },
-  // ]);
+  const [links] = [
+    { url: "/", title: "Главная" },
+    { url: "/about", title: "О Компании" },
+    { url: "/news", title: "Новости" },
+    { url: "/projects", title: "Проекты" },
+    { url: "/contacts", title: "Контакты" },
+  ];
   return (
     <header className={styles.header}>
       <div className="container">
