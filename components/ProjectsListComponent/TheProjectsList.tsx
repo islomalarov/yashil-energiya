@@ -5,9 +5,12 @@ async function getProjects() {
   const res = await fetch("https://jsonplaceholder.typicode.com/photos");
   return res.json();
 }
-export default async function TheProjectsList() {
+export default async function TheProjectsList(props: {
+  begin: number;
+  end: number;
+}) {
   const projects1 = await getProjects();
-  const projects = projects1.slice(0, 4);
+  const projects = projects1.slice(props.begin, props.end);
   return (
     <ul className={styles.projects}>
       {projects.map((project: any) => (

@@ -7,7 +7,7 @@ export default function Projects() {
     <>
       <TheHero title="Проекты" />
       <div className="container">
-        <TheProjectsList />
+        <TheProjectsList begin={0} end={10} />
       </div>
     </>
   );

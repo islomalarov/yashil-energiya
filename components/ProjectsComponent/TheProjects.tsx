@@ -28,7 +28,7 @@ export const TheProjects = () => {
           </svg>
         </Link>
       </div>
-      <TheProjectsList />
+      <TheProjectsList begin={0} end={4} />
     </div>
   );
 };
