@@ -11,20 +11,29 @@ export const TheAbout = () => {
           <h2 className="title">О компании</h2>
           <div className={styles.line}></div>
           <p className={styles.descr}>
-            Sed ut perspiciatis, unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam eaque ipsa,
-            quae ab illo inventore veritatis et quasi architecto beatae vitae
-            dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas
-            sit, aspernatur aut odit aut fugit, sed quia consequuntur magni
-            dolores eos, qui ratione voluptatem sequi nesciunt, neque porro
-            quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur,
-            adipisci velit, sed quia non numquam eius modi tempora incidunt, ut
-            labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad
-            minima veniam, quis nostrum exercitationem ullam corporis suscipit
-            laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem
-            vel eum iure reprehenderit, qui in ea voluptate velit esse, quam
-            nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo
-            voluptas nulla pariatur?
+            "Yashil Energiya" МЧЖ Узбекистон Республикаси Президентининг 2023
+            йил 16 февралдаги "2023 йилда кайта тикланувчи энергия манбаларини
+            ва энергия тежовчи технологияларни жорий этишни жадаллаштириш
+            чора-тадбирлари тугрисида"ги ПК-57-сонли карорига асосан ташкил
+            этилган.
+          </p>
+          <p className={styles.descr}>
+            "Yashil Energiya" МЧЖ ташкил этишдан асосий максад:
+            <br />
+            <span>
+              - кайта тикланувчи энергия манбалари курилмаларини урнатиш ва
+              уларни эксплкатация килиш;
+            </span>
+            <br />
+            <span>
+              - кайта тикланувчи энергия манбалари курилмалари оркали ишлаб
+              чикарилган электр энергиясини истеъмолчиларга етказиш;
+            </span>
+            <br />
+            <span>
+              - республика худудларида урнатилган кайта тикланувчи энергия
+              манбалари курилмаларига сервис ва техник хизмат курсатиш.
+            </span>
           </p>
           <Link className={styles.link} href="/about">
             Подробнее

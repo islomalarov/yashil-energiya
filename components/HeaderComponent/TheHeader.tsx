@@ -15,7 +15,7 @@ export const TheHeader = () => {
     <header className={styles.header}>
       <div className="container">
         <div className={styles.content}>
-          <div>
+          <Link href="/">
             <Image
               src="/logo.svg"
               alt="logo"
@@ -23,7 +23,8 @@ export const TheHeader = () => {
               height={82}
               priority
             />
-          </div>
+          </Link>
+
           <Link className={styles.link} href="/">
             Главная
           </Link>

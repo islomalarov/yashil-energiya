@@ -1,0 +1,20 @@
+.content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 100px;
+  row-gap: 40px;
+  align-items: stretch;
+  padding-bottom: 90px;
+}
+.info {
+  display: grid;
+  align-items: stretch;
+}
+
+.descr {
+  color: #2b2b2b;
+  font-size: 16px;
+  line-height: 30px; /* 187.5% */
+  font-weight: 400;
+  grid-column: span 2;
+}
