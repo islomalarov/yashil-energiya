@@ -8,35 +8,35 @@ export const TheAbout = () => {
     <div className="container">
       <div className={styles.content}>
         <div className={styles.info}>
-          <h2 className="title">О компании</h2>
+          <h2 className="title">Kompaniya haqida</h2>
           <div className={styles.line}></div>
           <p className={styles.descr}>
-            "Yashil Energiya" МЧЖ Узбекистон Республикаси Президентининг 2023
-            йил 16 февралдаги "2023 йилда кайта тикланувчи энергия манбаларини
-            ва энергия тежовчи технологияларни жорий этишни жадаллаштириш
-            чора-тадбирлари тугрисида"ги ПК-57-сонли карорига асосан ташкил
-            этилган.
+            "Yashil Energiya" MCHJ O'zbekiston Respublikasi Prezidentining 2023
+            yil 16 fevraldagi "2023 yilda qayta tiklanuvchi energiya manbalarini
+            va energiya tejovchi texnologiyalarni joriy etishni jadallashtirish
+            chora-tadbirlari tugrisida"gi PQ-57-sonli qaroriga asosan tashkil
+            etilgan.
           </p>
           <p className={styles.descr}>
-            "Yashil Energiya" МЧЖ ташкил этишдан асосий максад:
+            "Yashil Energiya" MCHJ tashkil etishdan asosiy maqsad:
             <br />
             <span>
-              - кайта тикланувчи энергия манбалари курилмаларини урнатиш ва
-              уларни эксплкатация килиш;
+              - qayta tiklanuvchi energiya manbalari qurilmalarini o'rnatish va
+              ularni ekspluatatsiya qilish;
             </span>
             <br />
             <span>
-              - кайта тикланувчи энергия манбалари курилмалари оркали ишлаб
-              чикарилган электр энергиясини истеъмолчиларга етказиш;
+              - qayta tiklanuvchi energiya manbalari qurilmalari orqali ishlab
+              chiqarilgan elektr energiyasini iste’molchilarga yetkazish;
             </span>
             <br />
             <span>
-              - республика худудларида урнатилган кайта тикланувчи энергия
-              манбалари курилмаларига сервис ва техник хизмат курсатиш.
+              - respublika xududlarida o'rnatilgan qayta tiklanuvchi energiya
+              manbalari qurilmalariga servis va texnik xizmat ko'rsatish.
             </span>
           </p>
           <Link className={styles.link} href="/about">
-            Подробнее
+            Batafsil
           </Link>
         </div>
         <Image src="/about.png" alt="logo" width={620} height={680} priority />

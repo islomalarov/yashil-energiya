@@ -8,9 +8,9 @@ export const TheProjects = () => {
   return (
     <div className="container">
       <div className={styles.header}>
-        <h3 className="title">Наши проекты</h3>
+        <h3 className="title">Bizning loyihalarimiz</h3>
         <Link href="/projects" className={styles.link}>
-          Все проекты
+          Barcha loyihalar
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="9"

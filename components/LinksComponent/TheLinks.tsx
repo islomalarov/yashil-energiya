@@ -46,7 +46,7 @@ export const TheLinks = () => {
   ];
   return (
     <div className="container">
-      <h3 className="title">Полезные ссылки</h3>
+      <h3 className="title">Foydali havolalar</h3>
       <ul className={styles.links}>
         {links.map((link: LinkObj) => (
           <li key={link.body}>

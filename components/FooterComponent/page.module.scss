@@ -22,17 +22,12 @@
   }
 }
 .linksBlock {
-  display: flex;
-  gap: 84px;
-  .block {
-    display: grid;
-    align-self: flex-start;
-  }
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 .link {
   color: #aaa;
   font-size: 14px;
-  line-height: 44px; /* 314.286% */
   text-transform: uppercase;
   &:hover {
     color: #81d965;

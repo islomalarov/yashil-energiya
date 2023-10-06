@@ -3,7 +3,7 @@ import "../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Link from "next/link";
 
-export const TheHero = (props: { title: string }) => {
+export const TheHero = (props: { title: string; title2?: string }) => {
   return (
     <div className={styles.hero}>
       <img className={styles.bg} src="hero1.png" alt="" />
@@ -13,6 +13,13 @@ export const TheHero = (props: { title: string }) => {
           <div className={styles.descr}>
             <Link href="/">Главная</Link>
             <span> | </span> <p>{props.title}</p>
+            {props.title2 ? (
+              <>
+                <span> | </span> <Link href="/ceo">{props.title2}</Link>
+              </>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>

@@ -2,8 +2,23 @@ import Image from "next/image";
 import "../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Link from "next/link";
+import { links } from "../HeaderComponent/TheHeader";
 
 export const TheFooter = () => {
+  const socialLinks = [
+    {
+      url: "",
+      path: "/insta.svg",
+    },
+    {
+      url: "",
+      path: "/face.svg",
+    },
+    {
+      url: "",
+      path: "/tg.svg",
+    },
+  ];
   return (
     <footer className={styles.footer}>
       <div className="container">
@@ -19,58 +34,26 @@ export const TheFooter = () => {
               />
             </Link>
             <div className={styles.icons}>
-              <Link className={styles.social} href="">
-                <Image
-                  className={styles.icon}
-                  src="/insta.svg"
-                  alt="logo"
-                  width={22}
-                  height={22}
-                  priority
-                />
-              </Link>
-              <Link className={styles.social} href="">
-                <Image
-                  className={styles.icon}
-                  src="/face.svg"
-                  alt="logo"
-                  width={22}
-                  height={22}
-                  priority
-                />
-              </Link>
-              <Link className={styles.social} href="">
-                <Image
-                  className={styles.icon}
-                  src="/tg.svg"
-                  alt="logo"
-                  width={22}
-                  height={22}
-                  priority
-                />
-              </Link>
+              {socialLinks.map((link) => (
+                <Link href={link.url} className={styles.social}>
+                  <Image
+                    className={styles.icon}
+                    src={link.path}
+                    alt="logo"
+                    width={22}
+                    height={22}
+                    priority
+                  />
+                </Link>
+              ))}
             </div>
           </div>
           <div className={styles.linksBlock}>
-            <div className={styles.block}>
-              <Link className={styles.link} href="/">
-                Главная
+            {links.map((link: any) => (
+              <Link className={styles.link} href={link.url}>
+                {link.title}
               </Link>
-              <Link className={styles.link} href="/about">
-                О Компании
-              </Link>
-              <Link className={styles.link} href="/news">
-                Новости
-              </Link>
-            </div>
-            <div className={styles.block}>
-              <Link className={styles.link} href="/projects">
-                Проекты
-              </Link>
-              <Link className={styles.link} href="/contacts">
-                Контакты
-              </Link>
-            </div>
+            ))}
           </div>
         </div>
       </div>

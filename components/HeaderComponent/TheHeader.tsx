@@ -3,14 +3,14 @@ import Link from "next/link";
 import styles from "./page.module.scss";
 import "../../scss/globals.scss";
 
+export const links = [
+  { url: "/", title: "Bosh sahifa" },
+  { url: "/about", title: "Kompaniya haqida" },
+  { url: "/news", title: "Yangiliklar" },
+  { url: "/projects", title: "loyihalar" },
+  { url: "/contacts", title: "Kontaktlar" },
+];
 export const TheHeader = () => {
-  const [links] = [
-    { url: "/", title: "Главная" },
-    { url: "/about", title: "О Компании" },
-    { url: "/news", title: "Новости" },
-    { url: "/projects", title: "Проекты" },
-    { url: "/contacts", title: "Контакты" },
-  ];
   return (
     <header className={styles.header}>
       <div className="container">
@@ -24,24 +24,13 @@ export const TheHeader = () => {
               priority
             />
           </Link>
-
-          <Link className={styles.link} href="/">
-            Главная
-          </Link>
-          <Link className={styles.link} href="/about">
-            О Компании
-          </Link>
-          <Link className={styles.link} href="/news">
-            Новости
-          </Link>
-          <Link className={styles.link} href="/projects">
-            Проекты
-          </Link>
-          <Link className={styles.link} href="/contacts">
-            Контакты
-          </Link>
+          {links.map((link: any) => (
+            <Link className={styles.link} href={link.url}>
+              {link.title}
+            </Link>
+          ))}
           <div className="">
-            <button>
+            {/* <button>
               <Image
                 src="/search.svg"
                 alt="logo"
@@ -49,7 +38,7 @@ export const TheHeader = () => {
                 height={30}
                 priority
               />
-            </button>
+            </button> */}
           </div>
           <div className={styles.language}>
             <button>
@@ -62,9 +51,9 @@ export const TheHeader = () => {
               />
             </button>
             <select name="" id="">
-              <option value="">RU</option>
-              <option value="">ENG</option>
-              <option value="">UZB</option>
+              <option value="">Uz</option>
+              <option value="">Ru</option>
+              <option value="">Eng</option>
             </select>
           </div>
         </div>
