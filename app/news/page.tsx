@@ -4,7 +4,7 @@ import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 export default function News() {
   return (
     <>
-      <TheHero title="Новости" />
+      <TheHero title="Yangiliklar" />
       <div className="container">
         <h1>News page</h1>
       </div>

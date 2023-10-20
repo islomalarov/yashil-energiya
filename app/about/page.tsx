@@ -8,7 +8,7 @@ import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 export default function About() {
   return (
     <>
-      <TheHero title="О компании" title2="Руководство" />
+      <TheHero title="Kompaniya Haqida" title2="Rahbariyat" />
       <div className="container">
         <div className={styles.content}>
           <div className={styles.info}>
@@ -70,21 +70,22 @@ export default function About() {
             lozim. Shuning uchun bu usul tarmoq ichida tizim deb ataladi.
           </p>
           <p className={styles.descr}>
-            <b>Off-Grid</b> тизими - худудий электр тармоклари тизимидан холи,
-            мустакил (автоном) тизим булиб, куёшли кунларда хосил булган ва
-            Истеъмолингиздан ортиб колган электр манбаини захирага олиб куйиш
-            имкониятига эга буласиз. Бунда батареяларга "гамлаб" куйилган электр
-            энергияси Сизни кечаю кундуз узлуксиз электр энергияси билан
-            таъминлаб туради.
+            <b>Off-Grid</b> tizimi - xududiy elektr tarmoqlari tizimidan xoli,
+            mustaqil (avtonom) tizim bo'lib, quyoshli kunlarda xosil bo'lgan va
+            iste’molingizdan ortib qolgan elektr manbaini zaxiraga olib qo'yish
+            imkoniyatiga ega bo'lasiz. Bunda batareyalarga "g'amlab" qo'yilgan
+            elektr energiyasi Sizni kechayu kunduz uzluksiz elektr energiyasi
+            bilan ta’minlab turadi.
           </p>
           <p className={styles.descr}>
-            <b>Гибрид</b> тизими - On-Grid (тизим ичидаги) ва Off-Grid (тизимдан
-            ташкари) имкониятларини бирлаштирган Сизнинг "куёш электр
-            станциянгиз"дир. Бунда Сиз бир вактнинг узида хам худудий электр
-            тармогига уланган буласиз, хам уз электр захирангизга эга буласиз.
-            Хохланг узингиз "ишлаб чикарган" электр манбаини махаллий электр
-            тармогига сотинг, хохланг захира сифатида батареяга "гамлаб" куйган
-            электр энергиянгиздан узингиз бемалол фойдаланинг.
+            <b>Gibrid</b> tizimi - On-Grid (tizim ichidagi) va Off-Grid
+            (tizimdan tashqari) imkoniyatlarini birlashtirgan Sizning "quyosh
+            elektr stansiyangiz"dir. Bunda Siz bir vaqtning uzida xam xududiy
+            elektr tarmog'iga ulangan bo'lasiz, xam o'z elektr zaxirangizga ega
+            bulasiz. Xoxlang uzingiz "ishlab chiqargan" elektr manbaini maxalliy
+            elektr tarmog'iga soting, xoxlang zaxira sifatida batareyaga
+            "g'amlab" qo'ygan elektr energiyangizdan o'zingiz bemalol
+            foydalaning.
           </p>
         </div>
       </div>

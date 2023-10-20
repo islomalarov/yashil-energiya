@@ -15,32 +15,32 @@ export const TheLinks = () => {
   const links = [
     {
       img: emblem1,
-      body: "Виртуальная приемная Президента Республики Узбекистан",
+      body: "      O'ZBEKISTON RESPUBLIKASI PREZIDENTI VIRTUAL QABULXONASI",
       url: "pm.gov.uz",
     },
     {
       img: emblem2,
-      body: "База данных по законодательству Республики Узбекистан",
+      body: "O‘ZBEKISTON RESPUBLIKASI QONUNCHILIK MA’LUMOTLARI MILLIY BAZASI",
       url: "lex.uz",
     },
     {
       img: emblem3,
-      body: "Министерство по развитию информационных технологий",
+      body: "O‘ZBEKISTON RESPUBLIKASI RAQAMLI TEXNOLOGIYALAR VAZIRLIGI",
       url: "www.mitc.uz",
     },
     {
       img: emblem4,
-      body: "Портал инвестиций Республики Узбекистан",
+      body: "O‘ZBEKISTON RESPUBLIKASI INVESTITSIYALAR VA TASHQI SAVDO VAZIRLIGI",
       url: "www.invest.gov.uz",
     },
     {
       img: emblem1,
-      body: "Законодательная палата Олий Мажлиса",
+      body: "OʼZBEKISTON RESPUBLIKASI OLIY MAJLISI QONUNCHILIK PALATASI",
       url: "parliament.gov.uz",
     },
     {
       img: emblem1,
-      body: "Государственный Налоговый комитет Республики Узбекистан",
+      body: "OʼZBEKISTON RESPUBLIKASI VAZIRLAR MAHKAMASI HUZURIDAGI SOLIQ QO'MITASI",
       url: "www.soliq.uz",
     },
   ];

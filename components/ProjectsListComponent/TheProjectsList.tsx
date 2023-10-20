@@ -3,6 +3,23 @@ import styles from "./page.module.scss";
 import "../../scss/globals.scss";
 async function getProjects() {
   const res = await fetch("https://jsonplaceholder.typicode.com/photos");
+
+  // const res = await fetch(
+  //   "https://eu5.fusionsolar.huawei.com/thirdData/stations",
+  //   {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       "xsrf-token":
+  //         "x-9f2p8bvv3yrsrwmphcdgg4lftgphka478bvytdilmog7satjgbpfpdrzs6deuoanbz5f7sak2pun2k5drz1j6nmmvw3vjsdgup48o67w47ek1diq5d2m2kruernthhmp",
+  //     },
+  //     // body: {
+  //     //   pageNo: 1,
+  //     // },
+  //   }
+  // );
+  console.log(res);
+
   return res.json();
 }
 export default async function TheProjectsList(props: {

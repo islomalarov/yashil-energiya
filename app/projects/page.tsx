@@ -6,7 +6,7 @@ import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 export default function Projects() {
   return (
     <>
-      <TheHero title="Проекты" />
+      <TheHero title="Loyihalar" />
       <div className="container">
         <TheProjectsList begin={0} end={10} />
       </div>

@@ -11,7 +11,7 @@ export const TheHero = (props: { title: string; title2?: string }) => {
         <div className={styles.info}>
           <h1 className={styles.title}>{props.title}</h1>
           <div className={styles.descr}>
-            <Link href="/">Главная</Link>
+            <Link href="/">Bosh sahifa</Link>
             <span> | </span> <p>{props.title}</p>
             {props.title2 ? (
               <>
