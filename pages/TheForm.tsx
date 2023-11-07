@@ -24,13 +24,13 @@ export const TheForm = () => {
 
   return (
     <form action="" method="" className={styles.form}>
-      <h1 className="title">Обратная связь</h1>
+      <h1 className="title">FIKR-MULOHAZA</h1>
       <input
         className={styles.input}
         type="text"
         name="name"
         id="name"
-        placeholder="ФИО"
+        placeholder="F.I.SH"
         required
         value={feedback.name}
         onChange={(e) => setFeedback({ ...feedback, name: e.target.value })}
@@ -40,7 +40,7 @@ export const TheForm = () => {
         type="text"
         name="phone"
         id="phone"
-        placeholder="Номер телефона"
+        placeholder="Telefon raqami"
         required
         value={feedback.phone}
         onChange={(e) => setFeedback({ ...feedback, phone: e.target.value })}
@@ -49,17 +49,17 @@ export const TheForm = () => {
         className={styles.input}
         name="msg"
         id="msg"
-        placeholder="Комментарий"
+        placeholder="Izoh"
         required
         value={feedback.msg}
         onChange={(e) => setFeedback({ ...feedback, msg: e.target.value })}
       />
       {feedback.name && feedback.phone && feedback.msg ? (
         <button className={styles.btn} onClick={sendForm}>
-          Отправить
+          Jo'natish
         </button>
       ) : (
-        <button className={styles.disabledBtn}>Отправить</button>
+        <button className={styles.disabledBtn}>Jo'natish</button>
       )}
     </form>
   );

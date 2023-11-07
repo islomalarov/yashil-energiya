@@ -1,45 +1,42 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import "../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Link from "next/link";
-import emblem1 from "@/public/emblems/emblem1.png";
-import emblem2 from "@/public/emblems/emblem2.png";
-import emblem3 from "@/public/emblems/emblem3.png";
-import emblem4 from "@/public/emblems/emblem4.png";
+
 interface LinkObj {
-  img: StaticImageData;
+  img: string;
   body: string;
   url: string;
 }
 export const TheLinks = () => {
   const links = [
     {
-      img: emblem1,
-      body: "      O'ZBEKISTON RESPUBLIKASI PREZIDENTI VIRTUAL QABULXONASI",
+      img: "/emblems/emblem1.png",
+      body: "O'ZBEKISTON RESPUBLIKASI PREZIDENTI VIRTUAL QABULXONASI",
       url: "pm.gov.uz",
     },
     {
-      img: emblem2,
+      img: "https://lex.uz/assets/img/lex_uz.svg",
       body: "O‘ZBEKISTON RESPUBLIKASI QONUNCHILIK MA’LUMOTLARI MILLIY BAZASI",
       url: "lex.uz",
     },
     {
-      img: emblem3,
-      body: "O‘ZBEKISTON RESPUBLIKASI RAQAMLI TEXNOLOGIYALAR VAZIRLIGI",
-      url: "www.mitc.uz",
+      img: "/emblems/emblem3.png",
+      body: "O‘ZBEKISTON RESPUBLIKASI ENERGETIKA VAZIRLIGI",
+      url: "minenergy.uz",
     },
     {
-      img: emblem4,
+      img: "/emblems/emblem4.png",
       body: "O‘ZBEKISTON RESPUBLIKASI INVESTITSIYALAR VA TASHQI SAVDO VAZIRLIGI",
       url: "www.invest.gov.uz",
     },
     {
-      img: emblem1,
+      img: "/emblems/emblem5.png",
       body: "OʼZBEKISTON RESPUBLIKASI OLIY MAJLISI QONUNCHILIK PALATASI",
       url: "parliament.gov.uz",
     },
     {
-      img: emblem1,
+      img: "https://www.soliq.uz/assets/images/logo-flag.svg",
       body: "OʼZBEKISTON RESPUBLIKASI VAZIRLAR MAHKAMASI HUZURIDAGI SOLIQ QO'MITASI",
       url: "www.soliq.uz",
     },

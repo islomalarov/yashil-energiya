@@ -2,15 +2,15 @@ import Image from "next/image";
 import "../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Link from "next/link";
-import TheProjectsList from "../ProjectsListComponent/TheProjectsList";
+import TheNewsList from "../NewsListComponent/TheNewsList";
 
-export const TheProjects = () => {
+export const TheNews = () => {
   return (
     <div className="container">
       <div className={styles.header}>
-        <h3 className="title">Bizning loyihalar</h3>
-        <Link href="/projects" className={styles.link}>
-          Barcha loyihalar
+        <h3 className="title">Yangiliklar</h3>
+        <Link href="/news" className={styles.link}>
+          Barcha yangiliklar
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="9"
@@ -28,7 +28,7 @@ export const TheProjects = () => {
           </svg>
         </Link>
       </div>
-      <TheProjectsList begin={0} end={4} />
+      <TheNewsList begin={0} end={3} />
     </div>
   );
 };

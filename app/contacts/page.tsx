@@ -4,9 +4,8 @@ import { TheForm } from "@/pages/TheForm";
 export default function Contacts() {
   return (
     <>
-      <TheHero title={"Контакты"} />
+      <TheHero title={"Kontaktlar"} />
       <div className="container">
-        <h1>Contacts page</h1>
         <TheForm />
       </div>
     </>
