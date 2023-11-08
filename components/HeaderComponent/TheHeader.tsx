@@ -24,13 +24,15 @@ export const TheHeader = () => {
               priority
             />
           </Link>
-          {links.map((link: any) => (
-            <Link className={styles.link} href={link.url}>
-              {link.title}
-            </Link>
-          ))}
-          <div className="">
-            {/* <button>
+          <div className={styles.menuBlock}>
+            {links.map((link: any) => (
+              <Link className={styles.link} href={link.url}>
+                {link.title}
+              </Link>
+            ))}
+          </div>
+          {/* <div className={styles.searchBlock}>
+            <button>
               <Image
                 src="/search.svg"
                 alt="logo"
@@ -38,8 +40,9 @@ export const TheHeader = () => {
                 height={30}
                 priority
               />
-            </button> */}
-          </div>
+            </button>
+          </div> */}
+          {/* Lupa */}
           <div className={styles.language}>
             <button>
               <Image

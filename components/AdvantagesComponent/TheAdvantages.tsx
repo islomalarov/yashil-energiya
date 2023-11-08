@@ -6,7 +6,7 @@ export const TheAdvantages = () => {
   return (
     <div className={styles.main}>
       <div className="container">
-        <h3 className={`${styles.title} title`}>BIZNING AFZALLIKLARIMIZ</h3>
+        <h3 className={styles.title}>BIZNING AFZALLIKLARIMIZ</h3>
         <div className={styles.advBlock}>
           <div className={styles.adv}>
             <Image src="/advantage1.svg" width={100} height={100} alt="" />

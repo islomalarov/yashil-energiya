@@ -13,7 +13,18 @@
     color: #12903e;
   }
 }
+.menuBlock {
+  flex-basis: 60%;
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}
 .language {
   display: flex;
   align-items: center;
+  @media (max-width: 1024px) {
+    display: none;
+  }
 }

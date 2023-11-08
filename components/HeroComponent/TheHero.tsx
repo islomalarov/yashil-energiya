@@ -6,7 +6,9 @@ import Link from "next/link";
 export const TheHero = (props: { title: string; title2?: string }) => {
   return (
     <div className={styles.hero}>
-      <img className={styles.bg} src="hero1.png" alt="" />
+      <div className={styles.bgBlock}>
+        <img className={styles.bg} src="hero1.png" alt="" />
+      </div>
       <div className="container">
         <div className={styles.info}>
           <h1 className={styles.title}>{props.title}</h1>

@@ -1,10 +1,18 @@
 .content {
   padding: 100px 0;
   display: flex;
+  justify-content: center;
   gap: 100px;
+  @media (max-width: 1024px) {
+    flex-wrap: wrap;
+  }
+}
+img {
+  width: 100%;
 }
 .info {
   display: grid;
+  gap: 10px;
   align-items: stretch;
 }
 

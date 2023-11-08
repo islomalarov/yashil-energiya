@@ -14,13 +14,20 @@
 }
 .bg {
   width: 100%;
-  background-size: contain;
+  object-fit: cover;
+  height: 100%;
+}
+.bgBlock {
+  height: 300px;
 }
 .descr {
   padding-top: 12px;
   color: #fff;
   font-size: 20px;
   display: flex;
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
   p {
     font-weight: 100;
   }

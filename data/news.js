@@ -47,7 +47,7 @@ export default news = [
     subTitle:
       "O‘zbekiston Energetika vazirligida mamlakatda qayta tiklanadigan energiya manbalarini joriy etish loyihalarini amalga oshirish uchun Huawei kompaniyasining invertorlarini yetkazib berish bo‘yicha shartnoma imzolash marosimi bo‘lib o‘tdi.",
     date: "06.06.2023",
-    imgUrl: "/newsPhoto/photo-1.jpeg",
+    imgUrl: "/newsPhoto/photo-1.jpg",
   },
   {
     id: 7,
@@ -55,6 +55,6 @@ export default news = [
     subTitle:
       "O‘zbekiston Energetika vazirligida mamlakatda qayta tiklanadigan energiya manbalarini joriy etish loyihalarini amalga oshirish uchun Huawei kompaniyasining invertorlarini yetkazib berish bo‘yicha shartnoma imzolash marosimi bo‘lib o‘tdi.",
     date: "06.06.2023",
-    imgUrl: "/newsPhoto/photo-1.jpeg",
+    imgUrl: "/newsPhoto/photo-1.jpg",
   },
 ];

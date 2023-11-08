@@ -3,6 +3,10 @@
 }
 .block {
   display: flex;
-  gap: 120px;
+  column-gap: 120px;
   padding-top: 100px;
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }

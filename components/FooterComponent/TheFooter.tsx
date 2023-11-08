@@ -33,20 +33,20 @@ export const TheFooter = () => {
                 priority
               />
             </Link>
-            {/* <div className={styles.icons}>
+            <div className={styles.icons}>
               {socialLinks.map((link) => (
                 <Link href={link.url} className={styles.social}>
                   <Image
                     className={styles.icon}
                     src={link.path}
                     alt="logo"
-                    width={22}
-                    height={22}
+                    width={40}
+                    height={40}
                     priority
                   />
                 </Link>
               ))}
-            </div> */}
+            </div>
           </div>
           <div className={styles.linksBlock}>
             {links.map((link: any) => (

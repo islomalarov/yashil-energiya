@@ -47,7 +47,7 @@ export const TheLinks = () => {
       <ul className={styles.links}>
         {links.map((link: LinkObj) => (
           <li key={link.body}>
-            <Image src={link.img} width={80} height={80} alt="" />
+            <img src={link.img} alt="" />
             <p>{link.body}</p>
             <Link href={`https://${link.url}`} passHref>
               {link.url}
