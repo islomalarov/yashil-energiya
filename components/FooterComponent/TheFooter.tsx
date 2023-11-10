@@ -34,11 +34,11 @@ export const TheFooter = () => {
               />
             </Link>
             <div className={styles.icons}>
-              {socialLinks.map((link) => (
-                <Link href={link.url} className={styles.social}>
+              {socialLinks.map(({ url, path }) => (
+                <Link href={url} className={styles.social}>
                   <Image
                     className={styles.icon}
-                    src={link.path}
+                    src={path}
                     alt="logo"
                     width={40}
                     height={40}
@@ -49,9 +49,9 @@ export const TheFooter = () => {
             </div>
           </div>
           <div className={styles.linksBlock}>
-            {links.map((link: any) => (
-              <Link className={styles.link} href={link.url}>
-                {link.title}
+            {links.map(({ url, title }: any) => (
+              <Link className={styles.link} href={url}>
+                {title}
               </Link>
             ))}
           </div>

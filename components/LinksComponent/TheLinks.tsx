@@ -1,7 +1,11 @@
-import Image from "next/image";
 import "../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Link from "next/link";
+import { links } from "@/data/links";
+
+import Carousel from "react-bootstrap/Carousel";
+import "bootstrap/dist/css/bootstrap.min.css";
+// import ExampleCarouselImage from "components/ExampleCarouselImage";
 
 interface LinkObj {
   img: string;
@@ -9,52 +13,47 @@ interface LinkObj {
   url: string;
 }
 export const TheLinks = () => {
-  const links = [
-    {
-      img: "/emblems/emblem1.png",
-      body: "O'ZBEKISTON RESPUBLIKASI PREZIDENTI VIRTUAL QABULXONASI",
-      url: "pm.gov.uz",
-    },
-    {
-      img: "https://lex.uz/assets/img/lex_uz.svg",
-      body: "O‘ZBEKISTON RESPUBLIKASI QONUNCHILIK MA’LUMOTLARI MILLIY BAZASI",
-      url: "lex.uz",
-    },
-    {
-      img: "/emblems/emblem3.png",
-      body: "O‘ZBEKISTON RESPUBLIKASI ENERGETIKA VAZIRLIGI",
-      url: "minenergy.uz",
-    },
-    {
-      img: "/emblems/emblem4.png",
-      body: "O‘ZBEKISTON RESPUBLIKASI INVESTITSIYALAR VA TASHQI SAVDO VAZIRLIGI",
-      url: "www.invest.gov.uz",
-    },
-    {
-      img: "/emblems/emblem5.png",
-      body: "OʼZBEKISTON RESPUBLIKASI OLIY MAJLISI QONUNCHILIK PALATASI",
-      url: "parliament.gov.uz",
-    },
-    {
-      img: "https://www.soliq.uz/assets/images/logo-flag.svg",
-      body: "OʼZBEKISTON RESPUBLIKASI VAZIRLAR MAHKAMASI HUZURIDAGI SOLIQ QO'MITASI",
-      url: "www.soliq.uz",
-    },
-  ];
   return (
     <div className="container">
       <h3 className="title">Foydali havolalar</h3>
       <ul className={styles.links}>
-        {links.map((link: LinkObj) => (
-          <li key={link.body}>
-            <img src={link.img} alt="" />
-            <p>{link.body}</p>
-            <Link href={`https://${link.url}`} passHref>
-              {link.url}
+        {links.map(({ body, img, url }: LinkObj) => (
+          <li key={body}>
+            <img src={img} alt="" />
+            <p>{body}</p>
+            <Link href={`https://${url}`} passHref>
+              {url}
             </Link>
           </li>
         ))}
       </ul>
+      <div>
+        {/* <Carousel>
+          <Carousel.Item>
+            <img className="d-block w-100" src="" alt="" />
+            <Carousel.Caption>
+              <h3>First slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img className="d-block w-100" src="" alt="" />
+            <Carousel.Caption>
+              <h3>Second slide label</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img className="d-block w-100" src="" alt="" />
+            <Carousel.Caption>
+              <h3>Third slide label</h3>
+              <p>
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              </p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel> */}
+      </div>
     </div>
   );
 };

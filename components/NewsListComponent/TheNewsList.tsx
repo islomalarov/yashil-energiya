@@ -1,11 +1,13 @@
+import "../../scss/globals.scss";
 import Link from "next/link";
 import styles from "./page.module.scss";
-import "../../scss/globals.scss";
 
-import news from "../../data/news.js";
+import { news } from "../../data/news.js";
+import { Props } from "@/interface/props";
 
-export default function TheNewsList(props: { begin?: number; end?: number }) {
-  const newsSlice = news.slice(props.begin, props.end);
+console.log(news);
+export const TheNewsList = ({ begin, end }: Props) => {
+  const newsSlice = news.slice(begin, end);
   return (
     <ul className={styles.news}>
       {newsSlice.map((news: any) => (
@@ -24,4 +26,4 @@ export default function TheNewsList(props: { begin?: number; end?: number }) {
       ))}
     </ul>
   );
-}
+};

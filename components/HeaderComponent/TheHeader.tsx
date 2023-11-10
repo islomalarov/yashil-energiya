@@ -16,22 +16,16 @@ export const TheHeader = () => {
       <div className="container">
         <div className={styles.content}>
           <Link href="/">
-            <Image
-              src="/logo.svg"
-              alt="logo"
-              width={200}
-              height={82}
-              priority
-            />
+            <img className={styles.logoIcon} src="/logo.svg" alt="logo" />
           </Link>
           <div className={styles.menuBlock}>
-            {links.map((link: any) => (
-              <Link className={styles.link} href={link.url}>
-                {link.title}
+            {links.map(({ url, title }: any) => (
+              <Link className={styles.link} href={url}>
+                {title}
               </Link>
             ))}
           </div>
-          {/* <div className={styles.searchBlock}>
+          <div className={styles.bntsBlock}>
             <button>
               <Image
                 src="/search.svg"
@@ -41,7 +35,17 @@ export const TheHeader = () => {
                 priority
               />
             </button>
-          </div> */}
+            <button className={styles.burgerBtn}>
+              <Image
+                src="/menu/burgerIcon.svg"
+                alt="logo"
+                width={30}
+                height={30}
+                priority
+                // onClick={}
+              />
+            </button>
+          </div>
           {/* Lupa */}
           <div className={styles.language}>
             <button>

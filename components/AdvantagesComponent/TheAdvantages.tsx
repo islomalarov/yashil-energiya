@@ -1,31 +1,38 @@
-import Image from "next/image";
 import "../../scss/globals.scss";
+
+import Image from "next/image";
 import styles from "./page.module.scss";
 
+const advantages = [
+  {
+    src: "/advantage1.svg",
+    descr: "Sohada katta tajriba",
+  },
+  {
+    src: "/advantage2.svg",
+    descr: "Yuqori sifatli mahsulotlar",
+  },
+  {
+    src: "/advantage3.svg",
+    descr: "Respublika bo'ylab 20000 dan ortiq ob'ektlar",
+  },
+  {
+    src: "/advantage4.svg",
+    descr: "Turli xil yechimlar",
+  },
+];
 export const TheAdvantages = () => {
   return (
     <div className={styles.main}>
       <div className="container">
         <h3 className={styles.title}>BIZNING AFZALLIKLARIMIZ</h3>
         <div className={styles.advBlock}>
-          <div className={styles.adv}>
-            <Image src="/advantage1.svg" width={100} height={100} alt="" />
-            <p className={styles.descr}>Sohada katta tajriba</p>
-          </div>
-          <div className={styles.adv}>
-            <Image src="/advantage2.svg" width={100} height={100} alt="" />
-            <p className={styles.descr}>Yuqori sifatli mahsulotlar</p>
-          </div>
-          <div className={styles.adv}>
-            <Image src="/advantage3.svg" width={100} height={100} alt="" />
-            <p className={styles.descr}>
-              Respublika bo'ylab 20000 dan ortiq ob'ektlar
-            </p>
-          </div>
-          <div className={styles.adv}>
-            <Image src="/advantage4.svg" width={100} height={100} alt="" />
-            <p className={styles.descr}>Turli xil yechimlar</p>
-          </div>
+          {advantages.map(({ src, descr }: any) => (
+            <div className={styles.adv}>
+              <Image src={src} width={100} height={100} alt="" />
+              <p className={styles.descr}>{descr}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

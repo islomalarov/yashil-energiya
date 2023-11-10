@@ -39,7 +39,7 @@ export const TheAbout = () => {
             Batafsil
           </Link>
         </div>
-        <img src="/about.png" alt="logo" />
+        <img className={styles.img} src="/about.png" alt="logo" />
       </div>
     </div>
   );

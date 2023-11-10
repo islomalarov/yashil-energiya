@@ -1,4 +1,4 @@
-export default news = [
+export const news = [
   {
     id: 1,
     title: `“YASHIL ENERGIYA” MCHJ: KICHIK QUVVATLI QUYOSH FOTOELEKTR STANSIYALARINI O‘RNATISH ISHLARI BOSHLANDI`,

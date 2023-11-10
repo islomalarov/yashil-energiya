@@ -1,9 +1,13 @@
-import Image from "next/image";
+"use client";
+import { HeroProps } from "@/interface/props";
 import "../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-export const TheHero = (props: { title: string; title2?: string }) => {
+export const TheHero = ({ title1, title2, url1, url2 }: HeroProps) => {
+  const pathname = usePathname()?.replace("/", "");
+
   return (
     <div className={styles.hero}>
       <div className={styles.bgBlock}>
@@ -11,13 +15,18 @@ export const TheHero = (props: { title: string; title2?: string }) => {
       </div>
       <div className="container">
         <div className={styles.info}>
-          <h1 className={styles.title}>{props.title}</h1>
+          {pathname === url1 ? (
+            <h1 className={styles.title}>{title1}</h1>
+          ) : (
+            <h1 className={styles.title}>{title2}</h1>
+          )}
           <div className={styles.descr}>
             <Link href="/">Bosh sahifa</Link>
-            <span> | </span> <p>{props.title}</p>
-            {props.title2 ? (
+            <span> | </span>
+            <Link href={`/${url1}`}>{title1}</Link>
+            {title2 ? (
               <>
-                <span> | </span> <Link href="/ceo">{props.title2}</Link>
+                <span> | </span> <Link href={`/${url2}`}>{title2}</Link>
               </>
             ) : (
               ""

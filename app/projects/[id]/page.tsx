@@ -10,6 +10,7 @@ export default async function Project({ params: { id } }: Props) {
     const res = await fetch(
       `https://jsonplaceholder.typicode.com/photos/${id}`
     );
+
     return res.json();
   }
   const project = await getProject();

@@ -2,6 +2,8 @@ import Link from "next/link";
 import styles from "./page.module.scss";
 import "../../scss/globals.scss";
 import projects from "../../data/projects.json";
+import { Props } from "@/interface/props";
+
 // async function getProjects() {
 //   const res = await fetch("https://jsonplaceholder.typicode.com/photos");
 
@@ -23,24 +25,21 @@ import projects from "../../data/projects.json";
 //   return res.json();
 // }
 
-export default async function TheProjectsList(props: {
-  begin: number;
-  end: number;
-}) {
+export const TheProjectsList = ({ begin, end }: Props) => {
   // const projects1 = await getProjects();
   const {
     data: { list },
   } = projects;
-  const projectsSlice = list.slice(props.begin, props.end);
+  const projectsSlice = list.slice(begin, end);
   return (
     <ul className={styles.projects}>
-      {projectsSlice.map((project: any) => (
-        <li className={styles.project} key={project.plantCode}>
-          <img src={project.url} alt="" />
+      {projectsSlice.map(({ plantCode, plantName, plantAddress, url }: any) => (
+        <li className={styles.project} key={plantCode}>
+          <img src={url} alt="" />
           <div className={styles.info}>
-            <h3>{project.plantName}</h3>
-            <p>{project.plantAddress}</p>
-            <Link className="link" href={`/projects/${project.plantCode}`}>
+            <h3>{plantName}</h3>
+            <p>{plantAddress}</p>
+            <Link className="link" href={`/projects/${plantCode}`}>
               Подробнее
             </Link>
           </div>
@@ -48,4 +47,4 @@ export default async function TheProjectsList(props: {
       ))}
     </ul>
   );
-}
+};

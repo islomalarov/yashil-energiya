@@ -1,14 +1,17 @@
 import "../../scss/globals.scss";
-import { TheHero } from "@/components/HeroComponent/TheHero";
 import styles from "./page.module.scss";
-import Link from "next/link";
-import Image from "next/image";
+import { TheHero } from "@/components/HeroComponent/TheHero";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 
 export default function About() {
   return (
     <>
-      <TheHero title="Kompaniya Haqida" title2="Rahbariyat" />
+      <TheHero
+        title1="Kompaniya Haqida"
+        url1="about"
+        title2="Rahbariyat"
+        url2="ceo"
+      />
       <div className="container">
         <div className={styles.content}>
           <div className={styles.info}>
@@ -39,7 +42,7 @@ export default function About() {
             </p>
           </div>
           <div className={styles.imgBlock}>
-            <img src="/about.png" alt="logo" />
+            <img className={styles.img} src="/about.png" alt="logo" />
           </div>
           <div className={styles.descrBlock}>
             <p className={styles.descr}>

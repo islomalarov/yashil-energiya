@@ -2,7 +2,7 @@ import Image from "next/image";
 import "../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Link from "next/link";
-import TheProjectsList from "../ProjectsListComponent/TheProjectsList";
+import { TheProjectsList } from "../ProjectsListComponent/TheProjectsList";
 
 export const TheProjects = () => {
   return (
