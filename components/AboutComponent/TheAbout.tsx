@@ -39,7 +39,9 @@ export const TheAbout = () => {
             Batafsil
           </Link>
         </div>
-        <img className={styles.img} src="/about.png" alt="logo" />
+        <div className={styles.imgBlock}>
+          <img className={styles.img} src="/minenergy.jpg" alt="logo" />
+        </div>
       </div>
     </div>
   );

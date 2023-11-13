@@ -7,10 +7,14 @@
     flex-wrap: wrap;
   }
 }
-.img {
-  width: 100%;
+.imgBlock {
+  flex-basis: 60%;
+  .img {
+    width: 100%;
+  }
 }
 .info {
+  flex-basis: 40%;
   display: grid;
   gap: 10px;
   align-items: stretch;

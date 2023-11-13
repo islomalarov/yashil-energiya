@@ -42,7 +42,7 @@ export default function About() {
             </p>
           </div>
           <div className={styles.imgBlock}>
-            <img className={styles.img} src="/about.png" alt="logo" />
+            <img className={styles.img} src="/minenergy.jpg" alt="logo" />
           </div>
           <div className={styles.descrBlock}>
             <p className={styles.descr}>

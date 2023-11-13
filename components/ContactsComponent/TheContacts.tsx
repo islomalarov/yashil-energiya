@@ -8,19 +8,19 @@ export const TheContacts = () => {
       <div className={styles.info}>
         <div className={styles.block}>
           <h3>Telefon raqami</h3>
-          <p>+99 893 505 45 05</p>
+          <p>+998 90 830-20-00</p>
         </div>
         <div className={styles.block}>
           <h3>Adres</h3>
-          <p>Узбекистан, г. ТашкентУл. Темур Малик, дом 17а</p>
+          <p>Toshkent shahri, Yashnobod tumani, ISTIQBOL KO'CHASI, 21-UY</p>
         </div>
         <div className={styles.block}>
           <h3>Mo'ljal</h3>
-          <p>Перекрёсток Чимган, ориентир Экo базар, кафе Хан Атлас</p>
+          <p>Westminster chorraxasi</p>
         </div>
         <div className={styles.block}>
           <h3>Email</h3>
-          <p>info@yashil.com</p>
+          <p>info@yashil-energiya.uz</p>
         </div>
       </div>
     </div>

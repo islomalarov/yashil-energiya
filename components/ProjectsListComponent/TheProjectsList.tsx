@@ -33,18 +33,20 @@ export const TheProjectsList = ({ begin, end }: Props) => {
   const projectsSlice = list.slice(begin, end);
   return (
     <ul className={styles.projects}>
-      {projectsSlice.map(({ plantCode, plantName, plantAddress, url }: any) => (
-        <li className={styles.project} key={plantCode}>
-          <img src={url} alt="" />
-          <div className={styles.info}>
-            <h3>{plantName}</h3>
-            <p>{plantAddress}</p>
-            <Link className="link" href={`/projects/${plantCode}`}>
-              Подробнее
-            </Link>
-          </div>
-        </li>
-      ))}
+      {projectsSlice.map(
+        ({ plantCode, plantName, plantAddress, imgUrl }: any) => (
+          <li className={styles.project} key={plantCode}>
+            <img src={imgUrl} alt="" />
+            <div className={styles.info}>
+              <h3>{plantName}</h3>
+              <p>{plantAddress}</p>
+              <Link className="link" href={`/projects/${plantCode}`}>
+                Подробнее
+              </Link>
+            </div>
+          </li>
+        )
+      )}
     </ul>
   );
 };

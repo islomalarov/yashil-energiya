@@ -1,4 +1,5 @@
 import "../../../scss/globals.scss";
+import projects from "@/data/projects.json";
 type Props = {
   params: {
     id: string;
@@ -6,23 +7,25 @@ type Props = {
 };
 
 export default async function Project({ params: { id } }: Props) {
-  async function getProject() {
-    const res = await fetch(
-      `https://jsonplaceholder.typicode.com/photos/${id}`
-    );
+  // async function getProject() {
+  //   const res = await fetch(
+  //     `https://jsonplaceholder.typicode.com/photos/${id}`
+  //   );
 
-    return res.json();
-  }
-  const project = await getProject();
-
+  //   return res.json();
+  // }
+  // const project = await getProject();
+  const {
+    data: { list },
+  } = projects;
+  const [
+    { plantName, plantAddress, contactMethod, gridConnectionDate, imgUrl },
+  ] = list.filter((elem) => elem.plantCode === id);
   return (
     <div className="container">
       <div>{id}</div>
-      <h3>{project.title}</h3>
-      <h3>
-        <a href={project.url}>url</a>
-      </h3>
-      <img src={project.url} alt="" />
+      <h3>{plantName}</h3>
+      <img src={imgUrl} alt="" />
     </div>
   );
 }

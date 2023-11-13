@@ -3,6 +3,9 @@
   padding: 0;
   margin: 0;
 }
+p {
+  margin: 0;
+}
 html,
 body {
   height: 100%;
@@ -12,6 +15,8 @@ textarea {
   height: 140px;
 }
 ul {
+  padding: 0;
+  margin: 0;
   list-style: none;
 }
 button,

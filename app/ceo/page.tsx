@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
+import { TheCeo } from "@/components/CeoComponent/TheCeo";
 
 export default function Ceo() {
   return (
@@ -15,7 +16,7 @@ export default function Ceo() {
         url2="ceo"
       />
       <div className="container">
-        <h1>Hello world!</h1>
+        <TheCeo />
       </div>
       <TheFeedback />
     </>
