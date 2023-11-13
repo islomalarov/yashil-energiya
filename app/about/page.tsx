@@ -60,6 +60,7 @@ export default function About() {
               davomida xizmat ko'rsatadi. Mulk egasi extiyojidan ortgan qismini
               elektr tarmoqlari korxonasiga sotib, daromad olish imkoni mavjud.
             </p>
+            <br />
             <p className={styles.descr}>
               <b>On-Grid</b> tizimi - xududiy elektr tarmoqlari tizimiga ulangan
               bulib, invertorlar orqali xosil bo'lgan o'zgaruvchan energiya

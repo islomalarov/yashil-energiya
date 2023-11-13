@@ -1,20 +1,23 @@
 .content {
   padding: 100px 0;
-  display: flex;
-  justify-content: center;
-  gap: 100px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  gap: 50px;
   @media (max-width: 1024px) {
-    flex-wrap: wrap;
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 .imgBlock {
-  flex-basis: 60%;
+  grid-column: span 2;
+  @media (max-width: 1024px) {
+    grid-column: span 1;
+  }
   .img {
     width: 100%;
   }
 }
 .info {
-  flex-basis: 40%;
   display: grid;
   gap: 10px;
   align-items: stretch;

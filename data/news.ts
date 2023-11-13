@@ -24,6 +24,7 @@ export const news = [
       "Ташкент, Узбекистан (UzDaily.uz) -- Подписан договор с китайской компанией «Tongwei Solar (Hefei) Co., Ltd.» на поставку фотоэлектрических модулей для возобновляемых источников энергии малой мощности, с целью их установки на зданиях и сооружениях объектов социальной сферы, государственных органов и других организаций, на общую мощность до 300 MW.",
     date: "20.06.2023",
     imgUrl: "/newsPhoto/photo-3.jpg",
+    page: "new2",
   },
   {
     id: 4,
@@ -32,6 +33,7 @@ export const news = [
       "Respublika bo‘yicha ijtimoiy soha obyektlari va davlat idoralari bino inshootlariga jami 10 MVt (Toshkent shahrida - 2 MVt, Andijon viloyatida - 0,75 MVt, Farg‘ona viloyatida - 0,6 MVt, Toshkent viloyatida - 0,85 MVt, Surxondaryo viloyatida - 0,55 MVt, Kashqadaryo viloyati - 0,6 MVt, Jizzax viloyatida - 0,65 MVt, Samarqand viloyatida - 0,7 MVt, Sirdaryo viloyati - 0,65 MVt, Qoraqalpog‘iston Respublikasida - 0,5 MVt, Buxoro viloyatida - 0,5 MVt, Navoiy viloyatida - 0,5 MVt, Namangan viloyati - 0,65 MVt, Xorazm viloyatida - 0,5 MVt) quvvatga teng quyosh fotoelektr stansiyalar o‘rnatish ishlari yakunlandi.",
     date: "10.09.2023",
     imgUrl: "/newsPhoto/photo-4.jpg",
+    page: "new2",
   },
   {
     id: 5,
@@ -40,6 +42,7 @@ export const news = [
       "“Yashil Energiya” o‘zi nima va qanday afzalliklarga ega degan savolga javob qidirib ko‘rsak? “Yashil energiya” bu, qayta tiklanuvchi energiya manbalari bu gidroenergetika, shamol energiyasi, quyosh energiyasi, geotermal energiya, biomassa va suv oqimi energiyasidan foydalanish orqali olinadigan qayta tiklanadigan energiyadir.",
     date: "03.11.2023",
     imgUrl: "/newsPhoto/photo-5.jpg",
+    page: "new2",
   },
   {
     id: 6,
@@ -48,6 +51,7 @@ export const news = [
       "O‘zbekiston Energetika vazirligida mamlakatda qayta tiklanadigan energiya manbalarini joriy etish loyihalarini amalga oshirish uchun Huawei kompaniyasining invertorlarini yetkazib berish bo‘yicha shartnoma imzolash marosimi bo‘lib o‘tdi.",
     date: "06.06.2023",
     imgUrl: "/newsPhoto/photo-1.jpg",
+    page: "new2",
   },
   {
     id: 7,
@@ -56,5 +60,6 @@ export const news = [
       "O‘zbekiston Energetika vazirligida mamlakatda qayta tiklanadigan energiya manbalarini joriy etish loyihalarini amalga oshirish uchun Huawei kompaniyasining invertorlarini yetkazib berish bo‘yicha shartnoma imzolash marosimi bo‘lib o‘tdi.",
     date: "06.06.2023",
     imgUrl: "/newsPhoto/photo-1.jpg",
+    page: "new2",
   },
 ];
