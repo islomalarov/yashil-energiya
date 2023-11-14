@@ -38,11 +38,11 @@ export const TheProjectsList = ({ begin, end }: Props) => {
           <li className={styles.project} key={plantCode}>
             <img src={imgUrl} alt="" />
             <div className={styles.info}>
-              <h3>{plantName}</h3>
+              <h3 className={styles.projectTitle}>{plantName}</h3>
               <p>{plantAddress}</p>
-              <Link className="link" href={`/projects/${plantCode}`}>
+              {/* <Link className="link" href={`/projects/${plantCode}`}>
                 Подробнее
-              </Link>
+              </Link> */}
             </div>
           </li>
         )

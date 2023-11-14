@@ -58,7 +58,7 @@ export const news = [
     title: `"Yashil Energiya" MChJ “Huawei” kompaniyasining invertorlarini sotib oladi"`,
     subTitle:
       "O‘zbekiston Energetika vazirligida mamlakatda qayta tiklanadigan energiya manbalarini joriy etish loyihalarini amalga oshirish uchun Huawei kompaniyasining invertorlarini yetkazib berish bo‘yicha shartnoma imzolash marosimi bo‘lib o‘tdi.",
-    date: "06.06.2023",
+    date: "07.06.2023",
     imgUrl: "/newsPhoto/photo-1.jpg",
     page: "new2",
   },

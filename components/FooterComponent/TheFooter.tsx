@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import "../../scss/globals.scss";
 import styles from "./page.module.scss";
@@ -50,7 +51,7 @@ export const TheFooter = () => {
           </div>
           <div className={styles.linksBlock}>
             {links.map(({ url, title }: any) => (
-              <Link className={styles.link} href={url}>
+              <Link key={title} className={styles.link} href={url}>
                 {title}
               </Link>
             ))}

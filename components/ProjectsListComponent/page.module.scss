@@ -9,19 +9,30 @@
 }
 .project {
   position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+
   .info {
     position: absolute;
     bottom: 0;
+    left: 0;
     padding: 40px;
     display: grid;
-    @media (max-width: 768px) {
-      padding: 20px;
-    }
+    width: 100%;
+    gap: 5px;
+    align-self: flex-start;
+    background-color: rgba(67, 68, 66, 0.466);
 
-    h3 {
+    .projectTitle {
       color: #fff;
       font-size: 30px;
       font-weight: 700;
+    }
+    @media (max-width: 768px) {
+      padding: 20px;
+      .projectTitle {
+        font-size: 20px;
+      }
     }
     p {
       color: #fff;
@@ -42,12 +53,12 @@
       font-size: 12px;
       font-weight: 400;
       text-transform: uppercase;
-      &:hover {
+      :hover {
         background-color: #5cb63f;
       }
     }
   }
-  & img {
+  img {
     display: flex;
     height: 420px;
     object-fit: cover;
