@@ -19,7 +19,7 @@ export const TheHeader = () => {
     <header className={styles.header}>
       {status && (
         <div className={styles.burgerMenu}>
-          <div className={styles.burgerLanguage}>
+          {/* <div className={styles.burgerLanguage}>
             <button>
               <Image
                 src="/language.svg"
@@ -34,7 +34,7 @@ export const TheHeader = () => {
               <option value="">Ru</option>
               <option value="">Eng</option>
             </select>
-          </div>
+          </div> */}
           {links.map(({ url, title }: any) => (
             <Link
               key={title}
@@ -83,8 +83,8 @@ export const TheHeader = () => {
               />
             </button>
           </div>
-          {/* Lupa */}
-          <div className={styles.language}>
+
+          {/* <div className={styles.language}>
             <button>
               <Image
                 src="/language.svg"
@@ -99,7 +99,7 @@ export const TheHeader = () => {
               <option value="">Ru</option>
               <option value="">Eng</option>
             </select>
-          </div>
+          </div> */}
         </div>
       </div>
     </header>

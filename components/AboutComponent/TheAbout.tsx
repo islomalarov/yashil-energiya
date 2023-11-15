@@ -10,14 +10,14 @@ export const TheAbout = () => {
           <h2 className="title">Kompaniya haqida</h2>
           <div className={styles.line}></div>
           <p className={styles.descr}>
-            "Yashil Energiya" MCHJ O'zbekiston Respublikasi Prezidentining 2023
+            "Yashil Energiya" MChJ O'zbekiston Respublikasi Prezidentining 2023
             yil 16 fevraldagi "2023 yilda qayta tiklanuvchi energiya manbalarini
             va energiya tejovchi texnologiyalarni joriy etishni jadallashtirish
             chora-tadbirlari tugrisida"gi PQ-57-sonli qaroriga asosan tashkil
             etilgan.
           </p>
           <p className={styles.descr}>
-            "Yashil Energiya" MCHJ tashkil etishdan asosiy maqsad:
+            "Yashil Energiya" MChJ tashkil etishdan asosiy maqsad:
             <br />
             <span>
               - qayta tiklanuvchi energiya manbalari qurilmalarini o'rnatish va
@@ -34,7 +34,7 @@ export const TheAbout = () => {
               manbalari qurilmalariga servis va texnik xizmat ko'rsatish.
             </span>
           </p>
-          <Link className={styles.link} href="/about">
+          <Link className={`${styles.link} link`} href="/about">
             Batafsil
           </Link>
         </div>

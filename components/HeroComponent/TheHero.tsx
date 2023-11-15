@@ -4,6 +4,7 @@ import "../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export const TheHero = ({ title1, title2, url1, url2 }: HeroProps) => {
   const pathname = usePathname()?.replace("/", "");
@@ -11,7 +12,14 @@ export const TheHero = ({ title1, title2, url1, url2 }: HeroProps) => {
   return (
     <div className={styles.hero}>
       <div className={styles.bgBlock}>
-        <img className={styles.bg} src="hero1.png" alt="" />
+        <Image
+          width={1920}
+          height={300}
+          src="/hero1.png"
+          alt="hero-1"
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          priority
+        />
       </div>
       <div className="container">
         <div className={styles.info}>

@@ -55,7 +55,7 @@ export default function Contacts() {
           </div>
           <div className={styles.departments}>
             {departments.map(({ department, phone, mail }) => (
-              <div className={styles.department}>
+              <div className={styles.department} key={phone}>
                 <h3 className={styles.title}>{department}</h3>
                 <div>
                   <div className={styles.descr}>Telefon raqami:</div>

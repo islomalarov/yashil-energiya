@@ -20,7 +20,7 @@ export const page = () => {
               height={400}
               src="/newsPhoto/photo-4.jpg"
               alt=""
-              style={{ width: "100%", height: "auto", objectFit: "cover" }}
+              style={{ width: "80%", height: "auto", objectFit: "cover" }}
             />
           </div>
           <p>

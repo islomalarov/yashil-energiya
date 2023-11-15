@@ -41,34 +41,13 @@
       line-height: 24px; /* 133.333% */
       padding-bottom: 20px;
     }
-    a {
-      border-radius: 30px;
+    .link {
       border: 1px solid #5cb63f;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 140px;
       height: 40px;
-      font-size: 12px;
-      font-weight: 400;
-      text-transform: uppercase;
-      :hover {
+      color: #fff;
+      &:hover {
         background-color: #5cb63f;
       }
-    }
-  }
-  img {
-    display: flex;
-    height: 420px;
-    object-fit: cover;
-    width: 100%;
-    border-radius: 10px;
-    @media (max-width: 768px) {
-      height: 360px;
-    }
-    @media (max-width: 425px) {
-      height: 320px;
     }
   }
 }

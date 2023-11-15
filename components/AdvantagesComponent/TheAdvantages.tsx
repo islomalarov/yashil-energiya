@@ -28,7 +28,7 @@ export const TheAdvantages = () => {
         <h3 className={styles.title}>BIZNING AFZALLIKLARIMIZ</h3>
         <div className={styles.advBlock}>
           {advantages.map(({ src, descr }: any) => (
-            <div className={styles.adv}>
+            <div className={styles.adv} key={descr}>
               <Image src={src} width={100} height={100} alt="" />
               <p className={styles.descr}>{descr}</p>
             </div>

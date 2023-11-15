@@ -34,6 +34,14 @@ a {
   margin: 0 auto;
   padding: 0 15px;
 }
+.newsContainer {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 20px;
+  border-left: 1px solid rgb(207, 203, 203);
+  border-right: 1px solid rgb(207, 203, 203);
+  margin-bottom: 100px;
+}
 .wrapper {
   min-height: 100%;
   display: flex;
@@ -47,4 +55,18 @@ a {
   font-size: 40px;
   font-weight: 700;
   text-transform: uppercase;
+}
+.link {
+  border-radius: 30px;
+  width: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  transition: all 0.1 ease-in;
+  &:hover {
+    transition: all 0.1 ease-in;
+  }
 }

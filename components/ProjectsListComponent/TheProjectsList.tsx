@@ -3,6 +3,7 @@ import styles from "./page.module.scss";
 import "../../scss/globals.scss";
 import projects from "../../data/projects.json";
 import { Props } from "@/interface/props";
+import Image from "next/image";
 
 // async function getProjects() {
 //   const res = await fetch("https://jsonplaceholder.typicode.com/photos");
@@ -36,13 +37,22 @@ export const TheProjectsList = ({ begin, end }: Props) => {
       {projectsSlice.map(
         ({ plantCode, plantName, plantAddress, imgUrl }: any) => (
           <li className={styles.project} key={plantCode}>
-            <img src={imgUrl} alt="" />
+            <Image
+              width={400}
+              height={400}
+              src={imgUrl}
+              alt={imgUrl}
+              style={{ display: "flex", width: "100%", objectFit: "cover" }}
+            />
             <div className={styles.info}>
               <h3 className={styles.projectTitle}>{plantName}</h3>
               <p>{plantAddress}</p>
-              {/* <Link className="link" href={`/projects/${plantCode}`}>
+              <Link
+                className={`${styles.link} link`}
+                href={`/projects/${plantCode}`}
+              >
                 Подробнее
-              </Link> */}
+              </Link>
             </div>
           </li>
         )

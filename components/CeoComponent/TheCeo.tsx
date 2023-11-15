@@ -33,7 +33,7 @@ export const TheCeo = () => {
   return (
     <div className={styles.content}>
       {ceo.map(({ name, jobTitle, phone, mail }: any) => (
-        <div className={styles.ceo}>
+        <div className={styles.ceo} key={mail}>
           <h1 className={styles.ceoName}>{name}</h1>
           <div className={styles.block}>
             <p className={styles.descr}>Должность: </p>

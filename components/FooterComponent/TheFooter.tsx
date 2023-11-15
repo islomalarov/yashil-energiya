@@ -1,7 +1,7 @@
 "use client";
-import Image from "next/image";
 import "../../scss/globals.scss";
 import styles from "./page.module.scss";
+import Image from "next/image";
 import Link from "next/link";
 import { links } from "../HeaderComponent/TheHeader";
 
@@ -36,7 +36,7 @@ export const TheFooter = () => {
             </Link>
             {/* <div className={styles.icons}>
               {socialLinks.map(({ url, path }) => (
-                <Link href={url} className={styles.social}>
+                <Link href={url} className={styles.social} key={path}>
                   <Image
                     className={styles.icon}
                     src={path}
