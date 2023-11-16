@@ -1,6 +1,6 @@
 import "../../scss/globals.scss";
 import { TheHero } from "@/components/HeroComponent/TheHero";
-import { TheForm } from "@/pages/TheForm";
+import TheForm from "@/pages/TheForm";
 import styles from "./page.module.scss";
 
 const departments = [

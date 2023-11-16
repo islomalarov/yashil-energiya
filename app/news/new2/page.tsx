@@ -3,7 +3,7 @@ import "../../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Image from "next/image";
 
-export const page = () => {
+export default function Page2() {
   return (
     <>
       <TheHero title1="Yangilikar" url1="news" />
@@ -65,5 +65,4 @@ export const page = () => {
       </div>
     </>
   );
-};
-export default page;
+}

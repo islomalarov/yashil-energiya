@@ -5,7 +5,7 @@ import styles from "./page.module.scss";
 
 import axios from "axios";
 
-export const TheForm = () => {
+export default function TheForm() {
   async function sendForm() {
     try {
       await axios.post("http://localhost:3000/api/send-request", feedback);
@@ -63,4 +63,4 @@ export const TheForm = () => {
       )}
     </form>
   );
-};
+}
