@@ -4,6 +4,7 @@ import Link from "next/link";
 import styles from "./page.module.scss";
 import "../../scss/globals.scss";
 import { useState } from "react";
+import ExportedImage from "next-image-export-optimizer";
 
 export const links = [
   { url: "/", title: "Bosh sahifa" },
@@ -21,7 +22,7 @@ export const TheHeader = () => {
         <div className={styles.burgerMenu}>
           {/* <div className={styles.burgerLanguage}>
             <button>
-              <Image
+              <ExportedImage
                 src="/language.svg"
                 alt="logo"
                 width={24}
@@ -52,7 +53,13 @@ export const TheHeader = () => {
       <div className={`container`}>
         <div className={styles.content}>
           <Link href="/">
-            <img className={styles.logoIcon} src="/logo.svg" alt="logo" />
+            <Image
+              className={styles.logoIcon}
+              width={220}
+              height={91}
+              src="/logo.svg"
+              alt="logo"
+            />
           </Link>
           <div className={styles.menuBlock}>
             {links.map(({ url, title }: any) => (
@@ -64,7 +71,7 @@ export const TheHeader = () => {
 
           <div className={styles.bntsBlock}>
             {/* <button className={styles.status}>
-              <Image
+              <ExportedImage
                 src="/search.svg"
                 alt="logo"
                 width={30}
@@ -73,7 +80,7 @@ export const TheHeader = () => {
               />
             </button> */}
             <button className={styles.burgerBtn}>
-              <Image
+              <ExportedImage
                 src="/menu/burgerIcon.svg"
                 alt="logo"
                 width={30}
@@ -86,7 +93,7 @@ export const TheHeader = () => {
 
           {/* <div className={styles.language}>
             <button>
-              <Image
+              <ExportedImage
                 src="/language.svg"
                 alt="logo"
                 width={24}

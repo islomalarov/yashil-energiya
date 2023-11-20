@@ -4,7 +4,7 @@ import "../../scss/globals.scss";
 import projects from "../../data/projects.json";
 import { Props } from "@/interface/props";
 import Image from "next/image";
-
+import ExportedImage from "next-image-export-optimizer";
 // async function getProjects() {
 //   const res = await fetch("https://jsonplaceholder.typicode.com/photos");
 
@@ -47,12 +47,12 @@ export const TheProjectsList = ({ begin, end }: Props) => {
             <div className={styles.info}>
               <h3 className={styles.projectTitle}>{plantName}</h3>
               <p>{plantAddress}</p>
-              <Link
+              {/* <Link
                 className={`${styles.link} link`}
                 href={`/projects/${plantCode}`}
               >
                 Подробнее
-              </Link>
+              </Link> */}
             </div>
           </li>
         )

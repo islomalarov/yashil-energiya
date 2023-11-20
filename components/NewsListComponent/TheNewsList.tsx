@@ -2,7 +2,7 @@
 import "../../scss/globals.scss";
 import Link from "next/link";
 import styles from "./page.module.scss";
-
+import ExportedImage from "next-image-export-optimizer";
 import { news } from "../../data/news";
 import { Props } from "@/interface/props";
 import Image from "next/image";

@@ -2,6 +2,7 @@ import "../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Link from "next/link";
 import { links } from "@/data/links";
+import Image from "next/image";
 
 interface LinkObj {
   img: string;
@@ -15,7 +16,7 @@ export const TheLinks = () => {
       <ul className={styles.links}>
         {links.map(({ body, img, url }: LinkObj) => (
           <li key={body}>
-            <img src={img} alt="" />
+            <Image width={80} height={80} src={img} alt="link-icon" />
             <p>{body}</p>
             <Link href={`https://${url}`} passHref>
               {url}

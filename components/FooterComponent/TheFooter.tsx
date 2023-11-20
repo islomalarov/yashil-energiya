@@ -4,7 +4,7 @@ import styles from "./page.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import { links } from "../HeaderComponent/TheHeader";
-
+import ExportedImage from "next-image-export-optimizer";
 export const TheFooter = () => {
   const socialLinks = [
     {
@@ -26,18 +26,12 @@ export const TheFooter = () => {
         <div className={styles.content}>
           <div className={styles.iconsBlock}>
             <Link href="/">
-              <Image
-                src="/logo2.svg"
-                alt="logo"
-                width={220}
-                height={91}
-                priority
-              />
+              <Image src="/logo2.svg" alt="logo2" width={220} height={91} />
             </Link>
             {/* <div className={styles.icons}>
               {socialLinks.map(({ url, path }) => (
                 <Link href={url} className={styles.social} key={path}>
-                  <Image
+                  <ExportedImage
                     className={styles.icon}
                     src={path}
                     alt="logo"
@@ -60,9 +54,11 @@ export const TheFooter = () => {
       </div>
       <div className={styles.subFooter}>
         <div className={`${styles.subFooterBlock} container`}>
-          <p className={styles.text}>“Yashil Energiya” All rights reserved</p>
           <p className={styles.text}>
-            © Copyright 2023 - Web developed by SOS Group
+            “Yashil Energiya” LLC All rights reserved
+          </p>
+          <p className={styles.text}>
+            © Copyright 2023 - Designed by SOS Group
           </p>
         </div>
       </div>

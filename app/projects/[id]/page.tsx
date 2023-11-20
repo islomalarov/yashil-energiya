@@ -1,3 +1,4 @@
+import Image from "next/image";
 import "../../../scss/globals.scss";
 import projects from "@/data/projects.json";
 type Props = {
@@ -25,7 +26,7 @@ export default async function Project({ params: { id } }: Props) {
     <div className="container">
       <div>{id}</div>
       <h3>{plantName}</h3>
-      <img src={imgUrl} alt="" />
+      <Image width={1280} height={720} src={imgUrl} alt="" />
     </div>
   );
 }

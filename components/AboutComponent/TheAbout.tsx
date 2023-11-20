@@ -1,3 +1,4 @@
+import Image from "next/image";
 import "../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Link from "next/link";
@@ -39,7 +40,13 @@ export const TheAbout = () => {
           </Link>
         </div>
         <div className={styles.imgBlock}>
-          <img className={styles.img} src="/minenergy.jpg" alt="logo" />
+          <Image
+            className={styles.img}
+            width={1280}
+            height={720}
+            src="/minenergy.jpg"
+            alt="about"
+          />
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ import { TheHero } from "@/components/HeroComponent/TheHero";
 import "../../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Image from "next/image";
-
+import ExportedImage from "next-image-export-optimizer";
 export default function Page5() {
   return (
     <>

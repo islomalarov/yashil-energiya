@@ -2,6 +2,7 @@ import "../../scss/globals.scss";
 import styles from "./page.module.scss";
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -42,7 +43,13 @@ export default function About() {
             </p>
           </div>
           <div className={styles.imgBlock}>
-            <img className={styles.img} src="/minenergy.jpg" alt="logo" />
+            <Image
+              className={styles.img}
+              width={1280}
+              height={720}
+              src="/minenergy.jpg"
+              alt="about"
+            />
           </div>
           <div className={styles.descrBlock}>
             <p className={styles.descr}>

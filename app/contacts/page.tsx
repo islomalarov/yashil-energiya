@@ -28,7 +28,7 @@ export default function Contacts() {
         <div className={styles.content}>
           <div className={styles.map}>
             <div className={styles.companyInfo}>
-              <h1>Офис в Ташкенте</h1>
+              <h1>Bizning manzil</h1>
               <div>
                 <div className={styles.descr}>Adres:</div>
                 <div className={styles.info}>

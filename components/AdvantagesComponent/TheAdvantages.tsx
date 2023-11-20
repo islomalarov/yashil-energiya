@@ -2,7 +2,7 @@ import "../../scss/globals.scss";
 
 import Image from "next/image";
 import styles from "./page.module.scss";
-
+import ExportedImage from "next-image-export-optimizer";
 const advantages = [
   {
     src: "/advantage1.svg",

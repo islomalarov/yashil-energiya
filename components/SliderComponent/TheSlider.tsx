@@ -1,7 +1,7 @@
 import "../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Image from "next/image";
-
+import ExportedImage from "next-image-export-optimizer";
 export const TheSlider = () => {
   return (
     <div className={styles.hero}>
