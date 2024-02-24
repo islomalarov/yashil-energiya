@@ -1,11 +1,6 @@
+"use client";
 import { sendEmail } from "@/lib/mail";
-interface Url {
-  body: {
-    name: string;
-    phone: string;
-    msg: string;
-  };
-}
+
 export default function handler(req: Url, res: any) {
   const { name, phone, msg } = req.body;
   const message = {
@@ -15,7 +10,5 @@ export default function handler(req: Url, res: any) {
   };
 
   sendEmail(message);
-  res.send(
-    `Спасибо за обращение ${name}! Мы свяжемся с Вами в ближайшее время.`
-  );
+  res.send();
 }

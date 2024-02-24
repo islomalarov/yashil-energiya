@@ -1,3 +1,4 @@
+"use client";
 import mailer from "nodemailer";
 
 const smtpTransport = mailer.createTransport(
@@ -7,7 +8,7 @@ const smtpTransport = mailer.createTransport(
     secure: true,
     auth: {
       user: "islomalarov@yandex.com",
-      pass: "Re@l1902",
+      pass: "fuziclkwwrqkaszg",
     },
     tls: { rejectUnauthorized: false },
   },

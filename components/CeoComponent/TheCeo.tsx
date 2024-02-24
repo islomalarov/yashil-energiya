@@ -1,21 +1,19 @@
-import Image from "next/image";
 import "../../scss/globals.scss";
 import styles from "./page.module.scss";
-import Link from "next/link";
 
 const ceo = [
   {
-    name: "Egamberdiyev Umarjon Umonaliyevich",
-    jobTitle: "Direktor v.b.",
-    phone: "(+998 90) 830-10-00",
-    mail: "u.egamberdiyev@yashil-energiya.uz",
-  },
-  {
     name: "Mirzayev Bexzod Mirzaaliyevich",
-    jobTitle: "Direktor o'rinbosari",
+    jobTitle: "Direktor",
     phone: "(+998 90) 90 830-31-33",
-    mail: "b.Mirzayev@yashil-energiya.uz",
+    mail: "b.mirzayev@yashil-energiya.uz",
   },
+  // {
+  //   name: "Mirzayev Bexzod Mirzaaliyevich",
+  //   jobTitle: "Direktor o'rinbosari",
+  //   phone: "(+998 90) 90 830-31-33",
+  //   mail: "b.mirzayev@yashil-energiya.uz",
+  // },
   {
     name: "Sharifjonov Ikrom Ilhomboy o'g'li",
     jobTitle: "Texnik masalalar bosh boshqarmasi boshlig'i",
@@ -29,6 +27,7 @@ const ceo = [
     mail: "j.nazirxanov@yashil-energiya.uz",
   },
 ];
+
 export const TheCeo = () => {
   return (
     <div className={styles.content}>

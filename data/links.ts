@@ -5,7 +5,7 @@ export const links = [
   //   url: "pm.gov.uz",
   // },
   {
-    img: "https://lex.uz/assets/img/lex_uz.svg",
+    img: "/emblems/emblem2.png",
     body: "O‘ZBEKISTON RESPUBLIKASI QONUNCHILIK MA’LUMOTLARI MILLIY BAZASI",
     url: "lex.uz",
   },

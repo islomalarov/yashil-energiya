@@ -1,29 +1,43 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../scss/globals.scss";
 import styles from "./page.module.scss";
 
 import axios from "axios";
 
 export default function TheForm() {
-  async function sendForm() {
-    try {
-      await axios.post("http://localhost:3000/api/send-request", feedback);
-    } catch (error) {
-      console.log("Sending error", error);
-    }
-    alert(
-      `Спасибо за обращение ${feedback.name}! Мы свяжемся с Вами в ближайшее время.`
-    );
-  }
   const [feedback, setFeedback] = useState({
     name: "",
     phone: "",
     msg: "",
   });
 
+  async function handleSubmit(e: any) {
+    e.preventDefault();
+    try {
+      const response = await axios.post("/api/send-email", feedback);
+      if (response.status === 200) {
+        console.log("Message sent successfully");
+        alert(
+          `Спасибо за обращение ${feedback.name}! Мы свяжемся с Вами в ближайшее время.`
+        );
+      } else {
+        console.error("Failed to send message");
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+    }
+    setFeedback({
+      name: "",
+      phone: "",
+      msg: "",
+    });
+  }
+
+  useEffect(() => {}, [feedback]);
+
   return (
-    <form action="" method="" className={styles.form}>
+    <form onSubmit={handleSubmit} action="" method="" className={styles.form}>
       <h1 className="title">FIKR-MULOHAZA</h1>
       <input
         className={styles.input}
@@ -55,9 +69,7 @@ export default function TheForm() {
         onChange={(e) => setFeedback({ ...feedback, msg: e.target.value })}
       />
       {feedback.name && feedback.phone && feedback.msg ? (
-        <button className={styles.btn} onClick={sendForm}>
-          Jo'natish
-        </button>
+        <button className={styles.btn} /*onClick={sendForm}*/>Jo'natish</button>
       ) : (
         <button className={styles.disabledBtn}>Jo'natish</button>
       )}

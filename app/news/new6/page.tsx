@@ -2,7 +2,9 @@ import { TheHero } from "@/components/HeroComponent/TheHero";
 import "../../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Image from "next/image";
-import ExportedImage from "next-image-export-optimizer";
+import photo1 from "@/public/newsPhoto/photo-6.jpg";
+import photo2 from "@/public/newsPhoto/photo-6-1.jpg";
+
 export default function Page6() {
   return (
     <>
@@ -20,10 +22,8 @@ export default function Page6() {
           </blockquote>
           <div className={styles.imgBlock}>
             <Image
-              width={1000}
-              height={700}
-              src="/newsPhoto/photo-6.jpg"
-              alt=""
+              src={photo1}
+              alt="photo1"
               style={{ width: "80%", height: "auto", objectFit: "cover" }}
             />
           </div>
@@ -40,10 +40,8 @@ export default function Page6() {
           </p>
           <div className={styles.imgBlock}>
             <Image
-              width={1000}
-              height={700}
-              src="/newsPhoto/photo-6-1.jpg"
-              alt=""
+              src={photo2}
+              alt="photo2"
               style={{ width: "80%", height: "auto", objectFit: "cover" }}
             />
           </div>
@@ -58,9 +56,9 @@ export default function Page6() {
           </p>
           <p>
             Mazkur o‘rnatilgan quyosh panellari orqali hozirgi kunga qadar{" "}
-            <b>4 mln 531 ming kVt·soat</b>
-            elektr energiyasi ishlab chiqarildi. Buning natijasida tarmoqdan
-            olinadigan shu miqdordagi elektr energiyasi tejalishiga erishildi.
+            <b>4 mln 531 ming kVt·soat</b> elektr energiyasi ishlab chiqarildi.
+            Buning natijasida tarmoqdan olinadigan shu miqdordagi elektr
+            energiyasi tejalishiga erishildi.
           </p>
         </div>
       </div>

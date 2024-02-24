@@ -6,8 +6,16 @@ type Props = {
     id: string;
   };
 };
+export async function generateStaticParams() {
+  const {
+    data: { list },
+  } = projects;
 
-export default async function Project({ params: { id } }: Props) {
+  return list.map((elem) => ({
+    id: elem.plantCode,
+  }));
+}
+export default function Project({ params }: Props) {
   // async function getProject() {
   //   const res = await fetch(
   //     `https://jsonplaceholder.typicode.com/photos/${id}`
@@ -16,6 +24,7 @@ export default async function Project({ params: { id } }: Props) {
   //   return res.json();
   // }
   // const project = await getProject();
+  const { id } = params;
   const {
     data: { list },
   } = projects;
@@ -26,7 +35,18 @@ export default async function Project({ params: { id } }: Props) {
     <div className="container">
       <div>{id}</div>
       <h3>{plantName}</h3>
-      <Image width={1280} height={720} src={imgUrl} alt="" />
+      <Image
+        width={1280}
+        height={720}
+        src={imgUrl}
+        alt={imgUrl}
+        style={{
+          display: "flex",
+          width: "100%",
+          height: "auto",
+          objectFit: "cover",
+        }}
+      />
     </div>
   );
 }

@@ -4,11 +4,6 @@ import Link from "next/link";
 import { links } from "@/data/links";
 import Image from "next/image";
 
-interface LinkObj {
-  img: string;
-  body: string;
-  url: string;
-}
 export const TheLinks = () => {
   return (
     <div className="container">

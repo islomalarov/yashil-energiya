@@ -47,4 +47,20 @@ export const news = [
     date: "2023-11-03",
     imgUrl: "/newsPhoto/photo-6.jpg",
   },
+  {
+    id: 7,
+    title: `“Yashil Energiya”: Andijon viloyati va Qoraqalpog‘iston respublikasida quyosh panellariga texnik xizmat ko‘rsatish servis markazlari ishga tushirildi`,
+    subTitle:
+      "Andijon viloyati va Qoraqalpog‘iston Respublikasida kichik quvvatli qayta tiklanuvchi energiya manbalari qurilmalarini o‘rnatish va ekspluatatsiya qilish ishlarini tizimli tashkil etish bo‘yicha “Yashil energiya” kompaniyasining filiallari faoliyati yo‘lga qo‘yildi.",
+    date: "2023-12-11",
+    imgUrl: "/newsPhoto/photo-7.jpg",
+  },
+  {
+    id: 8,
+    title: `“Yashil energiya”: Jizzax viloyatida quyosh panellariga texnik xizmat ko‘rsatish servis markazlari ishga tushirildi`,
+    subTitle:
+      "O‘zbekistonda qayta tiklanuvchi energiya manbalarini joriy etish ishlari yuqori sur’atlarda davom etmoqda va ushbu qurilmalarga texnik xizmat ko‘rsatish muhim hisoblanadi.",
+    date: "2024-01-17",
+    imgUrl: "/newsPhoto/photo-8.jpg",
+  },
 ];

@@ -4,29 +4,30 @@ import styles from "./page.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import { links } from "../HeaderComponent/TheHeader";
-import ExportedImage from "next-image-export-optimizer";
+import footerLogo from "@/public/logo2.svg";
+const socialLinks = [
+  {
+    url: "",
+    path: "/insta.svg",
+  },
+  {
+    url: "",
+    path: "/face.svg",
+  },
+  {
+    url: "",
+    path: "/tg.svg",
+  },
+];
+
 export const TheFooter = () => {
-  const socialLinks = [
-    {
-      url: "",
-      path: "/insta.svg",
-    },
-    {
-      url: "",
-      path: "/face.svg",
-    },
-    {
-      url: "",
-      path: "/tg.svg",
-    },
-  ];
   return (
     <footer className={styles.footer}>
       <div className="container">
         <div className={styles.content}>
           <div className={styles.iconsBlock}>
             <Link href="/">
-              <Image src="/logo2.svg" alt="logo2" width={220} height={91} />
+              <Image src={footerLogo} alt="logo2" />
             </Link>
             {/* <div className={styles.icons}>
               {socialLinks.map(({ url, path }) => (

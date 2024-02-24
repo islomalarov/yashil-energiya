@@ -4,7 +4,8 @@ import Link from "next/link";
 import styles from "./page.module.scss";
 import "../../scss/globals.scss";
 import { useState } from "react";
-import ExportedImage from "next-image-export-optimizer";
+import headerLogo from "@/public/logo.svg";
+import menuIcon from "@/public/menu/burgerIcon.svg";
 
 export const links = [
   { url: "/", title: "Bosh sahifa" },
@@ -13,6 +14,7 @@ export const links = [
   { url: "/projects", title: "loyihalar" },
   { url: "/contacts", title: "Kontaktlar" },
 ];
+
 export const TheHeader = () => {
   const [status, setStatus] = useState(false);
 
@@ -53,13 +55,7 @@ export const TheHeader = () => {
       <div className={`container`}>
         <div className={styles.content}>
           <Link href="/">
-            <Image
-              className={styles.logoIcon}
-              width={220}
-              height={91}
-              src="/logo.svg"
-              alt="logo"
-            />
+            <Image className={styles.logoIcon} src={headerLogo} alt="logo" />
           </Link>
           <div className={styles.menuBlock}>
             {links.map(({ url, title }: any) => (
@@ -80,11 +76,9 @@ export const TheHeader = () => {
               />
             </button> */}
             <button className={styles.burgerBtn}>
-              <ExportedImage
-                src="/menu/burgerIcon.svg"
+              <Image
+                src={menuIcon}
                 alt="logo"
-                width={30}
-                height={30}
                 onClick={() => setStatus(!status)}
                 priority
               />

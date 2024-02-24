@@ -2,7 +2,7 @@ import Image from "next/image";
 import "../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Link from "next/link";
-
+import about from "@/public/minenergy.jpg";
 export const TheAbout = () => {
   return (
     <div className="container">
@@ -40,13 +40,7 @@ export const TheAbout = () => {
           </Link>
         </div>
         <div className={styles.imgBlock}>
-          <Image
-            className={styles.img}
-            width={1280}
-            height={720}
-            src="/minenergy.jpg"
-            alt="about"
-          />
+          <Image className={styles.img} src={about} alt="about" />
         </div>
       </div>
     </div>
