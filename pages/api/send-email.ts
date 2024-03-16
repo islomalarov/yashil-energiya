@@ -1,5 +1,5 @@
 "use client";
-import sendEmail from "@/lib/mail"; // Путь к вашей функции отправки электронной почты
+import sendEmail from "@/lib/mail";
 
 export default function handler(req: any, res: any) {
   if (req.method === "POST") {
