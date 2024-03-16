@@ -30,7 +30,7 @@ export default function Contacts() {
             <div className={styles.companyInfo}>
               <h1>Bizning manzil</h1>
               <div>
-                <div className={styles.descr}>Adres:</div>
+                <div className={styles.descr}>Manzil:</div>
                 <div className={styles.info}>
                   Toshkent shahri, Yashnobod tumani, Istiqbol ko'chasi, 21-uy
                 </div>

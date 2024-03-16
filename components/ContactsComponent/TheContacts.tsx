@@ -7,19 +7,19 @@ export const TheContacts = () => {
       <h1 className="title">Kontaktlar</h1>
       <div className={styles.info}>
         <div className={styles.block}>
-          <h3>Telefon raqami</h3>
+          <h2>Telefon raqami</h2>
           <p>+998 90 830-20-00</p>
         </div>
         <div className={styles.block}>
-          <h3>Adres</h3>
+          <h2>Manzil</h2>
           <p>Toshkent shahri, Yashnobod tumani, Istiqbol ko'chasi, 21-uy</p>
         </div>
         <div className={styles.block}>
-          <h3>Mo'ljal</h3>
+          <h2>Mo'ljal</h2>
           <p>Westminster chorraxasi</p>
         </div>
         <div className={styles.block}>
-          <h3>Email</h3>
+          <h2>Email</h2>
           <p>info@yashil-energiya.uz</p>
         </div>
       </div>

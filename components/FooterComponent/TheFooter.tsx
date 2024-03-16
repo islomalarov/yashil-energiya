@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { links } from "../HeaderComponent/TheHeader";
 import footerLogo from "@/public/logo2.svg";
+
 const socialLinks = [
   {
     url: "",
@@ -32,7 +33,7 @@ export const TheFooter = () => {
             {/* <div className={styles.icons}>
               {socialLinks.map(({ url, path }) => (
                 <Link href={url} className={styles.social} key={path}>
-                  <ExportedImage
+                  <Image
                     className={styles.icon}
                     src={path}
                     alt="logo"

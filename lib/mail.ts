@@ -5,7 +5,7 @@ const smtpTransport = nodemailer.createTransport(
   {
     service: "gmail",
     host: "smtp.google.com", // SMTP Host for sending emails smtp.yandex.ru
-    port: 465,
+    port: 587,
     secure: true,
     auth: {
       user: SMTP_EMAIL,
