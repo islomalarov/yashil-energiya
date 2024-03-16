@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "../scss/globals.scss";
 import { Roboto } from "next/font/google";
 import { TheHeader } from "@/components/HeaderComponent/TheHeader";
@@ -24,6 +25,7 @@ export default function RootLayout({
           <main className="main">{children}</main>
           <TheFooter />
         </div>
+        <SpeedInsights />
       </body>
     </html>
   );

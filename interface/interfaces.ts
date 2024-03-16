@@ -20,3 +20,9 @@ interface Url {
     msg: string;
   };
 }
+interface CeoProps {
+  id: number;
+  name: string;
+  jobTitle: string;
+  email: string;
+}

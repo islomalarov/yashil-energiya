@@ -10,7 +10,7 @@ import photo4 from "@/public/newsPhoto/photo-7-3.jpg";
 export default function Page7() {
   return (
     <>
-      <TheHero title1="Yangilikar" url1="news" />
+      <TheHero title1="Yangiliklar" url1="news" />
       <div className="newsContainer">
         <div className={styles.content}>
           <h1 style={{ textAlign: "center", paddingBottom: 50 }}>

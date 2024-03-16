@@ -2,11 +2,11 @@ import { TheHero } from "@/components/HeroComponent/TheHero";
 import "../../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Image from "next/image";
-import ExportedImage from "next-image-export-optimizer";
+
 export default function Page3() {
   return (
     <>
-      <TheHero title1="Yangilikar" url1="news" />
+      <TheHero title1="Yangiliklar" url1="news" />
       <div className="newsContainer">
         <div className={styles.content}>
           <h1 style={{ textAlign: "center", paddingBottom: 50 }}>

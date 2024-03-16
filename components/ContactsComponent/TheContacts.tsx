@@ -12,7 +12,7 @@ export const TheContacts = () => {
         </div>
         <div className={styles.block}>
           <h3>Adres</h3>
-          <p>Toshkent shahri, Yashnobod tumani, ISTIQBOL KO'CHASI, 21-UY</p>
+          <p>Toshkent shahri, Yashnobod tumani, Istiqbol ko'chasi, 21-uy</p>
         </div>
         <div className={styles.block}>
           <h3>Mo'ljal</h3>

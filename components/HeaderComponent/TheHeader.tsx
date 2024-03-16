@@ -12,6 +12,7 @@ export const links = [
   { url: "/about", title: "Kompaniya haqida" },
   { url: "/news", title: "Yangiliklar" },
   { url: "/projects", title: "loyihalar" },
+  { url: "/branches", title: "filiallar" },
   { url: "/contacts", title: "Kontaktlar" },
 ];
 

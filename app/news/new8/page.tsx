@@ -11,7 +11,7 @@ import Link from "next/link";
 export default function Page8() {
   return (
     <>
-      <TheHero title1="Yangilikar" url1="news" />
+      <TheHero title1="Yangiliklar" url1="news" />
       <div className="newsContainer">
         <div className={styles.content}>
           <h1 style={{ textAlign: "center", paddingBottom: 50 }}>

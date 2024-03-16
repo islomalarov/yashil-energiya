@@ -6,17 +6,17 @@ import styles from "./page.module.scss";
 const departments = [
   {
     department: "Moliyaviy rivojlanish bo'limi",
-    phone: "(+998 90) 830-31-09",
+    phone: "+998 90 830-31-09",
     mail: "info@yashil-energiya.uz",
   },
   {
     department: "Marketing va xaridlar bo'limi",
-    phone: "(+998 90) 830-31-36",
+    phone: "+998 90 830-31-36",
     mail: "info@yashil-energiya.uz",
   },
   {
     department: "Mijozlar bilan ishlash xizmati",
-    phone: "(+998 90) 830-31-39",
+    phone: "+998 90 830-31-39",
     mail: "info@yashil-energiya.uz",
   },
 ];
@@ -32,7 +32,7 @@ export default function Contacts() {
               <div>
                 <div className={styles.descr}>Adres:</div>
                 <div className={styles.info}>
-                  Toshkent shahri, Yashnobod tumani, ISTIQBOL KO'CHASI, 21-UY
+                  Toshkent shahri, Yashnobod tumani, Istiqbol ko'chasi, 21-uy
                 </div>
               </div>
               <div>

@@ -57,10 +57,34 @@ export const news = [
   },
   {
     id: 8,
-    title: `“Yashil energiya”: Jizzax viloyatida quyosh panellariga texnik xizmat ko‘rsatish servis markazlari ishga tushirildi`,
+    title: `“Yashil Energiya”: Jizzax viloyatida quyosh panellariga texnik xizmat ko‘rsatish servis markazlari ishga tushirildi`,
     subTitle:
       "O‘zbekistonda qayta tiklanuvchi energiya manbalarini joriy etish ishlari yuqori sur’atlarda davom etmoqda va ushbu qurilmalarga texnik xizmat ko‘rsatish muhim hisoblanadi.",
     date: "2024-01-17",
     imgUrl: "/newsPhoto/photo-8.jpg",
+  },
+  {
+    id: 9,
+    title: `“Yashil Energiya”: Namangan va Farg'ona viloyatlarida quyosh panellariga texnik xizmat ko‘rsatish servis markazlari ishga tushirildi`,
+    subTitle:
+      "Namangan va Farg'ona viloyatlarida kichik quvvatli qayta tiklanuvchi energiya manbalari qurilmalarini o‘rnatish va ekspluatatsiya qilish ishlarini tizimli tashkil etish bo‘yicha “Yashil energiya” kompaniyasining filiallari faoliyati yo‘lga qo‘yildi.",
+    date: "2024-02-13",
+    imgUrl: "/newsPhoto/photo-9.jpg",
+  },
+  {
+    id: 10,
+    title: `“Yashil Energiya”: Sirdaryo va Samarqand viloyatlarida quyosh panellariga texnik xizmat ko‘rsatish servis markazlari ishga tushirildi`,
+    subTitle:
+      "O‘zbekistonda qayta tiklanuvchi energiya manbalarini joriy etish ishlari yuqori sur’atlarda davom etmoqda va ushbu qurilmalarga texnik xizmat ko‘rsatish muhim hisoblanadi.",
+    date: "2024-03-01",
+    imgUrl: "/newsPhoto/photo-10.jpg",
+  },
+  {
+    id: 11,
+    title: `“Yashil Energiya”: Navoiy va Buxoro viloyatlarida quyosh panellariga texnik xizmat ko‘rsatish servis markazlari ishga tushirildi`,
+    subTitle:
+      "O‘zbekistonda qayta tiklanuvchi energiya manbalarini joriy etish ishlari yuqori sur’atlarda davom etmoqda va ushbu qurilmalarga texnik xizmat ko‘rsatish muhim hisoblanadi.",
+    date: "2024-03-06",
+    imgUrl: "/newsPhoto/photo-11.jpg",
   },
 ];
