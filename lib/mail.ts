@@ -1,23 +1,24 @@
 "use client";
-import mailer from "nodemailer";
-
-const smtpTransport = mailer.createTransport(
+import nodemailer from "nodemailer";
+const { SMTP_EMAIL, SMTP_PASSWORD } = process.env;
+const smtpTransport = nodemailer.createTransport(
   {
-    host: "smtp.yandex.ru", // SMTP Host for sending emails
+    service: "gmail",
+    host: "smtp.google.com", // SMTP Host for sending emails smtp.yandex.ru
     port: 465,
     secure: true,
     auth: {
-      user: "islomalarov@yandex.com",
-      pass: "fuziclkwwrqkaszg",
+      user: SMTP_EMAIL,
+      pass: SMTP_PASSWORD,
     },
     tls: { rejectUnauthorized: false },
   },
   {
-    from: "islomalarov    <islomalarov@yandex.com>",
+    from: "yashil-energiya    <islomalarov@gmail.com>",
   }
 );
 
-export const sendEmail = (msg: any) => {
+export const sendEmail = (msg: nodemailer.SendMailOptions) => {
   smtpTransport.sendMail(msg, (error, info) => {
     error
       ? console.log("Error occurred", error)

@@ -69,7 +69,7 @@ export default function TheForm() {
         onChange={(e) => setFeedback({ ...feedback, msg: e.target.value })}
       />
       {feedback.name && feedback.phone && feedback.msg ? (
-        <button className={styles.btn} /*onClick={sendForm}*/>Jo'natish</button>
+        <button className={styles.btn}>Jo'natish</button>
       ) : (
         <button className={styles.disabledBtn}>Jo'natish</button>
       )}
