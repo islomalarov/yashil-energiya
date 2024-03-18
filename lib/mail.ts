@@ -1,20 +1,20 @@
 "use client";
 import nodemailer from "nodemailer";
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 
-dotenv.config();
-const { SMTP_SERVIS, SMTP_HOST, SMTP_USER, SMTP_PASS, SMTP_PORT } = process.env;
+// dotenv.config();
+// const { SMTP_SERVIS, SMTP_HOST, SMTP_USER, SMTP_PASS, SMTP_PORT } = process.env;
 
 export default function sendEmail(mailOptions: any) {
   try {
     const transporter = nodemailer.createTransport({
-      service: SMTP_SERVIS,
-      host: SMTP_HOST,
+      // service: SMTP_SERVIS,
+      host: "smtp.gmail.com",
       port: 465,
       secure: true, // Важно: для некоторых почтовых серверов (например, Gmail) требуется secure: true
       auth: {
-        user: SMTP_USER,
-        pass: SMTP_PASS,
+        user: "islomalarov@gmail.com",
+        pass: "knuh makh vkyr ghaz",
       },
     });
     transporter.sendMail(mailOptions, (error, info) => {
