@@ -8,15 +8,15 @@ import footerLogo from "@/public/logo2.svg";
 
 const socialLinks = [
   {
-    url: "",
+    url: "https://www.instagram.com/yashilenergiya/",
     path: "/insta.svg",
   },
   {
-    url: "",
+    url: "https://www.facebook.com/yashilenergiyamchj",
     path: "/face.svg",
   },
   {
-    url: "",
+    url: "https://t.me/yashilenergiyauz",
     path: "/tg.svg",
   },
 ];
@@ -30,7 +30,7 @@ export const TheFooter = () => {
             <Link href="/">
               <Image src={footerLogo} alt="logo2" />
             </Link>
-            {/* <div className={styles.icons}>
+            <div className={styles.icons}>
               {socialLinks.map(({ url, path }) => (
                 <Link href={url} className={styles.social} key={path}>
                   <Image
@@ -43,7 +43,7 @@ export const TheFooter = () => {
                   />
                 </Link>
               ))}
-            </div> */}
+            </div>
           </div>
           <div className={styles.linksBlock}>
             {links.map(({ url, title }: any) => (
