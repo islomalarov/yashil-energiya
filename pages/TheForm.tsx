@@ -2,12 +2,14 @@
 import { useEffect, useState } from "react";
 import "../scss/globals.scss";
 import styles from "./page.module.scss";
-
+import dotenv from "dotenv";
 import axios from "axios";
-// import { Resend } from "resend";
+import { Resend } from "resend";
 
-// const resend = new Resend("re_Q3uaXB1x_HLDdJKr9uPGCYoJEt9T1EAWF");
-
+const resend = new Resend("re_Q3uaXB1x_HLDdJKr9uPGCYoJEt9T1EAWF");
+// dotenv.config();
+// const { SMTP_HOST, SMTP_USER, SMTP_PASS, RESEND_API } = process.env;
+// const resend = new Resend(RESEND_API);
 export default function TheForm() {
   const [feedback, setFeedback] = useState({
     name: "",
@@ -27,6 +29,14 @@ export default function TheForm() {
       } else {
         console.error("Failed to send message");
       }
+      // resend.emails.send({
+      //   from: "onboarding@resend.dev",
+      //   to: "islomalarov@gmail.com",
+      //   subject: "Hello World",
+      //   // text: `Ф.И.О.: ${name} \nТелефон: ${phone} \nКомментарий: ${msg}`,
+      //   html: "<p>Congrats on sending your <strong>first email</strong>!</p>",
+      //   // html: `Ф.И.О.: ${name} \nТелефон: ${phone} \nКомментарий: ${msg}`,
+      // });
     } catch (error) {
       console.error("Error sending message:", error);
     }
