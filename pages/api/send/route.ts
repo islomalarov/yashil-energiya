@@ -17,8 +17,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       react: EmailTemplate({ firstName: name, phone: phone, msg: msg }),
     });
 
-    return Response.json(data);
+    // return Response.json(data);
   } catch (error) {
-    return Response.json({ error });
+    console.error("Error sending email:", error);
+    // return Reerror.messageponse.json({ error });
   }
 }
