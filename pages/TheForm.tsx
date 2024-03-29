@@ -14,7 +14,8 @@ export default function TheForm() {
   async function handleSubmit(e: any) {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/send-email", feedback);
+      // const response = await axios.post("/api/send/send-email", feedback);
+      const response = await axios.post("/api/send/route", feedback);
       if (response.status === 200) {
         console.log("Message sent successfully");
         alert(
