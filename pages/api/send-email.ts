@@ -1,12 +1,13 @@
 // // "use client";
 // // import sendEmail from "@/lib/mail";
-// import dotenv from "dotenv";
+import dotenv from "dotenv";
+import { NextApiRequest, NextApiResponse } from "next";
 import { Resend } from "resend";
-// dotenv.config();
+dotenv.config();
 // const { SMTP_HOST, SMTP_USER, SMTP_PASS, RESEND_API } = process.env;
 const api = process.env.NEXT_PUBLIC_RESEND_API_KEY;
 const resend = new Resend(api);
-export default function handler(req: any, res: any) {
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
     try {
       const { name, phone, msg } = req.body;
