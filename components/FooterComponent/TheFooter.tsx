@@ -3,23 +3,8 @@ import "../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-import { links } from "../HeaderComponent/TheHeader";
 import footerLogo from "@/public/logo2.svg";
-
-const socialLinks = [
-  {
-    url: "https://www.instagram.com/yashilenergiya/",
-    path: "/insta.svg",
-  },
-  {
-    url: "https://www.facebook.com/yashilenergiyamchj",
-    path: "/face.svg",
-  },
-  {
-    url: "https://t.me/yashilenergiyauz",
-    path: "/tg.svg",
-  },
-];
+import { footerMenu, socialLinks } from "@/data/links";
 
 export const TheFooter = () => {
   return (
@@ -46,11 +31,13 @@ export const TheFooter = () => {
             </div>
           </div>
           <div className={styles.linksBlock}>
-            {links.map(({ url, title }: any) => (
-              <Link key={title} className={styles.link} href={url}>
-                {title}
-              </Link>
-            ))}
+            {footerMenu.map(
+              ({ url, title }: { url: string; title: string }) => (
+                <Link key={title} className={styles.link} href={url}>
+                  {title}
+                </Link>
+              )
+            )}
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@ import "../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Link from "next/link";
 import about from "@/public/minenergy.jpg";
+
 export const TheAbout = () => {
   return (
     <div className="container">

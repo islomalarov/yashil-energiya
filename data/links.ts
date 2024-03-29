@@ -30,3 +30,60 @@ export const links = [
   //   url: "www.soliq.uz",
   // },
 ];
+
+export const menuLinks = [
+  { id: 1, url: "/", title: "Bosh sahifa" },
+  {
+    id: 2,
+    url: "#",
+    title: "Biz haqimizda",
+    subMenu: [
+      { id: 2.1, url: "/about", title: "Kompaniya" },
+      { id: 2.2, url: "/ceo", title: "Rahbariyat" },
+    ],
+  },
+  {
+    id: 3,
+    url: "#",
+    title: "Matbuot",
+    subMenu: [
+      { id: 3.1, url: "/news", title: "Yangiliklar" },
+      { id: 3.2, url: "/articles", title: "Maqolalar" },
+    ],
+  },
+  {
+    id: 4,
+    url: "#",
+    title: "Faoliyat",
+    subMenu: [
+      { id: 4.1, url: "/branches", title: "filiallar" },
+      { id: 4.2, url: "/projects", title: "loyihalar" },
+    ],
+  },
+  { id: 5, url: "/contacts", title: "Kontaktlar" },
+];
+
+export const socialLinks = [
+  {
+    url: "https://www.instagram.com/yashilenergiya/",
+    path: "/insta.svg",
+  },
+  {
+    url: "https://www.facebook.com/yashilenergiyamchj",
+    path: "/face.svg",
+  },
+  {
+    url: "https://t.me/yashilenergiyauz",
+    path: "/tg.svg",
+  },
+];
+export const footerMenu = [
+  { id: 1, url: "/", title: "Bosh sahifa" },
+  { id: 2, url: "/about", title: "Kompaniya" },
+  { id: 3, url: "/ceo", title: "Rahbariyat" },
+  { id: 4, url: "/news", title: "Yangiliklar" },
+  { id: 5, url: "/articles", title: "Maqolalar" },
+  { id: 6, url: "/branches", title: "filiallar" },
+  { id: 7, url: "/projects", title: "loyihalar" },
+  { id: 8, url: "/contacts", title: "Kontaktlar" },
+];

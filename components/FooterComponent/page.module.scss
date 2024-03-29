@@ -34,6 +34,7 @@
 }
 .linksBlock {
   display: grid;
+  gap: 20px;
   grid-template-columns: repeat(2, 1fr);
   @media (max-width: 768px) {
     display: none;

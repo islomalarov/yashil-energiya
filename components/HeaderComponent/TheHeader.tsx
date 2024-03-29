@@ -5,16 +5,11 @@ import styles from "./page.module.scss";
 import "../../scss/globals.scss";
 import { useState } from "react";
 import headerLogo from "@/public/logo.svg";
-import menuIcon from "@/public/menu/burgerIcon.svg";
-
-export const links = [
-  { url: "/", title: "Bosh sahifa" },
-  { url: "/about", title: "Kompaniya haqida" },
-  { url: "/news", title: "Yangiliklar" },
-  { url: "/projects", title: "loyihalar" },
-  { url: "/branches", title: "filiallar" },
-  { url: "/contacts", title: "Kontaktlar" },
-];
+import { TheLanguage } from "../ui/LanguageComponent/TheLanguage";
+import { TheSearch } from "../ui/SearchComponent/TheSearch";
+import { TheBurger } from "../ui/BurgerComponent/TheBurger";
+import { DropdownMenu } from "../ui/DropdownComponent/TheDropdown";
+import { footerMenu, menuLinks } from "@/data/links";
 
 export const TheHeader = () => {
   const [status, setStatus] = useState(false);
@@ -23,23 +18,8 @@ export const TheHeader = () => {
     <header className={styles.header}>
       {status && (
         <div className={styles.burgerMenu}>
-          {/* <div className={styles.burgerLanguage}>
-            <button>
-              <ExportedImage
-                src="/language.svg"
-                alt="logo"
-                width={24}
-                height={24}
-                priority
-              />
-            </button>
-            <select name="" id="">
-              <option value="">Uz</option>
-              <option value="">Ru</option>
-              <option value="">Eng</option>
-            </select>
-          </div> */}
-          {links.map(({ url, title }: any) => (
+          <TheLanguage styleName="burgerLang" />
+          {footerMenu.map(({ id, url, title }: any) => (
             <Link
               key={title}
               className={styles.burgerLink}
@@ -48,60 +28,34 @@ export const TheHeader = () => {
                 setStatus(!status);
               }}
             >
-              <span className={styles.descr}>{title}</span>
+              <span
+                className={
+                  id === 1 ? styles.descr : `${styles.descr} ${styles.active}`
+                }
+              >
+                {title}
+              </span>
             </Link>
           ))}
         </div>
       )}
       <div className={`container`}>
         <div className={styles.content}>
-          <Link href="/">
-            <Image className={styles.logoIcon} src={headerLogo} alt="logo" />
-          </Link>
+          <div className={styles.logoBlock}>
+            <Link href="/">
+              <Image className={styles.logo} src={headerLogo} alt="logo" />
+            </Link>
+          </div>
           <div className={styles.menuBlock}>
-            {links.map(({ url, title }: any) => (
-              <Link key={title} className={styles.link} href={url}>
-                {title}
-              </Link>
+            {menuLinks.map(({ id, url, title, subMenu }: any, index) => (
+              <DropdownMenu key={id} {...{ id, url, title, index, subMenu }} />
             ))}
           </div>
-
-          <div className={styles.bntsBlock}>
-            {/* <button className={styles.status}>
-              <ExportedImage
-                src="/search.svg"
-                alt="logo"
-                width={30}
-                height={30}
-                priority
-              />
-            </button> */}
-            <button className={styles.burgerBtn}>
-              <Image
-                src={menuIcon}
-                alt="logo"
-                onClick={() => setStatus(!status)}
-                priority
-              />
-            </button>
+          <div className={styles.actions}>
+            <TheSearch />
+            <TheBurger {...{ status, setStatus }} />
+            <TheLanguage styleName="actionsLang" />
           </div>
-
-          {/* <div className={styles.language}>
-            <button>
-              <ExportedImage
-                src="/language.svg"
-                alt="logo"
-                width={24}
-                height={24}
-                priority
-              />
-            </button>
-            <select name="" id="">
-              <option value="">Uz</option>
-              <option value="">Ru</option>
-              <option value="">Eng</option>
-            </select>
-          </div> */}
         </div>
       </div>
     </header>

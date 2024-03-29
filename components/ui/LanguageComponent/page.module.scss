@@ -1,0 +1,12 @@
+.burgerLang {
+  padding: 23px 40px;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: flex-end;
+}
+.actionsLang {
+  display: flex;
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}

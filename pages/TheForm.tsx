@@ -4,6 +4,9 @@ import "../scss/globals.scss";
 import styles from "./page.module.scss";
 
 import axios from "axios";
+// import { Resend } from "resend";
+
+// const resend = new Resend("re_Q3uaXB1x_HLDdJKr9uPGCYoJEt9T1EAWF");
 
 export default function TheForm() {
   const [feedback, setFeedback] = useState({
