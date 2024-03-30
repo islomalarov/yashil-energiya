@@ -26,3 +26,8 @@ interface CeoProps {
   jobTitle: string;
   email: string;
 }
+interface EmailTemplateProps {
+  firstName: string;
+  phone: string;
+  msg: string;
+}

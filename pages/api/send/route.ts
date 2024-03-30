@@ -4,15 +4,13 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function POST(req: NextApiRequest, res: NextApiResponse) {
+  const { name, phone, msg } = req.body;
   try {
-    const { name, phone, msg } = req.body;
-    console.log(name, phone, msg);
-
-    const data = resend.emails.send({
-      from: "Acme <onboarding@resend.dev>",
+    const data = await resend.emails.send({
+      from: "Resend <onboarding@resend.dev>",
       to: ["islomalarov@gmail.com"],
-      subject: "Pismo",
+      subject: "Письмо с сайта yashil-energiya ",
       text: `${name} sent you a message`,
       react: EmailTemplate({ firstName: name, phone: phone, msg: msg }),
     });
