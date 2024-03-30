@@ -48,7 +48,7 @@ export const menuLinks = [
     title: "Matbuot",
     subMenu: [
       { id: 3.1, url: "/news", title: "Yangiliklar" },
-      { id: 3.2, url: "/articles", title: "Maqolalar" },
+      { id: 3.2, url: "#", title: "Maqolalar" },
     ],
   },
   {
