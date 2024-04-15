@@ -1,7 +1,7 @@
-import { TheHero } from "@/components/HeroComponent/TheHero";
 import "../../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Image from "next/image";
+import { TheHero } from "@/components/HeroComponent/TheHero";
 
 export default function Page2() {
   return (

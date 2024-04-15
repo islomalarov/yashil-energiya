@@ -63,6 +63,15 @@
     }
   }
 }
+.burgerMenuBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #57545431;
+  width: 100%;
+  height: 1200px;
+  z-index: 1;
+}
 .active {
   margin-left: 20px;
 }

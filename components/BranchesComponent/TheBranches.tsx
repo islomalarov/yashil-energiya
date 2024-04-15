@@ -6,9 +6,6 @@ export const TheBranches = () => {
   return (
     <div className={styles.content}>
       <h1 className={styles.titleB}>
-        {/* O‘zbekistonda qayta tiklanuvchi energiya manbalarini joriy etish ishlari
-        yuqori sur’atlarda davom etmoqda va ushbu qurilmalarga texnik xizmat
-        ko‘rsatish muhim hisoblanadi. */}
         "Yashil Energiya" MChJ ning hududiy servis markazlari
       </h1>
       {branches.map(({ title, name, phone, adres, mail }: any) => (
@@ -26,10 +23,10 @@ export const TheBranches = () => {
             <p className={styles.descr}>Filial manzili: </p>
             <h3 className={styles.title}>{adres}</h3>
           </div>
-          {/* <div className={styles.block}>
+          <div className={styles.block}>
             <p className={styles.descr}>Elektron manzil: </p>
             <h3 className={styles.title}>{mail}</h3>
-          </div> */}
+          </div>
         </div>
       ))}
     </div>

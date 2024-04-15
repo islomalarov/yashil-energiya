@@ -13,9 +13,9 @@ export const ceo = [
   },
   {
     id: 3,
-    name: "Xasanov Otabek Ikramjonovich",
+    name: "Atabayev Aziz Masharipovich",
     jobTitle: "Marketing va haridlar bo‘limi boshlig'i",
-    email: "o.xasanov@yashil-energiya.uz",
+    email: "a.atabayev@yashil-energiya.uz",
   },
   {
     id: 4,

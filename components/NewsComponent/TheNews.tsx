@@ -1,9 +1,11 @@
 import "../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Link from "next/link";
+import getData from "@/lib/getData";
 import { TheNewsList } from "../NewsListComponent/TheNewsList";
 
-export const TheNews = () => {
+export const TheNews = async () => {
+  const { processedData } = await getData("news", 3, 1);
   return (
     <div className="container">
       <div className={styles.header}>
@@ -27,7 +29,7 @@ export const TheNews = () => {
           </svg>
         </Link>
       </div>
-      <TheNewsList begin={0} end={3} />
+      <TheNewsList newsArray={processedData} url="news" begin={0} end={3} />
     </div>
   );
 };

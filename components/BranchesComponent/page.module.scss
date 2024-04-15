@@ -17,6 +17,9 @@
   background: #fff;
   box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 0.1);
   padding: 40px;
+  @media screen and (max-width: 768px) {
+    padding: 20px;
+  }
 }
 .ceoName {
   color: #2b2b2b;

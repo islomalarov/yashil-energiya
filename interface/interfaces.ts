@@ -1,4 +1,6 @@
-interface Props {
+interface NewsProps {
+  newsArray: [];
+  url: string;
   begin?: number;
   end?: number;
 }
@@ -30,4 +32,14 @@ interface EmailTemplateProps {
   firstName: string;
   phone: string;
   msg: string;
+}
+interface PaginationProps {
+  page: number;
+  totalPage: number;
+  prevPage: number;
+  nextPage: number;
+  pageNumbers: number[];
+}
+interface SearchProps {
+  searchParams: { page: string };
 }

@@ -17,26 +17,33 @@ export const TheHeader = () => {
   return (
     <header className={styles.header}>
       {status && (
-        <div className={styles.burgerMenu}>
-          <TheLanguage styleName="burgerLang" />
-          {footerMenu.map(({ id, url, title }: any) => (
-            <Link
-              key={title}
-              className={styles.burgerLink}
-              href={url}
-              onClick={() => {
-                setStatus(!status);
-              }}
-            >
-              <span
-                className={
-                  id === 1 ? styles.descr : `${styles.descr} ${styles.active}`
-                }
+        <div
+          className={styles.burgerMenuBg}
+          onClick={() => {
+            setStatus(!status);
+          }}
+        >
+          <div className={styles.burgerMenu}>
+            {/* <TheLanguage styleName="burgerLang" /> */}
+            {footerMenu.map(({ id, url, title }: any) => (
+              <Link
+                key={title}
+                className={styles.burgerLink}
+                href={url}
+                onClick={() => {
+                  setStatus(!status);
+                }}
               >
-                {title}
-              </span>
-            </Link>
-          ))}
+                <span
+                  className={
+                    id === 1 ? styles.descr : `${styles.descr} ${styles.active}`
+                  }
+                >
+                  {title}
+                </span>
+              </Link>
+            ))}
+          </div>
         </div>
       )}
       <div className={`container`}>

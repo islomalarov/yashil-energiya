@@ -11,6 +11,9 @@
   color: #fff;
   font-size: 40px;
   font-weight: 700;
+  @media (max-width: 768px) {
+    padding-top: 50px;
+  }
 }
 
 .bgBlock {

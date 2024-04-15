@@ -9,7 +9,7 @@ const nextConfig = {
   // distDir: "dist",
   // images: {
   //   loader: "custom",
-  //   loaderFile: "./my/image/loader.js",
+  //   loaderFile: "./my/image/loader.ts",
   // },
 };
 

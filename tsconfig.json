@@ -29,7 +29,7 @@
     ".next/types/**/*.ts",
     "components/HeaderComponent/TheHeader.tsx",
     "dist/types/**/*.ts",
-    "my/image/loader.js",
+    "my/image/loader.ts",
     "pages/TheForm.tsx"
   ],
   "exclude": ["node_modules"]
