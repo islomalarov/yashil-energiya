@@ -6,6 +6,7 @@ import { TheNewsList } from "../NewsListComponent/TheNewsList";
 
 export const TheNews = async () => {
   const { processedData } = await getData("news", 3, 1);
+  // Ensure processedData is an array of NewsItem objects
   return (
     <div className="container">
       <div className={styles.header}>

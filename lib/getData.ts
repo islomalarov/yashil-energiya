@@ -1,4 +1,4 @@
-import { connectToDatabase } from "@/utils/connectMongo";
+import clientPromise from "./mongodb";
 
 export default async function getData(
   _collection: string,
@@ -7,7 +7,8 @@ export default async function getData(
 ) {
   try {
     //DB connect
-    const client = await connectToDatabase();
+    // const client = await connectToDatabase();
+    const client = await clientPromise;
     const db = client.db("media");
     const collection = db.collection(_collection);
     //DB query

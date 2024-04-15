@@ -1,5 +1,5 @@
 interface NewsProps {
-  newsArray: [];
+  newsArray: any[];
   url: string;
   begin?: number;
   end?: number;
