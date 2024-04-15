@@ -25,7 +25,7 @@ import Image from "next/image";
 //   return res.json();
 // }
 
-export const TheProjectsList = ({ begin, end }: Props) => {
+export const TheProjectsList = ({ begin, end }: ProjectProps) => {
   // const projects1 = await getProjects();
   const {
     data: { list },
