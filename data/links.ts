@@ -45,10 +45,10 @@ export const menuLinks = [
   {
     id: 3,
     url: "#",
-    title: "Matbuot",
+    title: "Matbuot markazi",
     subMenu: [
       { id: 3.1, url: "/news", title: "Yangiliklar" },
-      { id: 3.2, url: "#", title: "Maqolalar" },
+      { id: 3.2, url: "/articles", title: "Maqolalar" },
     ],
   },
   {
@@ -82,7 +82,7 @@ export const footerMenu = [
   { id: 2, url: "/about", title: "Kompaniya" },
   { id: 3, url: "/ceo", title: "Rahbariyat" },
   { id: 4, url: "/news", title: "Yangiliklar" },
-  { id: 5, url: "#", title: "Maqolalar" },
+  { id: 5, url: "/articles", title: "Maqolalar" },
   { id: 6, url: "/branches", title: "filiallar" },
   { id: 7, url: "/projects", title: "loyihalar" },
   { id: 8, url: "/contacts", title: "Kontaktlar" },

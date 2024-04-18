@@ -1,9 +1,19 @@
+interface NewsItem {
+  _id: string;
+  id: number;
+  title: string;
+  subtitle: string;
+  date: Date;
+  url: string;
+}
+
 interface NewsProps {
-  newsArray: any[];
+  newsArray: NewsItem[];
   url: string;
   begin?: number;
   end?: number;
 }
+
 interface ProjectProps {
   begin?: number;
   end?: number;

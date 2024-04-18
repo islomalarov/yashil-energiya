@@ -5,7 +5,7 @@ import getData from "@/lib/getData";
 import { TheNewsList } from "../NewsListComponent/TheNewsList";
 
 export const TheNews = async () => {
-  const { processedData } = await getData("news", 3, 1);
+  const { processedData } = await getData("media", "news", 3, 1);
   // Ensure processedData is an array of NewsItem objects
   return (
     <div className="container">
@@ -30,7 +30,12 @@ export const TheNews = async () => {
           </svg>
         </Link>
       </div>
-      <TheNewsList newsArray={processedData} url="news" begin={0} end={3} />
+      <TheNewsList
+        newsArray={processedData as NewsItem[]}
+        url="news"
+        begin={0}
+        end={3}
+      />
     </div>
   );
 };

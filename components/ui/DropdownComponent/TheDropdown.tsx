@@ -31,17 +31,16 @@ export const DropdownMenu = ({
       </Link>
       {isOpen && (
         <div className={styles.dropdownContent}>
-          {subMenu &&
-            subMenu.map(({ id, url, title }: any) => (
-              <Link
-                key={id}
-                href={url}
-                className={styles.subLink}
-                onClick={() => setIsOpen(false)}
-              >
-                {title}
-              </Link>
-            ))}
+          {subMenu.map(({ id, url, title }: any) => (
+            <Link
+              key={id}
+              href={url}
+              className={styles.subLink}
+              onClick={() => setIsOpen(false)}
+            >
+              {title}
+            </Link>
+          ))}
         </div>
       )}
     </div>

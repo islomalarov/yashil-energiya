@@ -1,7 +1,7 @@
-import { TheHero } from "@/components/HeroComponent/TheHero";
 import "../../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Image from "next/image";
+import { TheHero } from "@/components/HeroComponent/TheHero";
 import photo1 from "@/public/newsPhoto/photo-14.jpg";
 import photo2 from "@/public/newsPhoto/photo-14-1.jpg";
 import photo3 from "@/public/newsPhoto/photo-14-2.jpg";
