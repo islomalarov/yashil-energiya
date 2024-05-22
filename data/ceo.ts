@@ -19,9 +19,9 @@ export const ceo = [
   },
   {
     id: 4,
-    name: "Tojiboev Timur Toxir o‘g‘li",
+    name: "Adbukarimov Dilshod Ubaydulla o'g'li",
     jobTitle: "Mijozlar bilan ishlash xizmati boshlig'i",
-    email: "t.tojiboev@yashil-energiya.uz",
+    email: "d.abdukarimov@yashil-energiya.uz",
   },
   {
     id: 5,

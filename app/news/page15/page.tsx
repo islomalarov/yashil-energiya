@@ -68,8 +68,8 @@ export default function Page15() {
           <p>
             Tashrif doirasida o‘tkazilgan O‘zbekiston-Malayziya biznes forumi
             yakunlari investitsiyaviy sheriklikni kengaytirishga, jumladan
-            “Yashil Energetika” MChJ sohasida hamkorlikning rivojiga xizmat
-            qilishiga ishonch bildirdi.
+            “yashil energetika” sohasida hamkorlikning rivojiga xizmat qilishiga
+            ishonch bildirildi.
           </p>
         </div>
       </div>
