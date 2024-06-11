@@ -30,7 +30,8 @@
     "components/HeaderComponent/TheHeader.tsx",
     "dist/types/**/*.ts",
     "my/image/loader.ts",
-    "pages/TheForm.tsx"
+    "pages/TheForm.tsx",
+    "components/VideoPlayerComponent/VideoPlayer.tsx"
   ],
   "exclude": ["node_modules"]
 }
