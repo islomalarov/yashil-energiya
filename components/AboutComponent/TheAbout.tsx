@@ -3,6 +3,7 @@ import "../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Link from "next/link";
 import about from "@/public/minenergy.jpg";
+import VideoPlayer from "../VideoPlayerComponent/VideoPlayer";
 
 export const TheAbout = () => {
   return (
@@ -41,7 +42,8 @@ export const TheAbout = () => {
           </Link>
         </div>
         <div className={styles.imgBlock}>
-          <Image className={styles.img} src={about} alt="about" />
+          {/* <VideoPlayer /> */}
+          {/* <Image className={styles.img} src={about} alt="about" /> */}
         </div>
       </div>
     </div>

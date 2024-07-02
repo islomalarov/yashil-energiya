@@ -3,15 +3,28 @@
   .info {
     position: absolute;
     top: 0;
+    @media (max-width: 480px) {
+      display: none;
+    }
   }
   .title {
     padding-top: 147px;
     color: #fff;
     font-size: 60px;
     font-weight: 700;
+    @media (max-width: 768px) {
+      padding-top: 10%;
+      font-size: 30px;
+    }
   }
   .bgBlock {
-    height: 400px;
+    position: relative;
+    // height: 400px;
+    .volumeBtn {
+      position: absolute;
+      top: 2%;
+      right: 1%;
+    }
   }
   .descr {
     padding-top: 21px;

@@ -65,6 +65,7 @@ export default function Project({ params }: Props) {
             </svg>
             <p>{plantAddress}</p>
           </div>
+          {/* <p>{gridConnectionDate}</p> */}
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ullam
             ipsam magnam vitae culpa nisi neque maxime tenetur quam corrupti,
