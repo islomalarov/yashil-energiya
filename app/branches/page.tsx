@@ -9,7 +9,6 @@ export default function Branches() {
     <>
       <TheHero title1="Filiallar" url1="branches" />
       <div className="container">
-        <VideoPlayer />
         <TheBranches />
       </div>
       <TheFeedback />
