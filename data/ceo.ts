@@ -25,9 +25,9 @@ export const ceo = [
   },
   {
     id: 5,
-    name: "Sharifjonov Ikrom Ilhomboy o'g'li",
-    jobTitle: "Texnik masalalar bosh boshqarmasi boshlig'i",
-    email: "i.sharifjonov@yashil-energiya.uz",
+    name: "Nurtaev Erkin Talipovich",
+    jobTitle: "Texnik masalalar bosh boshqarmasi boshlig'i v.v.b.",
+    email: "e.nurtaev@yashil-energiya.uz",
   },
   {
     id: 6,
@@ -59,5 +59,11 @@ export const ceo = [
     jobTitle:
       "Hududiy bo‘linmalar bilan ishlash va faoliyatini nazorat qilish bo‘yicha bosh mutaxassis",
     email: "e.nurtaev@yashil-energiya.uz",
+  },
+  {
+    id: 11,
+    name: "Yuldashev Abduraximjon Abdug'ani o'g'li",
+    jobTitle: "Loyihani amalga oshirish guruhi rahbari",
+    email: "a.yuldashev@yashil-energiya.uz",
   },
 ];
