@@ -1,14 +1,8 @@
+import styles from "./page.module.scss";
 import Link from "next/link";
 import { useState } from "react";
-import styles from "./page.module.scss";
 
-export const DropdownMenu = ({
-  id,
-  url,
-  title,
-  index,
-  subMenu,
-}: {
+type DropdownComponent = {
   id: number;
   url: string;
   title: string;
@@ -18,8 +12,17 @@ export const DropdownMenu = ({
     url: string;
     title: string;
   }>;
-}) => {
+};
+
+export const DropdownMenu = ({
+  id,
+  url,
+  title,
+  index,
+  subMenu,
+}: DropdownComponent) => {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div
       className={styles.dropdown}

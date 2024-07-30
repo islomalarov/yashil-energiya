@@ -1,3 +1,6 @@
+.header {
+  position: relative;
+}
 .content {
   display: flex;
   justify-content: space-between;
@@ -6,16 +9,14 @@
   position: relative;
 }
 .logo {
-  // width: 200px;
-  // height: 82px;
-  // @media (max-width: 768px) {
-  //   width: 180px;
-  //   height: 74px;
-  // }
-  // @media (max-width: 425px) {
-  //   width: 140px;
-  //   height: 58px;
-  // }
+  @media (max-width: 1068px) {
+    width: 80%;
+    height: auto;
+  }
+  @media (max-width: 768px) {
+    width: 70%;
+    height: auto;
+  }
 }
 
 .menuBlock {
@@ -23,55 +24,15 @@
   display: flex;
   justify-content: space-between;
   @media (max-width: 1068px) {
+    flex-basis: 70%;
+  }
+  @media (max-width: 970px) {
     display: none;
   }
 }
 
 .actions {
   display: flex;
-  gap: 45px;
+  gap: 10%;
   align-items: center;
-  @media (max-width: 1024px) {
-    gap: 10px;
-  }
-}
-
-.burgerMenu {
-  position: absolute;
-  display: grid;
-  align-content: start;
-  top: 0;
-  left: 0;
-  width: 90%;
-  height: 1200px;
-  background: #fff;
-  z-index: 1;
-
-  .burgerLink {
-    padding: 10px 0;
-    color: #2b2b2b;
-    font-size: 20px;
-    font-weight: 400;
-    text-transform: uppercase;
-    border-bottom: 1px solid #eaeaea;
-
-    .descr {
-      padding-left: 40px;
-    }
-    &:hover {
-      color: #12903e;
-    }
-  }
-}
-.burgerMenuBg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #57545431;
-  width: 100%;
-  height: 1200px;
-  z-index: 1;
-}
-.active {
-  margin-left: 20px;
 }

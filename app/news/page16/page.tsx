@@ -17,11 +17,7 @@ export default function Page16() {
             energetikani rivojlantirish bo‘yicha Hamkorlik kelishuvi imzolandi.
           </h1>
           <div className={styles.imgBlock}>
-            <Image
-              src={photo1}
-              alt="photo1"
-              style={{ width: "80%", height: "auto", objectFit: "cover" }}
-            />
+            <Image className={styles.img} src={photo1} alt="photo1" />
           </div>
           <p>
             Joriy yilning 13 — 15-iyun kunlari Xitoyning Shanxay shahrida
@@ -30,11 +26,7 @@ export default function Page16() {
             ko‘rgazmasi bo‘lib o‘tdi.
           </p>
           <div className={styles.imgBlock}>
-            <Image
-              src={photo2}
-              alt="photo2"
-              style={{ width: "80%", height: "auto", objectFit: "cover" }}
-            />
+            <Image className={styles.img} src={photo2} alt="photo2" />
           </div>
           <p>
             Ushbu xalqaro tadbir doirasida “Yashil Energiya” MCHJ, Malayziyaning
@@ -42,11 +34,7 @@ export default function Page16() {
             kompaniyalari o‘rtasida Hamkorlik kelishuvi imzolandi.
           </p>
           <div className={styles.imgBlock}>
-            <Image
-              src={photo3}
-              alt="photo3"
-              style={{ width: "80%", height: "auto", objectFit: "cover" }}
-            />
+            <Image className={styles.img} src={photo3} alt="photo3" />
           </div>
           <p>
             Ushbu kelishuv O‘zbekistonda “yashil” energetikani birgalikda

@@ -1,56 +1,36 @@
 "use client";
+
+import "../../scss/globals.scss";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.scss";
-import "../../scss/globals.scss";
-import { useState } from "react";
 import headerLogo from "@/public/logo.svg";
+
+import { useState } from "react";
 import { TheLanguage } from "../ui/LanguageComponent/TheLanguage";
 import { TheSearch } from "../ui/SearchComponent/TheSearch";
-import { TheBurger } from "../ui/BurgerComponent/TheBurger";
+
 import { DropdownMenu } from "../ui/DropdownComponent/TheDropdown";
-import { footerMenu, menuLinks } from "@/data/links";
+import { menuLinks } from "@/data/links";
+import { TheBurgerMenu } from "../ui/BurgerComponent/TheBurgerMenu";
+import { TheBurgerBtn } from "../ui/BurgerComponent/TheBurgerBtn";
 
 export const TheHeader = () => {
   const [status, setStatus] = useState(false);
 
   return (
     <header className={styles.header}>
-      {status && (
-        <div
-          className={styles.burgerMenuBg}
-          onClick={() => {
-            setStatus(!status);
-          }}
-        >
-          <div className={styles.burgerMenu}>
-            {/* <TheLanguage styleName="burgerLang" /> */}
-            {footerMenu.map(({ id, url, title }: any) => (
-              <Link
-                key={title}
-                className={styles.burgerLink}
-                href={url}
-                onClick={() => {
-                  setStatus(!status);
-                }}
-              >
-                <span
-                  className={
-                    id === 1 ? styles.descr : `${styles.descr} ${styles.active}`
-                  }
-                >
-                  {title}
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
+      {status && <TheBurgerMenu {...{ status, setStatus }} />}
       <div className={`container`}>
         <div className={styles.content}>
           <div className={styles.logoBlock}>
             <Link href="/">
-              <Image className={styles.logo} src={headerLogo} alt="logo" />
+              <Image
+                className={styles.logo}
+                src={headerLogo}
+                alt="logo"
+                priority
+              />
             </Link>
           </div>
           <div className={styles.menuBlock}>
@@ -59,9 +39,9 @@ export const TheHeader = () => {
             ))}
           </div>
           <div className={styles.actions}>
-            {/* <TheSearch /> */}
-            <TheBurger {...{ status, setStatus }} />
-            {/* <TheLanguage styleName="actionsLang" /> */}
+            <TheSearch />
+            <TheBurgerBtn {...{ status, setStatus }} />
+            <TheLanguage styleName="actionsLang" />
           </div>
         </div>
       </div>

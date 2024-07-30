@@ -2,7 +2,7 @@ import Image from "next/image";
 import menuIcon from "@/public/menu/burgerIcon.svg";
 import styles from "./page.module.scss";
 
-export const TheBurger = ({
+export const TheBurgerBtn = ({
   status,
   setStatus,
 }: {
