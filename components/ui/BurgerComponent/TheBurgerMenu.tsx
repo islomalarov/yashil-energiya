@@ -13,7 +13,7 @@ export const TheBurgerMenu = ({
 }) => {
   return (
     <div className={styles.burgerMenu}>
-      <TheLanguage styleName="burgerLang" />
+      {/* <TheLanguage styleName="burgerLang" /> */}
       {footerMenu.map(({ id, url, title }: any) => (
         <Link
           key={title}

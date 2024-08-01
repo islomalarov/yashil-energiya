@@ -39,9 +39,9 @@ export const TheHeader = () => {
             ))}
           </div>
           <div className={styles.actions}>
-            <TheSearch />
+            {/* <TheSearch /> */}
             <TheBurgerBtn {...{ status, setStatus }} />
-            <TheLanguage styleName="actionsLang" />
+            {/* <TheLanguage styleName="actionsLang" /> */}
           </div>
         </div>
       </div>

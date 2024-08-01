@@ -42,11 +42,7 @@ interface CeoProps {
   jobTitle: string;
   email: string;
 }
-interface EmailTemplateProps {
-  firstName: string;
-  phone: string;
-  msg: string;
-}
+
 interface PaginationProps {
   page: number;
   totalPage: number;
@@ -56,4 +52,10 @@ interface PaginationProps {
 }
 interface SearchProps {
   searchParams: { page: string };
+}
+
+interface TheFeedbackProps {
+  firstName: string;
+  phone: string;
+  message: string;
 }
