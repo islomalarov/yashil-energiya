@@ -12,10 +12,10 @@ export const ThePagination = ({
     <div className={styles.pagination}>
       <div className={styles.paginationBlock}>
         {page === 1 ? (
-          <div className={styles.disabled}>Oldinga</div>
+          <div className={styles.disabled}>{`<`}</div>
         ) : (
           <Link className={styles.paginationBtn} href={`?page=${prevPage}`}>
-            Oldinga
+            {`<`}
           </Link>
         )}
         {pageNumbers.map((pageNumber: number) => (
@@ -30,10 +30,10 @@ export const ThePagination = ({
           </Link>
         ))}
         {page === totalPage ? (
-          <div className={styles.disabled}>Orqaga</div>
+          <div className={styles.disabled}> {`>`} </div>
         ) : (
           <Link className={styles.paginationBtn} href={`?page=${nextPage}`}>
-            Orqaga
+            {`>`}
           </Link>
         )}
       </div>

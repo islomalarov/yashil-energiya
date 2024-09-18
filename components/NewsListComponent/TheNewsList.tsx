@@ -6,6 +6,8 @@ import Image from "next/image";
 import { getDate } from "@/my/date/getDate";
 
 export const TheNewsList = ({ newsArray, url, begin, end }: NewsProps) => {
+  console.log(newsArray);
+
   return (
     <div>
       <ul className={styles.news}>
