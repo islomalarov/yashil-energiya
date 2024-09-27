@@ -3,9 +3,7 @@ import styles from "./page.module.scss";
 
 export const ThePagination = ({
   page,
-  totalPage,
-  prevPage,
-  nextPage,
+  totalPages,
   pageNumbers,
 }: PaginationProps) => {
   return (
@@ -14,7 +12,7 @@ export const ThePagination = ({
         {page === 1 ? (
           <div className={styles.disabled}>{`<`}</div>
         ) : (
-          <Link className={styles.paginationBtn} href={`?page=${prevPage}`}>
+          <Link className={styles.paginationBtn} href={`?page=${page - 1}`}>
             {`<`}
           </Link>
         )}
@@ -29,10 +27,10 @@ export const ThePagination = ({
             {pageNumber}
           </Link>
         ))}
-        {page === totalPage ? (
+        {page === totalPages ? (
           <div className={styles.disabled}> {`>`} </div>
         ) : (
-          <Link className={styles.paginationBtn} href={`?page=${nextPage}`}>
+          <Link className={styles.paginationBtn} href={`?page=${page + 1}`}>
             {`>`}
           </Link>
         )}

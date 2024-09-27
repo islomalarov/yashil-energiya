@@ -1,18 +1,16 @@
+import Image from "next/image";
 import "../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Link from "next/link";
-import getData from "@/lib/getData";
-import { TheNewsList } from "../NewsListComponent/TheNewsList";
+import { TheProjectsList } from "../ProjectsListComponent/TheProjectsList";
 
-export const TheNews = async () => {
-  const { processedData } = await getData("media", "news", 3, 1);
-  // Ensure processedData is an array of NewsItem objects
+export const TheLastProjects = () => {
   return (
     <div className="container">
       <div className={styles.header}>
-        <h3 className="title">Yangiliklar</h3>
-        <Link href="/news" className={styles.link}>
-          Barcha yangiliklar
+        <h3 className="title">Bizning loyihalar</h3>
+        <Link href="/projects" className={styles.link}>
+          Barcha loyihalar
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="9"
@@ -30,12 +28,7 @@ export const TheNews = async () => {
           </svg>
         </Link>
       </div>
-      <TheNewsList
-        newsArray={processedData as NewsItem[]}
-        url="news"
-        begin={0}
-        end={3}
-      />
+      <TheProjectsList begin={0} end={4} />
     </div>
   );
 };

@@ -12,12 +12,7 @@ export const TheHero = ({ title1, title2, url1, url2 }: HeroProps) => {
   return (
     <div className={styles.hero}>
       <div className={styles.bgBlock}>
-        <Image
-          src={hero}
-          alt="hero-2"
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          priority
-        />
+        <Image width={720} height={315} src={hero} alt="hero-2" priority />
       </div>
       <div className="container">
         <div className={styles.info}>

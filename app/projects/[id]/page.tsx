@@ -12,28 +12,24 @@ type Props = {
   };
 };
 
-// export async function generateStaticParams() {
-//   const {
-//     data: { list },
-//   } = projects;
-
-//   return list.map((elem) => ({
-//     id: elem.plantCode,
-//   }));
-// }
 export default function Project({ params: { id } }: Props) {
   const {
     data: { list },
   } = projects;
-  const [
-    { plantName, plantAddress, contactMethod, gridConnectionDate, imgUrl },
-  ] = list.filter((elem) => elem.plantCode === id);
+  const {
+    plantName,
+    plantAddress,
+    contactMethod,
+    gridConnectionDate,
+    imgUrl,
+  }: any = list.find(({ plantCode }) => plantCode === id);
 
   return (
     <>
       <TheHero title1="Loyihalar" url1="projects" />
       <div className="container">
         <div className={styles.content}>
+          {id}
           <h2 className={styles.title}>{plantName}</h2>
           <div className={styles.addressBlock}>
             <svg

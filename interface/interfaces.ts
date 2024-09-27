@@ -1,19 +1,3 @@
-interface NewsItem {
-  _id: string;
-  id: number;
-  title: string;
-  subtitle: string;
-  date: Date;
-  url: string;
-}
-
-interface NewsProps {
-  newsArray: NewsItem[];
-  url: string;
-  begin?: number;
-  end?: number;
-}
-
 interface ProjectProps {
   begin?: number;
   end?: number;
@@ -45,13 +29,8 @@ interface CeoProps {
 
 interface PaginationProps {
   page: number;
-  totalPage: number;
-  prevPage: number;
-  nextPage: number;
+  totalPages: number;
   pageNumbers: number[];
-}
-interface SearchProps {
-  searchParams: { page: string };
 }
 
 interface TheFeedbackProps {

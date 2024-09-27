@@ -1,13 +1,13 @@
-export default function getPageNumbers(
+export const getPageNumbers = (
   page: number,
   offsetNumber: number,
-  totalPage: number
-) {
-  const pageNumbersArray = [] as number[];
+  totalPages: number
+) => {
+  const pageNumbersArray = [];
   for (let i = page - offsetNumber; i <= page + offsetNumber; i++) {
-    if (i >= 1 && i <= totalPage) {
+    if (i >= 1 && i <= totalPages) {
       pageNumbersArray.push(i);
     }
   }
   return pageNumbersArray;
-}
+};

@@ -7,10 +7,18 @@ const nextConfig = {
   // skipTrailingSlashRedirect: true,
   // // Optional: Change the output directory `out` -> `dist`
   // distDir: "dist",
-  // images: {
-  //   loader: "custom",
-  //   loaderFile: "./my/image/loader.ts",
-  // },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "us-west-2.graphassets.com",
+        port: "",
+        // pathname: "/account123/**",
+      },
+    ],
+    // loader: "custom",
+    //   loaderFile: "./my/image/loader.ts",
+  },
 };
 
 module.exports = nextConfig;

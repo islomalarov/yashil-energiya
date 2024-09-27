@@ -3,7 +3,7 @@ import { TheHero } from "@/components/HeroComponent/TheHero";
 import { TheProjectsList } from "@/components/ProjectsListComponent/TheProjectsList";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 
-export default function Projects() {
+export default async function Projects() {
   return (
     <>
       <TheHero title1="Loyihalar" url1="projects" />

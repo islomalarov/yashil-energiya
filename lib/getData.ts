@@ -4,7 +4,7 @@ export default async function getData(
   _db: string,
   _collection: string,
   perPage: number,
-  page: number
+  page = 1
 ) {
   try {
     //DB connect

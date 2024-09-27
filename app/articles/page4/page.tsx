@@ -163,7 +163,7 @@ export default function Page4() {
               hissasini qo'shadigan yirik to'g'onlari mavjud.
             </p>
             <p>
-              <p>4. Ko’mir va tabiiy gaz: </p>Ko'mir va tabiiy gaz, Fransiyaning
+              <b>4. Ko’mir va tabiiy gaz: </b>Ko'mir va tabiiy gaz, Fransiyaning
               energiya aralashmasida kichik rol o'ynaydi, bu umumiy ishlab
               chiqarishning 5% dan kamrog'ini tashkil qiladi.
             </p>
