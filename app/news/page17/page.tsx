@@ -24,7 +24,7 @@ export default function Page16() {
             O‘zbekiston Respublikasi Bosh vazirining 2023-yil 4-aprelidagi
             12/1-2757-son topshirig‘iga asosan “Dovud ota” bojxona terminaliga
             300 kVt quvvatdagi fotoelektr stantsiyasi o‘rnatish bo‘yicha amaliy
-            ishlar tashkil etilgan edi.{" "}
+            ishlar tashkil etilgan edi.
           </p>
           <div className={styles.imgBlock}>
             <Image className={styles.img} src={photo2} alt="photo2" />

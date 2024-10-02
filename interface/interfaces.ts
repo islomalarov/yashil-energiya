@@ -32,9 +32,3 @@ interface PaginationProps {
   totalPages: number;
   pageNumbers: number[];
 }
-
-interface TheFeedbackProps {
-  firstName: string;
-  phone: string;
-  message: string;
-}

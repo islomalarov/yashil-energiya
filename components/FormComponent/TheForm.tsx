@@ -7,23 +7,60 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+interface FormData {
+  firstName: string;
+  phone: string;
+  message: string;
+}
 export default function TheForm() {
-  const [feedback, setFeedback] = useState<TheFeedbackProps>({
+  const [feedback, setFeedback] = useState<FormData>({
     firstName: "",
     phone: "",
     message: "",
   });
 
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
-  ) => setFeedback({ ...feedback, [e.target.name]: e.target.value });
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  // const handleChange = (
+  //   e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
+  // ) => setFeedback({ ...feedback, [e.target.name]: e.target.value });
+
+  // async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await axios.post("api/send", feedback);
+  //     if (response.status === 200) {
+  //       console.log("Message sent successfully");
+
+  //       toast.success(
+  //         `${feedback.firstName}, murojaat qilganingiz uchun tashakkur! Tez orada siz bilan bog'lanamiz.`
+  //       );
+  //     } else {
+  //       console.error("Failed to send message");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error sending message:", error);
+  //     toast.error("Xabarni yuborishda xatolik yuz berdi.");
+  //   }
+  //   setFeedback({
+  //     firstName: "",
+  //     phone: "",
+  //     message: "",
+  //   });
+  // }
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await axios.post("api/send", feedback);
-      if (response.status === 200) {
-        console.log("Message sent successfully");
+      const res = await fetch("/api/send", {
+        method: "POST",
+        body: JSON.stringify(feedback),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
+      if (res.ok) {
+        console.log("Message sent successfully");
+        setFeedback({ firstName: "", phone: "", message: "" });
         toast.success(
           `${feedback.firstName}, murojaat qilganingiz uchun tashakkur! Tez orada siz bilan bog'lanamiz.`
         );
@@ -34,13 +71,13 @@ export default function TheForm() {
       console.error("Error sending message:", error);
       toast.error("Xabarni yuborishda xatolik yuz berdi.");
     }
-    setFeedback({
-      firstName: "",
-      phone: "",
-      message: "",
-    });
-  }
+  };
 
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFeedback({ ...feedback, [e.target.name]: e.target.value });
+  };
   return (
     <>
       <form onSubmit={handleSubmit} className={styles.form}>
@@ -75,9 +112,13 @@ export default function TheForm() {
           onChange={handleChange}
         />
         {feedback.firstName && feedback.phone && feedback.message ? (
-          <button className={styles.btn}>Jo'natish</button>
+          <button type="submit" className={styles.btn}>
+            Jo'natish
+          </button>
         ) : (
-          <button className={styles.disabledBtn}>Jo'natish</button>
+          <button disabled type="submit" className={styles.disabledBtn}>
+            Jo'natish
+          </button>
         )}
       </form>
       <ToastContainer />
