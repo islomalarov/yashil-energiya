@@ -7,7 +7,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-interface FormData {
+export interface FormData {
   firstName: string;
   phone: string;
   message: string;

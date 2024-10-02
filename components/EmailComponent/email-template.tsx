@@ -1,5 +1,9 @@
 import * as React from "react";
-
+interface TheFeedbackProps {
+  firstName: string;
+  phone: string;
+  message: string;
+}
 export const EmailTemplate: React.FC<Readonly<TheFeedbackProps>> = ({
   firstName,
   phone,
