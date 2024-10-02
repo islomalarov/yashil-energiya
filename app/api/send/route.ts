@@ -84,7 +84,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error("Ошибка при отправке письма:", error);
     return NextResponse.json(
-      { status: "error", message: error.message },
+      { status: "error", message: (error as Error).message },
       { status: 500 }
     );
   }
