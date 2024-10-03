@@ -1,9 +1,9 @@
 "use client";
 
 import "@/scss/globals.scss";
-import { ChangeEvent, FormEvent, useState } from "react";
 import styles from "./page.module.scss";
 import axios from "axios";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -19,48 +19,17 @@ export default function TheForm() {
     message: "",
   });
 
-  // const handleChange = (
-  //   e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
-  // ) => setFeedback({ ...feedback, [e.target.name]: e.target.value });
-
-  // async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-  //   e.preventDefault();
-  //   try {
-  //     const response = await axios.post("api/send", feedback);
-  //     if (response.status === 200) {
-  //       console.log("Message sent successfully");
-
-  //       toast.success(
-  //         `${feedback.firstName}, murojaat qilganingiz uchun tashakkur! Tez orada siz bilan bog'lanamiz.`
-  //       );
-  //     } else {
-  //       console.error("Failed to send message");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error sending message:", error);
-  //     toast.error("Xabarni yuborishda xatolik yuz berdi.");
-  //   }
-  //   setFeedback({
-  //     firstName: "",
-  //     phone: "",
-  //     message: "",
-  //   });
-  // }
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     try {
-      const res = await fetch("/api/send", {
-        method: "POST",
-        body: JSON.stringify(feedback),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (res.ok) {
+      const response = await axios.post("api/mailersend", feedback);
+      if (response.status === 200) {
         console.log("Message sent successfully");
-        setFeedback({ firstName: "", phone: "", message: "" });
+        setFeedback({
+          firstName: "",
+          phone: "",
+          message: "",
+        });
         toast.success(
           `${feedback.firstName}, murojaat qilganingiz uchun tashakkur! Tez orada siz bilan bog'lanamiz.`
         );
@@ -71,13 +40,12 @@ export default function TheForm() {
       console.error("Error sending message:", error);
       toast.error("Xabarni yuborishda xatolik yuz berdi.");
     }
-  };
+  }
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFeedback({ ...feedback, [e.target.name]: e.target.value });
-  };
+  ) => setFeedback({ ...feedback, [e.target.name]: e.target.value });
+
   return (
     <>
       <form onSubmit={handleSubmit} className={styles.form}>
@@ -116,7 +84,7 @@ export default function TheForm() {
             Jo'natish
           </button>
         ) : (
-          <button disabled type="submit" className={styles.disabledBtn}>
+          <button type="submit" className={styles.disabledBtn}>
             Jo'natish
           </button>
         )}
