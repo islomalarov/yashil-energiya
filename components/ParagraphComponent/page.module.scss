@@ -1,0 +1,18 @@
+.paragraphBlock {
+  span {
+    text-align: justify;
+    line-height: 30px;
+  }
+  .italic {
+    font-style: italic;
+  }
+  .bold {
+    font-weight: 700;
+  }
+  .underline {
+    text-decoration: underline;
+  }
+  .link {
+    color: blue;
+  }
+}

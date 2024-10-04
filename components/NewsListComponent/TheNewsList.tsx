@@ -1,7 +1,7 @@
 "use client";
 import "../../scss/globals.scss";
-import Link from "next/link";
 import styles from "./page.module.scss";
+import Link from "next/link";
 import Image from "next/image";
 import { getDate } from "@/my/date/getDate";
 import { NewResponse } from "@/services/news.service";
@@ -11,8 +11,6 @@ interface NewsProps {
   url: string;
 }
 export const TheNewsList = ({ news, url }: NewsProps) => {
-  // console.log(news);
-
   return (
     <div>
       <ul className={styles.news}>

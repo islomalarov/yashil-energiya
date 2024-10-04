@@ -1,37 +1,21 @@
+import "../../scss/globals.scss";
+import styles from "./page.module.scss";
 import Link from "next/link";
-import React from "react";
 
-interface ChildProps {
-  text?: string;
-  href?: string;
-  title?: string;
-  bold?: boolean;
-  italic?: boolean;
-  children?: ChildProps[];
-}
+export default function TheParagraph({ content }: any) {
+  // console.log(children);
 
-interface stylesProps {
-  bold: string;
-  italic: string;
-  link: string;
-}
-
-export const renderParagraphContent = (
-  index: number,
-  styles: stylesProps,
-  children: ChildProps[]
-) => {
   return (
-    <div key={index}>
-      {children.map(
+    <div className={styles.paragraphBlock}>
+      {content.map(
         (
-          { text, href, title, bold, italic, children }: ChildProps,
-          idx: number
+          { text, href, bold, italic, underline, children }: any,
+          index: number
         ) => {
           if (text) {
             return (
               <span
-                key={idx}
+                key={index}
                 className={
                   bold && italic
                     ? `${styles.bold} ${styles.italic}`
@@ -39,6 +23,8 @@ export const renderParagraphContent = (
                     ? styles.bold
                     : italic
                     ? styles.italic
+                    : underline
+                    ? styles.underline
                     : ""
                 }
               >
@@ -48,7 +34,7 @@ export const renderParagraphContent = (
           } else if (href) {
             return (
               <Link
-                key={idx}
+                key={index}
                 href={href}
                 className={
                   children && children[0]?.italic
@@ -66,4 +52,4 @@ export const renderParagraphContent = (
       )}
     </div>
   );
-};
+}

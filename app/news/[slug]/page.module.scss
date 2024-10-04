@@ -4,36 +4,4 @@
   .title {
     text-align: center;
   }
-  span {
-    text-align: justify;
-    line-height: 30px;
-  }
-  .italic {
-    font-style: italic;
-  }
-  .bold {
-    font-weight: 700;
-  }
-  // .boldItalic {
-  //   font-weight: 700;
-  //   font-style: italic;
-  // }
-  .imgBlock {
-    overflow: hidden;
-    position: relative;
-    padding-bottom: 400/1000 * 100%;
-    img {
-      width: 80%;
-      height: 100%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      object-fit: cover;
-    }
-  }
-
-  .link {
-    color: blue;
-  }
 }

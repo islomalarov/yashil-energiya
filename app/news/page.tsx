@@ -4,7 +4,6 @@ import { TheNewsList } from "@/components/NewsListComponent/TheNewsList";
 import { ThePagination } from "@/components/ui/PaginationComponent/ThePagination";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import { NewsService } from "@/services/news.service";
-import getData from "@/lib/getData";
 import { getPageNumbers } from "@/my/pageNumbers/getPageNumbers";
 import { getTotalPages } from "@/my/pageCounts/getTotalPages";
 
@@ -16,14 +15,6 @@ export default async function News({ searchParams }: SearchProps) {
   page = !page || page < 1 ? 1 : page;
   const newsPerPage = 9;
   const offsetNumber = 2;
-
-  // const { processedData, itemsCount } = await getData(
-  //   "media",
-  //   "news",
-  //   perPage,
-  //   page
-  // );
-  // console.log(processedData, itemsCount);
   const skip = newsPerPage * (page - 1);
   const { news, newsConnection } = await NewsService.getAllNews(
     newsPerPage,

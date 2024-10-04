@@ -19,6 +19,9 @@ export interface NewResponse {
     };
     cover: {
       url: string;
+      fileName: string;
+      height: number;
+      width: number;
     };
   };
 }
@@ -54,6 +57,8 @@ export const NewsService = {
           cover {
             url
             fileName
+            height
+            width
           }
         }
         newsConnection {
@@ -88,6 +93,8 @@ export const NewsService = {
           cover {
             url
             fileName
+            height
+            width
           }
         }
       }
@@ -98,7 +105,7 @@ export const NewsService = {
   getLastNews: async () => {
     const query = gql`
       query GetLastNews {
-        news(last: 3) {
+        news(first: 3, orderBy: date_DESC) {
           date
           id
           slug
@@ -110,6 +117,8 @@ export const NewsService = {
           cover {
             url
             fileName
+            height
+            width
           }
         }
       }

@@ -1,14 +1,12 @@
 import "../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Link from "next/link";
-import getData from "@/lib/getData";
 import { TheNewsList } from "../NewsListComponent/TheNewsList";
 import { NewsService } from "@/services/news.service";
 
 export const TheLastNews = async () => {
   // const { processedData } = await getData("media", "news", 3, 1);
   const { news } = await NewsService.getLastNews();
-  // news.sort((a, b) => (a > b ? 1 : -1));
   return (
     <div className="container">
       <div className={styles.header}>
