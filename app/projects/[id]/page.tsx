@@ -29,7 +29,6 @@ export default function Project({ params: { id } }: Props) {
       <TheHero title1="Loyihalar" url1="projects" />
       <div className="container">
         <div className={styles.content}>
-          {id}
           <h2 className={styles.title}>{plantName}</h2>
           <div className={styles.addressBlock}>
             <svg
@@ -62,7 +61,7 @@ export default function Project({ params: { id } }: Props) {
             <p>{plantAddress}</p>
           </div>
           <p>{getDate(gridConnectionDate)}</p>
-          <p>
+          {/* <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ullam
             ipsam magnam vitae culpa nisi neque maxime tenetur quam corrupti,
             quidem illum unde fugiat labore nihil? Magni impedit adipisci
@@ -74,7 +73,7 @@ export default function Project({ params: { id } }: Props) {
             consequuntur? Modi a dolor cumque veritatis porro quasi possimus
             ducimus? Recusandae praesentium eligendi cumque harum, modi mollitia
             excepturi, et ex itaque eveniet rerum atque impedit eius!
-          </p>
+          </p> */}
           <div className={styles.imgBlock}>
             <Image
               width={1280}

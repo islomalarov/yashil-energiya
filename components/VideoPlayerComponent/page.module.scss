@@ -1,4 +1,11 @@
 .video {
+  position: relative;
   display: flex;
   justify-content: center;
+  .volumeBtn {
+    position: absolute;
+    top: 2%;
+    right: 1%;
+    cursor: pointer;
+  }
 }

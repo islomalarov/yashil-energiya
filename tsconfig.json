@@ -31,7 +31,7 @@
     "dist/types/**/*.ts",
     "my/image/loader.ts",
     "components/FormComponent/TheForm.tsx",
-    "components/VideoPlayerComponent/VideoPlayer.tsx"
+    "components/VideoPlayerComponent/TheVideoPlayer.tsx"
   ],
   "exclude": ["node_modules"]
 }

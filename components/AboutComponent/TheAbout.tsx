@@ -1,9 +1,8 @@
-import Image from "next/image";
 import "../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Link from "next/link";
-import about from "@/public/minenergy.jpg";
-import VideoPlayer from "../VideoPlayerComponent/VideoPlayer";
+import Image from "next/image";
+import about from "@/public/about.jpg";
 
 export const TheAbout = () => {
   return (
@@ -42,8 +41,8 @@ export const TheAbout = () => {
           </Link>
         </div>
         <div className={styles.imgBlock}>
-          {/* <VideoPlayer /> */}
-          {/* <Image className={styles.img} src={about} alt="about" /> */}
+          <Image className={styles.img} src={about} alt="about" />
+          {/* <TheSolarEnergyAnimation /> */}
         </div>
       </div>
     </div>

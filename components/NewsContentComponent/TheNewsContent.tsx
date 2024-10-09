@@ -1,6 +1,6 @@
 import "../../scss/globals.scss";
 import ParagraphComponent from "../ParagraphComponent/TheParagraph";
-import ImageComponent from "../ImageComponent/TheImage";
+import ImageComponent from "../ImageComponent/TheImageModal";
 
 export default function NewsContentComponent({ content }: any) {
   return (

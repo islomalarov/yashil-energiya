@@ -3,6 +3,8 @@ import styles from "./page.module.scss";
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import Image from "next/image";
+import { goals } from "@/data/goals";
+import { systems } from "@/data/systems";
 
 export default function About() {
   return (
@@ -25,22 +27,12 @@ export default function About() {
             </p>
             <p className={styles.descr}>
               "Yashil Energiya" MChJ tashkil etilishidan asosiy maqsad:
-              <br />
-              <span>
-                - qayta tiklanuvchi energiya manbalari qurilmalarini o'rnatish
-                va ularni ekspluatatsiya qilish;
-              </span>
-              <br />
-              <span>
-                - qayta tiklanuvchi energiya manbalari qurilmalari orqali ishlab
-                chiqarilgan elektr energiyasini iste’molchilarga yetkazish;
-              </span>
-              <br />
-              <span>
-                - respublika hududlarida o'rnatilgan qayta tiklanuvchi energiya
-                manbalari qurilmalariga servis va texnik xizmat ko'rsatish.
-              </span>
             </p>
+            {goals.map((goal) => (
+              <p key={goal.title} className={styles.descr}>
+                - {goal.title}
+              </p>
+            ))}
           </div>
           <div className={styles.imgBlock}>
             <Image
@@ -68,34 +60,11 @@ export default function About() {
               elektr tarmoqlari korxonasiga sotib, daromad olish imkoni mavjud.
             </p>
             <br />
-            <p className={styles.descr}>
-              <b>On-Grid</b> tizimi - hududiy elektr tarmoqlari tizimiga ulangan
-              bo'lib, invertorlar orqali hosil bo'lgan o'zgaruvchan energiya
-              manbaidan quyoshli kunlarda bemalol foydalanishingiz mumkin.
-              Iste’molingizdan ortig'ini esa mahalliy elektr tarmog'iga
-              yo'naltirishingiz, aniqrog'i sotishingiz mumkin. Albatta buning
-              uchun hududiy elektr tarmog'ida ham elektr energiyasi mavjud
-              bo'lishi lozim. Shuning uchun bu usul tarmoq ichida tizim deb
-              ataladi.
-            </p>
-            <p className={styles.descr}>
-              <b>Off-Grid</b> tizimi - hududiy elektr tarmoqlari tizimidan holi,
-              mustaqil (avtonom) tizim bo'lib, quyoshli kunlarda hosil bo'lgan
-              va iste’molingizdan ortib qolgan elektr manbaini zaxiraga olib
-              qo'yish imkoniyatiga ega bo'lasiz. Bunda batareyalarga "g'amlab"
-              qo'yilgan elektr energiyasi Sizni kecha-yu kunduz uzluksiz elektr
-              energiyasi bilan ta’minlab turadi.
-            </p>
-            <p className={styles.descr}>
-              <b>Gibrid</b> tizimi - On-Grid (tizim ichidagi) va Off-Grid
-              (tizimdan tashqari) imkoniyatlarini birlashtirgan Sizning "quyosh
-              elektr stansiyangiz"dir. Bunda Siz bir vaqtning o'zida xam hududiy
-              elektr tarmog'iga ulangan bo'lasiz, ham o'z elektr zaxirangizga
-              ega bo'lasiz. Xohlang o'zingiz "ishlab chiqargan" elektr manbaini
-              mahalliy elektr tarmog'iga soting, xohlang zaxira sifatida
-              batareyaga "g'amlab" qo'ygan elektr energiyangizdan o'zingiz
-              bemalol foydalaning.
-            </p>
+            {systems.map((system) => (
+              <p className={styles.descr} key={system.title}>
+                <b>{system.title}</b> - {system.description}
+              </p>
+            ))}
           </div>
         </div>
       </div>

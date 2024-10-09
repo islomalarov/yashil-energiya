@@ -19,9 +19,7 @@ const recipients = [
 ];
 export async function POST(request: NextRequest) {
   try {
-    const body: FormData = await request.json();
-
-    const { firstName, phone, message } = body;
+    const { firstName, phone, message }: FormData = await request.json();
     const emailHtml = render(EmailTemplate({ firstName, phone, message }));
     const emailParams = new EmailParams()
       .setFrom(sentFrom)

@@ -2,8 +2,8 @@ import "../scss/globals.scss";
 import { TheAbout } from "@/components/AboutComponent/TheAbout";
 import { TheSlider } from "@/components/SliderComponent/TheSlider";
 import { TheAdvantages } from "@/components/AdvantagesComponent/TheAdvantages";
-import { TheLastProjects } from "@/components/LastProjectsComponent";
-import { TheLastNews } from "@/components/LastNewsComponent";
+import { TheLastProjects } from "@/components/LastProjectsComponent/TheLastProjects";
+import { TheLastNews } from "@/components/LastNewsComponent/TheLasnNews";
 import { TheLinks } from "@/components/LinksComponent/TheLinks";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 

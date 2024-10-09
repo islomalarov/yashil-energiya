@@ -2,9 +2,8 @@
 import "../../scss/globals.scss";
 import styles from "./page.module.scss";
 import Link from "next/link";
-import Image from "next/image";
-import { getDate } from "@/my/date/getDate";
 import { NewResponse } from "@/services/news.service";
+import TheImage from "../CoverComponent/TheCover";
 
 interface NewsProps {
   news: NewResponse[];
@@ -13,22 +12,15 @@ interface NewsProps {
 export const TheNewsList = ({ news, url }: NewsProps) => {
   return (
     <div>
-      <ul className={styles.news}>
+      <ul className={styles.newsList}>
         {news.map(({ id, cover, date, title, excerpt, slug }: any) => (
-          <li key={id}>
+          <li className={styles.newsItem} key={id}>
             <Link className={styles.link} href={`/${url}/${slug}`}>
-              <div className={styles.imgBlock}>
-                <Image
-                  width={720}
-                  height={315}
-                  src={cover.url}
-                  alt={cover.fileName}
-                />
-              </div>
+              <TheImage elem={cover} />
               <div className={styles.titleBlock}>
-                {date && <p className={styles.date}>{getDate(date)}</p>}
+                <p className={styles.date}>{date}</p>
                 <h3>{title}</h3>
-                <p>{excerpt}</p>
+                <p className={styles.descr}>{excerpt}</p>
               </div>
             </Link>
           </li>

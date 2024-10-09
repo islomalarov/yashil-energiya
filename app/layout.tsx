@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { Roboto } from "next/font/google";
 import { TheHeader } from "@/components/HeaderComponent/TheHeader";
 import { TheFooter } from "@/components/FooterComponent/TheFooter";
+import Providers from "@/components/ProgressBarProviderComponent/ProgressBarProvider";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -27,7 +28,9 @@ export default function RootLayout({
       <body className={roboto.className}>
         <div className="wrapper">
           <TheHeader />
-          <main className="main">{children}</main>
+          <main className="main">
+            <Providers>{children}</Providers>
+          </main>
           <TheFooter />
         </div>
         <SpeedInsights />
