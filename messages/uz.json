@@ -1,0 +1,29 @@
+{
+  "HomePage": {
+    "title": "Hello world!",
+    "about": "Go to the about page"
+  },
+  "AboutPage": {
+    "title": "Kompaniya haqida",
+    "content": "Bu maqola biz haqimizda tavsiya etilgan sahifadagi materiallardan iborat bo'lishimizda ishlaydi",
+    "link": "Batafsil"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, uz {uz O'zbekcha} ru {ru Ruscha} other {Unknown}}"
+  },
+  "Header": {
+    "main": "Bosh sahifa",
+    "about": "Biz haqimizda",
+    "company": "Kompaniya",
+    "ceo": "Rahbariyat",
+    "pressCenter": "Matbuot markazi",
+    "news": "Yangiliklar",
+    "articles": "Maqolalar",
+    "activity": "Faoliyat",
+    "branches": "filiallar",
+    "projects": "loyihalar",
+    "contacts": "Kontaktlar",
+    "content": "This is the about page"
+  }
+}

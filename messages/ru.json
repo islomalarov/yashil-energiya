@@ -1,0 +1,29 @@
+{
+  "HomePage": {
+    "title": "Привет!",
+    "about": "Go to the about page"
+  },
+  "AboutPage": {
+    "title": "О Компании",
+    "content": "Bu maqola biz haqimizda tavsiya etilgan sahifadagi materiallardan iborat bo'lishimizda ishlaydi",
+    "link": "Подробнее"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, uz {uz Узбекский} ru {ru Русский} other {Unknown}}"
+  },
+  "Header": {
+    "main": "Главная",
+    "about": "О нас",
+    "company": "Компания",
+    "ceo": "Руководство",
+    "pressCenter": "Пресс-центр",
+    "news": "Новости",
+    "articles": "Статьи",
+    "activity": "Деятельность",
+    "branches": "Филиалы",
+    "projects": "Проекты",
+    "contacts": "Контакты",
+    "content": "This is the about page"
+  }
+}

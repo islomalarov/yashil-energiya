@@ -32,35 +32,35 @@ export const links = [
 ];
 
 export const menuLinks = [
-  { id: 1, url: "/", title: "Bosh sahifa" },
+  { id: 1, url: "/", title: "main" },
   {
     id: 2,
     url: "#",
-    title: "Biz haqimizda",
+    title: "about",
     subMenu: [
-      { id: 2.1, url: "/about", title: "Kompaniya" },
-      { id: 2.2, url: "/ceo", title: "Rahbariyat" },
+      { id: 2.1, url: "/about", title: "company" },
+      { id: 2.2, url: "/ceo", title: "ceo" },
     ],
   },
   {
     id: 3,
     url: "#",
-    title: "Matbuot markazi",
+    title: "pressCenter",
     subMenu: [
-      { id: 3.1, url: "/news", title: "Yangiliklar" },
-      { id: 3.2, url: "/articles", title: "Maqolalar" },
+      { id: 3.1, url: "/news", title: "news" },
+      { id: 3.2, url: "/articles", title: "articles" },
     ],
   },
   {
     id: 4,
     url: "#",
-    title: "Faoliyat",
+    title: "activity",
     subMenu: [
-      { id: 4.1, url: "/branches", title: "filiallar" },
-      { id: 4.2, url: "/projects", title: "loyihalar" },
+      { id: 4.1, url: "/branches", title: "branches" },
+      { id: 4.2, url: "/projects", title: "projects" },
     ],
   },
-  { id: 5, url: "/contacts", title: "Kontaktlar" },
+  { id: 5, url: "/contacts", title: "contacts" },
 ];
 
 export const socialLinks = [
@@ -78,12 +78,12 @@ export const socialLinks = [
   },
 ];
 export const footerMenu = [
-  { id: 1, url: "/", title: "Bosh sahifa" },
-  { id: 2, url: "/about", title: "Kompaniya" },
-  { id: 3, url: "/ceo", title: "Rahbariyat" },
-  { id: 4, url: "/news", title: "Yangiliklar" },
-  { id: 5, url: "/articles", title: "Maqolalar" },
-  { id: 6, url: "/branches", title: "filiallar" },
-  { id: 7, url: "/projects", title: "loyihalar" },
-  { id: 8, url: "/contacts", title: "Kontaktlar" },
+  { id: 1, url: "/", title: "main" },
+  { id: 2, url: "/about", title: "company" },
+  { id: 3, url: "/ceo", title: "ceo" },
+  { id: 4, url: "/news", title: "news" },
+  { id: 5, url: "/articles", title: "articles" },
+  { id: 6, url: "/branches", title: "branches" },
+  { id: 7, url: "/projects", title: "projects" },
+  { id: 8, url: "/contacts", title: "contacts" },
 ];

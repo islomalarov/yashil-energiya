@@ -1,15 +1,15 @@
 export const ceo = [
   {
     id: 1,
-    name: "Mirzayev Bexzod Mirzaaliyevich",
-    jobTitle: "Direktor v.b.",
-    email: "b.mirzayev@yashil-energiya.uz",
+    name: "Nasretdinov Nodirbek Tulkinovich",
+    jobTitle: "Direktor",
+    email: "n.nasretdinov@yashil-energiya.uz",
   },
   {
     id: 2,
-    name: "Parmanov Rustam Tabrizovich",
-    jobTitle: "Moliyaviy rivojlanish bo‘limi boshlig'i",
-    email: "r.parmanov@yashil-energiya.uz",
+    name: "Muxamedjanov Akbar Akmalevich",
+    jobTitle: "Direktor o'rinbosari",
+    email: "a.muxamedjanov@yashil-energiya.uz",
   },
   {
     id: 3,

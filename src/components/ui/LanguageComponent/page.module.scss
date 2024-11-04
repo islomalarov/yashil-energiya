@@ -1,0 +1,35 @@
+.actionsLang {
+  display: flex;
+  align-items: center;
+  position: relative;
+  @media (max-width: 970px) {
+    display: none;
+  }
+}
+.burgerLang {
+  padding: 23px 40px;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: flex-end;
+}
+.languageSelect {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.languageMenu {
+  position: absolute;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  top: 20px;
+  z-index: 99;
+}
+.language {
+  padding: 2px 5px;
+  color: black;
+  &:hover {
+    background-color: #12903e;
+  }
+}
