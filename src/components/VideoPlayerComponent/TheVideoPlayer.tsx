@@ -2,17 +2,14 @@
 import "@/scss/globals.scss";
 import styles from "./page.module.scss";
 import { useState } from "react";
-import { useTranslations } from "next-intl";
 
 const TheVideoPlayer = () => {
   const [volume, setVolume] = useState(true);
-  const t = useTranslations("VideoPlayer");
-  console.log(t("src"));
 
   return (
     <div className={styles.video}>
       <video
-        src={t("src")}
+        src="video/servis__77pct_smaller.mp4"
         width="100%"
         height="100%"
         autoPlay
