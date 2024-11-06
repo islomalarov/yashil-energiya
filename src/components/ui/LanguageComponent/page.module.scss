@@ -1,16 +1,5 @@
-.actionsLang {
-  display: flex;
-  align-items: center;
+.languageMenu {
   position: relative;
-  @media (max-width: 970px) {
-    display: none;
-  }
-}
-.burgerLang {
-  padding: 23px 40px;
-  background-color: #f4f4f4;
-  display: flex;
-  justify-content: flex-end;
 }
 .languageSelect {
   display: flex;
@@ -18,7 +7,7 @@
   gap: 10px;
   cursor: pointer;
 }
-.languageMenu {
+.languageList {
   position: absolute;
   padding: 10px;
   display: flex;

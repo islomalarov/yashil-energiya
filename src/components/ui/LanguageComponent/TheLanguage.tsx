@@ -10,7 +10,7 @@ interface Option {
   country: string;
   code: string;
 }
-export const TheLanguage = ({ styleName }: { styleName: string }) => {
+export const TheLanguage = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const urlSegments = useSelectedLayoutSegments();
@@ -21,7 +21,7 @@ export const TheLanguage = ({ styleName }: { styleName: string }) => {
   ];
   return (
     <div
-      className={styles[styleName]}
+      className={styles.languageMenu}
       onClick={() => setIsOpen(!isOpen)}
       // onMouseEnter={() => setIsOpen(true)}
       // onMouseLeave={() => setIsOpen(false)}
@@ -35,7 +35,7 @@ export const TheLanguage = ({ styleName }: { styleName: string }) => {
         )}
       </button>
       {isOpen && (
-        <div className={styles.languageMenu}>
+        <div className={styles.languageList}>
           {options.map((lang) => (
             <Link
               href={`/${lang.code}/${urlSegments.join("/")}`}

@@ -16,7 +16,9 @@ export const TheBurgerMenu = ({
   const t = useTranslations("Header");
   return (
     <div className={styles.burgerMenu}>
-      {/* <TheLanguage styleName="burgerLang" /> */}
+      <div className={styles.languageBtn}>
+        <TheLanguage />
+      </div>
       {footerMenu.map(({ id, url, title }: any) => (
         <Link
           key={title}

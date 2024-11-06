@@ -6,11 +6,11 @@ import { Link } from "@/src/i18n/routing";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import hero from "@/public/hero2.png";
+import { useTranslations } from "next-intl";
 
 export const TheHero = ({ title1, title2, url1, url2 }: HeroProps) => {
-  const pathname = usePathname()?.replace("/", "");
-  console.log(pathname);
-  console.log(url1);
+  const t = useTranslations("HomePage");
+  const pathname = usePathname().slice(4);
 
   return (
     <div className={styles.hero}>
@@ -25,7 +25,7 @@ export const TheHero = ({ title1, title2, url1, url2 }: HeroProps) => {
             <h1 className={styles.title}>{title2}</h1>
           )}
           <div className={styles.descr}>
-            <Link href="/">Bosh sahifa</Link>
+            <Link href="/">{t("title")}</Link>
             <span> | </span>
             <Link href={`/${url1}`}>{title1}</Link>
             {title2 && (

@@ -3,36 +3,24 @@ import styles from "./page.module.scss";
 import { TheHero } from "@/src/components/HeroComponent/TheHero";
 import { TheFeedback } from "@/src/components/FeedbackComponent/TheFeedback";
 import Image from "next/image";
-import { goals } from "@/data/goals";
-import { systems } from "@/data/systems";
+import { useTranslations } from "next-intl";
+import TheExcerpt from "@/src/components/ExcerptComponent/TheExcerpt";
 
 export default function About() {
+  const t = useTranslations("AboutPage");
+  const systems = ["system1", "system2", "system3"] as const;
   return (
     <>
       <TheHero
-        title1="Kompaniya Haqida"
+        title1={t("title1")}
         url1="about"
-        title2="Rahbariyat"
+        title2={t("title2")}
         url2="ceo"
       />
       <div className="container">
         <div className={styles.content}>
           <div className={styles.info}>
-            <p className={styles.descr}>
-              "Yashil Energiya" MChJ O‘zbekiston Respublikasi Prezidentining
-              2023-yil 16-fevraldagi "2023-yilda qayta tiklanuvchi energiya
-              manbalarini va energiya tejovchi texnologiyalarni joriy etishni
-              jadallashtirish chora-tadbirlari to‘g‘risida"gi PQ-57-sonli
-              qaroriga asosan tashkil etilgan.
-            </p>
-            <p className={styles.descr}>
-              "Yashil Energiya" MChJ tashkil etilishidan asosiy maqsad:
-            </p>
-            {goals.map((goal) => (
-              <p key={goal.title} className={styles.descr}>
-                - {goal.title}
-              </p>
-            ))}
+            <TheExcerpt />
           </div>
           <div className={styles.imgBlock}>
             <Image
@@ -44,25 +32,11 @@ export default function About() {
             />
           </div>
           <div className={styles.descrBlock}>
-            <p className={styles.descr}>
-              Qayta tiklanuvchi energiya manbalari qurilmalari orqali elektr
-              energiya ishlab chiqarilganda atrof-muhitga zararli gazlar
-              chiqmaydi. Qayta tiklanuvchi energiya manbalari qurilmalari
-              foydalanishga topshirilgan vaqtdan boshlab daromad olish imkoni
-              yuzaga keladi. Bunday qurilmalar binolarning tom qismida yoki
-              bo‘sh yer maydonlarga o‘rnatilib, ishlash jarayonida shovqin
-              bo‘lmaydi. Zamonaviy vositalar orqali bino va xonadonlarni elektr
-              energiyasi bilan ta’minlash imkoniyati yuzaga keladi. Bu
-              qurilmalarni o‘rnatish oson va doimiy texnik xizmat ko‘rsatish
-              talab etilmaydi. Servis xizmat ko‘rsatilgan sari elektr energiyasi
-              hajmi xam ko‘payib boradi. Mazkur qurilmalar o‘rtacha 20-25 yil
-              davomida xizmat ko‘rsatadi. Mulk egasi ehtiyojidan ortgan qismini
-              elektr tarmoqlari korxonasiga sotib, daromad olish imkoni mavjud.
-            </p>
+            <p className="description">{t("content2")}</p>
             <br />
             {systems.map((system) => (
-              <p className={styles.descr} key={system.title}>
-                <b>{system.title}</b> - {system.description}
+              <p className="description" key={system}>
+                <b>{t(`${system}.title`)}</b> - {t(`${system}.description`)}
               </p>
             ))}
           </div>

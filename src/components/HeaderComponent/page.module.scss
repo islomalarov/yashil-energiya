@@ -35,4 +35,9 @@
   display: flex;
   gap: 10%;
   align-items: center;
+  .languageBtn {
+    @media (max-width: 970px) {
+      display: none;
+    }
+  }
 }

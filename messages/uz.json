@@ -1,16 +1,38 @@
 {
   "HomePage": {
-    "title": "Hello world!",
+    "title": "Bosh sahifa",
     "about": "Go to the about page"
   },
   "AboutPage": {
-    "title": "Kompaniya haqida",
-    "content": "Bu maqola biz haqimizda tavsiya etilgan sahifadagi materiallardan iborat bo'lishimizda ishlaydi",
+    "title1": "Kompaniya haqida",
+    "title2": "Rahbariyat",
+    "content": "\"Yashil Energiya\" MChJ O‘zbekiston Respublikasi Prezidentining 2023-yil 16-fevraldagi \"2023-yilda qayta tiklanuvchi energiya manbalarini va energiya tejovchi texnologiyalarni joriy etishni jadallashtirish chora-tadbirlari to‘g‘risida\"gi PQ-57-sonli qaroriga asosan tashkil etilgan.",
+    "content2": "Qayta tiklanuvchi energiya manbalari qurilmalari orqali elektr energiya ishlab chiqarilganda atrof-muhitga zararli gazlar chiqmaydi. Qayta tiklanuvchi energiya manbalari qurilmalari foydalanishga topshirilgan vaqtdan boshlab daromad olish imkoni yuzaga keladi. Bunday qurilmalar binolarning tom qismida yoki bo‘sh yer maydonlarga o‘rnatilib, ishlash jarayonida shovqin bo‘lmaydi. Zamonaviy vositalar orqali bino va xonadonlarni elektr energiyasi bilan ta’minlash imkoniyati yuzaga keladi. Bu qurilmalarni o‘rnatish oson va doimiy texnik xizmat ko‘rsatish talab etilmaydi. Mazkur qurilmalar o‘rtacha 20-25 yil davomida xizmat ko‘rsatadi. Mulk egasi ehtiyojidan ortgan qismini elektr tarmoqlari korxonasiga sotib, daromad olish imkoni mavjud.",
+    "goalsTitle": {
+      "title": "\"Yashil Energiya\" MChJ tashkil etilishidan asosiy maqsad:"
+    },
+    "goals1": {
+      "title": "- qayta tiklanuvchi energiya manbalari qurilmalarini o'rnatish va ularni ekspluatatsiya qilish;"
+    },
+    "goals2": {
+      "title": "- qayta tiklanuvchi energiya manbalari qurilmalari orqali ishlab chiqarilgan elektr energiyasini iste’molchilarga yetkazish;"
+    },
+    "goals3": {
+      "title": "- respublika hududlarida o'rnatilgan qayta tiklanuvchi energiya manbalari qurilmalariga servis va texnik xizmat ko'rsatish."
+    },
+    "system1": {
+      "title": "On-Grid tizimi",
+      "description": "hududiy elektr tarmoqlari tizimiga ulangan bo'lib,invertorlar orqali hosil bo'lgan o'zgaruvchan energiya manbaidan quyoshli kunlarda bemalol foydalanishingiz mumkin. Iste’molingizdan ortig'ini esa mahalliy elektr tarmog'iga yo'naltirishingiz, aniqrog'i sotishingiz mumkin. Albatta buning uchun hududiy elektr tarmog'ida ham elektr energiyasi mavjud bo'lishi lozim. Shuning uchun bu usul tarmoq ichida tizim deb ataladi."
+    },
+    "system2": {
+      "title": "Off-Grid tizimi",
+      "description": "hududiy elektr tarmoqlari tizimidan holi, mustaqil (avtonom) tizim bo'lib, quyoshli kunlarda hosil bo'lgan va iste’molingizdan ortib qolgan elektr manbaini zaxiraga olib qo'yish imkoniyatiga ega bo'lasiz. Bunda batareyalarga \"g'amlab\" qo'yilgan elektr energiyasi Sizni kecha-yu kunduz uzluksiz elektr energiyasi bilan ta’minlab turadi."
+    },
+    "system3": {
+      "title": "Gibrid tizimi",
+      "description": "On-Grid (tizim ichidagi) va Off-Grid (tizimdan tashqari) imkoniyatlarini birlashtirgan Sizning \"quyosh elektr stansiyangiz\"dir. Bunda Siz bir vaqtning o'zida xam hududiy elektr tarmog'iga ulangan bo'lasiz, ham o'z elektr zaxirangizga ega bo'lasiz. Xohlang o'zingiz \"ishlab chiqargan\" elektr manbaini mahalliy elektr tarmog'iga soting, xohlang zaxira sifatida batareyaga \"g'amlab\" qo'ygan elektr energiyangizdan o'zingiz bemalol foydalaning."
+    },
     "link": "Batafsil"
-  },
-  "LocaleSwitcher": {
-    "label": "Change language",
-    "locale": "{locale, select, uz {uz O'zbekcha} ru {ru Ruscha} other {Unknown}}"
   },
   "Header": {
     "main": "Bosh sahifa",
