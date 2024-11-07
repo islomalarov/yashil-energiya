@@ -72,5 +72,10 @@
     "title": "Bizning loyihalar",
     "linkTitle": "Barcha loyihalar",
     "link": "Batafsil"
+  },
+  "TheLastNews": {
+    "heroTitle": "Yangiliklar",
+    "title": "Yangiliklar",
+    "linkTitle": "Barcha yangiliklar"
   }
 }

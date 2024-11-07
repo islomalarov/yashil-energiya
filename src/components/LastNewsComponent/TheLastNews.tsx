@@ -6,10 +6,14 @@ import { Link } from "@/src/i18n/routing";
 import { TheNewsList } from "../NewsListComponent/TheNewsList";
 import { NewResponse, NewsService } from "@/services/news.service";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 export function TheLastNews() {
   // const { processedData } = await getData("media", "news", 3, 1);
+
   const [news, setNews] = useState<NewResponse[]>([]);
+  const t = useTranslations("TheLastNews");
+
   useEffect(() => {
     const fetchLastNews = async () => {
       const { news } = await NewsService.getLastNews();
@@ -20,9 +24,9 @@ export function TheLastNews() {
   return (
     <div className="container">
       <div className={styles.header}>
-        <h3 className="title">Yangiliklar</h3>
+        <h3 className="title">{t("title")}</h3>
         <Link href="/news" className={styles.link}>
-          Barcha yangiliklar
+          {t("linkTitle")}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="9"

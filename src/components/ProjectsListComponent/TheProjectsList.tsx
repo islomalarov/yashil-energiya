@@ -1,6 +1,7 @@
 import "@/scss/globals.scss";
 import styles from "./page.module.scss";
-import Link from "next/link";
+// import Link from "next/link";
+import { Link } from "@/src/i18n/routing";
 import projects from "@/data/projects.json";
 import TheCover from "../CoverComponent/TheCover";
 import { useTranslations } from "next-intl";

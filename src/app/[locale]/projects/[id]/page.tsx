@@ -1,10 +1,11 @@
-import "@/../scss/globals.scss";
+import "@/scss/globals.scss";
 import styles from "./page.module.scss";
 import Image from "next/image";
 import projects from "@/data/projects.json";
 import { TheHero } from "@/src/components/HeroComponent/TheHero";
 import { TheFeedback } from "@/src/components/FeedbackComponent/TheFeedback";
 import { getDate } from "@/my/date/getDate";
+import { useTranslations } from "next-intl";
 
 type Props = {
   params: {
@@ -13,6 +14,7 @@ type Props = {
 };
 
 export default function Project({ params: { id } }: Props) {
+  const t = useTranslations("TheLastProjects");
   const {
     data: { list },
   } = projects;
@@ -26,7 +28,7 @@ export default function Project({ params: { id } }: Props) {
 
   return (
     <>
-      <TheHero title1="Loyihalar" url1="projects" />
+      <TheHero title1={t("heroTitle")} url1="projects" />
       <div className="container">
         <div className={styles.content}>
           <h2 className={styles.title}>{plantName}</h2>

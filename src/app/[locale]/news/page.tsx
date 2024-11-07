@@ -9,6 +9,7 @@ import { getPageNumbers } from "@/my/pageNumbers/getPageNumbers";
 import { getTotalPages } from "@/my/pageCounts/getTotalPages";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export interface SearchProps {
   searchParams: { page: string };
@@ -16,6 +17,7 @@ export interface SearchProps {
 export default function News({ searchParams }: SearchProps) {
   const pathname = usePathname();
   console.log(pathname);
+  const t = useTranslations("TheLastNews");
 
   const [news, setNews] = useState<NewResponse[]>([]);
   const [totalPages, setTotalPages] = useState(0);
@@ -54,7 +56,7 @@ export default function News({ searchParams }: SearchProps) {
   if (error) return <div>{error}</div>;
   return (
     <>
-      <TheHero title1="Yangiliklar" url1="news" />
+      <TheHero title1={t("heroTitle")} url1="news" />
       <div className="container">
         <TheNewsList news={news} url="news" />
         <ThePagination

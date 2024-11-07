@@ -15,7 +15,7 @@ export const TheAbout = () => {
     <div className="container">
       <div className={styles.content}>
         <div className={styles.info}>
-          <h2 className="title">{t("title1")}</h2>
+          <h2 className="title">{t("heroTitle1")}</h2>
           <div className={styles.line}></div>
           <TheExcerpt />
           <Link className={`${styles.link} link`} href="/about">

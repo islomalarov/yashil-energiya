@@ -72,5 +72,10 @@
     "title": "Наши проекты",
     "linkTitle": "Все проекты",
     "link": "Подробнее"
+  },
+  "TheLastNews": {
+    "heroTitle": "Новости",
+    "title": "Новости",
+    "linkTitle": "Все новости"
   }
 }

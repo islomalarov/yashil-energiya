@@ -1,3 +1,4 @@
+"use client";
 import "@/scss/globals.scss";
 import ParagraphComponent from "../ParagraphComponent/TheParagraph";
 import ImageComponent from "../ImageComponent/TheImageModal";
