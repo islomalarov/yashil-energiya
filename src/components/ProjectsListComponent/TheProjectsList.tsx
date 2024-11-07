@@ -3,8 +3,10 @@ import styles from "./page.module.scss";
 import Link from "next/link";
 import projects from "@/data/projects.json";
 import TheCover from "../CoverComponent/TheCover";
+import { useTranslations } from "next-intl";
 
 export const TheProjectsList = ({ begin, end }: ProjectProps) => {
+  const t = useTranslations("TheLastProjects");
   const {
     data: { list },
   } = projects;
@@ -30,7 +32,7 @@ export const TheProjectsList = ({ begin, end }: ProjectProps) => {
                 className={`${styles.link} link`}
                 href={`/projects/${plantCode}`}
               >
-                Batafsil
+                {t("link")}
               </Link>
             </div>
           </li>

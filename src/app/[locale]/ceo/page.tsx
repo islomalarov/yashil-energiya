@@ -9,9 +9,9 @@ export default function Ceo() {
   return (
     <>
       <TheHero
-        title1={t("title1")}
+        title1={t("heroTitle1")}
         url1="about"
-        title2={t("title2")}
+        title2={t("heroTitle2")}
         url2="ceo"
       />
       <div className="container">

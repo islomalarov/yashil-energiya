@@ -3,14 +3,16 @@ import styles from "./page.module.scss";
 import { Link } from "@/src/i18n/routing";
 // import Link from "next/link";
 import { TheProjectsList } from "../ProjectsListComponent/TheProjectsList";
+import { useTranslations } from "next-intl";
 
 export const TheLastProjects = () => {
+  const t = useTranslations("TheLastProjects");
   return (
     <div className="container">
       <div className={styles.header}>
-        <h3 className="title">Bizning loyihalar</h3>
+        <h3 className="title">{t("title")}</h3>
         <Link href="/projects" className={styles.link}>
-          Barcha loyihalar
+          {t("linkTitle")}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="9"
