@@ -1,4 +1,18 @@
 {
+  "Header": {
+    "main": "Bosh sahifa",
+    "about": "Biz haqimizda",
+    "company": "Kompaniya",
+    "ceo": "Rahbariyat",
+    "pressCenter": "Matbuot markazi",
+    "news": "Yangiliklar",
+    "articles": "Maqolalar",
+    "activity": "Faoliyat",
+    "branches": "filiallar",
+    "projects": "loyihalar",
+    "contacts": "Kontaktlar",
+    "content": "This is the about page"
+  },
   "HomePage": {
     "title": "Bosh sahifa",
     "about": "Go to the about page"
@@ -34,18 +48,23 @@
     },
     "link": "Batafsil"
   },
-  "Header": {
-    "main": "Bosh sahifa",
-    "about": "Biz haqimizda",
-    "company": "Kompaniya",
-    "ceo": "Rahbariyat",
-    "pressCenter": "Matbuot markazi",
-    "news": "Yangiliklar",
-    "articles": "Maqolalar",
-    "activity": "Faoliyat",
-    "branches": "filiallar",
-    "projects": "loyihalar",
-    "contacts": "Kontaktlar",
-    "content": "This is the about page"
+  "TheAdvantages": {
+    "title": "bizning afzalliklarimiz",
+    "advantage1": {
+      "src": "advantage1.svg",
+      "description": "Sohada katta tajriba"
+    },
+    "advantage2": {
+      "src": "advantage2.svg",
+      "description": "Yuqori sifatli mahsulotlar"
+    },
+    "advantage3": {
+      "src": "advantage3.svg",
+      "description": "Respublika bo'ylab 20000 dan ortiq ob'ektlar"
+    },
+    "advantage4": {
+      "src": "advantage4.svg",
+      "description": "Turli xil yechimlar"
+    }
   }
 }

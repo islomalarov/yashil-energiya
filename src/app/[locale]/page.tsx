@@ -6,15 +6,10 @@ import { TheLastProjects } from "@/src/components/LastProjectsComponent/TheLastP
 import { TheLastNews } from "@/src/components/LastNewsComponent/TheLastNews";
 import { TheLinks } from "@/src/components/LinksComponent/TheLinks";
 import { TheFeedback } from "@/src/components/FeedbackComponent/TheFeedback";
-import { useTranslations } from "next-intl";
 
 export default function Home() {
-  const t = useTranslations("HomePage");
   return (
     <>
-      {/* <div>
-        <h1>{t("title")}</h1>
-      </div> */}
       <TheSlider />
       <TheAbout />
       <TheAdvantages />

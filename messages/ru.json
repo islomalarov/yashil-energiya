@@ -1,4 +1,18 @@
 {
+  "Header": {
+    "main": "Главная",
+    "about": "О нас",
+    "company": "Компания",
+    "ceo": "Руководство",
+    "pressCenter": "Пресс-центр",
+    "news": "Новости",
+    "articles": "Статьи",
+    "activity": "Деятельность",
+    "branches": "Филиалы",
+    "projects": "Проекты",
+    "contacts": "Контакты",
+    "content": "This is the about page"
+  },
   "HomePage": {
     "title": "Главная страница",
     "about": "Go to the about page"
@@ -34,18 +48,23 @@
     },
     "link": "Подробнее"
   },
-  "Header": {
-    "main": "Главная",
-    "about": "О нас",
-    "company": "Компания",
-    "ceo": "Руководство",
-    "pressCenter": "Пресс-центр",
-    "news": "Новости",
-    "articles": "Статьи",
-    "activity": "Деятельность",
-    "branches": "Филиалы",
-    "projects": "Проекты",
-    "contacts": "Контакты",
-    "content": "This is the about page"
+  "TheAdvantages": {
+    "title": "наши преимущества",
+    "advantage1": {
+      "src": "advantage1.svg",
+      "description": "Обширный опыт работы в области"
+    },
+    "advantage2": {
+      "src": "advantage2.svg",
+      "description": "Продукция высокого качества"
+    },
+    "advantage3": {
+      "src": "advantage3.svg",
+      "description": "Более 20 000 объектов по всей стране"
+    },
+    "advantage4": {
+      "src": "advantage4.svg",
+      "description": "Различные решения"
+    }
   }
 }
