@@ -6,10 +6,8 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 type DropdownComponent = {
-  id: number;
   url: string;
   title: string;
-  index: number;
   subMenu: Array<{
     id: number;
     url: string;
@@ -17,13 +15,7 @@ type DropdownComponent = {
   }>;
 };
 
-export const TheDropdownMenu = ({
-  id,
-  url,
-  title,
-  index,
-  subMenu,
-}: DropdownComponent) => {
+export const TheDropdownMenu = ({ url, title, subMenu }: DropdownComponent) => {
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations("Header");
   return (

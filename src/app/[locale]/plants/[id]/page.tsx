@@ -13,8 +13,8 @@ type Props = {
   };
 };
 
-export default function Project({ params: { id } }: Props) {
-  const t = useTranslations("TheLastProjects");
+export default function Plant({ params: { id } }: Props) {
+  const t = useTranslations("TheLastPlants");
   const {
     data: { list },
   } = projects;

@@ -9,9 +9,12 @@
     "articles": "Maqolalar",
     "activity": "Faoliyat",
     "branches": "filiallar",
+    "plants": "QFESlar ro'yhati",
+    "solarpanels": "QFES",
+    "microges": "Mikro GES",
+    "chargingstation": "Zaryadlash stansiyalari",
     "projects": "loyihalar",
-    "contacts": "Kontaktlar",
-    "content": "This is the about page"
+    "contacts": "Kontaktlar"
   },
   "HomePage": {
     "title": "Bosh sahifa",
@@ -21,7 +24,6 @@
     "heroTitle1": "Kompaniya haqida",
     "heroTitle2": "Rahbariyat",
     "content": "\"Yashil Energiya\" MChJ O‘zbekiston Respublikasi Prezidentining 2023-yil 16-fevraldagi \"2023-yilda qayta tiklanuvchi energiya manbalarini va energiya tejovchi texnologiyalarni joriy etishni jadallashtirish chora-tadbirlari to‘g‘risida\"gi PQ-57-sonli qaroriga asosan tashkil etilgan.",
-    "content2": "Qayta tiklanuvchi energiya manbalari qurilmalari orqali elektr energiya ishlab chiqarilganda atrof-muhitga zararli gazlar chiqmaydi. Qayta tiklanuvchi energiya manbalari qurilmalari foydalanishga topshirilgan vaqtdan boshlab daromad olish imkoni yuzaga keladi. Bunday qurilmalar binolarning tom qismida yoki bo‘sh yer maydonlarga o‘rnatilib, ishlash jarayonida shovqin bo‘lmaydi. Zamonaviy vositalar orqali bino va xonadonlarni elektr energiyasi bilan ta’minlash imkoniyati yuzaga keladi. Bu qurilmalarni o‘rnatish oson va doimiy texnik xizmat ko‘rsatish talab etilmaydi. Mazkur qurilmalar o‘rtacha 20-25 yil davomida xizmat ko‘rsatadi. Mulk egasi ehtiyojidan ortgan qismini elektr tarmoqlari korxonasiga sotib, daromad olish imkoni mavjud.",
     "goalsTitle": {
       "title": "\"Yashil Energiya\" MChJ tashkil etilishidan asosiy maqsad:"
     },
@@ -33,18 +35,6 @@
     },
     "goals3": {
       "title": "- respublika hududlarida o'rnatilgan qayta tiklanuvchi energiya manbalari qurilmalariga servis va texnik xizmat ko'rsatish."
-    },
-    "system1": {
-      "title": "On-Grid tizimi",
-      "description": "hududiy elektr tarmoqlari tizimiga ulangan bo'lib,invertorlar orqali hosil bo'lgan o'zgaruvchan energiya manbaidan quyoshli kunlarda bemalol foydalanishingiz mumkin. Iste’molingizdan ortig'ini esa mahalliy elektr tarmog'iga yo'naltirishingiz, aniqrog'i sotishingiz mumkin. Albatta buning uchun hududiy elektr tarmog'ida ham elektr energiyasi mavjud bo'lishi lozim. Shuning uchun bu usul tarmoq ichida tizim deb ataladi."
-    },
-    "system2": {
-      "title": "Off-Grid tizimi",
-      "description": "hududiy elektr tarmoqlari tizimidan holi, mustaqil (avtonom) tizim bo'lib, quyoshli kunlarda hosil bo'lgan va iste’molingizdan ortib qolgan elektr manbaini zaxiraga olib qo'yish imkoniyatiga ega bo'lasiz. Bunda batareyalarga \"g'amlab\" qo'yilgan elektr energiyasi Sizni kecha-yu kunduz uzluksiz elektr energiyasi bilan ta’minlab turadi."
-    },
-    "system3": {
-      "title": "Gibrid tizimi",
-      "description": "On-Grid (tizim ichidagi) va Off-Grid (tizimdan tashqari) imkoniyatlarini birlashtirgan Sizning \"quyosh elektr stansiyangiz\"dir. Bunda Siz bir vaqtning o'zida xam hududiy elektr tarmog'iga ulangan bo'lasiz, ham o'z elektr zaxirangizga ega bo'lasiz. Xohlang o'zingiz \"ishlab chiqargan\" elektr manbaini mahalliy elektr tarmog'iga soting, xohlang zaxira sifatida batareyaga \"g'amlab\" qo'ygan elektr energiyangizdan o'zingiz bemalol foydalaning."
     },
     "link": "Batafsil"
   },
@@ -67,15 +57,121 @@
       "description": "Turli xil yechimlar"
     }
   },
-  "TheLastProjects": {
-    "heroTitle": "Loyihalar",
-    "title": "Bizning loyihalar",
-    "linkTitle": "Barcha loyihalar",
+  "TheLastPlants": {
+    "heroTitle": "QFESlar ro'yhati",
+    "title": "Bizning QFESlar",
+    "linkTitle": "Barcha QFESlar",
     "link": "Batafsil"
   },
   "TheLastNews": {
     "heroTitle": "Yangiliklar",
     "title": "Yangiliklar",
     "linkTitle": "Barcha yangiliklar"
+  },
+  "SolarPanelsPage": {
+    "heroTitle": "Quyosh panellari",
+    "content": "Qayta tiklanuvchi energiya manbalari qurilmalari orqali elektr energiya ishlab chiqarilganda atrof-muhitga zararli gazlar chiqmaydi. Qayta tiklanuvchi energiya manbalari qurilmalari foydalanishga topshirilgan vaqtdan boshlab daromad olish imkoni yuzaga keladi. Bunday qurilmalar binolarning tom qismida yoki bo‘sh yer maydonlarga o‘rnatilib, ishlash jarayonida shovqin bo‘lmaydi. Zamonaviy vositalar orqali bino va xonadonlarni elektr energiyasi bilan ta’minlash imkoniyati yuzaga keladi. Bu qurilmalarni o‘rnatish oson va doimiy texnik xizmat ko‘rsatish talab etilmaydi. Mazkur qurilmalar o‘rtacha 20-25 yil davomida xizmat ko‘rsatadi. Mulk egasi ehtiyojidan ortgan qismini elektr tarmoqlari korxonasiga sotib, daromad olish imkoni mavjud.",
+    "system1": {
+      "title": "On-Grid tizimi",
+      "description": "hududiy elektr tarmoqlari tizimiga ulangan bo'lib,invertorlar orqali hosil bo'lgan o'zgaruvchan energiya manbaidan quyoshli kunlarda bemalol foydalanishingiz mumkin. Iste’molingizdan ortig'ini esa mahalliy elektr tarmog'iga yo'naltirishingiz, aniqrog'i sotishingiz mumkin. Albatta buning uchun hududiy elektr tarmog'ida ham elektr energiyasi mavjud bo'lishi lozim. Shuning uchun bu usul tarmoq ichida tizim deb ataladi."
+    },
+    "system2": {
+      "title": "Off-Grid tizimi",
+      "description": "hududiy elektr tarmoqlari tizimidan holi, mustaqil (avtonom) tizim bo'lib, quyoshli kunlarda hosil bo'lgan va iste’molingizdan ortib qolgan elektr manbaini zaxiraga olib qo'yish imkoniyatiga ega bo'lasiz. Bunda batareyalarga \"g'amlab\" qo'yilgan elektr energiyasi Sizni kecha-yu kunduz uzluksiz elektr energiyasi bilan ta’minlab turadi."
+    },
+    "system3": {
+      "title": "Gibrid tizimi",
+      "description": "On-Grid (tizim ichidagi) va Off-Grid (tizimdan tashqari) imkoniyatlarini birlashtirgan Sizning \"quyosh elektr stansiyangiz\"dir. Bunda Siz bir vaqtning o'zida xam hududiy elektr tarmog'iga ulangan bo'lasiz, ham o'z elektr zaxirangizga ega bo'lasiz. Xohlang o'zingiz \"ishlab chiqargan\" elektr manbaini mahalliy elektr tarmog'iga soting, xohlang zaxira sifatida batareyaga \"g'amlab\" qo'ygan elektr energiyangizdan o'zingiz bemalol foydalaning."
+    }
+  },
+  "MicrogesPage": {
+    "heroTitle": "Mikro GES",
+    "content": "Oʻzbekistonda mikro gidroelektr stansiyalar (mikro GES)ni rivojlantirish mamlakatning energetika xavfsizligini taʼminlash va ekologik toza energiya manbalaridan foydalanishni kengaytirish uchun muhim ahamiyatga ega.",
+    "needsTitle": "Mikro GESlarning Oʻzbekistonga zarurati:",
+    "need1": {
+      "title": "Energetika xavfsizligini taʼminlash",
+      "description": "Mikro GESlar uzoq va chekka hududlarni elektr energiyasi bilan taʼminlashda muhim rol oʻynaydi. Bu, ayniqsa, togʻli va qishloq joylarida markaziy energiya tarmoqlariga ulanish imkoniyati cheklangan aholi punktlari uchun dolzarbdir"
+    },
+    "need2": {
+      "title": "Atrof-muhitga zarar yetkazmaslik",
+      "description": "Mikro GESlar kichik hajmdagi suv oqimlaridan foydalanib, atrof-muhitga minimal taʼsir koʻrsatadi. Ular katta suv omborlari qurilishini talab qilmaydi va ekologik muvozanatni saqlashga yordam beradi"
+    },
+    "need3": {
+      "title": "Energiya manbalarini diversifikatsiya qilish",
+      "description": "Mikro GESlar qayta tiklanuvchi energiya manbalaridan biri boʻlib, mamlakatning energiya manbalarini diversifikatsiya qilishga hissa qoʻshadi va tabiiy gazga boʻlgan qaramlikni kamaytiradi"
+    },
+    "benefitsTitle": "Mikro GESlarning Oʻzbekistonga keltiradigan foydalari:",
+    "benefit1": {
+      "title": "Elektr energiyasi ishlab chiqarish",
+      "description": "Mikro GESlar kichik hajmdagi suv oqimlaridan foydalanib, elektr energiyasi ishlab chiqaradi. Masalan, Andijon viloyatida quvvati 200 kVt boʻlgan \"Zavroq\" mikro GESi yiliga 1,2 million kVt·soat elektr energiyasi ishlab chiqarib, 300 ta xonadonni taʼminlash imkoniyatiga ega"
+    },
+    "benefit2": {
+      "title": "Tabiiy gazni tejash",
+      "description": "Mikro GESlar orqali ishlab chiqarilgan elektr energiyasi tabiiy gaz isteʼmolini kamaytiradi. Hisob-kitoblarga koʻra, 250 ta mikro GES yiliga 675 million kVt·soat elektr energiyasi ishlab chiqarib, 200 million kub metr gazni tejash imkonini beradi"
+    },
+    "benefit3": {
+      "title": "Ish oʻrinlari yaratish",
+      "description": "Mikro GESlar qurilishi va ekspluatatsiyasi jarayonida mahalliy aholi uchun yangi ish oʻrinlari yaratiladi. Bu esa hududiy iqtisodiyotni rivojlantirishga xizmat qiladi"
+    },
+    "benefit4": {
+      "title": "Xususiy sektor ishtirokini ragʻbatlantirish",
+      "description": "Mikro GESlar qurilishida xususiy investorlarning ishtiroki ragʻbatlantirilmoqda. Masalan, 2022-yilda 200 ta mikro GES loyihasi xususiy sektor ishtirokida amalga oshirilishi rejalashtirilgan"
+    },
+    "statisticsTitle": "Statistik maʼlumotlar:",
+    "statistic1": {
+      "description": "2022-yilda Oʻzbekistonda 50 ta kichik GES qurilishi rejalashtirilgan boʻlib, ular yiliga 202 million kVt·soat elektr energiyasi ishlab chiqarishi kutilmoqda."
+    },
+    "statistic2": {
+      "description": "2023-yilda Andijon viloyatida quvvati 50 kVt boʻlgan mikro GES ishga tushirilib, 150 ta xonadonni elektr energiyasi bilan taʼminlash imkoniyatiga ega boʻldi. "
+    },
+    "statistic3": {
+      "description": "2024-yilda 18 ta kichik va mikro GESlar ishga tushirilishi rejalashtirilgan boʻlib, ularning umumiy quvvati 24,5 million kVt·soatni tashkil qiladi. Bu quvvat oʻrtacha 45 ming xonadonni elektr energiyasi bilan taʼminlashga yetadi."
+    }
+  },
+  "ChargingstationPage": {
+    "heroTitle": "Elektr mobillarni zaryadlash stansiyasi",
+    "needsTitle": "Elektr mobillarni zaryadlash stansiyasining Oʻzbekistonga kerakligi:",
+    "need1": {
+      "title": "Atrof-muhitni muhofaza qilish",
+      "description": "Zaryadlash stansiyalari orqali elektr mobillardan foydalanish oshadi va bu esa havodagi zararli gazlar, jumladan, karbonat angidrid miqdorini kamaytirishga yordam beradi. Bu atrof-muhit ifloslanishini kamaytirib, sogʻlom turmush tarzini saqlashga hissa qoʻshadi."
+    },
+    "need2": {
+      "title": " Yanada samarali energiya foydalanish",
+      "description": "Elektr mobillar an’anaviy yonilgʻiga tayanmaydi, ya'ni Oʻzbekistonda tabiiy resurslar tejashga imkon beradi. Mamlakatda energiya manbalarini diversifikatsiya qilish zarurati yuqori bo'lib, elektr transportini qoʻllab-quvvatlash orqali bu maqsadga erishish mumkin."
+    },
+    "need3": {
+      "title": "Transport xarajatlarini kamaytirish",
+      "description": "Elektr mobillarni ishlatish an’anaviy yoqilgʻida harakatlanadigan transport vositalariga qaraganda arzonroq boʻladi. Bu esa aholi uchun transport xarajatlarini kamaytirishga yordam beradi."
+    },
+    "benefitsTitle": "Elektr mobillarni zaryadlash stansiyasining foydalari:",
+    "benefit1": {
+      "title": "Barqaror energiya ta'minoti",
+      "description": "Zaryadlash stansiyalari, ayniqsa, qayta tiklanuvchi energiya manbalariga ulansa, energiya bilan ta’minlashda davomiylik va barqarorlikni ta’minlaydi."
+    },
+    "benefit2": {
+      "title": "Iqtisodiy rivojlanish uchun imkoniyatlar",
+      "description": "Elektr zaryadlash infratuzilmasini rivojlantirish orqali yangi ish o'rinlari yaratiladi va xususiy investorlar uchun yangi biznes imkoniyatlari ochiladi. Bu iqtisodiy rivojlanish va yangi texnologiyalarning kirib kelishiga yordam beradi."
+    },
+    "benefit3": {
+      "title": " Sayohatchilar uchun qulaylik",
+      "description": "Zaryadlash stansiyalari yo‘l bo'ylab strategik joylarda o'rnatilsa, elektr mobillarni uzoq masofalarga boshqarish qulay bo'ladi. Bu esa ichki turizm va iqtisodiy faoliyatni qo'llab-quvvatlaydi."
+    },
+    "benefit4": {
+      "title": "Raqamli integratsiya imkoniyati",
+      "description": "Zamonaviy zaryadlash stansiyalari mobil ilovalar orqali boshqarilishi va kuzatilishi mumkin. Bu foydalanuvchilarga yaqin zaryadlash stansiyalarini topish, zaryadlash vaqti va quvvatini kuzatish imkonini beradi."
+    },
+    "statisticsTitle": "Statistik ma'lumotlar va prognozlar:",
+    "statistic1": {
+      "title": "Hozirgi holat",
+      "description": "2024-yil holatiga koʻra, Oʻzbekistonda bir nechta elektr mobillar zaryadlash stansiyalari mavjud boʻlib, ular asosan Toshkent va yirik shaharlar atrofida joylashgan."
+    },
+    "statistic2": {
+      "title": "Rejalar",
+      "description": "Oʻzbekiston hukumati kelgusi 5 yil ichida elektr mobillarni zaryadlash infratuzilmasini kengaytirishni va katta avtomobil yoʻllarida qoʻshimcha zaryadlash stansiyalarini oʻrnatishni rejalashtirmoqda."
+    },
+    "statistic3": {
+      "title": "O'sish prognozi",
+      "description": "Ma'lumotlarga koʻra, Oʻzbekiston avtomobil bozorida elektr mobillar ulushi 2030-yilgacha sezilarli darajada oshishi kutilmoqda, bu esa zaryadlash stansiyalariga talabni oshiradi."
+    }
   }
 }

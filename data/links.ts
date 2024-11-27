@@ -32,7 +32,7 @@ export const links = [
 ];
 
 export const menuLinks = [
-  { id: 1, url: "/", title: "main" },
+  // { id: 1, url: "/", title: "main" },
   {
     id: 2,
     url: "#",
@@ -54,13 +54,23 @@ export const menuLinks = [
   {
     id: 4,
     url: "#",
-    title: "activity",
+    title: "projects",
     subMenu: [
-      { id: 4.1, url: "/branches", title: "branches" },
-      { id: 4.2, url: "/projects", title: "projects" },
+      { id: 4.1, url: "/solarpanels", title: "solarpanels" },
+      { id: 4.2, url: "/microges", title: "microges" },
+      { id: 4.3, url: "/chargingstation", title: "chargingstation" },
     ],
   },
-  { id: 5, url: "/contacts", title: "contacts" },
+  {
+    id: 5,
+    url: "#",
+    title: "activity",
+    subMenu: [
+      { id: 5.1, url: "/branches", title: "branches" },
+      { id: 5.2, url: "/plants", title: "plants" },
+    ],
+  },
+  { id: 6, url: "/contacts", title: "contacts" },
 ];
 
 export const socialLinks = [
@@ -78,12 +88,15 @@ export const socialLinks = [
   },
 ];
 export const footerMenu = [
-  { id: 1, url: "/", title: "main" },
+  // { id: 1, url: "/", title: "main" },
   { id: 2, url: "/about", title: "company" },
   { id: 3, url: "/ceo", title: "ceo" },
   { id: 4, url: "/news", title: "news" },
   { id: 5, url: "/articles", title: "articles" },
-  { id: 6, url: "/branches", title: "branches" },
-  { id: 7, url: "/projects", title: "projects" },
-  { id: 8, url: "/contacts", title: "contacts" },
+  { id: 6, url: "/solarpanels", title: "solarpanels" },
+  { id: 7, url: "/microges", title: "microges" },
+  { id: 8, url: "/chargingstation", title: "chargingstation" },
+  { id: 9, url: "/branches", title: "branches" },
+  { id: 10, url: "/plants", title: "plants" },
+  { id: 11, url: "/contacts", title: "contacts" },
 ];

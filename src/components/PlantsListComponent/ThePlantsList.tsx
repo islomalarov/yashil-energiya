@@ -3,11 +3,12 @@ import styles from "./page.module.scss";
 // import Link from "next/link";
 import { Link } from "@/src/i18n/routing";
 import projects from "@/data/projects.json";
-import TheCover from "../CoverComponent/TheCover";
-import { useTranslations } from "next-intl";
 
-export const TheProjectsList = ({ begin, end }: ProjectProps) => {
-  const t = useTranslations("TheLastProjects");
+import { useTranslations } from "next-intl";
+import TheCover from "../CoverComponent/TheCover";
+
+export const ThePlantsList = ({ begin, end }: ProjectProps) => {
+  const t = useTranslations("TheLastPlants");
   const {
     data: { list },
   } = projects;
@@ -31,7 +32,7 @@ export const TheProjectsList = ({ begin, end }: ProjectProps) => {
               <p>{plantAddress}</p>
               <Link
                 className={`${styles.link} link`}
-                href={`/projects/${plantCode}`}
+                href={`/plants/${plantCode}`}
               >
                 {t("link")}
               </Link>

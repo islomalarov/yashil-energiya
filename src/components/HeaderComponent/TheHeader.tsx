@@ -35,11 +35,8 @@ export const TheHeader = () => {
             </Link>
           </div>
           <div className={styles.menuBlock}>
-            {menuLinks.map(({ id, url, title, subMenu }: any, index) => (
-              <TheDropdownMenu
-                key={id}
-                {...{ id, url, title, index, subMenu }}
-              />
+            {menuLinks.map(({ id, url, title, subMenu }: any) => (
+              <TheDropdownMenu key={id} {...{ url, title, subMenu }} />
             ))}
           </div>
           <div className={styles.actions}>

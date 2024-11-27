@@ -2,16 +2,17 @@ import "@/scss/globals.scss";
 import styles from "./page.module.scss";
 import { Link } from "@/src/i18n/routing";
 // import Link from "next/link";
-import { TheProjectsList } from "../ProjectsListComponent/TheProjectsList";
-import { useTranslations } from "next-intl";
 
-export const TheLastProjects = () => {
-  const t = useTranslations("TheLastProjects");
+import { useTranslations } from "next-intl";
+import { ThePlantsList } from "../PlantsListComponent/ThePlantsList";
+
+export const TheLastPlants = () => {
+  const t = useTranslations("TheLastPlants");
   return (
     <div className="container">
       <div className={styles.header}>
         <h3 className="title">{t("title")}</h3>
-        <Link href="/projects" className={styles.link}>
+        <Link href="/plants" className={styles.link}>
           {t("linkTitle")}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +31,7 @@ export const TheLastProjects = () => {
           </svg>
         </Link>
       </div>
-      <TheProjectsList begin={0} end={4} />
+      <ThePlantsList begin={0} end={4} />
     </div>
   );
 };

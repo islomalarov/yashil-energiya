@@ -8,7 +8,6 @@ import TheExcerpt from "@/src/components/ExcerptComponent/TheExcerpt";
 
 export default function About() {
   const t = useTranslations("AboutPage");
-  const systems = ["system1", "system2", "system3"] as const;
   return (
     <>
       <TheHero
@@ -30,15 +29,6 @@ export default function About() {
               src="/minenergy.jpg"
               alt="about"
             />
-          </div>
-          <div className={styles.descrBlock}>
-            <p className="description">{t("content2")}</p>
-            <br />
-            {systems.map((system) => (
-              <p className="description" key={system}>
-                <b>{t(`${system}.title`)}</b> - {t(`${system}.description`)}
-              </p>
-            ))}
           </div>
         </div>
       </div>
