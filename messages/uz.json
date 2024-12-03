@@ -188,7 +188,13 @@
     "title": "Kontaktlar",
     "phone": "Telefon raqami",
     "address": "Manzil",
+    "address1": "Toshkent shahri, Yashnobod tumani, Istiqbol ko'chasi, 21-uy",
     "landmark": "Mo'ljal",
-    "email": "Email"
+    "landmark1": "Westminster chorraxasi",
+    "email": "Elektron pochta",
+    "title1": "Bizning manzil",
+    "department1": "Moliyaviy rivojlanish bo'limi",
+    "department2": "Marketing va xaridlar bo'limi",
+    "department3": "Mijozlar bilan ishlash xizmati"
   }
 }

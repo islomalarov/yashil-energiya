@@ -2,45 +2,46 @@ import "@/scss/globals.scss";
 import { TheHero } from "@/src/components/HeroComponent/TheHero";
 import TheForm from "@/src/components/FormComponent/TheForm";
 import styles from "./page.module.scss";
+import { useTranslations } from "next-intl";
 
 const departments = [
   {
-    department: "Moliyaviy rivojlanish bo'limi",
+    department: "department1",
     phone: "+998 90 830-31-09",
     mail: "info@yashil-energiya.uz",
   },
   {
-    department: "Marketing va xaridlar bo'limi",
+    department: "department2",
     phone: "+998 90 830-31-36",
     mail: "info@yashil-energiya.uz",
   },
   {
-    department: "Mijozlar bilan ishlash xizmati",
+    department: "department3",
     phone: "+998 90 830-31-39",
     mail: "info@yashil-energiya.uz",
   },
 ];
 export default function Contacts() {
+  const t = useTranslations("ContactsPage");
+
   return (
     <>
-      <TheHero title1={"Kontaktlar"} url1="contacts" />
+      <TheHero title1={t("title")} url1="contacts" />
       <div className="container">
         <div className={styles.content}>
           <div className={styles.map}>
             <div className={styles.companyInfo}>
-              <h1>Bizning manzil</h1>
+              <h1>{t("title1")}</h1>
               <div>
-                <div className={styles.descr}>Manzil:</div>
-                <div className={styles.info}>
-                  Toshkent shahri, Yashnobod tumani, Istiqbol ko'chasi, 21-uy
-                </div>
+                <div className={styles.descr}>{t("address")}:</div>
+                <div className={styles.info}>{t("address1")}</div>
               </div>
               <div>
-                <div className={styles.descr}>Telefon raqam:</div>
+                <div className={styles.descr}>{t("phone")}:</div>
                 <div className={styles.info}>+998 90 830-20-00</div>
               </div>
               <div>
-                <div className={styles.descr}>Elektron pochta:</div>
+                <div className={styles.descr}>{t("email")}:</div>
                 <div className={styles.info}>info@yashil-energiya.uz</div>
               </div>
             </div>
@@ -56,13 +57,13 @@ export default function Contacts() {
           <div className={styles.departments}>
             {departments.map(({ department, phone, mail }) => (
               <div className={styles.department} key={phone}>
-                <h3 className={styles.title}>{department}</h3>
+                <h3 className={styles.title}>{t(`${department}`)}</h3>
                 <div>
-                  <div className={styles.descr}>Telefon raqami:</div>
+                  <div className={styles.descr}>{t("phone")}:</div>
                   <div className={styles.info}>{phone}</div>
                 </div>
                 <div>
-                  <div className={styles.descr}>Elektron pochta:</div>
+                  <div className={styles.descr}>{t("email")}:</div>
                   <div className={styles.info}>{mail}</div>
                 </div>
               </div>

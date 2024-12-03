@@ -14,11 +14,11 @@ export const TheContacts = () => {
         </div>
         <div className={styles.block}>
           <h2>{t("address")}</h2>
-          <p>Toshkent shahri, Yashnobod tumani, Istiqbol ko'chasi, 21-uy</p>
+          <p>{t("address1")}</p>
         </div>
         <div className={styles.block}>
           <h2>{t("landmark")}</h2>
-          <p>Westminster chorraxasi</p>
+          <p>{t("landmark1")}</p>
         </div>
         <div className={styles.block}>
           <h2>{t("email")}</h2>
