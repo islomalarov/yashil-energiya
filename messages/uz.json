@@ -183,5 +183,12 @@
     "phone": "Telefon raqami",
     "comment": "Izoh",
     "send": "Jo'natish"
+  },
+  "ContactsPage": {
+    "title": "Kontaktlar",
+    "phone": "Telefon raqami",
+    "address": "Manzil",
+    "landmark": "Mo'ljal",
+    "email": "Email"
   }
 }

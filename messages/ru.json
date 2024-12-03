@@ -183,5 +183,12 @@
     "phone": "Номер телефона",
     "comment": "Комментарий",
     "send": "Отправить"
+  },
+  "ContactsPage": {
+    "title": "Контакты",
+    "phone": "Номер телефона",
+    "address": "Адрес",
+    "landmark": "Ориентир",
+    "email": "Email"
   }
 }
