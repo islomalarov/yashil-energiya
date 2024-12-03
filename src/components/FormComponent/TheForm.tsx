@@ -6,6 +6,7 @@ import axios from "axios";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useTranslations } from "next-intl";
 
 export interface FormData {
   firstName: string;
@@ -13,6 +14,7 @@ export interface FormData {
   message: string;
 }
 export default function TheForm() {
+  const t = useTranslations("FeedbackPage");
   const [feedback, setFeedback] = useState<FormData>({
     firstName: "",
     phone: "",
@@ -49,13 +51,13 @@ export default function TheForm() {
   return (
     <>
       <form onSubmit={handleSubmit} className={styles.form}>
-        <h1 className="title">FIKR-MULOHAZA</h1>
+        <h1 className="title">{t("title")}</h1>
         <input
           className={styles.input}
           type="text"
           name="firstName"
           id="firstName"
-          placeholder="F.I.SH"
+          placeholder={t("name")}
           required
           value={feedback.firstName}
           onChange={handleChange}
@@ -65,7 +67,7 @@ export default function TheForm() {
           type="text"
           name="phone"
           id="phone"
-          placeholder="Telefon raqami"
+          placeholder={t("phone")}
           required
           value={feedback.phone}
           onChange={handleChange}
@@ -74,18 +76,18 @@ export default function TheForm() {
           className={styles.input}
           name="message"
           id="message"
-          placeholder="Izoh"
+          placeholder={t("comment")}
           required
           value={feedback.message}
           onChange={handleChange}
         />
         {feedback.firstName && feedback.phone && feedback.message ? (
           <button type="submit" className={styles.btn}>
-            Jo'natish
+            {t("send")}
           </button>
         ) : (
           <button type="submit" className={styles.disabledBtn}>
-            Jo'natish
+            {t("send")}
           </button>
         )}
       </form>

@@ -176,5 +176,12 @@
   },
   "LinksPage": {
     "title": "Foydali havolalar"
+  },
+  "FeedbackPage": {
+    "title": "FIKR-MULOHAZA",
+    "name": "F.I.SH",
+    "phone": "Telefon raqami",
+    "comment": "Izoh",
+    "send": "Jo'natish"
   }
 }
