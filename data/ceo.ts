@@ -55,10 +55,10 @@ export const ceo = [
   },
   {
     id: 10,
-    name: "Nurtaev Erkin Talipovich",
+    name: "Qurbonov Sherzod Azimbayevich",
     jobTitle:
       "Hududiy bo‘linmalar bilan ishlash va faoliyatini nazorat qilish bo‘yicha bosh mutaxassis",
-    email: "e.nurtaev@yashil-energiya.uz",
+    email: "sh.kurbonov@yashil-energiya.uz",
   },
   {
     id: 11,
