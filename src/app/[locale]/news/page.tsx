@@ -16,7 +16,6 @@ export interface SearchProps {
 }
 export default function News({ searchParams }: SearchProps) {
   const pathname = usePathname();
-  console.log(pathname);
   const t = useTranslations("TheLastNews");
 
   const [news, setNews] = useState<NewResponse[]>([]);

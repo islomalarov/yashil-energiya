@@ -196,5 +196,20 @@
     "department1": "Moliyaviy rivojlanish bo'limi",
     "department2": "Marketing va xaridlar bo'limi",
     "department3": "Mijozlar bilan ishlash xizmati"
+  },
+  "CeoPage": {
+    "jobTitle": "Lavozimi",
+    "email": "Elektron manzil",
+    "jobTitle1": "Direktor",
+    "jobTitle2": "Direktor o'rinbosari",
+    "jobTitle3": "Marketing va haridlar bo‘limi boshlig'i",
+    "jobTitle4": "Mijozlar bilan ishlash xizmati boshlig'i",
+    "jobTitle5": "Texnik masalalar bosh boshqarmasi boshlig'i v.v.b.",
+    "jobTitle6": "Raqamlashtirish, IT va dispetcherlik guruhi rahbari",
+    "jobTitle7": "Kadrlar bo‘limi boshlig'i",
+    "jobTitle8": "Mini va mikro GES bo‘limi boshlig'i",
+    "jobTitle9": "Quvvatlash stansiyalari bo‘limi boshlig‘i",
+    "jobTitle10": "Hududiy bo‘linmalar bilan ishlash va faoliyatini nazorat qilish bo‘yicha bosh mutaxassis",
+    "jobTitle11": "Loyihani amalga oshirish guruhi rahbari"
   }
 }
