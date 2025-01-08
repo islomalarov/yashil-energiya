@@ -42,10 +42,11 @@ export interface NewsResponse {
 }
 
 export const NewsService = {
-  getAllNews: async (first?: number, skip?: number) => {
+  getAllNews: async (first?: number, skip?: number, locale?: string) => {
     const query = gql`
       query GetNews {
-        news(first:${first}, skip:${skip}, orderBy: date_DESC) {
+        news(first:${first}, skip:${skip}, orderBy: date_DESC, locales: ${locale}) {
+    
           date
           id
           slug
@@ -78,10 +79,10 @@ export const NewsService = {
     const response = await request<NewsResponse>(graphqlAPI, query);
     return response;
   },
-  getOneNews: async (slug: string) => {
+  getOneNews: async (slug: string, locale: string) => {
     const query = gql`
       query getOneNews {
-        new(where: { slug: "${slug}" }) {
+        new(where: { slug: "${slug}" }, locales: ${locale}) {
           date
           id
           slug

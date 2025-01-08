@@ -3,7 +3,7 @@ import styles from "./page.module.scss";
 import { TheHero } from "@/src/components/HeroComponent/TheHero";
 import { NewsService } from "@/services/news.service";
 import NewsContentComponent from "@/src/components/NewsContentComponent/TheNewsContent";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 
 type Props = {
   params: { slug: string };
@@ -11,7 +11,8 @@ type Props = {
 
 export default async function NewsPage({ params: { slug } }: Props) {
   const t = await getTranslations("TheLastNews");
-  const data = await NewsService.getOneNews(slug);
+  const locale = await getLocale();
+  const data = await NewsService.getOneNews(slug, locale);
 
   return (
     <>

@@ -8,15 +8,13 @@ import { NewResponse, NewsService } from "@/services/news.service";
 import { getPageNumbers } from "@/my/pageNumbers/getPageNumbers";
 import { getTotalPages } from "@/my/pageCounts/getTotalPages";
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import { useTranslations } from "next-intl";
-
+import { useTranslations, useLocale } from "next-intl";
 export interface SearchProps {
   searchParams: { page: string };
 }
 export default function News({ searchParams }: SearchProps) {
-  const pathname = usePathname();
   const t = useTranslations("TheLastNews");
+  const locale = useLocale();
 
   const [news, setNews] = useState<NewResponse[]>([]);
   const [totalPages, setTotalPages] = useState(0);
@@ -34,7 +32,8 @@ export default function News({ searchParams }: SearchProps) {
       try {
         const { news, newsConnection } = await NewsService.getAllNews(
           newsPerPage,
-          skip
+          skip,
+          locale
         );
         setNews(news);
 
@@ -50,7 +49,7 @@ export default function News({ searchParams }: SearchProps) {
     };
 
     fetchNews();
-  }, [page, skip]);
+  }, [page, skip, locale]);
 
   if (error) return <div>{error}</div>;
   return (
