@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 const departments = [
   {
     department: "department1",
-    phone: "+998 90 830-31-09",
+    phone: "+998 90 830-31-18",
     mail: "info@yashil-energiya.uz",
   },
   {

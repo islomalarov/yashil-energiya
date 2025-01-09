@@ -59,19 +59,19 @@ export const branches = [
   },
   {
     title: "Samarqand hududiy servis markazi",
-    name: "Mutalibov Alisher",
+    name: "Yarmatov Nematjon",
     phone: "+998 95 281-44-14",
     adres:
       "Samarqand viloyati, Samarqand shahar, Buyuk Ipak yo‘li ko‘chasi, 69-uy",
     mail: "samarqand.servis@yashil-energiya.uz",
   },
-  {
-    title: "Sirdaryo hududiy servis markazi",
-    name: "Abdulazizov Sarvar",
-    phone: "+998 95 324-22-12",
-    adres: "Sirdaryo viloiyati, Guliston shahar, N. Mahmudova ko'chasi, 23-uy",
-    mail: "sirdaryo.servis@yashil-energiya.uz",
-  },
+  // {
+  //   title: "Sirdaryo hududiy servis markazi",
+  //   name: "Abdulazizov Sarvar",
+  //   phone: "+998 95 324-22-12",
+  //   adres: "Sirdaryo viloiyati, Guliston shahar, N. Mahmudova ko'chasi, 23-uy",
+  //   mail: "sirdaryo.servis@yashil-energiya.uz",
+  // },
   {
     title: "Surxondaryo hududiy servis markazi",
     name: "Bo'ronov O'ktam",
@@ -81,14 +81,14 @@ export const branches = [
   },
   {
     title: "Toshkent viloyati hududiy servis markazi",
-    name: "Muxamadjonov Fozilxon",
+    name: "Xolmurodov Bahodir",
     phone: "+998 95 324-22-52",
     adres: "Toshkent shahri, Istiqbol ko‘chasi, 21",
     mail: "toshkentvil.servis@yashil-energiya.uz",
   },
   {
     title: "Toshkent shahri hududiy servis markazi",
-    name: "G'aniyev Muhammad",
+    name: "Botirov Shohruh",
     phone: "+998 95 324-22-72",
     adres: "Toshkent shahri, Istiqbol ko‘chasi, 21",
     mail: "info@yashil-energiya.uz",

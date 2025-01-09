@@ -46,7 +46,6 @@ export const NewsService = {
     const query = gql`
       query GetNews {
         news(first:${first}, skip:${skip}, orderBy: date_DESC, locales: ${locale}) {
-    
           date
           id
           slug
@@ -103,10 +102,10 @@ export const NewsService = {
     const response = await request<NewResponse>(graphqlAPI, query);
     return response.new;
   },
-  getLastNews: async () => {
+  getLastNews: async (locale: string) => {
     const query = gql`
       query GetLastNews {
-        news(first: 3, orderBy: date_DESC) {
+        news(first: 3, orderBy: date_DESC, locales: ${locale}) {
           date
           id
           slug

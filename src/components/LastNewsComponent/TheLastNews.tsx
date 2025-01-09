@@ -6,21 +6,22 @@ import { Link } from "@/src/i18n/routing";
 import { TheNewsList } from "../NewsListComponent/TheNewsList";
 import { NewResponse, NewsService } from "@/services/news.service";
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 export function TheLastNews() {
   // const { processedData } = await getData("media", "news", 3, 1);
 
   const [news, setNews] = useState<NewResponse[]>([]);
   const t = useTranslations("TheLastNews");
+  const locale = useLocale();
 
   useEffect(() => {
     const fetchLastNews = async () => {
-      const { news } = await NewsService.getLastNews();
+      const { news } = await NewsService.getLastNews(locale);
       setNews(news);
     };
     fetchLastNews();
-  }, []);
+  }, [locale]);
   return (
     <div className="container">
       <div className={styles.header}>
