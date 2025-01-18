@@ -211,5 +211,28 @@
     "jobTitle9": "Quvvatlash stansiyalari bo‘limi boshlig‘i",
     "jobTitle10": "Hududiy bo‘linmalar bilan ishlash va faoliyatini nazorat qilish bo‘yicha bosh mutaxassis",
     "jobTitle11": "Loyihani amalga oshirish guruhi rahbari"
+  },
+  "BranchesPage": {
+    "title": "Filiallar",
+    "headerTitle": "\"Yashil Energiya\" MChJ ning hududiy servis markazlari",
+    "regionTitle": "hududiy servis markazi",
+    "branchManager": "Filial rahbari",
+    "phone": "Telefon raqami",
+    "address": "Filial manzili",
+    "email": "Elektron pochta",
+    "region1": "Andijon",
+    "region2": "Buxoro",
+    "region3": "Farg'ona",
+    "region4": "Jizzax",
+    "region5": "Namangan",
+    "region6": "Navoiy",
+    "region7": "Qashqadaryo",
+    "region8": "Qoraqalpog'iston Respublikasi",
+    "region9": "Samarqand",
+    "region10": "Sirdaryo",
+    "region11": "Surxondaryo",
+    "region12": "Toshkent viloyati",
+    "region13": "Toshkent shahri",
+    "region14": "Xorazm"
   }
 }

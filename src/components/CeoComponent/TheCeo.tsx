@@ -1,6 +1,6 @@
-import { ceo } from "@/data/ceo";
 import "@/scss/globals.scss";
 import styles from "./page.module.scss";
+import { ceo } from "@/data/ceo";
 import { useTranslations } from "next-intl";
 
 export const TheCeo = () => {

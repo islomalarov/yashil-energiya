@@ -12,7 +12,7 @@
   grid-column: 1/-1;
   font-size: 32px;
 }
-.ceo {
+.branch {
   border-radius: 10px;
   background: #fff;
   box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 0.1);
@@ -21,7 +21,7 @@
     padding: 20px;
   }
 }
-.ceoName {
+.regionName {
   color: #2b2b2b;
   font-size: 30px;
   font-weight: 700;
@@ -30,22 +30,18 @@
   grid-column: span 2;
 }
 .block {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  column-gap: 82px;
+  display: grid;
+  gap: 10px;
   padding-bottom: 25px;
 }
-.descr {
+.description {
   color: #2b2b2b;
   width: 190px;
-  font-size: 16px;
   font-weight: 400;
   line-height: 24px; /* 150% */
 }
 .title {
   color: #2b2b2b;
-  font-size: 18px;
   font-weight: 700;
   line-height: 24px; /* 133.333% */
 }
