@@ -2,15 +2,12 @@
 
 import "@/scss/globals.scss";
 import Image from "next/image";
-// import Link from "next/link";
 import { Link } from "@/src/i18n/routing";
 import styles from "./page.module.scss";
-import headerLogo from "@/public/logo.svg";
-
+import Logo from "@/public/logo_2.png";
 import { useState } from "react";
 import { TheLanguage } from "../ui/LanguageComponent/TheLanguage";
 import { TheSearch } from "../ui/SearchComponent/TheSearch";
-
 import { TheDropdownMenu } from "../ui/DropdownComponent/TheDropdown";
 import { menuLinks } from "@/data/links";
 import { TheBurgerMenu } from "../ui/BurgerComponent/TheBurgerMenu";
@@ -26,12 +23,7 @@ export const TheHeader = () => {
         <div className={styles.content}>
           <div className={styles.logoBlock}>
             <Link href="/">
-              <Image
-                className={styles.logo}
-                src={headerLogo}
-                alt="logo"
-                priority
-              />
+              <Image className={styles.logo} src={Logo} alt="logo" priority />
             </Link>
           </div>
           <div className={styles.menuBlock}>
