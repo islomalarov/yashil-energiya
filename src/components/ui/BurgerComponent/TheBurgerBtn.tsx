@@ -1,20 +1,17 @@
 import Image from "next/image";
-import menuIcon from "@/public/menu/burgerIcon.svg";
+import BurgerIcon from "@/public/menu/burgerIcon.svg";
 import styles from "./page.module.scss";
+import { BurgerMenuProps } from "./TheBurgerMenu";
 
-export const TheBurgerBtn = ({
-  status,
-  setStatus,
-}: {
-  status: boolean;
-  setStatus: (status: boolean) => void;
-}) => {
+export const TheBurgerBtn = ({ onclick }: BurgerMenuProps) => {
   return (
     <button className={styles.burgerBtn}>
       <Image
-        src={menuIcon}
-        alt="logo"
-        onClick={() => setStatus(!status)}
+        src={BurgerIcon}
+        alt="burger-icon"
+        width={24}
+        height={24}
+        onClick={onclick}
         priority
       />
     </button>

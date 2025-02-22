@@ -14,11 +14,15 @@ import { TheBurgerMenu } from "../ui/BurgerComponent/TheBurgerMenu";
 import { TheBurgerBtn } from "../ui/BurgerComponent/TheBurgerBtn";
 
 export const TheHeader = () => {
-  const [status, setStatus] = useState(false);
+  const [showBurgerBtn, setShowBurgerBtn] = useState(false);
+
+  const handleBurgerBtn = () => {
+    setShowBurgerBtn(!showBurgerBtn);
+  };
 
   return (
     <header className={styles.header}>
-      {status && <TheBurgerMenu {...{ status, setStatus }} />}
+      {showBurgerBtn && <TheBurgerMenu onclick={handleBurgerBtn} />}
       <div className={`container`}>
         <div className={styles.content}>
           <div className={styles.logoBlock}>
@@ -32,8 +36,8 @@ export const TheHeader = () => {
             ))}
           </div>
           <div className={styles.actions}>
-            {/* <TheSearch /> */}
-            <TheBurgerBtn {...{ status, setStatus }} />
+            <TheSearch />
+            <TheBurgerBtn onclick={handleBurgerBtn} />
             <div className={styles.languageBtn}>
               <TheLanguageSwitcher />
             </div>

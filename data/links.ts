@@ -88,7 +88,7 @@ export const socialLinks = [
   },
 ];
 export const footerMenu = [
-  // { id: 1, url: "/", title: "main" },
+  { id: 1, url: "/", title: "main" },
   { id: 2, url: "/about", title: "company" },
   { id: 3, url: "/ceo", title: "ceo" },
   { id: 4, url: "/news", title: "news" },

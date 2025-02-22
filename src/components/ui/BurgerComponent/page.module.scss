@@ -6,15 +6,23 @@
   }
 }
 .burgerMenu {
-  position: absolute;
+  position: fixed;
   display: grid;
   align-content: start;
   top: 0;
   left: 0;
-  width: 90%;
-  height: 1200px;
+  width: 100%;
+  height: 100vh;
   background: #fff;
   z-index: 1;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  &.open {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
   .burgerLink {
     padding: 10px 0;
@@ -23,21 +31,65 @@
     font-weight: 400;
     text-transform: uppercase;
     border-bottom: 1px solid #eaeaea;
+    transition: color 0.3s ease;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 
-    .descr {
+    // Цикл для генерации transition-delay для каждого элемента
+    @for $i from 1 through 12 {
+      &:nth-child(#{$i}) {
+        transition-delay: #{($i * 0.1)}s;
+      }
+    }
+
+    &.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .description {
       padding-left: 40px;
     }
+
     &:hover {
       color: #12903e;
     }
   }
+
   .active {
     margin-left: 20px;
+    color: #12903e;
+    font-weight: 700;
   }
 }
-.languageBtn {
-  padding: 23px 40px 50px;
-  background-color: #f4f4f4;
+
+.closeBtn {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.burgerMenuHeader {
+  background-color: #f4f4f4;
+  padding: 20px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actions {
+  gap: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.burgerLogo {
+  max-width: 180px;
+  height: 75px;
 }
