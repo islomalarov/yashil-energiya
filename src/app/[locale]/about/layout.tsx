@@ -10,10 +10,10 @@ export const generateMetadata = async ({
 }: {
   params: { locale: string };
 }) => {
-  const messages = await import(`@/messages/${params.locale}.json`);
+  const { AboutPage } = await import(`@/messages/${params.locale}.json`);
   return {
-    title: messages.AboutPage.title,
-    description: messages.description,
+    title: AboutPage.heroTitle1,
+    description: AboutPage.content,
   };
 };
 export default function AboutLayout({
