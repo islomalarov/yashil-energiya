@@ -6,7 +6,7 @@ import { Link } from "@/src/i18n/routing";
 import styles from "./page.module.scss";
 import Logo from "@/public/logo_2.png";
 import { useState } from "react";
-import { TheLanguage } from "../ui/LanguageComponent/TheLanguage";
+import { TheLanguageSwitcher } from "../ui/LanguageComponent/TheLanguageSwitcher";
 import { TheSearch } from "../ui/SearchComponent/TheSearch";
 import { TheDropdownMenu } from "../ui/DropdownComponent/TheDropdown";
 import { menuLinks } from "@/data/links";
@@ -35,7 +35,7 @@ export const TheHeader = () => {
             {/* <TheSearch /> */}
             <TheBurgerBtn {...{ status, setStatus }} />
             <div className={styles.languageBtn}>
-              <TheLanguage />
+              <TheLanguageSwitcher />
             </div>
           </div>
         </div>

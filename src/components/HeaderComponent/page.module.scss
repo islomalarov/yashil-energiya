@@ -5,6 +5,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 5%;
   padding: 20px 0;
   position: relative;
 }
@@ -14,20 +15,20 @@
   height: auto;
 }
 .menuBlock {
-  flex-basis: 60%;
+  flex: 1;
   display: flex;
   justify-content: space-between;
-  @media (max-width: 970px) {
+  @media (max-width: 870px) {
     display: none;
   }
 }
 
 .actions {
   display: flex;
-  gap: 10%;
+  gap: 10px;
   align-items: center;
   .languageBtn {
-    @media (max-width: 970px) {
+    @media (max-width: 870px) {
       display: none;
     }
   }

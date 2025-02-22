@@ -2,7 +2,7 @@ import styles from "./page.module.scss";
 // import Link from "next/link";
 import { Link } from "@/src/i18n/routing";
 
-import { TheLanguage } from "../LanguageComponent/TheLanguage";
+import { TheLanguageSwitcher } from "../LanguageComponent/TheLanguageSwitcher";
 import { footerMenu } from "@/data/links";
 import { useTranslations } from "next-intl";
 
@@ -17,7 +17,7 @@ export const TheBurgerMenu = ({
   return (
     <div className={styles.burgerMenu}>
       <div className={styles.languageBtn}>
-        <TheLanguage />
+        <TheLanguageSwitcher />
       </div>
       {footerMenu.map(({ id, url, title }: any) => (
         <Link

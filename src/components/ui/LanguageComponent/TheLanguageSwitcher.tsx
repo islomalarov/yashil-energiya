@@ -2,16 +2,19 @@
 
 import Image from "next/image";
 import styles from "./page.module.scss";
-import { usePathname, useSelectedLayoutSegments } from "next/navigation";
+import { useSelectedLayoutSegments } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
+import { useLocale } from "next-intl";
+import Language from "@/public/language.svg";
 
 interface Option {
   country: string;
   code: string;
 }
-export const TheLanguage = () => {
-  const pathname = usePathname();
+
+export const TheLanguageSwitcher = () => {
+  const locale = useLocale();
   const [isOpen, setIsOpen] = useState(false);
   const urlSegments = useSelectedLayoutSegments();
 
@@ -20,20 +23,15 @@ export const TheLanguage = () => {
     { country: "O'zbekcha", code: "uz" },
   ];
   return (
-    <div
-      className={styles.languageMenu}
-      onClick={() => setIsOpen(!isOpen)}
-      // onMouseEnter={() => setIsOpen(true)}
-      // onMouseLeave={() => setIsOpen(false)}
-    >
-      <button className={styles.languageSelect}>
-        <Image src="/language.svg" alt="logo" width={24} height={24} priority />
-        {pathname.slice(1, 3) === "ru" ? (
+    <button className={styles.languageMenu} onClick={() => setIsOpen(!isOpen)}>
+      <div className={styles.languageSelect}>
+        <Image src={Language} alt="language-icon" priority />
+        {locale === "ru" ? (
           <span className={styles.text}>Ru</span>
         ) : (
           <span className={styles.text}>O'z</span>
         )}
-      </button>
+      </div>
       {isOpen && (
         <div className={styles.languageList}>
           {options.map((lang) => (
@@ -47,6 +45,6 @@ export const TheLanguage = () => {
           ))}
         </div>
       )}
-    </div>
+    </button>
   );
 };

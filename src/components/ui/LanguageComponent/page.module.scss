@@ -9,16 +9,21 @@
 }
 .languageList {
   position: absolute;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
+  padding-top: 10px;
+  display: grid;
+  right: 0px;
   top: 20px;
   z-index: 99;
+  text-align: right;
 }
 .language {
   padding: 2px 5px;
   color: black;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
   &:hover {
     background-color: #12903e;
+    transform: scale(1.05);
   }
 }
