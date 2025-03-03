@@ -6,15 +6,17 @@ import axios from "axios";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export interface FormData {
   firstName: string;
   phone: string;
   message: string;
 }
-export default function TheForm() {
+
+export const TheForm = () => {
   const t = useTranslations("FeedbackPage");
+  const locale = useLocale();
   const [feedback, setFeedback] = useState<FormData>({
     firstName: "",
     phone: "",
@@ -24,7 +26,11 @@ export default function TheForm() {
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     try {
-      const response = await axios.post("api/mailersend", feedback);
+      const response = await axios.post(`/api/resend`, feedback, {
+        headers: {
+          "Content-Language": locale,
+        },
+      });
       if (response.status === 200) {
         console.log("Message sent successfully");
         setFeedback({
@@ -94,4 +100,4 @@ export default function TheForm() {
       <ToastContainer />
     </>
   );
-}
+};

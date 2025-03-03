@@ -1,4 +1,4 @@
-import TheForm from "@/src/components/FormComponent/TheForm";
+import { TheForm } from "@/src/components/FormComponent/TheForm";
 import styles from "./page.module.scss";
 import "@/scss/globals.scss";
 import { TheContacts } from "../ContactsComponent/TheContacts";
