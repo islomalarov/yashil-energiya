@@ -19,13 +19,10 @@ export default async function getData(
       .skip(perPage * (page - 1))
       .limit(perPage)
       .toArray();
-    const processedData = data.map((item) => ({
-      ...item,
-      _id: item._id.toString(), // Преобразование ObjectId в строку
-    }));
 
     const itemsCount = await db.collection(_collection).countDocuments({});
-    return { processedData, itemsCount };
+
+    return { data, itemsCount };
   } catch (err) {
     throw new Error("failed to fetch data. please try again later");
   }

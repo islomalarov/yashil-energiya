@@ -8,10 +8,20 @@ import Logo from "@/public/logo_2.png";
 import { useState } from "react";
 import { TheLanguageSwitcher } from "../ui/LanguageComponent/TheLanguageSwitcher";
 import { TheSearch } from "../ui/SearchComponent/TheSearch";
-import { TheDropdownMenu } from "../ui/DropdownComponent/TheDropdown";
+import {
+  DropdownComponentProps,
+  TheDropdownMenu,
+} from "../ui/DropdownComponent/TheDropdown";
 import { menuLinks } from "@/data/links";
 import { TheBurgerMenu } from "../ui/BurgerComponent/TheBurgerMenu";
 import { TheBurgerBtn } from "../ui/BurgerComponent/TheBurgerBtn";
+
+interface MenuLinksProps {
+  id: number;
+}
+interface MenuLinksProps extends DropdownComponentProps {
+  subMenu?: { id: number; url: string; title: string }[];
+}
 
 export const TheHeader = () => {
   const [showBurgerBtn, setShowBurgerBtn] = useState(false);
@@ -22,7 +32,7 @@ export const TheHeader = () => {
 
   return (
     <header className={styles.header}>
-      {showBurgerBtn && <TheBurgerMenu onclick={handleBurgerBtn} />}
+      {showBurgerBtn && <TheBurgerMenu handleBurgerBtn={handleBurgerBtn} />}
       <div className={`container`}>
         <div className={styles.content}>
           <div className={styles.logoBlock}>
@@ -31,13 +41,18 @@ export const TheHeader = () => {
             </Link>
           </div>
           <div className={styles.menuBlock}>
-            {menuLinks.map(({ id, url, title, subMenu }: any) => (
-              <TheDropdownMenu key={id} {...{ url, title, subMenu }} />
+            {menuLinks.map(({ id, url, title, subMenu }: MenuLinksProps) => (
+              <TheDropdownMenu
+                key={id}
+                url={url}
+                title={title}
+                subMenu={subMenu}
+              />
             ))}
           </div>
           <div className={styles.actions}>
-            <TheSearch />
-            <TheBurgerBtn onclick={handleBurgerBtn} />
+            {/* <TheSearch /> */}
+            <TheBurgerBtn handleBurgerBtn={handleBurgerBtn} />
             <div className={styles.languageBtn}>
               <TheLanguageSwitcher />
             </div>

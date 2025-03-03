@@ -8,16 +8,20 @@ import { getDate } from "@/my/date/getDate";
 // import { NewResponse } from "@/services/news.service";
 
 interface NewsProps {
-  articles: any[];
+  articles: {
+    id: number;
+    imgUrl: string;
+    date: string;
+    title: string;
+    subTitle: string;
+  }[];
   url: string;
 }
 export const TheArticlesList = ({ articles, url }: NewsProps) => {
-  console.log(articles);
-
   return (
     <div>
       <ul className={styles.news}>
-        {articles.map(({ id, imgUrl, date, title, subTitle }: any) => (
+        {articles.map(({ id, imgUrl, date, title, subTitle }) => (
           <li key={id}>
             <Link className={styles.link} href={`/${url}/page${id}`}>
               <div className={styles.imgBlock}>

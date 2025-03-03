@@ -49,9 +49,9 @@ export const TheFooter = () => {
           <p className={styles.text}>
             “Yashil Energiya” LLC All rights reserved
           </p>
-          <p className={styles.text}>
+          {/* <p className={styles.text}>
             © Copyright 2023 - Designed by SOS Group
-          </p>
+          </p> */}
         </div>
       </div>
     </footer>

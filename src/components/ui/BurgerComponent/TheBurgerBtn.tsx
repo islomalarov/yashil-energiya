@@ -3,7 +3,7 @@ import BurgerIcon from "@/public/menu/burgerIcon.svg";
 import styles from "./page.module.scss";
 import { BurgerMenuProps } from "./TheBurgerMenu";
 
-export const TheBurgerBtn = ({ onclick }: BurgerMenuProps) => {
+export const TheBurgerBtn = ({ handleBurgerBtn }: BurgerMenuProps) => {
   return (
     <button className={styles.burgerBtn}>
       <Image
@@ -11,7 +11,7 @@ export const TheBurgerBtn = ({ onclick }: BurgerMenuProps) => {
         alt="burger-icon"
         width={24}
         height={24}
-        onClick={onclick}
+        onClick={handleBurgerBtn}
         priority
       />
     </button>

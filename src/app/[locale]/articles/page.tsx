@@ -12,13 +12,20 @@ export default async function Articles({ searchParams }: SearchProps) {
   const perPage = 9;
   // const offsetNumber = 3;
 
-  const { processedData } = await getData("media", "articles", perPage, page);
+  const { data } = await getData("media", "articles", perPage, page);
 
+  const articles = data.map((article) => ({
+    id: article.id,
+    imgUrl: article.imgUrl,
+    date: article.date,
+    title: article.title,
+    subTitle: article.subTitle,
+  }));
   return (
     <>
       <TheHero title1="Maqolalar" url1="articles" />
       <div className="container">
-        <TheArticlesList articles={processedData} url="articles" />
+        <TheArticlesList articles={articles} url="articles" />
       </div>
       <TheFeedback />
     </>

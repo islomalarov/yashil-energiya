@@ -1,7 +1,7 @@
 export const branches = [
   {
     region: "region1",
-    name: "Nurmatov Xamidjon",
+    name: "Tojialiyev Dostonbek",
     phone: "+998 95 324-11-91",
     address: "Andijon viloyati, Andijon shahar, Bobur shox ko'chasi, 4-uy",
     mail: "andijon.servis@yashil-energiya.uz",

@@ -10,10 +10,10 @@ import { useSelectedLayoutSegments } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export type BurgerMenuProps = {
-  onclick: () => void;
+  handleBurgerBtn: () => void;
 };
 
-export const TheBurgerMenu = ({ onclick }: BurgerMenuProps) => {
+export const TheBurgerMenu = ({ handleBurgerBtn }: BurgerMenuProps) => {
   const t = useTranslations("Header");
   const urlSegments = useSelectedLayoutSegments();
   const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +33,7 @@ export const TheBurgerMenu = ({ onclick }: BurgerMenuProps) => {
 
   const handleClose = () => {
     setIsOpen(false);
-    setTimeout(onclick, 300); // Закрываем меню после завершения анимации
+    setTimeout(handleBurgerBtn, 300); // Закрываем меню после завершения анимации
   };
 
   return (
@@ -49,7 +49,7 @@ export const TheBurgerMenu = ({ onclick }: BurgerMenuProps) => {
           </button>
         </div>
       </div>
-      {footerMenu.map(({ url, title }: any) => (
+      {footerMenu.map(({ url, title }) => (
         <Link
           key={title}
           className={`${styles.burgerLink} ${isVisible ? styles.visible : ""}`}
