@@ -8,6 +8,7 @@ import { TheFooter } from "@/src/components/FooterComponent/TheFooter";
 import Providers from "@/src/components/ProgressBarProviderComponent/ProgressBarProvider";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import ScrollToTopButton from "@/src/components/ui/ScrollButton/ScrollToTopButton";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -41,7 +42,10 @@ export default async function RootLayout({
           <NextIntlClientProvider messages={messages}>
             <TheHeader />
             <main className="main">
-              <Providers>{children}</Providers>
+              <Providers>
+                {children}
+                <ScrollToTopButton />
+              </Providers>
             </main>
             <TheFooter />
           </NextIntlClientProvider>
