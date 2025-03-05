@@ -10,7 +10,7 @@ export default function SolarPanels() {
 
   return (
     <>
-      <TheHero title1={t("heroTitle")} url1="plants" />
+      <TheHero title1={t("heroTitle")} url1="solarPanels" />
       <div className="container">
         <div className="">
           <p className="description">{t("content")}</p>

@@ -29,15 +29,44 @@
     left: 0;
   }
 }
-.descr {
+.links {
   padding-top: 12px;
   color: #fff;
   font-size: 20px;
   display: flex;
+
   @media (max-width: 768px) {
     flex-direction: column;
   }
+
   & span {
     margin: 0 10px;
+  }
+
+  .link {
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #fff;
+      transition: width 0.3s ease, left 0.3s ease;
+    }
+
+    &:hover {
+      color: #fff;
+
+      &::before {
+        width: 100%;
+        left: 0;
+      }
+    }
   }
 }

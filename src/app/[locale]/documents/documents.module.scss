@@ -1,0 +1,30 @@
+.linksBlock {
+  padding-bottom: 20px;
+}
+
+.linkBlockTitle {
+  padding-bottom: 20px;
+}
+.linksList {
+  display: grid;
+  gap: 10px;
+  .linkItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .linkTitle {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #000;
+    text-align: justify;
+    text-decoration: none;
+    border-radius: 5px;
+
+    &:hover {
+      background: linear-gradient(90deg, #0d9113, #83bd97);
+      color: #fff;
+    }
+  }
+}

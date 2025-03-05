@@ -1,16 +1,14 @@
 "use client";
 import "@/scss/globals.scss";
 import styles from "./page.module.scss";
-// import Link from "next/link";
-import { Link } from "@/src/i18n/routing";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from "@/src/i18n/routing";
 import Image from "next/image";
 import hero from "@/public/hero2.png";
 import { useTranslations } from "next-intl";
 
 export const TheHero = ({ title1, title2, url1, url2 }: HeroProps) => {
   const t = useTranslations("HomePage");
-  const pathname = usePathname().slice(4);
+  const pathname = usePathname().replace("/", "");
 
   return (
     <div className={styles.hero}>
@@ -19,19 +17,23 @@ export const TheHero = ({ title1, title2, url1, url2 }: HeroProps) => {
       </div>
       <div className="container">
         <div className={styles.info}>
-          {pathname === url1 ? (
-            <h1 className={styles.title}>{title1}</h1>
-          ) : (
-            <h1 className={styles.title}>{title2}</h1>
-          )}
-          <div className={styles.descr}>
-            <Link href="/">
-              {t("title")} <span> | </span>
+          <h1 className={styles.title}>
+            {pathname === url1 ? title1 : title2}
+          </h1>
+          <div className={styles.links}>
+            <Link className={styles.link} href="/">
+              {t("title")}
             </Link>
-            <Link href={`/${url1}`}>
-              {title1} <span> | </span>
+            <span> | </span>
+            <Link className={styles.link} href={`/${url1}`}>
+              {title1}
             </Link>
-            {title2 && <Link href={`/${url2}`}>{title2}</Link>}
+            {title2 && (
+              <>
+                <span> | </span>
+                <Link href={`/${url2}`}>{title2}</Link>
+              </>
+            )}
           </div>
         </div>
       </div>

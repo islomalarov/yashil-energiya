@@ -4,15 +4,15 @@ import { TheFeedback } from "@/src/components/FeedbackComponent/TheFeedback";
 import styles from "./page.module.scss";
 import { useTranslations } from "next-intl";
 
-export default function Microges() {
-  const t = useTranslations("MicrogesPage");
+export default function MicroGes() {
+  const t = useTranslations("MicroGesPage");
   const needs = ["need1", "need2", "need3"] as const;
   const benefits = ["benefit1", "benefit2", "benefit3", "benefit4"] as const;
   const statistics = ["statistic1", "statistic2", "statistic3"] as const;
 
   return (
     <>
-      <TheHero title1={t("heroTitle")} url1="plants" />
+      <TheHero title1={t("heroTitle")} url1="microGes" />
       <div className="container">
         <div className="">
           <p className="description">{t("content")}</p>

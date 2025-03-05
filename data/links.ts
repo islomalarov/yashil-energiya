@@ -56,9 +56,9 @@ export const menuLinks = [
     url: "#",
     title: "projects",
     subMenu: [
-      { id: 4.1, url: "/solarpanels", title: "solarpanels" },
-      { id: 4.2, url: "/microges", title: "microges" },
-      { id: 4.3, url: "/chargingstation", title: "chargingstation" },
+      { id: 4.1, url: "/solarPanels", title: "solarPanels" },
+      { id: 4.2, url: "/microGes", title: "microGes" },
+      { id: 4.3, url: "/chargingStation", title: "chargingStation" },
     ],
   },
   {
@@ -70,7 +70,8 @@ export const menuLinks = [
       { id: 5.2, url: "/plants", title: "plants" },
     ],
   },
-  { id: 6, url: "/contacts", title: "contacts" },
+  { id: 6, url: "/documents", title: "documents" },
+  { id: 7, url: "/contacts", title: "contacts" },
 ];
 
 export const socialLinks = [
@@ -93,9 +94,9 @@ export const footerMenu = [
   { id: 3, url: "/ceo", title: "ceo" },
   { id: 4, url: "/news", title: "news" },
   { id: 5, url: "/articles", title: "articles" },
-  { id: 6, url: "/solarpanels", title: "solarpanels" },
-  { id: 7, url: "/microges", title: "microges" },
-  { id: 8, url: "/chargingstation", title: "chargingstation" },
+  { id: 6, url: "/solarPanels", title: "solarPanels" },
+  { id: 7, url: "/microGes", title: "microGes" },
+  { id: 8, url: "/chargingStation", title: "chargingStation" },
   { id: 9, url: "/branches", title: "branches" },
   { id: 10, url: "/plants", title: "plants" },
   { id: 11, url: "/contacts", title: "contacts" },
