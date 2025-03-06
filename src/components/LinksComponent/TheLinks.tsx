@@ -1,14 +1,15 @@
 import "@/scss/globals.scss";
-import styles from "./page.module.scss";
+import styles from "./TheLinks.module.scss";
 import Link from "next/link";
 import { links } from "@/data/links";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
 
 export const TheLinks = () => {
   const t = useTranslations("LinksPage");
   return (
-    <div className="container">
+    <TheMotionWrapper>
       <h3 className="title">{t("title")}</h3>
       <ul className={styles.links}>
         {links.map(({ body, img, url }: LinkObj) => (
@@ -21,7 +22,6 @@ export const TheLinks = () => {
           </li>
         ))}
       </ul>
-      <div></div>
-    </div>
+    </TheMotionWrapper>
   );
 };

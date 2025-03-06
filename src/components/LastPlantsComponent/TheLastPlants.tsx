@@ -1,15 +1,15 @@
 import "@/scss/globals.scss";
-import styles from "./page.module.scss";
+import styles from "./TheLastPlants.module.scss";
 import { Link } from "@/src/i18n/routing";
-// import Link from "next/link";
-
 import { useTranslations } from "next-intl";
 import { ThePlantsList } from "../PlantsListComponent/ThePlantsList";
+import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
 
 export const TheLastPlants = () => {
   const t = useTranslations("TheLastPlants");
+
   return (
-    <div className="container">
+    <TheMotionWrapper>
       <div className={styles.header}>
         <h3 className="title">{t("title")}</h3>
         <Link href="/plants" className={styles.link}>
@@ -32,6 +32,6 @@ export const TheLastPlants = () => {
         </Link>
       </div>
       <ThePlantsList begin={0} end={4} />
-    </div>
+    </TheMotionWrapper>
   );
 };

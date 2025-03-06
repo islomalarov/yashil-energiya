@@ -1,16 +1,15 @@
 "use client";
+
 import "@/scss/globals.scss";
-import styles from "./page.module.scss";
-// import Link from "next/link";
+import styles from "./TheLastNews.module.scss";
 import { Link } from "@/src/i18n/routing";
 import { TheNewsList } from "../NewsListComponent/TheNewsList";
 import { NewResponse, NewsService } from "@/services/news.service";
 import { useEffect, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
+import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
 
 export function TheLastNews() {
-  // const { processedData } = await getData("media", "news", 3, 1);
-
   const [news, setNews] = useState<NewResponse[]>([]);
   const t = useTranslations("TheLastNews");
   const locale = useLocale();
@@ -22,8 +21,9 @@ export function TheLastNews() {
     };
     fetchLastNews();
   }, [locale]);
+
   return (
-    <div className="container">
+    <TheMotionWrapper>
       <div className={styles.header}>
         <h3 className="title">{t("title")}</h3>
         <Link href="/news" className={styles.link}>
@@ -46,6 +46,6 @@ export function TheLastNews() {
         </Link>
       </div>
       <TheNewsList news={news} url="news" />
-    </div>
+    </TheMotionWrapper>
   );
 }

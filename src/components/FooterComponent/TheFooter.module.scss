@@ -1,0 +1,52 @@
+.footer {
+  background: #292929;
+}
+.content {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: 425px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+.logoBlock {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.socialLinks {
+  display: flex;
+  gap: 20px;
+}
+.socialLink:hover {
+  .icon {
+    background-color: #5cb63f;
+    border-radius: 50%;
+  }
+}
+
+.link {
+  color: #aaa;
+  font-size: 14px;
+  text-transform: uppercase;
+  &:hover {
+    color: #81d965;
+  }
+}
+.subFooter {
+  background: #1f1f1f;
+  display: flex;
+  justify-content: center;
+}
+
+.text {
+  color: #fff;
+  opacity: 0.5;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 15px 0;
+}

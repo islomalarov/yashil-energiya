@@ -43,3 +43,14 @@
   line-height: 24px; /* 120% */
   text-align: center;
 }
+.adv:hover .description {
+  color: white;
+  transition: color 0.3s ease-in-out;
+}
+.svgImage {
+  transition: filter 0.3s ease-in-out;
+}
+
+.adv:hover .svgImage {
+  filter: brightness(0) invert(1); /* Меняет зелёный SVG на белый */
+}

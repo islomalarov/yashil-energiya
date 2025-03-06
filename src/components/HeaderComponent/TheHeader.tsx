@@ -15,6 +15,7 @@ import {
 import { menuLinks } from "@/data/links";
 import { TheBurgerMenu } from "../ui/BurgerComponent/TheBurgerMenu";
 import { TheBurgerBtn } from "../ui/BurgerComponent/TheBurgerBtn";
+import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
 
 interface MenuLinksProps {
   id: number;
@@ -33,7 +34,7 @@ export const TheHeader = () => {
   return (
     <header className={styles.header}>
       {showBurgerBtn && <TheBurgerMenu handleBurgerBtn={handleBurgerBtn} />}
-      <div className={`container`}>
+      <TheMotionWrapper>
         <div className={styles.content}>
           <div className={styles.logoBlock}>
             <Link href="/">
@@ -58,7 +59,7 @@ export const TheHeader = () => {
             </div>
           </div>
         </div>
-      </div>
+      </TheMotionWrapper>
     </header>
   );
 };
