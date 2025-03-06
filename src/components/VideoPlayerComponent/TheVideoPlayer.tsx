@@ -9,16 +9,14 @@ const TheVideoPlayer = () => {
   return (
     <div className={styles.video}>
       <video
-        src="video/servis__77pct_smaller.mp4"
+        src="/video/servis__77pct_smaller.mp4"
         width="100%"
         height="100%"
         autoPlay
         loop
         muted={volume}
         playsInline
-      >
-        {/* <source src="video/servis__77pct_smaller.mp4" type="video/mp4" /> */}
-      </video>
+      />
       <button
         className={styles.volumeBtn}
         id="volumeBtn"
