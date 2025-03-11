@@ -1,9 +1,10 @@
 "use client";
-import styles from "./page.module.scss";
-// import Link from "next/link";
+
+import styles from "./TheDropdownMenu.module.scss";
 import { Link } from "@/src/i18n/routing";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 export type DropdownComponentProps = {
   url: string;
@@ -26,7 +27,14 @@ export const TheDropdownMenu = ({
       onMouseLeave={() => setIsOpen(false)}
     >
       <Link href={url} className={styles.dropBtn}>
-        <span className={styles.active}>{t(`${title}`)}</span>
+        <div className={styles.active}>
+          <span>{t(`${title}`)}</span>
+          {subMenu && (
+            <span>
+              {isOpen ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+            </span>
+          )}
+        </div>
       </Link>
       {isOpen && (
         <div className={styles.dropdownContent}>

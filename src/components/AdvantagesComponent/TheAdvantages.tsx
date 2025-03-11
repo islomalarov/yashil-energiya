@@ -29,7 +29,6 @@ export const TheAdvantages = () => {
               whileHover={{
                 background: `#5cb63f`,
                 scale: 1.05,
-                boxShadow: "0px 2px 14px 0px rgba(92, 219, 19, 0.88)",
               }}
               transition={{ duration: 0.3 }}
             >

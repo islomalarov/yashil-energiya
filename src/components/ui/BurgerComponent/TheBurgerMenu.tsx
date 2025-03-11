@@ -3,7 +3,7 @@ import { Link } from "@/src/i18n/routing";
 import { TheLanguageSwitcher } from "../LanguageComponent/TheLanguageSwitcher";
 import { footerMenu } from "@/data/links";
 import { useTranslations } from "next-intl";
-import { CgCloseR } from "react-icons/cg";
+import { CircleX } from "lucide-react";
 import Image from "next/image";
 import Logo from "@/public/logo_2.png";
 import { useSelectedLayoutSegments } from "next/navigation";
@@ -45,7 +45,7 @@ export const TheBurgerMenu = ({ handleBurgerBtn }: BurgerMenuProps) => {
         <div className={styles.actions}>
           <TheLanguageSwitcher />
           <button className={styles.closeBtn} onClick={handleClose}>
-            <CgCloseR size={24} color="green" />
+            <CircleX size={31} color="green" />
           </button>
         </div>
       </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import "@/scss/globals.scss";
-import styles from "./page.module.scss";
+import styles from "./TheVideoPlayer.module.scss";
 import { useState } from "react";
 import { Volume2, VolumeOff } from "lucide-react";
 import { motion } from "framer-motion";
@@ -29,7 +29,7 @@ const TheVideoPlayer = () => {
       <button
         className={styles.volumeBtn}
         id="volumeBtn"
-        title="volumeBtn"
+        title="mute"
         onClick={() => setVolume(!volume)}
       >
         <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.3 }}>

@@ -1,6 +1,6 @@
 "use client";
 import "@/scss/globals.scss";
-import styles from "./page.module.scss";
+import styles from "./TheHero.module.scss";
 import { Link, usePathname } from "@/src/i18n/routing";
 import Image from "next/image";
 import hero from "@/public/hero2.png";
@@ -31,7 +31,9 @@ export const TheHero = ({ title1, title2, url1, url2 }: HeroProps) => {
             {title2 && (
               <>
                 <span> | </span>
-                <Link href={`/${url2}`}>{title2}</Link>
+                <Link className={styles.link} href={`/${url2}`}>
+                  {title2}
+                </Link>
               </>
             )}
           </div>

@@ -1,12 +1,10 @@
 "use client";
 
-import Image from "next/image";
-import styles from "./page.module.scss";
+import styles from "./TheLanguageSwitcher.module.scss";
 import { useSelectedLayoutSegments } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
 import { useLocale } from "next-intl";
-import Language from "@/public/language.svg";
 
 interface Option {
   country: string;
@@ -19,32 +17,25 @@ export const TheLanguageSwitcher = () => {
   const urlSegments = useSelectedLayoutSegments();
 
   const options: Option[] = [
-    { country: "Русский", code: "ru" },
-    { country: "O'zbekcha", code: "uz" },
+    { country: "O'z", code: "uz" },
+    { country: "Ru", code: "ru" },
   ];
+
   return (
     <button className={styles.languageMenu} onClick={() => setIsOpen(!isOpen)}>
-      <div className={styles.languageSelect}>
-        <Image src={Language} alt="language-icon" priority />
-        {locale === "ru" ? (
-          <span className={styles.text}>Ru</span>
-        ) : (
-          <span className={styles.text}>O'z</span>
-        )}
+      <div className={styles.languageList}>
+        {options.map((lang) => (
+          <Link
+            href={`/${lang.code}/${urlSegments.join("/")}`}
+            key={lang.code}
+            className={`${styles.language} ${
+              locale === lang.code ? styles.active : ""
+            }`}
+          >
+            {lang.country}
+          </Link>
+        ))}
       </div>
-      {isOpen && (
-        <div className={styles.languageList}>
-          {options.map((lang) => (
-            <Link
-              href={`/${lang.code}/${urlSegments.join("/")}`}
-              key={lang.code}
-              className={styles.language}
-            >
-              {lang.country}
-            </Link>
-          ))}
-        </div>
-      )}
     </button>
   );
 };
