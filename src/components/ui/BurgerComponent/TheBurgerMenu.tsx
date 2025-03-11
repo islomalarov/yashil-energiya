@@ -1,4 +1,4 @@
-import styles from "./page.module.scss";
+import styles from "./TheBurger.module.scss";
 import { Link } from "@/src/i18n/routing";
 import { TheLanguageSwitcher } from "../LanguageComponent/TheLanguageSwitcher";
 import { footerMenu } from "@/data/links";

@@ -3,7 +3,7 @@ import "@/scss/globals.scss";
 import styles from "./TheHero.module.scss";
 import { Link, usePathname } from "@/src/i18n/routing";
 import Image from "next/image";
-import hero from "@/public/hero2.png";
+import hero from "@/public/hero.png";
 import { useTranslations } from "next-intl";
 
 export const TheHero = ({ title1, title2, url1, url2 }: HeroProps) => {

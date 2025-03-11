@@ -4,14 +4,12 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  background-color: #fff;
   padding: 20px 0;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s linear;
 
   &.scrolled {
+    backdrop-filter: blur(50px);
     padding: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     transition: all 0.3s linear;
   }
 }
@@ -44,7 +42,7 @@
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: 870px) {
+  @media (max-width: 986px) {
     display: none;
   }
 }
@@ -55,7 +53,7 @@
   align-items: center;
 
   .languageBtn {
-    @media (max-width: 870px) {
+    @media (max-width: 986px) {
       display: none;
     }
   }

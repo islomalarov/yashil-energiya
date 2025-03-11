@@ -1,3 +1,5 @@
+@import "@/scss/_vars.scss";
+
 .languageMenu {
   position: relative;
 }
@@ -12,23 +14,24 @@
 .languageList {
   display: flex;
   gap: 5px;
-  border: 2px solid #12903e;
+  border: 2px solid $primaryColor;
   border-radius: 20px;
   padding: 2px;
 }
 
 .language {
+  font-size: 14px;
   padding: 4px;
-  color: black;
-  border-radius: 20px;
+  color: $primaryColor;
+  border-radius: 50%;
   transition: background-color 0.3s ease, transform 0.2s ease;
 
   &.active {
-    background-color: #12903e;
+    background-color: $primaryColor;
     color: white;
   }
   &:hover {
-    background-color: #5cb63f;
+    background-color: $secondaryColor;
     color: white;
     transform: scale(1.05);
   }

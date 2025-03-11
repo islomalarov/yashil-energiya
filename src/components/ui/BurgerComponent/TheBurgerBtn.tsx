@@ -1,6 +1,6 @@
 import Image from "next/image";
 import BurgerIcon from "@/public/menu/burgerIcon.svg";
-import styles from "./page.module.scss";
+import styles from "./TheBurger.module.scss";
 import { BurgerMenuProps } from "./TheBurgerMenu";
 
 export const TheBurgerBtn = ({ handleBurgerBtn }: BurgerMenuProps) => {

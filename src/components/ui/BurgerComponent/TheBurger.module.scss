@@ -1,10 +1,13 @@
+@import "@/scss/_vars.scss";
+
 .burgerBtn {
   display: none;
-  @media (max-width: 870px) {
+  @media (max-width: 986px) {
     display: flex;
     cursor: pointer;
   }
 }
+
 .burgerMenu {
   position: fixed;
   display: grid;
@@ -13,7 +16,7 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background: #fff;
+  background: $whiteColor;
   z-index: 1;
   opacity: 0;
   transform: translateX(-100%);
@@ -39,7 +42,7 @@
     // Цикл для генерации transition-delay для каждого элемента
     @for $i from 1 through 12 {
       &:nth-child(#{$i}) {
-        transition-delay: #{($i * 0.1)}s;
+        transition-delay: #{($i * 0.03)}s;
       }
     }
 
@@ -53,13 +56,13 @@
     }
 
     &:hover {
-      color: #12903e;
+      color: $primaryColor;
     }
   }
 
   .active {
     margin-left: 20px;
-    color: #12903e;
+    color: $primaryColor;
     font-weight: 700;
   }
 }

@@ -1,11 +1,13 @@
+@import "@/scss/_vars.scss";
+
 .scrollToTop {
   position: fixed;
   bottom: 20px;
   right: 20px;
   width: 50px;
   height: 50px;
-  background-color: #16a34a; // Зеленый цвет
-  color: white;
+  background-color: $primaryColor;
+  color: $whiteColor;
   border: none;
   border-radius: 50%;
   display: flex;
@@ -25,6 +27,6 @@
   }
 
   &:hover {
-    background-color: #15803d;
+    background-color: $secondaryColor;
   }
 }
