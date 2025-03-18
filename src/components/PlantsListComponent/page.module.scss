@@ -1,3 +1,5 @@
+@import "@/scss/_vars.scss";
+
 .projects {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -7,6 +9,7 @@
     grid-template-columns: repeat(1, 1fr);
   }
 }
+
 .project {
   position: relative;
   border-radius: 10px;
@@ -35,11 +38,11 @@
       line-height: 24px; /* 133.333% */
     }
     .link {
-      border: 1px solid #5cb63f;
+      border: 1px solid $secondaryColor;
       height: 40px;
       color: #fff;
       &:hover {
-        background-color: #5cb63f;
+        background-color: $secondaryColor;
       }
     }
   }

@@ -2,7 +2,7 @@ import "@/scss/globals.scss";
 import type { Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
-import { Roboto } from "next/font/google";
+import { Sofia_Sans } from "next/font/google";
 import { TheHeader } from "@/src/components/HeaderComponent/TheHeader";
 import { TheFooter } from "@/src/components/FooterComponent/TheFooter";
 import Providers from "@/src/components/ProgressBarProviderComponent/ProgressBarProvider";
@@ -10,7 +10,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import ScrollToTopButton from "@/src/components/ui/ScrollButton/ScrollToTopButton";
 
-const roboto = Roboto({
+const sofia = Sofia_Sans({
   subsets: ["latin"],
   weight: ["100", "400", "700"],
 });
@@ -37,7 +37,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className={roboto.className}>
+      <body className={sofia.className}>
         <div className="wrapper">
           <NextIntlClientProvider messages={messages}>
             <TheHeader />

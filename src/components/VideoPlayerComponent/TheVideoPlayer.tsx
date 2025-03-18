@@ -4,7 +4,7 @@ import "@/scss/globals.scss";
 import styles from "./TheVideoPlayer.module.scss";
 import { useState } from "react";
 import { Volume2, VolumeOff } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const TheVideoPlayer = () => {
   const [volume, setVolume] = useState(true);

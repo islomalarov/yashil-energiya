@@ -24,38 +24,90 @@
   "AboutPage": {
     "heroTitle1": "Kompaniya haqida",
     "heroTitle2": "Rahbariyat",
-    "content": "\"Yashil Energiya\" MChJ O‘zbekiston Respublikasi Prezidentining 2023-yil 16-fevraldagi \"2023-yilda qayta tiklanuvchi energiya manbalarini va energiya tejovchi texnologiyalarni joriy etishni jadallashtirish chora-tadbirlari to‘g‘risida\"gi PQ-57-sonli qaroriga asosan tashkil etilgan.",
-    "goalsTitle": {
-      "title": "\"Yashil Energiya\" MChJ tashkil etilishidan asosiy maqsad:"
+    "content": "Yashil Energiya - yashil iqtisodiyot dvigateli",
+    "link": "Batafsil",
+    "title1": "Bizning missiyamiz",
+    "title2": "Faoliyatimiz",
+    "title3": "Yutuqlarimiz",
+    "title4": "Hamkorlarimiz",
+    "event1": {
+      "year": "2023",
+      "event": [
+        {
+          "description": "16.02.2023 yilda \"2023 yilda qayta tiklanuvchi energiya manbalarini va energiya tejovchi texnologiyalarni joriy etishni jadallashtirish chora-tadbirlari to‘g‘risida\"gi Prezident qarori (PQ–57-son) asosida \"Yashil Energiya\" MChJ tashkil etildi."
+        },
+        {
+          "description": "2023-yil oxiriga kelib \"Yashil Energiya\" MChJ tomonidan o'rnatilgan va ishlab turgan stansiyalar quvvati 20 000 kVt dan ortdi."
+        }
+      ]
     },
-    "goals1": {
-      "title": "- qayta tiklanuvchi energiya manbalari qurilmalarini o'rnatish va ularni ekspluatatsiya qilish;"
+    "event2": {
+      "year": "2024",
+      "event": [
+        {
+          "description": "\"Yashil\" iqtisodiyot rivojiga hissa qo'shish maqsadida \"Yashil Energiya\" MChJ tarkibida \"Mini va MikroGES\" va elektr mashinalarni quvvatlash bilan shug'ullanuvchi \"Quvvatlash stansiyalari\" bo'limlari tashkil etildi."
+        },
+        {
+          "description": "2024-yil oxiriga kelib \"Yashil Energiya\" MChJ balansidagi mavjud stansiyalar quvvati 48 000 kVt dan ortdi."
+        }
+      ]
     },
-    "goals2": {
-      "title": "- qayta tiklanuvchi energiya manbalari qurilmalari orqali ishlab chiqarilgan elektr energiyasini iste’molchilarga yetkazish;"
+    "event3": {
+      "year": "2025",
+      "event": []
     },
-    "goals3": {
-      "title": "- respublika hududlarida o'rnatilgan qayta tiklanuvchi energiya manbalari qurilmalariga servis va texnik xizmat ko'rsatish."
+    "paragraph1": "\"Yashil Energiya\" MChJ – O‘zbekiston Respublikasida qayta tiklanuvchi energiya manbalarini rivojlantirish va joriy etishga ixtisoslashgan kompaniya. Kompaniyamiz 2023-yil 16-fevralda O‘zbekiston Respublikasi Prezidentining PQ-57-son qaroriga asosan tashkil etilgan.",
+    "paragraph2": "Barqaror rivojlanishni ta'minlash va atrof-muhitni muhofaza qilish maqsadida, qayta tiklanuvchi energiya manbalarini keng joriy etish orqali mamlakatimizning energiya mustaqilligiga hissa qo‘shish. Bunda dastlab ijtimoiy soha obyektlari sifatli elektr energiyasi bilan ta’minlash asosiy maqsad qilingan.",
+    "project1": {
+      "title": "Ijtimoiy soha obyektlari, davlat organlari va boshqa tashkilotlarning binolarining tom qismiga quyosh fotoelektr stansiyasini o’rnatish va sifatli elektr energiyasini yetkazib berish.",
+      "src": "pv.png"
     },
-    "link": "Batafsil"
+    "project2": {
+      "title": "Bir vaqting o’zida bir qancha elektr mashinalarini innovatsion qurilmalar yordamida sifatli elektr energiyasi bilan quvvatlash.",
+      "src": "chs.png"
+    },
+    "project3": {
+      "title": "O‘zbekiston hududida kichik quvvatli gidroelektr stansiyalarini barpo etish va ulardan samarali foydalanishni amalga oshirish.",
+      "src": "micro.jpg"
+    },
+    "achievement1": {
+      "description": "Respublikaning barcha viloyatlarida servis markazlari mavjud",
+      "src": "codicon:tools"
+    },
+    "achievement2": {
+      "description": "Hozirda 50 MVt ga yaqin quvvatli quyosh fotoelektr stansiyasi ishlab turibdi",
+      "src": "ph:solar-panel"
+    },
+    "achievement3": {
+      "description": "1 200 ga yaqin ijtimoiy soha obyektlariga quyosh fotoelektr stansiyasi o’rnatilgan",
+      "src": "fluent:building-bank-48-regular"
+    },
+    "achievement4": {
+      "description": "Yiliga o’rtacha 50 000 MVt dan ko’proq toza elektr energiyasi ishlab chiqarilmoqda",
+      "src": "hugeicons:energy-ellipse"
+    }
   },
   "TheAdvantages": {
-    "title": "bizning afzalliklarimiz",
+    "title": "Biz erishgan natijalar",
     "advantage1": {
-      "src": "advantage1.svg",
-      "description": "Sohada katta tajriba"
+      "title": "Ishlab chiqarilgan energiya",
+      "total": "50",
+      "unit": "GVt"
     },
     "advantage2": {
-      "src": "advantage2.svg",
-      "description": "Yuqori sifatli mahsulotlar"
+      "title": "Xodimlar",
+      "total": "120",
+      "unit": ""
     },
     "advantage3": {
-      "src": "advantage3.svg",
-      "description": "Respublika bo'ylab 20000 dan ortiq ob'ektlar"
+      "title": "Filiallar",
+      "total": "13",
+      "unit": ""
     },
     "advantage4": {
-      "src": "advantage4.svg",
-      "description": "Turli xil yechimlar"
+      "title": "Saqlab qolingan CO₂ miqdori",
+      "total": "28000",
+      "unit": "ton."
     }
   },
   "TheLastPlants": {

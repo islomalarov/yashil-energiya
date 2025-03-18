@@ -4,7 +4,7 @@ import styles from "./documents.module.scss";
 import Link from "next/link";
 import { TheHero } from "@/src/components/HeroComponent/TheHero";
 import { useTranslations } from "next-intl";
-import { IoDocumentTextOutline } from "react-icons/io5";
+import { FileText } from "lucide-react";
 
 export default function DocumentsPage() {
   const t = useTranslations("DocumentsPage");
@@ -62,7 +62,7 @@ const DocumentLinks = ({ title, docs }: DocumentLinksProps) => {
         {docs.map((doc: string) => (
           <li className={styles.linkItem} key={doc}>
             <div className={styles.linkIcon}>
-              <IoDocumentTextOutline size={22} color="black" />
+              <FileText className={styles.badge} />
             </div>
             <Link
               className={styles.linkTitle}

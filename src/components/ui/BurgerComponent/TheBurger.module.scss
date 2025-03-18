@@ -2,7 +2,7 @@
 
 .burgerBtn {
   display: none;
-  @media (max-width: 986px) {
+  @media (max-width: $md) {
     display: flex;
     cursor: pointer;
   }

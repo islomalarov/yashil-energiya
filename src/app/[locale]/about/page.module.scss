@@ -1,3 +1,5 @@
+@import "@/scss/_vars.scss";
+
 .content {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -5,11 +7,87 @@
   row-gap: 40px;
   align-items: stretch;
   padding-bottom: 90px;
-}
-.img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  object-fit: cover;
-  overflow: hidden;
+
+  p {
+    text-align: justify;
+    font-size: 18px;
+  }
+
+  .info {
+    display: grid;
+    gap: 40px;
+
+    .title {
+      text-align: center;
+      font-size: $titleSize;
+      color: $primaryColor;
+      padding: 20px 0 30px 0;
+    }
+
+    .projectsBlock {
+      max-width: $lg;
+      margin: 0 auto;
+
+      .projectsList {
+        .projectsItem {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          padding: 10px 0;
+          @media (max-width: $md) {
+            flex-direction: column;
+          }
+          .projectAva {
+            object-fit: cover;
+            width: 80px;
+            height: 80px;
+          }
+        }
+      }
+    }
+
+    .block {
+      .achievements {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+
+        @media (max-width: $md) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .achievement {
+          padding: 10px;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          align-items: center;
+          .achievementDescription {
+            text-align: center;
+          }
+        }
+      }
+
+      .partners {
+        display: flex;
+        gap: 10px;
+
+        @media (max-width: $lg) {
+          :nth-child(1) {
+            grid-column: span 2;
+          }
+          :nth-child(2) {
+            grid-column: 4 / span 2;
+          }
+          :nth-child(3) {
+            grid-column: -1/1;
+          }
+        }
+        img {
+          width: 250px;
+          height: auto;
+        }
+      }
+    }
+  }
 }

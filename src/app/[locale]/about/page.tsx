@@ -1,13 +1,26 @@
 import "@/scss/globals.scss";
-import styles from "./page.module.scss";
+import s from "./page.module.scss";
 import { TheHero } from "@/src/components/HeroComponent/TheHero";
 import { TheFeedback } from "@/src/components/FeedbackComponent/TheFeedback";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
-import TheExcerpt from "@/src/components/ExcerptComponent/TheExcerpt";
+import Image from "next/image";
+import { Icon } from "@iconify/react";
+import huawei from "@/public/partners/huawei.webp";
+import solarMan from "@/public/partners/solarMan.png";
+import foxEss from "@/public/partners/foxEss.png";
+import tosh from "@/public/partners/tosh.jpg";
+import tw from "@/public/partners/tw.jpg";
 
 export default function About() {
   const t = useTranslations("AboutPage");
+  const projects = ["project1", "project2", "project3"] as const;
+  const achievements = [
+    "achievement1",
+    "achievement2",
+    "achievement3",
+    "achievement4",
+  ] as const;
+
   return (
     <>
       <TheHero
@@ -17,18 +30,65 @@ export default function About() {
         url2="ceo"
       />
       <div className="container">
-        <div className={styles.content}>
-          <div className={styles.info}>
-            <TheExcerpt />
-          </div>
-          <div className={styles.imgBlock}>
-            <Image
-              className={styles.img}
-              width={1280}
-              height={720}
-              src="/minenergy.jpg"
-              alt="about"
-            />
+        <div className={s.content}>
+          <div className={s.info}>
+            <div className={s.block}>
+              <p>{t("paragraph1")}</p>
+            </div>
+            <div className={s.block}>
+              <h2 className={s.title}>{t("title1")}:</h2>
+              <p>{t("paragraph2")}</p>
+            </div>
+            <div className={s.projectsBlock}>
+              <h2 className={s.title}>{t("title2")}</h2>
+              <ul className={s.projectsList}>
+                {projects.map((project) => {
+                  const projectSrc = t(`${project}.src`);
+                  const projectImageSrc =
+                    require(`@/public/aboutPage/${projectSrc}`).default;
+
+                  return (
+                    <li key={project} className={s.projectsItem}>
+                      <div>
+                        <Image
+                          className={s.projectAva}
+                          src={projectImageSrc}
+                          alt={projectSrc}
+                        />
+                      </div>
+                      <p>{t(`${project}.title`)}</p>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            <div className={s.block}>
+              <h2 className={s.title}>{t("title3")}</h2>
+              <div className={s.achievements}>
+                {achievements.map((achievement) => (
+                  <div key={achievement} className={s.achievement}>
+                    <Icon
+                      icon={t(`${achievement}.src`)}
+                      color="#12903e"
+                      fontSize={100}
+                    />
+                    <p className={s.achievementDescription}>
+                      {t(`${achievement}.description`)}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* <div className={s.block}>
+              <h3 className={s.title}>{t("title4")}</h3>
+              <div className={s.partners}>
+                <Image src={tw} alt="tw" />
+                <Image src={foxEss} alt="foxEss" />
+                <Image src={huawei} alt="huawei" />
+                <Image src={tosh} alt="tosh" />
+                <Image src={solarMan} alt="solarMan" />
+              </div>
+            </div> */}
           </div>
         </div>
       </div>

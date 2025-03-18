@@ -8,6 +8,9 @@
 .info {
   position: absolute;
   top: 6rem;
+  @media (max-width: $md) {
+    top: 3rem;
+  }
 }
 
 .title {
@@ -15,8 +18,9 @@
   color: $whiteColor;
   font-size: 40px;
   font-weight: 700;
-  @media (max-width: 768px) {
-    padding-top: 40px;
+
+  @media (max-width: $md) {
+    padding-top: 10px;
   }
 }
 
@@ -39,7 +43,7 @@
   font-size: 20px;
   display: flex;
 
-  @media (max-width: 768px) {
+  @media (max-width: $md) {
     flex-direction: column;
   }
 

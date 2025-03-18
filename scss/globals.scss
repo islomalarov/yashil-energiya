@@ -43,9 +43,10 @@
   font-size: 12px;
   font-weight: 400;
   text-transform: uppercase;
-  transition: all 0.1 ease-in;
+  transition: all 0.2s ease;
+
   &:hover {
-    transition: all 0.1 ease-in;
+    transition: all 0.2s ease;
   }
 }
 

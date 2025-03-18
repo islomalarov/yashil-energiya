@@ -1,6 +1,4 @@
-.main {
-  background: #c4c2c24b;
-}
+@import "@/scss/_vars.scss";
 
 .title {
   padding: 100px 0 45px 0;
@@ -8,10 +6,11 @@
   font-size: 40px;
   font-weight: 700;
   text-transform: uppercase;
-  @media (max-width: 1024px) {
+
+  @media (max-width: $md) {
     text-align: center;
   }
-  @media (max-width: 768px) {
+  @media (max-width: $sm) {
     font-size: 30px;
   }
 }
@@ -22,42 +21,43 @@
   justify-content: space-between;
   gap: 20px;
   padding-bottom: 100px;
-  @media (max-width: 1024px) {
+
+  @media (max-width: $lg) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (max-width: 768px) {
+
+  @media (max-width: $md) {
     grid-template-columns: repeat(1, 1fr);
   }
 }
 
 .adv {
   border-radius: 10px;
-  background: #fff;
+  // background: #fff;
   box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 0.1);
   padding: 30px 30px 24px;
   display: grid;
+  gap: 20px;
+  align-content: space-between;
   justify-items: center;
-  gap: 22px;
   cursor: pointer;
-}
 
-.description {
-  color: #2b2b2b;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 24px; /* 120% */
-  text-align: center;
-}
-
-.adv:hover .description {
-  color: white;
-  transition: color 0.3s ease-in-out;
-}
-
-.svgImage {
-  transition: filter 0.3s ease-in-out;
-}
-
-.adv:hover .svgImage {
-  filter: brightness(0) invert(1); /* Меняет зелёный SVG на белый */
+  .advTitle {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .box {
+    display: flex;
+    color: $primaryColor;
+    font-weight: bold;
+    .numb {
+      font-size: 48px;
+    }
+    .unit {
+      margin-top: 10px;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+    }
+  }
 }

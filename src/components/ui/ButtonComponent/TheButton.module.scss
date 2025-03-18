@@ -1,0 +1,12 @@
+@import "@/scss/_vars.scss";
+
+.link {
+  border: 1px solid $primaryColor;
+  height: 50px;
+  color: $primaryColor;
+
+  &:hover {
+    background-color: $primaryColor;
+    color: $whiteColor;
+  }
+}
