@@ -41,7 +41,7 @@ export default function About() {
             </div>
             <div className={s.projectsBlock}>
               <h2 className={s.title}>{t("title2")}</h2>
-              <ul className={s.projectsList}>
+              {/* <ul className={s.projectsList}>
                 {projects.map((project) => {
                   const projectSrc = t(`${project}.src`);
                   const projectImageSrc =
@@ -60,7 +60,7 @@ export default function About() {
                     </li>
                   );
                 })}
-              </ul>
+              </ul> */}
             </div>
             <div className={s.block}>
               <h2 className={s.title}>{t("title3")}</h2>
