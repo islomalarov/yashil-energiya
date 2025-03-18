@@ -72,7 +72,7 @@ export const HTMLContent = ({
       duration: duration,
     });
     return () => controls.stop();
-  }, [count, duration, total]);
+  }, []);
 
   return (
     <li className={styles.adv}>
