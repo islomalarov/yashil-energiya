@@ -2,7 +2,7 @@
 
 import "@/scss/globals.scss";
 import styles from "./TheLastNews.module.scss";
-import { Link } from "@/src/i18n/routing";
+import { Link } from "@/src/i18n/navigation";
 import { TheNewsList } from "../NewsListComponent/TheNewsList";
 import { NewResponse, NewsService } from "@/services/news.service";
 import { useEffect, useState } from "react";

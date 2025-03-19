@@ -1,5 +1,5 @@
 import styles from "./TheBurger.module.scss";
-import { Link } from "@/src/i18n/routing";
+import { Link } from "@/src/i18n/navigation";
 import { TheLanguageSwitcher } from "../LanguageComponent/TheLanguageSwitcher";
 import { footerMenu } from "@/data/links";
 import { useTranslations } from "next-intl";

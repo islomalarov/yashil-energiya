@@ -6,9 +6,10 @@ import { Sofia_Sans } from "next/font/google";
 import { TheHeader } from "@/src/components/HeaderComponent/TheHeader";
 import { TheFooter } from "@/src/components/FooterComponent/TheFooter";
 import Providers from "@/src/components/ProgressBarProviderComponent/ProgressBarProvider";
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { NextIntlClientProvider, Locale, hasLocale } from "next-intl";
 import ScrollToTopButton from "@/src/components/ui/ScrollButton/ScrollToTopButton";
+import { routing } from "@/src/i18n/routing";
+import { notFound } from "next/navigation";
 
 const sofia = Sofia_Sans({
   subsets: ["latin"],
@@ -24,22 +25,24 @@ export const metadata: Metadata = {
   icons: "logo_cut.svg",
 };
 
-export default async function RootLayout({
-  children,
-  params: { locale },
-}: {
+type Props = {
   children: React.ReactNode;
-  params: { locale: string };
-}) {
+  params: Promise<{ locale: Locale }>;
+};
+
+export default async function RootLayout({ children, params }: Props) {
   // Providing all messages to the client
   // side is the easiest way to get started
-  const messages = await getMessages();
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
 
   return (
     <html lang={locale}>
       <body className={sofia.className}>
         <div className="wrapper">
-          <NextIntlClientProvider messages={messages}>
+          <NextIntlClientProvider>
             <TheHeader />
             <main className="main">
               <Providers>

@@ -2,7 +2,6 @@
 
 import "@/scss/globals.scss";
 import Image from "next/image";
-import { Link } from "@/src/i18n/routing";
 import styles from "./TheHeader.module.scss";
 import Logo from "@/public/logo_2.png";
 import { useEffect, useState } from "react";
@@ -13,6 +12,7 @@ import { menuLinks } from "@/data/links";
 import { TheBurgerMenu } from "../ui/BurgerComponent/TheBurgerMenu";
 import { TheBurgerBtn } from "../ui/BurgerComponent/TheBurgerBtn";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
+import { Link } from "@/src/i18n/navigation";
 
 export const TheHeader = () => {
   const [showBurgerBtn, setShowBurgerBtn] = useState(false);

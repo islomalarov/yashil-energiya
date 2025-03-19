@@ -1,8 +1,7 @@
 "use client";
 import "@/scss/globals.scss";
 import styles from "./page.module.scss";
-// import Link from "next/link";
-import { Link } from "@/src/i18n/routing";
+import { Link } from "@/src/i18n/navigation";
 import { NewResponse } from "@/services/news.service";
 import TheImage from "../CoverComponent/TheCover";
 

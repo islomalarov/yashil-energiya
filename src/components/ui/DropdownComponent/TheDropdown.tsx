@@ -1,10 +1,10 @@
 "use client";
 
 import styles from "./TheDropdownMenu.module.scss";
-import { Link } from "@/src/i18n/routing";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { Link } from "@/src/i18n/navigation";
 
 export type DropdownComponentProps = {
   url: string;

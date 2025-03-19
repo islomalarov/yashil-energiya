@@ -1,6 +1,6 @@
 import "@/scss/globals.scss";
 import styles from "./TheLastPlants.module.scss";
-import { Link } from "@/src/i18n/routing";
+import { Link } from "@/src/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { ThePlantsList } from "../PlantsListComponent/ThePlantsList";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";

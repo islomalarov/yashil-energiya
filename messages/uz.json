@@ -374,5 +374,10 @@
   },
   "TendersPage": {
     "title": "Tenderlar"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "uz": "O'z",
+    "ru": "Ru"
   }
 }

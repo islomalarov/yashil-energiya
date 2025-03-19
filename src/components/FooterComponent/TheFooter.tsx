@@ -3,7 +3,7 @@
 import "@/scss/globals.scss";
 import styles from "./TheFooter.module.scss";
 import Image from "next/image";
-import { Link } from "@/src/i18n/routing";
+import { Link } from "@/src/i18n/navigation";
 import footerLogo from "@/public/logo2.svg";
 import { socialLinks } from "@/data/links";
 import { useTranslations } from "next-intl";

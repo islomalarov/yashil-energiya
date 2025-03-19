@@ -1,6 +1,6 @@
 import "@/scss/globals.scss";
 import styles from "./TheButton.module.scss";
-import { Link } from "@/src/i18n/routing";
+import { Link } from "@/src/i18n/navigation";
 
 interface TheButtonProps {
   title: string;

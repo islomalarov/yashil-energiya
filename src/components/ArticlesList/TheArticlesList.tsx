@@ -1,10 +1,10 @@
 "use client";
+
 import "@/scss/globals.scss";
-// import Link from "next/link";
-import { Link } from "@/src/i18n/routing";
 import styles from "./page.module.scss";
 import Image from "next/image";
 import { getDate } from "@/my/date/getDate";
+import { Link } from "@/src/i18n/navigation";
 // import { NewResponse } from "@/services/news.service";
 
 interface NewsProps {

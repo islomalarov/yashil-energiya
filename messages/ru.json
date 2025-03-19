@@ -374,5 +374,10 @@
   },
   "TendersPage": {
     "title": "Тендеры"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "uz": "Уз",
+    "ru": "Ру"
   }
 }
