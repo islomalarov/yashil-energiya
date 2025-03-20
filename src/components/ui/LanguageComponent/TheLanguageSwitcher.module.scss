@@ -1,16 +1,5 @@
 @import "@/scss/_vars.scss";
 
-.languageMenu {
-  position: relative;
-}
-
-.languageSelect {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-}
-
 .languageList {
   display: flex;
   gap: 5px;
@@ -24,7 +13,10 @@
   padding: 4px;
   color: $primaryColor;
   border-radius: 50%;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
 
   &.active {
     background-color: $primaryColor;

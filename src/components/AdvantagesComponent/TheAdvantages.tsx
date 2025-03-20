@@ -42,7 +42,7 @@ export const TheAdvantages = () => {
                 title={t(`${adv}.title`)}
                 total={t(`${adv}.total`)}
                 unit={t(`${adv}.unit`)}
-                duration={1}
+                duration={t(`${adv}.duration`)}
               />
             ))}
           </ul>
@@ -56,7 +56,7 @@ interface HTMLContentProps {
   title: string;
   unit?: string;
   total: string;
-  duration: number;
+  duration: string;
 }
 export const HTMLContent = ({
   title,
@@ -69,7 +69,7 @@ export const HTMLContent = ({
 
   useEffect(() => {
     const controls = animate(count, Number(total), {
-      duration: duration,
+      duration: Number(duration),
     });
     return () => controls.stop();
   }, []);

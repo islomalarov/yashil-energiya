@@ -93,22 +93,26 @@
     "advantage1": {
       "title": "Ishlab chiqarilgan energiya",
       "total": "50",
-      "unit": "GVt"
+      "unit": "GVt",
+      "duration": "2"
     },
     "advantage2": {
       "title": "Xodimlar",
       "total": "120",
-      "unit": ""
+      "unit": "",
+      "duration": "1.5"
     },
     "advantage3": {
       "title": "Filiallar",
       "total": "13",
-      "unit": ""
+      "unit": "",
+      "duration": "2"
     },
     "advantage4": {
       "title": "Saqlab qolingan CO₂ miqdori",
       "total": "28000",
-      "unit": "ton."
+      "unit": "ton.",
+      "duration": "1"
     }
   },
   "TheLastPlants": {

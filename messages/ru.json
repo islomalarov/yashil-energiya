@@ -93,22 +93,26 @@
     "advantage1": {
       "title": "Выработано",
       "total": "50",
-      "unit": "ГВт"
+      "unit": "ГВт",
+      "duration": "2"
     },
     "advantage2": {
       "title": "Персонал",
       "total": "120",
-      "unit": ""
+      "unit": "",
+      "duration": "1.5"
     },
     "advantage3": {
       "title": "Филиалы",
       "total": "13",
-      "unit": ""
+      "unit": "",
+      "duration": "2"
     },
     "advantage4": {
       "title": "Количество сохраненного CO₂",
       "total": "28000",
-      "unit": "тон."
+      "unit": "тон.",
+      "duration": "1"
     }
   },
   "TheLastPlants": {

@@ -7,9 +7,7 @@ import TheCover from "../CoverComponent/TheCover";
 
 export const ThePlantsList = ({ begin, end }: ProjectProps) => {
   const t = useTranslations("TheLastPlants");
-  const {
-    data: { list },
-  } = projects;
+  const { list } = projects;
   const projectsSlice = list.slice(begin, end);
 
   return (
