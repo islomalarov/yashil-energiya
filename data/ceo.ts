@@ -3,7 +3,7 @@ export const ceo = [
     id: 1,
     name: "Nasretdinov Nodirbek Tulkinovich",
     jobTitle: "jobTitle1",
-    email: "n.nasretdinov@yashil-energiya.uz",
+    email: "n.n@yashil-energiya.uz",
   },
   {
     id: 2,

@@ -12,12 +12,12 @@ const departments = [
   },
   {
     department: "department2",
-    phone: "+998 90 830-31-36",
+    phone: "+998 90 830-51-67",
     mail: "info@yashil-energiya.uz",
   },
   {
     department: "department3",
-    phone: "+998 90 830-31-39",
+    phone: "+998 90 830-31-19",
     mail: "info@yashil-energiya.uz",
   },
 ];
