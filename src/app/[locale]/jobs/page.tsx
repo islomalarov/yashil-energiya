@@ -3,16 +3,8 @@ import { TheHero } from "@/src/components/HeroComponent/TheHero";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import s from "./page.module.scss";
+import { jobs } from "@/data/jobs";
 
-export const jobs = [
-  {
-    id: 1,
-    title: "Специалист по управлению закупками (индивидуальный консультант)",
-    description:
-      "Министерство энергетики Республики Узбекистан получило грантовые средства, далее именуемый «Грант», в размере 1 700 000 долларов США в эквиваленте от Азиатского банка инфраструктурных инвестиций (AБИИ) на подготовительные мероприятия по проекту «Развитие солнечной энергетики в Узбекистане» (UPDSED) и намеревается использовать часть этих средств на консалтинговые услуги.",
-    url: "url1",
-  },
-];
 export default function JobsPage() {
   const t = useTranslations("JobsPage");
   return (
