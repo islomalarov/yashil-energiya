@@ -16,7 +16,8 @@
     "chargingStation": "Zaryadlash stansiyalari",
     "projects": "Loyihalar",
     "contacts": "Kontaktlar",
-    "documents": "Hujjatlar"
+    "documents": "Hujjatlar",
+    "jobs": "Ish o'rinlari"
   },
   "HomePage": {
     "title": "Bosh sahifa",
@@ -383,5 +384,8 @@
     "label": "Change language",
     "uz": "O'z",
     "ru": "Ru"
+  },
+  "JobsPage": {
+    "title": "Ish o'rinlari"
   }
 }

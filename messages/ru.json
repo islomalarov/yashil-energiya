@@ -16,7 +16,8 @@
     "chargingStation": "Зарядные станции",
     "projects": "Проекты",
     "contacts": "Контакты",
-    "documents": "Документы"
+    "documents": "Документы",
+    "jobs": "Вакансии"
   },
   "HomePage": {
     "title": "Главная страница",
@@ -383,5 +384,8 @@
     "label": "Change language",
     "uz": "Уз",
     "ru": "Ру"
+  },
+  "JobsPage": {
+    "title": "Вакансии"
   }
 }

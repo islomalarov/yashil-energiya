@@ -1,0 +1,22 @@
+@import "@/scss/_vars.scss";
+
+.content {
+  display: grid;
+  gap: 20px;
+  padding-bottom: 40px;
+
+  h2 {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+}
+.languageBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+.list {
+  list-style: disc;
+  margin-left: 20px;
+  display: grid;
+  gap: 20px;
+}

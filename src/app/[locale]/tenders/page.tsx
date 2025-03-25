@@ -1,4 +1,5 @@
 "use client";
+
 import { TheFeedback } from "@/src/components/FeedbackComponent/TheFeedback";
 import { TheHero } from "@/src/components/HeroComponent/TheHero";
 import { useTranslations } from "next-intl";
