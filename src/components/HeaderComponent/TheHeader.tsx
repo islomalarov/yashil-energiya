@@ -63,9 +63,7 @@ export const TheHeader = () => {
           <div className={styles.actions}>
             {/* <TheSearch /> */}
             <TheBurgerBtn handleBurgerBtn={handleBurgerBtn} />
-            <div className={styles.languageBtn}>
-              <TheLanguageSwitcher />
-            </div>
+            <TheLanguageSwitcher />
           </div>
         </div>
       </TheMotionWrapper>

@@ -28,7 +28,7 @@ export const TheDropdownMenu = ({
     >
       <Link href={url} className={styles.dropBtn}>
         <div className={styles.active}>
-          <span>{t(`${title}`)}</span>
+          <span>{t(title)}</span>
           {subMenu && (
             <span>
               {isOpen ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
@@ -46,7 +46,7 @@ export const TheDropdownMenu = ({
                 className={styles.subLink}
                 onClick={() => setIsOpen(false)}
               >
-                {t(`${title}`)}
+                {t(title)}
               </Link>
             ))}
         </div>

@@ -1,23 +1,20 @@
-import styles from "./TheBurger.module.scss";
-import { Link } from "@/src/i18n/navigation";
+import s from "./TheBurger.module.scss";
 import { TheLanguageSwitcher } from "../LanguageComponent/TheLanguageSwitcher";
-import { footerMenu } from "@/data/links";
-import { useTranslations } from "next-intl";
-import { CircleX } from "lucide-react";
+import { menuLinks } from "@/data/links";
 import Image from "next/image";
 import Logo from "@/public/logo_2.png";
-import { useSelectedLayoutSegments } from "next/navigation";
 import { useEffect, useState } from "react";
+import { BurgerMenuItem } from "./TheBurgerMenuItem";
+import { CircleX } from "lucide-react";
 
 export type BurgerMenuProps = {
   handleBurgerBtn: () => void;
 };
 
 export const TheBurgerMenu = ({ handleBurgerBtn }: BurgerMenuProps) => {
-  const t = useTranslations("Header");
-  const urlSegments = useSelectedLayoutSegments();
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [activeSubMenu, setActiveSubMenu] = useState<string | null>(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -37,35 +34,27 @@ export const TheBurgerMenu = ({ handleBurgerBtn }: BurgerMenuProps) => {
   };
 
   return (
-    <div className={`${styles.burgerMenu} ${isOpen ? styles.open : ""}`}>
-      <div className={styles.burgerMenuHeader}>
-        <div className={styles.burgerLogoBlock}>
-          <Image className={styles.burgerLogo} src={Logo} alt="logo" />
-        </div>
-        <div className={styles.actions}>
+    <div className={`${s.burgerMenu} ${isOpen ? s.open : ""}`}>
+      <div className={s.burgerMenuHeader}>
+        <Image className={s.burgerLogo} src={Logo} alt="logo" />
+        <div className={s.actions}>
           <TheLanguageSwitcher />
-          <button className={styles.closeBtn} onClick={handleClose}>
+          <button className={s.closeBtn} onClick={handleClose}>
             <CircleX size={31} color="green" />
           </button>
         </div>
       </div>
-      {footerMenu.map(({ url, title }) => (
-        <Link
-          key={title}
-          className={`${styles.burgerLink} ${isVisible ? styles.visible : ""}`}
-          href={url}
-          onClick={handleClose}
-        >
-          <span
-            className={
-              `/${urlSegments}` === url
-                ? `${styles.description} ${styles.active}`
-                : styles.description
-            }
-          >
-            {t(title)}
-          </span>
-        </Link>
+      {menuLinks.map((menuLink) => (
+        <BurgerMenuItem
+          key={menuLink.title}
+          title={menuLink.title}
+          url={menuLink.url}
+          subMenu={menuLink.subMenu}
+          isVisible={isVisible}
+          handleClose={handleClose}
+          activeSubMenu={activeSubMenu}
+          setActiveSubMenu={setActiveSubMenu}
+        />
       ))}
     </div>
   );

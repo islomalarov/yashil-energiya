@@ -6,6 +6,9 @@
   border: 2px solid $primaryColor;
   border-radius: 20px;
   padding: 2px;
+  @media (max-width: $md) {
+    display: none;
+  }
 }
 
 .language {
@@ -14,9 +17,7 @@
   color: $primaryColor;
   border-radius: 50%;
   cursor: pointer;
-  transition:
-    background-color 0.3s ease,
-    transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 
   &.active {
     background-color: $primaryColor;

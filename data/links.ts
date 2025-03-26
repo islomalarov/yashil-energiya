@@ -90,16 +90,3 @@ export const socialLinks = [
     path: "/tg.svg",
   },
 ];
-export const footerMenu = [
-  { id: 1, url: "/", title: "main" },
-  { id: 2, url: "/about", title: "company" },
-  { id: 3, url: "/ceo", title: "ceo" },
-  { id: 4, url: "/news", title: "news" },
-  { id: 5, url: "/articles", title: "articles" },
-  { id: 6, url: "/solarPanels", title: "solarPanels" },
-  { id: 7, url: "/microGes", title: "microGes" },
-  { id: 8, url: "/chargingStation", title: "chargingStation" },
-  { id: 9, url: "/branches", title: "branches" },
-  { id: 10, url: "/plants", title: "plants" },
-  { id: 11, url: "/contacts", title: "contacts" },
-];
