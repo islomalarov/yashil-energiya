@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "./TheLanguageSwitcher.module.scss";
+import s from "./TheLanguageSwitcher.module.scss";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/src/i18n/navigation";
 import { routing } from "@/src/i18n/routing";
@@ -16,7 +16,7 @@ export const TheLanguageSwitcher = () => {
   };
 
   return (
-    <div className={`${styles.languageList} `}>
+    <div className={s.languageList}>
       {routing.locales.map((cur) => (
         <button
           key={cur}
@@ -24,9 +24,7 @@ export const TheLanguageSwitcher = () => {
             e.stopPropagation();
             handleLanguageChange(cur);
           }}
-          className={`${styles.language} ${
-            locale === cur ? styles.active : ""
-          }`}
+          className={`${s.language} ${locale === cur ? s.active : ""}`}
         >
           {t(`${cur}`)}
         </button>

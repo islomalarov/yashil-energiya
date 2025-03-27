@@ -5,14 +5,11 @@
   gap: 5px;
   border: 2px solid $primaryColor;
   border-radius: 20px;
-  padding: 2px;
-  @media (max-width: $md) {
-    display: none;
-  }
+  padding: 1px;
 }
 
 .language {
-  font-size: 14px;
+  font-size: 12px;
   padding: 4px;
   color: $primaryColor;
   border-radius: 50%;

@@ -1,16 +1,16 @@
-import { Link } from "@/src/i18n/navigation";
+import { usePathname } from "@/src/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { useSelectedLayoutSegments } from "next/navigation";
 import s from "./TheBurger.module.scss";
+import Link from "next/link";
 
 interface BurgerMenuItemProps {
   title: string;
   url: string;
   subMenu?: { id: number; url: string; title: string }[];
   isVisible: boolean;
+  isOpen: boolean;
   handleClose: () => void;
-  activeSubMenu: string | null;
   setActiveSubMenu: (title: string | null) => void;
 }
 
@@ -19,61 +19,44 @@ export const BurgerMenuItem = ({
   url,
   subMenu,
   isVisible,
+  isOpen,
   handleClose,
-  activeSubMenu,
   setActiveSubMenu,
 }: BurgerMenuItemProps) => {
-  const isOpen = activeSubMenu === title;
-  const urlSegments = useSelectedLayoutSegments();
+  const pathName = usePathname();
   const t = useTranslations("Header");
+  const isActive = (link: string) =>
+    pathName === link ? `${s.description} ${s.active}` : s.description;
 
-  const handleSubMenuToggle = (e: React.TouchEvent) => {
+  const handleSubMenuToggle = (e: React.MouseEvent) => {
     e.stopPropagation();
     setActiveSubMenu(isOpen ? null : title);
   };
 
   return (
     <div className={`${s.burgerLink} ${isVisible ? s.visible : ""}`}>
-      <div onTouchStart={handleSubMenuToggle} className={s.menuItem}>
+      <div onClick={handleSubMenuToggle} className={s.menuItem}>
         {subMenu ? (
-          <span
-            className={
-              `/${urlSegments}` === url
-                ? `${s.description} ${s.active}`
-                : s.description
-            }
-          >
+          <span className={isActive(url)}>
             {t(title)}
             {isOpen ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
           </span>
         ) : (
-          <Link
-            href={url}
-            className={
-              `/${urlSegments}` === url
-                ? `${s.description} ${s.active}`
-                : s.description
-            }
-            onClick={handleClose}
-          >
+          <Link href={url} className={isActive(url)} onClick={handleClose}>
             {t(title)}
           </Link>
         )}
       </div>
       {isOpen && (
-        <div style={{ display: "grid", gap: "20px" }}>
-          {subMenu?.map((subLink) => (
+        <div className={s.subMenu}>
+          {subMenu?.map(({ id, url, title }) => (
             <Link
-              key={subLink.title}
-              href={subLink.url}
-              className={
-                `/${urlSegments}` === subLink.url
-                  ? `${s.description} ${s.active}`
-                  : s.description
-              }
+              key={id}
+              href={url}
+              className={isActive(url)}
               onClick={handleClose}
             >
-              {t(subLink.title)}
+              {t(title)}
             </Link>
           ))}
         </div>

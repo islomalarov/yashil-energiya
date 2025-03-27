@@ -2,7 +2,7 @@
 
 import "@/scss/globals.scss";
 import Image from "next/image";
-import styles from "./TheHeader.module.scss";
+import s from "./TheHeader.module.scss";
 import Logo from "@/public/logo_2.png";
 import { useEffect, useState } from "react";
 import { TheLanguageSwitcher } from "../ui/LanguageComponent/TheLanguageSwitcher";
@@ -34,23 +34,21 @@ export const TheHeader = () => {
   }, []);
 
   return (
-    <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
+    <header className={`${s.header} ${isScrolled ? s.scrolled : ""}`}>
       {showBurgerBtn && <TheBurgerMenu handleBurgerBtn={handleBurgerBtn} />}
       <TheMotionWrapper>
-        <div className={styles.content}>
-          <div className={styles.logoBlock}>
+        <div className={s.content}>
+          <div className={s.logoBlock}>
             <Link href="/">
               <Image
-                className={`${styles.logo} ${
-                  isScrolled ? styles.miniLogo : ""
-                }`}
+                className={`${s.logo} ${isScrolled ? s.miniLogo : ""}`}
                 src={Logo}
                 alt="logo"
                 priority
               />
             </Link>
           </div>
-          <div className={styles.menuBlock}>
+          <div className={s.menuBlock}>
             {menuLinks.map((menuLink) => (
               <TheDropdownMenu
                 key={menuLink.id}
@@ -60,10 +58,12 @@ export const TheHeader = () => {
               />
             ))}
           </div>
-          <div className={styles.actions}>
+          <div className={s.actions}>
             {/* <TheSearch /> */}
+            <div className={s.languages}>
+              <TheLanguageSwitcher />
+            </div>
             <TheBurgerBtn handleBurgerBtn={handleBurgerBtn} />
-            <TheLanguageSwitcher />
           </div>
         </div>
       </TheMotionWrapper>

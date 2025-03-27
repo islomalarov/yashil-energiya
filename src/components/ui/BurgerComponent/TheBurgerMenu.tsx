@@ -6,6 +6,7 @@ import Logo from "@/public/logo_2.png";
 import { useEffect, useState } from "react";
 import { BurgerMenuItem } from "./TheBurgerMenuItem";
 import { CircleX } from "lucide-react";
+import { Link } from "@/src/i18n/navigation";
 
 export type BurgerMenuProps = {
   handleBurgerBtn: () => void;
@@ -36,7 +37,9 @@ export const TheBurgerMenu = ({ handleBurgerBtn }: BurgerMenuProps) => {
   return (
     <div className={`${s.burgerMenu} ${isOpen ? s.open : ""}`}>
       <div className={s.burgerMenuHeader}>
-        <Image className={s.burgerLogo} src={Logo} alt="logo" />
+        <Link href="/" onClick={handleClose}>
+          <Image className={s.burgerLogo} src={Logo} alt="logo" />
+        </Link>
         <div className={s.actions}>
           <TheLanguageSwitcher />
           <button className={s.closeBtn} onClick={handleClose}>
@@ -44,15 +47,15 @@ export const TheBurgerMenu = ({ handleBurgerBtn }: BurgerMenuProps) => {
           </button>
         </div>
       </div>
-      {menuLinks.map((menuLink) => (
+      {menuLinks.map(({ id, url, title, subMenu }) => (
         <BurgerMenuItem
-          key={menuLink.title}
-          title={menuLink.title}
-          url={menuLink.url}
-          subMenu={menuLink.subMenu}
+          key={id}
+          title={title}
+          url={url}
+          subMenu={subMenu}
           isVisible={isVisible}
+          isOpen={activeSubMenu === title}
           handleClose={handleClose}
-          activeSubMenu={activeSubMenu}
           setActiveSubMenu={setActiveSubMenu}
         />
       ))}
