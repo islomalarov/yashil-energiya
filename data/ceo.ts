@@ -11,24 +11,24 @@ export const ceo = [
     jobTitle: "jobTitle2",
     email: "a.muxamedjanov@yashil-energiya.uz",
   },
-  {
-    id: 3,
-    name: "Atabayev Aziz Masharipovich",
-    jobTitle: "jobTitle3",
-    email: "a.atabayev@yashil-energiya.uz",
-  },
+  // {
+  //   id: 3,
+  //   name: "Atabayev Aziz Masharipovich",
+  //   jobTitle: "jobTitle3",
+  //   email: "a.atabayev@yashil-energiya.uz",
+  // },
   {
     id: 4,
     name: "Adbukarimov Dilshod Ubaydulla o'g'li",
     jobTitle: "jobTitle4",
     email: "d.abdukarimov@yashil-energiya.uz",
   },
-  {
-    id: 5,
-    name: "Nurtaev Erkin Talipovich",
-    jobTitle: "jobTitle5",
-    email: "e.nurtaev@yashil-energiya.uz",
-  },
+  // {
+  //   id: 5,
+  //   name: "Nurtaev Erkin Talipovich",
+  //   jobTitle: "jobTitle5",
+  //   email: "e.nurtaev@yashil-energiya.uz",
+  // },
   {
     id: 6,
     name: "Ibragimov Amir Axmedovich",
