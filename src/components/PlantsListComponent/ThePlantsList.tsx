@@ -2,35 +2,53 @@ import "@/scss/globals.scss";
 import s from "./ThePlantsList.module.scss";
 import { Link } from "@/src/i18n/navigation";
 import { useTranslations } from "next-intl";
-import TheCover from "../CoverComponent/TheCover";
 import { plants } from "@/data/plants";
+import cn from "classnames";
+import Image from "next/image";
 
 export const ThePlantsList = ({ begin, end }: ProjectProps) => {
+  return (
+    <ul className={s.projects}>
+      {plants.slice(begin, end).map((plant) => (
+        <PlantItem key={plant.plantCode} plant={plant} />
+      ))}
+    </ul>
+  );
+};
+
+type PlantItemProps = {
+  plant: {
+    plantCode: string;
+    plantName: string;
+    plantAddress: string;
+    plantPower: string;
+  };
+};
+
+export const PlantItem = ({ plant }: PlantItemProps) => {
+  const { plantCode, plantName, plantAddress, plantPower } = plant;
   const t = useTranslations("TheLastPlants");
 
   return (
-    <ul className={s.projects}>
-      {plants
-        .slice(begin, end)
-        .map(({ plantCode, plantName, plantAddress }) => (
-          <li className={s.project} key={plantCode}>
-            <TheCover
-              elem={{
-                url: `/plants/${plantCode}/photo-1.jpg`,
-                fileName: plantName,
-                width: 1280,
-                height: 720,
-              }}
-            />
-            <div className={s.info}>
-              <h3 className={s.projectTitle}>{plantName}</h3>
-              <p>{plantAddress}</p>
-              <Link className={`${s.link} link`} href={`/plants/${plantCode}`}>
-                {t("link")}
-              </Link>
-            </div>
-          </li>
-        ))}
-    </ul>
+    <li className={s.project}>
+      <div className={s.coverWrapper}>
+        <Image
+          className={s.coverImage}
+          src={`/plants/${plantCode}/photo-1.jpg`}
+          alt={plantName}
+          width={1280}
+          height={720}
+        />
+      </div>
+
+      <div className={s.info}>
+        <h3 className={s.projectTitle}>{plantName}</h3>
+        <p>{plantAddress}</p>
+        <p>{plantPower} kW</p>
+        <Link className={cn(s.link, "link")} href={`/plants/${plantCode}`}>
+          {t("link")}
+        </Link>
+      </div>
+    </li>
   );
 };

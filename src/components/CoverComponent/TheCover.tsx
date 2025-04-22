@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import styles from "./page.module.scss";
+import s from "./TheCover.module.scss";
 import { CSSProperties } from "react";
 
 interface CSSVariables extends CSSProperties {
@@ -9,13 +9,7 @@ interface CSSVariables extends CSSProperties {
 }
 
 export default function TheCover({ elem }: any) {
-  if (!elem)
-    return (
-      <div
-        className={styles.imgBlock}
-        // style={style}
-      ></div>
-    );
+  if (!elem) return <div className={s.coverWrapper}></div>;
   const { url, fileName, height, width } = elem;
 
   // const style: CSSVariables = {
@@ -24,11 +18,14 @@ export default function TheCover({ elem }: any) {
   // };
 
   return (
-    <div
-      className={styles.imgBlock}
-      // style={style}
-    >
-      <Image src={url} alt={fileName} width={width} height={height} />
+    <div className={s.coverWrapper}>
+      <Image
+        className={s.coverImage}
+        src={url}
+        alt={fileName}
+        width={width}
+        height={height}
+      />
     </div>
   );
 }

@@ -396,10 +396,11 @@
     "gridConnection": "O'rnatilgan vaqti",
     "averageAnnualProduction": "O'rtacha yillik ishlab chiqarish",
     "averageAnnualProductionUnit": "kVt·soat",
+    "K": "ming",
     "coalSaved": "Tejalgan ko'mir",
-    "coalSavedUnit": "tonna",
+    "coalSavedUnit": "t.",
     "co2Saved": "Tejalgan CO₂ gazlari",
-    "co2SavedUnit": "tonna",
+    "co2SavedUnit": "t.",
     "treesSaved": "Saqlab qolingan daraxtlar",
     "treesSavedUnit": "dona"
   }

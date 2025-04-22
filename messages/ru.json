@@ -396,10 +396,11 @@
     "gridConnection": "Подключение к сети",
     "averageAnnualProduction": "Среднегодовая выработка",
     "averageAnnualProductionUnit": "кВт·ч",
+    "K": "тыс.",
     "coalSaved": "Сэкономлено угля",
-    "coalSavedUnit": "тонна",
+    "coalSavedUnit": "т.",
     "co2Saved": "Сэкономлено CO₂",
-    "co2SavedUnit": "тонна",
+    "co2SavedUnit": "т.",
     "treesSaved": "Сохранено деревьев",
     "treesSavedUnit": "шт."
   }

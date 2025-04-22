@@ -20,11 +20,16 @@
     position: absolute;
     bottom: 0;
     left: 0;
+    width: 100%;
     padding: 5%;
     display: grid;
-    width: 100%;
     gap: 5px;
     background-color: rgba(67, 68, 66, 0.466);
+
+    // Скрытие и начальная позиция
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.5s ease;
 
     .projectTitle {
       color: #fff;
@@ -36,15 +41,44 @@
       color: #fff;
       font-size: 18px;
       font-weight: 400;
-      line-height: 24px; /* 133.333% */
+      line-height: 24px;
     }
+
     .link {
       border: 1px solid $secondaryColor;
       height: 40px;
       color: #fff;
+
       &:hover {
         background-color: $secondaryColor;
       }
     }
+  }
+
+  // Показываем .info при наведении на .project
+  &:hover .info {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.coverWrapper {
+  overflow: hidden;
+  position: relative;
+  border-radius: 1.8rem;
+  display: flex;
+}
+
+.coverImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transform: scale(1);
+  transition: transform 2s ease-in-out;
+
+  // При наведении на родителя .project, увеличиваем масштаб
+  .project:hover & {
+    transform: scale(1.2);
   }
 }

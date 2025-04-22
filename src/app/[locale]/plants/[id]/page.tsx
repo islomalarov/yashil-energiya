@@ -22,6 +22,7 @@ export default function Plant({ params: { id } }: Props) {
     plantPowerFactorDate,
     averageAnnualProduction,
     coalSaved,
+    unit,
     co2Saved,
     treesSaved,
     slidesCount,
@@ -61,13 +62,13 @@ export default function Plant({ params: { id } }: Props) {
             <div className={s.addressBlock}>
               <b>{t("coalSaved")}</b>
               <p>
-                {coalSaved} {t("coalSavedUnit")}
+                {coalSaved} {t(`${unit}`)} {t("coalSavedUnit")}
               </p>
             </div>
             <div className={s.addressBlock}>
               <b>{t("co2Saved")}</b>
               <p>
-                {co2Saved} {t("co2SavedUnit")}
+                {co2Saved} {t(`${unit}`)} {t("co2SavedUnit")}
               </p>
             </div>
             <div className={s.addressBlock}>
