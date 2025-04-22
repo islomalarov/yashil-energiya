@@ -1,12 +1,10 @@
-import "@/scss/globals.scss";
-import styles from "./page.module.scss";
-import Image from "next/image";
-import projects from "@/data/projects.json";
+import s from "./page.module.scss";
 import { TheHero } from "@/src/components/HeroComponent/TheHero";
 import { TheFeedback } from "@/src/components/FeedbackComponent/TheFeedback";
-import { getDate } from "@/my/date/getDate";
 import { useTranslations } from "next-intl";
-import { MapPin } from "lucide-react";
+import { plants } from "@/data/plants";
+import { EmblaOptionsType } from "embla-carousel";
+import TheCarousel from "@/src/components/CarouselComponent/TheCarousel";
 
 type Props = {
   params: {
@@ -15,29 +13,67 @@ type Props = {
 };
 
 export default function Plant({ params: { id } }: Props) {
-  const t = useTranslations("TheLastPlants");
-  const { list } = projects;
-  const plant = list.find(({ plantCode }) => plantCode === id);
+  const t = useTranslations("PlantDetail");
+  const plant = plants.find(({ plantCode }) => plantCode === id);
+  const {
+    plantName,
+    plantAddress,
+    plantPower,
+    plantPowerFactorDate,
+    averageAnnualProduction,
+    coalSaved,
+    co2Saved,
+    treesSaved,
+    slidesCount,
+  } = plant || {};
+
+  const OPTIONS: EmblaOptionsType = { align: "start", loop: true };
+  const SLIDES = Array.from(Array(slidesCount).keys());
 
   return (
     <>
-      <TheHero title1={t("heroTitle")} url1="projects" />
+      <TheHero title1={t("heroTitle")} url1="plants" />
       <div className="container">
-        <div className={styles.content}>
-          <h2 className={styles.title}>{plant?.plantName}</h2>
-          <div className={styles.addressBlock}>
-            <MapPin />
-            <p>{plant?.plantAddress}</p>
-          </div>
-          {plant && <p>{getDate(plant.gridConnectionDate)}</p>}
-          <div className={styles.imgBlock}>
-            <Image
-              width={1280}
-              height={720}
-              src={plant?.imgUrl || "/default-image.jpg"}
-              alt={plant?.imgUrl || "Default image description"}
-              className={styles.imgClass}
-            />
+        <h2 className={s.title}>{plantName}</h2>
+        <div className={s.content}>
+          <TheCarousel plantCode={id} slides={SLIDES} options={OPTIONS} />
+          <div className={s.infoBlock}>
+            <div className={s.addressBlock}>
+              <b>{t("location")}</b>
+              <span>{plantAddress}</span>
+            </div>
+            <div className={s.addressBlock}>
+              <b>{t("power")}</b>
+              <p>
+                {plantPower} {t("powerUnit")}
+              </p>
+            </div>
+            <div className={s.addressBlock}>
+              <b>{t("gridConnection")}</b>
+              <span>{plantPowerFactorDate}</span>
+            </div>
+            <div className={s.addressBlock}>
+              <b>{t("averageAnnualProduction")}</b>
+              <p>
+                {averageAnnualProduction} {t("averageAnnualProductionUnit")}
+              </p>
+            </div>
+            <div className={s.addressBlock}>
+              <b>{t("coalSaved")}</b>
+              <p>
+                {coalSaved} {t("coalSavedUnit")}
+              </p>
+            </div>
+            <div className={s.addressBlock}>
+              <b>{t("co2Saved")}</b>
+              <p>
+                {co2Saved} {t("co2SavedUnit")}
+              </p>
+            </div>
+            <div className={s.addressBlock}>
+              <b>{t("treesSaved")}</b>
+              <p>{treesSaved}</p>
+            </div>
           </div>
         </div>
       </div>

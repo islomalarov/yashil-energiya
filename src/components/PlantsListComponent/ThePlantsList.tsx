@@ -1,39 +1,36 @@
 import "@/scss/globals.scss";
-import styles from "./page.module.scss";
+import s from "./ThePlantsList.module.scss";
 import { Link } from "@/src/i18n/navigation";
-import projects from "@/data/projects.json";
 import { useTranslations } from "next-intl";
 import TheCover from "../CoverComponent/TheCover";
+import { plants } from "@/data/plants";
 
 export const ThePlantsList = ({ begin, end }: ProjectProps) => {
   const t = useTranslations("TheLastPlants");
-  const { list } = projects;
-  const projectsSlice = list.slice(begin, end);
 
   return (
-    <ul className={styles.projects}>
-      {projectsSlice.map(({ plantCode, plantName, plantAddress, imgUrl }) => (
-        <li className={styles.project} key={plantCode}>
-          <TheCover
-            elem={{
-              url: imgUrl,
-              fileName: plantName,
-              width: 1280,
-              height: 720,
-            }}
-          />
-          <div className={styles.info}>
-            <h3 className={styles.projectTitle}>{plantName}</h3>
-            <p>{plantAddress}</p>
-            <Link
-              className={`${styles.link} link`}
-              href={`/plants/${plantCode}`}
-            >
-              {t("link")}
-            </Link>
-          </div>
-        </li>
-      ))}
+    <ul className={s.projects}>
+      {plants
+        .slice(begin, end)
+        .map(({ plantCode, plantName, plantAddress }) => (
+          <li className={s.project} key={plantCode}>
+            <TheCover
+              elem={{
+                url: `/plants/${plantCode}/photo-1.jpg`,
+                fileName: plantName,
+                width: 1280,
+                height: 720,
+              }}
+            />
+            <div className={s.info}>
+              <h3 className={s.projectTitle}>{plantName}</h3>
+              <p>{plantAddress}</p>
+              <Link className={`${s.link} link`} href={`/plants/${plantCode}`}>
+                {t("link")}
+              </Link>
+            </div>
+          </li>
+        ))}
     </ul>
   );
 };

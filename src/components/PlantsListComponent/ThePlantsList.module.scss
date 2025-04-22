@@ -1,0 +1,50 @@
+@import "@/scss/_vars.scss";
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  padding-bottom: 90px;
+
+  @media (max-width: $md) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.project {
+  position: relative;
+  border-radius: 1.8rem;
+  overflow: hidden;
+
+  .info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 5%;
+    display: grid;
+    width: 100%;
+    gap: 5px;
+    background-color: rgba(67, 68, 66, 0.466);
+
+    .projectTitle {
+      color: #fff;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-weight: 700;
+    }
+
+    p {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 24px; /* 133.333% */
+    }
+    .link {
+      border: 1px solid $secondaryColor;
+      height: 40px;
+      color: #fff;
+      &:hover {
+        background-color: $secondaryColor;
+      }
+    }
+  }
+}

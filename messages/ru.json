@@ -387,5 +387,20 @@
   },
   "JobsPage": {
     "title": "Вакансии"
+  },
+  "PlantDetail": {
+    "heroTitle": "Солнечные электростанции",
+    "location": "Адрес",
+    "power": "Мощность",
+    "powerUnit": "кВт",
+    "gridConnection": "Подключение к сети",
+    "averageAnnualProduction": "Среднегодовая выработка",
+    "averageAnnualProductionUnit": "кВт·ч",
+    "coalSaved": "Сэкономлено угля",
+    "coalSavedUnit": "тонна",
+    "co2Saved": "Сэкономлено CO₂",
+    "co2SavedUnit": "тонна",
+    "treesSaved": "Сохранено деревьев",
+    "treesSavedUnit": "шт."
   }
 }

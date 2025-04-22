@@ -387,5 +387,20 @@
   },
   "JobsPage": {
     "title": "Ish o'rinlari"
+  },
+  "PlantDetail": {
+    "heroTitle": "QFESlar ro'yhati",
+    "location": "Manzil",
+    "power": "Quvvat",
+    "powerUnit": "kVt",
+    "gridConnection": "O'rnatilgan vaqti",
+    "averageAnnualProduction": "O'rtacha yillik ishlab chiqarish",
+    "averageAnnualProductionUnit": "kVt·soat",
+    "coalSaved": "Tejalgan ko'mir",
+    "coalSavedUnit": "tonna",
+    "co2Saved": "Tejalgan CO₂ gazlari",
+    "co2SavedUnit": "tonna",
+    "treesSaved": "Saqlab qolingan daraxtlar",
+    "treesSavedUnit": "dona"
   }
 }

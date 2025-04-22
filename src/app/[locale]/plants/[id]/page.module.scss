@@ -1,26 +1,32 @@
+@import "@/scss/_vars.scss";
+
 .content {
   display: grid;
-  grid-template-columns: repeat(1fr);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 50px;
+  padding: 20px 0;
+
+  @media (max-width: $md) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
+
 .title {
-  color: #2b2b2b;
+  color: $blackColor;
   font-size: 40px;
   font-weight: 700;
-  padding-bottom: 34px;
+  text-align: center;
+  margin-bottom: 43px;
 }
-.addressBlock {
-  display: flex;
-  align-items: center;
+
+.infoBlock {
+  display: grid;
   gap: 10px;
-}
-.imgBlock {
-  justify-content: center;
-  display: flex;
-  padding: 20px 0;
-}
-.imgClass {
-  border-radius: 10px;
-  width: 80%;
-  height: auto;
-  object-fit: cover;
+
+  .addressBlock {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    gap: 10px;
+  }
 }
