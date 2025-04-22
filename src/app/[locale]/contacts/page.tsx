@@ -39,7 +39,7 @@ export default function Contacts() {
               </div>
               <div>
                 <div className={s.description}>{t("phone")}:</div>
-                <div className={s.info}>+998 90 830-20-00</div>
+                <div className={s.info}>+998 55-514-88-44</div>
               </div>
               <div>
                 <div className={s.description}>{t("email")}:</div>
