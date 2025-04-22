@@ -10,7 +10,7 @@ export const TheContacts = () => {
       <div className={styles.info}>
         <div className={styles.block}>
           <h2>{t("phone")}</h2>
-          <p>+998 90 830-20-00</p>
+          <p>+998 55-514-88-44</p>
         </div>
         <div className={styles.block}>
           <h2>{t("address")}</h2>
