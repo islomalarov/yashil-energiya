@@ -21,14 +21,15 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 5%;
+    padding: 10px 0 20px 20px;
     display: grid;
     gap: 5px;
     background-color: rgba(67, 68, 66, 0.466);
+    // backdrop-filter: blur(50px);
 
     // Скрытие и начальная позиция
-    opacity: 0;
-    transform: translateY(100%);
+    opacity: 1;
+    transform: translateY(70%);
     transition: all 0.5s ease;
 
     .projectTitle {
@@ -67,6 +68,18 @@
   position: relative;
   border-radius: 1.8rem;
   display: flex;
+
+  .cover {
+    background-color: $secondaryColor;
+    position: absolute;
+    top: 3%;
+    right: 2%;
+    object-fit: cover;
+    z-index: 2;
+    padding: 5px;
+    color: white;
+    border-radius: 1.8rem;
+  }
 }
 
 .coverImage {

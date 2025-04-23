@@ -32,6 +32,9 @@ export const PlantItem = ({ plant }: PlantItemProps) => {
   return (
     <li className={s.project}>
       <div className={s.coverWrapper}>
+        <div className={s.cover}>
+          <p>{plantPower} kW</p>
+        </div>
         <Image
           className={s.coverImage}
           src={`/plants/${plantCode}/photo-1.jpg`}
@@ -44,7 +47,7 @@ export const PlantItem = ({ plant }: PlantItemProps) => {
       <div className={s.info}>
         <h3 className={s.projectTitle}>{plantName}</h3>
         <p>{plantAddress}</p>
-        <p>{plantPower} kW</p>
+
         <Link className={cn(s.link, "link")} href={`/plants/${plantCode}`}>
           {t("link")}
         </Link>
