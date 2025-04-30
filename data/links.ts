@@ -16,8 +16,8 @@ export const links = [
   },
   {
     img: "/emblems/emblem4.png",
-    body: "O‘ZBEKISTON RESPUBLIKASI INVESTITSIYALAR VA TASHQI SAVDO VAZIRLIGI",
-    url: "www.invest.gov.uz",
+    body: "O‘zbekiston Respublikasi Investitsiyalar, sanoat va savdo vazirligi",
+    url: "gov.uz/oz/miit",
   },
   // {
   //   img: "/emblems/emblem5.png",
