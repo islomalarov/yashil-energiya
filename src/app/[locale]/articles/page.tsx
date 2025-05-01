@@ -2,8 +2,13 @@ import "@/scss/globals.scss";
 import getData from "@/lib/getData";
 import { TheHero } from "@/src/components/HeroComponent/TheHero";
 import { TheFeedback } from "@/src/components/FeedbackComponent/TheFeedback";
-import { SearchProps } from "../news/page";
 import { TheArticlesList } from "@/src/components/ArticlesList/TheArticlesList";
+
+interface SearchProps {
+  searchParams: {
+    page: string;
+  };
+}
 
 export default async function Articles({ searchParams }: SearchProps) {
   let page = parseInt(searchParams.page, 10);

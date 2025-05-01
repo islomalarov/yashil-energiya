@@ -1,0 +1,23 @@
+@import "@/scss/_vars.scss";
+.pagination :global(.MuiPaginationItem-root) {
+  color: $primaryColor;
+  border-color: $primaryColor;
+  &:hover {
+    background-color: $primaryColor;
+    color: $whiteColor;
+  }
+  &.Mui-disabled {
+    color: $whiteColor;
+  }
+  &.Mui-selected {
+    background-color: $primaryColor;
+    color: $whiteColor;
+  }
+}
+
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}

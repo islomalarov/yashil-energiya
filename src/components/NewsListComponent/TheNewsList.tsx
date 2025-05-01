@@ -2,7 +2,7 @@
 import "@/scss/globals.scss";
 import styles from "./page.module.scss";
 import { Link } from "@/src/i18n/navigation";
-import { NewResponse } from "@/services/news.service";
+import { NewResponse } from "@/services/news.service.types";
 import TheImage from "../CoverComponent/TheCover";
 
 interface NewsProps {

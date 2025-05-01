@@ -1,44 +1,10 @@
 import { request, gql } from "graphql-request";
+import { NewResponse, NewsResponse } from "./news.service.types";
 
 const graphqlAPI = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT;
 
 if (!graphqlAPI) {
   throw new Error("Invalid/Missing environment variable: HYGRAPH_ENDPOINT");
-}
-export interface NewResponse {
-  new: {
-    date: string;
-    id: string;
-    slug: string;
-    title: string;
-    excerpt: string;
-    description: {
-      raw: {
-        children: [{}];
-      };
-    };
-    cover: {
-      url: string;
-      fileName: string;
-      height: number;
-      width: number;
-    };
-  };
-}
-export interface NewsResponse {
-  news: NewResponse[];
-  newsConnection: {
-    pageInfo: {
-      hasNextPage: boolean;
-      hasPreviousPage: boolean;
-      pageSize: number;
-      startCursor: string;
-      endCursor: string;
-    };
-    aggregate: {
-      count: number;
-    };
-  };
 }
 
 export const NewsService = {
@@ -61,7 +27,7 @@ export const NewsService = {
             width
           }
         }
-        newsConnection {
+        newsConnection(locales: ${locale}) {
           pageInfo {
             hasNextPage
             hasPreviousPage

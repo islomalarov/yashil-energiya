@@ -3,9 +3,7 @@
 import "@/scss/globals.scss";
 import styles from "./page.module.scss";
 import Image from "next/image";
-import { getDate } from "@/my/date/getDate";
 import { Link } from "@/src/i18n/navigation";
-// import { NewResponse } from "@/services/news.service";
 
 interface NewsProps {
   articles: {
@@ -28,7 +26,7 @@ export const TheArticlesList = ({ articles, url }: NewsProps) => {
                 <Image width={720} height={315} src={imgUrl} alt={imgUrl} />
               </div>
               <div className={styles.titleBlock}>
-                {date && <p className={styles.date}>{getDate(date)}</p>}
+                {date && <p className={styles.date}>{date}</p>}
                 <h3>{title}</h3>
                 <p>{subTitle}</p>
               </div>

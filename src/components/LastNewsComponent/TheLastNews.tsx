@@ -4,10 +4,11 @@ import "@/scss/globals.scss";
 import styles from "./TheLastNews.module.scss";
 import { Link } from "@/src/i18n/navigation";
 import { TheNewsList } from "../NewsListComponent/TheNewsList";
-import { NewResponse, NewsService } from "@/services/news.service";
+import { NewsService } from "@/services/news.service";
 import { useEffect, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
+import { NewResponse } from "@/services/news.service.types";
 
 export function TheLastNews() {
   const [news, setNews] = useState<NewResponse[]>([]);
