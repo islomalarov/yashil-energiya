@@ -17,9 +17,9 @@ export const TheHero = ({ title1, title2, url1, url2 }: HeroProps) => {
       </div>
       <div className="container">
         <div className={styles.info}>
-          <h1 className={styles.title}>
+          <h3 className={styles.title}>
             {pathname === url1 ? title1 : title2}
-          </h1>
+          </h3>
           <div className={styles.links}>
             <Link className={styles.link} href="/">
               {t("title")}
