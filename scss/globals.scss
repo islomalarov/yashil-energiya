@@ -28,7 +28,7 @@
 }
 
 .title {
-  color: #2b2b2b;
+  color: $blackColor;
   font-size: 40px;
   font-weight: 700;
   text-transform: uppercase;
@@ -51,8 +51,8 @@
 }
 
 .description {
-  color: #2b2b2b;
-  font-size: 16px;
+  color: $blackColor;
+  font-size: $paragraphSize;
   line-height: 30px; /* 187.5% */
   font-weight: 400;
   text-align: justify;

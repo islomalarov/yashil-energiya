@@ -128,20 +128,33 @@
     "linkTitle": "Barcha yangiliklar"
   },
   "SolarPanelsPage": {
-    "heroTitle": "Quyosh panellari",
-    "content": "Qayta tiklanuvchi energiya manbalari qurilmalari orqali elektr energiya ishlab chiqarilganda atrof-muhitga zararli gazlar chiqmaydi. Qayta tiklanuvchi energiya manbalari qurilmalari foydalanishga topshirilgan vaqtdan boshlab daromad olish imkoni yuzaga keladi. Bunday qurilmalar binolarning tom qismida yoki bo‘sh yer maydonlarga o‘rnatilib, ishlash jarayonida shovqin bo‘lmaydi. Zamonaviy vositalar orqali bino va xonadonlarni elektr energiyasi bilan ta’minlash imkoniyati yuzaga keladi. Bu qurilmalarni o‘rnatish oson va doimiy texnik xizmat ko‘rsatish talab etilmaydi. Mazkur qurilmalar o‘rtacha 20-25 yil davomida xizmat ko‘rsatadi. Mulk egasi ehtiyojidan ortgan qismini elektr tarmoqlari korxonasiga sotib, daromad olish imkoni mavjud.",
+    "heroTitle": "Quyosh fotoelektr stansiyalari",
+    "title": "Quyosh fotoelektr stansiyalari",
+    "list": "Hozirgi kunda quyosh fotoelektr stansiyalari (QFES) dunyoning ko‘plab mamlakatlarida muhim energiya manbai bo‘lib bormoqda. Ular:",
+    "listItem1": "Atrof-muhitga zarar yetkazmaydi (toza energiya manbai hisoblanadi).",
+    "listItem2": "Neft, gaz kabi yoqilg‘ilarga qaramlikni kamaytiradi.",
+    "listItem3": "Elektr energiyasi narxini pasaytirishga yordam beradi.",
+    "content": {
+      "description1": "Ko‘plab rivojlangan davlatlar (AQSh, Xitoy, Germaniya) quyosh energiyasidan keng foydalanmoqda. Masalan, Xitoy dunyodagi eng yirik quyosh elektr stansiyalariga ega.",
+      "description2": "O‘zbekistonda ham quyosh energiyasiga katta e’tibor berilmoqda,chunki mamlakatda quyoshli kunlar soni yiliga 300 kundan ortiq. Bu quyosh elektr stansiyalarini rivojlantirish uchun katta imkoniyat yaratadi. O‘zbekistonda quyosh energiyasidan kengroq foydalanish kelajakda elektr ta’minotini yaxshilash va energiya xarajatlarini kamaytirishga yordam beradi."
+    },
+    "systemTitle": "Quyosh fotoelektr stansiyalari 3 xil asosiy turga bo‘linadi:",
     "system1": {
-      "title": "On-Grid tizimi",
-      "description": "hududiy elektr tarmoqlari tizimiga ulangan bo'lib,invertorlar orqali hosil bo'lgan o'zgaruvchan energiya manbaidan quyoshli kunlarda bemalol foydalanishingiz mumkin. Iste’molingizdan ortig'ini esa mahalliy elektr tarmog'iga yo'naltirishingiz, aniqrog'i sotishingiz mumkin. Albatta buning uchun hududiy elektr tarmog'ida ham elektr energiyasi mavjud bo'lishi lozim. Shuning uchun bu usul tarmoq ichida tizim deb ataladi."
+      "title": "On-grid tizim",
+      "description": "umumiy elektr tarmog‘iga ulangan bo‘lib, quyosh panellari ishlab chiqargan elektrni birinchi navbatda iste’mol qiladi, ortiqchasini esa davlat tarmog‘iga uzatadi, lekin elektr tarmog‘ida uzilish bo‘lsa, tizim ham ishlamaydi."
     },
     "system2": {
-      "title": "Off-Grid tizimi",
-      "description": "hududiy elektr tarmoqlari tizimidan holi, mustaqil (avtonom) tizim bo'lib, quyoshli kunlarda hosil bo'lgan va iste’molingizdan ortib qolgan elektr manbaini zaxiraga olib qo'yish imkoniyatiga ega bo'lasiz. Bunda batareyalarga \"g'amlab\" qo'yilgan elektr energiyasi Sizni kecha-yu kunduz uzluksiz elektr energiyasi bilan ta’minlab turadi."
+      "title": "Off-grid tizim",
+      "description": "elektr tarmog‘iga ulanmagan va mustaqil ishlaydi, energiyani akkumulyatorlarda saqlaydi, shu sababli elektr tarmog‘i mavjud bo‘lmagan joylar uchun mos keladi, ammo akkumulyatorlarning qimmatligi sababli narxi yuqoriroq bo‘ladi."
     },
     "system3": {
-      "title": "Gibrid tizimi",
-      "description": "On-Grid (tizim ichidagi) va Off-Grid (tizimdan tashqari) imkoniyatlarini birlashtirgan Sizning \"quyosh elektr stansiyangiz\"dir. Bunda Siz bir vaqtning o'zida xam hududiy elektr tarmog'iga ulangan bo'lasiz, ham o'z elektr zaxirangizga ega bo'lasiz. Xohlang o'zingiz \"ishlab chiqargan\" elektr manbaini mahalliy elektr tarmog'iga soting, xohlang zaxira sifatida batareyaga \"g'amlab\" qo'ygan elektr energiyangizdan o'zingiz bemalol foydalaning."
-    }
+      "title": "Gibrid tizim",
+      "description": "on-grid va off-grid tizimlarining kombinatsiyasi bo‘lib, u elektr tarmog‘iga ulanib ishlashi yoki akkumulyator orqali mustaqil ravishda energiya ta’minotini davom ettirishi mumkin, bu esa uni eng moslashuvchan, lekin nisbatan qimmat tizimga aylantiradi."
+    },
+    "mapTitle": "“Yashil Energiya” MChJ ning mavjud QFES lari haqida ma’lumot",
+    "chartDescription": "“Yashil Energiya” MChJ 2023-yildan buyon O’zbekiston Respublikasi hududida joylashgan ijtimoiy soha obyektlariga QFES o’rnatish bilan shug’ullanib kelmoqda. Quyidagi diagrammada jamiyatga tegishli QFES larning umumiy quvvatini o’zgarishini ko’rishingiz mumkin.",
+    "chartLabel": "Umumiy quvvat",
+    "chartLabelUnit": "kVt"
   },
   "MicroGesPage": {
     "heroTitle": "Mikro GES",
