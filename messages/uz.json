@@ -154,7 +154,22 @@
     "mapTitle": "“Yashil Energiya” MChJ ning mavjud QFES lari haqida ma’lumot",
     "chartDescription": "“Yashil Energiya” MChJ 2023-yildan buyon O’zbekiston Respublikasi hududida joylashgan ijtimoiy soha obyektlariga QFES o’rnatish bilan shug’ullanib kelmoqda. Quyidagi diagrammada jamiyatga tegishli QFES larning umumiy quvvatini o’zgarishini ko’rishingiz mumkin.",
     "chartLabel": "Umumiy quvvat",
-    "chartLabelUnit": "kVt"
+    "chartLabelUnit": "kVt",
+    "chartLabel1": "Obyektlar soni",
+    "region1": "Toshkent shahri",
+    "region2": "Toshkent viloyati",
+    "region3": "Andijon viloyati",
+    "region4": "Buxoro viloyati",
+    "region5": "Farg‘ona viloyati",
+    "region6": "Jizzax viloyati",
+    "region7": "Namangan viloyati",
+    "region8": "Navoiy viloyati",
+    "region9": "Qashqadaryo viloyati",
+    "region10": "Qoraqalpog‘iston Respublikasi",
+    "region11": "Samarqand viloyati",
+    "region12": "Sirdaryo viloyati",
+    "region13": "Surxondaryo viloyati",
+    "region14": "Xorazm viloyati"
   },
   "MicroGesPage": {
     "heroTitle": "Mikro GES",
