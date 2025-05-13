@@ -1,51 +1,203 @@
+"use client";
 import "@/scss/globals.scss";
 import { TheHero } from "@/src/components/HeroComponent/TheHero";
 import { TheFeedback } from "@/src/components/FeedbackComponent/TheFeedback";
-import styles from "./page.module.scss";
+import s from "./page.module.scss";
 import { useTranslations } from "next-intl";
+import { Icon } from "@iconify/react/dist/iconify.js";
+import { splitText } from "motion-plus";
+import { animate, stagger } from "motion";
+import { useEffect, useRef } from "react";
+import * as motion from "motion/react-client";
 
 export default function MicroGes() {
   const t = useTranslations("MicroGesPage");
-  const needs = ["need1", "need2", "need3"] as const;
-  const benefits = ["benefit1", "benefit2", "benefit3", "benefit4"] as const;
-  const statistics = ["statistic1", "statistic2", "statistic3"] as const;
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const listItems = [
+    {
+      icon: "hugeicons:sustainable-energy",
+    },
+    {
+      icon: "hugeicons:water-energy",
+    },
+    {
+      icon: "hugeicons:save-energy-01",
+    },
+    {
+      icon: "hugeicons:cashback",
+    },
+  ];
+
+  useEffect(() => {
+    document.fonts.ready.then(() => {
+      if (!containerRef.current) return;
+
+      // Hide the container until the fonts are loaded
+      containerRef.current.style.visibility = "visible";
+
+      const { words } = splitText(containerRef.current.querySelector("p")!);
+
+      // Animate the words in the p
+      animate(
+        words,
+        { opacity: [0, 1], y: [10, 0] },
+        {
+          type: "spring",
+          duration: 2,
+          bounce: 0,
+          delay: stagger(0.05),
+        },
+      );
+    });
+  }, []);
 
   return (
     <>
       <TheHero title1={t("heroTitle")} url1="microGes" />
       <div className="container">
-        <div className="">
-          <p className="description">{t("content")}</p>
-        </div>
-        <div className={styles.block}>
-          <h2 className="">{t("needsTitle")}</h2>
-          {needs.map((need, index) => (
-            <p className="description" key={need}>
-              <b>
-                {index + 1}. {t(`${need}.title`)}
-              </b>
-              : {t(`${need}.description`)}
-            </p>
-          ))}
-        </div>
-        <div className={styles.block}>
-          <h2 className="">{t("benefitsTitle")}</h2>
-          {benefits.map((need, index) => (
-            <p className="description" key={need}>
-              <b>
-                {index + 1}. {t(`${need}.title`)}
-              </b>
-              : {t(`${need}.description`)}
-            </p>
-          ))}
-        </div>
-        <div className={styles.block}>
-          <h2 className="">{t("statisticsTitle")}</h2>
-          {statistics.map((need, index) => (
-            <p className="description" key={index}>
-              - {t(`${need}.description`)}
-            </p>
-          ))}
+        <div className={s.content}>
+          <h1 className={s.title}>{t("title")}</h1>
+          <div ref={containerRef}>
+            <p className={s.subTitle}>{t("subTitle")}</p>
+          </div>
+          <div>
+            <p className="description">{t("content")}</p>
+          </div>
+          <div>
+            <h2 className={s.title}>{t("listTitle")}</h2>
+            <p className="description">{t("listDescription")}</p>
+            <div className={s.achievements}>
+              {listItems.map((item, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.8 }}
+                  className={s.achievement}
+                >
+                  <Icon icon={item.icon} color="#12903e" fontSize={100} />
+                  <p className={s.achievementDescription}>
+                    {t(`listItem${index + 1}`)}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h2 className={s.title}>{t("servicesTitle")}</h2>
+            <ul className={s.list}>
+              <li className={s.listItem}>
+                <div>
+                  <Icon
+                    icon="ix:project-server"
+                    width="2em"
+                    height="2em"
+                    style={{ color: "#12903e" }}
+                  />
+                </div>
+                <span>{t("servicesItem1")}</span>
+              </li>
+              <li className={s.listItem}>
+                <div>
+                  <Icon
+                    icon="fa6-solid:business-time"
+                    width="2em"
+                    height="2em"
+                    style={{ color: "#12903e" }}
+                  />
+                </div>
+                <span>{t("servicesItem2")}</span>
+              </li>
+              <li className={s.listItem}>
+                <div>
+                  <Icon
+                    icon="fluent-emoji-high-contrast:building-construction"
+                    width="2em"
+                    height="2em"
+                    style={{ color: "#12903e" }}
+                  />
+                </div>
+                <span>{t("servicesItem3")}</span>
+              </li>
+              <li className={s.listItem}>
+                <div>
+                  <Icon
+                    icon="eos-icons:monitoring"
+                    width="2em"
+                    height="2em"
+                    style={{ color: "#12903e" }}
+                  />
+                </div>
+                <span>{t("servicesItem4")}</span>
+              </li>
+            </ul>
+          </div>
+          <div className={s.schemaBlock}>
+            <div className={s.border}>{t("schemaTitle")}</div>
+            <div className={s.border}>{t("schemaDescription1")}</div>
+            <div>
+              <Icon
+                icon="fontisto:arrow-swap"
+                fontSize={50}
+                style={{
+                  color: "#12903e",
+                  rotate: "90deg",
+                }}
+              />
+            </div>
+            <div className={s.border}>{t("schemaDescription2")}</div>
+            <div className={`${s.border} ${s.bg}`}>
+              {t("schemaDescription3")}
+            </div>
+            <div>
+              <Icon
+                icon="fontisto:arrow-up-l"
+                fontSize={50}
+                style={{
+                  color: "#12903e",
+                  rotate: "-135deg",
+                }}
+              />
+              <Icon
+                icon="fontisto:arrow-up-l"
+                fontSize={50}
+                style={{
+                  color: "#12903e",
+                  rotate: "-45deg",
+                }}
+              />
+            </div>
+            <div>
+              <div className={`${s.border} ${s.bg}`}>
+                {t("schemaDescription4")}
+              </div>
+              <div>
+                <Icon
+                  icon="fontisto:arrow-up-l"
+                  fontSize={50}
+                  style={{
+                    color: "#12903e",
+                    rotate: "90deg",
+                  }}
+                />
+              </div>
+              <div className={`${s.border} ${s.bg}`}>
+                {t("schemaDescription5")}
+              </div>
+            </div>
+          </div>
+          <div>
+            <h2 className={s.title}>{t("docsTitle")}</h2>
+            <p className="description">{t("docsDescription")}</p>
+          </div>
+          <div>
+            <h2 className={s.title}>{t("projectsTitle")}</h2>
+            <p className="description">{t("projectsDescription")}</p>
+          </div>
+          <div>
+            <h2 className={s.title}>{t("futuresTitle")}</h2>
+            <p className="description">{t("futuresDescription")}</p>
+          </div>
         </div>
       </div>
       <TheFeedback />

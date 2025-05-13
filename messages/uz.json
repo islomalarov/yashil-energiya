@@ -173,47 +173,32 @@
   },
   "MicroGesPage": {
     "heroTitle": "Mikro GES",
-    "content": "Oʻzbekistonda mikro gidroelektr stansiyalar (mikro GES)ni rivojlantirish mamlakatning energetika xavfsizligini taʼminlash va ekologik toza energiya manbalaridan foydalanishni kengaytirish uchun muhim ahamiyatga ega.",
-    "needsTitle": "Mikro GESlarning Oʻzbekistonga zarurati:",
-    "need1": {
-      "title": "Energetika xavfsizligini taʼminlash",
-      "description": "Mikro GESlar uzoq va chekka hududlarni elektr energiyasi bilan taʼminlashda muhim rol oʻynaydi. Bu, ayniqsa, togʻli va qishloq joylarida markaziy energiya tarmoqlariga ulanish imkoniyati cheklangan aholi punktlari uchun dolzarbdir"
-    },
-    "need2": {
-      "title": "Atrof-muhitga zarar yetkazmaslik",
-      "description": "Mikro GESlar kichik hajmdagi suv oqimlaridan foydalanib, atrof-muhitga minimal taʼsir koʻrsatadi. Ular katta suv omborlari qurilishini talab qilmaydi va ekologik muvozanatni saqlashga yordam beradi"
-    },
-    "need3": {
-      "title": "Energiya manbalarini diversifikatsiya qilish",
-      "description": "Mikro GESlar qayta tiklanuvchi energiya manbalaridan biri boʻlib, mamlakatning energiya manbalarini diversifikatsiya qilishga hissa qoʻshadi va tabiiy gazga boʻlgan qaramlikni kamaytiradi"
-    },
-    "benefitsTitle": "Mikro GESlarning Oʻzbekistonga keltiradigan foydalari:",
-    "benefit1": {
-      "title": "Elektr energiyasi ishlab chiqarish",
-      "description": "Mikro GESlar kichik hajmdagi suv oqimlaridan foydalanib, elektr energiyasi ishlab chiqaradi. Masalan, Andijon viloyatida quvvati 200 kVt boʻlgan \"Zavroq\" mikro GESi yiliga 1,2 million kVt·soat elektr energiyasi ishlab chiqarib, 300 ta xonadonni taʼminlash imkoniyatiga ega"
-    },
-    "benefit2": {
-      "title": "Tabiiy gazni tejash",
-      "description": "Mikro GESlar orqali ishlab chiqarilgan elektr energiyasi tabiiy gaz isteʼmolini kamaytiradi. Hisob-kitoblarga koʻra, 250 ta mikro GES yiliga 675 million kVt·soat elektr energiyasi ishlab chiqarib, 200 million kub metr gazni tejash imkonini beradi"
-    },
-    "benefit3": {
-      "title": "Ish oʻrinlari yaratish",
-      "description": "Mikro GESlar qurilishi va ekspluatatsiyasi jarayonida mahalliy aholi uchun yangi ish oʻrinlari yaratiladi. Bu esa hududiy iqtisodiyotni rivojlantirishga xizmat qiladi"
-    },
-    "benefit4": {
-      "title": "Xususiy sektor ishtirokini ragʻbatlantirish",
-      "description": "Mikro GESlar qurilishida xususiy investorlarning ishtiroki ragʻbatlantirilmoqda. Masalan, 2022-yilda 200 ta mikro GES loyihasi xususiy sektor ishtirokida amalga oshirilishi rejalashtirilgan"
-    },
-    "statisticsTitle": "Statistik maʼlumotlar:",
-    "statistic1": {
-      "description": "2022-yilda Oʻzbekistonda 50 ta kichik GES qurilishi rejalashtirilgan boʻlib, ular yiliga 202 million kVt·soat elektr energiyasi ishlab chiqarishi kutilmoqda."
-    },
-    "statistic2": {
-      "description": "2023-yilda Andijon viloyatida quvvati 50 kVt boʻlgan mikro GES ishga tushirilib, 150 ta xonadonni elektr energiyasi bilan taʼminlash imkoniyatiga ega boʻldi. "
-    },
-    "statistic3": {
-      "description": "2024-yilda 18 ta kichik va mikro GESlar ishga tushirilishi rejalashtirilgan boʻlib, ularning umumiy quvvati 24,5 million kVt·soatni tashkil qiladi. Bu quvvat oʻrtacha 45 ming xonadonni elektr energiyasi bilan taʼminlashga yetadi."
-    }
+    "title": "GIDROELEKTR STANSIYALAR",
+    "subTitle": "Tabiatdan – toza energiya sari!",
+    "content": "\"Yashil Energiya\" MCHJ O‘zbekiston hududida barqaror va ekologik toza energiya manbalarini joriy etishga doimiy hissa qo‘shib kelmoqda. Mikro gidroelektrostansiyalar bo‘limi esa shu yo‘ldagi muhim yo‘nalishlardan biridir.",
+    "listTitle": "Nima uchun mikro GES",
+    "listDescription": "Mikro gidroelektrostansiyalar – bu quvvati 5 kVt dan 500 kVt gacha bo‘lgan, suv oqimidan foydalanib elektr energiyasi ishlab chiqaruvchi kichik quvvatli inshootlardir. Ular quyidagi afzalliklarga ega:",
+    "listItem1": "Doimiy va barqaror elektr ta’minoti",
+    "listItem2": "Ekologik xavfsizlik – atrof-muhitga zarar yetkazmaydi",
+    "listItem3": "Qishloq hududlaridagi energiya tanqisligini bartaraf etish",
+    "listItem4": "Kam xarajatli texnik xizmat va uzoq xizmat muddati",
+    "servicesTitle": "Bizning xizmatlar:",
+    "servicesItem1": "Gidrotexnik va energetik loyihalash",
+    "servicesItem2": "\"Tayyor biznes\" loyiha (kalit topshirish) asosida mikro GES qurilishi",
+    "servicesItem3": "Montaj va ishga tushirish",
+    "servicesItem4": "Monitoring va texnik xizmat ko‘rsatish",
+    "schemaTitle": "“Yashil Energiya” MCHJ hamda xorijiy va mahalliy investortor tomonidan “tayyor biznes loyiha” sifatida mikroGESlarni quradi va ishga tushirish",
+    "schemaDescription1": "MikroGES orqali elektr energiya ishlab chiqariladi",
+    "schemaDescription2": "Ishlab chiqarilgan va o‘zidan ortgan energiyaga “HET” AJ tomonidan sotib olinadi",
+    "schemaDescription3": "Auksion g‘olibi",
+    "schemaDescription4": "“HET” AJ (Energosavdo)",
+    "schemaDescription5": "Isteʼmolchi",
+    "docsTitle": "Normativ-huquqiy asos",
+    "docsDescription": "Mikro gidroelektr stansiyalar bo‘yicha faoliyatimiz O‘zbekiston Respublikasi hukumatining rasmiy siyosati va qo‘llab-quvvatloviga asoslanadi. Xususan: O‘zbekiston Respublikasi Prezidentining 2025-yil 28-martdagi PQ-129-sonli qarori – \"Respublika hududlarida mikro gidroelektr stansiyalari tarmog‘ini rivojlantirish bo‘yicha qo‘shimcha chora-tadbirlar to‘g‘risida\"gi ushbu qaror mavjud suv resurslaridan oqilona foydalangan holda tadbirkorlik subyektlari tomonidan elektr energiyasini ishlab chiqarish quvvatlarini oshirish, iqtisodiyot tarmoqlari va aholini elektr energiyasi bilan ta’minlashning barqarorligini yanada oshirish va shu orqali butun iqtisodiyotning energiya xavfsizligini ta’minlashga qaratilgan chora-tadbirlar ko‘zda tutilgan.",
+    "projectsTitle": "Amalga oshirilayotgan loyihalar",
+    "projectsDescription": "Hozirda \"Yashil Energiya\" MCHJ tomonidan Toshkent viloyati Oqqo’rg’on tumani, Margunenkova kanalida mikro GES-1 loyihasi amalga oshirilmoqda. Ushbu stansiya 270 kVt quvvatga ega bo‘lib, mahalliy suv resurslaridan samarali foydalanish va yaqin hududlarni elektr energiyasi bilan ta’minlashni ko‘zda tutadi.",
+    "futuresTitle": "Rejalashtirilayotgan loyihalar",
+    "futuresDescription": "2025-yil davomida kompaniyamiz tomonidan yana 5 ta yangi mikro GES loyihasini boshlash rejalashtirilgan. Bu loyihalar O‘zbekistonning turli    hududlarida amalga oshirilib, minglab aholining barqaror elektr ta’minotini yaxshilashga xizmat qiladi."
   },
   "ChargingStationPage": {
     "heroTitle": "Elektr mobillarni zaryadlash stansiyasi",
