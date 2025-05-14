@@ -20,15 +20,3 @@ interface Url {
     msg: string;
   };
 }
-interface CeoProps {
-  id: number;
-  name: string;
-  jobTitle: string;
-  email: string;
-}
-
-interface PaginationProps {
-  page: number;
-  totalPages: number;
-  pageNumbers: number[];
-}

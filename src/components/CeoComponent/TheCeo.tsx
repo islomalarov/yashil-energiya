@@ -1,27 +1,35 @@
 import "@/scss/globals.scss";
 import s from "./TheCeo.module.scss";
-import { ceo } from "@/data/ceo";
-import { useTranslations } from "next-intl";
+import { Manager, ManagerService } from "@/services/managers.service";
+import { getLocale, getTranslations } from "next-intl/server";
 
-export const TheCeo = () => {
-  const t = useTranslations("CeoPage");
+export const TheCeo = async () => {
+  const t = await getTranslations("CeoPage");
+  const locale = await getLocale();
+  const data = await ManagerService.getAllManagers(locale);
+  if (!data) {
+    return <div>{t("error")}</div>;
+  }
   return (
     <div className={s.content}>
-      {ceo.map(({ id, name, jobTitle, email }: CeoProps) => (
-        <div className={s.ceo} key={id}>
-          <div>
-            <h2 className={s.ceoName}>{name}</h2>
-          </div>
-          <div>
-            <p className={s.description}>{t("jobTitle")}:</p>
-            <h3 className={s.title}>{t(jobTitle)}</h3>
-          </div>
-          <div>
-            <p className={s.description}>{t("email")}:</p>
-            <h3 className={s.title}>{email}</h3>
-          </div>
-        </div>
-      ))}
+      {data.managers.map(
+        (manager: Manager) =>
+          manager.showAtList && (
+            <div className={s.ceo} key={manager.id}>
+              <div>
+                <h2 className={s.ceoName}>{manager.name}</h2>
+              </div>
+              <div>
+                <p className={s.description}>{t("jobTitle")}:</p>
+                <h3 className={s.title}>{manager.jobTitle}</h3>
+              </div>
+              <div>
+                <p className={s.description}>{t("email")}:</p>
+                <h3 className={s.title}>{manager.email}</h3>
+              </div>
+            </div>
+          ),
+      )}
     </div>
   );
 };
