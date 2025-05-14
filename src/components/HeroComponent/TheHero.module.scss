@@ -1,4 +1,4 @@
-@import "@/scss/_vars.scss";
+@use "@/scss/vars" as *;
 
 .hero {
   position: relative;
@@ -65,7 +65,9 @@
       width: 0;
       height: 2px;
       background: $whiteColor;
-      transition: width 0.3s ease, left 0.3s ease;
+      transition:
+        width 0.3s ease,
+        left 0.3s ease;
     }
 
     &:hover {

@@ -3,6 +3,7 @@ import "@/scss/globals.scss";
 import styles from "./TheHero.module.scss";
 import Image from "next/image";
 import hero from "@/public/hero.png";
+import ges from "@/public/ges.jpg";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/src/i18n/navigation";
 
@@ -13,7 +14,7 @@ export const TheHero = ({ title1, title2, url1, url2 }: HeroProps) => {
   return (
     <div className={styles.hero}>
       <div className={styles.bgBlock}>
-        <Image src={hero} alt="hero-2" priority />
+        <Image src={pathname === "microGes" ? ges : hero} alt="hero" priority />
       </div>
       <div className="container">
         <div className={styles.info}>
