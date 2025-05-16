@@ -12,24 +12,21 @@ export const TheCeo = async () => {
   }
   return (
     <div className={s.content}>
-      {data.managers.map(
-        (manager: Manager) =>
-          manager.showAtList && (
-            <div className={s.ceo} key={manager.id}>
-              <div>
-                <h2 className={s.ceoName}>{manager.name}</h2>
-              </div>
-              <div>
-                <p className={s.description}>{t("jobTitle")}:</p>
-                <h3 className={s.title}>{manager.jobTitle}</h3>
-              </div>
-              <div>
-                <p className={s.description}>{t("email")}:</p>
-                <h3 className={s.title}>{manager.email}</h3>
-              </div>
-            </div>
-          ),
-      )}
+      {data.managers.map(({ id, name, jobTitle, email }: Manager) => (
+        <div className={s.ceo} key={id}>
+          <div>
+            <h2 className={s.ceoName}>{name}</h2>
+          </div>
+          <div>
+            <p className={s.description}>{t("jobTitle")}:</p>
+            <h3 className={s.title}>{jobTitle}</h3>
+          </div>
+          <div>
+            <p className={s.description}>{t("email")}:</p>
+            <h3 className={s.title}>{email}</h3>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

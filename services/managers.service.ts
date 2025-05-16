@@ -5,7 +5,6 @@ export interface Manager {
   email: string;
   jobTitle: string;
   name: string;
-  showAtList: boolean;
 }
 
 interface ManagerResponse {
@@ -26,7 +25,6 @@ export const ManagerService = {
           email
           jobTitle
           name
-          showAtList
         }
       }
     `;
