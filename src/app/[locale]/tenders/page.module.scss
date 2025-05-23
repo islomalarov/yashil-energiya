@@ -1,19 +1,38 @@
-@import "@/scss/_vars.scss";
-.container {
-  max-width: $lg;
-  margin: 0 auto;
-}
-.content {
-  display: grid;
-  gap: 20px;
-  padding-bottom: 40px;
+@use "/scss/vars" as *;
+// .container {
+//   max-width: $lg;
+//   margin: 0 auto;
+// }
 
-  h2 {
-    text-align: center;
-    padding-bottom: 20px;
-  }
-}
 .languageBtn {
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 20px;
+  select {
+    border: 1px solid $primaryColor;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    outline: none;
+  }
+}
+
+.tenderItem {
+  border: 1px solid $primaryColor;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: $primaryColor;
+  margin-bottom: 20px;
+  color: white;
+  display: grid;
+  gap: 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lighten($secondaryColor, 10%);
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
 }

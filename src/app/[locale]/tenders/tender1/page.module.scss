@@ -1,0 +1,71 @@
+@use "/scss/vars" as *;
+// .container {
+//   max-width: $lg;
+//   margin: 0 auto;
+// }
+.content {
+  display: grid;
+  grid-template-columns: 200px 100px 1fr;
+  gap: 20px;
+  padding-bottom: 40px;
+
+  h2 {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+}
+.notice {
+  display: grid;
+  gap: 20px;
+  padding-bottom: 40px;
+}
+.stickyNav {
+  position: sticky;
+  top: 100px; // отступ от верхнего края
+  height: fit-content;
+  margin-right: 40px;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    padding-top: 20px;
+  }
+
+  li {
+    margin-bottom: 10px;
+
+    a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: $paragraphSize;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.separator {
+  margin-bottom: 100px;
+  width: 2px;
+  background-color: $primaryColor;
+  height: 100%;
+  padding-top: 100px;
+}
+.tendersList {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+}
+.tenderItem {
+  font-size: $paragraphSize;
+  border: 2px solid $primaryColor;
+  border-radius: 10px;
+  padding: 10px;
+  .tenderItemBlock {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
