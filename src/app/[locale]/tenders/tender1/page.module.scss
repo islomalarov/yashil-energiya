@@ -1,14 +1,17 @@
 @use "/scss/vars" as *;
-// .container {
-//   max-width: $lg;
-//   margin: 0 auto;
-// }
+
 .content {
   display: grid;
   grid-template-columns: 200px 100px 1fr;
   gap: 20px;
   padding-bottom: 40px;
-
+  @media (max-width: $md) {
+    grid-template-columns: 100px 50px 1fr;
+    gap: 10px;
+  }
+  @media (max-width: $sm) {
+    grid-template-columns: 1fr;
+  }
   h2 {
     text-align: center;
     padding-bottom: 20px;
@@ -24,7 +27,9 @@
   top: 100px; // отступ от верхнего края
   height: fit-content;
   margin-right: 40px;
-
+  @media (max-width: $sm) {
+    display: none;
+  }
   ul {
     list-style: none;
     padding: 0;
@@ -53,11 +58,17 @@
   background-color: $primaryColor;
   height: 100%;
   padding-top: 100px;
+  @media (max-width: $sm) {
+    display: none;
+  }
 }
 .tendersList {
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(2, 1fr);
+  @media (max-width: $md) {
+    grid-template-columns: 1fr;
+  }
 }
 .tenderItem {
   font-size: $paragraphSize;
@@ -67,5 +78,6 @@
   .tenderItemBlock {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 }
