@@ -136,7 +136,7 @@ export default function TenderPage() {
                   <li className={s.tenderItem}>
                     <div className={s.tenderItemBlock}>
                       <h3>Заголовок</h3>
-                      <p>Запрос котировок товаров</p>
+                      <p>Конкурс на закупку оргтехники</p>
                     </div>
                     <div className={s.tenderItemBlock}>
                       <h3>Статус</h3>
@@ -149,6 +149,29 @@ export default function TenderPage() {
                     <div className={s.tenderItemBlock}>
                       <h3>Вложение</h3>
                       <a href="/documents/RFQ_IT_office.docx" download>
+                        Скачать
+                      </a>
+                    </div>
+                  </li>
+                  <li className={s.tenderItem}>
+                    <div className={s.tenderItemBlock}>
+                      <h3>Заголовок</h3>
+                      <p>Конкурс на закупку канцтоваров</p>
+                    </div>
+                    <div className={s.tenderItemBlock}>
+                      <h3>Статус</h3>
+                      <p>Активный</p>
+                    </div>
+                    <div className={s.tenderItemBlock}>
+                      <h3>Крайний срок</h3>
+                      <p>02.06.2025</p>
+                    </div>
+                    <div className={s.tenderItemBlock}>
+                      <h3>Вложение</h3>
+                      <a
+                        href="/documents/RFQ_Invitation_eng_stationery.docx"
+                        download
+                      >
                         Скачать
                       </a>
                     </div>
@@ -257,7 +280,7 @@ export default function TenderPage() {
                   <li className={s.tenderItem}>
                     <div className={s.tenderItemBlock}>
                       <h3>Title</h3>
-                      <p>Request for Quotations of Goods </p>
+                      <p>Competition for the purchase of office equipment</p>
                     </div>
                     <div className={s.tenderItemBlock}>
                       <h3>Status</h3>
@@ -270,6 +293,29 @@ export default function TenderPage() {
                     <div className={s.tenderItemBlock}>
                       <h3>Attachment</h3>
                       <a href="/documents/RFQ_IT_office.docx" download>
+                        Download
+                      </a>
+                    </div>
+                  </li>
+                  <li className={s.tenderItem}>
+                    <div className={s.tenderItemBlock}>
+                      <h3>Title</h3>
+                      <p>Competition for the purchase of stationery</p>
+                    </div>
+                    <div className={s.tenderItemBlock}>
+                      <h3>Status</h3>
+                      <p>Active</p>
+                    </div>
+                    <div className={s.tenderItemBlock}>
+                      <h3>Deadline</h3>
+                      <p>02.06.2025</p>
+                    </div>
+                    <div className={s.tenderItemBlock}>
+                      <h3>Attachment</h3>
+                      <a
+                        href="/documents/RFQ_Invitation_eng_stationery.docx"
+                        download
+                      >
                         Download
                       </a>
                     </div>
