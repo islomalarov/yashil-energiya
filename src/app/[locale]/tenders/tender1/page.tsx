@@ -1,16 +1,20 @@
 "use client";
 import { TheHero } from "@/src/components/HeroComponent/TheHero";
 import { useTranslations } from "next-intl";
-import { useParams, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import s from "./page.module.scss";
 import Link from "next/link";
+import { usePathname } from "@/src/i18n/navigation";
+import { tenders } from "@/data/tenders";
 
 export default function TenderPage() {
-  const params = useParams();
-  const searchParams = useSearchParams();
-  console.log(params);
-
   const t = useTranslations("TendersPage");
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const tenderNumber = Number(pathname.match(/tender(\d+)/)?.[1]);
+  const { tendersRu = [], tendersEn = [] } =
+    tenders.find((t) => t.id === tenderNumber) ?? {};
+
   const language = searchParams.get("lang") || "eng";
 
   return (
@@ -133,49 +137,28 @@ export default function TenderPage() {
               <div>
                 <h2>ТЕНДЕРЫ</h2>
                 <ul className={s.tendersList} id="section2">
-                  <li className={s.tenderItem}>
-                    <div className={s.tenderItemBlock}>
-                      <h3>Заголовок</h3>
-                      <p>Конкурс на закупку оргтехники</p>
-                    </div>
-                    <div className={s.tenderItemBlock}>
-                      <h3>Статус</h3>
-                      <p>Активный</p>
-                    </div>
-                    <div className={s.tenderItemBlock}>
-                      <h3>Крайний срок</h3>
-                      <p>30.05.2025</p>
-                    </div>
-                    <div className={s.tenderItemBlock}>
-                      <h3>Вложение</h3>
-                      <a href="/documents/RFQ_IT_office.docx" download>
-                        Скачать
-                      </a>
-                    </div>
-                  </li>
-                  <li className={s.tenderItem}>
-                    <div className={s.tenderItemBlock}>
-                      <h3>Заголовок</h3>
-                      <p>Конкурс на закупку канцтоваров</p>
-                    </div>
-                    <div className={s.tenderItemBlock}>
-                      <h3>Статус</h3>
-                      <p>Активный</p>
-                    </div>
-                    <div className={s.tenderItemBlock}>
-                      <h3>Крайний срок</h3>
-                      <p>02.06.2025</p>
-                    </div>
-                    <div className={s.tenderItemBlock}>
-                      <h3>Вложение</h3>
-                      <a
-                        href="/documents/RFQ_Invitation_eng_stationery.docx"
-                        download
-                      >
-                        Скачать
-                      </a>
-                    </div>
-                  </li>
+                  {tendersRu.map((tender) => (
+                    <li key={tender.id} className={s.tenderItem}>
+                      <div className={s.tenderItemBlock}>
+                        <h3>Заголовок</h3>
+                        <p>{tender.title}</p>
+                      </div>
+                      <div className={s.tenderItemBlock}>
+                        <h3>Статус</h3>
+                        <p>{tender.status}</p>
+                      </div>
+                      <div className={s.tenderItemBlock}>
+                        <h3>Крайний срок</h3>
+                        <p>{tender.deadline}</p>
+                      </div>
+                      <div className={s.tenderItemBlock}>
+                        <h3>Вложение</h3>
+                        <a href={`/documents/${tender.file}`} download>
+                          Скачать
+                        </a>
+                      </div>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -277,49 +260,28 @@ export default function TenderPage() {
               <div id="section2">
                 <h2>TENDERS</h2>
                 <ul className={s.tendersList}>
-                  <li className={s.tenderItem}>
-                    <div className={s.tenderItemBlock}>
-                      <h3>Title</h3>
-                      <p>Competition for the purchase of office equipment</p>
-                    </div>
-                    <div className={s.tenderItemBlock}>
-                      <h3>Status</h3>
-                      <p>Active</p>
-                    </div>
-                    <div className={s.tenderItemBlock}>
-                      <h3>Deadline</h3>
-                      <p>30.05.2025</p>
-                    </div>
-                    <div className={s.tenderItemBlock}>
-                      <h3>Attachment</h3>
-                      <a href="/documents/RFQ_IT_office.docx" download>
-                        Download
-                      </a>
-                    </div>
-                  </li>
-                  <li className={s.tenderItem}>
-                    <div className={s.tenderItemBlock}>
-                      <h3>Title</h3>
-                      <p>Competition for the purchase of stationery</p>
-                    </div>
-                    <div className={s.tenderItemBlock}>
-                      <h3>Status</h3>
-                      <p>Active</p>
-                    </div>
-                    <div className={s.tenderItemBlock}>
-                      <h3>Deadline</h3>
-                      <p>02.06.2025</p>
-                    </div>
-                    <div className={s.tenderItemBlock}>
-                      <h3>Attachment</h3>
-                      <a
-                        href="/documents/RFQ_Invitation_eng_stationery.docx"
-                        download
-                      >
-                        Download
-                      </a>
-                    </div>
-                  </li>
+                  {tendersEn.map((tender) => (
+                    <li key={tender.id} className={s.tenderItem}>
+                      <div className={s.tenderItemBlock}>
+                        <h3>Title</h3>
+                        <p>{tender.title}</p>
+                      </div>
+                      <div className={s.tenderItemBlock}>
+                        <h3>Status</h3>
+                        <p>{tender.status}</p>
+                      </div>
+                      <div className={s.tenderItemBlock}>
+                        <h3>Deadline</h3>
+                        <p>{tender.deadline}</p>
+                      </div>
+                      <div className={s.tenderItemBlock}>
+                        <h3>Attachment</h3>
+                        <a href={`/documents/${tender.file}`} download>
+                          Download
+                        </a>
+                      </div>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
