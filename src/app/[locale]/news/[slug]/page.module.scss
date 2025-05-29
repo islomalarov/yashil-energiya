@@ -13,6 +13,12 @@
   gap: 10px;
   grid-template-columns: 1fr 10px 400px;
   margin-bottom: 100px;
+  @media (max-width: $md) {
+    grid-template-columns: 1fr 10px 250px;
+  }
+  @media (max-width: $sm) {
+    grid-template-columns: 1fr;
+  }
 }
 .separator {
   width: 2px;
