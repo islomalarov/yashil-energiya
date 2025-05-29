@@ -1,19 +1,10 @@
-@import "./vars";
-@import "./resets";
+@use "./vars" as *;
+@use "./resets" as *;
 
 .container {
   max-width: 1350px;
   margin: 0 auto;
   padding: 0 15px;
-}
-
-.newsContainer {
-  max-width: 1040px;
-  margin: 0 auto;
-  padding: 0 20px;
-  border-left: 1px solid rgb(207, 203, 203);
-  border-right: 1px solid rgb(207, 203, 203);
-  margin-bottom: 100px;
 }
 
 .wrapper {

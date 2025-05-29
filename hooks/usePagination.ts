@@ -25,7 +25,7 @@ export const usePagination = (locale: IUsePaginationProps) => {
         } = await NewsService.getAllNews(
           DEFAULT_PAGE_SIZE,
           DEFAULT_PAGE_SIZE * (currentPage - 1),
-          locale
+          locale,
         );
         setNews(news);
 

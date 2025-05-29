@@ -1,4 +1,8 @@
+@use "@/scss/vars" as *;
+
 .paragraphBlock {
+  font-size: $paragraphSize;
+  color: $blackColor;
   span {
     text-align: justify;
     line-height: 30px;

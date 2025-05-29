@@ -7,7 +7,7 @@ export default function Page1() {
   return (
     <>
       <TheHero title1="Maqolalar" url1="articles" />
-      <div className="newsContainer">
+      <div className="container">
         <div className={styles.content}>
           <h1 style={{ textAlign: "center", paddingBottom: 50 }}>
             Qayta tiklanuvchi energiya manbalari

@@ -1,7 +1,69 @@
+@use "@/scss/vars" as *;
+
 .content {
   display: grid;
   gap: 20px;
   .title {
     text-align: center;
+    color: $blackColor;
+  }
+}
+.newsPage {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 10px 400px;
+  margin-bottom: 100px;
+}
+.separator {
+  width: 2px;
+  height: auto;
+  background-color: #e0e0e0;
+}
+.lastNews {
+  position: relative;
+  .lastNewsContent {
+    position: sticky;
+    top: 100px;
+    .lastNewsTitle {
+      font-size: 24px;
+      font-weight: 700;
+      color: $blackColor;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  }
+  .list {
+    display: grid;
+    gap: 20px;
+    box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+    a {
+      position: relative;
+      display: inline-block;
+      color: $blackColor;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: $blackColor;
+        transition:
+          width 0.3s ease,
+          left 0.3s ease;
+      }
+
+      &:hover {
+        color: $blackColor;
+
+        &::before {
+          width: 100%;
+          left: 0;
+        }
+      }
+    }
   }
 }

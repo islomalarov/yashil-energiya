@@ -1,27 +1,15 @@
-"use client";
-
 import "@/scss/globals.scss";
 import styles from "./TheLastNews.module.scss";
 import { Link } from "@/src/i18n/navigation";
 import { TheNewsList } from "../NewsListComponent/TheNewsList";
 import { NewsService } from "@/services/news.service";
-import { useEffect, useState } from "react";
-import { useTranslations, useLocale } from "next-intl";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
-import { NewResponse } from "@/services/news.service.types";
+import { getLocale, getTranslations } from "next-intl/server";
 
-export function TheLastNews() {
-  const [news, setNews] = useState<NewResponse[]>([]);
-  const t = useTranslations("TheLastNews");
-  const locale = useLocale();
-
-  useEffect(() => {
-    const fetchLastNews = async () => {
-      const { news } = await NewsService.getLastNews(locale);
-      setNews(news);
-    };
-    fetchLastNews();
-  }, [locale]);
+export async function TheLastNews() {
+  const t = await getTranslations("TheLastNews");
+  const locale = await getLocale();
+  const news = await NewsService.getLastNews(locale);
 
   return (
     <TheMotionWrapper>
@@ -46,7 +34,7 @@ export function TheLastNews() {
           </svg>
         </Link>
       </div>
-      <TheNewsList news={news} url="news" />
+      <TheNewsList news={news} />
     </TheMotionWrapper>
   );
 }

@@ -1,16 +1,14 @@
 import "@/scss/globals.scss";
-import styles from "./page.module.scss";
+import styles from "./TheParagraph.module.scss";
 import Link from "next/link";
 
 export default function TheParagraph({ content }: any) {
-  // console.log(children);
-
   return (
     <div className={styles.paragraphBlock}>
       {content.map(
         (
           { text, href, bold, italic, underline, children }: any,
-          index: number
+          index: number,
         ) => {
           if (text) {
             return (
@@ -20,12 +18,12 @@ export default function TheParagraph({ content }: any) {
                   bold && italic
                     ? `${styles.bold} ${styles.italic}`
                     : bold
-                    ? styles.bold
-                    : italic
-                    ? styles.italic
-                    : underline
-                    ? styles.underline
-                    : ""
+                      ? styles.bold
+                      : italic
+                        ? styles.italic
+                        : underline
+                          ? styles.underline
+                          : ""
                 }
               >
                 {text}
@@ -48,7 +46,7 @@ export default function TheParagraph({ content }: any) {
             );
           }
           return null;
-        }
+        },
       )}
     </div>
   );

@@ -9,7 +9,6 @@ interface CSSVariables extends React.CSSProperties {
 }
 
 export default function TheImageModal({ elem }: any) {
-  console.log(elem);
   const { src, title, height, width } = elem;
 
   const style: CSSVariables = {

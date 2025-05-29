@@ -20,7 +20,7 @@ export default function News() {
     <>
       <TheHero title1={t("heroTitle")} url1="news" />
       <div className="container">
-        <TheNewsList news={news} url="news" />
+        <TheNewsList news={news} />
         <div className={s.paginationContainer}>
           <Pagination
             className={s.pagination}

@@ -1,5 +1,5 @@
 import { request, gql } from "graphql-request";
-import { NewResponse, NewsResponse } from "./news.service.types";
+import { NewsResponse } from "./news.service.types";
 
 const graphqlAPI = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT;
 
@@ -47,7 +47,7 @@ export const NewsService = {
   getOneNews: async (slug: string, locale: string) => {
     const query = gql`
       query getOneNews {
-        new(where: { slug: "${slug}" }, locales: ${locale}) {
+        news(where: { slug: "${slug}" }, locales: ${locale}) {
           date
           id
           slug
@@ -65,8 +65,8 @@ export const NewsService = {
         }
       }
     `;
-    const response = await request<NewResponse>(graphqlAPI, query);
-    return response.new;
+    const response = await request<NewsResponse>(graphqlAPI, query);
+    return response.news[0];
   },
   getLastNews: async (locale: string) => {
     const query = gql`
@@ -90,6 +90,6 @@ export const NewsService = {
       }
     `;
     const response = await request<NewsResponse>(graphqlAPI, query);
-    return response;
+    return response.news;
   },
 };

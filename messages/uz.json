@@ -125,7 +125,8 @@
   "TheLastNews": {
     "heroTitle": "Yangiliklar",
     "title": "Yangiliklar",
-    "linkTitle": "Barcha yangiliklar"
+    "linkTitle": "Barcha yangiliklar",
+    "lastNewsTitle": "So'nggi yangiliklar"
   },
   "SolarPanelsPage": {
     "heroTitle": "Quyosh fotoelektr stansiyalari",
