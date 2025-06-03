@@ -60,8 +60,8 @@ export default function Contacts() {
               <div className={s.department} key={phone}>
                 <h3 className={s.title}>{t(`${department}`)}</h3>
                 <div>
-                  <div className={s.description}>{t("phone")}:</div>
-                  <div className={s.info}>{phone}</div>
+                  {/* <div className={s.description}>{t("phone")}:</div> */}
+                  {/* <div className={s.info}>{phone}</div> */}
                 </div>
                 <div>
                   <div className={s.description}>{t("email")}:</div>
