@@ -65,13 +65,13 @@ export const branches = [
       "Samarqand viloyati, Samarqand shahar, Buyuk Ipak yo‘li ko‘chasi, 69-uy",
     mail: "samarqand.servis@yashil-energiya.uz",
   },
-  // {
-  //   region: "region10",
-  //   name: "Abdulazizov Sarvar",
-  //   phone: "+998 95 324-22-12",
-  //   address: "Sirdaryo viloiyati, Guliston shahar, N. Mahmudova ko'chasi, 23-uy",
-  //   mail: "sirdaryo.servis@yashil-energiya.uz",
-  // },
+  {
+    region: "region10",
+    name: "Maxmudov Shoxjaxon",
+    phone: "+998 95 324-22-12",
+    address: "Sirdaryo viloiyati, Guliston shahar, N. Mahmudova ko'chasi, 23-uy",
+    mail: "sirdaryo.servis@yashil-energiya.uz",
+  },
   {
     region: "region11",
     name: "Bo'ronov O'ktam",
