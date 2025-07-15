@@ -9,8 +9,8 @@ export async function POST(req: NextRequest) {
   try {
     const { data, error } = await resend.emails.send({
       from: "no-reply <onboarding@resend.dev>",
-      to: ["islomalarov@gmail.com"],
-      subject: "Письмо с сайта yashil-energiya ",
+      to: ["yashilenergiya11@gmail.com"],
+      subject: "Письмо с сайта yashil-energiya",
       react: EmailTemplate({ firstName, phone, message }),
     });
     if (error) {
