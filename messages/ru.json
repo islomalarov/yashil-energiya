@@ -386,7 +386,8 @@
   "LocaleSwitcher": {
     "label": "Change language",
     "uz": "Уз",
-    "ru": "Ру"
+    "ru": "Ру",
+    "en": "Анг"
   },
   "JobsPage": {
     "title": "Вакансии"

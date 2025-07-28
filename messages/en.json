@@ -1,0 +1,410 @@
+{
+  "Header": {
+    "main": "Home",
+    "about": "About us",
+    "company": "Company",
+    "ceo": "Leadership",
+    "pressCenter": "Press center",
+    "news": "News",
+    "articles": "Articles",
+    "tenders": "Tenders",
+    "activity": "Activity",
+    "branches": "Subsidiaries",
+    "plants": "List of PVPP",
+    "solarPanels": "PVPP",
+    "microGes": "MHP",
+    "chargingStation": "EV charging stations",
+    "projects": "Projects",
+    "contacts": "Contacts",
+    "documents": "Documents",
+    "jobs": "Vacancies"
+  },
+  "HomePage": {
+    "title": "Home page",
+    "about": "Go to the about page"
+  },
+  "AboutPage": {
+    "heroTitle1": "About company",
+    "heroTitle2": "Leadership",
+    "content": "Yashil Energiya - powering the green economy",
+    "link": "More",
+    "title1": "Our missions",
+    "title2": "Activities",
+    "title3": "Achievements",
+    "title4": "Partners",
+    "event1": {
+      "year": "2023",
+      "event": [
+        {
+          "description": "16.02.2023  \"Green Energy\" LLC was established based on Presidential Decree No. 57 of 2023 on accelerating the introduction of renewable energy sources and energy-saving technologies."
+        },
+        {
+          "description": "By the end of 2023, the capacity of the PV plants installed and operated by \"Yashil Energiya\" LLC exceeded 20,000 kW."
+        }
+      ]
+    },
+    "event2": {
+      "year": "2024",
+      "event": [
+        {
+          "description": "In order to contribute to the \"green\" economy, \"Green Energy\" LLC has established departments of mini and micro hydropower plants and electric vehicle charging stations."
+        },
+        {
+          "description": "By the end of 2024, the capacity of PV stations owned by \"Green Energy\" LLC exceeded 48,000 kW."
+        }
+      ]
+    },
+    "event3": {
+      "year": "2025",
+      "event": []
+    },
+    "paragraph1": "\"Green Energy\" LLC is a company that specializes in the development and implementation of renewable energy solutions in the Republic of Uzbekistan. We were founded on February 16, 2023, under the Decree of the President of the Republic, No-57.",
+    "paragraph2": "Ensuring sustainable development and protecting the environment in order to contribute to the energy independence of the country by widely introducing renewable energy sources. Our main goal is to ensure the provision of quality electricity to all social and governmental facilities.",
+    "project1": {
+      "title": "Establish solar photovoltaic power plants to provide quality electricity for the buildings of social facilities, government agencies, and other organizations.",
+      "src": "pv.png"
+    },
+    "project2": {
+      "title": "Simultaneously charging multiple electric vehicles using high-quality electricity from innovative devices.",
+      "src": "chs.png"
+    },
+    "project3": {
+      "title": "The construction and efficient use of micro hydro power plants in Uzbekistan.",
+      "src": "micro.jpg"
+    },
+    "achievement1": {
+      "description": "Service centers in all regions of the Republic",
+      "src": "codicon:tools"
+    },
+    "achievement2": {
+      "description": "50 MW photovoltaic power plants are currently in operation",
+      "src": "ph:solar-panel"
+    },
+    "achievement3": {
+      "description": "In 1 200 social facilities, solar photovoltaic power plants have been installed",
+      "src": "fluent:building-bank-48-regular"
+    },
+    "achievement4": {
+      "description": "The average annual electricity generated is 50,000 MW per year.",
+      "src": "hugeicons:energy-ellipse"
+    }
+  },
+  "TheAdvantages": {
+    "title": "The results we attain",
+    "advantage1": {
+      "title": "The energy produced",
+      "total": "50",
+      "unit": "GW",
+      "duration": "2"
+    },
+    "advantage2": {
+      "title": "Employees",
+      "total": "120",
+      "unit": "",
+      "duration": "1.5"
+    },
+    "advantage3": {
+      "title": "Branches",
+      "total": "13",
+      "unit": "",
+      "duration": "2"
+    },
+    "advantage4": {
+      "title": "Saved Co₂",
+      "total": "28000",
+      "unit": "tons",
+      "duration": "1"
+    }
+  },
+  "TheLastPlants": {
+    "heroTitle": "List of PVPP",
+    "title": "Our PVPP",
+    "linkTitle": "All PVPP",
+    "link": "Detailed"
+  },
+  "TheLastNews": {
+    "heroTitle": "News",
+    "title": "News",
+    "linkTitle": "All news",
+    "lastNewsTitle": "Latest news"
+  },
+  "SolarPanelsPage": {
+    "heroTitle": "PV Power Plants",
+    "title": "PV Power Plants",
+    "list": "Today, PV Power Plants (PVPPs) are becoming increasingly important energy sources in many countries around the globe. They are:",
+    "listItem1": "Does not harm the environment (clean energy source).",
+    "listItem2": "Reduces dependence on fossil fuels such as oil and gas.",
+    "listItem3": "Help reduce the cost of electricity.",
+    "content": {
+      "description1": "Many developed countries (USA, China, Germany) make extensive use of solar energy. For instance, China has the world's largest PVPP.",
+      "description2": "In Uzbekistan, solar energy is also paid attention to, as the number of sunny days per year exceeds 300. This presents a great opportunity for the development of solar power plants, which will help reduce electricity costs and improve energy efficiency in the future."
+    },
+    "systemTitle": "PVPP are divided into 3 different main types:",
+    "system1": {
+      "title": "On-grid (grid-tied)",
+      "description": "The main system is connected to the electrical grid, which first uses the electricity generated by PVPP. If there are interruptions to the mains, the system will also stop working."
+    },
+    "system2": {
+      "title": "Off-grid (standalone)",
+      "description": "Not connected to the mains and operates independently, storing energy in batteries. This makes it suitable for areas where there is no plug socket available, but the cost of the batteries will be higher."
+    },
+    "system3": {
+      "title": "Hybrid",
+      "description": "There is a combination of on-grid and off-grid systems, which makes it the most flexible but also relatively expensive system, as it requires a power supply through the grid or operation through batteries."
+    },
+    "mapTitle": "Information about the current PVPP status of \"Green Energy\" LLC",
+    "chartDescription": "\"Green Energy\" LLC has been investing in social and governmental facilities located in the Republic of Uzbekistan since 2023. The diagram shows changes in the total number of PV plants that are relevant to company.",
+    "chartLabel": "Total capacity",
+    "chartLabelUnit": "kW",
+    "chartLabel1": "Number of objects",
+    "region1": "Tashkent city",
+    "region2": "Tashkent region",
+    "region3": "Andijan region",
+    "region4": "Bukhara region",
+    "region5": "Fergana region",
+    "region6": "Jizzakh region",
+    "region7": "Namangan region",
+    "region8": "Navoi region",
+    "region9": "Kashkadarya region",
+    "region10": "Republic of Karakalpakstan",
+    "region11": "Samarkand region",
+    "region12": "Syrdarya region",
+    "region13": "Surkhandarya region",
+    "region14": "Khorezm region"
+  },
+  "MicroGesPage": {
+    "heroTitle": "Micro Hydro Power",
+    "title": "Hydroelectric power plants",
+    "subTitle": "From nature - towards clean energy!",
+    "content": "\"Green Energy\" LLC is constantly contributing to the introduction of stable and environmental sources in Uzbekistan. The Department of micro hydropower is one of the important directions in this way.",
+    "listTitle": "Why MHP",
+    "listDescription": "MHP plants are small facilities with a capacity ranging from 5 kW to 500 kW that generate electricity using the flow of water. These plants have several advantages:",
+    "listItem1": "Permanent and stable electricity",
+    "listItem2": "Environmental safety – no harm to the environmen",
+    "listItem3": "Addressing energy shortages in rural areas",
+    "listItem4": "Low-cost maintenance and a long-life service.",
+    "servicesTitle": "Our services:",
+    "servicesItem1": "Design of hydraulic engineering and energy systems",
+    "servicesItem2": "The construction of a MHP under the \"turnkey\" project",
+    "servicesItem3": "Installation and running",
+    "servicesItem4": "Operating & Maintenance",
+    "schemaTitle": "\"Yashil Energiya\" LLC, in collaboration with foreign and local investors, is planning to construct and commission a MHP as a \"turnkey\" business project.",
+    "schemaDescription1": "Electricity is produced through the MHP",
+    "schemaDescription2": "Produced and purchased by \"Regional Electric Networks\" JSC",
+    "schemaDescription3": "Auction winner",
+    "schemaDescription4": "\"REN\" JSC (Energosavdo)",
+    "schemaDescription5": "Consumer",
+    "docsTitle": "Normative-legal framework",
+    "docsDescription": "Our MHP activities are based on the official policy and support of the Government of the Republic of Uzbekistan, as outlined in Decree No. 129, dated March 28th, 2025. This decree provides for measures to increase the capacity of businesses to generate electricity through the use of water resources, thereby improving the sustainability of the electricity supply to various sectors of the economy and the general population. The goal is to ensure energy security for the entire economy and promote sustainable development.",
+    "projectsTitle": "Projects implemented",
+    "projectsDescription": "Currently, \"Yashil Energya\" LLC is implementing the MHP-1 project on the Margunenkov Canal in the Okrugan district of the Tashkent region. The station has a capacity of 270 kW and is designed to efficiently utilize local water resources to generate electricity for nearby areas.",
+    "futuresDescription": "Our company plans to launch five new MHP projects in 2025. These projects will be implemented in different regions of Uzbekistan, and will help improve the stable supply of electricity for thousands of residents."
+  },
+  "ChargingStationPage": {
+    "heroTitle": "Electric Vehicle Charging Station",
+    "needsTitle": "The need for an electricity charging station in Uzbekistan:",
+    "need1": {
+      "title": "Environmental protection",
+      "description": "The use of electric vehicles (EVs) will increase through charging stations, which helps reduce the amount of the air harmful gases, including carbon dioxide. This will reduce environmental pollution, contribute to the preservation of a healthy lifestyle."
+    },
+    "need2": {
+      "title": " More efficient energy use",
+      "description": "EVs do not rely on traditional fuels, which means they help to save natural resources in Uzbekistan. The country has a high need to diversify its energy sources, and supporting electric vehicles can help achieve this goal."
+    },
+    "need3": {
+      "title": "Reduce transportation costs",
+      "description": "The use of EVs is cheaper than vehicles moving on traditional fuel. This will help reduce transport costs for the population."
+    },
+    "benefitsTitle": "The benefits of an EV charging station:",
+    "benefit1": {
+      "title": "Sustainable energy supply",
+      "description": "Recharge stations, especially when connected to renewable energy sources, ensure the duration and stability of energy supply."
+    },
+    "benefit2": {
+      "title": "Opportunities for economic growth",
+      "description": "With the development of electric charging infrastructure, new jobs will be created and new business opportunities will open up for private investors. This will contribute to economic growth and the adoption of new technologies."
+    },
+    "benefit3": {
+      "title": " Convenience for EV owners",
+      "description": "Charging stations will be useful for managing electricity over long distances if they are installed in strategic locations along roads. This would support domestic tourism and economic activity."
+    },
+    "benefit4": {
+      "title": "Digital integration opportunity",
+      "description": "Modern charge stations can be managed and monitored through mobile applications. This allows users to find close charging stations, monitor charging time, and power."
+    },
+    "statisticsTitle": "Statistical data and forecasts:",
+    "statistic1": {
+      "title": "Current status",
+      "description": "As of 2025, there are several EV charging stations operating in Uzbekistan. These stations are mainly located around the capital city of Tashkent and other major cities."
+    },
+    "statistic2": {
+      "title": "Plans",
+      "description": "The Uzbek government plans to expand electricity recharges in the next 5 years and establish additional charges stations on large highways."
+    },
+    "statistic3": {
+      "title": "Growth forecast",
+      "description": "According to the data, the share of electricity in the Uzbek car market is expected to increase significantly until 2030, which increases the demand for charging stations."
+    }
+  },
+  "LinksPage": {
+    "title": "Useful links"
+  },
+  "FeedbackPage": {
+    "title": "Feedback",
+    "name": "Surname N.F.",
+    "phone": "Phone number",
+    "comment": "Comment",
+    "send": "Send"
+  },
+  "ContactsPage": {
+    "title": "Contacts",
+    "phone": "Phone number",
+    "address": "Address",
+    "address1": "Bodomzor str 2B, Yunusabad district, Tashkent city, ",
+    "landmark": "Reference point",
+    "landmark1": "UZGIDROMET",
+    "email": "E-mail",
+    "title1": "Our address",
+    "department1": "Economic Analysis and Management Reporting Department",
+    "department2": "Procurement department",
+    "department3": "Commercial Department"
+  },
+  "CeoPage": {
+    "jobTitle": "Position",
+    "email": "E-mail"
+  },
+  "BranchesPage": {
+    "title": "\"Yashil Energiya Servis\" LLC",
+    "headerTitle": "Regional service centers of \"Yashil Energiya Servis\" LLC",
+    "regionTitle": "Regional Service Center",
+    "branchManager": "Head of the branch",
+    "phone": "Phone number",
+    "address": "Address",
+    "email": "E-mail",
+    "region1": "Andijan",
+    "region2": "Bukhara",
+    "region3": "Fergana",
+    "region4": "Jizzakh",
+    "region5": "Namangan",
+    "region6": "Navoi",
+    "region7": "Kashkadarya",
+    "region8": "Republic of Karakalpakstan",
+    "region9": "Samarkand",
+    "region10": "Syrdarya",
+    "region11": "Surkhandarya",
+    "region12": "Tashkent region",
+    "region13": "Tashkent",
+    "region14": "Khorazm"
+  },
+  "DocumentsPage": {
+    "title": "Documents",
+    "direction1": "Renewable energy sources",
+
+    "document1": {
+      "title": "Resolution of the President of the Republic of Uzbekistan dated 16.02.2023 \"On measures to accelerate the introduction of renewable energy sources and energy-saving technologies\" in 2023. \"",
+      "url": "https://lex/ru/docs/6385716"
+    },
+    "document2": {
+      "title": "Resolution of the Cabinet of Ministers of the Republic of Uzbekistan No. 515 of 29.09.2023 and on measures to expand the introduction of \"green energy\" certificates and improve the \"green financing\" mechanisms",
+      "url": "https://lex.uz/uz/docs/6623306"
+    },
+    "document3": {
+      "title": "Resolution of the Cabinet of Ministers of the Republic of Uzbekistan, No. 13 of 08.01.2024 \"On the regulation and development of energy supply structure\" on the basis of renewable energy sources, \"",
+      "url": "https://lex.uz/docs/674747020"
+    },
+    "document4": {
+      "title": "Resolution of the Cabinet of Ministers of the Republic of Uzbekistan dated 14.06.2023",
+      "url": "https://lex/ru/docs/6498473"
+    },
+    "document5": {
+      "title": "Resolution of the Cabinet of Ministers of the Republic of Uzbekistan dated 05.10.2022",
+      "url": "https://lex.uz/ru/docs/6225945"
+    },
+    "document6": {
+      "title": "Resolution of the Cabinet of Ministers of the Republic of Uzbekistan No. 518 of 21.09.2022 \"On accelerating the production of renewable energy devices\"",
+      "url": "https://lex/ru/docs/6201421"
+    },
+    "document7": {
+      "title": "Resolution of the Cabinet of Ministers of the Republic of Uzbekistan dated 23.07.2020 No 452 \"On the state accounting of renewable energy devices\".",
+      "url": "https://lex.uz/docs/4909794"
+    },
+    "document8": {
+      "title": "Resolution of the President of the Republic of Uzbekistan dated 22.08.2019 \"On effective measures to increase the energy efficiency of the economy and the social sphere,\" and the introduction of energy-saving technologies and the development of renewable energy sources. \"",
+      "url": "https://lex/ru/docs/4486125"
+    },
+    "document9": {
+      "title": "Law of the Republic of Uzbekistan, No. ZRU-539 No. ZRU-539 No. ZRU-539 \"On the use of renewable energy sources\"",
+      "url": "https://lex.uz/docs/4346831"
+    },
+    "document10": {
+      "title": "Resolution of the Cabinet of Ministers of the Republic of Uzbekistan No. 633 of 08.08.2018 No 633 On measures to develop renewable energy sources and attract private investment. \"",
+      "url": "https://lex/ru/docs/3860088"
+    },
+    "document11": {
+      "title": "Resolution of the Cabinet of Ministers of the Republic of Uzbekistan dated 24.08.2024 \"On amendments and additions to some decisions of the Cabinet of Ministers\" in connection with the simplification of renewable power supply",
+      "url": "https://lex.uz/uz/docs/7082025"
+    },
+    "document12": {
+      "title": "Law of the Republic of Uzbekistan, 07.08.2024 \"On energy saving, rational use and improving energy efficiency\"",
+      "url": "https://lex/ru/docs/7052085"
+    },
+    "document13": {
+      "title": "Decree of the President of the Republic of Uzbekistan, for the introduction of energy-saving technologies and additional measures for the development of small-powered renewable energy sources \"",
+      "url": "https://lex.uz/uz/docs/6189000"
+    },
+    "direction2": "MHP",
+    "mgDoc1": {
+      "title": "Decree of the President of the Republic of Uzbekistan, for the introduction of energy-saving technologies and additional measures for the development of small-powered renewable energy sources \"",
+      "url": "https://www.lex.uz/ru/docs/6189000"
+    },
+    "direction3": "EV Charging Stations",
+    "chsDoc1": {
+      "title": "Resolution of the President of the Republic of Uzbekistan, 19.12.2022 No. PP-444 \"On measures to expand the use infrastructure of the electric vehicles\"",
+      "url": "https://lex.uz/uz/docs/6316592"
+    },
+    "chsDoc2": {
+      "title": "Resolution of the Cabinet of Ministers of the Republic of Uzbekistan dated 01.11.2024 \"On additional measures to expand the infrastructure of the use of electrobils in 2024-202.\"",
+      "url": "https://lex.uz/docs/7188979"
+    },
+    "chsDoc3": {
+      "title": "Resolution of the Cabinet of Ministers of the Republic of Uzbekistan No. 555 of 31.08.2021 \"On approval of the administrative regulations for the provision of public services to connect legal entities to the mains routes\"",
+      "url": "https://lex.uz/uz/docs/5614095"
+    },
+    "chsDoc4": {
+      "title": "Resolution of the Cabinet of Ministers of the Republic of Uzbekistan dated 319.2024 \"On approval of the rules of electricity and use of natural gas\"",
+      "url": "https://lex.uz/docs/6954979"
+    },
+    "chsDoc5": {
+      "title": "Resolution of the Cabinet of Ministers of the Republic of Uzbekistan, \"On measures to further introduce modern information technologies and regulate retail trade through mobile sales.\"",
+      "url": "https://lex.uz/uz/docs/5546373"
+    }
+  },
+  "TendersPage": {
+    "title": "Tenders"
+  },
+  "LocaleSwitcher": {
+    "label": "Change Language",
+    "uz": "Uz",
+    "ru": "Ru",
+    "en": "En"
+  },
+  "JobsPage": {
+    "title": "Vacancies"
+  },
+  "PlantDetail": {
+    "heroTitle": "List of PVPP",
+    "location": "Address",
+    "power": "Power",
+    "powerUnit": "kW",
+    "gridConnection": "Date of installation",
+    "averageAnnualProduction": "Average annual production",
+    "averageAnnualProductionUnit": "kWh",
+    "K": "K",
+    "coalSaved": "Coal saved",
+    "coalSavedUnit": "t.",
+    "co2Saved": "Saved co₂ gases",
+    "co2SavedUnit": "t.",
+    "treesSaved": "Preserved trees",
+    "treesSavedUnit": "pcs"
+  }
+}
