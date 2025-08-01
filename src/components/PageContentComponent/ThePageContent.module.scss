@@ -1,0 +1,16 @@
+@use "@/scss/vars" as *;
+
+.pageContent {
+  display: grid;
+  gap: 20px;
+  padding-bottom: 40px;
+
+  p,
+  li {
+    color: $blackColor;
+    font-size: $paragraphSize;
+    line-height: 30px; /* 187.5% */
+    font-weight: 400;
+    text-align: justify;
+  }
+}

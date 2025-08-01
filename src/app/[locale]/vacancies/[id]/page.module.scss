@@ -1,0 +1,11 @@
+@use "@/scss/vars" as *;
+
+.content {
+  display: grid;
+  gap: 20px;
+  .title {
+    text-align: center;
+    font-size: 20px;
+    color: $blackColor;
+  }
+}

@@ -2,9 +2,9 @@ import "@/scss/globals.scss";
 import s from "./page.module.scss";
 import { TheHero } from "@/src/components/HeroComponent/TheHero";
 import { NewsService } from "@/services/news.service";
-import NewsContentComponent from "@/src/components/NewsContentComponent/TheNewsContent";
 import { getTranslations, getLocale } from "next-intl/server";
 import Link from "next/link";
+import ThePageContent from "@/src/components/PageContentComponent/ThePageContent";
 
 type Props = {
   params: { slug: string };
@@ -26,7 +26,7 @@ export default async function NewsPage({ params: { slug } }: Props) {
           <div className={s.newsPage}>
             <div className={s.content}>
               <h1 className={s.title}>{news.title}</h1>
-              <NewsContentComponent content={news.description.raw.children} />
+              <ThePageContent content={news.description.raw.children} />
             </div>
             <div className={s.separator}></div>
             <div className={s.lastNews}>

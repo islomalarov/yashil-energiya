@@ -69,7 +69,7 @@ export const menuLinks = [
     subMenu: [
       { id: 5.1, url: "/branches", title: "branches" },
       { id: 5.2, url: "/plants", title: "plants" },
-      { id: 5.3, url: "/jobs", title: "jobs" },
+      { id: 5.4, url: "/vacancies", title: "vacancies" },
     ],
   },
   { id: 6, url: "/documents", title: "documents" },
@@ -79,14 +79,18 @@ export const menuLinks = [
 export const socialLinks = [
   {
     url: "https://www.instagram.com/yashilenergiya/",
-    path: "/insta.svg",
+    path: "/socialsLogo/instagram.svg",
   },
   {
     url: "https://www.facebook.com/yashilenergiyamchj",
-    path: "/face.svg",
+    path: "/socialsLogo/facebook.svg",
   },
   {
     url: "https://t.me/yashilenergiyauz",
-    path: "/tg.svg",
+    path: "/socialsLogo/tg.svg",
+  },
+  {
+    url: "https://www.linkedin.com/company/yashil-energiya/",
+    path: "/socialsLogo/linkedin.svg",
   },
 ];

@@ -18,5 +18,8 @@
   }
   .link {
     color: blue;
+    text-decoration: underline;
+    display: inline-block;
+    word-break: break-all; /* если длинная ссылка — не ломает вёрстку */
   }
 }

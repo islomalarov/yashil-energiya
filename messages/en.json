@@ -17,7 +17,7 @@
     "projects": "Projects",
     "contacts": "Contacts",
     "documents": "Documents",
-    "jobs": "Vacancies"
+    "vacancies": "Vacancies"
   },
   "HomePage": {
     "title": "Home page",
@@ -388,9 +388,6 @@
     "ru": "Ru",
     "en": "En"
   },
-  "JobsPage": {
-    "title": "Vacancies"
-  },
   "PlantDetail": {
     "heroTitle": "List of PVPP",
     "location": "Address",
@@ -406,5 +403,12 @@
     "co2SavedUnit": "t.",
     "treesSaved": "Preserved trees",
     "treesSavedUnit": "pcs"
+  },
+  "VacanciesPage": {
+    "title": "Vacancies",
+    "detail": "Job details",
+    "description": "Job description",
+    "positionTitle": "Position title",
+    "references": "References"
   }
 }

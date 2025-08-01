@@ -1,7 +1,7 @@
 "use client";
+
 import { TheHero } from "@/src/components/HeroComponent/TheHero";
-import { useTranslations } from "next-intl";
-import { useSearchParams } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import s from "./page.module.scss";
 import Link from "next/link";
 import { usePathname } from "@/src/i18n/navigation";
@@ -9,13 +9,12 @@ import { tenders } from "@/data/tenders";
 
 export default function TenderPage() {
   const t = useTranslations("TendersPage");
-  const searchParams = useSearchParams();
   const pathname = usePathname();
   const tenderNumber = Number(pathname.match(/tender(\d+)/)?.[1]);
   const { tendersRu = [], tendersEn = [] } =
     tenders.find((t) => t.id === tenderNumber) ?? {};
 
-  const language = searchParams.get("lang") || "eng";
+  const locale = useLocale();
 
   return (
     <>
@@ -26,20 +25,20 @@ export default function TenderPage() {
             <ul>
               <li>
                 <a href="#section1">
-                  {language === "ru"
+                  {locale === "ru"
                     ? "Общее уведомление о закупках"
                     : "General Procurement Notice"}
                 </a>
               </li>
               <li>
                 <a href="#section2">
-                  {language === "ru" ? "Тендеры" : "Tenders"}
+                  {locale === "ru" ? "Тендеры" : "Tenders"}
                 </a>
               </li>
             </ul>
           </nav>
           <div className={s.separator}></div>
-          {language === "ru" ? (
+          {locale === "ru" ? (
             <div>
               <div className={s.notice} id="section1">
                 <h2>ОБЩЕЕ УВЕДОМЛЕНИЕ О ЗАКУПКАХ</h2>

@@ -17,7 +17,7 @@
     "projects": "Проекты",
     "contacts": "Контакты",
     "documents": "Документы",
-    "jobs": "Вакансии"
+    "vacancies": "Вакансии"
   },
   "HomePage": {
     "title": "Главная страница",
@@ -389,9 +389,6 @@
     "ru": "Ру",
     "en": "Анг"
   },
-  "JobsPage": {
-    "title": "Вакансии"
-  },
   "PlantDetail": {
     "heroTitle": "Солнечные электростанции",
     "location": "Адрес",
@@ -407,5 +404,11 @@
     "co2SavedUnit": "т.",
     "treesSaved": "Сохранено деревьев",
     "treesSavedUnit": "шт."
+  },
+  "VacanciesPage": {
+    "title": "Вакансии",
+    "detail": "Детали вакансии",
+    "positionTitle": "Позиция",
+    "references": "Номер конкурса"
   }
 }
