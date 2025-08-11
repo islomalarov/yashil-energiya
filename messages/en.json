@@ -392,17 +392,11 @@
     "heroTitle": "List of PVPP",
     "location": "Address",
     "power": "Power",
-    "powerUnit": "kW",
     "gridConnection": "Date of installation",
     "averageAnnualProduction": "Average annual production",
-    "averageAnnualProductionUnit": "kWh",
-    "K": "K",
     "coalSaved": "Coal saved",
-    "coalSavedUnit": "t.",
     "co2Saved": "Saved co₂ gases",
-    "co2SavedUnit": "t.",
-    "treesSaved": "Preserved trees",
-    "treesSavedUnit": "pcs"
+    "treesSaved": "Preserved trees"
   },
   "VacanciesPage": {
     "title": "Vacancies",

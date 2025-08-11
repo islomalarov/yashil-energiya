@@ -1,10 +1,10 @@
 import { request, gql } from "graphql-request";
 
 export interface Vacancy {
-  id?: string;
-  title?: string;
-  references?: string;
-  excerpt?: string;
+  id: string;
+  title: string;
+  references: string;
+  excerpt: string;
   description: {
     raw: {
       children: [{}];

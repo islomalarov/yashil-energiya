@@ -1,7 +1,3 @@
-interface ProjectProps {
-  begin?: number;
-  end?: number;
-}
 interface HeroProps {
   title1: string;
   url1: string;

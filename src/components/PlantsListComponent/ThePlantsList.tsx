@@ -1,57 +1,44 @@
 import "@/scss/globals.scss";
 import s from "./ThePlantsList.module.scss";
 import { Link } from "@/src/i18n/navigation";
-import { useTranslations } from "next-intl";
-import { plants } from "@/data/plants";
 import cn from "classnames";
 import Image from "next/image";
+import { PlantService } from "@/services/plants.service";
+import { getLocale, getTranslations } from "next-intl/server";
+interface ProjectProps {
+  begin?: number;
+  end?: number;
+}
+export const ThePlantsList = async ({ begin, end }: ProjectProps) => {
+  const locale = await getLocale();
+  const t = await getTranslations("TheLastPlants");
+  const plants = await PlantService.getAllPlants(locale);
 
-export const ThePlantsList = ({ begin, end }: ProjectProps) => {
   return (
     <ul className={s.projects}>
       {plants.slice(begin, end).map((plant) => (
-        <PlantItem key={plant.plantCode} plant={plant} />
+        <li key={plant.id} className={s.project}>
+          <div className={s.coverWrapper}>
+            <div className={s.cover}>
+              <p>{plant.power}</p>
+            </div>
+            <Image
+              className={s.coverImage}
+              src={plant.pictures[0]?.url}
+              alt={plant.title}
+              width={1280}
+              height={720}
+            />
+          </div>
+          <div className={s.info}>
+            <h3 className={s.projectTitle}>{plant.title}</h3>
+            <p>{plant.address}</p>
+            <Link className={cn(s.link, "link")} href={`/plants/${plant.id}`}>
+              {t("link")}
+            </Link>
+          </div>
+        </li>
       ))}
     </ul>
-  );
-};
-
-type PlantItemProps = {
-  plant: {
-    plantCode: string;
-    plantName: string;
-    plantAddress: string;
-    plantPower: string;
-  };
-};
-
-export const PlantItem = ({ plant }: PlantItemProps) => {
-  const { plantCode, plantName, plantAddress, plantPower } = plant;
-  const t = useTranslations("TheLastPlants");
-
-  return (
-    <li className={s.project}>
-      <div className={s.coverWrapper}>
-        <div className={s.cover}>
-          <p>{plantPower} kW</p>
-        </div>
-        <Image
-          className={s.coverImage}
-          src={`/plants/${plantCode}/photo-1.jpg`}
-          alt={plantName}
-          width={1280}
-          height={720}
-        />
-      </div>
-
-      <div className={s.info}>
-        <h3 className={s.projectTitle}>{plantName}</h3>
-        <p>{plantAddress}</p>
-
-        <Link className={cn(s.link, "link")} href={`/plants/${plantCode}`}>
-          {t("link")}
-        </Link>
-      </div>
-    </li>
   );
 };

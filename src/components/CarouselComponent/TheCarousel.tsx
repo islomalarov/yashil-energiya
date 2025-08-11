@@ -11,13 +11,17 @@ import Image from "next/image";
 import { usePrevNextButtons } from "@/hooks/usePrevNextButtons";
 
 type PropType = {
-  slides: number[];
+  pictures: {
+    fileName: string;
+    url: string;
+    height: number;
+    width: number;
+  }[];
   options?: EmblaOptionsType;
-  plantCode?: string;
 };
 
 const TheCarousel: React.FC<PropType> = (props) => {
-  const { slides, options, plantCode } = props;
+  const { pictures, options } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay()]);
 
   const {
@@ -31,20 +35,17 @@ const TheCarousel: React.FC<PropType> = (props) => {
     <section className={s.embla}>
       <div className={s.embla__viewport} ref={emblaRef}>
         <div className={s.embla__container}>
-          {slides.map((index) => {
-            const plantImageSrc = require(
-              `@/public/plants/${plantCode}/photo-${index + 1}.jpg`,
-            ).default;
-            return (
-              <div className={s.embla__slide} key={index}>
-                <Image
-                  className={s.embla__slide__img}
-                  src={plantImageSrc}
-                  alt="Your alt text"
-                />
-              </div>
-            );
-          })}
+          {pictures.map((picture, index) => (
+            <div className={s.embla__slide} key={index}>
+              <Image
+                className={s.embla__slide__img}
+                src={picture.url}
+                alt="Your alt text"
+                width={picture.width || 1280}
+                height={picture.height || 720}
+              />
+            </div>
+          ))}
         </div>
       </div>
 
