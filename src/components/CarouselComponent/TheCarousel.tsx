@@ -1,16 +1,14 @@
 "use client";
-import React, { useCallback } from "react";
-import { EmblaOptionsType, EmblaCarouselType } from "embla-carousel";
+
+import React from "react";
+import { EmblaOptionsType } from "embla-carousel";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
-import {
-  NextButton,
-  PrevButton,
-  usePrevNextButtons,
-} from "./TheCarouselArrowButtons";
+import { NextButton, PrevButton } from "./TheCarouselArrowButtons";
 
 import s from "./TheCarousel.module.scss";
 import Image from "next/image";
+import { usePrevNextButtons } from "@/hooks/usePrevNextButtons";
 
 type PropType = {
   slides: number[];
@@ -22,33 +20,21 @@ const TheCarousel: React.FC<PropType> = (props) => {
   const { slides, options, plantCode } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay()]);
 
-  const onNavButtonClick = useCallback((emblaApi: EmblaCarouselType) => {
-    const autoplay = emblaApi?.plugins()?.autoplay;
-    if (!autoplay) return;
-
-    const resetOrStop =
-      autoplay.options.stopOnInteraction === false
-        ? autoplay.reset
-        : autoplay.stop;
-
-    resetOrStop();
-  }, []);
-
   const {
     prevBtnDisabled,
     nextBtnDisabled,
     onPrevButtonClick,
     onNextButtonClick,
-  } = usePrevNextButtons(emblaApi, onNavButtonClick);
+  } = usePrevNextButtons(emblaApi);
 
   return (
     <section className={s.embla}>
       <div className={s.embla__viewport} ref={emblaRef}>
         <div className={s.embla__container}>
           {slides.map((index) => {
-            const plantImageSrc = require(`@/public/plants/${plantCode}/photo-${
-              index + 1
-            }.jpg`).default;
+            const plantImageSrc = require(
+              `@/public/plants/${plantCode}/photo-${index + 1}.jpg`,
+            ).default;
             return (
               <div className={s.embla__slide} key={index}>
                 <Image

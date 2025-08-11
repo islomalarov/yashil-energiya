@@ -1,10 +1,10 @@
 import { TheFeedback } from "@/src/components/FeedbackComponent/TheFeedback";
 import { TheHero } from "@/src/components/HeroComponent/TheHero";
 
-import Link from "next/link";
 import s from "./page.module.scss";
 import { VacancyService } from "@/services/vacancies.service";
 import { getLocale, getTranslations } from "next-intl/server";
+import { Link } from "@/src/i18n/navigation";
 
 export default async function VacanciesPage() {
   const t = await getTranslations("VacanciesPage");
