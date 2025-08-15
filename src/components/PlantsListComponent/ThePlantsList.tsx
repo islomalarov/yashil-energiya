@@ -3,20 +3,19 @@ import s from "./ThePlantsList.module.scss";
 import { Link } from "@/src/i18n/navigation";
 import cn from "classnames";
 import Image from "next/image";
-import { PlantService } from "@/services/plants.service";
-import { getLocale, getTranslations } from "next-intl/server";
-interface ProjectProps {
-  begin?: number;
-  end?: number;
-}
-export const ThePlantsList = async ({ begin, end }: ProjectProps) => {
-  const locale = await getLocale();
-  const t = await getTranslations("TheLastPlants");
-  const plants = await PlantService.getAllPlants(locale);
+import { useTranslations } from "next-intl";
+import { Plant } from "@/services/plants.service";
+
+type PlantsListProps = {
+  plants: Plant[];
+};
+
+export const ThePlantsList = ({ plants }: PlantsListProps) => {
+  const t = useTranslations("TheLastPlants");
 
   return (
     <ul className={s.projects}>
-      {plants.slice(begin, end).map((plant) => (
+      {plants.map((plant) => (
         <li key={plant.id} className={s.project}>
           <div className={s.coverWrapper}>
             <div className={s.cover}>

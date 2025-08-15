@@ -4,6 +4,7 @@ import s from "./TheLanguageSwitcher.module.scss";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/src/i18n/navigation";
 import { routing } from "@/src/i18n/routing";
+import cn from "classnames";
 
 export const TheLanguageSwitcher = () => {
   const locale = useLocale();
@@ -12,7 +13,7 @@ export const TheLanguageSwitcher = () => {
   const t = useTranslations("LocaleSwitcher");
 
   const handleLanguageChange = (newLocale: string) => {
-    router.push(pathname, { locale: newLocale });
+    router.replace({ pathname }, { locale: newLocale });
   };
 
   return (
@@ -21,12 +22,12 @@ export const TheLanguageSwitcher = () => {
         <button
           key={cur}
           onClick={(e) => {
-            e.stopPropagation();
+            e.preventDefault();
             handleLanguageChange(cur);
           }}
-          className={`${s.language} ${locale === cur ? s.active : ""}`}
+          className={cn(s.language, { [s.active]: locale === cur })}
         >
-          {t(`${cur}`)}
+          {t(cur)}
         </button>
       ))}
     </div>

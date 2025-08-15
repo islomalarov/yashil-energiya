@@ -1,12 +1,15 @@
 import "@/scss/globals.scss";
 import styles from "./TheLastPlants.module.scss";
 import { Link } from "@/src/i18n/navigation";
-import { useTranslations } from "next-intl";
 import { ThePlantsList } from "../PlantsListComponent/ThePlantsList";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
+import { getLocale, getTranslations } from "next-intl/server";
+import { PlantService } from "@/services/plants.service";
 
-export const TheLastPlants = () => {
-  const t = useTranslations("TheLastPlants");
+export const TheLastPlants = async () => {
+  const t = await getTranslations("TheLastPlants");
+  const locale = await getLocale();
+  const lastPlants = await PlantService.getLastPlants(locale);
 
   return (
     <TheMotionWrapper>
@@ -31,7 +34,7 @@ export const TheLastPlants = () => {
           </svg>
         </Link>
       </div>
-      <ThePlantsList begin={0} end={4} />
+      <ThePlantsList plants={lastPlants} />
     </TheMotionWrapper>
   );
 };

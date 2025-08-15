@@ -21,16 +21,21 @@ export interface Plant {
 
 export interface PlantsResponse {
   plants: Plant[];
+  plantsConnection: {
+    aggregate: {
+      count: number;
+    };
+  };
 }
 interface PlantResponse {
   plant: Plant;
 }
 
 export const PlantService = {
-  getAllPlants: async (locale: string) => {
+  getAllPlants: async (first?: number, skip?: number, locale?: string) => {
     const query = gql`
-      query GetPlants($locale: Locale!) {
-        plants(locales: [$locale]) {
+      query GetPlants($first: Int, $skip: Int, $locale: Locale!) {
+        plants(first: $first, skip: $skip, locales: [$locale]) {
           id
           address
           coal
@@ -47,10 +52,18 @@ export const PlantService = {
             width
           }
         }
+        plantsConnection(locales: [$locale]) {
+          aggregate {
+            count
+          }
+        }
       }
     `;
-    const response = await fetchData<PlantsResponse>(query, { locale });
-    return response.plants;
+    return fetchData<PlantsResponse>(query, {
+      first,
+      skip,
+      locale,
+    });
   },
 
   getPlantById: async (id: string, locale: string) => {
@@ -77,5 +90,28 @@ export const PlantService = {
     `;
     const response = await fetchData<PlantResponse>(query, { id, locale });
     return response.plant;
+  },
+
+  getLastPlants: async (locale: string) => {
+    const query = gql`
+      query GetLastPlants($locale: Locale!) {
+        plants(first: 2, locales: [$locale]) {
+          id
+          title
+          address
+          date
+          coal
+          gases
+          power
+          production
+          trees
+          pictures {
+            url
+          }
+        }
+      }
+    `;
+    const response = await fetchData<PlantsResponse>(query, { locale });
+    return response.plants;
   },
 };
