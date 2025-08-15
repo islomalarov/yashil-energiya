@@ -1,17 +1,17 @@
-import { request, gql } from "graphql-request";
+import { gql } from "graphql-request";
 import { NewsResponse } from "./news.service.types";
-
-const graphqlAPI = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT;
-
-if (!graphqlAPI) {
-  throw new Error("Invalid/Missing environment variable: HYGRAPH_ENDPOINT");
-}
+import { fetchData } from "@/lib/graphql-client";
 
 export const NewsService = {
   getAllNews: async (first?: number, skip?: number, locale?: string) => {
     const query = gql`
-      query GetNews {
-        news(first:${first}, skip:${skip}, orderBy: date_DESC, locales: ${locale}) {
+      query GetNews($first: Int, $skip: Int, $locale: Locale!) {
+        news(
+          first: $first
+          skip: $skip
+          orderBy: date_DESC
+          locales: [$locale]
+        ) {
           date
           id
           slug
@@ -27,27 +27,20 @@ export const NewsService = {
             width
           }
         }
-        newsConnection(locales: ${locale}) {
-          pageInfo {
-            hasNextPage
-            hasPreviousPage
-            pageSize
-            startCursor
-            endCursor
-          }
+        newsConnection(locales: [$locale]) {
           aggregate {
             count
           }
         }
       }
     `;
-    const response = await request<NewsResponse>(graphqlAPI, query);
-    return response;
+    return fetchData<NewsResponse>(query, { first, skip, locale });
   },
+
   getOneNews: async (slug: string, locale: string) => {
     const query = gql`
-      query getOneNews {
-        news(where: { slug: "${slug}" }, locales: ${locale}) {
+      query GetOneNews($slug: String!, $locale: Locale!) {
+        news(where: { slug: $slug }, locales: [$locale]) {
           date
           id
           slug
@@ -65,13 +58,14 @@ export const NewsService = {
         }
       }
     `;
-    const response = await request<NewsResponse>(graphqlAPI, query);
-    return response.news[0];
+    const data = await fetchData<NewsResponse>(query, { slug, locale });
+    return data.news?.[0] || null;
   },
+
   getLastNews: async (locale: string) => {
     const query = gql`
-      query GetLastNews {
-        news(first: 3, orderBy: date_DESC, locales: ${locale}) {
+      query GetLastNews($locale: Locale!) {
+        news(first: 3, orderBy: date_DESC, locales: [$locale]) {
           date
           id
           slug
@@ -89,7 +83,7 @@ export const NewsService = {
         }
       }
     `;
-    const response = await request<NewsResponse>(graphqlAPI, query);
-    return response.news;
+    const data = await fetchData<NewsResponse>(query, { locale });
+    return data.news;
   },
 };

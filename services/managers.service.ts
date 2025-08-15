@@ -1,4 +1,5 @@
-import { request, gql } from "graphql-request";
+import { gql } from "graphql-request";
+import { fetchData } from "@/lib/graphql-client";
 
 export interface Manager {
   id: string;
@@ -11,24 +12,18 @@ interface ManagerResponse {
   managers: Manager[];
 }
 
-const graphqlAPI = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT;
-
-if (!graphqlAPI) {
-  throw new Error("Invalid/Missing environment variable: HYGRAPH_ENDPOINT");
-}
-
 export const ManagerService = {
-  getAllManagers: async (locale?: string) => {
+  getAllManagers: async (locale: string) => {
     const query = gql`
-      query GetManagers {
-        managers(locales: ${locale}) {
+      query GetManagers($locale: Locale!) {
+        managers(locales: [$locale]) {
+          id
           email
           jobTitle
           name
         }
       }
     `;
-    const response = await request<ManagerResponse>(graphqlAPI, query);
-    return response;
+    return fetchData<ManagerResponse>(query, { locale });
   },
 };

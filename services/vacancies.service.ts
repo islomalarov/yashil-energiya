@@ -1,4 +1,5 @@
-import { request, gql } from "graphql-request";
+import { fetchData } from "@/lib/graphql-client";
+import { gql } from "graphql-request";
 
 export interface Vacancy {
   id: string;
@@ -19,44 +20,39 @@ interface VacancyResponse {
   vacancy: Vacancy;
 }
 
-const graphqlAPI = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT;
-
-if (!graphqlAPI) {
-  throw new Error("Invalid/Missing environment variable: HYGRAPH_ENDPOINT");
-}
-
 export const VacancyService = {
-  getAllVacancies: async (locale?: string) => {
+  getAllVacancies: async (locale: string) => {
     const query = gql`
-      query GetVacancies {
-        vacancies(locales: ${locale}) {
-          excerpt
+      query GetVacancies($locale: Locale!) {
+        vacancies(locales: [$locale]) {
           id
+          excerpt
           title
           references
-           description {
+          description {
             raw
           }
         }
       }
     `;
-    const response = await request<VacanciesResponse>(graphqlAPI, query);
+    const response = await fetchData<VacanciesResponse>(query, { locale });
     return response.vacancies;
   },
-  getOneVacancy: async (id: string, locale?: string) => {
+
+  getOneVacancy: async (id: string, locale: string) => {
     const query = gql`
-      query GetOneVacancy {
-        vacancy(where: { id: "${id}" }, locales: ${locale}) {
+      query GetOneVacancy($id: ID!, $locale: Locale!) {
+        vacancy(where: { id: $id }, locales: [$locale]) {
           title
           references
           description {
             raw
           }
           excerpt
-          }
+        }
       }
     `;
-    const response = await request<VacancyResponse>(graphqlAPI, query);
+    const response = await fetchData<VacancyResponse>(query, { id, locale });
     return response.vacancy;
   },
 };

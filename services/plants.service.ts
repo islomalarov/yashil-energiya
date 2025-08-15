@@ -1,10 +1,5 @@
-import { request, gql } from "graphql-request";
-
-const graphqlAPI = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT;
-
-if (!graphqlAPI) {
-  throw new Error("Invalid/Missing environment variable: HYGRAPH_ENDPOINT");
-}
+import { gql } from "graphql-request";
+import { fetchData } from "@/lib/graphql-client";
 
 export interface Plant {
   id: string;
@@ -24,14 +19,18 @@ export interface Plant {
   trees: string;
 }
 
-export interface PlantResponse {
+export interface PlantsResponse {
   plants: Plant[];
 }
+interface PlantResponse {
+  plant: Plant;
+}
+
 export const PlantService = {
-  getAllPlants: async (locale?: string) => {
+  getAllPlants: async (locale: string) => {
     const query = gql`
-      query GetPlants {
-        plants(locales: ${locale}) {
+      query GetPlants($locale: Locale!) {
+        plants(locales: [$locale]) {
           id
           address
           coal
@@ -50,13 +49,15 @@ export const PlantService = {
         }
       }
     `;
-    const response = await request<PlantResponse>(graphqlAPI, query);
+    const response = await fetchData<PlantsResponse>(query, { locale });
     return response.plants;
   },
-  getPlantById: async (id: string, locale?: string) => {
+
+  getPlantById: async (id: string, locale: string) => {
     const query = gql`
-      query GetPlantById {
-        plant(where: { id: "${id}" }, locales: ${locale}) {
+      query GetPlantById($id: ID!, $locale: Locale!) {
+        plant(where: { id: $id }, locales: [$locale]) {
+          id
           address
           coal
           date
@@ -74,7 +75,7 @@ export const PlantService = {
         }
       }
     `;
-    const response = await request<{ plant: Plant }>(graphqlAPI, query);
+    const response = await fetchData<PlantResponse>(query, { id, locale });
     return response.plant;
   },
 };
