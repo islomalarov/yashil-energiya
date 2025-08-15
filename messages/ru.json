@@ -126,7 +126,8 @@
     "heroTitle": "Новости",
     "title": "Новости",
     "linkTitle": "Все новости",
-    "lastNewsTitle": "Последние новости"
+    "lastNewsTitle": "Последние новости",
+    "link": "Узнать больше"
   },
   "SolarPanelsPage": {
     "heroTitle": "Солнечные фотоэлектрические станции",

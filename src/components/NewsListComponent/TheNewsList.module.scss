@@ -1,3 +1,5 @@
+@import "@/scss/_vars.scss";
+
 .newsList {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -9,51 +11,5 @@
   }
   @media (max-width: 768px) {
     grid-template-columns: repeat(1, 1fr);
-  }
-}
-
-.link {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  height: 500px;
-  border-radius: 10px;
-  background: #fff;
-  overflow: hidden;
-  box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 0.1);
-
-  @media (max-width: 425px) {
-    height: 500px;
-  }
-
-  .titleBlock {
-    display: flex;
-    flex-direction: column;
-    padding: 0 20px;
-    text-align: justify;
-    gap: 10px;
-    .date {
-      color: #12903e;
-      font-size: 14px;
-      font-weight: 700;
-    }
-    h3 {
-      color: #2b2b2b;
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      font-weight: 700;
-      line-height: 30px; /* 150% */
-    }
-    .description {
-      color: #2b2b2b;
-      font-size: 16px;
-      font-weight: 400;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 5; /* Ограничивает количество строк */
-      line-clamp: 5;
-      overflow: hidden; /* Скрывает текст за пределами блока */
-      text-overflow: ellipsis;
-      line-height: 26px; /* Высота строки */
-    }
   }
 }

@@ -126,7 +126,8 @@
     "heroTitle": "News",
     "title": "News",
     "linkTitle": "All news",
-    "lastNewsTitle": "Latest news"
+    "lastNewsTitle": "Latest news",
+    "link": "Learn More"
   },
   "SolarPanelsPage": {
     "heroTitle": "PV Power Plants",
