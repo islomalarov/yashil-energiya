@@ -405,5 +405,12 @@
     "description": "Job description",
     "positionTitle": "Position title",
     "references": "References"
+  },
+  "TheArticlesList": {
+    "heroTitle": "Articles",
+    "title": "Articles",
+    "linkTitle": "All articles",
+    "lastArticlesTitle": "Latest articles",
+    "link": "Read more"
   }
 }

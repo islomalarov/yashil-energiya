@@ -405,5 +405,12 @@
     "detail": "Детали вакансии",
     "positionTitle": "Позиция",
     "references": "Номер конкурса"
+  },
+  "TheArticlesList": {
+    "heroTitle": "Статьи",
+    "title": "Статьи",
+    "linkTitle": "Все статьи",
+    "lastArticlesTitle": "Последние статьи",
+    "link": "Читать далее"
   }
 }

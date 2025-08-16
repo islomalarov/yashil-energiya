@@ -1,39 +1,57 @@
 "use client";
 
 import "@/scss/globals.scss";
-import styles from "./page.module.scss";
-import Image from "next/image";
-import { Link } from "@/src/i18n/navigation";
+import s from "./TheArticlesList.module.scss";
+import { Article, ArticlesResponse } from "@/services/articles.service";
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
+import { useTranslations } from "next-intl";
 
-interface NewsProps {
-  articles: {
-    id: number;
-    imgUrl: string;
-    date: string;
-    title: string;
-    subTitle: string;
-  }[];
-  url: string;
-}
-export const TheArticlesList = ({ articles, url }: NewsProps) => {
+export const TheArticlesList = ({ articles }: ArticlesResponse) => {
+  const t = useTranslations("TheArticlesList");
+
   return (
-    <div>
-      <ul className={styles.news}>
-        {articles.map(({ id, imgUrl, date, title, subTitle }) => (
-          <li key={id}>
-            <Link className={styles.link} href={`/${url}/page${id}`}>
-              <div className={styles.imgBlock}>
-                <Image width={720} height={315} src={imgUrl} alt={imgUrl} />
-              </div>
-              <div className={styles.titleBlock}>
-                {date && <p className={styles.date}>{date}</p>}
-                <h3>{title}</h3>
-                <p>{subTitle}</p>
-              </div>
-            </Link>
-          </li>
-        ))}
-      </ul>
+    <div className={s.articlesList}>
+      {articles.map(({ id, cover, title, excerpt, slug }: Article) => (
+        <Card
+          key={id}
+          sx={{
+            borderRadius: "10px",
+            boxShadow: "0px 2px 14px 0px rgba(0, 0, 0, 0.1)",
+          }}
+        >
+          <CardMedia
+            component="img"
+            alt={cover ? cover.fileName : "News cover image"}
+            image={cover ? cover.url : "/placeholder.jpg"}
+            height="200"
+          />
+
+          <CardContent>
+            <Typography component="div" variant="h5" gutterBottom>
+              {title}
+            </Typography>
+            <Typography className="description" component="p">
+              {excerpt}
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button
+              size="medium"
+              sx={{ color: "#12903e" }}
+              href={`/articles/${slug}`}
+            >
+              {t("link")}
+            </Button>
+          </CardActions>
+        </Card>
+      ))}
     </div>
   );
 };

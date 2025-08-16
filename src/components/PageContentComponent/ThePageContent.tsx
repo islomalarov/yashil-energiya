@@ -8,7 +8,7 @@ import TheImageModal from "../ImageComponent/TheImageModal";
 
 export default function ThePageContent({ content }: any) {
   if (!content || content.length === 0) {
-    return <div>No content available</div>;
+    return <div className={s.pageContent}>No content available</div>;
   }
   return (
     <div className={s.pageContent}>
@@ -21,6 +21,12 @@ export default function ThePageContent({ content }: any) {
             return <TheList key={index} content={children} />;
           case "image":
             return <TheImageModal key={index} elem={elem} />;
+          case "heading-three":
+            return (
+              <h2 key={index} className={s.title}>
+                {children[0].text}
+              </h2>
+            );
           default:
             return null;
         }
