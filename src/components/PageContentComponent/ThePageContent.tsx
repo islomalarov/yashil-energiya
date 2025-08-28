@@ -18,7 +18,8 @@ export default function ThePageContent({ content }: any) {
           case "paragraph":
             return <TheParagraph key={index} content={children} />;
           case "bulleted-list":
-            return <TheList key={index} content={children} />;
+          case "numbered-list":
+            return <TheList key={index} content={children} type={type} />;
           case "image":
             return <TheImageModal key={index} elem={elem} />;
           case "heading-three":
