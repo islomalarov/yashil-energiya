@@ -23,6 +23,13 @@ export const tenders = [
         deadline: "02.06.2025",
         file: "RFQ_Invitation_eng_stationery.docx",
       },
+      {
+        id: 3,
+        title: "Отбор консалтинговой компании для разработки ТЭО проекта",
+        status: "Активный",
+        deadline: "19.09.2025",
+        file: "REOI_QCBS_1_rus.docx",
+      },
     ],
     tendersEn: [
       {
@@ -38,6 +45,13 @@ export const tenders = [
         status: "Active",
         deadline: "02.06.2025",
         file: "RFQ_Invitation_eng_stationery.docx",
+      },
+      {
+        id: 3,
+        title: "Selection Consulting company for preparing Feasibility Study report",
+        status: "Active",
+        deadline: "19.09.2025",
+        file: "REOI_QCBS_1_eng.docx",
       },
     ],
   },
