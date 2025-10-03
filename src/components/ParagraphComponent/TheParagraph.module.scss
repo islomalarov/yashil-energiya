@@ -16,6 +16,10 @@
   .underline {
     text-decoration: underline;
   }
+  .superscript {
+    font-size: 0.7em;        /* уменьшаем размер */
+    vertical-align: super;   /* поднимаем наверх */
+  }
   .link {
     color: blue;
     text-decoration: underline;

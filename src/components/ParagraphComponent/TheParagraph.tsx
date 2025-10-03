@@ -7,7 +7,7 @@ export default function TheParagraph({ content }: any) {
     <p className={s.paragraphBlock}>
       {content.map(
         (
-          { text, href, bold, italic, underline, children }: any,
+          { text, href, bold, italic, underline, children, superscript }: any,
           index: number,
         ) => {
           if (text) {
@@ -15,15 +15,17 @@ export default function TheParagraph({ content }: any) {
               <span
                 key={index}
                 className={
-                  bold && italic
-                    ? `${s.bold} ${s.italic}`
+                  bold && italic && superscript
+                    ? `${s.bold} ${s.italic} ${s.superscript}`
                     : bold
                       ? s.bold
                       : italic
                         ? s.italic
                         : underline
                           ? s.underline
-                          : ""
+                          : superscript
+                            ? s.superscript
+                            : ""
                 }
               >
                 {text}
@@ -44,7 +46,7 @@ export default function TheParagraph({ content }: any) {
                 {children && children[0] && children[0].text}
               </Link>
             );
-          }
+          } 
           return null;
         },
       )}
