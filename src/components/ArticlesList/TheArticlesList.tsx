@@ -22,26 +22,35 @@ export const TheArticlesList = ({ articles }: ArticlesResponse) => {
         <Card
           key={id}
           sx={{
-            borderRadius: "10px",
-            boxShadow: "0px 2px 14px 0px rgba(0, 0, 0, 0.1)",
+            borderRadius: 2,
+            boxShadow: "0px 2px 14px 0px rgba(0,0,0,.1)",
+            display: "flex",
+            flexDirection: "column",
+            height: "100%",
           }}
         >
           <CardMedia
             component="img"
             alt={cover ? cover.fileName : "News cover image"}
             image={cover ? cover.url : "/placeholder.jpg"}
-            height="200"
+            // единая «шапка» по высоте, чтобы заголовки начинались в одной линии:
+            sx={{ height: 200, width: "100%", objectFit: "cover", display: "block" }}
           />
 
-          <CardContent>
+          <CardContent
+            sx={{
+              display: "flex", 
+              flexDirection: "column", 
+              flexGrow: 1
+            }}>
             <Typography component="div" variant="h5" gutterBottom>
               {title}
             </Typography>
-            <Typography className="description" component="p">
+            <Typography className="description" component="p" sx={{ flexGrow: 1 }}>
               {excerpt}
             </Typography>
           </CardContent>
-          <CardActions>
+          <CardActions sx={{ mt: "auto" }}>
             <Button
               size="medium"
               sx={{ color: "#12903e" }}
