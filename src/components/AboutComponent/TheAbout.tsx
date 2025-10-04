@@ -16,7 +16,7 @@ export const TheAbout = () => {
     amount: 0.3, // Запускаем, когда 50% компонента в зоне видимости
     margin: "0px 0px -20% 0px", // Добавляем небольшой отступ
   });
-  const events = ["event1", "event2", "event3"] as const;
+  const events = ["event1", "event2", "event3", "event4"] as const;
 
   return (
     <TheMotionWrapper>

@@ -14,10 +14,10 @@ export const TheLinks = () => {
       <ul className={s.links}>
         {links.map(({ body, img, url }: LinkObj) => (
           <li key={body} className={s.link}>
+            <Link href={`https://${url}`} target="_blank" className={s.fullLink}>
             <Image width={80} height={80} src={img} alt="link-icon" />
             <p style={{ textTransform: "uppercase" }}>{body}</p>
-            <Link href={`https://${url}`} target="_blank" passHref>
-              {url}
+            <span className={s.url}>{url}</span>
             </Link>
           </li>
         ))}

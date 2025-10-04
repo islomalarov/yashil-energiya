@@ -16,9 +16,9 @@ const sofia = Sofia_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Yashil Energiya — двигатель зелёной экономики",
+  title: "Yashil Energiya — powering the green economy",
   description:
-    "Платформа, посвящённая обеспечению устойчивого будущего с помощью солнечной, ветровой и других альтернативных источников энергии. Знакомьтесь с экологически чистыми технологиями, новостями и советами",
+    "Yashil Energiya is a platform dedicated to promoting a sustainable future through solar, wind, and other renewable energy sources. Discover the latest news, projects, insights, and technologies",
   keywords:
     "yashil energiya, muqobil energiya, quyosh energiyasi, zaryadlash stansiyasi, quyosh panellari, invertor, mikroges, quyosh stansiyasi, quyosh elektr stansiyasi, fotoelektr stansiya, barqaror rivojlanish, ekologik texnologiyalar, energiya samaradorligi, qayta tiklanuvchi energiya, Yashil-energiya.uz, зелёная энергия, альтернативная энергетика, солнечная энергия, зарядная станция, солнечные панели, инвертор, микро-ГЭС, солнечная станция, солнечная электростанция, фотоэлектрическая станция, устойчивое развитие, экологические технологии, энергоэффективность, возобновляемые источники энергии,",
   icons: "logo_cut.svg",
