@@ -36,7 +36,7 @@
       "year": "2023",
       "event": [
         {
-          "description": "16.02.2023  \"Green Energy\" LLC was established based on Presidential Decree No. 57 of 2023 on accelerating the introduction of renewable energy sources and energy-saving technologies."
+          "description": "2023-02-16  \"Yashil Energiya\" LLC was established based on Presidential Decree No. 57 of 2023 on accelerating the introduction of renewable energy sources and energy-saving technologies."
         },
         {
           "description": "By the end of 2023, the capacity of the PV plants installed and operated by \"Yashil Energiya\" LLC exceeded 20,000 kW."
@@ -47,18 +47,25 @@
       "year": "2024",
       "event": [
         {
-          "description": "In order to contribute to the \"green\" economy, \"Green Energy\" LLC has established departments of mini and micro hydropower plants and electric vehicle charging stations."
+          "description": "In order to contribute to the \"green\" economy, \"Yashil Energiya\" LLC has established departments of mini and micro hydropower plants and electric vehicle charging stations."
         },
         {
-          "description": "By the end of 2024, the capacity of PV stations owned by \"Green Energy\" LLC exceeded 48,000 kW."
+          "description": "By the end of 2024, the capacity of PV stations owned by \"Yashil Energiya\" LLC exceeded 48,000 kW."
         }
       ]
     },
     "event3": {
       "year": "2025",
-      "event": []
+      "event": [        
+        {
+          "description": "2025-09-24 Acquisition of a 51% stake in \"Yashil Energiya\" LLC by the Emirati company \"GSU\"."
+        }]
     },
-    "paragraph1": "\"Green Energy\" LLC is a company that specializes in the development and implementation of renewable energy solutions in the Republic of Uzbekistan. We were founded on February 16, 2023, under the Decree of the President of the Republic, No-57.",
+    "event4": {
+      "year": "2026",
+      "event": [ ]
+    },
+    "paragraph1": "\"Yashil Energiya\" LLC is a company that specializes in the development and implementation of renewable energy solutions in the Republic of Uzbekistan. We were founded on February 16, 2023, under the Decree of the President of the Republic, No-57.",
     "paragraph2": "Ensuring sustainable development and protecting the environment in order to contribute to the energy independence of the country by widely introducing renewable energy sources. Our main goal is to ensure the provision of quality electricity to all social and governmental facilities.",
     "project1": {
       "title": "Establish solar photovoltaic power plants to provide quality electricity for the buildings of social facilities, government agencies, and other organizations.",
@@ -93,7 +100,7 @@
     "title": "The results we attain",
     "advantage1": {
       "title": "The energy produced",
-      "total": "50",
+      "total": "100",
       "unit": "GW",
       "duration": "2"
     },
@@ -111,7 +118,7 @@
     },
     "advantage4": {
       "title": "Saved Co₂",
-      "total": "28000",
+      "total": "45000",
       "unit": "tons",
       "duration": "1"
     }
@@ -153,8 +160,8 @@
       "title": "Hybrid",
       "description": "There is a combination of on-grid and off-grid systems, which makes it the most flexible but also relatively expensive system, as it requires a power supply through the grid or operation through batteries."
     },
-    "mapTitle": "Information about the current PVPP status of \"Green Energy\" LLC",
-    "chartDescription": "\"Green Energy\" LLC has been investing in social and governmental facilities located in the Republic of Uzbekistan since 2023. The diagram shows changes in the total number of PV plants that are relevant to company.",
+    "mapTitle": "Information about the current PVPP status of \"Yashil Energiya\" LLC",
+    "chartDescription": "\"Yashil Energiya\" LLC has been investing in social and governmental facilities located in the Republic of Uzbekistan since 2023. The diagram shows changes in the total number of PV plants that are relevant to company.",
     "chartLabel": "Total capacity",
     "chartLabelUnit": "kW",
     "chartLabel1": "Number of objects",
@@ -177,7 +184,7 @@
     "heroTitle": "Micro Hydro Power",
     "title": "Hydroelectric power plants",
     "subTitle": "From nature - towards clean energy!",
-    "content": "\"Green Energy\" LLC is constantly contributing to the introduction of stable and environmental sources in Uzbekistan. The Department of micro hydropower is one of the important directions in this way.",
+    "content": "\"Yashil Energiya\" LLC is constantly contributing to the introduction of stable and environmental sources in Uzbekistan. The Department of micro hydropower is one of the important directions in this way.",
     "listTitle": "Why MHP",
     "listDescription": "MHP plants are small facilities with a capacity ranging from 5 kW to 500 kW that generate electricity using the flow of water. These plants have several advantages:",
     "listItem1": "Permanent and stable electricity",
