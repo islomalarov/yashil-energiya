@@ -15,28 +15,28 @@ export const TheHero = ({ title1, title2, url1, url2 }: HeroProps) => {
     <div className={styles.hero}>
       <div className={styles.bgBlock}>
         <Image src={pathname === "microGes" ? ges : hero} alt="hero" priority />
-      </div>
-      <div className="container">
-        <div className={styles.info}>
-          <h3 className={styles.title}>
-            {pathname === url1 ? title1 : title2}
-          </h3>
-          <div className={styles.links}>
-            <Link className={styles.link} href="/">
-              {t("title")}
-            </Link>
-            <span> | </span>
-            <Link className={styles.link} href={`/${url1}`}>
-              {title1}
-            </Link>
-            {title2 && (
-              <>
-                <span> | </span>
-                <Link className={styles.link} href={`/${url2}`}>
-                  {title2}
-                </Link>
-              </>
-            )}
+        <div className="container">
+          <div className={styles.info}>
+            <h3 className={styles.title}>
+              {pathname === url1 ? title1 : title2}
+            </h3>
+            <div className={styles.links}>
+              <Link className={styles.link} href="/">
+                {t("title")}
+              </Link>
+              <span> | </span>
+              <Link className={styles.link} href={`/${url1}`}>
+                {title1}
+              </Link>
+              {title2 && (
+                <>
+                  <span> | </span>
+                  <Link className={styles.link} href={`/${url2}`}>
+                    {title2}
+                  </Link>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </div>

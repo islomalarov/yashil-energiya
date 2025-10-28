@@ -9,6 +9,8 @@ import { splitText } from "motion-plus";
 import { animate, stagger } from "motion";
 import { useEffect, useRef } from "react";
 import * as motion from "motion/react-client";
+import { icon } from "leaflet";
+import { TheMicroMap } from "@/src/components/MapComponent/TheMicroMap";
 
 export default function MicroGes() {
   const t = useTranslations("MicroGesPage");
@@ -26,6 +28,21 @@ export default function MicroGes() {
     },
     {
       icon: "hugeicons:cashback",
+    },
+  ];
+
+  const ServicesItemIcons = [
+    {
+      icon: "ix:project-server",
+    },
+    {
+      icon: "fa6-solid:business-time",
+    },
+    {
+      icon: "fluent-emoji-high-contrast:building-construction",
+    },
+    {
+      icon: "eos-icons:monitoring",
     },
   ];
 
@@ -86,50 +103,19 @@ export default function MicroGes() {
           <div>
             <h2 className={s.title}>{t("servicesTitle")}</h2>
             <ul className={s.list}>
-              <li className={s.listItem}>
-                <div>
-                  <Icon
-                    icon="ix:project-server"
-                    width="2em"
-                    height="2em"
-                    style={{ color: "#12903e" }}
-                  />
-                </div>
-                <span>{t("servicesItem1")}</span>
-              </li>
-              <li className={s.listItem}>
-                <div>
-                  <Icon
-                    icon="fa6-solid:business-time"
-                    width="2em"
-                    height="2em"
-                    style={{ color: "#12903e" }}
-                  />
-                </div>
-                <span>{t("servicesItem2")}</span>
-              </li>
-              <li className={s.listItem}>
-                <div>
-                  <Icon
-                    icon="fluent-emoji-high-contrast:building-construction"
-                    width="2em"
-                    height="2em"
-                    style={{ color: "#12903e" }}
-                  />
-                </div>
-                <span>{t("servicesItem3")}</span>
-              </li>
-              <li className={s.listItem}>
-                <div>
-                  <Icon
-                    icon="eos-icons:monitoring"
-                    width="2em"
-                    height="2em"
-                    style={{ color: "#12903e" }}
-                  />
-                </div>
-                <span>{t("servicesItem4")}</span>
-              </li>
+              {ServicesItemIcons.map((item, index) => (
+                <li key={index} className={s.listItem}>
+                  <div>
+                    <Icon
+                      icon={item.icon}
+                      width="2em"
+                      height="2em"
+                      style={{ color: "#12903e" }}
+                    />
+                  </div>
+                  <span>{t(`servicesItem${index + 1}`)}</span>
+                </li>
+              ))}
             </ul>
           </div>
           <div className={s.schemaBlock}>
@@ -198,6 +184,10 @@ export default function MicroGes() {
             <h2 className={s.title}>{t("futuresTitle")}</h2>
             <p className="description">{t("futuresDescription")}</p>
           </div>
+        </div>
+        <div>
+          <h2 className={s.title}>{t("mapTitle")}</h2>
+          <TheMicroMap />
         </div>
       </div>
       <TheFeedback />

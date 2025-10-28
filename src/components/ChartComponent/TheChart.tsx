@@ -7,7 +7,7 @@ type Datum = {
   color: string;
 };
 const data: Datum[] = [
-  { year: "2025", power: 48843, color: "#5cb63f" },
+  { year: "2025", power: 55365, color: "#5cb63f" },
   { year: "2024", power: 48066, color: "#5cb63f" },
   { year: "2023", power: 25418, color: "#5cb63f" },
 ];

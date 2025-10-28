@@ -1,5 +1,13 @@
+@use "@/scss/vars" as *;
+
 .block {
   display: grid;
   gap: 20px;
   padding-top: 20px;
+}
+
+.title {
+  text-align: center;
+  color: $primaryColor;
+  padding: 10px 0 30px 0;
 }

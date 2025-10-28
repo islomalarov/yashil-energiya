@@ -1,8 +1,9 @@
 import "@/scss/globals.scss";
 import { TheHero } from "@/src/components/HeroComponent/TheHero";
 import { TheFeedback } from "@/src/components/FeedbackComponent/TheFeedback";
-import styles from "./page.module.scss";
+import s from "./page.module.scss";
 import { useTranslations } from "next-intl";
+import { TheChSMap } from "@/src/components/MapComponent/TheChSMap";
 
 export default function ChargingStationPage() {
   const t = useTranslations("ChargingStationPage");
@@ -14,7 +15,7 @@ export default function ChargingStationPage() {
     <>
       <TheHero title1={t("heroTitle")} url1="chargingStation" />
       <div className="container">
-        <div className={styles.block}>
+        <div className={s.block}>
           <h2 className="">{t("needsTitle")}</h2>
           {needs.map((need, index) => (
             <p className="description" key={need}>
@@ -25,7 +26,7 @@ export default function ChargingStationPage() {
             </p>
           ))}
         </div>
-        <div className={styles.block}>
+        <div className={s.block}>
           <h2 className="">{t("benefitsTitle")}</h2>
           {benefits.map((need, index) => (
             <p className="description" key={need}>
@@ -36,13 +37,17 @@ export default function ChargingStationPage() {
             </p>
           ))}
         </div>
-        <div className={styles.block}>
+        <div className={s.block}>
           <h2 className="">{t("statisticsTitle")}</h2>
           {statistics.map((need, index) => (
             <p className="description" key={index}>
               <b>- {t(`${need}.title`)}</b>: {t(`${need}.description`)}
             </p>
           ))}
+        </div>
+        <div>
+          <h2 className={s.title}>{t("mapTitle")}</h2>
+          <TheChSMap />
         </div>
       </div>
       <TheFeedback />

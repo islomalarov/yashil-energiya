@@ -5,8 +5,8 @@ import MarkerClusterGroup from "react-leaflet-cluster";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { uzbekistanBorder } from "@/data/uzbekistanBorder";
-import { cities } from "@/data/citites";
 import { useTranslations } from "next-intl";
+import { plants } from "@/data/plants";
 
 // Настройка стандартных иконок Leaflet
 delete (L.Icon.Default.prototype as any)._getIconUrl;
@@ -17,7 +17,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
 });
 
-export const TheMap = () => {
+export const ThePlantsMap = () => {
   const t = useTranslations("SolarPanelsPage");
   return (
     <MapContainer
@@ -35,10 +35,10 @@ export const TheMap = () => {
 
       {/* Кластеризация */}
       <MarkerClusterGroup>
-        {cities.map((city, idx) => (
+        {plants.map((plant, idx) => (
           <Marker
             key={idx}
-            position={city.coords}
+            position={plant.coords}
             eventHandlers={{
               mouseover: (e) => {
                 e.target.openPopup();
@@ -49,14 +49,14 @@ export const TheMap = () => {
             }}
           >
             <Popup>
-              <strong>{t(city.name)}</strong>
+              <strong>{t(plant.name)}</strong>
               <br />
               <span>
-                🏭 {t("chartLabel1")}: {city.plants}
+                🏭 {t("chartLabel1")}: {plant.plants}
               </span>
               <br />
               <span>
-                ⚡ {t("chartLabel")} ({t("chartLabelUnit")}): {city.power}
+                ⚡ {t("chartLabel")} ({t("chartLabelUnit")}): {plant.power}
               </span>
             </Popup>
           </Marker>

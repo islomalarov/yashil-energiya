@@ -3,79 +3,79 @@
 .hero {
   position: relative;
   padding-bottom: 50px;
-}
 
-.info {
-  position: absolute;
-  top: 6rem;
-  @media (max-width: $md) {
-    top: 3rem;
-  }
-}
-
-.title {
-  padding-top: 51px;
-  color: $whiteColor;
-  font-size: 40px;
-  font-weight: 700;
-
-  @media (max-width: $md) {
-    padding-top: 10px;
-  }
-}
-
-.bgBlock {
-  overflow: hidden;
-  position: relative;
-  padding-bottom: 300px;
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-}
-
-.links {
-  padding-top: 12px;
-  font-size: 20px;
-  display: flex;
-
-  @media (max-width: $md) {
-    flex-direction: column;
-  }
-
-  & span {
-    margin: 0 10px;
-    color: $whiteColor;
-  }
-
-  .link {
+  .bgBlock {
+    overflow: hidden;
     position: relative;
-    display: inline-block;
-    color: $whiteColor;
+    min-height: 400px;
 
-    &::before {
-      content: "";
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       position: absolute;
-      bottom: 0;
+      top: 0;
       left: 0;
-      width: 0;
-      height: 2px;
-      background: $whiteColor;
-      transition:
-        width 0.3s ease,
-        left 0.3s ease;
     }
 
-    &:hover {
-      color: $whiteColor;
+    .info {
+      position: absolute;
+      top: 6rem;
+      @media (max-width: $md) {
+        top: 3rem;
+      }
 
-      &::before {
-        width: 100%;
-        left: 0;
+      .title {
+        padding-top: 51px;
+        color: $whiteColor;
+        font-size: 40px;
+        font-weight: 700;
+
+        @media (max-width: $md) {
+          padding-top: 10px;
+        }
+      }
+      .links {
+        padding-top: 12px;
+        font-size: 20px;
+        display: flex;
+
+        @media (max-width: $md) {
+          flex-direction: column;
+        }
+
+        & span {
+          margin: 0 10px;
+          color: $whiteColor;
+        }
+
+        .link {
+          position: relative;
+          display: inline-block;
+          color: $whiteColor;
+
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: $whiteColor;
+            transition:
+              width 0.3s ease,
+              left 0.3s ease;
+          }
+
+          &:hover {
+            color: $whiteColor;
+
+            &::before {
+              width: 100%;
+              left: 0;
+            }
+          }
+        }
       }
     }
   }
