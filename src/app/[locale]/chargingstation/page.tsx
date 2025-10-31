@@ -15,8 +15,8 @@ export default function ChargingStationPage() {
     <>
       <TheHero title1={t("heroTitle")} url1="chargingStation" />
       <div className="container">
-        <div className={s.block}>
-          <h2 className="">{t("needsTitle")}</h2>
+        <div className={s.content}>
+          <h2 className={s.title}>{t("needsTitle")}</h2>
           {needs.map((need, index) => (
             <p className="description" key={need}>
               <b>
@@ -25,9 +25,7 @@ export default function ChargingStationPage() {
               : {t(`${need}.description`)}
             </p>
           ))}
-        </div>
-        <div className={s.block}>
-          <h2 className="">{t("benefitsTitle")}</h2>
+          <h2 className={s.title}>{t("benefitsTitle")}</h2>
           {benefits.map((need, index) => (
             <p className="description" key={need}>
               <b>
@@ -36,18 +34,16 @@ export default function ChargingStationPage() {
               : {t(`${need}.description`)}
             </p>
           ))}
-        </div>
-        <div className={s.block}>
-          <h2 className="">{t("statisticsTitle")}</h2>
+          <h2 className={s.title}>{t("statisticsTitle")}</h2>
           {statistics.map((need, index) => (
             <p className="description" key={index}>
               <b>- {t(`${need}.title`)}</b>: {t(`${need}.description`)}
             </p>
           ))}
-        </div>
-        <div>
-          <h2 className={s.title}>{t("mapTitle")}</h2>
-          <TheChSMap />
+          <div>
+            <h2 className={s.title}>{t("mapTitle")}</h2>
+            <TheChSMap />
+          </div>
         </div>
       </div>
       <TheFeedback />

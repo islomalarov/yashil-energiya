@@ -1,9 +1,10 @@
 @use "@/scss/vars" as *;
 
-.block {
+.content {
+  color: $blackColor;
   display: grid;
   gap: 20px;
-  padding-top: 20px;
+  padding-bottom: 40px;
 }
 
 .title {

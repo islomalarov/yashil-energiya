@@ -9,7 +9,6 @@ import { splitText } from "motion-plus";
 import { animate, stagger } from "motion";
 import { useEffect, useRef } from "react";
 import * as motion from "motion/react-client";
-import { icon } from "leaflet";
 import { TheMicroMap } from "@/src/components/MapComponent/TheMicroMap";
 
 export default function MicroGes() {
@@ -184,10 +183,10 @@ export default function MicroGes() {
             <h2 className={s.title}>{t("futuresTitle")}</h2>
             <p className="description">{t("futuresDescription")}</p>
           </div>
-        </div>
-        <div>
-          <h2 className={s.title}>{t("mapTitle")}</h2>
-          <TheMicroMap />
+          <div>
+            <h2 className={s.title}>{t("mapTitle")}</h2>
+            <TheMicroMap />
+          </div>
         </div>
       </div>
       <TheFeedback />

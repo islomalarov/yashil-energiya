@@ -11,22 +11,22 @@ export const plants: Plant[] = [
   {
     region: "Tashkent city",
     name: "Yangi Toshkent",
-    coords: [41.302750, 69.478750],
+    coords: [41.302759, 69.478892],
     status: "running",
-    capacity: 600
+    capacity: 600,
   },
   {
     region: "Tashkent region",
     name: "Paraglider",
-    coords: [41.302750, 69.478750],
+    coords: [41.609965, 70.030666],
     status: "running",
-    capacity: 480
+    capacity: 480,
   },
   {
     region: "Andijan region",
     name: "Fergana ring road",
-    coords: [40.714310, 72.301062],
+    coords: [40.71431, 72.301062],
     status: "construction",
-    capacity: 600
+    capacity: 600,
   },
 ];

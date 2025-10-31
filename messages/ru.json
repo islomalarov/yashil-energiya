@@ -212,7 +212,8 @@
     "mapTitle": "Информация о действующем статусе МГЭС ООО «Yashil Energiya»",
     "mapLabel": "Общая мощность",
     "mapLabelUnit": "кВт",
-    "mapLabel1": "Статус"
+    "mapLabel1": "Статус",
+    "planning": "Проектирование"
   },
   "ChargingStationPage": {
     "heroTitle": "Зарядные станции для электромобилей",
@@ -262,7 +263,9 @@
     "mapTitle": "Информация о действующем статусе ЗСЭ ООО «Yashil Energiya»",
     "mapLabel": "Общая мощность",
     "mapLabelUnit": "кВт",
-    "mapLabel1": "Статус"
+    "mapLabel1": "Статус",
+    "running": "В эксплуатации",
+    "construction": "Строительство"
   },
   "LinksPage": {
     "title": "Полезные ссылки"

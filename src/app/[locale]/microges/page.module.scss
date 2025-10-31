@@ -1,9 +1,10 @@
 @use "@/scss/vars" as *;
+
 .content {
   color: $blackColor;
   display: grid;
   gap: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
 }
 .title {
   text-align: center;

@@ -74,7 +74,7 @@ export const TheMicroMap = () => {
             <strong>{plant.name}</strong>
             <br />
             <span>
-              🏭 {t("mapLabel1")}: {plant.status}
+              🏭 {t("mapLabel1")}: {t(plant.status)}
             </span>
             <br />
             <span>
