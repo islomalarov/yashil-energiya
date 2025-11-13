@@ -8,7 +8,7 @@ const departments = [
   {
     department: "department1",
     phone: "+998 90 830-31-18",
-    mail: "info@yashil-energiya.uz",
+    mail: "finance@yashil-energiya.uz",
   },
   {
     department: "department2",

@@ -6,6 +6,7 @@ export interface Manager {
   email: string;
   jobTitle: string;
   name: string;
+  queue: number;
 }
 
 interface ManagerResponse {
@@ -21,9 +22,18 @@ export const ManagerService = {
           email
           jobTitle
           name
+          queue
         }
       }
     `;
-    return fetchData<ManagerResponse>(query, { locale });
+     const response = await fetchData<ManagerResponse>(query, { locale });
+
+    // сортируем по queue (по возрастанию)
+    const sortedManagers = response.managers.sort(
+      (a, b) => a.queue - b.queue
+    );
+    return { ...response, managers: sortedManagers };
+    // return fetchData<ManagerResponse>(query, { locale });
   },
 };
+

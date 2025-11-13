@@ -24,6 +24,7 @@ export default async function ArticlePage({
     );
   }
 
+  console.log(article);
   return (
     <>
       <TheHero title1={t("heroTitle")} url1="articles" />
