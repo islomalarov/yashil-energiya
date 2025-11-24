@@ -59,6 +59,9 @@
       "event": [
         {
           "description": "2025-09-24 Acquisition of a 51% stake in \"Yashil Energiya\" LLC by the Emirati company \"GSU\"."
+        },
+        {
+          "description": "2025-09-29 the company transitioned to a new ownership structure and was reorganized as the joint venture \"JV Yashil Energiya LLC\"."
         }
       ]
     },
@@ -66,7 +69,7 @@
       "year": "2026",
       "event": []
     },
-    "paragraph1": "\"Yashil Energiya\" LLC is a company that specializes in the development and implementation of renewable energy solutions in the Republic of Uzbekistan. We were founded on February 16, 2023, under the Decree of the President of the Republic, No-57.",
+    "paragraph1": "JV \"Yashil Energiya\" LLC is a company that specializes in the development and implementation of renewable energy solutions in the Republic of Uzbekistan. We were founded on February 16, 2023, under the Decree of the President of the Republic, No-57.",
     "paragraph2": "Ensuring sustainable development and protecting the environment in order to contribute to the energy independence of the country by widely introducing renewable energy sources. Our main goal is to ensure the provision of quality electricity to all social and governmental facilities.",
     "project1": {
       "title": "Establish solar photovoltaic power plants to provide quality electricity for the buildings of social facilities, government agencies, and other organizations.",
@@ -161,8 +164,8 @@
       "title": "Hybrid",
       "description": "There is a combination of on-grid and off-grid systems, which makes it the most flexible but also relatively expensive system, as it requires a power supply through the grid or operation through batteries."
     },
-    "mapTitle": "Information about the current PVPP status of \"Yashil Energiya\" LLC",
-    "chartDescription": "\"Yashil Energiya\" LLC has been investing in social and governmental facilities located in the Republic of Uzbekistan since 2023. The diagram shows changes in the total number of PV plants that are relevant to company.",
+    "mapTitle": "Information about the current PVPP status of JV \"Yashil Energiya\" LLC",
+    "chartDescription": "JV \"Yashil Energiya\" LLC has been investing in social and governmental facilities located in the Republic of Uzbekistan since 2023. The diagram shows changes in the total number of PV plants that are relevant to company.",
     "chartLabel": "Total capacity",
     "chartLabelUnit": "kW",
     "chartLabel1": "Number of objects",
@@ -185,7 +188,7 @@
     "heroTitle": "Micro Hydro Power",
     "title": "Hydroelectric power plants",
     "subTitle": "From nature - towards clean energy!",
-    "content": "\"Yashil Energiya\" LLC is constantly contributing to the introduction of stable and environmental sources in Uzbekistan. The Department of micro hydropower is one of the important directions in this way.",
+    "content": "JV \"Yashil Energiya\" LLC is constantly contributing to the introduction of stable and environmental sources in Uzbekistan. The Department of micro hydropower is one of the important directions in this way.",
     "listTitle": "Why MHP",
     "listDescription": "MHP plants are small facilities with a capacity ranging from 5 kW to 500 kW that generate electricity using the flow of water. These plants have several advantages:",
     "listItem1": "Permanent and stable electricity",
@@ -197,7 +200,7 @@
     "servicesItem2": "The construction of a MHP under the \"turnkey\" project",
     "servicesItem3": "Installation and running",
     "servicesItem4": "Operating & Maintenance",
-    "schemaTitle": "\"Yashil Energiya\" LLC, in collaboration with foreign and local investors, is planning to construct and commission a MHP as a \"turnkey\" business project.",
+    "schemaTitle": "JV \"Yashil Energiya\" LLC, in collaboration with foreign and local investors, is planning to construct and commission a MHP as a \"turnkey\" business project.",
     "schemaDescription1": "Electricity is produced through the MHP",
     "schemaDescription2": "Produced and purchased by \"Regional Electric Networks\" JSC",
     "schemaDescription3": "Auction winner",
@@ -206,10 +209,10 @@
     "docsTitle": "Normative-legal framework",
     "docsDescription": "Our MHP activities are based on the official policy and support of the Government of the Republic of Uzbekistan, as outlined in Decree No. 129, dated March 28th, 2025. This decree provides for measures to increase the capacity of businesses to generate electricity through the use of water resources, thereby improving the sustainability of the electricity supply to various sectors of the economy and the general population. The goal is to ensure energy security for the entire economy and promote sustainable development.",
     "projectsTitle": "Projects implemented",
-    "projectsDescription": "Currently, \"Yashil Energya\" LLC is implementing the MHP-1 project on the Margunenkov Canal in the Okrugan district of the Tashkent region. The station has a capacity of 270 kW and is designed to efficiently utilize local water resources to generate electricity for nearby areas.",
+    "projectsDescription": "Currently, JV \"Yashil Energya\" LLC is implementing the MHP-1 project on the Margunenkov Canal in the Okrugan district of the Tashkent region. The station has a capacity of 270 kW and is designed to efficiently utilize local water resources to generate electricity for nearby areas.",
     "futuresTitle": "Future plans",
     "futuresDescription": "Our company plans to launch five new MHP projects in 2025. These projects will be implemented in different regions of Uzbekistan, and will help improve the stable supply of electricity for thousands of residents.",
-    "mapTitle": "Information about the current MHP status of \"Yashil Energiya\" LLC",
+    "mapTitle": "Information about the current MHP status of JV \"Yashil Energiya\" LLC",
     "mapLabel": "Total capacity",
     "mapLabelUnit": "kW",
     "mapLabel1": "Status",
@@ -260,7 +263,7 @@
       "title": "Growth forecast",
       "description": "According to the data, the share of electricity in the Uzbek car market is expected to increase significantly until 2030, which increases the demand for charging stations."
     },
-    "mapTitle": "Information about the current EVs status of \"Yashil Energiya\" LLC",
+    "mapTitle": "Information about the current EVs status of JV \"Yashil Energiya\" LLC",
     "mapLabel": "Total capacity",
     "mapLabelUnit": "kW",
     "mapLabel1": "Status",
@@ -296,7 +299,7 @@
   },
   "BranchesPage": {
     "title": "\"Yashil Energiya Servis\" LLC",
-    "headerTitle": "Regional service centers of \"Yashil Energiya Servis\" LLC",
+    "headerTitle": "Regional service centers of JV \"Yashil Energiya\" LLC",
     "regionTitle": "Regional Service Center",
     "branchManager": "Head of the branch",
     "phone": "Phone number",

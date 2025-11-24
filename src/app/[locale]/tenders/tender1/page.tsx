@@ -94,7 +94,7 @@ export default function TenderPage() {
                     Конкретные уведомления о закупках по контрактам, подлежащим
                     международному открытому конкурсу, будут публиковаться по
                     мере их поступления на внешнем веб-сайте АБИИ и на веб-сайте
-                    «Yashil Energiya».
+                    СП ООО «Yashil Energiya».
                   </p>
                 </div>
                 <div>
@@ -111,7 +111,7 @@ export default function TenderPage() {
                   <p className="description">
                     <b>Насретдинов Н.Т.</b>
                   </p>
-                  <p className="description">Директор ООО «Yashil Energiya»</p>
+                  <p className="description">Директор СП ООО «Yashil Energiya»</p>
                   <p className="description">
                     2Б, ул. Чингиза Айтматова, Юнусабадский район, Ташкент,
                     Узбекистан
@@ -215,7 +215,7 @@ export default function TenderPage() {
                     Specific procurement notices for contracts subject to
                     international open competitive tender will be announced, as
                     they become available, on the AIIB’s external website and on
-                    the website of Yashil Energiya.
+                    the website of JV "Yashil Energiya" LLC.
                   </p>
                 </div>
                 <div>
@@ -233,7 +233,7 @@ export default function TenderPage() {
                     <b>N.T. Nasretdinov </b>
                   </p>
                   <p className="description">
-                    Director of LLC "Yashil Energiya"
+                    Director of JV "Yashil Energiya"LLC
                   </p>
                   <p className="description">
                     2B, Chingiz aytmatov str., Yunusabad district, Tashkent
