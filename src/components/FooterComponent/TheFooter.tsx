@@ -37,7 +37,7 @@ export const TheFooter = () => {
         </div>
       </div>
       <div className={s.subFooter}>
-        <p className={s.text}>“Yashil Energiya” LLC All rights reserved</p>
+        <p className={s.text}>JV “Yashil Energiya” LLC All rights reserved</p>
       </div>
     </footer>
   );
