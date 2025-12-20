@@ -1,9 +1,9 @@
-import { ArticlesService } from "@/services/articles.service";
+import "@/scss/globals.scss";
 import s from "./page.module.scss";
-import ThePageContent from "@/src/components/PageContentComponent/ThePageContent";
-import { getLocale, getTranslations } from "next-intl/server";
 import { TheHero } from "@/src/components/HeroComponent/TheHero";
-import { Box, CircularProgress } from "@mui/material";
+import { ArticlesService } from "@/services/articles.service";
+import { getLocale, getTranslations } from "next-intl/server";
+import ThePageContent from "@/src/components/PageContentComponent/ThePageContent";
 import { TheFeedback } from "@/src/components/FeedbackComponent/TheFeedback";
 
 export default async function ArticlePage({
@@ -24,15 +24,12 @@ export default async function ArticlePage({
     );
   }
 
-  console.log(article);
   return (
     <>
       <TheHero title1={t("heroTitle")} url1="articles" />
       <div className="container">
         {!article ? (
-          <Box sx={{ display: "flex" }}>
-            <CircularProgress />
-          </Box>
+          <div>Loading...</div>
         ) : (
           <div className={s.content}>
             <h1 className={s.title}>{article.title}</h1>
