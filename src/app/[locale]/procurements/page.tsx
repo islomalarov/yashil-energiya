@@ -13,13 +13,13 @@ export default function TendersPage() {
 
   return (
     <>
-      <TheHero title1={t("title")} url1="tenders" />
+      <TheHero title1={t("title")} url1="procurements" />
       <div className={`${s.container} container`}>
         <div className={s.tendersList}>
           {tenders.map((tender) => (
             <Link
               key={tender.id}
-              href={`/tenders/tender${tender.id}?lang=${locale}`}
+              href={`/procurements/procurement${tender.id}?lang=${locale}`}
               className={s.tenderItem}
             >
               <div>

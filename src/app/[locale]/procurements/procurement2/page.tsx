@@ -10,7 +10,7 @@ import { tenders } from "@/data/tenders";
 export default function TenderPage() {
   const t = useTranslations("TendersPage");
   const pathname = usePathname();
-  const tenderNumber = Number(pathname.match(/tender(\d+)/)?.[1]);
+  const tenderNumber = Number(pathname.match(/procurement(\d+)/)?.[1]);
   const { tendersRu = [], tendersEn = [] } =
     tenders.find((t) => t.id === tenderNumber) ?? {};
 
@@ -18,7 +18,7 @@ export default function TenderPage() {
 
   return (
     <>
-      <TheHero title1={t("title")} url1="tenders" />
+      <TheHero title1={t("title")} url1="procurements" />
       <div className="container">
         <div className={s.content}>
           <nav className={s.stickyNav}>

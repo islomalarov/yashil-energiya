@@ -1,0 +1,80 @@
+@use "/scss/vars" as *;
+
+.content {
+  display: grid;
+  grid-template-columns: 200px 100px 1fr;
+  gap: 20px;
+  padding-bottom: 40px;
+  @media (max-width: $md) {
+    grid-template-columns: 100px 50px 1fr;
+    gap: 10px;
+  }
+  @media (max-width: $sm) {
+    grid-template-columns: 1fr;
+  }
+  h2 {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+}
+.notice {
+  display: grid;
+  gap: 20px;
+  padding-bottom: 40px;
+}
+.stickyNav {
+  position: sticky;
+  top: 100px; // отступ от верхнего края
+  height: fit-content;
+  margin-right: 40px;
+  @media (max-width: $sm) {
+    display: none;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    padding-top: 20px;
+  }
+
+  li {
+    margin-bottom: 10px;
+
+    a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: $paragraphSize;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.separator {
+  margin-bottom: 100px;
+  width: 2px;
+  background-color: $primaryColor;
+  height: 100%;
+  padding-top: 100px;
+  @media (max-width: $sm) {
+    display: none;
+  }
+}
+.tendersList {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  @media (max-width: $md) {
+    grid-template-columns: 1fr;
+  }
+}
+.tenderItem {
+  font-size: $paragraphSize;
+  border: 2px solid $primaryColor;
+  border-radius: 10px;
+  padding: 10px;
+  display: grid;
+  gap: 10px;
+}

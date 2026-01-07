@@ -49,7 +49,7 @@ export const menuLinks = [
     subMenu: [
       { id: 3.1, url: "/news", title: "news" },
       { id: 3.2, url: "/articles", title: "articles" },
-      { id: 3.3, url: "/tenders", title: "tenders" },
+      { id: 3.3, url: "/procurements", title: "procurements" },
     ],
   },
   {

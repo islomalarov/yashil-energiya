@@ -1,6 +1,49 @@
 export const tenders = [
   {
     id: 1,
+    projectNumber: "",
+    projectNameRu: "Общие закупки",
+    projectNameEn: "General procurements",
+    projectDescriptionRu:
+      "",
+    projectDescriptionEn:
+      "",
+    tendersRu: [
+      {
+        id: 1,
+        title: "Конкурс на прибретение услуг по таможенному оформлению импортируемых грузов",
+        status: "Открыт",
+        deadline: "15.01.2025",
+        file: "RFQ-04-1360.pdf",
+      },
+      {
+        id: 2,
+        title: "Отбор консалтинговой компании на проведение аудита по финансовой отчетности",
+        status: "Открыт",
+        deadline: "15.01.2025",
+        file: "RFQ-04-1371.pdf",
+      },
+
+    ],
+    tendersEn: [
+      {
+        id: 1,
+        title: "Tender for the Provision of Customs Clearance Services for Imported Goods",
+        status: "Open",
+        deadline: "15.01.2025",
+        file: "RFQ-04-1360.pdf",
+      },
+      {
+        id: 2,
+        title: "Selection of a Consulting Company to Conduct an Audit of Financial Statements",
+        status: "Open",
+        deadline: "15.01.2025",
+        file: "RFQ-04-1371.pdf",
+      },
+    ],
+  },
+  {
+    id: 2,
     projectNumber: "P000827",
     projectNameRu: "Проект развития",
     projectNameEn: "Project development",

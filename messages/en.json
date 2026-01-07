@@ -7,7 +7,7 @@
     "pressCenter": "Press center",
     "news": "News",
     "articles": "Articles",
-    "tenders": "Tenders",
+    "procurements": "Procurements",
     "activity": "Activity",
     "branches": "Subsidiaries",
     "plants": "List of PVPP",
@@ -404,7 +404,7 @@
     }
   },
   "TendersPage": {
-    "title": "Tenders"
+    "title": "Procurements"
   },
   "LocaleSwitcher": {
     "label": "Change Language",

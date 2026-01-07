@@ -7,7 +7,7 @@
     "pressCenter": "Пресс-центр",
     "news": "Новости",
     "articles": "Статьи",
-    "tenders": "Тендеры",
+    "procurements": "Закупки",
     "activity": "Деятельность",
     "branches": "Филиалы",
     "plants": "Список ФЭС",
@@ -404,7 +404,7 @@
     }
   },
   "TendersPage": {
-    "title": "Тендеры"
+    "title": "Закупки"
   },
   "LocaleSwitcher": {
     "label": "Change language",
