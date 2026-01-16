@@ -7,8 +7,8 @@ type Datum = {
   color: string;
 };
 const raw: Datum[] = [
-  { year: "2025", power: 74399, color: "#5cb63f" },
-  { year: "2025", power: 74399, color: "#5cb63f" },
+  { year: "2025", power: 131051, color: "#5cb63f" },
+  { year: "2025", power: 131051, color: "#5cb63f" },
   { year: "2024", power: 48066, color: "#5cb63f" },
   { year: "2023", power: 25418, color: "#5cb63f" },
 ];
