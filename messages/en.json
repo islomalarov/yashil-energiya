@@ -92,7 +92,7 @@
       "src": "ph:solar-panel"
     },
     "achievement3": {
-      "description": "In 1 800 social facilities, solar photovoltaic power plants have been installed",
+      "description": "In 2 000 social facilities, solar photovoltaic power plants have been installed",
       "src": "fluent:building-bank-48-regular"
     },
     "achievement4": {
@@ -435,5 +435,8 @@
     "linkTitle": "All articles",
     "lastArticlesTitle": "Latest articles",
     "link": "Read more"
-  }
+  },
+  "TheChartList": {
+    "year": "Year"
+    }
 }
