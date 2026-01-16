@@ -88,15 +88,15 @@
       "src": "codicon:tools"
     },
     "achievement2": {
-      "description": "50 MW photovoltaic power plants are currently in operation",
+      "description": "80 MW photovoltaic power plants are currently in operation",
       "src": "ph:solar-panel"
     },
     "achievement3": {
-      "description": "In 1 200 social facilities, solar photovoltaic power plants have been installed",
+      "description": "In 1 800 social facilities, solar photovoltaic power plants have been installed",
       "src": "fluent:building-bank-48-regular"
     },
     "achievement4": {
-      "description": "The average annual electricity generated is 50,000 MW per year.",
+      "description": "The average annual electricity generated is 65,000 MW per year.",
       "src": "hugeicons:energy-ellipse"
     }
   },

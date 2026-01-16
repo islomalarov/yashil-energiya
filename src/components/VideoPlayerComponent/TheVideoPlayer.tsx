@@ -18,7 +18,7 @@ const TheVideoPlayer = () => {
       viewport={{ once: true, amount: 0.2 }}
     >
       <video
-        src="/video/servis__77pct_smaller.mp4"
+        src="/video/YASHIL_ENERGY_FINAL11_01_2026_crop.mp4"
         width="100%"
         height="100%"
         autoPlay
