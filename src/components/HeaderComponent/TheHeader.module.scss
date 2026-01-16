@@ -6,12 +6,12 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 20px 0;
+  padding: 5px 0;
   transition: all 0.3s linear;
 
   &.scrolled {
     backdrop-filter: blur(50px);
-    padding: 10px;
+    padding: 5px;
     transition: all 0.3s linear;
   }
 }
@@ -34,12 +34,12 @@
 
 .logo {
   flex: 0 0 auto;
-  max-width: 180px;
+  max-width: 150px;
   height: auto;
   transition: all 0.3s linear;
 
   &.miniLogo {
-    max-width: 120px;
+    max-width: 100px;
     transition: all 0.3s linear;
   }
 }
