@@ -18,24 +18,26 @@ const TheVideoPlayer = () => {
       viewport={{ once: true, amount: 0.2 }}
     >
       <video
-        src="/video/YASHIL_ENERGY_FINAL11_01_2026_crop.mp4"
+        src="/video/YASHIL_ENERGY_FINAL11_01_2026.mp4"
         width="100%"
         height="100%"
         autoPlay
         loop
         muted={volume}
         playsInline
+        controls
+        controlsList="nodownload"
       />
-      <button
+      {/* <button
         className={styles.volumeBtn}
         id="volumeBtn"
         title="mute"
         onClick={() => setVolume(!volume)}
-      >
-        <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.3 }}>
+      > */}
+        {/* <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.3 }}>
           {volume ? <VolumeOff color="white" /> : <Volume2 color="white" />}
         </motion.div>
-      </button>
+      </button> */}
     </motion.div>
   );
 };
