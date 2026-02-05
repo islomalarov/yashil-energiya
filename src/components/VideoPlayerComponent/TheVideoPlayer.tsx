@@ -1,6 +1,6 @@
 "use client";
 
-import "@/scss/globals.scss";
+
 import styles from "./TheVideoPlayer.module.scss";
 import { useState } from "react";
 import { Volume2, VolumeOff } from "lucide-react";

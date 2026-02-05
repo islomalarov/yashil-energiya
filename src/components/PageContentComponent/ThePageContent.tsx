@@ -1,6 +1,6 @@
 "use client";
 
-import "@/scss/globals.scss";
+
 import s from "./ThePageContent.module.scss";
 import TheList from "../ListComponent/TheList";
 import TheParagraph from "../ParagraphComponent/TheParagraph";

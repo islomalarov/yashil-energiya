@@ -1,6 +1,6 @@
 "use client";
 
-import "@/scss/globals.scss";
+
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import { TheNewsList } from "@/components/NewsListComponent/TheNewsList";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";

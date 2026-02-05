@@ -1,6 +1,6 @@
 "use client";
 
-import "@/scss/globals.scss";
+
 import Image from "next/image";
 import s from "./TheHeader.module.scss";
 import Logo from "public/logo_2.png";

@@ -1,6 +1,5 @@
 "use client";
 
-import "@/scss/globals.scss";
 import s from "./page.module.scss";
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
@@ -46,8 +45,12 @@ export default function About() {
             <ul className={s.projectsList}>
               {projects.map((project) => {
                 const projectSrc = t(`${project}.src`);
-                const projectImageSrc =
-                  require(`public/aboutPage/${projectSrc}`).default;
+                const projectImageSrc = new URL(
+                  `../../../../../public/aboutPage/${projectSrc}`,
+                  import.meta.url
+                ).toString();
+                // const projectImageSrc =
+                //   require(`public/aboutPage/${projectSrc}`).default;
 
                 return (
                   <li key={project} className={s.projectsItem}>

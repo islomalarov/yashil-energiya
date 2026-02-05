@@ -1,4 +1,4 @@
-import "@/scss/globals.scss";
+
 import s from "./TheCeo.module.scss";
 import { Manager, ManagerService } from "services/managers.service";
 import { getLocale, getTranslations } from "next-intl/server";

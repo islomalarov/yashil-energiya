@@ -1,4 +1,4 @@
-import "@/scss/globals.scss";
+
 import s from "./TheParagraph.module.scss";
 import Link from "next/link";
 

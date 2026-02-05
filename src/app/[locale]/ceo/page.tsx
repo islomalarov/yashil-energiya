@@ -1,4 +1,4 @@
-import "@/scss/globals.scss";
+
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import { TheCeo } from "@/components/CeoComponent/TheCeo";

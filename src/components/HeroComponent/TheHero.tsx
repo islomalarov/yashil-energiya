@@ -1,5 +1,5 @@
 "use client";
-import "@/scss/globals.scss";
+
 import styles from "./TheHero.module.scss";
 import Image from "next/image";
 import hero from "public/hero.png";

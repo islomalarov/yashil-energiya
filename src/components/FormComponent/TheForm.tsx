@@ -1,6 +1,6 @@
 "use client";
 
-import "@/scss/globals.scss";
+
 import styles from "./page.module.scss";
 import axios from "axios";
 import { ChangeEvent, FormEvent, useState } from "react";

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "@/scss/globals.scss";
+
 
 export const metadata: Metadata = {
   title: "News",

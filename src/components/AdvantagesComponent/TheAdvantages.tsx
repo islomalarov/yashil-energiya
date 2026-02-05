@@ -1,6 +1,6 @@
 "use client";
 
-import "@/scss/globals.scss";
+
 import styles from "./TheAdvantages.module.scss";
 import { useTranslations } from "next-intl";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";

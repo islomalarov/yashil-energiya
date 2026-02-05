@@ -1,4 +1,4 @@
-import "@/scss/globals.scss";
+
 
 interface MetadataProps {
   params: { locale?: string };

@@ -1,4 +1,4 @@
-import "@/scss/globals.scss";
+
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import { TheForm } from "@/components/FormComponent/TheForm";
 import s from "./page.module.scss";

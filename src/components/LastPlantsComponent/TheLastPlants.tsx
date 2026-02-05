@@ -1,4 +1,4 @@
-import "@/scss/globals.scss";
+
 import styles from "./TheLastPlants.module.scss";
 import { Link } from "@/i18n/navigation";
 import { ThePlantsList } from "../PlantsListComponent/ThePlantsList";

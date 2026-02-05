@@ -1,4 +1,4 @@
-import "@/scss/globals.scss";
+
 import s from "./TheLinks.module.scss";
 import Link from "next/link";
 import { links } from "data/links";

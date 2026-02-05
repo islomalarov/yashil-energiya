@@ -1,6 +1,6 @@
 "use client";
 
-import "@/scss/globals.scss";
+
 import s from "./TheNewsList.module.scss";
 import { NewResponse } from "services/news.service.types";
 import Card from "@mui/material/Card";

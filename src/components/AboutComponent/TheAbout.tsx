@@ -1,6 +1,6 @@
 "use client";
 
-import "@/scss/globals.scss";
+
 import s from "./TheAbout.module.scss";
 import { useTranslations } from "next-intl";
 import { motion, useInView } from "motion/react";
