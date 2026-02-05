@@ -8,7 +8,6 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-  // Legend,
   Cell,
 } from "recharts";
 
@@ -65,8 +64,7 @@ const makeCustomTooltip = (unit: string) => {
 
 
 
-export const TheChart = ({ label, unit }: { label: string; unit: string }) => {
-  const seriesName = `${label} (${unit})`;
+export const TheChart = ({ unit }: { unit: string }) => {
   return (
     <div
       style={{
@@ -96,7 +94,6 @@ export const TheChart = ({ label, unit }: { label: string; unit: string }) => {
             />
             <YAxis />
             <YAxis
-              // tickMargin={6}
               label={{
                 value: `Total capacity (${unit})`,
                 angle: -90,
@@ -105,7 +102,6 @@ export const TheChart = ({ label, unit }: { label: string; unit: string }) => {
               }}
             />
             <Tooltip content={makeCustomTooltip(unit)} />
-            {/* <Legend /> */}
             <Bar dataKey="power" radius={[6, 6, 0, 0]} isAnimationActive>
               {data.map((entry, index) => (
                 <Cell key={index} fill={entry.color} />
