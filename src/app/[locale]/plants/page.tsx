@@ -22,7 +22,6 @@ export default function Plants() {
 
   useEffect(() => {
     const fetchPlants = async () => {
-      try {
         const {
           plants,
           plantsConnection: { aggregate },
@@ -33,9 +32,6 @@ export default function Plants() {
         const totalPages = Math.ceil(aggregate.count / DEFAULT_PAGE_SIZE);
 
         setTotalPages(totalPages);
-      } catch (err) {
-        setError("Failed to load news data. Please try again later.");
-      }
     };
 
     fetchPlants();
