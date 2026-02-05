@@ -8,7 +8,7 @@ import { NextButton, PrevButton } from "./TheCarouselArrowButtons";
 
 import s from "./TheCarousel.module.scss";
 import Image from "next/image";
-import { usePrevNextButtons } from "@/hooks/usePrevNextButtons";
+import { usePrevNextButtons } from "hooks/usePrevNextButtons";
 
 type PropType = {
   pictures: {

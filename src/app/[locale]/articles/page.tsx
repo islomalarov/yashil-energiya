@@ -1,8 +1,8 @@
 import "@/scss/globals.scss";
-import { TheHero } from "@/src/components/HeroComponent/TheHero";
-import { TheFeedback } from "@/src/components/FeedbackComponent/TheFeedback";
-import { TheArticlesList } from "@/src/components/ArticlesList/TheArticlesList";
-import { ArticlesService } from "@/services/articles.service";
+import { TheHero } from "@/components/HeroComponent/TheHero";
+import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
+import { TheArticlesList } from "@/components/ArticlesList/TheArticlesList";
+import { ArticlesService } from "services/articles.service";
 import { getLocale, getTranslations } from "next-intl/server";
 
 export default async function Articles() {

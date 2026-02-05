@@ -1,7 +1,7 @@
 import "@/scss/globals.scss";
 import styles from "./page.module.scss";
 import Image from "next/image";
-import hero from "@/public/hero.png";
+import hero from "public/hero.png";
 import TheVideoPlayer from "../VideoPlayerComponent/TheVideoPlayer";
 
 export const TheSlider = () => {

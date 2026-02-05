@@ -1,14 +1,18 @@
 "use client";
 
-import "@/scss/globals.scss";
-import { TheHero } from "@/src/components/HeroComponent/TheHero";
-import { TheFeedback } from "@/src/components/FeedbackComponent/TheFeedback";
+import { TheHero } from "@/components/HeroComponent/TheHero";
+import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import s from "./page.module.scss";
 import { useTranslations } from "next-intl";
-import { ThePlantsMap } from "@/src/components/MapComponent/ThePlantsMap";
-import { TheChart } from "@/src/components/ChartComponent/TheChart";
+import dynamic from "next/dynamic";
+import { TheChart } from "@/components/ChartComponent/TheChart";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Image from "next/image";
+
+const ThePlantsMap = dynamic(
+  () => import("@/components/MapComponent/ThePlantsMap").then((m) => m.ThePlantsMap),
+  { ssr: false }
+);
 
 export default function SolarPanels() {
   const t = useTranslations("SolarPanelsPage");

@@ -1,7 +1,7 @@
 import "@/scss/globals.scss";
-import { TheHero } from "@/src/components/HeroComponent/TheHero";
-import { TheFeedback } from "@/src/components/FeedbackComponent/TheFeedback";
-import { TheCeo } from "@/src/components/CeoComponent/TheCeo";
+import { TheHero } from "@/components/HeroComponent/TheHero";
+import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
+import { TheCeo } from "@/components/CeoComponent/TheCeo";
 import { useTranslations } from "next-intl";
 
 export default function Ceo() {

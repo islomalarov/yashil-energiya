@@ -1,5 +1,5 @@
 import "@/scss/globals.scss";
-import { TheForm } from "@/src/components/FormComponent/TheForm";
+import { TheForm } from "@/components/FormComponent/TheForm";
 import styles from "./TheFeedback.module.scss";
 import { TheContacts } from "../ContactsComponent/TheContacts";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";

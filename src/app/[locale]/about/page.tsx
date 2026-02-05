@@ -2,16 +2,16 @@
 
 import "@/scss/globals.scss";
 import s from "./page.module.scss";
-import { TheHero } from "@/src/components/HeroComponent/TheHero";
-import { TheFeedback } from "@/src/components/FeedbackComponent/TheFeedback";
+import { TheHero } from "@/components/HeroComponent/TheHero";
+import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
-import huawei from "@/public/partners/huawei.webp";
-import solarMan from "@/public/partners/solarMan.jpg";
-import foxEss from "@/public/partners/foxEss.jpg";
-import tosh from "@/public/partners/tosh.jpg";
-import tw from "@/public/partners/tw.jpg";
+import huawei from "public/partners/huawei.webp";
+import solarMan from "public/partners/solarMan.jpg";
+import foxEss from "public/partners/foxEss.jpg";
+import tosh from "public/partners/tosh.jpg";
+import tw from "public/partners/tw.jpg";
 import { motion } from "motion/react";
 
 export default function About() {
@@ -47,7 +47,7 @@ export default function About() {
               {projects.map((project) => {
                 const projectSrc = t(`${project}.src`);
                 const projectImageSrc =
-                  require(`@/public/aboutPage/${projectSrc}`).default;
+                  require(`public/aboutPage/${projectSrc}`).default;
 
                 return (
                   <li key={project} className={s.projectsItem}>

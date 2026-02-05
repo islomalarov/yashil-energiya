@@ -1,9 +1,9 @@
 import "@/scss/globals.scss";
-import { TheHero } from "@/src/components/HeroComponent/TheHero";
-import { TheFeedback } from "@/src/components/FeedbackComponent/TheFeedback";
+import { TheHero } from "@/components/HeroComponent/TheHero";
+import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import s from "./page.module.scss";
 import { useTranslations } from "next-intl";
-import { TheChSMap } from "@/src/components/MapComponent/TheChSMap";
+import { TheChSMap } from "@/components/MapComponent/TheChSMap";
 
 export default function ChargingStationPage() {
   const t = useTranslations("ChargingStationPage");

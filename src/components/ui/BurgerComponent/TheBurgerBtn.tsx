@@ -1,5 +1,5 @@
 import Image from "next/image";
-import BurgerIcon from "@/public/menu/burgerIcon.svg";
+import BurgerIcon from "public/menu/burgerIcon.svg";
 import styles from "./TheBurger.module.scss";
 import { BurgerMenuProps } from "./TheBurgerMenu";
 

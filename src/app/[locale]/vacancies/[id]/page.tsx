@@ -1,9 +1,9 @@
-import { TheFeedback } from "@/src/components/FeedbackComponent/TheFeedback";
-import { TheHero } from "@/src/components/HeroComponent/TheHero";
+import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
+import { TheHero } from "@/components/HeroComponent/TheHero";
 import { getLocale, getTranslations } from "next-intl/server";
 import s from "./page.module.scss";
-import { VacancyService } from "@/services/vacancies.service";
-import ThePageContent from "@/src/components/PageContentComponent/ThePageContent";
+import { VacancyService } from "services/vacancies.service";
+import ThePageContent from "@/components/PageContentComponent/ThePageContent";
 
 type Props = {
   params: { id: string };

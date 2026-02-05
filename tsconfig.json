@@ -1,7 +1,12 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -19,7 +24,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "src/*"
+      ]
     }
   },
   "include": [
@@ -31,7 +38,10 @@
     "dist/types/**/*.ts",
     "my/image/loader.ts",
     "components/FormComponent/TheForm.tsx",
-    "components/VideoPlayerComponent/TheVideoPlayer.tsx"
+    "components/VideoPlayerComponent/TheVideoPlayer.tsx",
+    ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

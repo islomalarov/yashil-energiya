@@ -1,9 +1,9 @@
 import s from "./page.module.scss";
-import { TheHero } from "@/src/components/HeroComponent/TheHero";
-import { TheFeedback } from "@/src/components/FeedbackComponent/TheFeedback";
+import { TheHero } from "@/components/HeroComponent/TheHero";
+import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import { EmblaOptionsType } from "embla-carousel";
-import TheCarousel from "@/src/components/CarouselComponent/TheCarousel";
-import { PlantService } from "@/services/plants.service";
+import TheCarousel from "@/components/CarouselComponent/TheCarousel";
+import { PlantService } from "services/plants.service";
 import { getLocale, getTranslations } from "next-intl/server";
 
 type Props = {

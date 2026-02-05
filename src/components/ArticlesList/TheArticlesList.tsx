@@ -2,7 +2,7 @@
 
 import "@/scss/globals.scss";
 import s from "./TheArticlesList.module.scss";
-import { Article, ArticlesResponse } from "@/services/articles.service";
+import { Article, ArticlesResponse } from "services/articles.service";
 import {
   Button,
   Card,

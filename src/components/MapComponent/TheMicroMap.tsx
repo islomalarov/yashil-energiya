@@ -2,10 +2,10 @@
 
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
-import "leaflet/dist/leaflet.css";
+// import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { uzbekistanBorder } from "@/data/uzbekistanBorder";
-import { plants } from "@/data/MHP";
+import { uzbekistanBorder } from "data/uzbekistanBorder";
+import { plants } from "data/MHP";
 import { useTranslations } from "next-intl";
 
 const greenIcon = new L.Icon({

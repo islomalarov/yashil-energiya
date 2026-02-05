@@ -2,10 +2,10 @@
 
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
-import "leaflet/dist/leaflet.css";
+// import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { uzbekistanBorder } from "@/data/uzbekistanBorder";
-import { plants } from "@/data/EV_Charge";
+import { uzbekistanBorder } from "data/uzbekistanBorder";
+import { plants } from "data/EV_Charge";
 import { useTranslations } from "next-intl";
 
 const greenIcon = new L.Icon({
@@ -54,7 +54,7 @@ export const TheChSMap = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-
+      <MarkerClusterGroup>
       {/* Кластеризация */}
       {plants.map((plant, idx) => (
         <Marker
@@ -83,7 +83,9 @@ export const TheChSMap = () => {
           </Popup>
         </Marker>
       ))}
-      <MarkerClusterGroup></MarkerClusterGroup>
+      
+
+      </MarkerClusterGroup>
 
       {/* Граница страны */}
       {/* <GeoJSON

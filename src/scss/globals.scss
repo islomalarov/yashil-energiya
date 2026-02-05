@@ -1,6 +1,10 @@
 @use "./vars" as *;
 @use "./resets" as *;
 
+@import "leaflet/dist/leaflet.css";
+@import "react-leaflet-cluster/lib/assets/MarkerCluster.css";
+@import "react-leaflet-cluster/lib/assets/MarkerCluster.Default.css";
+
 .container {
   max-width: 1350px;
   margin: 0 auto;
@@ -15,7 +19,7 @@
 
 .main {
   flex: 1 1 auto;
-  padding-top: 77px;
+  padding-top: 118px;
 }
 
 .title {

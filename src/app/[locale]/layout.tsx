@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { Sofia_Sans } from "next/font/google";
-import { TheHeader } from "@/src/components/HeaderComponent/TheHeader";
-import { TheFooter } from "@/src/components/FooterComponent/TheFooter";
+import { TheHeader } from "@/components/HeaderComponent/TheHeader";
+import { TheFooter } from "@/components/FooterComponent/TheFooter";
 import { NextIntlClientProvider, Locale, hasLocale } from "next-intl";
-import ScrollToTopButton from "@/src/components/ui/ScrollButton/ScrollToTopButton";
-import { routing } from "@/src/i18n/routing";
+import ScrollToTopButton from "@/components/ui/ScrollButton/ScrollToTopButton";
+import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 
 const sofia = Sofia_Sans({
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "Yashil Energiya is a platform dedicated to promoting a sustainable future through solar, wind, and other renewable energy sources. Discover the latest news, projects, insights, and technologies",
   keywords:
     "yashil energiya, muqobil energiya, quyosh energiyasi, zaryadlash stansiyasi, quyosh panellari, invertor, mikroges, quyosh stansiyasi, quyosh elektr stansiyasi, fotoelektr stansiya, barqaror rivojlanish, ekologik texnologiyalar, energiya samaradorligi, qayta tiklanuvchi energiya, Yashil-energiya.uz, зелёная энергия, альтернативная энергетика, солнечная энергия, зарядная станция, солнечные панели, инвертор, микро-ГЭС, солнечная станция, солнечная электростанция, фотоэлектрическая станция, устойчивое развитие, экологические технологии, энергоэффективность, возобновляемые источники энергии,",
-  icons: "logo_cut.svg",
+  icons: "/logo_cut.svg",
 };
 
 type Props = {

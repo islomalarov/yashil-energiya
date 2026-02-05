@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.scss";
-import SearchIcon from "@/public/search.svg";
+import SearchIcon from "public/search.svg";
 
 export const TheSearch = () => {
   return (

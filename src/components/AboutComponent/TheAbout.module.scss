@@ -1,4 +1,5 @@
-@import "@/scss/_vars.scss";
+@use "@/scss/vars" as *;
+
 
 .content {
   padding: 5em 0;

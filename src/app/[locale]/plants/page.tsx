@@ -1,13 +1,13 @@
 "use client";
 
 import "@/scss/globals.scss";
-import { TheHero } from "@/src/components/HeroComponent/TheHero";
-import { ThePlantsList } from "@/src/components/PlantsListComponent/ThePlantsList";
-import { TheFeedback } from "@/src/components/FeedbackComponent/TheFeedback";
+import { TheHero } from "@/components/HeroComponent/TheHero";
+import { ThePlantsList } from "@/components/PlantsListComponent/ThePlantsList";
+import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import { useLocale, useTranslations } from "next-intl";
-import { Plant, PlantService } from "@/services/plants.service";
+import { Plant, PlantService } from "services/plants.service";
 import { useEffect, useState } from "react";
-import { ThePaginationControls } from "@/src/components/PaginationComponent/ThePaginationControls";
+import { ThePaginationControls } from "@/components/PaginationComponent/ThePaginationControls";
 
 export default function Plants() {
   const t = useTranslations("TheLastPlants");

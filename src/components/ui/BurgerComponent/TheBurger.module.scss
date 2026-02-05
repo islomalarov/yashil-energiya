@@ -1,4 +1,6 @@
-@import "@/scss/_vars.scss";
+ 
+@use "@/scss/vars" as *;
+
 
 .burgerBtn {
   display: none;
