@@ -2,7 +2,7 @@
 
 import "@/scss/globals.scss";
 import s from "./TheNewsList.module.scss";
-import { NewResponse } from "@/services/news.service.types";
+import { NewResponse } from "services/news.service.types";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";

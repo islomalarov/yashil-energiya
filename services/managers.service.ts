@@ -1,5 +1,5 @@
 import { gql } from "graphql-request";
-import { fetchData } from "@/lib/graphql-client";
+import { fetchData } from "lib/graphql-client";
 
 export interface Manager {
   id: string;

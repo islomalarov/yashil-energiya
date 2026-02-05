@@ -1,28 +1,24 @@
 import "@/scss/globals.scss";
 import s from "./page.module.scss";
-import { TheHero } from "@/src/components/HeroComponent/TheHero";
-import { ArticlesService } from "@/services/articles.service";
+import { TheHero } from "@/components/HeroComponent/TheHero";
+import { ArticlesService } from "services/articles.service";
 import { getLocale, getTranslations } from "next-intl/server";
-import ThePageContent from "@/src/components/PageContentComponent/ThePageContent";
-import { TheFeedback } from "@/src/components/FeedbackComponent/TheFeedback";
+import ThePageContent from "@/components/PageContentComponent/ThePageContent";
+import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
+import { notFound } from "next/navigation";
 
 export default async function ArticlePage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string; locale: string }>;
 }) {
-  const { slug } = params;
+  const { slug } = await params;
+  if (!slug) notFound();
   const locale = await getLocale();
   const t = await getTranslations("TheArticlesList");
   const article = await ArticlesService.getOneArticle(slug, locale);
 
-  if (!article) {
-    return (
-      <div className="container">
-        <p>Article not found</p>
-      </div>
-    );
-  }
+  if (!article) notFound();
 
   return (
     <>

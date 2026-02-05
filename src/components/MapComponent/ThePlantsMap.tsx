@@ -2,11 +2,11 @@
 
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
-import "leaflet/dist/leaflet.css";
+// import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { uzbekistanBorder } from "@/data/uzbekistanBorder";
+import { uzbekistanBorder } from "data/uzbekistanBorder";
 import { useTranslations } from "next-intl";
-import { plants } from "@/data/plants";
+import { plants } from "data/plants";
 
 // Настройка стандартных иконок Leaflet
 delete (L.Icon.Default.prototype as any)._getIconUrl;

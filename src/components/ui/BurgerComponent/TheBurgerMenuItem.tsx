@@ -1,4 +1,4 @@
-import { usePathname } from "@/src/i18n/navigation";
+import { usePathname } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import s from "./TheBurger.module.scss";

@@ -1,8 +1,8 @@
 import "@/scss/globals.scss";
 import styles from "./TheLastNews.module.scss";
-import { Link } from "@/src/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 import { TheNewsList } from "../NewsListComponent/TheNewsList";
-import { NewsService } from "@/services/news.service";
+import { NewsService } from "services/news.service";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
 import { getLocale, getTranslations } from "next-intl/server";
 

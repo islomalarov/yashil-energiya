@@ -2,7 +2,7 @@
 
 import styles from "./documents.module.scss";
 import Link from "next/link";
-import { TheHero } from "@/src/components/HeroComponent/TheHero";
+import { TheHero } from "@/components/HeroComponent/TheHero";
 import { useTranslations } from "next-intl";
 import { FileText } from "lucide-react";
 

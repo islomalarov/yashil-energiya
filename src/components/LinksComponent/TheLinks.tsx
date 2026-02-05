@@ -1,7 +1,7 @@
 import "@/scss/globals.scss";
 import s from "./TheLinks.module.scss";
 import Link from "next/link";
-import { links } from "@/data/links";
+import { links } from "data/links";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";

@@ -1,14 +1,14 @@
 "use client";
 
 import "@/scss/globals.scss";
-import { TheHero } from "@/src/components/HeroComponent/TheHero";
-import { TheNewsList } from "@/src/components/NewsListComponent/TheNewsList";
-import { TheFeedback } from "@/src/components/FeedbackComponent/TheFeedback";
+import { TheHero } from "@/components/HeroComponent/TheHero";
+import { TheNewsList } from "@/components/NewsListComponent/TheNewsList";
+import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import { useTranslations, useLocale } from "next-intl";
 import { useEffect, useState } from "react";
-import { NewResponse } from "@/services/news.service.types";
-import { NewsService } from "@/services/news.service";
-import { ThePaginationControls } from "@/src/components/PaginationComponent/ThePaginationControls";
+import { NewResponse } from "services/news.service.types";
+import { NewsService } from "services/news.service";
+import { ThePaginationControls } from "@/components/PaginationComponent/ThePaginationControls";
 
 export default function News() {
   const t = useTranslations("TheLastNews");

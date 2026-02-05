@@ -1,7 +1,7 @@
 "use client";
 import "@/scss/globals.scss";
-import { TheHero } from "@/src/components/HeroComponent/TheHero";
-import { TheFeedback } from "@/src/components/FeedbackComponent/TheFeedback";
+import { TheHero } from "@/components/HeroComponent/TheHero";
+import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import s from "./page.module.scss";
 import { useTranslations } from "next-intl";
 import { Icon } from "@iconify/react/dist/iconify.js";
@@ -9,7 +9,7 @@ import { splitText } from "motion-plus";
 import { animate, stagger } from "motion";
 import { useEffect, useRef } from "react";
 import * as motion from "motion/react-client";
-import { TheMicroMap } from "@/src/components/MapComponent/TheMicroMap";
+import { TheMicroMap } from "@/components/MapComponent/TheMicroMap";
 
 export default function MicroGes() {
   const t = useTranslations("MicroGesPage");

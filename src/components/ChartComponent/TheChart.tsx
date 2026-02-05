@@ -1,86 +1,119 @@
 "use client";
-import React from "react";
-import { Chart } from "react-charts";
+
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  // Legend,
+  Cell,
+} from "recharts";
+
+
 type Datum = {
   year: string;
   power: number;
   color: string;
 };
-const raw: Datum[] = [
-  { year: "2025", power: 131051, color: "#5cb63f" },
-  { year: "2025", power: 131051, color: "#5cb63f" },
-  { year: "2024", power: 48066, color: "#5cb63f" },
+type TooltipPayloadItem = {
+  value?: number | string;
+};
+
+type CustomTooltipProps = {
+  active?: boolean;
+  payload?: readonly TooltipPayloadItem[];
+  label?: string | number;
+};
+
+const data: Datum[] = [
   { year: "2023", power: 25418, color: "#5cb63f" },
+  { year: "2024", power: 48066, color: "#5cb63f" },
+  { year: "2025", power: 131051, color: "#5cb63f" },
 ];
+const makeCustomTooltip = (unit: string) => {
+  const CustomTooltip = ({
+    active,
+    payload,
+    label,
+  }: CustomTooltipProps) => {
+    if (!active || !payload || payload.length === 0) return null;
+
+    return (
+      <div
+        style={{
+          background: "#ffffff",
+          padding: "10px 14px",
+          borderRadius: 8,
+          boxShadow: "0 6px 20px rgba(0, 0, 0, 0.15)",
+          fontSize: 14,
+        }}
+      >
+        <div style={{ fontWeight: 600, marginBottom: 4 }}>{label}</div>
+        <div style={{ color: "#5cb63f" }}>
+          Total capacity:{" "}
+          {Number(payload[0].value).toLocaleString()} {unit}
+        </div>
+      </div>
+    );
+  };
+  CustomTooltip.displayName = "CustomTooltip";
+  return CustomTooltip;
+};
+
+
 
 export const TheChart = ({ label, unit }: { label: string; unit: string }) => {
-  const data = React.useMemo(
-    () => [
-      {
-        label: `${label} (${unit})`,
-        data: raw,
-      },
-    ],
-    [label, unit]
-  );
-
+  const seriesName = `${label} (${unit})`;
   return (
-    <div style={{ position: "relative", width: "100%", height: 340 }}>
-      
-      {/* Заголовок оси Y */}
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
       <div
         style={{
-          position: "absolute",
-          left: 0,
-          top: "50%",
-          transform: "rotate(-90deg) translate(-50%, -50%)",
-          transformOrigin: "left center",
-          fontSize: 12,
-          color: "#555",
+          width: "100%",
+          maxWidth: 900,   // <-- ширина графика на больших экранах
+          height: 340,
+          minWidth: 0,     // <-- важно для flex/grid родителей (fix for -1)
         }}
       >
-        Year
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart
+            data={data}
+            margin={{ top: 30, right: 40, left: 60, bottom: 40 }}
+          >
+            <CartesianGrid strokeDasharray="3 6" stroke="#e0e0e0" />
+            <XAxis 
+              dataKey="year"
+              tickMargin={6}
+              label={{value: "Years", position: "insideBottom", offset: -20}} 
+            />
+            <YAxis />
+            <YAxis
+              // tickMargin={6}
+              label={{
+                value: `Total capacity (${unit})`,
+                angle: -90,
+                position: "insideLeft",
+                offset: -20,
+              }}
+            />
+            <Tooltip content={makeCustomTooltip(unit)} />
+            {/* <Legend /> */}
+            <Bar dataKey="power" radius={[6, 6, 0, 0]} isAnimationActive>
+              {data.map((entry, index) => (
+                <Cell key={index} fill={entry.color} />
+              ))}
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
       </div>
-
-      {/* Заголовок оси X */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: 0,
-          left: "50%",
-          transform: "translateX(-50%)",
-          fontSize: 12,
-          color: "#555",
-        }}
-      >
-        {label} ({unit})
-      </div>
-
-      <Chart
-        options={{
-          data,
-          primaryAxis: {
-            getValue: (d: Datum) => d.year,
-            scaleType: "band",
-            position: "left",
-          },
-          secondaryAxes: [
-            {
-              getValue: (d: Datum) => d.power,
-              scaleType: "linear",
-              position: "bottom",
-              elementType: "bar",
-              min: 0,
-            },
-          ],
-          getDatumStyle: (datum) => ({
-            fill: (datum.originalDatum as Datum).color,
-          }),
-          tooltip: true,
-          interactionMode: "closest",
-          padding: 20,
-        }}
-      />
     </div>
   );
 };

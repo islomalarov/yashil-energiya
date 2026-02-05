@@ -1,6 +1,6 @@
 import "@/scss/globals.scss";
 import styles from "./page.module.scss";
-import { branches } from "@/data/branches";
+import { branches } from "data/branches";
 import { useLocale, useTranslations } from "next-intl";
 
 export const TheBranches = () => {

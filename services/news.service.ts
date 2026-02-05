@@ -1,6 +1,6 @@
 import { gql } from "graphql-request";
 import { NewsResponse } from "./news.service.types";
-import { fetchData } from "@/lib/graphql-client";
+import { fetchData } from "lib/graphql-client";
 
 export const NewsService = {
   getAllNews: async (first?: number, skip?: number, locale?: string) => {

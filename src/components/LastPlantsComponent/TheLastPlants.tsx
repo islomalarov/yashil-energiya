@@ -1,10 +1,10 @@
 import "@/scss/globals.scss";
 import styles from "./TheLastPlants.module.scss";
-import { Link } from "@/src/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 import { ThePlantsList } from "../PlantsListComponent/ThePlantsList";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
 import { getLocale, getTranslations } from "next-intl/server";
-import { PlantService } from "@/services/plants.service";
+import { PlantService } from "services/plants.service";
 
 export const TheLastPlants = async () => {
   const t = await getTranslations("TheLastPlants");

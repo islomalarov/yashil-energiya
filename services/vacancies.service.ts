@@ -1,4 +1,4 @@
-import { fetchData } from "@/lib/graphql-client";
+import { fetchData } from "lib/graphql-client";
 import { gql } from "graphql-request";
 
 export interface Vacancy {

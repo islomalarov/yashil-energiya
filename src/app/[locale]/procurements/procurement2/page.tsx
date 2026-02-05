@@ -1,11 +1,11 @@
 "use client";
 
-import { TheHero } from "@/src/components/HeroComponent/TheHero";
+import { TheHero } from "@/components/HeroComponent/TheHero";
 import { useLocale, useTranslations } from "next-intl";
 import s from "./page.module.scss";
 import Link from "next/link";
-import { usePathname } from "@/src/i18n/navigation";
-import { tenders } from "@/data/tenders";
+import { usePathname } from "@/i18n/navigation";
+import { tenders } from "data/tenders";
 
 export default function TenderPage() {
   const t = useTranslations("TendersPage");

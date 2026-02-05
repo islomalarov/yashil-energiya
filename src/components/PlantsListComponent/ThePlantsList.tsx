@@ -1,10 +1,10 @@
 import "@/scss/globals.scss";
 import s from "./ThePlantsList.module.scss";
-import { Link } from "@/src/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 import cn from "classnames";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { Plant } from "@/services/plants.service";
+import { Plant } from "services/plants.service";
 
 type PlantsListProps = {
   plants: Plant[];

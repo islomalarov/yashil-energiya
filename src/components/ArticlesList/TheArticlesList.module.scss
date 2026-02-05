@@ -1,3 +1,5 @@
+@use "@/scss/vars" as *;
+
 .articlesList {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

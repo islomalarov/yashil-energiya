@@ -1,6 +1,6 @@
 import "@/scss/globals.scss";
-import { TheHero } from "@/src/components/HeroComponent/TheHero";
-import { TheForm } from "@/src/components/FormComponent/TheForm";
+import { TheHero } from "@/components/HeroComponent/TheHero";
+import { TheForm } from "@/components/FormComponent/TheForm";
 import s from "./page.module.scss";
 import { useTranslations } from "next-intl";
 

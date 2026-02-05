@@ -3,16 +3,16 @@
 import "@/scss/globals.scss";
 import Image from "next/image";
 import s from "./TheHeader.module.scss";
-import Logo from "@/public/logo_2.png";
+import Logo from "public/logo_2.png";
 import { useEffect, useState } from "react";
 import { TheLanguageSwitcher } from "../ui/LanguageComponent/TheLanguageSwitcher";
 import { TheSearch } from "../ui/SearchComponent/TheSearch";
 import { TheDropdownMenu } from "../ui/DropdownComponent/TheDropdown";
-import { menuLinks } from "@/data/links";
+import { menuLinks } from "data/links";
 import { TheBurgerMenu } from "../ui/BurgerComponent/TheBurgerMenu";
 import { TheBurgerBtn } from "../ui/BurgerComponent/TheBurgerBtn";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
-import { Link } from "@/src/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 import { motion, useScroll } from "motion/react";
 
 export const TheHeader = () => {

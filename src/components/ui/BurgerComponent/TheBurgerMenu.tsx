@@ -1,12 +1,12 @@
 import s from "./TheBurger.module.scss";
 import { TheLanguageSwitcher } from "../LanguageComponent/TheLanguageSwitcher";
-import { menuLinks } from "@/data/links";
+import { menuLinks } from "data/links";
 import Image from "next/image";
-import Logo from "@/public/logo_2.png";
+import Logo from "public/logo_2.png";
 import { useEffect, useState } from "react";
 import { BurgerMenuItem } from "./TheBurgerMenuItem";
 import { CircleX } from "lucide-react";
-import { Link } from "@/src/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 
 export type BurgerMenuProps = {
   handleBurgerBtn: () => void;
