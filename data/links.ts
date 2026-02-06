@@ -57,9 +57,9 @@ export const menuLinks = [
     url: "#",
     title: "projects",
     subMenu: [
-      { id: 4.1, url: "/solarPanels", title: "solarPanels" },
-      { id: 4.2, url: "/microGes", title: "microGes" },
-      { id: 4.3, url: "/chargingStation", title: "chargingStation" },
+      { id: 4.1, url: "/solarpanels", title: "solarPanels" },
+      { id: 4.2, url: "/microges", title: "microGes" },
+      { id: 4.3, url: "/chargingstation", title: "chargingStation" },
     ],
   },
   {
