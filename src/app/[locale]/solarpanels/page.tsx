@@ -82,7 +82,9 @@ export default function SolarPanels() {
           </div>
           <div>
             <p className="description">{t("chartDescription")}</p>
-            <TheChart label={t("chartLabel")} unit={t("chartLabelUnit")} />
+            <div style={{ width: "100%", height: 360 }}>
+            <TheChart unit={t("chartLabelUnit")} />
+            </div>
           </div>
         </div>
       </div>

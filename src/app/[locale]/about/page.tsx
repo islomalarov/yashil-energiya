@@ -45,13 +45,7 @@ export default function About() {
             <ul className={s.projectsList}>
               {projects.map((project) => {
                 const projectSrc = t(`${project}.src`);
-                const projectImageSrc = new URL(
-                  `../../../../../public/aboutPage/${projectSrc}`,
-                  import.meta.url
-                ).toString();
-                // const projectImageSrc =
-                //   require(`public/aboutPage/${projectSrc}`).default;
-
+                const projectImageSrc = `/aboutPage/${projectSrc}`; 
                 return (
                   <li key={project} className={s.projectsItem}>
                     <div>
@@ -59,6 +53,8 @@ export default function About() {
                         className={s.projectAva}
                         src={projectImageSrc}
                         alt={projectSrc}
+                        width={300}
+                        height={200}
                       />
                     </div>
                     <p>{t(`${project}.title`)}</p>

@@ -3,11 +3,10 @@
 
 import styles from "./TheVideoPlayer.module.scss";
 import { useState } from "react";
-import { Volume2, VolumeOff } from "lucide-react";
 import { motion } from "motion/react";
 
 const TheVideoPlayer = () => {
-  const [volume, setVolume] = useState(true);
+  const [volume] = useState(true);
 
   return (
     <motion.div
@@ -28,16 +27,6 @@ const TheVideoPlayer = () => {
         controls
         controlsList="nodownload"
       />
-      {/* <button
-        className={styles.volumeBtn}
-        id="volumeBtn"
-        title="mute"
-        onClick={() => setVolume(!volume)}
-      > */}
-        {/* <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.3 }}>
-          {volume ? <VolumeOff color="white" /> : <Volume2 color="white" />}
-        </motion.div>
-      </button> */}
     </motion.div>
   );
 };

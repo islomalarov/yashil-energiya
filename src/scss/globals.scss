@@ -2,8 +2,8 @@
 @use "./resets" as *;
 
 @import "leaflet/dist/leaflet.css";
-@import "react-leaflet-cluster/lib/assets/MarkerCluster.css";
-@import "react-leaflet-cluster/lib/assets/MarkerCluster.Default.css";
+@import "leaflet.markercluster/dist/MarkerCluster.css";
+@import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 
 .container {
   max-width: 1350px;

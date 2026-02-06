@@ -1,76 +1,59 @@
 "use client";
-
-import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from "react-leaflet";
-import MarkerClusterGroup from "react-leaflet-cluster";
-// import "leaflet/dist/leaflet.css";
+import "@/lib/leaflet-icons";
 import L from "leaflet";
-import { uzbekistanBorder } from "data/uzbekistanBorder";
-import { useTranslations } from "next-intl";
+import "leaflet.markercluster";
+import LeafletMap from "@/components/MapComponent/LeafletMap";
+import styles from "./Map.module.scss";
 import { plants } from "data/plants";
+import { useTranslations } from "next-intl";
 
-// Настройка стандартных иконок Leaflet
-delete (L.Icon.Default.prototype as any)._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl:
-    "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
-  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
-  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
-});
+const isLatLng = (c: any): c is [number, number] =>
+  Array.isArray(c) &&
+  c.length === 2 &&
+  Number.isFinite(c[0]) &&
+  Number.isFinite(c[1]);
 
 export const ThePlantsMap = () => {
   const t = useTranslations("SolarPanelsPage");
+
   return (
-    <MapContainer
+    <LeafletMap
       center={[41.2, 64.0]}
-      zoom={5.5}
-      style={{
-        height: "500px",
-        width: "100%",
+      zoom={5}
+      className={styles.map}
+      onMap={(map) => {
+        const cluster = L.markerClusterGroup();
+        const bounds = L.latLngBounds([]);
+
+        plants.forEach((plant) => {
+          if (!isLatLng(plant.coords)) return;
+
+          bounds.extend(plant.coords);
+
+          const marker = L.marker(plant.coords);
+          marker.bindPopup(
+            `<strong>${t(plant.name)}</strong><br/>
+             🏭 ${t("chartLabel1")}: ${plant.plants}<br/>
+             ⚡ ${t("chartLabel")} (${t("chartLabelUnit")}): ${plant.power}`
+          );
+
+          cluster.addLayer(marker);
+        });
+
+        cluster.addTo(map);
+
+        if (bounds.isValid()) {
+          map.fitBounds(bounds, {
+            padding: [20, 20],
+            maxZoom: 10,
+          });
+        }
+
+        return () => {
+          cluster.clearLayers();
+          map.removeLayer(cluster);
+        };
       }}
-    >
-      <TileLayer
-        attribution="&copy; OpenStreetMap contributors"
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-
-      {/* Кластеризация */}
-      <MarkerClusterGroup>
-        {plants.map((plant, idx) => (
-          <Marker
-            key={idx}
-            position={plant.coords}
-            eventHandlers={{
-              mouseover: (e) => {
-                e.target.openPopup();
-              },
-              mouseout: (e) => {
-                e.target.closePopup();
-              },
-            }}
-          >
-            <Popup>
-              <strong>{t(plant.name)}</strong>
-              <br />
-              <span>
-                🏭 {t("chartLabel1")}: {plant.plants}
-              </span>
-              <br />
-              <span>
-                ⚡ {t("chartLabel")} ({t("chartLabelUnit")}): {plant.power}
-              </span>
-            </Popup>
-          </Marker>
-        ))}
-      </MarkerClusterGroup>
-
-      {/* Граница страны */}
-      {/* <GeoJSON
-        data={uzbekistanBorder as GeoJSON.FeatureCollection}
-        style={{ color: "black", weight: 1, fillOpacity: 0.05 }}
-        // onEachFeature={(feature, layer) => {
-        //   layer.bindPopup(feature.properties.name);
-        // }}
-      /> */}
-    </MapContainer>
+    />
   );
 };

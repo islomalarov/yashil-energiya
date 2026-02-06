@@ -76,9 +76,9 @@ export const TheChart = ({ unit }: { unit: string }) => {
       <div
         style={{
           width: "100%",
-          maxWidth: 900,   // <-- ширина графика на больших экранах
-          height: 340,
-          minWidth: 0,     // <-- важно для flex/grid родителей (fix for -1)
+          minWidth: 0,   // <-- ширина графика на больших экранах
+          height: 340,     // <-- важно для flex/grid родителей (fix for -1)
+          minHeight: 340,
         }}
       >
         <ResponsiveContainer width="100%" height="100%">
