@@ -1,57 +1,43 @@
 import s from "./TheList.module.scss";
 
-type Node = {
-  text?: string;
-  bold?: boolean;
-  italic?: boolean;
-  underline?: boolean;
-  code?: boolean;
-  children?: Node[];
+type ListType = "bulleted-list" | "numbered-list";
+type Props = {
+  content: unknown[];
+  type: ListType;
 };
 
-function renderNode(node: Node, key: number): JSX.Element {
-  if (node.text !== undefined) {
-    let element: JSX.Element = <>{node.text}</>;
 
-    if (node.bold) element = <b key={key}>{element}</b>;
-    if (node.italic) element = <i key={key}>{element}</i>;
-    if (node.underline) element = <u key={key}>{element}</u>;
-    if (node.code) element = <code key={key}>{element}</code>;
+function isRecord(v: unknown): v is Record<string, unknown> {
+  return typeof v === "object" && v !== null;
+}
+function getChildrenArray(v: unknown): unknown[] {
+  if (!isRecord(v)) return [];
+  const ch = v["children"];
+  return Array.isArray(ch) ? ch : [];
+}
 
-    return <span key={key}>{element}</span>;
-  }
+function renderNode(node: unknown) {
+  if (!isRecord(node)) return null;
+  const type = node.type;
+  if (typeof type !== "string") return null;
+}
+
+export default function TheList({ content, type }: Props) {
+  const Tag = type === "bulleted-list" ? "ul" : "ol";
+  const className = type === "bulleted-list" ? s.bulleted : s.numbered;
 
   return (
-    <span key={key}>
-      {node.children?.map((child, i) => renderNode(child, i))}
-    </span>
+    <Tag className={className}>
+      {content.map((item, index) => (
+        <li key={index} className={s.listItem}>
+          {getChildrenArray(item).map((child) =>
+            getChildrenArray(child).map((sub) =>
+              renderNode(sub),
+            ),
+          )}
+        </li>
+      ))}
+    </Tag>
   );
 }
 
-export default function TheList({ content, type }: any) {
-  return type === "bulleted-list" ? (
-    <ul className={s.bulleted}>
-      {content.map((item: any, index: number) => (
-        <li key={index} className={s.listItem}>
-          {item.children.map((child: any, childIndex: number) =>
-            child.children?.map((sub: any, subIndex: number) =>
-              renderNode(sub, subIndex),
-            ),
-          )}
-        </li>
-      ))}
-    </ul>
-  ) : (
-    <ol className={s.numbered}>
-      {content.map((item: any, index: number) => (
-        <li key={index} className={s.listItem}>
-          {item.children.map((child: any, childIndex: number) =>
-            child.children?.map((sub: any, subIndex: number) =>
-              renderNode(sub, subIndex),
-            ),
-          )}
-        </li>
-      ))}
-    </ol>
-  );
-}

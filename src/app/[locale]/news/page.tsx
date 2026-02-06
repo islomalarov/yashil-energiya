@@ -15,7 +15,6 @@ export default function News() {
   const locale = useLocale();
 
   const [fetchedNews, setFetchedNews] = useState<NewResponse[]>([]);
-  const [error, setError] = useState<string | null>(null);
   const [totalPages, setTotalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -41,7 +40,6 @@ export default function News() {
     fetchNews();
   }, [currentPage, locale, skip]);
 
-  if (error) return <div>{error}</div>;
   return (
     <>
       <TheHero title1={t("heroTitle")} url1="news" />

@@ -15,7 +15,6 @@ export default function Plants() {
   const [plants, setPlants] = useState<Plant[]>([]);
   const [totalPages, setTotalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  const [error, setError] = useState<string | null>(null);
 
   const DEFAULT_PAGE_SIZE = 6;
   const skip = DEFAULT_PAGE_SIZE * (currentPage - 1);
@@ -37,7 +36,6 @@ export default function Plants() {
     fetchPlants();
   }, [currentPage, locale, skip]);
 
-  if (error) return <div>{error}</div>;
 
   return (
     <>

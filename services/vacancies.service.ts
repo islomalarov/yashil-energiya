@@ -8,7 +8,7 @@ export interface Vacancy {
   excerpt: string;
   description: {
     raw: {
-      children: [{}];
+      children: unknown[];
     };
   };
 }

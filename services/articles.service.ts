@@ -14,7 +14,7 @@ export interface Article {
   excerpt: string;
   content: {
     raw: {
-      children: [{}];
+      children: unknown[];
     };
   };
 }

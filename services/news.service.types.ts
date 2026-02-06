@@ -6,7 +6,7 @@ export interface NewResponse {
   excerpt: string;
   description: {
     raw: {
-      children: [{}];
+      children: unknown[];
     };
   };
   cover: {
