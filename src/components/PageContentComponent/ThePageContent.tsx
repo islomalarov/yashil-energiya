@@ -39,7 +39,7 @@ export default function ThePageContent({ content }: Props) {
               </h2>
             );
           }
-          default:
+          default: 
             return null;
         }
       })}

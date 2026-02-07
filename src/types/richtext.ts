@@ -37,9 +37,12 @@ export function isImageElem(v: unknown): v is ImageElem {
   if (!isRecord(v)) return false;
   if (v["type"] !== "image") return false;
 
+  const title = v["title"];
+  const titleOk = title === undefined || typeof title === "string";
+
   return (
     typeof v["src"] === "string" &&
-    typeof v["title"] === "string" &&
+    titleOk &&
     typeof v["width"] === "number" &&
     typeof v["height"] === "number"
   );

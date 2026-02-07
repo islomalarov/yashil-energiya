@@ -1,25 +1,41 @@
+"use client";
+
 import s from "./TheList.module.scss";
 
 type ListType = "bulleted-list" | "numbered-list";
+
 type Props = {
   content: unknown[];
   type: ListType;
 };
 
-
 function isRecord(v: unknown): v is Record<string, unknown> {
   return typeof v === "object" && v !== null;
 }
-function getChildrenArray(v: unknown): unknown[] {
+
+function getChildren(v: unknown): unknown[] {
   if (!isRecord(v)) return [];
   const ch = v["children"];
   return Array.isArray(ch) ? ch : [];
 }
 
-function renderNode(node: unknown) {
-  if (!isRecord(node)) return null;
-  const type = node.type;
-  if (typeof type !== "string") return null;
+function getText(v: unknown): string {
+  if (!isRecord(v)) return "";
+  const t = v["text"];
+  return typeof t === "string" ? t : "";
+}
+
+/**
+ * Рекурсивно собирает весь текст из поддерева.
+ * В Hygraph text-ноды обычно выглядят как { text: "..." } без поля type.
+ */
+function collectText(node: unknown): string {
+  const self = getText(node);
+  const children = getChildren(node);
+
+  if (!children.length) return self;
+
+  return self + children.map(collectText).join("");
 }
 
 export default function TheList({ content, type }: Props) {
@@ -28,16 +44,16 @@ export default function TheList({ content, type }: Props) {
 
   return (
     <Tag className={className}>
-      {content.map((item, index) => (
-        <li key={index} className={s.listItem}>
-          {getChildrenArray(item).map((child) =>
-            getChildrenArray(child).map((sub) =>
-              renderNode(sub),
-            ),
-          )}
-        </li>
-      ))}
+      {content.map((item, index) => {
+        const text = collectText(item).trim();
+        if (!text) return null;
+
+        return (
+          <li key={index} className={s.listItem}>
+            {text}
+          </li>
+        );
+      })}
     </Tag>
   );
 }
-
