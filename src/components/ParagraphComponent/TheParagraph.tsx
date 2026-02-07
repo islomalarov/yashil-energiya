@@ -1,4 +1,4 @@
-import type { RichTextNode } from "@/types/richtext";
+// import type { RichTextNode } from "@/types/richtext";
 import s from "./TheParagraph.module.scss";
 import Link from "next/link";
 

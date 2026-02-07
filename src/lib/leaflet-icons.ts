@@ -1,8 +1,13 @@
 "use client";
 
 import L from "leaflet";
+type LeafletIconProto = {
+  _getIconUrl?: () => string;
+};
 
-delete (L.Icon.Default.prototype as any)._getIconUrl;
+const proto = L.Icon.Default.prototype as unknown as LeafletIconProto;
+
+delete proto._getIconUrl;;
 
 L.Icon.Default.mergeOptions({
   iconRetinaUrl:

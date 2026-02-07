@@ -7,9 +7,11 @@ import styles from "./Map.module.scss";
 import { plants } from "data/plants";
 import { useTranslations } from "next-intl";
 
-const isLatLng = (c: any): c is [number, number] =>
+const isLatLng = (c: unknown): c is [number, number] =>
   Array.isArray(c) &&
   c.length === 2 &&
+  typeof c[0] === "number" &&
+  typeof c[1] === "number" &&
   Number.isFinite(c[0]) &&
   Number.isFinite(c[1]);
 
