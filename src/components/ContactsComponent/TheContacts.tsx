@@ -1,4 +1,4 @@
-import "@/scss/globals.scss";
+
 import styles from "./page.module.scss";
 import { useTranslations } from "next-intl";
 

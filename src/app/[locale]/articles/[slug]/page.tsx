@@ -1,4 +1,4 @@
-import "@/scss/globals.scss";
+
 import s from "./page.module.scss";
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import { ArticlesService } from "services/articles.service";

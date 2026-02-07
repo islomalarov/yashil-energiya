@@ -1,4 +1,4 @@
-import "@/scss/globals.scss";
+
 import styles from "./TheButton.module.scss";
 import { Link } from "@/i18n/navigation";
 

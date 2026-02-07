@@ -1,11 +1,18 @@
 "use client";
-import "@/scss/globals.scss";
+
 import styles from "./TheHero.module.scss";
 import Image from "next/image";
 import hero from "public/hero.png";
 import ges from "public/ges.jpg";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
+
+type HeroProps = {
+  title1: string;
+  url1: string;
+  title2?: string;
+  url2?: string;
+};
 
 export const TheHero = ({ title1, title2, url1, url2 }: HeroProps) => {
   const t = useTranslations("HomePage");

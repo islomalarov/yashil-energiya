@@ -1,9 +1,17 @@
-import "@/scss/globals.scss";
+"use client";
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import s from "./page.module.scss";
 import { useTranslations } from "next-intl";
-import { TheChSMap } from "@/components/MapComponent/TheChSMap";
+import dynamic from "next/dynamic";
+
+const TheChSMap = dynamic(
+  () =>
+    import("@/components/MapComponent/TheChSMap").then(
+      (m) => m.TheChSMap
+    ),
+  { ssr: false }
+);
 
 export default function ChargingStationPage() {
   const t = useTranslations("ChargingStationPage");

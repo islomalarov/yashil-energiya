@@ -1,8 +1,6 @@
+@use "sass:color";
 @use "@/scss/vars" as *;
-// .container {
-//   max-width: $lg;
-//   margin: 0 auto;
-// }
+
 
 .languageBtn {
   display: flex;
@@ -31,7 +29,7 @@
   cursor: pointer;
 
   &:hover {
-    background-color: lighten($secondaryColor, 10%);
+    background-color: color.adjust($primaryColor, $lightness: 10%);
     transform: translateY(-5px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }

@@ -1,4 +1,4 @@
-import "@/scss/globals.scss";
+
 import styles from "./TheLastNews.module.scss";
 import { Link } from "@/i18n/navigation";
 import { TheNewsList } from "../NewsListComponent/TheNewsList";

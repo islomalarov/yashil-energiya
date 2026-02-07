@@ -1,6 +1,6 @@
 "use client";
 
-import "@/scss/globals.scss";
+
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import { ThePlantsList } from "@/components/PlantsListComponent/ThePlantsList";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
@@ -15,14 +15,12 @@ export default function Plants() {
   const [plants, setPlants] = useState<Plant[]>([]);
   const [totalPages, setTotalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  const [error, setError] = useState<string | null>(null);
 
   const DEFAULT_PAGE_SIZE = 6;
   const skip = DEFAULT_PAGE_SIZE * (currentPage - 1);
 
   useEffect(() => {
     const fetchPlants = async () => {
-      try {
         const {
           plants,
           plantsConnection: { aggregate },
@@ -33,15 +31,11 @@ export default function Plants() {
         const totalPages = Math.ceil(aggregate.count / DEFAULT_PAGE_SIZE);
 
         setTotalPages(totalPages);
-      } catch (err) {
-        setError("Failed to load news data. Please try again later.");
-      }
     };
 
     fetchPlants();
   }, [currentPage, locale, skip]);
 
-  if (error) return <div>{error}</div>;
 
   return (
     <>

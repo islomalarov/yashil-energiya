@@ -1,4 +1,4 @@
-import "@/scss/globals.scss";
+
 import s from "./ThePlantsList.module.scss";
 import { Link } from "@/i18n/navigation";
 import cn from "classnames";

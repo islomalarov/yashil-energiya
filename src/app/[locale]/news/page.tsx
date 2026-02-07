@@ -1,6 +1,6 @@
 "use client";
 
-import "@/scss/globals.scss";
+
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import { TheNewsList } from "@/components/NewsListComponent/TheNewsList";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
@@ -15,7 +15,6 @@ export default function News() {
   const locale = useLocale();
 
   const [fetchedNews, setFetchedNews] = useState<NewResponse[]>([]);
-  const [error, setError] = useState<string | null>(null);
   const [totalPages, setTotalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -24,7 +23,7 @@ export default function News() {
 
   useEffect(() => {
     const fetchNews = async () => {
-      try {
+
         const {
           news,
           newsConnection: { aggregate },
@@ -35,15 +34,12 @@ export default function News() {
         const totalPages = Math.ceil(aggregate.count / DEFAULT_PAGE_SIZE);
 
         setTotalPages(totalPages);
-      } catch (err) {
-        setError("Failed to load news data. Please try again later.");
-      }
+
     };
 
     fetchNews();
   }, [currentPage, locale, skip]);
 
-  if (error) return <div>{error}</div>;
   return (
     <>
       <TheHero title1={t("heroTitle")} url1="news" />

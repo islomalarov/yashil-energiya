@@ -1,57 +1,59 @@
+"use client";
+
 import s from "./TheList.module.scss";
 
-type Node = {
-  text?: string;
-  bold?: boolean;
-  italic?: boolean;
-  underline?: boolean;
-  code?: boolean;
-  children?: Node[];
+type ListType = "bulleted-list" | "numbered-list";
+
+type Props = {
+  content: unknown[];
+  type: ListType;
 };
 
-function renderNode(node: Node, key: number): JSX.Element {
-  if (node.text !== undefined) {
-    let element: JSX.Element = <>{node.text}</>;
-
-    if (node.bold) element = <b key={key}>{element}</b>;
-    if (node.italic) element = <i key={key}>{element}</i>;
-    if (node.underline) element = <u key={key}>{element}</u>;
-    if (node.code) element = <code key={key}>{element}</code>;
-
-    return <span key={key}>{element}</span>;
-  }
-
-  return (
-    <span key={key}>
-      {node.children?.map((child, i) => renderNode(child, i))}
-    </span>
-  );
+function isRecord(v: unknown): v is Record<string, unknown> {
+  return typeof v === "object" && v !== null;
 }
 
-export default function TheList({ content, type }: any) {
-  return type === "bulleted-list" ? (
-    <ul className={s.bulleted}>
-      {content.map((item: any, index: number) => (
-        <li key={index} className={s.listItem}>
-          {item.children.map((child: any, childIndex: number) =>
-            child.children?.map((sub: any, subIndex: number) =>
-              renderNode(sub, subIndex),
-            ),
-          )}
-        </li>
-      ))}
-    </ul>
-  ) : (
-    <ol className={s.numbered}>
-      {content.map((item: any, index: number) => (
-        <li key={index} className={s.listItem}>
-          {item.children.map((child: any, childIndex: number) =>
-            child.children?.map((sub: any, subIndex: number) =>
-              renderNode(sub, subIndex),
-            ),
-          )}
-        </li>
-      ))}
-    </ol>
+function getChildren(v: unknown): unknown[] {
+  if (!isRecord(v)) return [];
+  const ch = v["children"];
+  return Array.isArray(ch) ? ch : [];
+}
+
+function getText(v: unknown): string {
+  if (!isRecord(v)) return "";
+  const t = v["text"];
+  return typeof t === "string" ? t : "";
+}
+
+/**
+ * Рекурсивно собирает весь текст из поддерева.
+ * В Hygraph text-ноды обычно выглядят как { text: "..." } без поля type.
+ */
+function collectText(node: unknown): string {
+  const self = getText(node);
+  const children = getChildren(node);
+
+  if (!children.length) return self;
+
+  return self + children.map(collectText).join("");
+}
+
+export default function TheList({ content, type }: Props) {
+  const Tag = type === "bulleted-list" ? "ul" : "ol";
+  const className = type === "bulleted-list" ? s.bulleted : s.numbered;
+
+  return (
+    <Tag className={className}>
+      {content.map((item, index) => {
+        const text = collectText(item).trim();
+        if (!text) return null;
+
+        return (
+          <li key={index} className={s.listItem}>
+            {text}
+          </li>
+        );
+      })}
+    </Tag>
   );
 }

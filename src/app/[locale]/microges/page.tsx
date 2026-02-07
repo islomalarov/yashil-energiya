@@ -1,5 +1,5 @@
 "use client";
-import "@/scss/globals.scss";
+
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import s from "./page.module.scss";
@@ -9,8 +9,15 @@ import { splitText } from "motion-plus";
 import { animate, stagger } from "motion";
 import { useEffect, useRef } from "react";
 import * as motion from "motion/react-client";
-import { TheMicroMap } from "@/components/MapComponent/TheMicroMap";
+import dynamic from "next/dynamic";
 
+const TheMicroMap = dynamic(
+  () =>
+    import("@/components/MapComponent/TheMicroMap").then(
+      (m) => m.TheMicroMap
+    ),
+  { ssr: false }
+);
 export default function MicroGes() {
   const t = useTranslations("MicroGesPage");
   const containerRef = useRef<HTMLDivElement>(null);

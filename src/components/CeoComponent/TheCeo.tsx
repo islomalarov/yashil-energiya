@@ -1,4 +1,4 @@
-import "@/scss/globals.scss";
+
 import s from "./TheCeo.module.scss";
 import { Manager, ManagerService } from "services/managers.service";
 import { getLocale, getTranslations } from "next-intl/server";
@@ -12,7 +12,7 @@ export const TheCeo = async () => {
   }
   return (
     <div className={s.content}>
-      {data.managers.map(({ id, name, jobTitle, email, queue }: Manager) => (
+      {data.managers.map(({ id, name, jobTitle, email }: Manager) => (
         <div className={s.ceo} key={id}>
           <div>
             <h2 className={s.ceoName}>{name}</h2>

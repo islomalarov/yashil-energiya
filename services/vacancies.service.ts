@@ -1,5 +1,6 @@
 import { fetchData } from "lib/graphql-client";
 import { gql } from "graphql-request";
+import type { RichTextNode } from "@/types/richtext";
 
 export interface Vacancy {
   id: string;
@@ -8,7 +9,7 @@ export interface Vacancy {
   excerpt: string;
   description: {
     raw: {
-      children: [{}];
+      children: RichTextNode[];
     };
   };
 }

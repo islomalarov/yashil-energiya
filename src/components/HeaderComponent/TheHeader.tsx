@@ -1,12 +1,11 @@
 "use client";
 
-import "@/scss/globals.scss";
+
 import Image from "next/image";
 import s from "./TheHeader.module.scss";
 import Logo from "public/logo_2.png";
 import { useEffect, useState } from "react";
 import { TheLanguageSwitcher } from "../ui/LanguageComponent/TheLanguageSwitcher";
-import { TheSearch } from "../ui/SearchComponent/TheSearch";
 import { TheDropdownMenu } from "../ui/DropdownComponent/TheDropdown";
 import { menuLinks } from "data/links";
 import { TheBurgerMenu } from "../ui/BurgerComponent/TheBurgerMenu";

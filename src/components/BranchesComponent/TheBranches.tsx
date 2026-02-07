@@ -1,7 +1,17 @@
-import "@/scss/globals.scss";
+
 import styles from "./page.module.scss";
 import { branches } from "data/branches";
 import { useLocale, useTranslations } from "next-intl";
+
+type Branch = {
+  region: string;
+  name: string;
+  phone: string;
+  address: string;
+  mail: string;
+};
+
+
 
 export const TheBranches = () => {
   const t = useTranslations("BranchesPage");
@@ -10,7 +20,7 @@ export const TheBranches = () => {
   return (
     <div className={styles.content}>
       <h1 className={styles.titleB}>{t("headerTitle")}</h1>
-      {branches.map(({ region, name, phone, address, mail }: any) => (
+      {(branches as Branch[]).map(({ region, name, phone, address, mail }) => (
         <div className={styles.branch} key={region}>
           {locale === "uz" ? (
             <h2 className={styles.regionName}>
