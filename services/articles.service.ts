@@ -1,5 +1,6 @@
 import { fetchData } from "lib/graphql-client";
 import { gql } from "graphql-request";
+import type { RichTextNode } from "@/types/richtext";
 
 export interface Article {
   id: string;
@@ -14,7 +15,7 @@ export interface Article {
   excerpt: string;
   content: {
     raw: {
-      children: unknown[];
+      children: RichTextNode[];
     };
   };
 }

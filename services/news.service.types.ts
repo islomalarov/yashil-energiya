@@ -1,3 +1,5 @@
+import type { RichTextNode } from "@/types/richtext";
+
 export interface NewResponse {
   date: string;
   id: string;
@@ -6,7 +8,7 @@ export interface NewResponse {
   excerpt: string;
   description: {
     raw: {
-      children: unknown[];
+      children: RichTextNode[];
     };
   };
   cover: {
