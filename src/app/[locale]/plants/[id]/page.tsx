@@ -4,17 +4,20 @@ import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import { EmblaOptionsType } from "embla-carousel";
 import TheCarousel from "@/components/CarouselComponent/TheCarousel";
 import { PlantService } from "services/plants.service";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 type Props = {
-  params: {
+  params: Promise<{
+    locale: string;
     id: string;
-  };
+  }>;
 };
 
-export default async function Plant({ params: { id } }: Props) {
-  const locale = await getLocale();
-  const t = await getTranslations("PlantDetail");
+export default async function Plant({ params }: Props) {
+  const { id, locale } = await params;
+
+  const t = await getTranslations({ locale, namespace: "PlantDetail" });
+  
   const {
     title,
     address,
