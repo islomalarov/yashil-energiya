@@ -1,4 +1,6 @@
+@use "sass:color";
 @use "@/scss/vars" as *;
+
 
 
 .content {
@@ -44,7 +46,7 @@
     height: 50px;
     background: linear-gradient(
       145deg,
-      lighten($primaryColor, 10%),
+      color.adjust($primaryColor, $lightness: 10%),
       $primaryColor
     ); /* Градиент для выпуклости */
     transform: rotate(45deg);
