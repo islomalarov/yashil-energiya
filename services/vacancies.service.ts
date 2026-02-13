@@ -12,6 +12,13 @@ export interface Vacancy {
       children: RichTextNode[];
     };
   };
+  attachments?: {
+    id: string;
+    url: string;
+    fileName: string;
+    mimeType?: string | null;
+    size?: number | null;
+  }[];
 }
 
 interface VacanciesResponse {
@@ -33,6 +40,13 @@ export const VacancyService = {
           description {
             raw
           }
+          attachments {
+          id
+          url
+          fileName
+          mimeType
+          size
+          }
         }
       }
     `;
@@ -41,6 +55,11 @@ export const VacancyService = {
   },
 
   getOneVacancy: async (id: string, locale: string) => {
+    if (!id) {
+    throw new Error(
+      `VacancyService.getOneVacancy: id is missing. locale=${locale}`
+    );
+  }
     const query = gql`
       query GetOneVacancy($id: ID!, $locale: Locale!) {
         vacancy(where: { id: $id }, locales: [$locale]) {
@@ -48,6 +67,13 @@ export const VacancyService = {
           references
           description {
             raw
+          }
+          attachments {
+          id
+          url
+          fileName
+          mimeType
+          size
           }
           excerpt
         }
