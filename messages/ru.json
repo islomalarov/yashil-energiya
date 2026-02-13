@@ -426,7 +426,14 @@
     "title": "Вакансии",
     "detail": "Детали вакансии",
     "positionTitle": "Позиция",
-    "references": "Номер конкурса"
+    "references": "Номер конкурса",
+    "descriptionTitle": "Описание",
+    "attachments": "Вложения",
+    "openPositions": "Открытые позиции",
+    "subtitle": "Выберите позицию и ознакомьтесь с требованиями и деталями.",
+    "noReferences": "Нет ссылки",
+    "emptyTitle": "На данный момент вакансий нет",
+    "emptyText": "Пожалуйста, проверьте позже."
   },
   "TheArticlesList": {
     "heroTitle": "Статьи",

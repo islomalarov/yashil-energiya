@@ -1,11 +1,238 @@
 @use "@/scss/vars" as *;
 
-.content {
+.page {
+  padding: 28px 0 40px;
   display: grid;
-  gap: 20px;
-  .title {
-    text-align: center;
-    font-size: 20px;
+  gap: 18px;
+}
+
+/* Header */
+.header {
+  display: grid;
+  gap: 10px;
+}
+
+.badge {
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  background: #eef3f7;
+  color: $blackColor;
+}
+
+.title {
+  margin: 0;
+  text-align: left;
+  font-size: 34px;
+  line-height: 1.12;
+  color: $blackColor;
+}
+
+.meta {
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #f7f9fb;
+  border: 1px solid #eef1f4;
+}
+
+.metaLabel {
+  font-size: 12px;
+  opacity: 0.65;
+  color: $blackColor;
+}
+
+.metaValue {
+  font-size: 14px;
+  color: $blackColor;
+  word-break: break-word;
+}
+
+/* Main card */
+.card {
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid #eef1f4;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+
+.cardHeader {
+  padding: 18px 18px 0;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: $blackColor;
+}
+
+/* Rich content wrapper */
+.rich {
+  padding: 10px 18px 18px;
+  display: grid;
+  gap: 10px;
+
+  /* чуть улучшаем типографику если внутри обычные теги */
+  :global(p) {
+    margin: 0;
     color: $blackColor;
+    opacity: 0.9;
+    line-height: 1.65;
+    font-size: 15px;
+  }
+
+  :global(ul),
+  :global(ol) {
+    margin: 8px 0 0;
+    padding-left: 18px;
+    line-height: 1.65;
+    font-size: 15px;
+    color: $blackColor;
+    opacity: 0.9;
+  }
+
+  :global(li) {
+    margin: 6px 0;
+  }
+
+  :global(h2),
+  :global(h3),
+  :global(h4) {
+    margin: 14px 0 6px;
+    color: $blackColor;
+  }
+
+  :global(a),
+:global(a:visited) {
+  color: $blackColor;       // ключевое — убираем синий/фиолетовый
+  text-decoration: none;    // у тебя и так глобально none, но оставим явно
+  font-weight: 600;
+
+  border-bottom: 1px dashed rgba(43, 43, 43, 0.35);
+  padding-bottom: 2px;
+
+  transition: border-color 0.18s ease, opacity 0.18s ease;
+  word-break: break-word;
+}
+
+:global(a:hover) {
+  border-bottom-style: solid;
+  border-bottom-color: rgba(43, 43, 43, 0.7);
+}
+
+:global(a:active) {
+  opacity: 0.75;
+}
+
+:global(a:focus-visible) {
+  outline: 2px solid rgba(43, 43, 43, 0.28);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+}
+
+/* Attachments */
+.attachments {
+  padding: 0 18px 18px;
+  display: grid;
+  gap: 12px;
+}
+
+.attachTitle {
+  margin: 8px 0 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: $blackColor;
+}
+
+.attachList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.downloadBtn {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #f7f9fb;
+  border: 1px solid #eef1f4;
+  text-decoration: none;
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+
+  &:hover {
+    background: #eef3f7;
+    border-color: #dbe3ea;
+    transform: translateY(-1px);
+  }
+}
+
+.fileChip {
+  min-width: 44px;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid #e7edf3;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: $blackColor;
+}
+
+.fileInfo {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.fileName {
+  font-weight: 600;
+  color: $blackColor;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fileMeta {
+  font-size: 12px;
+  opacity: 0.6;
+  color: $blackColor;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.downloadLabel {
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 0.8;
+  color: $blackColor;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .title {
+    font-size: 26px;
+  }
+
+  .downloadBtn {
+    grid-template-columns: auto 1fr;
+    grid-auto-rows: auto;
+  }
+
+  .downloadLabel {
+    display: none;
   }
 }

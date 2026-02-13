@@ -427,7 +427,14 @@
     "detail": "Job details",
     "description": "Job description",
     "positionTitle": "Position title",
-    "references": "References"
+    "references": "References",
+    "descriptionTitle": "Description Title",
+    "attachments": "Attachments",
+    "openPositions": "Open positions",
+    "subtitle": "Choose a position and view requirements and details.",
+    "noReferences": "No reference",
+    "emptyTitle": "No vacancies at the moment",
+    "emptyText": "Please check back later."
   },
   "TheArticlesList": {
     "heroTitle": "Articles",
