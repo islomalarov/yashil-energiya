@@ -17,7 +17,7 @@ export const ManagerService = {
   getAllManagers: async (locale: string) => {
     const query = gql`
       query GetManagers($locale: Locale!) {
-        managers(locales: [$locale]) {
+        managers(first: 50, locales: [$locale], orderBy: queue_ASC) {
           id
           email
           jobTitle
@@ -26,14 +26,8 @@ export const ManagerService = {
         }
       }
     `;
-     const response = await fetchData<ManagerResponse>(query, { locale });
 
-    // сортируем по queue (по возрастанию)
-    const sortedManagers = response.managers.sort(
-      (a, b) => a.queue - b.queue
-    );
-    return { ...response, managers: sortedManagers };
-    // return fetchData<ManagerResponse>(query, { locale });
+    return fetchData<ManagerResponse>(query, { locale });
   },
 };
 
