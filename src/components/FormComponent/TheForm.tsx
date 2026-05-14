@@ -7,26 +7,36 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useLocale, useTranslations } from "next-intl";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 export interface FormData {
   firstName: string;
   phone: string;
+  email: string;
   message: string;
 }
 
 export const TheForm = () => {
   const t = useTranslations("FeedbackPage");
   const locale = useLocale();
+  const [captchaToken, setCaptchaToken] = useState("");
   const [feedback, setFeedback] = useState<FormData>({
     firstName: "",
     phone: "",
+    email: "",
     message: "",
   });
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     try {
-      const response = await axios.post(`/api/resend`, feedback, {
+      const response = await axios.post(
+        `/api/resend`, 
+        {
+          ...feedback,
+          captchaToken,
+        },
+        { 
         headers: {
           "Content-Language": locale,
         },
@@ -36,17 +46,18 @@ export const TheForm = () => {
         setFeedback({
           firstName: "",
           phone: "",
+          email: "",
           message: "",
         });
         toast.success(
-          `${feedback.firstName}, murojaat qilganingiz uchun tashakkur! Tez orada siz bilan bog'lanamiz.`
+          `${feedback.firstName}, Thank you for contacting us! We will get in touch with you shortly.`
         );
       } else {
         console.error("Failed to send message");
       }
     } catch (error) {
       console.error("Error sending message:", error);
-      toast.error("Xabarni yuborishda xatolik yuz berdi.");
+      toast.error("An error occurred while sending the message.");
     }
   }
 
@@ -78,6 +89,16 @@ export const TheForm = () => {
           value={feedback.phone}
           onChange={handleChange}
         />
+        <input
+          className={styles.input}
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email"
+          required
+          value={feedback.email}
+          onChange={handleChange}
+        />
         <textarea
           className={styles.input}
           name="message"
@@ -87,7 +108,13 @@ export const TheForm = () => {
           value={feedback.message}
           onChange={handleChange}
         />
-        {feedback.firstName && feedback.phone && feedback.message ? (
+        <div className={styles.captchaWrapper}>
+          <Turnstile
+            siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+            onSuccess={(token) => setCaptchaToken(token)}
+          />
+        </div>
+        {feedback.firstName && feedback.phone && feedback.email && feedback.message && captchaToken ? (
           <button type="submit" className={styles.btn}>
             {t("send")}
           </button>
