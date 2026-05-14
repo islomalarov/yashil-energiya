@@ -28,7 +28,9 @@ import { ConfidentialClientApplication } from "@azure/msal-node";
 interface FeedbackData {
   firstName: string;
   phone: string;
+  email: string;
   message: string;
+  captchaToken: string;
 }
 
 const tenantId = process.env.MS_TENANT_ID!;
@@ -62,15 +64,37 @@ export async function POST(req: NextRequest) {
     const body = (await req.json()) as FeedbackData;
     const locale = req.headers.get("Content-Language") || "uz";
 
-    const { firstName, phone, message } = body;
+    const { firstName, phone, email, message, captchaToken } = body;
 
-    if (!firstName || !phone || !message) {
+    if (!firstName || !phone || !email || !message || !captchaToken) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
       );
     }
 
+    const captchaVerify = await fetch(
+  "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: new URLSearchParams({
+      secret: process.env.TURNSTILE_SECRET_KEY!,
+      response: captchaToken,
+    }),
+  }
+);
+
+const captchaResult = await captchaVerify.json();
+
+if (!captchaResult.success) {
+  return NextResponse.json(
+    { error: "Captcha verification failed" },
+    { status: 400 }
+  );
+}
     const accessToken = await getAccessToken();
 
     const emailPayload = {
@@ -82,6 +106,7 @@ export async function POST(req: NextRequest) {
             <h2>New feedback request</h2>
             <p><strong>Name:</strong> ${firstName}</p>
             <p><strong>Phone:</strong> ${phone}</p>
+            <p><strong>Email:</strong> ${email}</p>
             <p><strong>Language:</strong> ${locale}</p>
             <p><strong>Message:</strong></p>
             <p>${message.replace(/\n/g, "<br />")}</p>

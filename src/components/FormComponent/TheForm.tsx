@@ -7,6 +7,7 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useLocale, useTranslations } from "next-intl";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 export interface FormData {
   firstName: string;
@@ -18,6 +19,7 @@ export interface FormData {
 export const TheForm = () => {
   const t = useTranslations("FeedbackPage");
   const locale = useLocale();
+  const [captchaToken, setCaptchaToken] = useState("");
   const [feedback, setFeedback] = useState<FormData>({
     firstName: "",
     phone: "",
@@ -28,7 +30,13 @@ export const TheForm = () => {
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     try {
-      const response = await axios.post(`/api/resend`, feedback, {
+      const response = await axios.post(
+        `/api/resend`, 
+        {
+          ...feedback,
+          captchaToken,
+        },
+        { 
         headers: {
           "Content-Language": locale,
         },
@@ -49,7 +57,7 @@ export const TheForm = () => {
       }
     } catch (error) {
       console.error("Error sending message:", error);
-      toast.error("Xabarni yuborishda xatolik yuz berdi.");
+      toast.error("An error occurred while sending the message.");
     }
   }
 
@@ -100,7 +108,11 @@ export const TheForm = () => {
           value={feedback.message}
           onChange={handleChange}
         />
-        {feedback.firstName && feedback.phone && feedback.email && feedback.message ? (
+        <Turnstile
+           siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+          onSuccess={(token) => setCaptchaToken(token)}
+        />
+        {feedback.firstName && feedback.phone && feedback.email && feedback.message && captchaToken ? (
           <button type="submit" className={styles.btn}>
             {t("send")}
           </button>
