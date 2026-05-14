@@ -1,29 +1,7 @@
-// import { Resend } from "resend";
-// import { EmailTemplate } from "@/components/EmailComponent/TheEmail";
-// import { NextRequest } from "next/server";
-
-// const resend = new Resend(process.env.RESEND_API_KEY);
-// //
-// export async function POST(req: NextRequest) {
-//   const { firstName, phone, message } = await req.json();
-//   try {
-//     const { data, error } = await resend.emails.send({
-//       from: "no-reply <onboarding@resend.dev>",
-//       to: ["yashilenergiya11@gmail.com"],
-//       subject: "Письмо с сайта yashil-energiya",
-//       react: EmailTemplate({ firstName, phone, message }),
-//     });
-//     if (error) {
-//       return Response.json({ error }, { status: 500 });
-//     }
-//     return Response.json(data);
-//   } catch (error) {
-//     return Response.json({ error }, { status: 500 });
-//   }
-// }
-
 import { NextRequest, NextResponse } from "next/server";
 import { ConfidentialClientApplication } from "@azure/msal-node";
+import { Ratelimit } from "@upstash/ratelimit";
+import { Redis } from "@upstash/redis";
 
 interface FeedbackData {
   firstName: string;
@@ -33,11 +11,19 @@ interface FeedbackData {
   captchaToken: string;
 }
 
+export const runtime = "nodejs";
+
 const tenantId = process.env.MS_TENANT_ID!;
 const clientId = process.env.MS_CLIENT_ID!;
 const clientSecret = process.env.MS_CLIENT_SECRET!;
 const senderEmail = process.env.MS_SENDER_EMAIL!;
 const recipientEmail = process.env.MS_RECIPIENT_EMAIL!;
+
+const ratelimit = new Ratelimit({
+  redis: Redis.fromEnv(),
+  limiter: Ratelimit.slidingWindow(2, "1 m"),
+  prefix: "feedback-form",
+});
 
 const msalClient = new ConfidentialClientApplication({
   auth: {
@@ -68,15 +54,32 @@ function escapeHtml(value: string) {
 }
 export async function POST(req: NextRequest) {
   try {
-    const body = (await req.json()) as FeedbackData;
+    
+const ip =
+  req.headers.get("cf-connecting-ip") ??
+  req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+  req.headers.get("x-real-ip") ??
+  "unknown";
+
+const result = await ratelimit.limit(ip);
+
+console.log("Rate limit:", result);
+
+if (!result.success) {
+  return NextResponse.json(
+    { error: "Too many requests" },
+    { status: 429 },
+  );
+}
+
+const body = (await req.json()) as FeedbackData;
     const locale = req.headers.get("Content-Language") || "uz";
 
     const { firstName, phone, email, message, captchaToken } = body;
-
-        if (!firstName || !phone || !email || !message || !captchaToken) {
+    if (!firstName || !phone || !email || !message || !captchaToken) {
       return NextResponse.json(
         { error: "Missing required fields" },
-        { status: 400 }
+        { status: 400 },
       );
     }
     if (
@@ -85,47 +88,41 @@ export async function POST(req: NextRequest) {
       email.length > 150 ||
       message.length > 3000
     ) {
-      return NextResponse.json(
-        { error: "Input is too long" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Input is too long" }, { status: 400 });
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-if (!emailRegex.test(email)) {
-  return NextResponse.json(
-    { error: "Invalid email" },
-    { status: 400 }
-  );
-}
+    if (!emailRegex.test(email)) {
+      return NextResponse.json({ error: "Invalid email" }, { status: 400 });
+    }
 
-const safeFirstName = escapeHtml(firstName.trim());
-const safePhone = escapeHtml(phone.trim());
-const safeEmail = escapeHtml(email.trim());
-const safeMessage = escapeHtml(message.trim()).replace(/\n/g, "<br />");
+    const safeFirstName = escapeHtml(firstName.trim());
+    const safePhone = escapeHtml(phone.trim());
+    const safeEmail = escapeHtml(email.trim());
+    const safeMessage = escapeHtml(message.trim()).replace(/\n/g, "<br />");
 
     const captchaVerify = await fetch(
-  "https://challenges.cloudflare.com/turnstile/v0/siteverify",
-  {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: new URLSearchParams({
-      secret: process.env.TURNSTILE_SECRET_KEY!,
-      response: captchaToken,
-    }),
-  }
-);
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          secret: process.env.TURNSTILE_SECRET_KEY!,
+          response: captchaToken,
+        }),
+      },
+    );
 
-const captchaResult = await captchaVerify.json();
+    const captchaResult = await captchaVerify.json();
 
-if (!captchaResult.success) {
-  return NextResponse.json(
-    { error: "Captcha verification failed" },
-    { status: 400 }
-  );
-}
+    if (!captchaResult.success) {
+      return NextResponse.json(
+        { error: "Captcha verification failed" },
+        { status: 400 },
+      );
+    }
     const accessToken = await getAccessToken();
 
     const emailPayload = {
@@ -163,7 +160,7 @@ if (!captchaResult.success) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(emailPayload),
-      }
+      },
     );
 
     if (!graphResponse.ok) {
@@ -173,7 +170,7 @@ if (!captchaResult.success) {
 
       return NextResponse.json(
         { error: "Failed to send email" },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -183,7 +180,7 @@ if (!captchaResult.success) {
 
     return NextResponse.json(
       { error: "Internal server error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
