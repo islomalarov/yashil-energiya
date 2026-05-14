@@ -11,6 +11,7 @@ import { useLocale, useTranslations } from "next-intl";
 export interface FormData {
   firstName: string;
   phone: string;
+  email: string;
   message: string;
 }
 
@@ -20,6 +21,7 @@ export const TheForm = () => {
   const [feedback, setFeedback] = useState<FormData>({
     firstName: "",
     phone: "",
+    email: "",
     message: "",
   });
 
@@ -36,10 +38,11 @@ export const TheForm = () => {
         setFeedback({
           firstName: "",
           phone: "",
+          email: "",
           message: "",
         });
         toast.success(
-          `${feedback.firstName}, murojaat qilganingiz uchun tashakkur! Tez orada siz bilan bog'lanamiz.`
+          `${feedback.firstName}, Thank you for contacting us! We will get in touch with you shortly.`
         );
       } else {
         console.error("Failed to send message");
@@ -78,6 +81,16 @@ export const TheForm = () => {
           value={feedback.phone}
           onChange={handleChange}
         />
+        <input
+          className={styles.input}
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email"
+          required
+          value={feedback.email}
+          onChange={handleChange}
+        />
         <textarea
           className={styles.input}
           name="message"
@@ -87,7 +100,7 @@ export const TheForm = () => {
           value={feedback.message}
           onChange={handleChange}
         />
-        {feedback.firstName && feedback.phone && feedback.message ? (
+        {feedback.firstName && feedback.phone && feedback.email && feedback.message ? (
           <button type="submit" className={styles.btn}>
             {t("send")}
           </button>
