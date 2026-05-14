@@ -58,7 +58,14 @@ async function getAccessToken() {
 
   return tokenResponse.accessToken;
 }
-
+function escapeHtml(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
 export async function POST(req: NextRequest) {
   try {
     const body = (await req.json()) as FeedbackData;
@@ -66,12 +73,36 @@ export async function POST(req: NextRequest) {
 
     const { firstName, phone, email, message, captchaToken } = body;
 
-    if (!firstName || !phone || !email || !message || !captchaToken) {
+        if (!firstName || !phone || !email || !message || !captchaToken) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
       );
     }
+    if (
+      firstName.length > 100 ||
+      phone.length > 50 ||
+      email.length > 150 ||
+      message.length > 3000
+    ) {
+      return NextResponse.json(
+        { error: "Input is too long" },
+        { status: 400 }
+      );
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+if (!emailRegex.test(email)) {
+  return NextResponse.json(
+    { error: "Invalid email" },
+    { status: 400 }
+  );
+}
+
+const safeFirstName = escapeHtml(firstName.trim());
+const safePhone = escapeHtml(phone.trim());
+const safeEmail = escapeHtml(email.trim());
+const safeMessage = escapeHtml(message.trim()).replace(/\n/g, "<br />");
 
     const captchaVerify = await fetch(
   "https://challenges.cloudflare.com/turnstile/v0/siteverify",
@@ -104,12 +135,12 @@ if (!captchaResult.success) {
           contentType: "HTML",
           content: `
             <h2>New feedback request</h2>
-            <p><strong>Name:</strong> ${firstName}</p>
-            <p><strong>Phone:</strong> ${phone}</p>
-            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Name:</strong> ${safeFirstName}</p>
+            <p><strong>Phone:</strong> ${safePhone}</p>
+            <p><strong>Email:</strong> ${safeEmail}</p>
             <p><strong>Language:</strong> ${locale}</p>
             <p><strong>Message:</strong></p>
-            <p>${message.replace(/\n/g, "<br />")}</p>
+            <p>${safeMessage}</p>
           `,
         },
         toRecipients: [

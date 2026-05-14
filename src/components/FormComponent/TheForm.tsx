@@ -108,10 +108,12 @@ export const TheForm = () => {
           value={feedback.message}
           onChange={handleChange}
         />
-        <Turnstile
-           siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
-          onSuccess={(token) => setCaptchaToken(token)}
-        />
+        <div className={styles.captchaWrapper}>
+          <Turnstile
+            siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+            onSuccess={(token) => setCaptchaToken(token)}
+          />
+        </div>
         {feedback.firstName && feedback.phone && feedback.email && feedback.message && captchaToken ? (
           <button type="submit" className={styles.btn}>
             {t("send")}
