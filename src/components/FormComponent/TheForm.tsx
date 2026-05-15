@@ -29,9 +29,9 @@ export const TheForm = () => {
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!captchaToken) {
-  toast.error("Please complete the verification.");
-  return;
-}
+      toast.error("Please complete the verification.");
+      return;
+    }
     try {
       const response = await axios.post(
         `/api/resend`,

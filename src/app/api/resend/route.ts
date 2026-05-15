@@ -21,7 +21,7 @@ const recipientEmail = process.env.MS_RECIPIENT_EMAIL!;
 
 const ratelimit = new Ratelimit({
   redis: Redis.fromEnv(),
-  limiter: Ratelimit.slidingWindow(2, "1 m"),
+  limiter: Ratelimit.slidingWindow(5, "1 m"),
   prefix: "feedback-form",
 });
 
@@ -54,25 +54,19 @@ function escapeHtml(value: string) {
 }
 export async function POST(req: NextRequest) {
   try {
-    
-const ip =
-  req.headers.get("cf-connecting-ip") ??
-  req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
-  req.headers.get("x-real-ip") ??
-  "unknown";
+    const ip =
+      req.headers.get("cf-connecting-ip") ??
+      req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+      req.headers.get("x-real-ip") ??
+      "unknown";
 
-const result = await ratelimit.limit(ip);
+    const result = await ratelimit.limit(ip);
 
-console.log("Rate limit:", result);
+    if (!result.success) {
+      return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+    }
 
-if (!result.success) {
-  return NextResponse.json(
-    { error: "Too many requests" },
-    { status: 429 },
-  );
-}
-
-const body = (await req.json()) as FeedbackData;
+    const body = (await req.json()) as FeedbackData;
     const locale = req.headers.get("Content-Language") || "uz";
 
     const { firstName, phone, email, message, captchaToken } = body;
@@ -144,6 +138,13 @@ const body = (await req.json()) as FeedbackData;
           {
             emailAddress: {
               address: recipientEmail,
+            },
+          },
+        ],
+        replyTo: [
+          {
+            emailAddress: {
+              address: email.trim().toLowerCase(),
             },
           },
         ],
