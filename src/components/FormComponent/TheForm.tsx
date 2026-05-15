@@ -1,6 +1,5 @@
 "use client";
 
-
 import styles from "./page.module.scss";
 import axios from "axios";
 import { ChangeEvent, FormEvent, useState } from "react";
@@ -29,18 +28,23 @@ export const TheForm = () => {
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!captchaToken) {
+      toast.error("Please complete the verification.");
+      return;
+    }
     try {
       const response = await axios.post(
-        `/api/resend`, 
+        `/api/resend`,
         {
           ...feedback,
           captchaToken,
         },
-        { 
-        headers: {
-          "Content-Language": locale,
+        {
+          headers: {
+            "Content-Language": locale,
+          },
         },
-      });
+      );
       if (response.status === 200) {
         console.log("Message sent successfully");
         setFeedback({
@@ -49,8 +53,9 @@ export const TheForm = () => {
           email: "",
           message: "",
         });
+        setCaptchaToken("");
         toast.success(
-          `${feedback.firstName}, Thank you for contacting us! We will get in touch with you shortly.`
+          `${feedback.firstName}, Thank you for contacting us! We will get in touch with you shortly.`,
         );
       } else {
         console.error("Failed to send message");
@@ -62,7 +67,7 @@ export const TheForm = () => {
   }
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => setFeedback({ ...feedback, [e.target.name]: e.target.value });
 
   return (
@@ -114,12 +119,16 @@ export const TheForm = () => {
             onSuccess={(token) => setCaptchaToken(token)}
           />
         </div>
-        {feedback.firstName && feedback.phone && feedback.email && feedback.message && captchaToken ? (
+        {feedback.firstName &&
+        feedback.phone &&
+        feedback.email &&
+        feedback.message &&
+        captchaToken ? (
           <button type="submit" className={styles.btn}>
             {t("send")}
           </button>
         ) : (
-          <button type="submit" className={styles.disabledBtn}>
+          <button type="submit" className={styles.disabledBtn} disabled>
             {t("send")}
           </button>
         )}
