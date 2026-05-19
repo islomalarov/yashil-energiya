@@ -36,7 +36,7 @@ const securityHeaders = [
       img-src 'self' data: blob: https://us-west-2.graphassets.com https://*.tile.openstreetmap.org https://unpkg.com https://raw.githubusercontent.com https://cdnjs.cloudflare.com;
       font-src 'self' data:;
       connect-src 'self' https://challenges.cloudflare.com https://*.upstash.io https://*.hygraph.com https://*.graphcms.com https://us-west-2.graphassets.com https://vitals.vercel-insights.com https://*.vercel-insights.com;
-      frame-src https://challenges.cloudflare.com;
+      frame-src https://challenges.cloudflare.com https://www.google.com https://maps.google.com https://yandex.ru https://yandex.com https://*.yandex.ru https://*.yandex.net;
       worker-src 'self' blob:;
       object-src 'none';
       base-uri 'self';
