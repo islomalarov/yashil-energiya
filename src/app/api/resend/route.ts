@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { ConfidentialClientApplication } from "@azure/msal-node";
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
+import { serverEnv } from "@/lib/server-env";
 
 interface FeedbackData {
   firstName: string;
@@ -13,12 +14,6 @@ interface FeedbackData {
 
 export const runtime = "nodejs";
 
-const tenantId = process.env.MS_TENANT_ID!;
-const clientId = process.env.MS_CLIENT_ID!;
-const clientSecret = process.env.MS_CLIENT_SECRET!;
-const senderEmail = process.env.MS_SENDER_EMAIL!;
-const recipientEmail = process.env.MS_RECIPIENT_EMAIL!;
-
 const ratelimit = new Ratelimit({
   redis: Redis.fromEnv(),
   limiter: Ratelimit.slidingWindow(5, "1 m"),
@@ -27,9 +22,9 @@ const ratelimit = new Ratelimit({
 
 const msalClient = new ConfidentialClientApplication({
   auth: {
-    clientId,
-    authority: `https://login.microsoftonline.com/${tenantId}`,
-    clientSecret,
+    clientId: serverEnv.msClientId,
+    authority: `https://login.microsoftonline.com/${serverEnv.msTenantId}`,
+    clientSecret: serverEnv.msClientSecret,
   },
 });
 
@@ -103,7 +98,7 @@ export async function POST(req: NextRequest) {
           "Content-Type": "application/x-www-form-urlencoded",
         },
         body: new URLSearchParams({
-          secret: process.env.TURNSTILE_SECRET_KEY!,
+          secret: serverEnv.turnstileSecretKey,
           response: captchaToken,
         }),
       },
@@ -137,7 +132,7 @@ export async function POST(req: NextRequest) {
         toRecipients: [
           {
             emailAddress: {
-              address: recipientEmail,
+              address: serverEnv.msRecipientEmail,
             },
           },
         ],
@@ -153,7 +148,7 @@ export async function POST(req: NextRequest) {
     };
 
     const graphResponse = await fetch(
-      `https://graph.microsoft.com/v1.0/users/${senderEmail}/sendMail`,
+      `https://graph.microsoft.com/v1.0/users/${serverEnv.msSenderEmail}/sendMail`,
       {
         method: "POST",
         headers: {

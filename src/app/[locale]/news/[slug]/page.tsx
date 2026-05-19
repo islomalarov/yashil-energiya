@@ -2,27 +2,44 @@
 import s from "./page.module.scss";
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import { NewsService } from "services/news.service";
-import { getTranslations, getLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import ThePageContent from "@/components/PageContentComponent/ThePageContent";
 import { notFound } from "next/navigation";
 import type { Locale } from "next-intl";
+import type { Metadata } from "next";
 
 type Props = {
   params: Promise<{ locale: Locale; slug: string }>;
 };
 
-export default async function NewsPage({ params }: Props) {
-  const p = await params;
-  console.log("NEWS params =", p);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const news = await NewsService.getOneNews(slug, locale);
 
-const slug = p.slug;
+  if (!news) {
+    return {};
+  }
+
+  return {
+    title: news.title,
+    description: news.excerpt,
+    openGraph: {
+      title: news.title,
+      description: news.excerpt,
+      type: "article",
+      images: news.cover?.url ? [news.cover.url] : undefined,
+    },
+  };
+}
+
+export default async function NewsPage({ params }: Props) {
+  const { locale, slug } = await params;
   if (!slug) {
-    throw new Error(`NEWS: slug is missing. params=${JSON.stringify(p)}`);
+    notFound();
   }
 
   const t = await getTranslations("TheLastNews");
-  const locale = await getLocale();
 
   const news = await NewsService.getOneNews(slug, locale);
   const lastNews = await NewsService.getLastNews(locale);

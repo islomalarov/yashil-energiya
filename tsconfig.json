@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "es5",
+    "ignoreDeprecations": "6.0",
+    "target": "ES2022",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
-    "allowJs": true,
-    "skipLibCheck": true,
+    "allowJs": false,
+    "skipLibCheck": false,
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -34,14 +35,10 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "components/HeaderComponent/TheHeader.tsx",
-    "dist/types/**/*.ts",
-    "my/image/loader.ts",
-    "components/FormComponent/TheForm.tsx",
-    "components/VideoPlayerComponent/TheVideoPlayer.tsx",
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    ".next/dev"
   ]
 }
