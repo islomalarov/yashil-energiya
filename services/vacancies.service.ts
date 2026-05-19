@@ -1,6 +1,7 @@
 import { fetchData } from "lib/graphql-client";
 import { gql } from "graphql-request";
 import type { RichTextNode } from "@/types/richtext";
+import { resolveCmsLocale } from "@/lib/cms-locale";
 
 export interface Vacancy {
   id: string;
@@ -50,7 +51,9 @@ export const VacancyService = {
         }
       }
     `;
-    const response = await fetchData<VacanciesResponse>(query, { locale });
+    const response = await fetchData<VacanciesResponse>(query, {
+      locale: resolveCmsLocale(locale),
+    });
     return response.vacancies;
   },
 
@@ -79,7 +82,10 @@ export const VacancyService = {
         }
       }
     `;
-    const response = await fetchData<VacancyResponse>(query, { id, locale });
+    const response = await fetchData<VacancyResponse>(query, {
+      id,
+      locale: resolveCmsLocale(locale),
+    });
     return response.vacancy;
   },
 };

@@ -8,10 +8,12 @@ import { useLocale, useTranslations } from "next-intl";
 import { Plant, PlantService } from "services/plants.service";
 import { useEffect, useState } from "react";
 import { ThePaginationControls } from "@/components/PaginationComponent/ThePaginationControls";
+import { useRouter } from "@/i18n/navigation";
 
 export default function Plants() {
   const t = useTranslations("TheLastPlants");
   const locale = useLocale();
+  const router = useRouter();
   const [plants, setPlants] = useState<Plant[]>([]);
   const [totalPages, setTotalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
@@ -20,6 +22,11 @@ export default function Plants() {
   const skip = DEFAULT_PAGE_SIZE * (currentPage - 1);
 
   useEffect(() => {
+    if (locale === "uz") {
+      router.replace("/plants", { locale: "en" });
+      return;
+    }
+
     const fetchPlants = async () => {
         const {
           plants,
@@ -34,7 +41,7 @@ export default function Plants() {
     };
 
     fetchPlants();
-  }, [currentPage, locale, skip]);
+  }, [currentPage, locale, router, skip]);
 
 
   return (

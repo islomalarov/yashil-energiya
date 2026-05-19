@@ -9,10 +9,12 @@ import { useEffect, useState } from "react";
 import { NewResponse } from "services/news.service.types";
 import { NewsService } from "services/news.service";
 import { ThePaginationControls } from "@/components/PaginationComponent/ThePaginationControls";
+import { useRouter } from "@/i18n/navigation";
 
 export default function News() {
   const t = useTranslations("TheLastNews");
   const locale = useLocale();
+  const router = useRouter();
 
   const [fetchedNews, setFetchedNews] = useState<NewResponse[]>([]);
   const [totalPages, setTotalPages] = useState(0);
@@ -22,6 +24,11 @@ export default function News() {
   const skip = DEFAULT_PAGE_SIZE * (currentPage - 1);
 
   useEffect(() => {
+    if (locale === "uz") {
+      router.replace("/news", { locale: "en" });
+      return;
+    }
+
     const fetchNews = async () => {
 
         const {
@@ -38,7 +45,7 @@ export default function News() {
     };
 
     fetchNews();
-  }, [currentPage, locale, skip]);
+  }, [currentPage, locale, router, skip]);
 
   return (
     <>

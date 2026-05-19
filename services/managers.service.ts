@@ -1,5 +1,6 @@
 import { gql } from "graphql-request";
 import { fetchData } from "lib/graphql-client";
+import { resolveCmsLocale } from "@/lib/cms-locale";
 
 export interface Manager {
   id: string;
@@ -27,7 +28,9 @@ export const ManagerService = {
       }
     `;
 
-    return fetchData<ManagerResponse>(query, { locale });
+    return fetchData<ManagerResponse>(query, {
+      locale: resolveCmsLocale(locale),
+    });
   },
 };
 

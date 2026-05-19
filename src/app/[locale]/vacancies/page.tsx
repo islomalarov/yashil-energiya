@@ -3,11 +3,15 @@ import { TheHero } from "@/components/HeroComponent/TheHero";
 import s from "./page.module.scss";
 import { VacancyService } from "services/vacancies.service";
 import { getLocale, getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
+import { Link, redirect } from "@/i18n/navigation";
 
 export default async function VacanciesPage() {
   const t = await getTranslations("VacanciesPage");
   const locale = await getLocale();
+  if (locale === "uz") {
+    redirect({ href: "/vacancies", locale: "en" });
+  }
+
   const vacancies = (await VacancyService.getAllVacancies(locale)) ?? [];
 
   return (

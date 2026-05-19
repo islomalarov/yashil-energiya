@@ -2,10 +2,16 @@
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import { TheCeo } from "@/components/CeoComponent/TheCeo";
-import { useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
+import { redirect } from "@/i18n/navigation";
 
-export default function Ceo() {
-  const t = useTranslations("AboutPage");
+export default async function Ceo() {
+  const locale = await getLocale();
+  if (locale === "uz") {
+    redirect({ href: "/ceo", locale: "en" });
+  }
+
+  const t = await getTranslations("AboutPage");
   return (
     <>
       <TheHero

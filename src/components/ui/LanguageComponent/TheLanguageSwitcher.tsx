@@ -6,6 +6,9 @@ import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import cn from "classnames";
 
+const cmsPathPattern =
+  /^\/(news|articles|plants|vacancies|ceo)(\/|$)/;
+
 export const TheLanguageSwitcher = () => {
   const locale = useLocale();
   const pathname = usePathname();
@@ -13,7 +16,10 @@ export const TheLanguageSwitcher = () => {
   const t = useTranslations("LocaleSwitcher");
 
   const handleLanguageChange = (newLocale: string) => {
-    router.replace({ pathname }, { locale: newLocale });
+    const targetLocale =
+      newLocale === "uz" && cmsPathPattern.test(pathname) ? "en" : newLocale;
+
+    router.replace({ pathname }, { locale: targetLocale });
   };
 
   return (
