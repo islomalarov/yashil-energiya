@@ -1,7 +1,6 @@
 "use client";
 
 import styles from "./page.module.scss";
-import axios from "axios";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -18,7 +17,9 @@ export interface FormData {
 export const TheForm = () => {
   const t = useTranslations("FeedbackPage");
   const locale = useLocale();
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
   const [captchaToken, setCaptchaToken] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [feedback, setFeedback] = useState<FormData>({
     firstName: "",
     phone: "",
@@ -32,21 +33,28 @@ export const TheForm = () => {
       toast.error("Please complete the verification.");
       return;
     }
+
+    if (!turnstileSiteKey) {
+      toast.error("Verification is not configured.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
     try {
-      const response = await axios.post(
-        `/api/resend`,
-        {
+      const response = await fetch("/api/resend", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Content-Language": locale,
+        },
+        body: JSON.stringify({
           ...feedback,
           captchaToken,
-        },
-        {
-          headers: {
-            "Content-Language": locale,
-          },
-        },
-      );
-      if (response.status === 200) {
-        console.log("Message sent successfully");
+        }),
+      });
+
+      if (response.ok) {
         setFeedback({
           firstName: "",
           phone: "",
@@ -58,11 +66,13 @@ export const TheForm = () => {
           `${feedback.firstName}, Thank you for contacting us! We will get in touch with you shortly.`,
         );
       } else {
-        console.error("Failed to send message");
+        toast.error("An error occurred while sending the message.");
       }
     } catch (error) {
       console.error("Error sending message:", error);
       toast.error("An error occurred while sending the message.");
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
@@ -114,17 +124,20 @@ export const TheForm = () => {
           onChange={handleChange}
         />
         <div className={styles.captchaWrapper}>
-          <Turnstile
-            siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
-            onSuccess={(token) => setCaptchaToken(token)}
-          />
+          {turnstileSiteKey && (
+            <Turnstile
+              siteKey={turnstileSiteKey}
+              onSuccess={(token) => setCaptchaToken(token)}
+            />
+          )}
         </div>
         {feedback.firstName &&
         feedback.phone &&
         feedback.email &&
         feedback.message &&
-        captchaToken ? (
-          <button type="submit" className={styles.btn}>
+        captchaToken &&
+        !isSubmitting ? (
+          <button type="submit" className={styles.btn} disabled={isSubmitting}>
             {t("send")}
           </button>
         ) : (

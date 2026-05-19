@@ -1,13 +1,13 @@
-"use client";
-
 import styles from "./documents.module.scss";
 import Link from "next/link";
 import { TheHero } from "@/components/HeroComponent/TheHero";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { FileText } from "lucide-react";
 
-export default function DocumentsPage() {
-  const t = useTranslations("DocumentsPage");
+type Translations = Awaited<ReturnType<typeof getTranslations>>;
+
+export default async function DocumentsPage() {
+  const t = await getTranslations("DocumentsPage");
   const pvDocuments = [
     "document1",
     "document2",
@@ -39,9 +39,9 @@ export default function DocumentsPage() {
       <TheHero title1={t("title")} url1="documents" />
       <div className="container">
         <div className={styles.content}>
-          <DocumentLinks title="direction1" docs={[...pvDocuments]} />
-          <DocumentLinks title="direction2" docs={[...mgDocuments]} />
-          <DocumentLinks title="direction3" docs={[...chSDocument]} />
+          <DocumentLinks title="direction1" docs={[...pvDocuments]} t={t} />
+          <DocumentLinks title="direction2" docs={[...mgDocuments]} t={t} />
+          <DocumentLinks title="direction3" docs={[...chSDocument]} t={t} />
         </div>
       </div>
     </>
@@ -51,10 +51,10 @@ export default function DocumentsPage() {
 interface DocumentLinksProps {
   title: string;
   docs: string[];
+  t: Translations;
 }
 
-const DocumentLinks = ({ title, docs }: DocumentLinksProps) => {
-  const t = useTranslations("DocumentsPage");
+const DocumentLinks = ({ title, docs, t }: DocumentLinksProps) => {
   return (
     <div className={styles.linksBlock}>
       <h2 className={styles.linkBlockTitle}>{t(title)}</h2>

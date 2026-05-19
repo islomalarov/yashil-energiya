@@ -1,5 +1,6 @@
 const createNextIntlPlugin = require("next-intl/plugin");
 const withNextIntl = createNextIntlPlugin();
+const isProduction = process.env.NODE_ENV === "production";
 
 const securityHeaders = [
   {
@@ -30,11 +31,11 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: `
       default-src 'self';
-      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com;
+      script-src 'self' 'unsafe-inline'${isProduction ? "" : " 'unsafe-eval'"} https://challenges.cloudflare.com;
       style-src 'self' 'unsafe-inline';
-      img-src 'self' data: blob: https://us-west-2.graphassets.com;
+      img-src 'self' data: blob: https://us-west-2.graphassets.com https://*.tile.openstreetmap.org https://unpkg.com https://raw.githubusercontent.com https://cdnjs.cloudflare.com;
       font-src 'self' data:;
-      connect-src 'self' https://challenges.cloudflare.com https://*.upstash.io;
+      connect-src 'self' https://challenges.cloudflare.com https://*.upstash.io https://*.hygraph.com https://*.graphcms.com https://us-west-2.graphassets.com https://vitals.vercel-insights.com https://*.vercel-insights.com;
       frame-src https://challenges.cloudflare.com;
       worker-src 'self' blob:;
       object-src 'none';
