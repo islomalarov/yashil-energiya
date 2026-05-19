@@ -7,21 +7,21 @@
     "pressCenter": "Matbuot markazi",
     "news": "Yangiliklar",
     "articles": "Maqolalar",
-    "tenders": "Tenderlar",
+    "procurements": "Xaridlar",
     "activity": "Faoliyat",
-    "branches": "Filiallar",
-    "plants": "QFESlar ro'yhati",
+    "branches": "Hududiy filiallar",
+    "plants": "QFESlar ro'yxati",
     "solarPanels": "QFES",
     "microGes": "Mikro GES",
-    "chargingStation": "Zaryadlash stansiyalari",
+    "chargingStation": "EV zaryadlash stansiyalari",
     "projects": "Loyihalar",
     "contacts": "Kontaktlar",
     "documents": "Hujjatlar",
-    "jobs": "Ish o'rinlari"
+    "vacancies": "Bo'sh ish o'rinlari"
   },
   "HomePage": {
     "title": "Bosh sahifa",
-    "about": "Go to the about page"
+    "about": "Biz haqimizda sahifasiga o'tish"
   },
   "AboutPage": {
     "heroTitle1": "Kompaniya haqida",
@@ -56,6 +56,17 @@
     },
     "event3": {
       "year": "2025",
+      "event": [
+        {
+          "description": "2025-yil 24-sentabrda \"Yashil Energiya\" MChJning 51% ulushi BAAning \"GSU\" kompaniyasi tomonidan sotib olindi."
+        },
+        {
+          "description": "2025-yil 29-sentabrda kompaniya yangi mulkchilik shakliga o‘tdi va \"JV Yashil Energiya\" MChJ qo‘shma korxonasi sifatida qayta tashkil etildi."
+        }
+      ]
+    },
+    "event4": {
+      "year": "2026",
       "event": []
     },
     "paragraph1": "\"Yashil Energiya\" MChJ – O‘zbekiston Respublikasida qayta tiklanuvchi energiya manbalarini rivojlantirish va joriy etishga ixtisoslashgan kompaniya. Kompaniyamiz 2023-yil 16-fevralda O‘zbekiston Respublikasi Prezidentining PQ-57-son qaroriga asosan tashkil etilgan.",
@@ -126,7 +137,8 @@
     "heroTitle": "Yangiliklar",
     "title": "Yangiliklar",
     "linkTitle": "Barcha yangiliklar",
-    "lastNewsTitle": "So'nggi yangiliklar"
+    "lastNewsTitle": "So'nggi yangiliklar",
+    "link": "Batafsil"
   },
   "SolarPanelsPage": {
     "heroTitle": "Quyosh fotoelektr stansiyalari",
@@ -199,7 +211,12 @@
     "projectsTitle": "Amalga oshirilayotgan loyihalar",
     "projectsDescription": "Hozirda \"Yashil Energiya\" MCHJ tomonidan Toshkent viloyati Oqqo’rg’on tumani, Margunenkova kanalida mikro GES-1 loyihasi amalga oshirilmoqda. Ushbu stansiya 270 kVt quvvatga ega bo‘lib, mahalliy suv resurslaridan samarali foydalanish va yaqin hududlarni elektr energiyasi bilan ta’minlashni ko‘zda tutadi.",
     "futuresTitle": "Rejalashtirilayotgan loyihalar",
-    "futuresDescription": "2025-yil davomida kompaniyamiz tomonidan yana 5 ta yangi mikro GES loyihasini boshlash rejalashtirilgan. Bu loyihalar O‘zbekistonning turli    hududlarida amalga oshirilib, minglab aholining barqaror elektr ta’minotini yaxshilashga xizmat qiladi."
+    "futuresDescription": "2025-yil davomida kompaniyamiz tomonidan yana 5 ta yangi mikro GES loyihasini boshlash rejalashtirilgan. Bu loyihalar O‘zbekistonning turli    hududlarida amalga oshirilib, minglab aholining barqaror elektr ta’minotini yaxshilashga xizmat qiladi.",
+    "mapTitle": "Information about the current MHP status of JV \"Yashil Energiya\" LLC",
+    "mapLabel": "Total capacity",
+    "mapLabelUnit": "kW",
+    "mapLabel1": "Status",
+    "planning": "Planning"
   },
   "ChargingStationPage": {
     "heroTitle": "Elektr mobillarni zaryadlash stansiyasi",
@@ -245,7 +262,13 @@
     "statistic3": {
       "title": "O'sish prognozi",
       "description": "Ma'lumotlarga koʻra, Oʻzbekiston avtomobil bozorida elektr mobillar ulushi 2030-yilgacha sezilarli darajada oshishi kutilmoqda, bu esa zaryadlash stansiyalariga talabni oshiradi."
-    }
+    },
+    "mapTitle": "Information about the current EVs status of JV \"Yashil Energiya\" LLC",
+    "mapLabel": "Total capacity",
+    "mapLabelUnit": "kW",
+    "mapLabel1": "Status",
+    "running": "Running",
+    "construction": "Construction"
   },
   "LinksPage": {
     "title": "Foydali havolalar"
@@ -300,111 +323,126 @@
   "DocumentsPage": {
     "title": "Hujjatlar",
     "direction1": "Qayta tiklanuvchi energiya manbalari",
-
     "document1": {
-      "title": "Ўзбекистон Республикаси Президентининг қарори, 16.02.2023 йилдаги ПҚ-57-сон \"2023 йилда қайта тикланувчи энергия манбаларини ва энергия тежовчи технологияларни жорий этишни жадаллаштириш чора-тадбирлари тўғрисида\"",
+      "title": "O'zbekiston Respublikasi Prezidentining qarori, 16.02.2023 yildagi PQ-57-son \"2023 yilda qayta tiklanuvchi energiya manbalarini va energiya tejovchi texnologiyalarni joriy etishni jadallashtirish chora-tadbirlari to'g'risida\"",
       "url": "https://lex.uz/ru/docs/6385716"
     },
     "document2": {
-      "title": "Ўзбекистон Республикаси Вазирлар Маҳкамасининг қарори, 29.09.2023 йилдаги 515-сон «Яшил энергия» сертификатлари жорий этилишини кенгайтириш ва «яшил молиялаштириш» механизмларини такомиллаштириш чора-тадбирлари тўғрисида",
+      "title": "O'zbekiston Respublikasi Vazirlar Mahkamasining qarori, 29.09.2023 yildagi 515-son «Yashil energiya» sertifikatlari joriy etilishini kengaytirish va «yashil moliyalashtirish» mexanizmlarini takomillashtirish chora-tadbirlari to'g'risida",
       "url": "https://lex.uz/uz/docs/6623306"
     },
     "document3": {
-      "title": "Ўзбекистон Республикаси Вазирлар Маҳкамасининг қарори, 08.01.2024 йилдаги 13-сон \"Қайта тикланувчи энергия манбалари асосида энергия таъминотини ташкил этиш соҳасини тартибга солиш ва ривожлантириш тўғрисида\"",
+      "title": "O'zbekiston Respublikasi Vazirlar Mahkamasining qarori, 08.01.2024 yildagi 13-son \"Qayta tiklanuvchi energiya manbalari asosida energiya taminotini tashkil etish sohasini tartibga solish va rivojlantirish to'g'risida\"",
       "url": "https://lex.uz/docs/6747020"
     },
     "document4": {
-      "title": "Ўзбекистон Республикаси Вазирлар Маҳкамасининг қарори, 14.06.2023 йилдаги 247-сон \"Жисмоний шахслар ва тадбиркорлик субъектлари томонидан қайта тикланувчи энергия манбаларидан фойдаланган ҳолда ишлаб чиқарилган электр энергиясининг эҳтиёждан ортиқча қисмини сотиш тартибини белгилаш тўғрисида\"",
+      "title": "O'zbekiston Respublikasi Vazirlar Mahkamasining qarori, 14.06.2023 yildagi 247-son \"Jismoniy shaxslar va tadbirkorlik subektlari tomonidan qayta tiklanuvchi energiya manbalaridan foydalangan holda ishlab chiqarilgan elektr energiyasining ehtiyojdan ortiqcha qismini sotish tartibini belgilash to'g'risida\"",
       "url": "https://lex.uz/ru/docs/6498473"
     },
     "document5": {
-      "title": "Ўзбекистон Республикаси Вазирлар Маҳкамасининг қарори, 05.10.2022 йилдаги 568-сон \"Аҳолининг маҳаллий ишлаб чиқарувчилар томонидан ишлаб чиқарилган қайта тикланувчи энергия манбаларининг қурилмаларини харид қилиш харажатларининг бир қисмини компенсация қилиш ёки бўлиб-бўлиб тўлаган ҳолда сотиб олиш тартиби тўғрисидаги низомни тасдиқлаш ҳақида\"",
+      "title": "O'zbekiston Respublikasi Vazirlar Mahkamasining qarori, 05.10.2022 yildagi 568-son \"Aholining mahalliy ishlab chiqaruvchilar tomonidan ishlab chiqarilgan qayta tiklanuvchi energiya manbalarining qurilmalarini xarid qilish xarajatlarining bir qismini kompensasiya qilish yoki bo'lib-bo'lib to'lagan holda sotib olish tartibi to'g'risidagi nizomni tasdiqlash haqida\"",
       "url": "https://lex.uz/ru/docs/6225945"
     },
     "document6": {
-      "title": "Ўзбекистон Республикаси Вазирлар Маҳкамасининг қарори, 21.09.2022 йилдаги 518-сон \"Қайта тикланувчи энергия манбалари қурилмаларини ишлаб чиқаришни жадаллаштириш тўғрисида\"",
+      "title": "O'zbekiston Respublikasi Vazirlar Mahkamasining qarori, 21.09.2022 yildagi 518-son \"Qayta tiklanuvchi energiya manbalari qurilmalarini ishlab chiqarishni jadallashtirish to'g'risida\"",
       "url": "https://lex.uz/ru/docs/6201421"
     },
     "document7": {
-      "title": "Ўзбекистон Республикаси Вазирлар Маҳкамасининг қарори, 23.07.2020 йилдаги 452-сон \"Қайта тикланувчи энергия манбалари қурилмаларининг ва улардан ишлаб чиқариладиган энергиянинг давлат ҳисобини юритиш чора-тадбирлари тўғрисида\"",
+      "title": "O'zbekiston Respublikasi Vazirlar Mahkamasining qarori, 23.07.2020 yildagi 452-son \"Qayta tiklanuvchi energiya manbalari qurilmalarining va ulardan ishlab chiqariladigan energiyaning davlat hisobini yuritish chora-tadbirlari to'g'risida\"",
       "url": "https://lex.uz/docs/4909794"
     },
     "document8": {
-      "title": "Ўзбекистон Республикаси Президентининг қарори, 22.08.2019 йилдаги ПҚ-4422-сон \"Иқтисодиёт тармоқлари ва ижтимоий соҳанинг энергия самарадорлигини ошириш, энергия тежовчи технологияларни жорий этиш ва қайта тикланувчи энергия манбаларини ривожлантиришнинг тезкор чора-тадбирлари тўғрисида\"",
+      "title": "O'zbekiston Respublikasi Prezidentining qarori, 22.08.2019 yildagi PQ-4422-son \"Iqtisodiyot tarmoqlari va ijtimoiy sohaning energiya samaradorligini oshirish, energiya tejovchi texnologiyalarni joriy etish va qayta tiklanuvchi energiya manbalarini rivojlantirishning tezkor chora-tadbirlari to'g'risida\"",
       "url": "https://lex.uz/ru/docs/4486125"
     },
     "document9": {
-      "title": "Ўзбекистон Республикасининг Қонуни, 21.05.2019 йилдаги ЎРҚ-539-сон \"Қайта тикланувчи энергия манбаларидан фойдаланиш тўғрисида\"",
+      "title": "O'zbekiston Respublikasining Qonuni, 21.05.2019 yildagi O'RQ-539-son \"Qayta tiklanuvchi energiya manbalaridan foydalanish to'g'risida\"",
       "url": "https://lex.uz/docs/4346831"
     },
     "document10": {
-      "title": "Ўзбекистон Республикаси Вазирлар Маҳкамасининг қарори, 08.08.2018 йилдаги 633-сон \"Фотоэлектр станцияларни ташкил этиш учун қайта тикланувчи энергия манбаларини ривожлантириш ва хусусий инвестицияларни жалб қилиш чора-тадбирлари тўғрисида\"",
+      "title": "O'zbekiston Respublikasi Vazirlar Mahkamasining qarori, 08.08.2018 yildagi 633-son \"Fotoelektr stansiyalarni tashkil etish uchun qayta tiklanuvchi energiya manbalarini rivojlantirish va xususiy investisiyalarni jalb qilish chora-tadbirlari to'g'risida\"",
       "url": "https://lex.uz/ru/docs/3860088"
     },
     "document11": {
-      "title": "Ўзбекистон Республикаси Вазирлар Маҳкамасининг қарори, 24.08.2024 йилдаги 528-сон \"Қайта тикланувчи электр манбаларини ягона электр энергетика тармоғига улаш тартиби соддалаштирилиши муносабати билан Вазирлар Маҳкамасининг айрим қарорларига ўзгартириш ва қўшимчалар киритиш тўғрисида\"",
+      "title": "O'zbekiston Respublikasi Vazirlar Mahkamasining qarori, 24.08.2024 yildagi 528-son \"Qayta tiklanuvchi elektr manbalarini yagona elektr energetika tarmog'iga ulash tartibi soddalashtirilishi munosabati bilan Vazirlar Mahkamasining ayrim qarorlariga o'zgartirish va qo'shimchalar kiritish to'g'risida\"",
       "url": "https://lex.uz/uz/docs/7082025"
     },
     "document12": {
-      "title": "Ўзбекистон Республикасининг Қонуни, 07.08.2024 йилдаги ЎРҚ-940-сон \"Энергияни тежаш, ундан оқилона фойдаланиш ва энергия самарадорлигини ошириш тўғрисида\"",
+      "title": "O'zbekiston Respublikasining Qonuni, 07.08.2024 yildagi O'RQ-940-son \"Energiyani tejash, undan oqilona foydalanish va energiya samaradorligini oshirish to'g'risida\"",
       "url": "https://lex.uz/ru/docs/7052085"
     },
     "document13": {
-      "title": "Ўзбекистон Республикаси Президентининг Фармони , 09.09.2022 йилдаги ПФ-220-сон \"Энергия тежовчи технологияларни жорий қилиш ва кичик қувватли қайта тикланувчи энергия манбаларини ривожлантириш бўйича қўшимча чора-тадбирлар тўғрисида\"",
+      "title": "O'zbekiston Respublikasi Prezidentining Farmoni , 09.09.2022 yildagi PF-220-son \"Energiya tejovchi texnologiyalarni joriy qilish va kichik quvvatli qayta tiklanuvchi energiya manbalarini rivojlantirish bo'yicha qo'shimcha chora-tadbirlar to'g'risida\"",
       "url": "https://lex.uz/uz/docs/6189000"
     },
     "direction2": "Mikro GES",
     "mgDoc1": {
-      "title": "Ўзбекистон Республикаси Президентининг Фармони , 09.09.2022 йилдаги ПФ-220-сон \"Энергия тежовчи технологияларни жорий қилиш ва кичик қувватли қайта тикланувчи энергия манбаларини ривожлантириш бўйича қўшимча чора-тадбирлар тўғрисида\"",
+      "title": "O'zbekiston Respublikasi Prezidentining Farmoni , 09.09.2022 yildagi PF-220-son \"Energiya tejovchi texnologiyalarni joriy qilish va kichik quvvatli qayta tiklanuvchi energiya manbalarini rivojlantirish bo'yicha qo'shimcha chora-tadbirlar to'g'risida\"",
       "url": "https://www.lex.uz/ru/docs/6189000"
     },
     "direction3": "Elektr mobillarni zaryadlash stansiyasi",
     "chsDoc1": {
-      "title": "Ўзбекистон Республикаси Президентининг қарори, 19.12.2022 йилдаги ПҚ-444-сон \"Электромобиллардан фойдаланиш инфратузилмасини кенгайтириш чора-тадбирлари тўғрисида\"",
+      "title": "O'zbekiston Respublikasi Prezidentining qarori, 19.12.2022 yildagi PQ-444-son \"Elektromobillardan foydalanish infratuzilmasini kengaytirish chora-tadbirlari to'g'risida\"",
       "url": "https://lex.uz/uz/docs/6316592"
     },
     "chsDoc2": {
-      "title": "Ўзбекистон Республикаси Вазирлар Маҳкамасининг қарори, 01.11.2024 йилдаги 732-сон \"Республикада 2024-2025 йилларда электромобиллардан фойдаланиш инфратузилмасини кенгайтиришнинг қўшимча чора-тадбирлари тўғрисида\"",
+      "title": "O'zbekiston Respublikasi Vazirlar Mahkamasining qarori, 01.11.2024 yildagi 732-son \"Respublikada 2024-2025 yillarda elektromobillardan foydalanish infratuzilmasini kengaytirishning qo'shimcha chora-tadbirlari to'g'risida\"",
       "url": "https://lex.uz/docs/7188979"
     },
     "chsDoc3": {
-      "title": "Ўзбекистон Республикаси Вазирлар Маҳкамасининг қарори, 31.08.2021 йилдаги 555-сон \"Юридик ва жисмоний шахсларни электр тармоқларига улаш бўйича давлат хизматлари кўрсатишнинг маъмурий регламентини тасдиқлаш тўғрисида\"",
+      "title": "O'zbekiston Respublikasi Vazirlar Mahkamasining qarori, 31.08.2021 yildagi 555-son \"Yuridik va jismoniy shaxslarni elektr tarmoqlariga ulash bo'yicha davlat xizmatlari ko'rsatishning mamuriy reglamentini tasdiqlash to'g'risida\"",
       "url": "https://lex.uz/uz/docs/5614095"
     },
     "chsDoc4": {
-      "title": "Ўзбекистон Республикаси Вазирлар Маҳкамасининг қарори, 31.05.2024 йилдаги 319-сон \"Электр энергияси ва табиий газдан фойдаланиш қоидаларини тасдиқлаш тўғрисида\"",
+      "title": "O'zbekiston Respublikasi Vazirlar Mahkamasining qarori, 31.05.2024 yildagi 319-son \"Elektr energiyasi va tabiiy gazdan foydalanish qoidalarini tasdiqlash to'g'risida\"",
       "url": "https://lex.uz/docs/6954979"
     },
     "chsDoc5": {
-      "title": "Ўзбекистон Республикаси Вазирлар Маҳкамасининг қарори, 03.08.2021 йилдаги 485-сон \"Кўчма савдо фаолиятига замонавий ахборот технологияларини янада кенг жорий этиш ҳамда савдо автомати орқали чакана савдо фаолиятини тартибга солиш чора-тадбирлари тўғрисида\"",
+      "title": "O'zbekiston Respublikasi Vazirlar Mahkamasining qarori, 03.08.2021 yildagi 485-son \"Ko'chma savdo faoliyatiga zamonaviy axborot texnologiyalarini yanada keng joriy etish hamda savdo avtomati orqali chakana savdo faoliyatini tartibga solish chora-tadbirlari to'g'risida\"",
       "url": "https://lex.uz/uz/docs/5546373"
     }
   },
   "TendersPage": {
-    "title": "Tenderlar"
+    "title": "Xaridlar"
   },
   "LocaleSwitcher": {
-    "label": "Change language",
+    "label": "Tilni o'zgartirish",
     "uz": "O'z",
-    "ru": "Ru"
-  },
-  "JobsPage": {
-    "title": "Ish o'rinlari"
+    "ru": "Ru",
+    "en": "En"
   },
   "PlantDetail": {
     "heroTitle": "QFESlar ro'yhati",
     "location": "Manzil",
     "power": "Quvvat",
-    "powerUnit": "kVt",
     "gridConnection": "O'rnatilgan vaqti",
     "averageAnnualProduction": "O'rtacha yillik ishlab chiqarish",
-    "averageAnnualProductionUnit": "kVt·soat",
-    "K": "ming",
     "coalSaved": "Tejalgan ko'mir",
-    "coalSavedUnit": "t.",
     "co2Saved": "Tejalgan CO₂ gazlari",
-    "co2SavedUnit": "t.",
-    "treesSaved": "Saqlab qolingan daraxtlar",
-    "treesSavedUnit": "dona"
+    "treesSaved": "Saqlab qolingan daraxtlar"
+  },
+  "VacanciesPage": {
+    "title": "Bo'sh ish o'rinlari",
+    "detail": "Ish tafsilotlari",
+    "description": "Ish tavsifi",
+    "positionTitle": "Lavozim nomi",
+    "references": "Ma'lumotnoma",
+    "descriptionTitle": "Tavsif",
+    "attachments": "Ilovalar",
+    "openPositions": "Ochiq vakansiyalar",
+    "subtitle": "Lavozimni tanlang va talablar hamda tafsilotlarni ko'ring.",
+    "noReferences": "Ma'lumotnoma yo'q",
+    "emptyTitle": "Hozircha bo'sh ish o'rinlari yo'q",
+    "emptyText": "Keyinroq qayta tekshiring."
+  },
+  "TheArticlesList": {
+    "heroTitle": "Maqolalar",
+    "title": "Maqolalar",
+    "linkTitle": "Barcha maqolalar",
+    "lastArticlesTitle": "So'nggi maqolalar",
+    "link": "Batafsil o'qish"
+  },
+  "TheChartList": {
+    "year": "Yil"
   }
 }

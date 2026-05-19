@@ -5,6 +5,7 @@ import s from "./page.module.scss";
 import { VacancyService } from "services/vacancies.service";
 import ThePageContent from "@/components/PageContentComponent/ThePageContent";
 import { notFound } from "next/navigation";
+import { redirect } from "@/i18n/navigation";
 
 type Props = {
   params: Promise<{ locale: string; id?: string }>;
@@ -29,7 +30,10 @@ function pickIcon(mime?: string | null) {
 }
 
 export default async function VacancyPage({ params }: Props) {
-  const { id } = await params;
+  const { id, locale: routeLocale } = await params;
+  if (routeLocale === "uz" && id) {
+    redirect({ href: `/vacancies/${id}`, locale: "en" });
+  }
 
   const t = await getTranslations("VacanciesPage");
   const locale = await getLocale();

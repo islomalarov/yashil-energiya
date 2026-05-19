@@ -5,6 +5,7 @@ import { EmblaOptionsType } from "embla-carousel";
 import TheCarousel from "@/components/CarouselComponent/TheCarousel";
 import { PlantService } from "services/plants.service";
 import { getTranslations } from "next-intl/server";
+import { redirect } from "@/i18n/navigation";
 
 type Props = {
   params: Promise<{
@@ -15,6 +16,9 @@ type Props = {
 
 export default async function Plant({ params }: Props) {
   const { id, locale } = await params;
+  if (locale === "uz") {
+    redirect({ href: `/plants/${id}`, locale: "en" });
+  }
 
   const t = await getTranslations({ locale, namespace: "PlantDetail" });
   

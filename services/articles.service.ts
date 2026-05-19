@@ -1,6 +1,7 @@
 import { fetchData } from "lib/graphql-client";
 import { gql } from "graphql-request";
 import type { RichTextNode } from "@/types/richtext";
+import { resolveCmsLocale } from "@/lib/cms-locale";
 
 export interface Article {
   id: string;
@@ -48,7 +49,9 @@ export const ArticlesService = {
         }
       }
     `;
-    const response = await fetchData<ArticlesResponse>(query, { locale });
+    const response = await fetchData<ArticlesResponse>(query, {
+      locale: resolveCmsLocale(locale),
+    });
     return response.articles;
   },
 
@@ -72,7 +75,10 @@ export const ArticlesService = {
         }
       }
     `;
-    const response = await fetchData<ArticleResponse>(query, { slug, locale });
+    const response = await fetchData<ArticleResponse>(query, {
+      slug,
+      locale: resolveCmsLocale(locale),
+    });
     return response.article;
   },
 };

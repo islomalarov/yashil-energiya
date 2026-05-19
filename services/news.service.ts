@@ -1,6 +1,7 @@
 import { gql } from "graphql-request";
 import { NewsResponse } from "./news.service.types";
 import { fetchData } from "lib/graphql-client";
+import { resolveCmsLocale } from "@/lib/cms-locale";
 
 export const NewsService = {
   getAllNews: async (first?: number, skip?: number, locale?: string) => {
@@ -34,7 +35,11 @@ export const NewsService = {
         }
       }
     `;
-    return fetchData<NewsResponse>(query, { first, skip, locale });
+    return fetchData<NewsResponse>(query, {
+      first,
+      skip,
+      locale: resolveCmsLocale(locale),
+    });
   },
 
   getOneNews: async (slug: string, locale: string) => {
@@ -58,7 +63,10 @@ export const NewsService = {
         }
       }
     `;
-    const data = await fetchData<NewsResponse>(query, { slug, locale });
+    const data = await fetchData<NewsResponse>(query, {
+      slug,
+      locale: resolveCmsLocale(locale),
+    });
     return data.news?.[0] || null;
   },
 
@@ -83,7 +91,9 @@ export const NewsService = {
         }
       }
     `;
-    const data = await fetchData<NewsResponse>(query, { locale });
+    const data = await fetchData<NewsResponse>(query, {
+      locale: resolveCmsLocale(locale),
+    });
     return data.news;
   },
 };

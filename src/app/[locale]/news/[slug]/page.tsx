@@ -8,6 +8,7 @@ import ThePageContent from "@/components/PageContentComponent/ThePageContent";
 import { notFound } from "next/navigation";
 import type { Locale } from "next-intl";
 import type { Metadata } from "next";
+import { redirect } from "@/i18n/navigation";
 
 type Props = {
   params: Promise<{ locale: Locale; slug: string }>;
@@ -35,6 +36,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function NewsPage({ params }: Props) {
   const { locale, slug } = await params;
+  if (locale === "uz") {
+    redirect({ href: `/news/${slug}`, locale: "en" });
+  }
+
   if (!slug) {
     notFound();
   }

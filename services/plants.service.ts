@@ -1,5 +1,6 @@
 import { gql } from "graphql-request";
 import { fetchData } from "lib/graphql-client";
+import { resolveCmsLocale } from "@/lib/cms-locale";
 
 export interface Plant {
   id: string;
@@ -62,7 +63,7 @@ export const PlantService = {
     return fetchData<PlantsResponse>(query, {
       first,
       skip,
-      locale,
+      locale: resolveCmsLocale(locale),
     });
   },
 
@@ -88,7 +89,10 @@ export const PlantService = {
         }
       }
     `;
-    const response = await fetchData<PlantResponse>(query, { id, locale });
+    const response = await fetchData<PlantResponse>(query, {
+      id,
+      locale: resolveCmsLocale(locale),
+    });
     return response.plant;
   },
 
@@ -111,7 +115,9 @@ export const PlantService = {
         }
       }
     `;
-    const response = await fetchData<PlantsResponse>(query, { locale });
+    const response = await fetchData<PlantsResponse>(query, {
+      locale: resolveCmsLocale(locale),
+    });
     return response.plants;
   },
 };
