@@ -4,16 +4,18 @@
 import styles from "./TheVideoPlayer.module.scss";
 import { useState } from "react";
 import { motion } from "motion/react";
+import { useSkipLocaleMotion } from "@/lib/locale-transition";
 
 const TheVideoPlayer = () => {
   const [volume] = useState(true);
+  const skipMotion = useSkipLocaleMotion();
 
   return (
     <motion.div
       className={styles.video}
-      initial={{ opacity: 0, y: 50 }}
+      initial={skipMotion ? false : { opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, ease: "backOut" }}
+      transition={skipMotion ? { duration: 0 } : { duration: 1, ease: "backOut" }}
       viewport={{ once: true, amount: 0.2 }}
     >
       <video

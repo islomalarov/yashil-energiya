@@ -7,10 +7,12 @@ import { motion, useInView } from "motion/react";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
 import { useRef } from "react";
 import { TheButton } from "../ui/ButtonComponent/TheButton";
+import { useSkipLocaleMotion } from "@/lib/locale-transition";
 
 export const TheAbout = () => {
   const t = useTranslations("AboutPage");
   const ref = useRef(null);
+  const skipMotion = useSkipLocaleMotion();
   const isInView = useInView(ref, {
     once: true, // Запускаем анимацию один раз
     amount: 0.3, // Запускаем, когда 50% компонента в зоне видимости
@@ -29,9 +31,9 @@ export const TheAbout = () => {
         </div>
         <motion.div
           className={s.events}
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1 }}
+          initial={skipMotion ? false : { opacity: 0, y: 50 }}
+          animate={skipMotion || isInView ? { opacity: 1, y: 0 } : {}}
+          transition={skipMotion ? { duration: 0 } : { duration: 1 }}
         >
           {events.map((event) => {
             const year = t(`${event}.year`);

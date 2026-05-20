@@ -10,6 +10,7 @@ import { animate, stagger } from "motion";
 import { useEffect, useRef } from "react";
 import * as motion from "motion/react-client";
 import dynamic from "next/dynamic";
+import { useSkipLocaleMotion } from "@/lib/locale-transition";
 
 const TheMicroMap = dynamic(
   () =>
@@ -21,6 +22,7 @@ const TheMicroMap = dynamic(
 export default function MicroGes() {
   const t = useTranslations("MicroGesPage");
   const containerRef = useRef<HTMLDivElement>(null);
+  const skipMotion = useSkipLocaleMotion();
 
   const listItems = [
     {
@@ -53,6 +55,13 @@ export default function MicroGes() {
   ];
 
   useEffect(() => {
+    if (skipMotion) {
+      if (containerRef.current) {
+        containerRef.current.style.visibility = "visible";
+      }
+      return;
+    }
+
     document.fonts.ready.then(() => {
       if (!containerRef.current) return;
 
@@ -73,7 +82,7 @@ export default function MicroGes() {
         },
       );
     });
-  }, []);
+  }, [skipMotion]);
 
   return (
     <>

@@ -6,6 +6,7 @@ import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import cn from "classnames";
 import { useTransition } from "react";
+import { markLocaleTransition } from "@/lib/locale-transition";
 
 const cmsPathPattern =
   /^\/(news|articles|plants|vacancies|ceo)(\/|$)/;
@@ -24,6 +25,7 @@ export const TheLanguageSwitcher = () => {
       newLocale === "uz" && cmsPathPattern.test(pathname) ? "en" : newLocale;
 
     startTransition(() => {
+      markLocaleTransition();
       router.replace({ pathname }, { locale: targetLocale, scroll: false });
     });
   };

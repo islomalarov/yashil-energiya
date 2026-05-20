@@ -12,9 +12,11 @@ import {
   useMotionValue,
   useTransform,
 } from "motion/react";
+import { useSkipLocaleMotion } from "@/lib/locale-transition";
 
 export const TheAdvantages = () => {
   const t = useTranslations("TheAdvantages");
+  const skipMotion = useSkipLocaleMotion();
 
   const advantages = [
     "advantage1",
@@ -34,7 +36,7 @@ export const TheAdvantages = () => {
     <div className={styles.main} ref={ref}>
       <TheMotionWrapper>
         <h3 className={styles.title}>{t("title")}</h3>
-        {isInView && (
+        {(skipMotion || isInView) && (
           <ul className={styles.advBlock}>
             {advantages.map((adv) => (
               <HTMLContent
@@ -64,15 +66,21 @@ export const HTMLContent = ({
   total,
   duration,
 }: HTMLContentProps) => {
-  const count = useMotionValue(0);
+  const skipMotion = useSkipLocaleMotion();
+  const count = useMotionValue(skipMotion ? Number(total) : 0);
   const rounded = useTransform(() => Math.round(count.get()));
 
   useEffect(() => {
+    if (skipMotion) {
+      count.set(Number(total));
+      return;
+    }
+
     const controls = animate(count, Number(total), {
       duration: Number(duration),
     });
     return () => controls.stop();
-  }, []);
+  }, [count, duration, skipMotion, total]);
 
   return (
     <li className={styles.adv}>

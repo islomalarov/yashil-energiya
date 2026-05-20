@@ -46,7 +46,8 @@ export const TheChSMap = () => {
       center={[41.2, 64.0]}
       zoom={5}
       className={styles.map}
-      onMap={(map) => {
+      storageKey="yashil-energiya:charging-map-view"
+      onMap={(map, { restoredView }) => {
         const cluster = L.markerClusterGroup();
         const bounds = L.latLngBounds([]);
 
@@ -69,7 +70,7 @@ export const TheChSMap = () => {
 
         cluster.addTo(map);
 
-        if (bounds.isValid()) {
+        if (!restoredView && bounds.isValid()) {
           map.fitBounds(bounds, { padding: [20, 20], maxZoom: 10 });
         }
 

@@ -12,9 +12,11 @@ import foxEss from "public/partners/foxEss.jpg";
 import tosh from "public/partners/tosh.jpg";
 import tw from "public/partners/tw.jpg";
 import { motion } from "motion/react";
+import { useSkipLocaleMotion } from "@/lib/locale-transition";
 
 export default function About() {
   const t = useTranslations("AboutPage");
+  const skipMotion = useSkipLocaleMotion();
   const projects = ["project1", "project2", "project3"] as const;
   const achievements = [
     "achievement1",
@@ -82,9 +84,11 @@ export default function About() {
           </div>
           <motion.div
             className={s.partnersBlock}
-            initial={{ opacity: 0, y: 50 }}
+            initial={skipMotion ? false : { opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={
+              skipMotion ? { duration: 0 } : { duration: 0.8, ease: "easeOut" }
+            }
             viewport={{ once: true, amount: 0.2 }}
           >
             <h3 className={s.title}>{t("title4")}</h3>
