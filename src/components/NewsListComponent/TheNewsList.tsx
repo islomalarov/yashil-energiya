@@ -36,6 +36,7 @@ export const TheNewsList = ({ news }: NewsProps) => {
             "&:hover": {
               transform: "translateY(-6px)",
               boxShadow: "0 16px 36px rgba(18,144,62,.16)",
+              zIndex: 5,
             },
           }}
         >

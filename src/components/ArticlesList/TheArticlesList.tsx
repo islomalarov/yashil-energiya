@@ -34,6 +34,7 @@ export const TheArticlesList = ({ articles }: ArticlesResponse) => {
             "&:hover": {
               boxShadow: "0 16px 36px rgba(18,144,62,.16)",
               transform: "translateY(-6px)",
+              zIndex: 5,
             },
           }}
         >
