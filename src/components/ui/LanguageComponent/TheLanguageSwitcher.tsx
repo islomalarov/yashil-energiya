@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import cn from "classnames";
+import { useTransition } from "react";
 
 const cmsPathPattern =
   /^\/(news|articles|plants|vacancies|ceo)(\/|$)/;
@@ -14,12 +15,17 @@ export const TheLanguageSwitcher = () => {
   const pathname = usePathname();
   const router = useRouter();
   const t = useTranslations("LocaleSwitcher");
+  const [isPending, startTransition] = useTransition();
 
   const handleLanguageChange = (newLocale: string) => {
+    if (newLocale === locale) return;
+
     const targetLocale =
       newLocale === "uz" && cmsPathPattern.test(pathname) ? "en" : newLocale;
 
-    router.replace({ pathname }, { locale: targetLocale });
+    startTransition(() => {
+      router.replace({ pathname }, { locale: targetLocale, scroll: false });
+    });
   };
 
   return (
@@ -27,6 +33,8 @@ export const TheLanguageSwitcher = () => {
       {routing.locales.map((cur) => (
         <button
           key={cur}
+          type="button"
+          disabled={isPending}
           onClick={(e) => {
             e.preventDefault();
             handleLanguageChange(cur);
