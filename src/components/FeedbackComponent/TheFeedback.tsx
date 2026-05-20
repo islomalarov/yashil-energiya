@@ -7,10 +7,14 @@ import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
 export const TheFeedback = () => {
   return (
     <div className={styles.main}>
-      <TheMotionWrapper>
+      <TheMotionWrapper motionKey="feedback">
         <div className={styles.block}>
-          <TheForm />
-          <TheContacts />
+          <section className={styles.formPane}>
+            <TheForm />
+          </section>
+          <section className={styles.contactsPane}>
+            <TheContacts />
+          </section>
         </div>
       </TheMotionWrapper>
     </div>

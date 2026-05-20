@@ -1,16 +1,24 @@
 "use client";
 
-
+import { usePathname } from "@/i18n/navigation";
+import { useLocaleMotionState } from "@/lib/locale-transition";
 import { motion } from "motion/react";
-import React from "react";
-import { useSkipLocaleMotion } from "@/lib/locale-transition";
+import React, { useId } from "react";
 
 interface TheMotionWrapperProps {
   children: React.ReactNode;
+  motionKey?: string;
 }
 
-export const TheMotionWrapper = ({ children }: TheMotionWrapperProps) => {
-  const skipMotion = useSkipLocaleMotion();
+export const TheMotionWrapper = ({
+  children,
+  motionKey,
+}: TheMotionWrapperProps) => {
+  const id = useId();
+  const pathname = usePathname();
+  const { skipMotion, markViewed } = useLocaleMotionState(
+    `${pathname}:motion-wrapper:${motionKey ?? id}`,
+  );
 
   return (
     <motion.div
@@ -20,7 +28,8 @@ export const TheMotionWrapper = ({ children }: TheMotionWrapperProps) => {
       transition={
         skipMotion ? { duration: 0 } : { duration: 0.8, ease: "easeOut" }
       }
-      viewport={{ once: true, amount: 0.2 }} // Запускает анимацию, когда 20% компонента вошло в область просмотра
+      viewport={{ once: true, amount: 0.2 }}
+      onViewportEnter={markViewed}
     >
       {children}
     </motion.div>

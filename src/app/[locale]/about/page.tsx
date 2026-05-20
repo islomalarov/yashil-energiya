@@ -12,11 +12,11 @@ import foxEss from "public/partners/foxEss.jpg";
 import tosh from "public/partners/tosh.jpg";
 import tw from "public/partners/tw.jpg";
 import { motion } from "motion/react";
-import { useSkipLocaleMotion } from "@/lib/locale-transition";
+import { useLocaleMotionState } from "@/lib/locale-transition";
 
 export default function About() {
   const t = useTranslations("AboutPage");
-  const skipMotion = useSkipLocaleMotion();
+  const { skipMotion, markViewed } = useLocaleMotionState("about:partners");
   const projects = ["project1", "project2", "project3"] as const;
   const achievements = [
     "achievement1",
@@ -90,6 +90,7 @@ export default function About() {
               skipMotion ? { duration: 0 } : { duration: 0.8, ease: "easeOut" }
             }
             viewport={{ once: true, amount: 0.2 }}
+            onViewportEnter={markViewed}
           >
             <h3 className={s.title}>{t("title4")}</h3>
             <div className={s.partners}>

@@ -8,15 +8,10 @@
     overflow: hidden;
     position: relative;
     min-height: 400px;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
+    background-image: var(--hero-bg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 
     .info {
       position: absolute;

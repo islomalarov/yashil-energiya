@@ -6,9 +6,10 @@
 @import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 
 .container {
+  width: 100%;
   max-width: 1350px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 clamp(12px, 3vw, 15px);
 }
 
 .wrapper {
@@ -51,4 +52,14 @@
   line-height: 30px; /* 187.5% */
   font-weight: 400;
   text-align: justify;
+  overflow-wrap: anywhere;
+
+  @media (max-width: $lg) {
+    text-align: left;
+  }
+
+  @media (max-width: $sm) {
+    font-size: 16px;
+    line-height: 26px;
+  }
 }

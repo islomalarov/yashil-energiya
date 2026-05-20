@@ -4,11 +4,11 @@
 import styles from "./TheVideoPlayer.module.scss";
 import { useState } from "react";
 import { motion } from "motion/react";
-import { useSkipLocaleMotion } from "@/lib/locale-transition";
+import { useLocaleMotionState } from "@/lib/locale-transition";
 
 const TheVideoPlayer = () => {
   const [volume] = useState(true);
-  const skipMotion = useSkipLocaleMotion();
+  const { skipMotion, markViewed } = useLocaleMotionState("home:video");
 
   return (
     <motion.div
@@ -17,6 +17,7 @@ const TheVideoPlayer = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={skipMotion ? { duration: 0 } : { duration: 1, ease: "backOut" }}
       viewport={{ once: true, amount: 0.2 }}
+      onViewportEnter={markViewed}
     >
       <video
         src="/video/YASHIL_ENERGY_FINAL11_01_2026.mp4"

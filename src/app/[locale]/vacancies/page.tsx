@@ -4,6 +4,7 @@ import s from "./page.module.scss";
 import { VacancyService } from "services/vacancies.service";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link, redirect } from "@/i18n/navigation";
+import { TheClampedText } from "@/components/ClampedText/TheClampedText";
 
 export default async function VacanciesPage() {
   const t = await getTranslations("VacanciesPage");
@@ -40,7 +41,9 @@ export default async function VacanciesPage() {
                     )}
                   </div>
 
-                  <p className={s.excerpt}>{vacancy.excerpt}</p>
+                  <TheClampedText className={s.excerpt} lines={3}>
+                    {vacancy.excerpt}
+                  </TheClampedText>
 
                   <div className={s.cardFooter}>
                     <Link

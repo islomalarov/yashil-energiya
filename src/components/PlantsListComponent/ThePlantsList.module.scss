@@ -4,9 +4,10 @@
 
 .projects {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 30px;
   padding-bottom: 90px;
+  align-items: stretch;
 
   @media (max-width: $md) {
     grid-template-columns: repeat(1, 1fr);
@@ -15,8 +16,18 @@
 
 .project {
   position: relative;
+  height: clamp(320px, 34vw, 440px);
   border-radius: 1.8rem;
   overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.24s ease,
+    box-shadow 0.24s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 38px rgba(18, 144, 62, 0.18);
+  }
 
   .info {
     position: absolute;
@@ -33,11 +44,13 @@
     opacity: 1;
     transform: translateY(70%);
     transition: all 0.5s ease;
+    min-height: 145px;
 
     .projectTitle {
       color: #fff;
       font-size: clamp(1rem, 2.5vw, 1.2rem);
       font-weight: 700;
+      overflow-wrap: anywhere;
     }
 
     p {
@@ -45,6 +58,10 @@
       font-size: 18px;
       font-weight: 400;
       line-height: 24px;
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
     }
 
     .link {
@@ -70,6 +87,7 @@
   position: relative;
   border-radius: 1.8rem;
   display: flex;
+  height: 100%;
 
   .cover {
     background-color: $secondaryColor;

@@ -10,6 +10,18 @@ body {
   scroll-behavior: smooth;
 }
 
+body {
+  overflow-x: clip;
+}
+
+img,
+svg,
+video,
+canvas,
+iframe {
+  max-width: 100%;
+}
+
 textarea {
   resize: none;
   height: 140px;

@@ -4,14 +4,38 @@
 
 .newsList {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 30px;
   padding-bottom: 90px;
+  align-items: stretch;
 
   @media (max-width: 1024px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   @media (max-width: 768px) {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
+  }
+}
+
+.mediaLink {
+  display: block;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+
+  &:hover img {
+    transform: scale(1.04);
+  }
+}
+
+.excerpt {
+  margin: 0;
+  color: $blackColor;
+  font-size: 15px;
+  line-height: 1.55;
+  text-align: left;
+
+  @media (max-width: 1024px) {
+    font-size: 14px;
+    line-height: 1.45;
   }
 }

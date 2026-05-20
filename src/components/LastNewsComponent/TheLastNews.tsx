@@ -12,7 +12,7 @@ export async function TheLastNews() {
   const news = await NewsService.getLastNews(locale);
 
   return (
-    <TheMotionWrapper>
+    <TheMotionWrapper motionKey="last-news">
       <div className={styles.header}>
         <h3 className="title">{t("title")}</h3>
         <Link href="/news" className={styles.link}>

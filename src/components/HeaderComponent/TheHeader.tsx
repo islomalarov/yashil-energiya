@@ -4,7 +4,7 @@
 import Image from "next/image";
 import s from "./TheHeader.module.scss";
 import Logo from "public/logo_2.png";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { TheLanguageSwitcher } from "../ui/LanguageComponent/TheLanguageSwitcher";
 import { TheDropdownMenu } from "../ui/DropdownComponent/TheDropdown";
 import { menuLinks } from "data/links";
@@ -13,11 +13,14 @@ import { TheBurgerBtn } from "../ui/BurgerComponent/TheBurgerBtn";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
 import { Link } from "@/i18n/navigation";
 import { motion, useScroll } from "motion/react";
+import { useSkipLocaleMotion } from "@/lib/locale-transition";
 
 export const TheHeader = () => {
   const [showBurgerBtn, setShowBurgerBtn] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isInitialStateSettled, setIsInitialStateSettled] = useState(false);
   const { scrollYProgress } = useScroll();
+  const skipLocaleMotion = useSkipLocaleMotion();
   const handleBurgerBtn = () => {
     setShowBurgerBtn(!showBurgerBtn);
   };
@@ -34,8 +37,22 @@ export const TheHeader = () => {
     };
   }, []);
 
+  useLayoutEffect(() => {
+    setIsScrolled(window.scrollY > 50);
+
+    const frame = window.requestAnimationFrame(() => {
+      setIsInitialStateSettled(true);
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
   return (
-    <header className={`${s.header} ${isScrolled ? s.scrolled : ""}`}>
+    <header
+      className={`${s.header} ${isScrolled ? s.scrolled : ""} ${
+        !isInitialStateSettled || skipLocaleMotion ? s.instantState : ""
+      }`}
+    >
       {showBurgerBtn && <TheBurgerMenu handleBurgerBtn={handleBurgerBtn} />}
       <motion.div
         id="scroll-indicator"
@@ -51,7 +68,7 @@ export const TheHeader = () => {
           borderRadius: "0 0 5px 5px",
         }}
       />
-      <TheMotionWrapper>
+      <TheMotionWrapper motionKey="site-header">
         <div className={s.content}>
           <div className={s.logoBlock}>
             <Link href="/">

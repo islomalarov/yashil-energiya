@@ -1,26 +1,49 @@
- 
 @use "@/scss/vars" as *;
-
-
-.pagination :global(.MuiPaginationItem-root) {
-  color: $primaryColor;
-  border-color: $primaryColor;
-  &:hover {
-    background-color: $primaryColor;
-    color: $whiteColor;
-  }
-  &.Mui-disabled {
-    color: $whiteColor;
-  }
-  &.Mui-selected {
-    background-color: $primaryColor;
-    color: $whiteColor;
-  }
-}
 
 .paginationContainer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  gap: 8px;
   padding: 20px;
+}
+
+.pageButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid $primaryColor;
+  border-radius: 6px;
+  color: $primaryColor;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+
+  &:hover:not(:disabled),
+  &.active {
+    background-color: $primaryColor;
+    color: $whiteColor;
+  }
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.35;
+  }
+}
+
+.ellipsis {
+  min-width: 38px;
+  font-weight: 700;
 }

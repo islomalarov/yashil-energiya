@@ -4,27 +4,51 @@
 
 .dropdown {
   position: relative;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
 }
 
 .dropBtn {
+  display: flex;
+  justify-content: center;
+  width: clamp(104px, 8.5vw, 132px);
+  min-height: 33px;
   color: $whiteColor;
-  padding: 6px;
+  padding: 6px 8px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: clamp(12px, 1vw, 14px);
   background: $primaryColor;
   border-radius: 10px;
 
   .active {
     position: relative;
-    display: inline-flex;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
     border-radius: 10px;
-    padding: 5px;
+    padding: 0;
     transition: all 0.2s ease;
 
     span {
       display: flex;
       align-items: center;
+      justify-content: center;
+      min-width: 0;
+
+      &:first-child {
+        flex: 1 1 auto;
+        overflow: hidden;
+        text-align: center;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      &:last-child {
+        flex: 0 0 auto;
+      }
     }
   }
 }
@@ -35,10 +59,13 @@
   top: 28px;
   background-color: #f9f9f9;
   min-width: 160px;
+  left: 50%;
+  translate: -50% 0;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 5px;
   border-radius: 10px;
   z-index: 1;
+  max-width: min(260px, calc(100vw - 30px));
 
   .subLink {
     color: black;

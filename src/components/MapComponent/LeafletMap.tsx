@@ -42,7 +42,11 @@ export default function LeafletMap({
       parsedView.center.length === 2 &&
       typeof parsedView.zoom === "number";
 
-    const map = L.map(containerRef.current).setView(
+    const map = L.map(containerRef.current, {
+      fadeAnimation: !restoredView,
+      markerZoomAnimation: !restoredView,
+      zoomAnimation: !restoredView,
+    }).setView(
       restoredView ? parsedView.center : center,
       restoredView ? parsedView.zoom : zoom,
     );
@@ -50,6 +54,7 @@ export default function LeafletMap({
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: "&copy; OpenStreetMap contributors",
+      updateWhenIdle: true,
     }).addTo(map);
 
     const saveView = () => {

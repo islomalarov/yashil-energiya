@@ -1,39 +1,25 @@
-@use "@/scss/vars" as *;
-
-/* 1) Обычный режим: блок подстраивается под реальный размер картинки */
 .imgBlock {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   .clickableImage {
-    position: static;       
+    position: static;
     display: block;
-    max-width: 100%;
-    max-height: 80vh;       /* высокие не выходят за экран */
     width: auto;
     height: auto;
+    max-width: 100%;
+    max-height: 80vh;
     object-fit: contain;
     object-position: center;
-    cursor: pointer;
-  }
-}
+    cursor: zoom-in;
+    transition: transform 0.2s ease;
 
-.fullscreenOverlay {
-  position: fixed; inset: 0;
-  background-color: rgba(0,0,0,.8);
-  display: flex; justify-content: center; align-items: center;
-  z-index: 1000;
-}
-.fullscreenContent {
-  position: relative; width: 90%; height: 90%;
-}
-.fullscreenContent .clickableImage {
-  position: absolute; inset: 0; margin: auto;
-  max-width: 100%; max-height: 100%;
-  width: auto; height: auto;
-  object-fit: contain; object-position: center;
+    &:hover {
+      transform: scale(1.015);
+    }
+  }
 }

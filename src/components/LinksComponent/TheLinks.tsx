@@ -16,7 +16,7 @@ const links = rawLinks as LinkObj[];
 export const TheLinks = () => {
   const t = useTranslations("LinksPage");
   return (
-    <TheMotionWrapper>
+    <TheMotionWrapper motionKey="links">
       <h3 className="title">{t("title")}</h3>
       <ul className={s.links}>
         {links.map(({ body, img, url }) => (

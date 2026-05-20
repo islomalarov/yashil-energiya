@@ -15,6 +15,8 @@ export default function ThePageContent({ content }: Props) {
   if (!content?.length) {
     return <div className={s.pageContent}>No content available</div>;
   }
+  const galleryImages = content.filter(isImageElem);
+
   return (
     <div className={s.pageContent}>
       {content.map((elem, index) => {
@@ -29,7 +31,16 @@ export default function ThePageContent({ content }: Props) {
             return <TheList key={index} content={children} type={type} />;
           case "image":
             if (!isImageElem(elem)) return null;
-            return <TheImageModal key={index} elem={elem} />;
+            return (
+              <TheImageModal
+                key={index}
+                elem={elem}
+                gallery={galleryImages}
+                initialIndex={galleryImages.findIndex(
+                  (image) => image.src === elem.src,
+                )}
+              />
+            );
           case "heading-three":{
             const first = children[0];
             const title = getText(first) ?? "";

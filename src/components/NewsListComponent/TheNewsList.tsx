@@ -9,6 +9,9 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActions } from "@mui/material";
 import { useTranslations } from "next-intl";
+import { TheClampedText } from "../ClampedText/TheClampedText";
+import { Link } from "@/i18n/navigation";
+
 interface NewsProps {
   news: NewResponse[];
 }
@@ -24,35 +27,75 @@ export const TheNewsList = ({ news }: NewsProps) => {
           sx={{
             borderRadius: 2,
             boxShadow: "0px 2px 14px 0px rgba(0,0,0,.1)",
-            display: "flex",
-            flexDirection: "column",
-            height: "100%",
+            display: "grid",
+            gridTemplateRows: "200px minmax(0, 1fr) 56px",
+            height: { xs: 500, md: 520 },
+            overflow: "visible",
+            transition:
+              "transform .22s ease, box-shadow .22s ease, border-color .22s ease",
+            "&:hover": {
+              transform: "translateY(-6px)",
+              boxShadow: "0 16px 36px rgba(18,144,62,.16)",
+            },
           }}
         >
-          <CardMedia
-            component="img"
-            alt={cover ? cover.fileName : "News cover image"}
-            image={cover ? cover.url : "/placeholder.jpg"}
-            sx={{ height: 200, width: "100%", objectFit: "cover", display: "block" }}
-          />
+          <Link className={s.mediaLink} href={`/news/${slug}`}>
+            <CardMedia
+              component="img"
+              alt={cover ? cover.fileName : "News cover image"}
+              image={cover ? cover.url : "/placeholder.jpg"}
+              sx={{
+                borderTopLeftRadius: 8,
+                borderTopRightRadius: 8,
+                display: "block",
+                height: "100%",
+                objectFit: "cover",
+                transition: "transform .35s ease",
+                width: "100%",
+              }}
+            />
+          </Link>
 
           <CardContent
-          sx={{
-            display: "flex", 
-            flexDirection: "column", 
-            flexGrow: 1
-          }}>
-            <Typography component="div" gutterBottom sx={{ color: "#12903e" }}>
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              minHeight: 0,
+              overflow: "hidden",
+              p: { xs: 1.6, sm: 2 },
+            }}
+          >
+            <Typography
+              component="div"
+              gutterBottom
+              sx={{ color: "#12903e", fontSize: { xs: 13, md: 14 } }}
+            >
               {date}
             </Typography>
-            <Typography component="div" variant="h5" gutterBottom>
+            <Typography
+              component="div"
+              variant="h5"
+              gutterBottom
+              sx={{
+                flex: "0 0 auto",
+                fontSize: { xs: "1.2rem", sm: "1.28rem", md: "1.36rem" },
+                lineHeight: 1.25,
+              }}
+            >
               {title}
             </Typography>
-            <Typography className="description" component="p" sx={{ flexGrow: 1 }}>
+            <TheClampedText className={s.excerpt} lines={3}>
               {excerpt}
-            </Typography>
+            </TheClampedText>
           </CardContent>
-          <CardActions>
+          <CardActions
+            sx={{
+              alignItems: "center",
+              flexShrink: 0,
+              px: 2,
+              py: 1.25,
+            }}
+          >
             <Button
               size="medium"
               sx={{ color: "#12903e" }}

@@ -12,7 +12,7 @@ export const TheLastPlants = async () => {
   const lastPlants = await PlantService.getLastPlants(locale);
 
   return (
-    <TheMotionWrapper>
+    <TheMotionWrapper motionKey="last-plants">
       <div className={styles.header}>
         <h3 className="title">{t("title")}</h3>
         <Link href="/plants" className={styles.link}>

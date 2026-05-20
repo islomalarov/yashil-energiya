@@ -4,13 +4,23 @@ import { TheHero } from "@/components/HeroComponent/TheHero";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import s from "./page.module.scss";
 import { useTranslations } from "next-intl";
-import { Icon } from "@iconify/react/dist/iconify.js";
 import { splitText } from "motion-plus";
 import { animate, stagger } from "motion";
 import { useEffect, useRef } from "react";
 import * as motion from "motion/react-client";
 import dynamic from "next/dynamic";
-import { useSkipLocaleMotion } from "@/lib/locale-transition";
+import { useLocaleMotionState } from "@/lib/locale-transition";
+import {
+  Activity,
+  BatteryCharging,
+  BriefcaseBusiness,
+  CircleDollarSign,
+  ClipboardCheck,
+  Construction,
+  Droplets,
+  Leaf,
+  type LucideIcon,
+} from "lucide-react";
 
 const TheMicroMap = dynamic(
   () =>
@@ -22,37 +32,37 @@ const TheMicroMap = dynamic(
 export default function MicroGes() {
   const t = useTranslations("MicroGesPage");
   const containerRef = useRef<HTMLDivElement>(null);
-  const skipMotion = useSkipLocaleMotion();
+  const { skipMotion, markViewed } = useLocaleMotionState("microges:intro");
 
   const listItems = [
     {
-      icon: "hugeicons:sustainable-energy",
+      icon: BatteryCharging,
     },
     {
-      icon: "hugeicons:water-energy",
+      icon: Droplets,
     },
     {
-      icon: "hugeicons:save-energy-01",
+      icon: Leaf,
     },
     {
-      icon: "hugeicons:cashback",
+      icon: CircleDollarSign,
     },
-  ];
+  ] satisfies Array<{ icon: LucideIcon }>;
 
   const ServicesItemIcons = [
     {
-      icon: "ix:project-server",
+      icon: ClipboardCheck,
     },
     {
-      icon: "fa6-solid:business-time",
+      icon: BriefcaseBusiness,
     },
     {
-      icon: "fluent-emoji-high-contrast:building-construction",
+      icon: Construction,
     },
     {
-      icon: "eos-icons:monitoring",
+      icon: Activity,
     },
-  ];
+  ] satisfies Array<{ icon: LucideIcon }>;
 
   useEffect(() => {
     if (skipMotion) {
@@ -81,8 +91,9 @@ export default function MicroGes() {
           delay: stagger(0.05),
         },
       );
+      markViewed();
     });
-  }, [skipMotion]);
+  }, [markViewed, skipMotion]);
 
   return (
     <>
@@ -100,14 +111,18 @@ export default function MicroGes() {
             <h2 className={s.title}>{t("listTitle")}</h2>
             <p className="description">{t("listDescription")}</p>
             <div className={s.achievements}>
-              {listItems.map((item, index) => (
+              {listItems.map(({ icon: ItemIcon }, index) => (
                 <motion.div
                   key={index}
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.8 }}
                   className={s.achievement}
                 >
-                  <Icon icon={item.icon} color="#12903e" fontSize={100} />
+                  <ItemIcon
+                    className={s.achievementIcon}
+                    aria-hidden="true"
+                    strokeWidth={1.75}
+                  />
                   <p className={s.achievementDescription}>
                     {t(`listItem${index + 1}`)}
                   </p>
@@ -118,69 +133,46 @@ export default function MicroGes() {
           <div>
             <h2 className={s.title}>{t("servicesTitle")}</h2>
             <ul className={s.list}>
-              {ServicesItemIcons.map((item, index) => (
+              {ServicesItemIcons.map(({ icon: ItemIcon }, index) => (
                 <li key={index} className={s.listItem}>
-                  <div>
-                    <Icon
-                      icon={item.icon}
-                      width="2em"
-                      height="2em"
-                      style={{ color: "#12903e" }}
-                    />
-                  </div>
+                  <ItemIcon className={s.listIcon} aria-hidden="true" />
                   <span>{t(`servicesItem${index + 1}`)}</span>
                 </li>
               ))}
             </ul>
           </div>
-          <div className={s.schemaBlock}>
+            <div className={s.schemaBlock}>
             <div className={s.border}>{t("schemaTitle")}</div>
             <div className={s.border}>{t("schemaDescription1")}</div>
-            <div>
-              <Icon
-                icon="fontisto:arrow-swap"
-                fontSize={50}
-                style={{
-                  color: "#12903e",
-                  rotate: "90deg",
-                }}
-              />
+            <div className={s.schemaArrowSlot}>
+              <svg className={s.topArrows} viewBox="0 0 90 72" aria-hidden>
+                <path className={s.arrowStroke} d="M32 62V14" />
+                <path className={s.arrowHead} d="M22 24 32 14l10 10" />
+                <path className={s.arrowStroke} d="M58 10v48" />
+                <path className={s.arrowHead} d="m48 48 10 10 10-10" />
+              </svg>
             </div>
             <div className={s.border}>{t("schemaDescription2")}</div>
             <div className={`${s.border} ${s.bg}`}>
               {t("schemaDescription3")}
             </div>
-            <div>
-              <Icon
-                icon="fontisto:arrow-up-l"
-                fontSize={50}
-                style={{
-                  color: "#12903e",
-                  rotate: "-135deg",
-                }}
-              />
-              <Icon
-                icon="fontisto:arrow-up-l"
-                fontSize={50}
-                style={{
-                  color: "#12903e",
-                  rotate: "-45deg",
-                }}
-              />
+            <div className={s.schemaArrowSlot}>
+              <svg className={s.splitArrows} viewBox="0 0 180 82" aria-hidden>
+                <path className={s.arrowStroke} d="M76 8 24 60" />
+                <path className={s.arrowHead} d="M26 46 24 60l14-2" />
+                <path className={s.arrowStroke} d="M104 8 156 60" />
+                <path className={s.arrowHead} d="m142 58 14 2-2-14" />
+              </svg>
             </div>
             <div>
               <div className={`${s.border} ${s.bg}`}>
                 {t("schemaDescription4")}
               </div>
               <div>
-                <Icon
-                  icon="fontisto:arrow-up-l"
-                  fontSize={50}
-                  style={{
-                    color: "#12903e",
-                    rotate: "90deg",
-                  }}
-                />
+                <svg className={s.rightArrow} viewBox="0 0 96 42" aria-hidden>
+                  <path className={s.arrowStroke} d="M12 21h64" />
+                  <path className={s.arrowHead} d="m64 9 12 12-12 12" />
+                </svg>
               </div>
               <div className={`${s.border} ${s.bg}`}>
                 {t("schemaDescription5")}

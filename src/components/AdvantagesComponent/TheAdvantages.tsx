@@ -12,11 +12,13 @@ import {
   useMotionValue,
   useTransform,
 } from "motion/react";
-import { useSkipLocaleMotion } from "@/lib/locale-transition";
+import { useLocaleMotionState } from "@/lib/locale-transition";
 
 export const TheAdvantages = () => {
   const t = useTranslations("TheAdvantages");
-  const skipMotion = useSkipLocaleMotion();
+  const { skipMotion, markViewed } = useLocaleMotionState(
+    "home:advantages-counters",
+  );
 
   const advantages = [
     "advantage1",
@@ -32,9 +34,15 @@ export const TheAdvantages = () => {
     margin: "0px 0px -20% 0px", // Добавляем небольшой отступ
   });
 
+  useEffect(() => {
+    if (isInView) {
+      markViewed();
+    }
+  }, [isInView, markViewed]);
+
   return (
     <div className={styles.main} ref={ref}>
-      <TheMotionWrapper>
+      <TheMotionWrapper motionKey="home-advantages">
         <h3 className={styles.title}>{t("title")}</h3>
         {(skipMotion || isInView) && (
           <ul className={styles.advBlock}>
@@ -45,6 +53,7 @@ export const TheAdvantages = () => {
                 total={t(`${adv}.total`)}
                 unit={t(`${adv}.unit`)}
                 duration={t(`${adv}.duration`)}
+                skipMotion={skipMotion}
               />
             ))}
           </ul>
@@ -59,14 +68,15 @@ interface HTMLContentProps {
   unit?: string;
   total: string;
   duration: string;
+  skipMotion: boolean;
 }
 export const HTMLContent = ({
   title,
   unit,
   total,
   duration,
+  skipMotion,
 }: HTMLContentProps) => {
-  const skipMotion = useSkipLocaleMotion();
   const count = useMotionValue(skipMotion ? Number(total) : 0);
   const rounded = useTransform(() => Math.round(count.get()));
 

@@ -5,14 +5,16 @@ import s from "./TheAbout.module.scss";
 import { useTranslations } from "next-intl";
 import { motion, useInView } from "motion/react";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { TheButton } from "../ui/ButtonComponent/TheButton";
-import { useSkipLocaleMotion } from "@/lib/locale-transition";
+import { useLocaleMotionState } from "@/lib/locale-transition";
 
 export const TheAbout = () => {
   const t = useTranslations("AboutPage");
   const ref = useRef(null);
-  const skipMotion = useSkipLocaleMotion();
+  const { skipMotion, markViewed } = useLocaleMotionState(
+    "home:about-events",
+  );
   const isInView = useInView(ref, {
     once: true, // Запускаем анимацию один раз
     amount: 0.3, // Запускаем, когда 50% компонента в зоне видимости
@@ -20,8 +22,14 @@ export const TheAbout = () => {
   });
   const events = ["event1", "event2", "event3", "event4"] as const;
 
+  useEffect(() => {
+    if (isInView) {
+      markViewed();
+    }
+  }, [isInView, markViewed]);
+
   return (
-    <TheMotionWrapper>
+    <TheMotionWrapper motionKey="home-about">
       <div className={s.content} ref={ref}>
         <div className={s.info}>
           <h2 className="title">{t("heroTitle1")}</h2>
