@@ -65,7 +65,10 @@
           "description": "2025-yil 24-sentabrda \"Yashil Energiya\" MChJning 51% ulushi BAAning \"GSU\" kompaniyasi tomonidan sotib olindi."
         },
         {
-          "description": "2025-yil 29-sentabrda kompaniya yangi mulkchilik shakliga o‘tdi va \"JV Yashil Energiya\" MChJ qo‘shma korxonasi sifatida qayta tashkil etildi."
+          "description": "2025-yil 29-sentabrda kompaniya yangi mulkchilik shakliga o'tdi va \"JV Yashil Energiya\" MChJ qo'shma korxonasi sifatida qayta tashkil etildi."
+        },
+        {
+          "description": "2025-yil oxiriga kelib Yashil Energiya faol obyektlarining o'rnatilgan quvvati 130 MVt ga yetdi."
         }
       ]
     },
@@ -92,7 +95,7 @@
       "src": "codicon:tools"
     },
     "achievement2": {
-      "description": "Hozirda 50 MVt ga yaqin quvvatli quyosh fotoelektr stansiyasi ishlab turibdi",
+      "description": "Hozirda 130 MVt quvvatli quyosh fotoelektr stansiyalari ishlab turibdi",
       "src": "ph:solar-panel"
     },
     "achievement3": {
