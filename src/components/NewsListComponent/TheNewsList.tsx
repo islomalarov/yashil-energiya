@@ -94,6 +94,7 @@ export const TheNewsList = ({ news, linkLabel }: NewsProps) => {
             <Button
               size="medium"
               sx={{ color: "#12903e" }}
+              component={Link}
               href={`/news/${slug}`}
             >
               {linkLabel}
