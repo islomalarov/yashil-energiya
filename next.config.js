@@ -83,6 +83,20 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/:lang(en|ru|uz)/mhp",
+        destination: "/:lang/microges",
+        permanent: true,
+      },
+      {
+        source: "/:lang(en|ru|uz)/ev",
+        destination: "/:lang/chargingstation",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = withNextIntl(nextConfig);
