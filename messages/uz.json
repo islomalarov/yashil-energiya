@@ -22,6 +22,9 @@
   "HomePage": {
     "title": "Bosh sahifa",
     "heroTitle": "\"Yashil Energiya\" MChJ — O'zbekistonning qayta tiklanuvchi energetika milliy operatori",
+    "heroSubtitle": "Barqaror energiya ta'minoti uchun quyosh elektr stansiyalari, mikro GES va EV zaryadlash infratuzilmasini rivojlantiramiz.",
+    "ctaContact": "Biz bilan bog'lanish",
+    "ctaProjects": "Loyihalar",
     "about": "Biz haqimizda sahifasiga o'tish"
   },
   "AboutPage": {

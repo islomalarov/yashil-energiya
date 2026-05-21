@@ -22,6 +22,9 @@
   "HomePage": {
     "title": "Home page",
     "heroTitle": "JV Yashil Energiya LLC — Uzbekistan's national renewable energy operator",
+    "heroSubtitle": "Developing solar power plants, micro hydro projects and EV charging infrastructure for sustainable energy supply.",
+    "ctaContact": "Contact us",
+    "ctaProjects": "Projects",
     "about": "Go to the about page"
   },
   "AboutPage": {
