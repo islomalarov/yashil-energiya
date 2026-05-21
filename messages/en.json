@@ -96,7 +96,7 @@
       "src": "fluent:building-bank-48-regular"
     },
     "achievement4": {
-      "description": "The average annual electricity generated is 65,000 MW per year.",
+      "description": "The average annual electricity generated is 65,000 MWh / year.",
       "src": "hugeicons:energy-ellipse"
     }
   },
@@ -104,8 +104,8 @@
     "title": "The results we attain",
     "advantage1": {
       "title": "The energy produced",
-      "total": "120",
-      "unit": "GW",
+      "total": "92",
+      "unit": "GWh",
       "duration": "2"
     },
     "advantage2": {

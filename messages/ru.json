@@ -96,7 +96,7 @@
       "src": "fluent:building-bank-48-regular"
     },
     "achievement4": {
-      "description": "В среднем в год вырабатывается более 65 000 МВт чистой электроэнергии",
+      "description": "В среднем в год вырабатывается более 65 000 МВт·ч / год чистой электроэнергии",
       "src": "hugeicons:energy-ellipse"
     }
   },
@@ -104,8 +104,8 @@
     "title": "Результаты, которых мы достигли",
     "advantage1": {
       "title": "Выработано",
-      "total": "120",
-      "unit": "ГВт",
+      "total": "92",
+      "unit": "ГВт·ч",
       "duration": "2"
     },
     "advantage2": {

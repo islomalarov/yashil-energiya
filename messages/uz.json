@@ -96,7 +96,7 @@
       "src": "fluent:building-bank-48-regular"
     },
     "achievement4": {
-      "description": "Yiliga o’rtacha 50 000 MVt dan ko’proq toza elektr energiyasi ishlab chiqarilmoqda",
+      "description": "Yiliga o'rtacha 65 000 MVt·s / yil dan ko'proq toza elektr energiyasi ishlab chiqarilmoqda",
       "src": "hugeicons:energy-ellipse"
     }
   },
@@ -104,8 +104,8 @@
     "title": "Biz erishgan natijalar",
     "advantage1": {
       "title": "Ishlab chiqarilgan energiya",
-      "total": "50",
-      "unit": "GVt",
+      "total": "92",
+      "unit": "GVt·s",
       "duration": "2"
     },
     "advantage2": {
