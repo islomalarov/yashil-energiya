@@ -6,6 +6,8 @@ import TheCarousel from "@/components/CarouselComponent/TheCarousel";
 import { PlantService } from "services/plants.service";
 import { getTranslations } from "next-intl/server";
 import { redirect } from "@/i18n/navigation";
+import type { Metadata } from "next";
+import { createMetadata } from "@/lib/seo";
 
 type Props = {
   params: Promise<{
@@ -13,6 +15,25 @@ type Props = {
     id: string;
   }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id, locale } = await params;
+  const plant = await PlantService.getPlantById(id, locale);
+
+  if (!plant) {
+    return {};
+  }
+
+  return createMetadata({
+    locale,
+    path: `/plants/${id}`,
+    title: plant.title,
+    description: `${plant.address}. Power: ${plant.power}. Average annual production: ${plant.production}.`,
+    image: plant.pictures[0]?.url,
+    type: "article",
+    alternateLocales: ["en", "ru"],
+  });
+}
 
 export default async function Plant({ params }: Props) {
   const { id, locale } = await params;

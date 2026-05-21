@@ -8,6 +8,7 @@ import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { redirect } from "@/i18n/navigation";
+import { createMetadata } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string; locale: string }>;
@@ -21,16 +22,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
 
-  return {
+  return createMetadata({
+    locale,
+    path: `/articles/${slug}`,
     title: article.title,
     description: article.excerpt,
-    openGraph: {
-      title: article.title,
-      description: article.excerpt,
-      type: "article",
-      images: article.cover?.url ? [article.cover.url] : undefined,
-    },
-  };
+    image: article.cover?.url,
+    type: "article",
+    alternateLocales: ["en", "ru"],
+  });
 }
 
 export default async function ArticlePage({ params }: Props) {

@@ -9,6 +9,7 @@ import { notFound } from "next/navigation";
 import type { Locale } from "next-intl";
 import type { Metadata } from "next";
 import { redirect } from "@/i18n/navigation";
+import { createMetadata } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: Locale; slug: string }>;
@@ -22,16 +23,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
 
-  return {
+  return createMetadata({
+    locale,
+    path: `/news/${slug}`,
     title: news.title,
     description: news.excerpt,
-    openGraph: {
-      title: news.title,
-      description: news.excerpt,
-      type: "article",
-      images: news.cover?.url ? [news.cover.url] : undefined,
-    },
-  };
+    image: news.cover?.url,
+    type: "article",
+    publishedTime: news.date,
+    alternateLocales: ["en", "ru"],
+  });
 }
 
 export default async function NewsPage({ params }: Props) {

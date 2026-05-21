@@ -1,61 +1,49 @@
-"use client";
-
-
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import { TheNewsList } from "@/components/NewsListComponent/TheNewsList";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
-import { useTranslations, useLocale } from "next-intl";
-import { useEffect, useState } from "react";
-import { NewResponse } from "services/news.service.types";
 import { NewsService } from "services/news.service";
 import { ThePaginationControls } from "@/components/PaginationComponent/ThePaginationControls";
-import { useRouter } from "@/i18n/navigation";
+import { getLocale, getTranslations } from "next-intl/server";
+import { redirect } from "@/i18n/navigation";
 
-export default function News() {
-  const t = useTranslations("TheLastNews");
-  const locale = useLocale();
-  const router = useRouter();
+type NewsPageProps = {
+  searchParams?: Promise<{ page?: string }>;
+};
 
-  const [fetchedNews, setFetchedNews] = useState<NewResponse[]>([]);
-  const [totalPages, setTotalPages] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);
+const DEFAULT_PAGE_SIZE = 9;
 
-  const DEFAULT_PAGE_SIZE = 9;
+function normalizePage(page?: string) {
+  const parsed = Number(page);
+  return Number.isInteger(parsed) && parsed > 0 ? parsed : 1;
+}
+
+export default async function News({ searchParams }: NewsPageProps) {
+  const locale = await getLocale();
+  if (locale === "uz") {
+    redirect({ href: "/news", locale: "en" });
+  }
+
+  const t = await getTranslations("TheLastNews");
+  const { page } = (await searchParams) ?? {};
+  const currentPage = normalizePage(page);
   const skip = DEFAULT_PAGE_SIZE * (currentPage - 1);
 
-  useEffect(() => {
-    if (locale === "uz") {
-      router.replace("/news", { locale: "en" });
-      return;
-    }
+  const {
+    news,
+    newsConnection: { aggregate },
+  } = await NewsService.getAllNews(DEFAULT_PAGE_SIZE, skip, locale);
 
-    const fetchNews = async () => {
-
-        const {
-          news,
-          newsConnection: { aggregate },
-        } = await NewsService.getAllNews(DEFAULT_PAGE_SIZE, skip, locale);
-
-        setFetchedNews(news);
-
-        const totalPages = Math.ceil(aggregate.count / DEFAULT_PAGE_SIZE);
-
-        setTotalPages(totalPages);
-
-    };
-
-    fetchNews();
-  }, [currentPage, locale, router, skip]);
+  const totalPages = Math.ceil(aggregate.count / DEFAULT_PAGE_SIZE);
 
   return (
     <>
       <TheHero title1={t("heroTitle")} url1="news" />
       <div className="container">
-        <TheNewsList news={fetchedNews} />
+        <TheNewsList news={news} />
         <ThePaginationControls
           totalPages={totalPages}
           currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
+          hrefBase="/news"
         />
       </div>
       <TheFeedback />

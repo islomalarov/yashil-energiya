@@ -2,17 +2,11 @@
 
 import s from "./TheArticlesList.module.scss";
 import { Article, ArticlesResponse } from "services/articles.service";
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Typography,
-} from "@mui/material";
+import { Button, Card, CardActions, CardContent, Typography } from "@mui/material";
 import { useTranslations } from "next-intl";
 import { TheClampedText } from "../ClampedText/TheClampedText";
 import { Link } from "@/i18n/navigation";
+import Image from "next/image";
 
 export const TheArticlesList = ({ articles }: ArticlesResponse) => {
   const t = useTranslations("TheArticlesList");
@@ -39,19 +33,13 @@ export const TheArticlesList = ({ articles }: ArticlesResponse) => {
           }}
         >
           <Link className={s.mediaLink} href={`/articles/${slug}`}>
-            <CardMedia
-              component="img"
+            <Image
+              className={s.mediaImage}
               alt={cover ? cover.fileName : "Article cover image"}
-              image={cover ? cover.url : "/placeholder.jpg"}
-              sx={{
-                borderTopLeftRadius: 8,
-                borderTopRightRadius: 8,
-                display: "block",
-                height: "100%",
-                objectFit: "cover",
-                transition: "transform .35s ease",
-                width: "100%",
-              }}
+              src={cover ? cover.url : "/hero.png"}
+              width={cover?.width || 1280}
+              height={cover?.height || 720}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
           </Link>
 

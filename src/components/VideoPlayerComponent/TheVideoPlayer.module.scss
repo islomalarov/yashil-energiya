@@ -4,6 +4,15 @@
   position: relative;
   display: flex;
   justify-content: center;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+
+  video {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
 
   .volumeBtn {
     position: absolute;

@@ -1,0 +1,87 @@
+import { ArticlesService } from "services/articles.service";
+import { NewsService } from "services/news.service";
+import { PlantService } from "services/plants.service";
+import { VacancyService } from "services/vacancies.service";
+import {
+  absoluteUrl,
+  localizedPath,
+  SeoLocale,
+  siteName,
+  staticRoutes,
+  supportedLocales,
+} from "@/lib/seo";
+
+export type SitemapContent = {
+  news: Awaited<ReturnType<typeof NewsService.getAllNews>>["news"];
+  articles: Awaited<ReturnType<typeof ArticlesService.getAllArticles>>;
+  plants: Awaited<ReturnType<typeof PlantService.getAllPlants>>["plants"];
+  vacancies: Awaited<ReturnType<typeof VacancyService.getAllVacancies>>;
+};
+
+export const cmsLocales: SeoLocale[] = ["en", "ru"];
+
+export function escapeXml(value: string | number | null | undefined) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&apos;");
+}
+
+export function unique<T>(items: T[], getKey: (item: T) => string) {
+  const map = new Map<string, T>();
+
+  items.forEach((item) => {
+    map.set(getKey(item), item);
+  });
+
+  return Array.from(map.values());
+}
+
+export async function getSitemapContent(locale: SeoLocale) {
+  const newsData = await NewsService.getAllNews(100, 0, locale);
+  const articles = await ArticlesService.getAllArticles(locale);
+  const plantsData = await PlantService.getAllPlants(100, 0, locale);
+  const vacancies = await VacancyService.getAllVacancies(locale);
+
+  return {
+    news: newsData.news,
+    articles,
+    plants: plantsData.plants,
+    vacancies,
+  };
+}
+
+export async function getSafeSitemapContent(locale: SeoLocale) {
+  try {
+    return await getSitemapContent(locale);
+  } catch (error) {
+    console.error(`Failed to load sitemap CMS content for ${locale}:`, error);
+
+    return {
+      news: [],
+      articles: [],
+      plants: [],
+      vacancies: [],
+    };
+  }
+}
+
+export function getStaticSitemapPaths() {
+  return Object.values(staticRoutes);
+}
+
+export function buildNewsImageAlt(title: string) {
+  return `${title} - ${siteName}`;
+}
+
+export function buildMultilingualStaticUrls() {
+  return getStaticSitemapPaths().flatMap((path) =>
+    supportedLocales.map((locale) => ({
+      locale,
+      path,
+      url: absoluteUrl(localizedPath(locale, path)),
+    })),
+  );
+}

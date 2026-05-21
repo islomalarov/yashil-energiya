@@ -27,6 +27,8 @@ const TheVideoPlayer = () => {
         loop
         muted={volume}
         playsInline
+        preload="metadata"
+        poster="/hero.png"
         controls
         controlsList="nodownload"
       />

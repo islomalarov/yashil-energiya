@@ -5,12 +5,12 @@ import s from "./TheNewsList.module.scss";
 import { NewResponse } from "services/news.service.types";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActions } from "@mui/material";
 import { useTranslations } from "next-intl";
 import { TheClampedText } from "../ClampedText/TheClampedText";
 import { Link } from "@/i18n/navigation";
+import Image from "next/image";
 
 interface NewsProps {
   news: NewResponse[];
@@ -41,19 +41,13 @@ export const TheNewsList = ({ news }: NewsProps) => {
           }}
         >
           <Link className={s.mediaLink} href={`/news/${slug}`}>
-            <CardMedia
-              component="img"
+            <Image
+              className={s.mediaImage}
               alt={cover ? cover.fileName : "News cover image"}
-              image={cover ? cover.url : "/placeholder.jpg"}
-              sx={{
-                borderTopLeftRadius: 8,
-                borderTopRightRadius: 8,
-                display: "block",
-                height: "100%",
-                objectFit: "cover",
-                transition: "transform .35s ease",
-                width: "100%",
-              }}
+              src={cover ? cover.url : "/hero.png"}
+              width={cover?.width || 1280}
+              height={cover?.height || 720}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
           </Link>
 

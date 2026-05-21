@@ -10,10 +10,10 @@ export async function generateMetadata({
 }: MetadataProps): Promise<Metadata> {
   const { locale } = await params;
 
-  return createStaticMetadata(locale, "solarpanels");
+  return createStaticMetadata(locale, "procurement2");
 }
 
-export default function SolarPanelsLayout({
+export default function ProcurementTwoLayout({
   children,
 }: {
   children: React.ReactNode;

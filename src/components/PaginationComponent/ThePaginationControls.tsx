@@ -1,12 +1,15 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { ReactNode, useMemo, useState } from "react";
+import { Link } from "@/i18n/navigation";
 import s from "./ThePaginationControls.module.scss";
 
 interface ThePaginationProps {
   totalPages: number;
   currentPage: number;
-  setCurrentPage: (page: number) => void;
+  setCurrentPage?: (page: number) => void;
+  hrefBase?: string;
+  pageParam?: string;
 }
 
 type PaginationItem =
@@ -68,6 +71,8 @@ export const ThePaginationControls = ({
   totalPages,
   currentPage,
   setCurrentPage,
+  hrefBase,
+  pageParam = "page",
 }: ThePaginationProps) => {
   const [expandedGroups, setExpandedGroups] = useState<Set<string>>(new Set());
 
@@ -88,33 +93,63 @@ export const ThePaginationControls = ({
     });
   };
 
+  const renderPageControl = (
+    page: number,
+    label: ReactNode,
+    options?: {
+      disabled?: boolean;
+      ariaLabel?: string;
+      active?: boolean;
+    },
+  ) => {
+    const className = `${s.pageButton} ${options?.active ? s.active : ""}`;
+
+    if (hrefBase && !options?.disabled) {
+      const href = page <= 1 ? hrefBase : `${hrefBase}?${pageParam}=${page}`;
+
+      return (
+        <Link
+          className={className}
+          href={href}
+          aria-label={options?.ariaLabel}
+          aria-current={options?.active ? "page" : undefined}
+          scroll={false}
+        >
+          {label}
+        </Link>
+      );
+    }
+
+    return (
+      <button
+        type="button"
+        className={className}
+        disabled={options?.disabled}
+        onClick={() => setCurrentPage?.(page)}
+        aria-label={options?.ariaLabel}
+        aria-current={options?.active ? "page" : undefined}
+      >
+        {label}
+      </button>
+    );
+  };
+
   if (totalPages <= 1) return null;
 
   return (
     <nav className={s.paginationContainer} aria-label="Pagination">
-      <button
-        type="button"
-        className={s.pageButton}
-        disabled={currentPage === 1}
-        onClick={() => setCurrentPage(currentPage - 1)}
-        aria-label="Previous page"
-      >
-        ‹
-      </button>
+      {renderPageControl(currentPage - 1, "‹", {
+        disabled: currentPage === 1,
+        ariaLabel: "Previous page",
+      })}
 
       {items.map((item) =>
         item.type === "page" ? (
-          <button
-            key={item.page}
-            type="button"
-            className={`${s.pageButton} ${
-              currentPage === item.page ? s.active : ""
-            }`}
-            onClick={() => setCurrentPage(item.page)}
-            aria-current={currentPage === item.page ? "page" : undefined}
-          >
-            {item.page}
-          </button>
+          <span key={item.page}>
+            {renderPageControl(item.page, item.page, {
+              active: currentPage === item.page,
+            })}
+          </span>
         ) : (
           <button
             key={item.id}
@@ -130,15 +165,10 @@ export const ThePaginationControls = ({
         ),
       )}
 
-      <button
-        type="button"
-        className={s.pageButton}
-        disabled={currentPage === totalPages}
-        onClick={() => setCurrentPage(currentPage + 1)}
-        aria-label="Next page"
-      >
-        ›
-      </button>
+      {renderPageControl(currentPage + 1, "›", {
+        disabled: currentPage === totalPages,
+        ariaLabel: "Next page",
+      })}
     </nav>
   );
 };

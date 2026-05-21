@@ -6,10 +6,35 @@ import { VacancyService } from "services/vacancies.service";
 import ThePageContent from "@/components/PageContentComponent/ThePageContent";
 import { notFound } from "next/navigation";
 import { redirect } from "@/i18n/navigation";
+import type { Metadata } from "next";
+import { createMetadata } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string; id?: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id, locale } = await params;
+
+  if (!id) {
+    return {};
+  }
+
+  const vacancy = await VacancyService.getOneVacancy(id, locale);
+
+  if (!vacancy) {
+    return {};
+  }
+
+  return createMetadata({
+    locale,
+    path: `/vacancies/${id}`,
+    title: vacancy.title,
+    description: vacancy.excerpt,
+    type: "article",
+    alternateLocales: ["en", "ru"],
+  });
+}
 
 function formatSize(size?: number | null) {
   if (!size || size <= 0) return null;

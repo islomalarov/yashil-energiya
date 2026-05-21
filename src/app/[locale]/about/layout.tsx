@@ -1,32 +1,22 @@
+import type { Metadata } from "next";
+import { createStaticMetadata } from "@/lib/seo";
 
-
-interface MetadataProps {
-  params: { locale?: string };
-}
-const SUPPORTED_LOCALES = ["en", "ru", "uz"] as const;
-type SupportedLocale = (typeof SUPPORTED_LOCALES)[number];
-
-function isSupportedLocale(locale: string): locale is SupportedLocale {
-  return SUPPORTED_LOCALES.includes(locale as SupportedLocale);
-}
-
-export const generateMetadata = async ({ params }: MetadataProps) => {
-  const locale: SupportedLocale =
-    params.locale && isSupportedLocale(params.locale)
-      ? params.locale
-      : "en";
-
-  const { AboutPage } = await import(`messages/${locale}.json`);
-
-  return {
-    title: AboutPage.heroTitle1,
-    description: AboutPage.content,
-  };
+type MetadataProps = {
+  params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({
+  params,
+}: MetadataProps): Promise<Metadata> {
+  const { locale } = await params;
+
+  return createStaticMetadata(locale, "about");
+}
+
 export default function AboutLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <div>{children}</div>;
+  return <>{children}</>;
 }
