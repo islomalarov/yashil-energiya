@@ -50,6 +50,12 @@ const securityHeaders = [
   },
 ];
 
+const staticHtmlCacheHeaders = [
+  {
+    key: "Cache-Control",
+    value: "public, s-maxage=3600, stale-while-revalidate=86400",
+  },
+];
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -68,6 +74,26 @@ const nextConfig = {
   },
   async headers() {
     return [
+      {
+        source: "/:lang(en|ru|uz)/about",
+        headers: staticHtmlCacheHeaders,
+      },
+      {
+        source: "/:lang(en|ru|uz)/ceo",
+        headers: staticHtmlCacheHeaders,
+      },
+      {
+        source: "/:lang(en|ru|uz)/microges",
+        headers: staticHtmlCacheHeaders,
+      },
+      {
+        source: "/:lang(en|ru|uz)/chargingstation",
+        headers: staticHtmlCacheHeaders,
+      },
+      {
+        source: "/:lang(en|ru|uz)/contacts",
+        headers: staticHtmlCacheHeaders,
+      },
       {
         source: "/(.*)",
         headers: securityHeaders,
