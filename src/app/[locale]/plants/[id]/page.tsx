@@ -7,7 +7,8 @@ import { PlantService } from "services/plants.service";
 import { getTranslations } from "next-intl/server";
 import { redirect } from "@/i18n/navigation";
 import type { Metadata } from "next";
-import { createMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, createMetadata, powerPlantJsonLd } from "@/lib/seo";
+import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 
 type Props = {
   params: Promise<{
@@ -59,6 +60,22 @@ export default async function Plant({ params }: Props) {
 
   return (
     <>
+      <TheJsonLd
+        data={[
+          powerPlantJsonLd({
+            locale,
+            id,
+            title,
+            address,
+            power,
+            image: pictures[0]?.url,
+          }),
+          breadcrumbJsonLd(locale, [
+            { name: t("heroTitle"), path: "/plants" },
+            { name: title, path: `/plants/${id}` },
+          ]),
+        ]}
+      />
       <TheHero title1={t("heroTitle")} url1="plants" />
       <div className="container">
         <h2 className={s.title}>{title}</h2>

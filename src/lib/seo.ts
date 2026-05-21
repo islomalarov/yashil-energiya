@@ -329,9 +329,10 @@ export function normalizeLocale(locale?: string): SeoLocale {
     : "en";
 }
 
-export function localizedPath(locale: SeoLocale, path = "/") {
+export function localizedPath(locale: string, path = "/") {
+  const currentLocale = normalizeLocale(locale);
   const normalizedPath = path === "/" ? "" : path;
-  return `/${locale}${normalizedPath}`;
+  return `/${currentLocale}${normalizedPath}`;
 }
 
 export function absoluteUrl(path = "/") {
@@ -459,4 +460,221 @@ export function organizationJsonLd(locale: string) {
       "https://www.linkedin.com/company/yashil-energiya/",
     ],
   };
+}
+
+export function websiteJsonLd(locale: string) {
+  const currentLocale = normalizeLocale(locale);
+  const copy = staticSeo.home[currentLocale];
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
+    name: siteName,
+    url: siteUrl,
+    inLanguage: currentLocale,
+    description: copy.description,
+    publisher: {
+      "@id": `${siteUrl}/#organization`,
+    },
+  };
+}
+
+export function breadcrumbJsonLd(
+  locale: string,
+  items: { name: string; path: string }[],
+) {
+  const currentLocale = normalizeLocale(locale);
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: staticSeo.home[currentLocale].title,
+        item: absoluteUrl(localizedPath(currentLocale, "/")),
+      },
+      ...items.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 2,
+        name: item.name,
+        item: absoluteUrl(localizedPath(currentLocale, item.path)),
+      })),
+    ],
+  };
+}
+
+export function webPageJsonLd(locale: string, key: StaticSeoKey) {
+  const currentLocale = normalizeLocale(locale);
+  const copy = staticSeo[key][currentLocale];
+  const path = staticRoutes[key];
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${absoluteUrl(localizedPath(currentLocale, path))}#webpage`,
+    url: absoluteUrl(localizedPath(currentLocale, path)),
+    name: copy.title,
+    description: copy.description,
+    inLanguage: currentLocale,
+    isPartOf: {
+      "@id": `${siteUrl}/#website`,
+    },
+    publisher: {
+      "@id": `${siteUrl}/#organization`,
+    },
+  };
+}
+
+export function staticPageJsonLd(locale: string, key: StaticSeoKey) {
+  const currentLocale = normalizeLocale(locale);
+  const copy = staticSeo[key][currentLocale];
+  const path = staticRoutes[key];
+
+  if (key === "home") {
+    return [webPageJsonLd(currentLocale, key)];
+  }
+
+  return [
+    webPageJsonLd(currentLocale, key),
+    breadcrumbJsonLd(currentLocale, [{ name: copy.title, path }]),
+  ];
+}
+
+type ArticleJsonLdOptions = {
+  locale: string;
+  path: string;
+  title: string;
+  description: string;
+  image?: string | null;
+  publishedTime?: string;
+  modifiedTime?: string;
+  schemaType?: "Article" | "NewsArticle";
+  section?: string;
+};
+
+export function articleJsonLd({
+  locale,
+  path,
+  title,
+  description,
+  image,
+  publishedTime,
+  modifiedTime,
+  schemaType = "Article",
+  section,
+}: ArticleJsonLdOptions) {
+  const currentLocale = normalizeLocale(locale);
+  const canonical = absoluteUrl(localizedPath(currentLocale, path));
+
+  return {
+    "@context": "https://schema.org",
+    "@type": schemaType,
+    "@id": `${canonical}#article`,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonical,
+    },
+    headline: title,
+    description,
+    image: image ? [absoluteUrl(image)] : [absoluteUrl("/hero.png")],
+    datePublished: publishedTime,
+    dateModified: modifiedTime || publishedTime,
+    articleSection: section,
+    inLanguage: currentLocale,
+    author: {
+      "@type": "Organization",
+      name: siteName,
+      url: siteUrl,
+    },
+    publisher: {
+      "@id": `${siteUrl}/#organization`,
+    },
+  };
+}
+
+export function itemListJsonLd<T>(
+  locale: string,
+  path: string,
+  items: T[],
+  getItem: (item: T, index: number) => { name: string; url: string },
+) {
+  const currentLocale = normalizeLocale(locale);
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    url: absoluteUrl(localizedPath(currentLocale, path)),
+    numberOfItems: items.length,
+    itemListElement: items.map((item, index) => {
+      const listItem = getItem(item, index);
+
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        name: listItem.name,
+        url: listItem.url,
+      };
+    }),
+  };
+}
+
+export function powerPlantJsonLd({
+  locale,
+  id,
+  title,
+  address,
+  image,
+  power,
+}: {
+  locale: string;
+  id: string;
+  title: string;
+  address: string;
+  image?: string | null;
+  power?: string;
+}) {
+  const currentLocale = normalizeLocale(locale);
+  const canonical = absoluteUrl(localizedPath(currentLocale, `/plants/${id}`));
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    "@id": `${canonical}#place`,
+    name: title,
+    url: canonical,
+    image: image ? absoluteUrl(image) : absoluteUrl("/hero.png"),
+    description: power ? `${title}. Power: ${power}` : title,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: address,
+      addressCountry: "UZ",
+    },
+  };
+}
+
+export function contactPageJsonLd(locale: string) {
+  const currentLocale = normalizeLocale(locale);
+
+  return [
+    ...staticPageJsonLd(currentLocale, "contacts"),
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": `${siteUrl}/#localbusiness`,
+      name: siteName,
+      url: siteUrl,
+      image: absoluteUrl("/logo_2.png"),
+      telephone: "+998555148844",
+      email: "info@yashil-energiya.uz",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Bodomzor str 2B, Yunusabad district",
+        addressLocality: "Tashkent",
+        addressCountry: "UZ",
+      },
+    },
+  ];
 }

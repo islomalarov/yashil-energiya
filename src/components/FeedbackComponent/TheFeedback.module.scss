@@ -6,13 +6,13 @@
 .block {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
-  gap: 32px;
-  padding: 72px 0;
+  gap: clamp(24px, 4vw, 48px);
+  padding: clamp(48px, 7vw, 72px) 0;
   align-items: stretch;
 
   @media (max-width: $lg) {
     grid-template-columns: 1fr;
-    padding: 56px 0;
+    padding: clamp(40px, 7vw, 56px) 0;
   }
 }
 

@@ -5,6 +5,8 @@ import { PlantService } from "services/plants.service";
 import { ThePaginationControls } from "@/components/PaginationComponent/ThePaginationControls";
 import { getLocale, getTranslations } from "next-intl/server";
 import { redirect } from "@/i18n/navigation";
+import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
+import { absoluteUrl, itemListJsonLd, localizedPath } from "@/lib/seo";
 
 type PlantsPageProps = {
   searchParams?: Promise<{ page?: string }>;
@@ -37,9 +39,15 @@ export default async function Plants({ searchParams }: PlantsPageProps) {
 
   return (
     <>
+      <TheJsonLd
+        data={itemListJsonLd(locale, "/plants", plants, (item) => ({
+          name: item.title,
+          url: absoluteUrl(localizedPath(locale, `/plants/${item.id}`)),
+        }))}
+      />
       <TheHero title1={t("heroTitle")} url1="plants" />
       <div className="container">
-        <ThePlantsList plants={plants} />
+        <ThePlantsList plants={plants} linkLabel={t("link")} />
         <ThePaginationControls
           totalPages={totalPages}
           currentPage={currentPage}

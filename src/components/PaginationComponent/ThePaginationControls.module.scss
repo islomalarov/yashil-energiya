@@ -5,8 +5,8 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 8px;
-  padding: 20px;
+  gap: clamp(6px, 1.8vw, 8px);
+  padding: clamp(16px, 4vw, 20px);
 }
 
 .pageButton {
@@ -40,6 +40,15 @@
   &:disabled {
     cursor: not-allowed;
     opacity: 0.35;
+  }
+}
+
+@media (max-width: 420px) {
+  .pageButton {
+    min-width: 30px;
+    height: 30px;
+    padding: 0 8px;
+    font-size: 13px;
   }
 }
 

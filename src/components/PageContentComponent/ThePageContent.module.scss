@@ -2,19 +2,29 @@
 
 .pageContent {
   display: grid;
-  gap: 20px;
-  padding-bottom: 40px;
+  gap: clamp(14px, 2.5vw, 20px);
+  padding-bottom: clamp(28px, 5vw, 40px);
 
   p,
   li {
     color: $blackColor;
-    font-size: $paragraphSize;
-    line-height: 30px; /* 187.5% */
+    font-size: clamp(15px, 1.7vw, $paragraphSize);
+    line-height: 1.65;
     font-weight: 400;
     text-align: justify;
+    overflow-wrap: anywhere;
+
+    @media (max-width: $lg) {
+      text-align: left;
+    }
+
+    @media (max-width: $sm) {
+      line-height: 1.55;
+    }
   }
 }
 .title {
   text-align: center;
   color: $blackColor;
+  overflow-wrap: anywhere;
 }

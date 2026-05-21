@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { createStaticMetadata } from "@/lib/seo";
+import { createStaticMetadata, staticPageJsonLd } from "@/lib/seo";
+import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 
 type MetadataProps = {
   params: Promise<{ locale: string }>;
@@ -15,8 +16,21 @@ export async function generateMetadata({
 
 export default function DocumentsLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <StaticJsonLd params={params} />
+      {children}
+    </>
+  );
+}
+
+async function StaticJsonLd({ params }: MetadataProps) {
+  const { locale } = await params;
+
+  return <TheJsonLd data={staticPageJsonLd(locale, "documents")} />;
 }

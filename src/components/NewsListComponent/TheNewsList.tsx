@@ -1,24 +1,19 @@
-"use client";
-
-
 import s from "./TheNewsList.module.scss";
 import { NewResponse } from "services/news.service.types";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Button, CardActions } from "@mui/material";
-import { useTranslations } from "next-intl";
 import { TheClampedText } from "../ClampedText/TheClampedText";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 
 interface NewsProps {
   news: NewResponse[];
+  linkLabel: string;
 }
 
-export const TheNewsList = ({ news }: NewsProps) => {
-  const t = useTranslations("TheLastNews");
-
+export const TheNewsList = ({ news, linkLabel }: NewsProps) => {
   return (
     <div className={s.newsList}>
       {news.map(({ id, cover, date, title, excerpt, slug }: NewResponse) => (
@@ -28,8 +23,12 @@ export const TheNewsList = ({ news }: NewsProps) => {
             borderRadius: 2,
             boxShadow: "0px 2px 14px 0px rgba(0,0,0,.1)",
             display: "grid",
-            gridTemplateRows: "200px minmax(0, 1fr) 56px",
-            height: { xs: 500, md: 520 },
+            gridTemplateRows: {
+              xs: "160px minmax(0, 1fr) 52px",
+              sm: "185px minmax(0, 1fr) 54px",
+              md: "200px minmax(0, 1fr) 56px",
+            },
+            height: { xs: 430, sm: 470, md: 520 },
             overflow: "visible",
             transition:
               "transform .22s ease, box-shadow .22s ease, border-color .22s ease",
@@ -73,8 +72,9 @@ export const TheNewsList = ({ news }: NewsProps) => {
               gutterBottom
               sx={{
                 flex: "0 0 auto",
-                fontSize: { xs: "1.2rem", sm: "1.28rem", md: "1.36rem" },
+                fontSize: { xs: "1.05rem", sm: "1.18rem", md: "1.34rem" },
                 lineHeight: 1.25,
+                overflowWrap: "anywhere",
               }}
             >
               {title}
@@ -96,7 +96,7 @@ export const TheNewsList = ({ news }: NewsProps) => {
               sx={{ color: "#12903e" }}
               href={`/news/${slug}`}
             >
-              {t("link")}
+              {linkLabel}
             </Button>
           </CardActions>
         </Card>

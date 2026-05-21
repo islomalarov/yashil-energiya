@@ -2,12 +2,10 @@
 
 
 import styles from "./TheVideoPlayer.module.scss";
-import { useState } from "react";
 import { motion } from "motion/react";
 import { useLocaleMotionState } from "@/lib/locale-transition";
 
 const TheVideoPlayer = () => {
-  const [volume] = useState(true);
   const { skipMotion, markViewed } = useLocaleMotionState("home:video");
 
   return (
@@ -25,7 +23,7 @@ const TheVideoPlayer = () => {
         height="100%"
         autoPlay
         loop
-        muted={volume}
+        muted
         playsInline
         preload="metadata"
         poster="/hero.png"

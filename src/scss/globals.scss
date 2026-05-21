@@ -9,7 +9,8 @@
   width: 100%;
   max-width: 1350px;
   margin: 0 auto;
-  padding: 0 clamp(12px, 3vw, 15px);
+  padding: 0 clamp(14px, 4vw, 24px);
+  min-width: 0;
 }
 
 .wrapper {
@@ -20,19 +21,23 @@
 
 .main {
   flex: 1 1 auto;
-  padding-top: 118px;
+  padding-top: clamp(88px, 9vw, 118px);
 }
 
 .title {
   color: $blackColor;
-  font-size: 40px;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.15;
   font-weight: 700;
   text-transform: uppercase;
+  overflow-wrap: anywhere;
 }
 
 .link {
   border-radius: 30px;
-  width: 140px;
+  width: min(140px, 100%);
+  min-height: 42px;
+  padding: 0 16px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,8 +53,8 @@
 
 .description {
   color: $blackColor;
-  font-size: $paragraphSize;
-  line-height: 30px; /* 187.5% */
+  font-size: clamp(15px, 1.5vw, $paragraphSize);
+  line-height: 1.65;
   font-weight: 400;
   text-align: justify;
   overflow-wrap: anywhere;
@@ -59,7 +64,6 @@
   }
 
   @media (max-width: $sm) {
-    font-size: 16px;
-    line-height: 26px;
+    line-height: 1.55;
   }
 }

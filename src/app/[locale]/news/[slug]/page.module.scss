@@ -6,30 +6,42 @@
   .title {
     text-align: center;
     color: $blackColor;
+    font-size: clamp(26px, 4vw, 40px);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
   }
 }
 .newsPage {
   display: grid;
   gap: 10px;
-  grid-template-columns: 1fr 10px 400px;
+  grid-template-columns: minmax(0, 1fr) 10px minmax(280px, 400px);
   margin-bottom: 100px;
   @media (max-width: $md) {
     grid-template-columns: 1fr 10px 250px;
   }
   @media (max-width: $sm) {
     grid-template-columns: 1fr;
+    margin-bottom: 56px;
   }
 }
 .separator {
   width: 2px;
   height: auto;
   background-color: #e0e0e0;
+
+  @media (max-width: $sm) {
+    display: none;
+  }
 }
 .lastNews {
   position: relative;
   .lastNewsContent {
     position: sticky;
     top: 100px;
+
+    @media (max-width: $sm) {
+      position: static;
+    }
     .lastNewsTitle {
       font-size: 24px;
       font-weight: 700;

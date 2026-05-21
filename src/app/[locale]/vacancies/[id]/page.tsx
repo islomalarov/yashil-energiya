@@ -7,7 +7,8 @@ import ThePageContent from "@/components/PageContentComponent/ThePageContent";
 import { notFound } from "next/navigation";
 import { redirect } from "@/i18n/navigation";
 import type { Metadata } from "next";
-import { createMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, createMetadata } from "@/lib/seo";
+import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 
 type Props = {
   params: Promise<{ locale: string; id?: string }>;
@@ -72,6 +73,12 @@ export default async function VacancyPage({ params }: Props) {
 
   return (
     <>
+      <TheJsonLd
+        data={breadcrumbJsonLd(locale, [
+          { name: t("title"), path: "/vacancies" },
+          { name: title, path: `/vacancies/${id}` },
+        ])}
+      />
       <TheHero title1={t("title")} url1="vacancies" />
 
       <div className="container">

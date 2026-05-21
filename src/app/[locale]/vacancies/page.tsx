@@ -5,6 +5,8 @@ import { VacancyService } from "services/vacancies.service";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link, redirect } from "@/i18n/navigation";
 import { TheClampedText } from "@/components/ClampedText/TheClampedText";
+import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
+import { absoluteUrl, itemListJsonLd, localizedPath } from "@/lib/seo";
 
 export default async function VacanciesPage() {
   const t = await getTranslations("VacanciesPage");
@@ -17,6 +19,12 @@ export default async function VacanciesPage() {
 
   return (
     <>
+      <TheJsonLd
+        data={itemListJsonLd(locale, "/vacancies", vacancies, (item) => ({
+          name: item.title,
+          url: absoluteUrl(localizedPath(locale, `/vacancies/${item.id}`)),
+        }))}
+      />
       <TheHero title1={t("title")} url1="vacancies" />
 
       <div className="container">

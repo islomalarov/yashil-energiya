@@ -4,7 +4,7 @@ import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 import "@/scss/globals.scss";
 import type { Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 import { Sofia_Sans } from "next/font/google";
 import { TheHeader } from "@/components/HeaderComponent/TheHeader";
 import { TheFooter } from "@/components/FooterComponent/TheFooter";
@@ -16,7 +16,9 @@ import {
   createStaticMetadata,
   organizationJsonLd,
   siteUrl,
+  websiteJsonLd,
 } from "@/lib/seo";
+import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 
 const sofia = Sofia_Sans({
   subsets: ["latin", "cyrillic"],
@@ -70,10 +72,10 @@ export default async function RootLayout({ children, params }: Props) {
   return (
     <html lang={locale}>
       <body className={sofia.className}>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationJsonLd(locale)),
+        <TheJsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@graph": [organizationJsonLd(locale), websiteJsonLd(locale)],
           }}
         />
         <div className="wrapper">

@@ -8,7 +8,7 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 5px 0;
+  padding: clamp(4px, 1vw, 5px) 0;
   transition: all 0.3s linear;
 
   &.scrolled {
@@ -28,7 +28,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: clamp(10px, 3vw, 5%);
+  gap: clamp(10px, 2.2vw, 28px);
   position: relative;
   min-width: 0;
 
@@ -43,7 +43,7 @@
 
 .logo {
   flex: 0 0 auto;
-  width: clamp(112px, 11vw, 150px);
+  width: clamp(100px, 11vw, 150px);
   max-width: 150px;
   height: auto;
   transition: all 0.3s linear;
@@ -58,7 +58,7 @@
 .menuBlock {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(6, minmax(104px, 1fr));
+  grid-template-columns: repeat(6, minmax(96px, 1fr));
   justify-items: center;
   align-items: center;
   gap: clamp(8px, 1.4vw, 18px);
@@ -73,6 +73,11 @@
   display: flex;
   gap: 10px;
   align-items: center;
+  flex: 0 0 auto;
+
+  @media (max-width: 380px) {
+    gap: 6px;
+  }
 
   .languages {
     @media (max-width: $sm) {

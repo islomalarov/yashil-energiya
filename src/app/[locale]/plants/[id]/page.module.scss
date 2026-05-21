@@ -4,9 +4,9 @@
 
 .content {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px 50px;
-  padding: 20px 0;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 1fr);
+  gap: 20px clamp(24px, 4vw, 50px);
+  padding: clamp(12px, 3vw, 20px) 0;
 
   @media (max-width: $md) {
     grid-template-columns: repeat(1, 1fr);
@@ -15,10 +15,12 @@
 
 .title {
   color: $blackColor;
-  font-size: 40px;
+  font-size: clamp(26px, 4vw, 40px);
+  line-height: 1.2;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 43px;
+  margin-bottom: clamp(24px, 5vw, 43px);
+  overflow-wrap: anywhere;
 }
 
 .infoBlock {
@@ -27,8 +29,13 @@
 
   .addressBlock {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: minmax(130px, 0.8fr) minmax(0, 1.2fr);
     justify-content: space-between;
     gap: 10px;
+    overflow-wrap: anywhere;
+
+    @media (max-width: $sm) {
+      grid-template-columns: 1fr;
+    }
   }
 }

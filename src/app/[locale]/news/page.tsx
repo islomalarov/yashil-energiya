@@ -5,6 +5,8 @@ import { NewsService } from "services/news.service";
 import { ThePaginationControls } from "@/components/PaginationComponent/ThePaginationControls";
 import { getLocale, getTranslations } from "next-intl/server";
 import { redirect } from "@/i18n/navigation";
+import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
+import { absoluteUrl, itemListJsonLd, localizedPath } from "@/lib/seo";
 
 type NewsPageProps = {
   searchParams?: Promise<{ page?: string }>;
@@ -37,9 +39,15 @@ export default async function News({ searchParams }: NewsPageProps) {
 
   return (
     <>
+      <TheJsonLd
+        data={itemListJsonLd(locale, "/news", news, (item) => ({
+          name: item.title,
+          url: absoluteUrl(localizedPath(locale, `/news/${item.slug}`)),
+        }))}
+      />
       <TheHero title1={t("heroTitle")} url1="news" />
       <div className="container">
-        <TheNewsList news={news} />
+        <TheNewsList news={news} linkLabel={t("link")} />
         <ThePaginationControls
           totalPages={totalPages}
           currentPage={currentPage}

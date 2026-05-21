@@ -2,9 +2,12 @@
 
 .content {
   display: grid;
-  gap: 20px;
+  gap: clamp(14px, 2.5vw, 20px);
   .title {
     text-align: center;
     color: $blackColor;
+    font-size: clamp(26px, 4vw, 40px);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
   }
 }

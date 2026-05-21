@@ -4,36 +4,38 @@
 
 .content {
   display: grid;
-  padding-bottom: 71px;
-  gap: 80px 20px;
+  padding-bottom: clamp(48px, 7vw, 71px);
+  gap: clamp(40px, 8vw, 80px) 20px;
 }
 
 .title {
   color: $blackColor;
-  font-size: 30px;
+  font-size: clamp(24px, 4vw, 30px);
   font-weight: 700;
-  line-height: 30px; /* 100% */
+  line-height: 1.15;
   padding-bottom: 13px;
+  overflow-wrap: anywhere;
 }
 
 .description {
   color: $blackColor;
-  font-size: 20px;
+  font-size: clamp(16px, 2.2vw, 20px);
   font-weight: 400;
-  line-height: 50px;
+  line-height: 1.7;
 }
 
 .info {
   color: $blackColor;
-  font-size: 20px;
+  font-size: clamp(16px, 2.2vw, 20px);
   font-weight: 700;
-  line-height: 30px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
 .departments {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: clamp(18px, 4vw, 50px);
   @media (max-width: $lg) {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -50,7 +52,7 @@
 
 .map {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   border-radius: 10px;
   background: #fff;
   box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 0.1);
@@ -60,17 +62,17 @@
     grid-template-columns: repeat(1, 1fr);
   }
   .companyInfo {
-    padding: 50px;
+    padding: clamp(24px, 4vw, 50px);
     @media (max-width: $md) {
       padding: 25px;
     }
   }
   .frameBlock {
-    min-height: 380px;
+    min-height: clamp(280px, 44vw, 380px);
     overflow: hidden;
 
     @media (max-width: $lg) {
-      height: 400px;
+      height: clamp(280px, 52vw, 400px);
     }
 
     .frame {

@@ -9,7 +9,8 @@ import { notFound } from "next/navigation";
 import type { Locale } from "next-intl";
 import type { Metadata } from "next";
 import { redirect } from "@/i18n/navigation";
-import { createMetadata } from "@/lib/seo";
+import { articleJsonLd, breadcrumbJsonLd, createMetadata } from "@/lib/seo";
+import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 
 type Props = {
   params: Promise<{ locale: Locale; slug: string }>;
@@ -55,6 +56,24 @@ export default async function NewsPage({ params }: Props) {
 
   return (
     <>
+      <TheJsonLd
+        data={[
+          articleJsonLd({
+            locale,
+            path: `/news/${slug}`,
+            title: news.title,
+            description: news.excerpt,
+            image: news.cover?.url,
+            publishedTime: news.date,
+            schemaType: "NewsArticle",
+            section: "News",
+          }),
+          breadcrumbJsonLd(locale, [
+            { name: t("heroTitle"), path: "/news" },
+            { name: news.title, path: `/news/${slug}` },
+          ]),
+        ]}
+      />
       <TheHero title1={t("heroTitle")} url1="news" />
       <div className="container">
           <div className={s.newsPage}>

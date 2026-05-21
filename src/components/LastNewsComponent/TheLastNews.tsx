@@ -34,7 +34,7 @@ export async function TheLastNews() {
           </svg>
         </Link>
       </div>
-      <TheNewsList news={news} />
+      <TheNewsList news={news} linkLabel={t("link")} />
     </TheMotionWrapper>
   );
 }

@@ -19,15 +19,20 @@
 .subTitle {
   text-align: right;
   color: $primaryColor;
-  font-size: $paragraphSize;
+  font-size: clamp(15px, 1.8vw, $paragraphSize);
   padding: 20px 0 30px 0;
   will-change: transform, opacity;
+
+  @media (max-width: $sm) {
+    text-align: left;
+    padding: 8px 0 18px;
+  }
 }
 .achievements {
   display: grid;
   gap: 10px;
   align-items: start;
-  font-size: $paragraphSize;
+  font-size: clamp(14px, 1.8vw, $paragraphSize);
   grid-template-columns: repeat(4, minmax(0, 1fr));
   min-width: 0;
   @media (max-width: $md) {
@@ -53,15 +58,15 @@
 }
 
 .achievementIcon {
-  width: 100px;
-  height: 100px;
+  width: clamp(70px, 14vw, 100px);
+  height: clamp(70px, 14vw, 100px);
   color: $primaryColor;
 }
 
 .list {
   display: grid;
   gap: 20px;
-  font-size: $paragraphSize;
+  font-size: clamp(15px, 1.8vw, $paragraphSize);
   min-width: 0;
 }
 .listItem {
@@ -119,9 +124,9 @@
   gap: 20px;
   align-items: center;
   justify-items: center;
-  padding: 30px;
+  padding: clamp(18px, 4vw, 30px);
   text-align: center;
-  font-size: $paragraphSize;
+  font-size: clamp(14px, 1.6vw, $paragraphSize);
   font-weight: bold;
   @media (max-width: $md) {
     display: none;

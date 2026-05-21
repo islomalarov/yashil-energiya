@@ -8,7 +8,8 @@ import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { redirect } from "@/i18n/navigation";
-import { createMetadata } from "@/lib/seo";
+import { articleJsonLd, breadcrumbJsonLd, createMetadata } from "@/lib/seo";
+import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 
 type Props = {
   params: Promise<{ slug: string; locale: string }>;
@@ -47,6 +48,23 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <>
+      <TheJsonLd
+        data={[
+          articleJsonLd({
+            locale,
+            path: `/articles/${slug}`,
+            title: article.title,
+            description: article.excerpt,
+            image: article.cover?.url,
+            schemaType: "Article",
+            section: "Articles",
+          }),
+          breadcrumbJsonLd(locale, [
+            { name: t("heroTitle"), path: "/articles" },
+            { name: article.title, path: `/articles/${slug}` },
+          ]),
+        ]}
+      />
       <TheHero title1={t("heroTitle")} url1="articles" />
       <div className="container">
         <div className={s.content}>

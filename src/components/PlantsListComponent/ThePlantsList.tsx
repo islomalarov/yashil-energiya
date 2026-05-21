@@ -1,20 +1,16 @@
 
-"use client";
-
 import s from "./ThePlantsList.module.scss";
 import { Link } from "@/i18n/navigation";
 import cn from "classnames";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
 import { Plant } from "services/plants.service";
 
 type PlantsListProps = {
   plants: Plant[];
+  linkLabel: string;
 };
 
-export const ThePlantsList = ({ plants }: PlantsListProps) => {
-  const t = useTranslations("TheLastPlants");
-
+export const ThePlantsList = ({ plants, linkLabel }: PlantsListProps) => {
   return (
     <ul className={s.projects}>
       {plants.map((plant) => (
@@ -35,7 +31,7 @@ export const ThePlantsList = ({ plants }: PlantsListProps) => {
             <h3 className={s.projectTitle}>{plant.title}</h3>
             <p>{plant.address}</p>
             <Link className={cn(s.link, "link")} href={`/plants/${plant.id}`}>
-              {t("link")}
+              {linkLabel}
             </Link>
           </div>
         </li>

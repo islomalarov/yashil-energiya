@@ -2,28 +2,35 @@
 
 .hero {
   position: relative;
-  padding-bottom: 50px;
+  padding-bottom: clamp(28px, 5vw, 50px);
 
   .bgBlock {
     overflow: hidden;
     position: relative;
-    min-height: 400px;
+    min-height: clamp(220px, 34vw, 400px);
     background-image: var(--hero-bg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 
+    :global(.container) {
+      position: relative;
+      min-height: inherit;
+      display: flex;
+      align-items: center;
+    }
+
     .info {
-      position: absolute;
-      top: 6rem;
+      position: relative;
+      width: min(100%, 880px);
       @media (max-width: $md) {
-        top: 3rem;
+        width: 100%;
       }
 
       .title {
-        padding-top: 51px;
         color: $whiteColor;
-        font-size: 40px;
+        font-size: clamp(28px, 5vw, 40px);
+        line-height: 1.15;
         font-weight: 700;
 
         @media (max-width: $md) {
@@ -32,16 +39,24 @@
       }
       .links {
         padding-top: 12px;
-        font-size: 20px;
+        font-size: clamp(15px, 2.4vw, 20px);
         display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        overflow-wrap: anywhere;
 
         @media (max-width: $md) {
           flex-direction: column;
+          gap: 4px;
         }
 
         & span {
-          margin: 0 10px;
+          margin: 0 4px;
           color: $whiteColor;
+
+          @media (max-width: $md) {
+            display: none;
+          }
         }
 
         .link {

@@ -13,9 +13,9 @@
   }
   p {
     color: #2b2b2b;
-    font-size: 18px;
+    font-size: clamp(15px, 1.8vw, 18px);
     font-weight: 400;
-    line-height: 20px; /* 111.111% */
+    line-height: 1.35;
     overflow-wrap: anywhere;
   }
   .block {

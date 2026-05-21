@@ -1,16 +1,18 @@
-"use client";
-
 import s from "./TheArticlesList.module.scss";
 import { Article, ArticlesResponse } from "services/articles.service";
 import { Button, Card, CardActions, CardContent, Typography } from "@mui/material";
-import { useTranslations } from "next-intl";
 import { TheClampedText } from "../ClampedText/TheClampedText";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 
-export const TheArticlesList = ({ articles }: ArticlesResponse) => {
-  const t = useTranslations("TheArticlesList");
+type TheArticlesListProps = ArticlesResponse & {
+  linkLabel: string;
+};
 
+export const TheArticlesList = ({
+  articles,
+  linkLabel,
+}: TheArticlesListProps) => {
   return (
     <div className={s.articlesList}>
       {articles.map(({ id, cover, title, excerpt, slug }: Article) => (
@@ -20,8 +22,12 @@ export const TheArticlesList = ({ articles }: ArticlesResponse) => {
             borderRadius: 2,
             boxShadow: "0px 2px 14px 0px rgba(0,0,0,.1)",
             display: "grid",
-            gridTemplateRows: "200px minmax(0, 1fr) 56px",
-            height: { xs: 470, md: 500 },
+            gridTemplateRows: {
+              xs: "160px minmax(0, 1fr) 52px",
+              sm: "185px minmax(0, 1fr) 54px",
+              md: "200px minmax(0, 1fr) 56px",
+            },
+            height: { xs: 420, sm: 460, md: 500 },
             overflow: "visible",
             transition:
               "transform .22s ease, box-shadow .22s ease, border-color .22s ease",
@@ -57,8 +63,9 @@ export const TheArticlesList = ({ articles }: ArticlesResponse) => {
               variant="h5"
               gutterBottom
               sx={{
-                fontSize: { xs: "1.2rem", sm: "1.28rem", md: "1.36rem" },
+                fontSize: { xs: "1.05rem", sm: "1.18rem", md: "1.34rem" },
                 lineHeight: 1.25,
+                overflowWrap: "anywhere",
               }}
             >
               {title}
@@ -80,7 +87,7 @@ export const TheArticlesList = ({ articles }: ArticlesResponse) => {
               sx={{ color: "#12903e" }}
               href={`/articles/${slug}`}
             >
-              {t("link")}
+              {linkLabel}
             </Button>
           </CardActions>
         </Card>
