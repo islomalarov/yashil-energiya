@@ -4,20 +4,18 @@
   position: relative;
   .info {
     position: absolute;
-    top: 0;
-    @media (max-width: 480px) {
-      display: none;
-    }
+    left: clamp(14px, 4vw, 24px);
+    right: clamp(14px, 4vw, 24px);
+    bottom: clamp(28px, 7vw, 72px);
+    z-index: 2;
+    max-width: min(760px, calc(100% - 28px));
   }
   .title {
-    padding-top: 147px;
     color: #fff;
-    font-size: 60px;
+    font-size: clamp(30px, 5vw, 56px);
+    line-height: 1.08;
     font-weight: 700;
-    @media (max-width: 768px) {
-      padding-top: 10%;
-      font-size: 30px;
-    }
+    text-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
   }
   .bgBlock {
     position: relative;

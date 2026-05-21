@@ -1,8 +1,11 @@
 
 import styles from "./page.module.scss";
 import TheVideoPlayer from "../VideoPlayerComponent/TheVideoPlayer";
+import { getTranslations } from "next-intl/server";
 
-export const TheSlider = () => {
+export const TheSlider = async () => {
+  const t = await getTranslations("HomePage");
+
   return (
     <div className={styles.hero}>
       <div className={styles.bgBlock}>
@@ -15,10 +18,9 @@ export const TheSlider = () => {
         <TheVideoPlayer />
       </div>
       <div className="container">
-        {/* <div className={styles.info}>
-          <h1 className={styles.title}>Yuqori sifatli</h1>
-          <p className={styles.descr}>energiya mahsulotlari</p>
-        </div> */}
+        <div className={styles.info}>
+          <h1 className={styles.title}>{t("heroTitle")}</h1>
+        </div>
       </div>
     </div>
   );

@@ -83,7 +83,7 @@ export const TheForm = () => {
   return (
     <>
       <form onSubmit={handleSubmit} className={styles.form}>
-        <h1 className="title">{t("title")}</h1>
+        <h2 className="title">{t("title")}</h2>
         <input
           className={styles.input}
           type="text"
