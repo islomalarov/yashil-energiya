@@ -3,7 +3,7 @@ import { NewResponse } from "services/news.service.types";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { Button, CardActions } from "@mui/material";
+import { CardActions } from "@mui/material";
 import { TheClampedText } from "../ClampedText/TheClampedText";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
@@ -91,14 +91,9 @@ export const TheNewsList = ({ news, linkLabel }: NewsProps) => {
               py: 1.25,
             }}
           >
-            <Button
-              size="medium"
-              sx={{ color: "#12903e" }}
-              component={Link}
-              href={`/news/${slug}`}
-            >
+            <Link className={s.actionLink} href={`/news/${slug}`}>
               {linkLabel}
-            </Button>
+            </Link>
           </CardActions>
         </Card>
       ))}

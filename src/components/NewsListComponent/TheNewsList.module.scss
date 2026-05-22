@@ -1,4 +1,5 @@
  
+@use "sass:color";
 @use "@/scss/vars" as *;
 
 
@@ -36,4 +37,24 @@
   font-size: clamp(13px, 1.5vw, 15px);
   line-height: 1.5;
   text-align: left;
+}
+
+.actionLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  color: $primaryColor;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    color: color.adjust($primaryColor, $lightness: -7%);
+    transform: translateX(2px);
+  }
 }
