@@ -2,7 +2,7 @@
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import { TheForm } from "@/components/FormComponent/TheForm";
 import s from "./page.module.scss";
-import { useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 const departments = [
   {
@@ -22,8 +22,13 @@ const departments = [
   },
 ];
 
-export default function Contacts() {
-  const t = useTranslations("ContactsPage");
+const mapSrc =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d374.5128363669132!2d69.2921773123979!3d41.32838029135691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef4ca6a3270d1%3A0xd5e89052d31aac5a!2z0JzQtdC20LTRg9C90LDRgNC-0LTQvdGL0Lkg0LjQvdGB0YLQuNGC0YPRgiDRgdC-0LvQvdC10YfQvdC-0Lkg0Y3QvdC10YDQs9C40Lg!5e0!3m2!1s{locale}!2s!4v1740981067424!5m2!1s{locale}!2s";
+
+export default async function Contacts() {
+  const locale = await getLocale();
+  const t = await getTranslations("ContactsPage");
+  const mapLocale = locale === "uz" ? "uz" : locale;
 
   return (
     <>
@@ -49,10 +54,10 @@ export default function Contacts() {
             <div className={s.frameBlock}>
               <iframe
                 className={s.frame}
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d374.5128363669132!2d69.2921773123979!3d41.32838029135691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef4ca6a3270d1%3A0xd5e89052d31aac5a!2z0JzQtdC20LTRg9C90LDRgNC-0LTQvdGL0Lkg0LjQvdGB0YLQuNGC0YPRgiDRgdC-0LvQvdC10YfQvdC-0Lkg0Y3QvdC10YDQs9C40Lg!5e0!3m2!1sru!2s!4v1740981067424!5m2!1sru!2s"
+                src={mapSrc.replaceAll("{locale}", mapLocale)}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Yashil Energiya office location"
+                title={t("mapFrameTitle")}
               />
             </div>
           </div>
