@@ -17,9 +17,11 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   background: $whiteColor;
   z-index: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   opacity: 0;
   transform: translateX(-100%);
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -31,34 +33,53 @@
 
   .burgerMenuHeader {
     background-color: #f4f4f4;
-    padding: 20px 15px;
+    padding: clamp(14px, 4vw, 20px) clamp(12px, 4vw, 18px);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
 
     .burgerLogo {
+      width: clamp(132px, 48vw, 180px);
       max-width: 180px;
-      height: 75px;
+      height: auto;
     }
 
     .actions {
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 8px;
+      flex: 0 0 auto;
 
       .closeBtn {
         display: flex;
         align-items: center;
         cursor: pointer;
         transition: transform 0.3s ease;
+        flex: 0 0 auto;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .burgerLogo {
+        width: 128px;
+      }
+
+      .actions {
+        gap: 4px;
       }
     }
   }
 
+  .searchBlock {
+    padding: 12px clamp(18px, 7vw, 40px) 14px;
+    border-bottom: 1px solid #eaeaea;
+  }
+
   .burgerLink {
-    padding: 10px 0 0 40px;
+    padding: 10px clamp(18px, 7vw, 40px) 0;
     color: $blackColor;
-    font-size: 20px;
+    font-size: clamp(16px, 5vw, 20px);
     font-weight: 400;
     text-transform: uppercase;
     border-bottom: 1px solid #eaeaea;
@@ -85,16 +106,23 @@
 
     .description {
       color: $blackColor;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      max-width: 100%;
+      overflow-wrap: anywhere;
     }
 
     .active {
-      margin-left: 20px;
+      margin-left: 0;
       color: $primaryColor;
       font-weight: 700;
     }
     .subMenu {
       display: grid;
-      gap: 20px;
+      gap: 12px;
+      padding: 4px 0 14px 18px;
+      font-size: 0.9em;
     }
   }
 }

@@ -85,7 +85,7 @@
 
   .captchaWrapper {
     max-width: min(100%, 320px);
-    transform: scale(min(0.88, calc((100vw - 32px) / 320)));
+    transform: scale(min(0.88, calc((100vw - 42px) / 320)));
     transform-origin: left center;
   }
 
@@ -93,5 +93,15 @@
   .disabledBtn {
     width: 100%;
     justify-self: stretch;
+  }
+}
+
+@media (max-width: 360px) {
+  .form {
+    gap: 16px;
+  }
+
+  .captchaWrapper {
+    transform: scale(min(0.78, calc((100vw - 36px) / 320)));
   }
 }

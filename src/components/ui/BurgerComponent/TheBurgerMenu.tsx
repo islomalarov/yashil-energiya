@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { BurgerMenuItem } from "./TheBurgerMenuItem";
 import { CircleX } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { TheSearch } from "../SearchComponent/TheSearch";
 
 export type BurgerMenuProps = {
   handleBurgerBtn: () => void;
@@ -46,6 +47,9 @@ export const TheBurgerMenu = ({ handleBurgerBtn }: BurgerMenuProps) => {
             <CircleX size={31} color="green" />
           </button>
         </div>
+      </div>
+      <div className={s.searchBlock}>
+        <TheSearch variant="burger" />
       </div>
       {menuLinks.map(({ id, url, title, subMenu }) => (
         <BurgerMenuItem

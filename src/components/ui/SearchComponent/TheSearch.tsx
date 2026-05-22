@@ -6,8 +6,13 @@ import SearchIcon from "public/search.svg";
 import { FormEvent, useState } from "react";
 import { useRouter } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
+import cn from "classnames";
 
-export const TheSearch = () => {
+type TheSearchProps = {
+  variant?: "header" | "burger";
+};
+
+export const TheSearch = ({ variant = "header" }: TheSearchProps) => {
   const [query, setQuery] = useState("");
   const router = useRouter();
   const t = useTranslations("SearchPage");
@@ -22,7 +27,13 @@ export const TheSearch = () => {
   };
 
   return (
-    <form className={styles.search} role="search" onSubmit={handleSubmit}>
+    <form
+      className={cn(styles.search, {
+        [styles.burgerSearch]: variant === "burger",
+      })}
+      role="search"
+      onSubmit={handleSubmit}
+    >
       <label className={styles.label}>
         <span className={styles.visuallyHidden}>{t("label")}</span>
         <input

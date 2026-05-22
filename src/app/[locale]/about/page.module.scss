@@ -1,22 +1,26 @@
- 
 @use "@/scss/vars" as *;
-
 
 .content {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  row-gap: 40px;
+  grid-template-columns: 1fr;
+  row-gap: clamp(28px, 5vw, 40px);
 
   p {
     text-align: justify;
-    font-size: 18px;
+    font-size: clamp(15px, 2.2vw, 18px);
+    overflow-wrap: anywhere;
+
+    @media (max-width: $sm) {
+      text-align: left;
+    }
   }
 
   .title {
     text-align: center;
-    font-size: $titleSize;
+    font-size: clamp(28px, 5vw, $titleSize);
     color: $primaryColor;
-    padding: 20px 0 30px 0;
+    padding: 20px 0 30px;
+    overflow-wrap: anywhere;
   }
 
   .projectsBlock {
@@ -29,13 +33,17 @@
         align-items: center;
         gap: 20px;
         padding: 10px 0;
+
         @media (max-width: $md) {
           flex-direction: column;
+          text-align: center;
         }
+
         .projectAva {
           object-fit: cover;
           width: 80px;
           height: 80px;
+          flex: 0 0 auto;
         }
       }
     }
@@ -44,55 +52,43 @@
   .achievements {
     display: grid;
     align-items: start;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+
     @media (max-width: $md) {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
     @media (max-width: $sm) {
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: 1fr;
     }
+
     .achievement {
       padding: 10px;
       display: grid;
       align-items: center;
       justify-items: center;
       gap: 10px;
+      min-width: 0;
 
       .achievementDescription {
         text-align: center;
+        overflow-wrap: anywhere;
       }
     }
   }
+
   .partners {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
     align-items: center;
     justify-items: center;
-    gap: 10px;
-
-    @media (max-width: $md) {
-      grid-template-columns: repeat(3, 1fr);
-      :nth-child(1) {
-        grid-column: 1 / 2;
-      }
-      :nth-child(2) {
-        grid-column: 3 / 4;
-      }
-      :nth-child(3) {
-        grid-column: 2 / 3;
-      }
-      :nth-child(4) {
-        grid-column: 1 / 2;
-      }
-      :nth-child(5) {
-        grid-column: 3 / 4;
-      }
-    }
+    gap: clamp(14px, 3vw, 24px);
 
     img {
-      max-width: 100%; /* Максимальная ширина изображения равна ширине контейнера */
-      height: auto; /* Сохраняем пропорции изображения */
-      width: 250px; /* Базовая ширина для больших экранов */
+      max-width: 100%;
+      height: auto;
+      width: min(250px, 100%);
     }
   }
 }

@@ -4,15 +4,18 @@
 
 .languageList {
   display: flex;
-  gap: 5px;
+  gap: 3px;
   border: 2px solid $primaryColor;
   border-radius: 20px;
   padding: 1px;
+  flex: 0 0 auto;
 }
 
 .language {
   font-size: 12px;
-  padding: 4px;
+  min-width: 25px;
+  min-height: 25px;
+  padding: 3px;
   color: $primaryColor;
   border-radius: 50%;
   cursor: pointer;

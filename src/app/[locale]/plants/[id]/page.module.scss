@@ -4,7 +4,7 @@
 
 .content {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(min(100%, 320px), 1fr);
   gap: 20px clamp(24px, 4vw, 50px);
   padding: clamp(12px, 3vw, 20px) 0;
 
@@ -26,6 +26,7 @@
 .infoBlock {
   display: grid;
   gap: 10px;
+  min-width: 0;
 
   .addressBlock {
     display: grid;
