@@ -17,11 +17,12 @@ type PropType = {
     height: number;
     width: number;
   }[];
+  title?: string;
   options?: EmblaOptionsType;
 };
 
 const TheCarousel: React.FC<PropType> = (props) => {
-  const { pictures, options } = props;
+  const { pictures, title, options } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay()]);
 
   const {
@@ -40,7 +41,11 @@ const TheCarousel: React.FC<PropType> = (props) => {
               <Image
                 className={s.embla__slide__img}
                 src={picture.url}
-                alt="Your alt text"
+                alt={
+                  title
+                    ? `${title} - photo ${index + 1}`
+                    : picture.fileName || `PVPP photo ${index + 1}`
+                }
                 width={picture.width || 1280}
                 height={picture.height || 720}
               />

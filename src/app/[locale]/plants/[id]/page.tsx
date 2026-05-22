@@ -80,7 +80,7 @@ export default async function Plant({ params }: Props) {
       <div className="container">
         <h2 className={s.title}>{title}</h2>
         <div className={s.content}>
-          <TheCarousel pictures={pictures} options={OPTIONS} />
+          <TheCarousel pictures={pictures} title={title} options={OPTIONS} />
           <div className={s.infoBlock}>
             <div className={s.addressBlock}>
               <b>{t("location")}</b>
