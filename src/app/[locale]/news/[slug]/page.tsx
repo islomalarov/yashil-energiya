@@ -11,6 +11,7 @@ import type { Metadata } from "next";
 import { redirect } from "@/i18n/navigation";
 import { articleJsonLd, breadcrumbJsonLd, createMetadata } from "@/lib/seo";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
+import { TheNewsViewTracker } from "@/components/NewsViewTracker/TheNewsViewTracker";
 
 type Props = {
   params: Promise<{ locale: Locale; slug: string }>;
@@ -56,6 +57,7 @@ export default async function NewsPage({ params }: Props) {
 
   return (
     <>
+      <TheNewsViewTracker id={news.id} slug={news.slug} />
       <TheJsonLd
         data={[
           articleJsonLd({

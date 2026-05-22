@@ -19,6 +19,7 @@ import {
   websiteJsonLd,
 } from "@/lib/seo";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
+import Script from "next/script";
 
 const sofia = Sofia_Sans({
   subsets: ["latin", "cyrillic"],
@@ -71,6 +72,22 @@ export default async function RootLayout({ children, params }: Props) {
 
   return (
     <html lang={locale}>
+      <head>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-Q1YP3BBCL1"
+        />
+
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-Q1YP3BBCL1');
+          `}
+        </Script>
+      </head>
       <body className={sofia.className}>
         <TheJsonLd
           data={{
