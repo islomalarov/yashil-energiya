@@ -2,13 +2,18 @@
 @use "@/scss/vars" as *;
 
 .notFound {
-  min-height: calc(100svh - clamp(88px, 9vw, 118px) - 145px);
+  min-height: calc(100svh - 145px);
   display: grid;
   align-items: center;
-  padding: clamp(32px, 6vw, 72px) 0;
+  padding: clamp(112px, 12vw, 140px) 0 clamp(32px, 6vw, 64px);
   background:
     linear-gradient(180deg, rgba(18, 144, 62, 0.08), rgba(255, 255, 255, 0) 42%),
     $whiteColor;
+
+  :global(.container) {
+    display: grid;
+    place-items: center;
+  }
 }
 
 .content {

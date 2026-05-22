@@ -7,7 +7,7 @@ export default async function NotFound() {
   const t = await getTranslations("NotFoundPage");
 
   return (
-    <section className={s.notFound}>
+    <section className={`${s.notFound} not-found-page`}>
       <div className="container">
         <div className={s.content}>
           <p className={s.code}>404</p>
