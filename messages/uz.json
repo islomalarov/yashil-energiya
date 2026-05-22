@@ -414,9 +414,9 @@
   },
   "LocaleSwitcher": {
     "label": "Tilni o'zgartirish",
-    "uz": "O'z",
-    "ru": "Ru",
-    "en": "En"
+    "uz": "UZ",
+    "ru": "RU",
+    "en": "EN"
   },
   "PlantDetail": {
     "heroTitle": "QFESlar ro'yhati",

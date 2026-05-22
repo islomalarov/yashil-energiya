@@ -415,9 +415,9 @@
   },
   "LocaleSwitcher": {
     "label": "Change Language",
-    "uz": "Uz",
-    "ru": "Ru",
-    "en": "En"
+    "uz": "UZ",
+    "ru": "RU",
+    "en": "EN"
   },
   "PlantDetail": {
     "heroTitle": "List of PVPP",

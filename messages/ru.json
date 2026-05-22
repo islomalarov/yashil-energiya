@@ -415,9 +415,9 @@
   },
   "LocaleSwitcher": {
     "label": "Change language",
-    "uz": "Уз",
-    "ru": "Ру",
-    "en": "Анг"
+    "uz": "UZ",
+    "ru": "RU",
+    "en": "EN"
   },
   "PlantDetail": {
     "heroTitle": "Солнечные электростанции",
