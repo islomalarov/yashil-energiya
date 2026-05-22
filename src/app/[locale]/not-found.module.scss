@@ -16,6 +16,16 @@
   text-align: center;
 }
 
+.logoLink {
+  display: inline-flex;
+  margin-bottom: 26px;
+}
+
+.logo {
+  width: clamp(140px, 22vw, 210px);
+  height: auto;
+}
+
 .code {
   margin: 0 0 8px;
   color: $primaryColor;
@@ -40,23 +50,79 @@
   line-height: 1.6;
 }
 
-.link {
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.primaryAction,
+.secondaryAction {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 46px;
   padding: 0 24px;
   border-radius: 999px;
-  background: $primaryColor;
-  color: $whiteColor;
   font-weight: 700;
   text-decoration: none;
+  cursor: pointer;
   transition:
     background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
     transform 0.2s ease;
 
   &:hover {
-    background: color.adjust($primaryColor, $lightness: -5%);
     transform: translateY(-2px);
+  }
+}
+
+.primaryAction {
+  border: 1px solid $primaryColor;
+  background: $primaryColor;
+  color: $whiteColor;
+
+  &:hover {
+    background: color.adjust($primaryColor, $lightness: -5%);
+  }
+}
+
+.secondaryAction {
+  border: 1px solid rgba(18, 144, 62, 0.45);
+  background: $whiteColor;
+  color: $primaryColor;
+
+  &:hover {
+    border-color: $primaryColor;
+  }
+}
+
+.quickLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 38px;
+    border-radius: 999px;
+    padding: 0 16px;
+    background: rgba(18, 144, 62, 0.09);
+    color: $primaryColor;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+
+    &:hover {
+      background: rgba(18, 144, 62, 0.16);
+      color: color.adjust($primaryColor, $lightness: -5%);
+    }
   }
 }

@@ -69,7 +69,7 @@
           "description": "2025-yil 29-sentabrda kompaniya yangi mulkchilik shakliga o'tdi va \"JV Yashil Energiya\" MChJ qo'shma korxonasi sifatida qayta tashkil etildi."
         },
         {
-          "description": "2025-yil oxiriga kelib Yashil Energiya faol obyektlarining o'rnatilgan quvvati 130 MVt ga yetdi."
+          "description": "2025-yil oxiriga kelib Yashil Energiya faol obyektlarining o'rnatilgan quvvati 130 000 kVt ga yetdi."
         }
       ]
     },
@@ -96,7 +96,7 @@
       "src": "codicon:tools"
     },
     "achievement2": {
-      "description": "Hozirda 130 MVt quvvatli quyosh fotoelektr stansiyalari ishlab turibdi",
+      "description": "Hozirda 130 000 kVt quvvatli quyosh fotoelektr stansiyalari ishlab turibdi",
       "src": "ph:solar-panel"
     },
     "achievement3": {
@@ -295,7 +295,7 @@
     "title": "Kontaktlar",
     "phone": "Telefon raqami",
     "address": "Manzil",
-    "address1": "Toshkent shahri, Yunusobod tumani, Chingiz Aytmatov ko'chasi, 2B-uy",
+    "address1": "Toshkent shahri, Yunusobod tumani, Bodomzor ko'chasi, 2B-uy",
     "landmark": "Mo'ljal",
     "landmark1": "UZGIDROMET",
     "email": "Elektron pochta",
@@ -476,7 +476,12 @@
   "NotFoundPage": {
     "title": "Sahifa topilmadi",
     "description": "Sahifa ko'chirilgan yoki manzil noto'g'ri kiritilgan bo'lishi mumkin. Bosh sahifaga qaytib, davom eting.",
-    "home": "Bosh sahifaga o'tish"
+    "home": "Bosh sahifaga o'tish",
+    "back": "Orqaga",
+    "quickLinksLabel": "Asosiy bo'limlar",
+    "projects": "Loyihalar",
+    "contacts": "Kontaktlar",
+    "homeShort": "Bosh sahifa"
   },
   "SearchPage": {
     "title": "Sayt bo'yicha qidiruv",

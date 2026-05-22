@@ -69,7 +69,7 @@
           "description": "2025-09-29 the company transitioned to a new ownership structure and was reorganized as the joint venture \"JV Yashil Energiya LLC\"."
         },
         {
-          "description": "By the end of 2025, the installed capacity of Yashil Energiya's operating assets reached 130 MW."
+          "description": "By the end of 2025, the installed capacity of Yashil Energiya's operating assets reached 130,000 kW."
         }
       ]
     },
@@ -96,7 +96,7 @@
       "src": "codicon:tools"
     },
     "achievement2": {
-      "description": "130 MW photovoltaic power plants are currently in operation",
+      "description": "130,000 kW photovoltaic power plants are currently in operation",
       "src": "ph:solar-panel"
     },
     "achievement3": {
@@ -295,7 +295,7 @@
     "title": "Contacts",
     "phone": "Phone number",
     "address": "Address",
-    "address1": "Chingiz Aitmatov str. 2B, Yunusabad district, Tashkent",
+    "address1": "Bodomzor str. 2B, Yunusabad district, Tashkent",
     "landmark": "Reference point",
     "landmark1": "UZGIDROMET",
     "email": "E-mail",
@@ -477,7 +477,12 @@
   "NotFoundPage": {
     "title": "Page not found",
     "description": "The page may have moved or the address may be incorrect. Return to the home page and continue from there.",
-    "home": "Go to home page"
+    "home": "Go to home page",
+    "back": "Go back",
+    "quickLinksLabel": "Key sections",
+    "projects": "Projects",
+    "contacts": "Contacts",
+    "homeShort": "Home"
   },
   "SearchPage": {
     "title": "Site search",

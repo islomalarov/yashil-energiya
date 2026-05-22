@@ -236,7 +236,7 @@ export default function TenderPage() {
                     Director of JV "Yashil Energiya"LLC
                   </p>
                   <p className="description">
-                    2B, Chingiz aytmatov str., Yunusabad district, Tashkent
+                    2B, Bodomzor str., Yunusabad district, Tashkent
                     city, Uzbekistan
                   </p>
                   <p className="description">

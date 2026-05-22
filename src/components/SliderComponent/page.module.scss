@@ -2,21 +2,7 @@
 
 .hero {
   position: relative;
-  .info {
-    position: absolute;
-    left: clamp(14px, 4vw, 24px);
-    right: clamp(14px, 4vw, 24px);
-    bottom: clamp(28px, 7vw, 72px);
-    z-index: 2;
-    max-width: min(760px, calc(100% - 28px));
-  }
-  .title {
-    color: #fff;
-    font-size: clamp(30px, 5vw, 56px);
-    line-height: 1.08;
-    font-weight: 700;
-    text-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
-  }
+
   .bgBlock {
     position: relative;
     // max-width: 1350px;
@@ -24,50 +10,69 @@
     // padding: 0 15px;
     // height: 400px;
   }
-  .descr {
-    color: #fff;
-    max-width: 640px;
-    padding-top: 18px;
-    font-size: clamp(16px, 2vw, 20px);
-    line-height: 1.45;
-    font-weight: 400;
-    text-shadow: 0 6px 22px rgba(0, 0, 0, 0.5);
-  }
+}
 
-  .actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    padding-top: 24px;
-  }
+.intro {
+  padding: clamp(32px, 6vw, 72px) 0;
+  background: linear-gradient(180deg, #fff 0%, rgba(18, 144, 62, 0.06) 100%);
+}
 
-  .primaryLink,
-  .secondaryLink {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 44px;
-    border-radius: 10px;
-    padding: 0 22px;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 700;
-    transition:
-      background-color 0.2s ease,
-      border-color 0.2s ease,
-      transform 0.2s ease;
+.info {
+  max-width: 900px;
+}
 
-    &:hover {
-      transform: translateY(-2px);
-    }
-  }
+.title {
+  color: $blackColor;
+  font-size: clamp(30px, 5vw, 56px);
+  line-height: 1.08;
+  font-weight: 700;
+}
 
-  .primaryLink {
-    background: $primaryColor;
-  }
+.descr {
+  color: rgba(43, 43, 43, 0.78);
+  max-width: 720px;
+  padding-top: 18px;
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.45;
+  font-weight: 400;
+}
 
-  .secondaryLink {
-    border: 1px solid rgba(255, 255, 255, 0.85);
-    background: rgba(0, 0, 0, 0.24);
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 24px;
+}
+
+.primaryLink,
+.secondaryLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border-radius: 10px;
+  padding: 0 22px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
   }
+}
+
+.primaryLink {
+  background: $primaryColor;
+  color: #fff;
+}
+
+.secondaryLink {
+  border: 1px solid rgba(18, 144, 62, 0.5);
+  background: #fff;
+  color: $primaryColor;
 }

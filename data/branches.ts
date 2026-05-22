@@ -83,14 +83,14 @@ export const branches = [
     region: "region12",
     name: "Zakirov Bahodir",
     phone: "+998 95 324-22-52",
-    address: "Toshkent shahri, Yunusobod tumani, Chingiz Aytmatov ko'chasi, 2B-uy",
+    address: "Toshkent shahri, Yunusobod tumani, Bodomzor ko'chasi, 2B-uy",
     mail: "toshkentvil.servis@yashil-energiya.uz",
   },
   {
     region: "region13",
     name: "Muhamadjonov Fozilxon",
     phone: "+998 95 324-22-72",
-    address: "Toshkent shahri, Yunusobod tumani, Chingiz Aytmatov ko'chasi, 2B-uy",
+    address: "Toshkent shahri, Yunusobod tumani, Bodomzor ko'chasi, 2B-uy",
     mail: "info@yashil-energiya.uz",
   },
   {

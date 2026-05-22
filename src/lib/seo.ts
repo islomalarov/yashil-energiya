@@ -468,7 +468,7 @@ export function organizationJsonLd(locale: string) {
     telephone: "+998555148844",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Chingiz Aitmatov str. 2B, Yunusabad district",
+      streetAddress: "Bodomzor str. 2B, Yunusabad district",
       addressLocality: "Tashkent",
       addressCountry: "UZ",
     },
@@ -690,7 +690,7 @@ export function contactPageJsonLd(locale: string) {
       email: "info@yashil-energiya.uz",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Chingiz Aitmatov str. 2B, Yunusabad district",
+        streetAddress: "Bodomzor str. 2B, Yunusabad district",
         addressLocality: "Tashkent",
         addressCountry: "UZ",
       },
