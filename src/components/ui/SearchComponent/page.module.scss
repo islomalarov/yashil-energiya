@@ -1,5 +1,63 @@
 @use "@/scss/vars" as *;
 
+.search {
+  display: flex;
+  align-items: center;
+  width: clamp(132px, 16vw, 220px);
+  min-height: 36px;
+  border: 1px solid rgba(18, 144, 62, 0.4);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  overflow: hidden;
+}
+
+.label {
+  flex: 1;
+  min-width: 0;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  padding: 0 4px 0 14px;
+  color: $blackColor;
+  font-size: 13px;
+  line-height: 36px;
+  outline: 0;
+
+  &::placeholder {
+    color: rgba(43, 43, 43, 0.64);
+  }
+}
+
 .searchBtn {
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 36px;
+  border: 0;
+  background: transparent;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 1180px) {
+  .search {
+    display: none;
+  }
 }

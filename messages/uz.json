@@ -458,6 +458,67 @@
     "description": "Sahifa ko'chirilgan yoki manzil noto'g'ri kiritilgan bo'lishi mumkin. Bosh sahifaga qaytib, davom eting.",
     "home": "Bosh sahifaga o'tish"
   },
+  "SearchPage": {
+    "title": "Sayt bo'yicha qidiruv",
+    "label": "Sayt bo'yicha qidirish",
+    "placeholder": "Qidirish",
+    "submit": "Qidirish",
+    "results": "“{query}” bo'yicha {count} ta natija",
+    "empty": "“{query}” bo'yicha natija topilmadi",
+    "types": {
+      "page": "Sahifa"
+    },
+    "pages": {
+      "about": {
+        "title": "Biz haqimizda",
+        "description": "Kompaniya profili, missiyasi, faoliyati, rivojlanish bosqichlari va hamkorlari."
+      },
+      "ceo": {
+        "title": "Rahbariyat",
+        "description": "Yashil Energiya rahbariyati va boshqaruv jamoasi."
+      },
+      "news": {
+        "title": "Yangiliklar",
+        "description": "Yashil Energiya kompaniyasining so'nggi yangiliklari va e'lonlari."
+      },
+      "articles": {
+        "title": "Maqolalar",
+        "description": "Qayta tiklanuvchi energiya va yashil texnologiyalar haqidagi maqolalar."
+      },
+      "procurements": {
+        "title": "Xaridlar",
+        "description": "Tender va xarid e'lonlari."
+      },
+      "solarpanels": {
+        "title": "Quyosh panellari",
+        "description": "Quyosh fotoelektr stansiyalari bo'yicha yechimlar."
+      },
+      "microges": {
+        "title": "Mikro GES",
+        "description": "Mikro gidroelektr stansiyalari loyihalari va xizmatlari."
+      },
+      "chargingstation": {
+        "title": "Zaryadlash stansiyalari",
+        "description": "Elektromobillarni zaryadlash infratuzilmasi."
+      },
+      "plants": {
+        "title": "QFESlar ro'yxati",
+        "description": "Fotoelektr stansiyalari, quvvati va joylashuvi."
+      },
+      "documents": {
+        "title": "Hujjatlar",
+        "description": "Rasmiy hujjatlar va huquqiy ma'lumotlar."
+      },
+      "contacts": {
+        "title": "Kontaktlar",
+        "description": "Manzil, telefon raqami va bo'limlar kontaktlari."
+      },
+      "vacancies": {
+        "title": "Bo'sh ish o'rinlari",
+        "description": "Ochiq vakansiyalar va ularning tafsilotlari."
+      }
+    }
+  },
   "TheChartList": {
     "year": "Yil"
   }

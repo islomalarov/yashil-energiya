@@ -14,6 +14,7 @@ import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
 import { Link } from "@/i18n/navigation";
 import { motion, useScroll } from "motion/react";
 import { useSkipLocaleMotion } from "@/lib/locale-transition";
+import { TheSearch } from "../ui/SearchComponent/TheSearch";
 
 export const TheHeader = () => {
   const [showBurgerBtn, setShowBurgerBtn] = useState(false);
@@ -91,7 +92,7 @@ export const TheHeader = () => {
             ))}
           </div>
           <div className={s.actions}>
-            {/* <TheSearch /> */}
+            <TheSearch />
             <div className={s.languages}>
               <TheLanguageSwitcher />
             </div>

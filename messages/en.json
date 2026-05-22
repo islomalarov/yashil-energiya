@@ -459,6 +459,67 @@
     "description": "The page may have moved or the address may be incorrect. Return to the home page and continue from there.",
     "home": "Go to home page"
   },
+  "SearchPage": {
+    "title": "Site search",
+    "label": "Search the site",
+    "placeholder": "Search",
+    "submit": "Search",
+    "results": "{count} results for “{query}”",
+    "empty": "No results found for “{query}”",
+    "types": {
+      "page": "Page"
+    },
+    "pages": {
+      "about": {
+        "title": "About us",
+        "description": "Company profile, mission, activities, milestones and partners."
+      },
+      "ceo": {
+        "title": "Leadership",
+        "description": "Yashil Energiya leadership and management team."
+      },
+      "news": {
+        "title": "News",
+        "description": "Latest news and announcements from Yashil Energiya."
+      },
+      "articles": {
+        "title": "Articles",
+        "description": "Articles about renewable energy and green technologies."
+      },
+      "procurements": {
+        "title": "Procurements",
+        "description": "Tender and procurement announcements."
+      },
+      "solarpanels": {
+        "title": "Solar panels",
+        "description": "Solar photovoltaic power plant solutions."
+      },
+      "microges": {
+        "title": "Micro hydro power plants",
+        "description": "Micro hydro power projects and services."
+      },
+      "chargingstation": {
+        "title": "EV charging stations",
+        "description": "Electric vehicle charging infrastructure."
+      },
+      "plants": {
+        "title": "List of PVPP",
+        "description": "Photovoltaic power plants, capacity and locations."
+      },
+      "documents": {
+        "title": "Documents",
+        "description": "Official documents and legal references."
+      },
+      "contacts": {
+        "title": "Contacts",
+        "description": "Address, phone number and department contacts."
+      },
+      "vacancies": {
+        "title": "Vacancies",
+        "description": "Open positions and job details."
+      }
+    }
+  },
   "TheChartList": {
     "year": "Year"
     }
