@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "@/scss/vars" as *;
 
 .notFound {
@@ -55,7 +56,7 @@
     transform 0.2s ease;
 
   &:hover {
-    background: darken($primaryColor, 5%);
+    background: color.adjust($primaryColor, $lightness: -5%);
     transform: translateY(-2px);
   }
 }
