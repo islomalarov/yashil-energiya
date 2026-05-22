@@ -49,7 +49,7 @@ export const TheBurgerMenu = ({ handleBurgerBtn }: BurgerMenuProps) => {
         </div>
       </div>
       <div className={s.searchBlock}>
-        <TheSearch variant="burger" />
+        <TheSearch variant="burger" onSearchComplete={handleClose} />
       </div>
       {menuLinks.map(({ id, url, title, subMenu }) => (
         <BurgerMenuItem

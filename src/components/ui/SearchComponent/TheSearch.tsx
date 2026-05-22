@@ -3,19 +3,29 @@
 import Image from "next/image";
 import styles from "./page.module.scss";
 import SearchIcon from "public/search.svg";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import cn from "classnames";
 
 type TheSearchProps = {
   variant?: "header" | "burger";
+  initialQuery?: string;
+  onSearchComplete?: () => void;
 };
 
-export const TheSearch = ({ variant = "header" }: TheSearchProps) => {
-  const [query, setQuery] = useState("");
+export const TheSearch = ({
+  variant = "header",
+  initialQuery = "",
+  onSearchComplete,
+}: TheSearchProps) => {
+  const [query, setQuery] = useState(initialQuery);
   const router = useRouter();
   const t = useTranslations("SearchPage");
+
+  useEffect(() => {
+    setQuery(initialQuery);
+  }, [initialQuery]);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -23,6 +33,7 @@ export const TheSearch = ({ variant = "header" }: TheSearchProps) => {
 
     if (value) {
       router.push(`/search?q=${encodeURIComponent(value)}`);
+      onSearchComplete?.();
     }
   };
 

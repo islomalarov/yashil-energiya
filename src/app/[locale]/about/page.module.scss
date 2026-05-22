@@ -71,6 +71,13 @@
       gap: 10px;
       min-width: 0;
 
+      .achievementIcon {
+        width: clamp(64px, 10vw, 100px);
+        height: clamp(64px, 10vw, 100px);
+        color: $primaryColor;
+        flex: 0 0 auto;
+      }
+
       .achievementDescription {
         text-align: center;
         overflow-wrap: anywhere;

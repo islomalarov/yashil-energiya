@@ -6,6 +6,7 @@ import TheCarousel from "@/components/CarouselComponent/TheCarousel";
 import { PlantService } from "services/plants.service";
 import { getTranslations } from "next-intl/server";
 import { redirect } from "@/i18n/navigation";
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { breadcrumbJsonLd, createMetadata, powerPlantJsonLd } from "@/lib/seo";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
@@ -43,7 +44,12 @@ export default async function Plant({ params }: Props) {
   }
 
   const t = await getTranslations({ locale, namespace: "PlantDetail" });
-  
+  const plant = await PlantService.getPlantById(id, locale);
+
+  if (!plant) {
+    notFound();
+  }
+
   const {
     title,
     address,
@@ -54,7 +60,7 @@ export default async function Plant({ params }: Props) {
     gases,
     trees,
     pictures,
-  } = await PlantService.getPlantById(id, locale);
+  } = plant;
 
   const OPTIONS: EmblaOptionsType = { align: "start", loop: true };
 

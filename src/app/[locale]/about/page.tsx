@@ -71,9 +71,9 @@ export default function About() {
               {achievements.map((achievement) => (
                 <div key={achievement} className={s.achievement}>
                   <Icon
+                    className={s.achievementIcon}
                     icon={t(`${achievement}.src`)}
-                    color="#12903e"
-                    fontSize={100}
+                    aria-hidden="true"
                   />
                   <p className={s.achievementDescription}>
                     {t(`${achievement}.description`)}

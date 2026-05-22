@@ -4,6 +4,7 @@ import { ArticlesService } from "services/articles.service";
 import { NewsService } from "services/news.service";
 import { PlantService } from "services/plants.service";
 import s from "./page.module.scss";
+import { SearchPageForm } from "./SearchPageForm";
 
 type SearchPageProps = {
   searchParams?: Promise<{ q?: string }>;
@@ -96,19 +97,12 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
       <div className="container">
         <div className={s.header}>
           <h1 className={s.title}>{t("title")}</h1>
-          <form className={s.form} action={`/${locale}/search`}>
-            <input
-              className={s.input}
-              type="search"
-              name="q"
-              defaultValue={query}
-              placeholder={t("placeholder")}
-              aria-label={t("label")}
-            />
-            <button className={s.button} type="submit">
-              {t("submit")}
-            </button>
-          </form>
+          <SearchPageForm
+            initialQuery={query}
+            placeholder={t("placeholder")}
+            label={t("label")}
+            submit={t("submit")}
+          />
           {query && (
             <p className={s.summary}>
               {results.length > 0
