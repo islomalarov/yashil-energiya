@@ -25,6 +25,7 @@ const staticPages = [
   { key: "solarpanels", href: "/solarpanels" },
   { key: "microges", href: "/microges" },
   { key: "chargingstation", href: "/chargingstation" },
+  { key: "installationRequest", href: "/installation-request" },
   { key: "plants", href: "/plants" },
   { key: "documents", href: "/documents" },
   { key: "contacts", href: "/contacts" },

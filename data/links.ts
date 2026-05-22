@@ -61,6 +61,7 @@ export const menuLinks = [
       { id: 4.1, url: "/solarpanels", title: "solarPanels" },
       { id: 4.2, url: "/microges", title: "microGes" },
       { id: 4.3, url: "/chargingstation", title: "chargingStation" },
+      { id: 4.4, url: "/installation-request", title: "installationRequest" },
     ],
   },
   {

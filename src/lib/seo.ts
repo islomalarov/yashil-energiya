@@ -18,6 +18,7 @@ export type StaticSeoKey =
   | "solarpanels"
   | "microges"
   | "chargingstation"
+  | "installationRequest"
   | "plants"
   | "branches"
   | "documents"
@@ -217,6 +218,23 @@ export const staticSeo: Record<StaticSeoKey, Record<SeoLocale, SeoCopy>> = {
         "Yashil Energiya elektromobil zaryadlash stansiyalari O'zbekistonda ekologik transport infratuzilmasini rivojlantiradi.",
     },
   },
+  installationRequest: {
+    en: {
+      title: "How to Become an Installation Site",
+      description:
+        "Application process, required documents and contacts for organizations that want to host a Yashil Energiya solar power installation.",
+    },
+    ru: {
+      title: "Как стать объектом установки",
+      description:
+        "Порядок подачи заявки, необходимые документы и контакты для организаций, которые хотят разместить солнечную станцию Yashil Energiya.",
+    },
+    uz: {
+      title: "O'rnatish obyektiga qanday aylanish mumkin",
+      description:
+        "Yashil Energiya quyosh stansiyasini joylashtirish uchun ariza tartibi, kerakli hujjatlar va kontaktlar.",
+    },
+  },
   plants: {
     en: {
       title: "PV Power Plant Portfolio",
@@ -316,6 +334,7 @@ export const staticRoutes: Record<StaticSeoKey, string> = {
   solarpanels: "/solarpanels",
   microges: "/microges",
   chargingstation: "/chargingstation",
+  installationRequest: "/installation-request",
   plants: "/plants",
   branches: "/branches",
   documents: "/documents",

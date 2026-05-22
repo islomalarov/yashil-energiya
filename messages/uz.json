@@ -17,7 +17,8 @@
     "projects": "Loyihalar",
     "contacts": "Kontaktlar",
     "documents": "Hujjatlar",
-    "vacancies": "Bo'sh ish o'rinlari"
+    "vacancies": "Bo'sh ish o'rinlari",
+    "installationRequest": "O'rnatish obyektiga aylanish"
   },
   "HomePage": {
     "title": "Bosh sahifa",
@@ -304,6 +305,25 @@
     "department2": "Marketing va xaridlar bo'limi",
     "department3": "Mijozlar bilan ishlash xizmati"
   },
+  "InstallationPage": {
+    "title": "O'rnatish obyektiga qanday aylanish mumkin",
+    "intro": "Yashil Energiya ijtimoiy soha obyektlari, davlat organlari va tashkilotlarga binoda quyosh fotoelektr stansiyasini o'rnatish imkoniyatini baholash va tasdiqlangan tartibda toza elektr energiyasini olishda yordam beradi.",
+    "stepsTitle": "Ariza yuborish tartibi",
+    "step1": "Tashkilot blankasida rasmiy murojaat tayyorlang.",
+    "step2": "Obyekt bo'yicha asosiy ma'lumotlarni ilova qiling: manzil, balans saqlovchi, tom maydoni, joriy elektr iste'moli va mas'ul shaxs kontakti.",
+    "step3": "Ariza va ilovalarni dastlabki texnik ko'rib chiqish uchun Yashil Energiya'ga yuboring.",
+    "step4": "Ko'rib chiqilgandan so'ng tekshiruv sanasini kelishing va tom, elektr xonasi hamda hisoblagichlarga kirishni ta'minlang.",
+    "step5": "Texnik xulosa va loyihani kelishish yoki amalga oshirish bo'yicha keyingi qadamlarni oling.",
+    "docsTitle": "Tavsiya etiladigan ilovalar",
+    "doc1": "Tashkilotning ro'yxatdan o'tganlik ma'lumotlari yoki rasmiy rekvizitlari nusxasi.",
+    "doc2": "Tom, fasad, elektr xonasi va hisoblagich shkafi fotosuratlari.",
+    "doc3": "Mavjud bo'lsa, oxirgi 12 oy uchun elektr iste'moli ma'lumotlari.",
+    "doc4": "Mas'ul texnik vakilning aloqa ma'lumotlari.",
+    "templateTitle": "Ariza namunasi",
+    "templateText": "Obyektimizda quyosh fotoelektr stansiyasini o'rnatish imkoniyatini ko'rib chiqishingizni so'raymiz. Texnik tekshiruv uchun kirishni ta'minlashga va so'rov bo'yicha qo'shimcha ma'lumot berishga tayyormiz.",
+    "contactTitle": "Mas'ul kontakt",
+    "contactText": "Ariza va savollarni info@yashil-energiya.uz manziliga yoki tijorat bo'limiga yuborishingiz mumkin."
+  },
   "CeoPage": {
     "jobTitle": "Lavozimi",
     "email": "Elektron manzil"
@@ -500,6 +520,10 @@
       "chargingstation": {
         "title": "Zaryadlash stansiyalari",
         "description": "Elektromobillarni zaryadlash infratuzilmasi."
+      },
+      "installationRequest": {
+        "title": "O'rnatish obyektiga qanday aylanish mumkin",
+        "description": "Quyosh stansiyasini o'rnatish uchun ariza tartibi, kerakli hujjatlar va kontakt."
       },
       "plants": {
         "title": "QFESlar ro'yxati",

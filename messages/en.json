@@ -17,7 +17,8 @@
     "projects": "Projects",
     "contacts": "Contacts",
     "documents": "Documents",
-    "vacancies": "Vacancies"
+    "vacancies": "Vacancies",
+    "installationRequest": "Become an installation site"
   },
   "HomePage": {
     "title": "Home page",
@@ -304,6 +305,25 @@
     "department2": "Procurement Department",
     "department3": "Commercial Department"
   },
+  "InstallationPage": {
+    "title": "How to become an installation site",
+    "intro": "Yashil Energiya helps social facilities, government agencies and organizations assess whether their buildings can host a solar photovoltaic installation and receive clean electricity under the approved procedure.",
+    "stepsTitle": "Application process",
+    "step1": "Prepare a formal application on the organization's letterhead.",
+    "step2": "Attach basic facility data: address, building owner, roof area, current electricity consumption and responsible contact person.",
+    "step3": "Send the application and attachments to Yashil Energiya for preliminary technical review.",
+    "step4": "After review, agree on the site survey date and provide access to the roof, electrical room and metering points.",
+    "step5": "Receive the technical conclusion and next steps for project approval or implementation.",
+    "docsTitle": "Recommended attachments",
+    "doc1": "Copy of the organization's registration details or official requisites.",
+    "doc2": "Photos of the roof, facade, electrical room and meter cabinet.",
+    "doc3": "Electricity consumption data for the last 12 months, if available.",
+    "doc4": "Contact details of the responsible technical representative.",
+    "templateTitle": "Application template",
+    "templateText": "Please consider the possibility of installing a solar photovoltaic power plant at our facility. We are ready to provide access for a technical survey and submit additional information upon request.",
+    "contactTitle": "Responsible contact",
+    "contactText": "Send applications and questions to info@yashil-energiya.uz or contact the commercial department."
+  },
   "CeoPage": {
     "jobTitle": "Position",
     "email": "E-mail"
@@ -501,6 +521,10 @@
       "chargingstation": {
         "title": "EV charging stations",
         "description": "Electric vehicle charging infrastructure."
+      },
+      "installationRequest": {
+        "title": "How to become an installation site",
+        "description": "Application process, required documents and contact for installing a solar power plant."
       },
       "plants": {
         "title": "List of PVPP",
