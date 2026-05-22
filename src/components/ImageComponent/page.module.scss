@@ -1,3 +1,10 @@
+$gallery-cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='19' fill='%2312903e' fill-opacity='.94' stroke='white' stroke-width='2'/%3E%3Cpath d='M16 24h16M24 16v16' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E")
+  24 24,
+  zoom-in;
+$gallery-cursor-active: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Ccircle cx='22' cy='22' r='17' fill='%230b6f32' fill-opacity='.98' stroke='white' stroke-width='2'/%3E%3Cpath d='M14 22h16M22 14v16' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E")
+  22 22,
+  grabbing;
+
 .imgBlock {
   position: relative;
   display: flex;
@@ -15,21 +22,18 @@
     max-height: 80vh;
     object-fit: contain;
     object-position: center;
-    cursor: zoom-in;
+    cursor: $gallery-cursor;
     transition: transform 0.2s ease;
 
     &:hover {
       transform: scale(1.015);
     }
+
+    &:active {
+      cursor: $gallery-cursor-active;
+    }
   }
 }
-
-$gallery-cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='19' fill='%2312903e' fill-opacity='.94' stroke='white' stroke-width='2'/%3E%3Cpath d='M16 24h16M24 16v16' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E")
-  24 24,
-  zoom-in;
-$gallery-cursor-active: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Ccircle cx='22' cy='22' r='17' fill='%230b6f32' fill-opacity='.98' stroke='white' stroke-width='2'/%3E%3Cpath d='M14 22h16M22 14v16' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E")
-  22 22,
-  grabbing;
 
 :global(.yarl__portal),
 :global(.yarl__portal *) {
@@ -56,5 +60,11 @@ $gallery-cursor-active: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   :global(.yarl__button),
   :global(.yarl__thumbnails_thumbnail) {
     cursor: auto !important;
+  }
+
+  .imgBlock {
+    .clickableImage {
+      cursor: zoom-in;
+    }
   }
 }
