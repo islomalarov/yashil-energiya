@@ -5,7 +5,7 @@ import { TheHero } from "@/components/HeroComponent/TheHero";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { Icon } from "@iconify/react";
+import { Building2, SunMedium, Wrench, Zap, type LucideIcon } from "lucide-react";
 import huawei from "public/partners/huawei.webp";
 import solarMan from "public/partners/solarMan.jpg";
 import foxEss from "public/partners/foxEss.jpg";
@@ -19,11 +19,11 @@ export default function About() {
   const { skipMotion, markViewed } = useLocaleMotionState("about:partners");
   const projects = ["project1", "project2", "project3"] as const;
   const achievements = [
-    "achievement1",
-    "achievement2",
-    "achievement3",
-    "achievement4",
-  ] as const;
+    { key: "achievement1", icon: Wrench },
+    { key: "achievement2", icon: SunMedium },
+    { key: "achievement3", icon: Building2 },
+    { key: "achievement4", icon: Zap },
+  ] satisfies Array<{ key: string; icon: LucideIcon }>;
 
   return (
     <>
@@ -68,15 +68,15 @@ export default function About() {
           <div className={s.achievementsBlock}>
             <h2 className={s.title}>{t("title3")}</h2>
             <div className={s.achievements}>
-              {achievements.map((achievement) => (
-                <div key={achievement} className={s.achievement}>
-                  <Icon
+              {achievements.map(({ key, icon: AchievementIcon }) => (
+                <div key={key} className={s.achievement}>
+                  <AchievementIcon
                     className={s.achievementIcon}
-                    icon={t(`${achievement}.src`)}
                     aria-hidden="true"
+                    strokeWidth={1.8}
                   />
                   <p className={s.achievementDescription}>
-                    {t(`${achievement}.description`)}
+                    {t(`${key}.description`)}
                   </p>
                 </div>
               ))}
