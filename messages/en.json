@@ -278,7 +278,10 @@
     "construction": "Construction"
   },
   "LinksPage": {
-    "title": "Useful links"
+    "title": "Useful links",
+    "legalDatabase": "National Legislation Database of the Republic of Uzbekistan",
+    "energyMinistry": "Ministry of Energy of the Republic of Uzbekistan",
+    "investmentMinistry": "Ministry of Investment, Industry and Trade of the Republic of Uzbekistan"
   },
   "FeedbackPage": {
     "title": "Feedback",

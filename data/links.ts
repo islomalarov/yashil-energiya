@@ -6,27 +6,27 @@ export const links = [
   // },
   {
     img: "/emblems/emblem2.png",
-    body: "O‘ZBEKISTON RESPUBLIKASI QONUNCHILIK MA’LUMOTLARI MILLIY BAZASI",
+    labelKey: "legalDatabase",
     url: "lex.uz",
   },
   {
     img: "/emblems/emblem3.png",
-    body: "O‘ZBEKISTON RESPUBLIKASI ENERGETIKA VAZIRLIGI",
+    labelKey: "energyMinistry",
     url: "minenergy.uz",
   },
   {
     img: "/emblems/emblem4.png",
-    body: "O‘zbekiston Respublikasi Investitsiyalar, sanoat va savdo vazirligi",
+    labelKey: "investmentMinistry",
     url: "gov.uz/oz/miit",
   },
   // {
   //   img: "/emblems/emblem5.png",
-  //   body: "OʼZBEKISTON RESPUBLIKASI OLIY MAJLISI QONUNCHILIK PALATASI",
+  //   body: "O'ZBEKISTON RESPUBLIKASI OLIY MAJLISI QONUNCHILIK PALATASI",
   //   url: "parliament.gov.uz",
   // },
   // {
   //   img: "https://www.soliq.uz/assets/images/logo-flag.svg",
-  //   body: "OʼZBEKISTON RESPUBLIKASI VAZIRLAR MAHKAMASI HUZURIDAGI SOLIQ QO'MITASI",
+  //   body: "O'ZBEKISTON RESPUBLIKASI VAZIRLAR MAHKAMASI HUZURIDAGI SOLIQ QO'MITASI",
   //   url: "www.soliq.uz",
   // },
 ];

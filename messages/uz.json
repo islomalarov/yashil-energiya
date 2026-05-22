@@ -278,7 +278,10 @@
     "construction": "Construction"
   },
   "LinksPage": {
-    "title": "Foydali havolalar"
+    "title": "Foydali havolalar",
+    "legalDatabase": "O'zbekiston Respublikasi qonunchilik ma'lumotlari milliy bazasi",
+    "energyMinistry": "O'zbekiston Respublikasi Energetika vazirligi",
+    "investmentMinistry": "O'zbekiston Respublikasi Investitsiyalar, sanoat va savdo vazirligi"
   },
   "FeedbackPage": {
     "title": "FIKR-MULOHAZA",
