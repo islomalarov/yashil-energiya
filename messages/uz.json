@@ -449,6 +449,11 @@
     "lastArticlesTitle": "So'nggi maqolalar",
     "link": "Batafsil o'qish"
   },
+  "NotFoundPage": {
+    "title": "Sahifa topilmadi",
+    "description": "Sahifa ko'chirilgan yoki manzil noto'g'ri kiritilgan bo'lishi mumkin. Bosh sahifaga qaytib, davom eting.",
+    "home": "Bosh sahifaga o'tish"
+  },
   "TheChartList": {
     "year": "Yil"
   }

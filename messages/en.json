@@ -450,6 +450,11 @@
     "lastArticlesTitle": "Latest articles",
     "link": "Read more"
   },
+  "NotFoundPage": {
+    "title": "Page not found",
+    "description": "The page may have moved or the address may be incorrect. Return to the home page and continue from there.",
+    "home": "Go to home page"
+  },
   "TheChartList": {
     "year": "Year"
     }

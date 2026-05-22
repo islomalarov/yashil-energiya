@@ -1,0 +1,61 @@
+@use "@/scss/vars" as *;
+
+.notFound {
+  min-height: min(720px, calc(100vh - 140px));
+  display: grid;
+  place-items: center;
+  padding: clamp(56px, 10vw, 120px) 0;
+  background:
+    linear-gradient(180deg, rgba(18, 144, 62, 0.08), rgba(255, 255, 255, 0) 42%),
+    $whiteColor;
+}
+
+.content {
+  width: min(720px, 100%);
+  text-align: center;
+}
+
+.code {
+  margin: 0 0 8px;
+  color: $primaryColor;
+  font-size: clamp(64px, 14vw, 132px);
+  line-height: 0.9;
+  font-weight: 700;
+}
+
+.title {
+  margin: 0 0 16px;
+  color: $blackColor;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.description {
+  margin: 0 auto 28px;
+  max-width: 560px;
+  color: rgba(43, 43, 43, 0.78);
+  font-size: clamp(16px, 2vw, 19px);
+  line-height: 1.6;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 24px;
+  border-radius: 999px;
+  background: $primaryColor;
+  color: $whiteColor;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    background: darken($primaryColor, 5%);
+    transform: translateY(-2px);
+  }
+}
