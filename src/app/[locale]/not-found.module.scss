@@ -2,10 +2,10 @@
 @use "@/scss/vars" as *;
 
 .notFound {
-  min-height: min(720px, calc(100vh - 140px));
+  min-height: calc(100svh - clamp(88px, 9vw, 118px) - 145px);
   display: grid;
-  place-items: center;
-  padding: clamp(56px, 10vw, 120px) 0;
+  align-items: center;
+  padding: clamp(32px, 6vw, 72px) 0;
   background:
     linear-gradient(180deg, rgba(18, 144, 62, 0.08), rgba(255, 255, 255, 0) 42%),
     $whiteColor;
@@ -16,18 +16,8 @@
   text-align: center;
 }
 
-.logoLink {
-  display: inline-flex;
-  margin-bottom: 26px;
-}
-
-.logo {
-  width: clamp(140px, 22vw, 210px);
-  height: auto;
-}
-
 .code {
-  margin: 0 0 8px;
+  margin: 0 0 12px;
   color: $primaryColor;
   font-size: clamp(64px, 14vw, 132px);
   line-height: 0.9;
