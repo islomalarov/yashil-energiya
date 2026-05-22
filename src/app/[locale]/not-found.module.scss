@@ -2,10 +2,10 @@
 @use "@/scss/vars" as *;
 
 .notFound {
-  min-height: calc(100svh - 145px);
+  min-height: calc(100svh - 168px);
   display: grid;
   align-items: center;
-  padding: clamp(112px, 12vw, 140px) 0 clamp(32px, 6vw, 64px);
+  padding: 96px 0 24px;
   background:
     linear-gradient(180deg, rgba(18, 144, 62, 0.08), rgba(255, 255, 255, 0) 42%),
     $whiteColor;
@@ -13,6 +13,15 @@
   :global(.container) {
     display: grid;
     place-items: center;
+  }
+
+  @media (max-width: $lg) {
+    min-height: calc(100svh - 168px);
+    padding: clamp(104px, 14vw, 128px) 0 clamp(32px, 6vw, 56px);
+  }
+
+  @media (max-width: $sm) {
+    min-height: auto;
   }
 }
 
