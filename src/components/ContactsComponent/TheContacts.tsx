@@ -6,7 +6,7 @@ export const TheContacts = () => {
   const t = useTranslations("ContactsPage");
   return (
     <div>
-      <h1 className="title">{t("title")}</h1>
+      <h2 className="title">{t("title")}</h2>
       <div className={styles.info}>
         <div className={styles.block}>
           <h2>{t("phone")}</h2>

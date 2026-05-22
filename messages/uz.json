@@ -302,8 +302,8 @@
     "title1": "Bizning manzil",
     "mapFrameTitle": "Yashil Energiya ofisining Toshkentdagi joylashuvi",
     "department1": "Moliyaviy rivojlanish bo'limi",
-    "department2": "Marketing va xaridlar bo'limi",
-    "department3": "Mijozlar bilan ishlash xizmati"
+    "department2": "Xaridlar bo'limi",
+    "department3": "Mijozlar bo'limi"
   },
   "InstallationPage": {
     "title": "O'rnatish obyektiga qanday aylanish mumkin",
@@ -312,8 +312,7 @@
     "step1": "Tashkilot blankasida rasmiy murojaat tayyorlang.",
     "step2": "Obyekt bo'yicha asosiy ma'lumotlarni ilova qiling: manzil, balans saqlovchi, tom maydoni, joriy elektr iste'moli va mas'ul shaxs kontakti.",
     "step3": "Ariza va ilovalarni dastlabki texnik ko'rib chiqish uchun Yashil Energiya'ga yuboring.",
-    "step4": "Ko'rib chiqilgandan so'ng tekshiruv sanasini kelishing va tom, elektr xonasi hamda hisoblagichlarga kirishni ta'minlang.",
-    "step5": "Texnik xulosa va loyihani kelishish yoki amalga oshirish bo'yicha keyingi qadamlarni oling.",
+    "step4": "Ko‘rib chiqilgandan so‘ng siz bilan bog‘laniladi va obyektni ko‘zdan kechirish sanasi kelishib olinadi.",
     "docsTitle": "Tavsiya etiladigan ilovalar",
     "doc1": "Tashkilotning ro'yxatdan o'tganlik ma'lumotlari yoki rasmiy rekvizitlari nusxasi.",
     "doc2": "Tom, fasad, elektr xonasi va hisoblagich shkafi fotosuratlari.",

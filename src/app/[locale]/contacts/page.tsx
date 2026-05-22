@@ -13,12 +13,12 @@ const departments = [
   {
     department: "department2",
     phone: "+998 90 830-51-67",
-    mail: "marketing@yashil-energiya.uz",
+    mail: "procurement@yashil-energiya.uz",
   },
   {
     department: "department3",
     phone: "+998 90 830-31-19",
-    mail: "info@yashil-energiya.uz",
+    mail: "commercial@yashil-energiya.uz",
   },
 ];
 

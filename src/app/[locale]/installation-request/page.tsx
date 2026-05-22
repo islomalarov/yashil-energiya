@@ -3,7 +3,7 @@ import { TheHero } from "@/components/HeroComponent/TheHero";
 import { getTranslations } from "next-intl/server";
 import s from "./page.module.scss";
 
-const steps = ["step1", "step2", "step3", "step4", "step5"] as const;
+const steps = ["step1", "step2", "step3", "step4"] as const;
 const docs = ["doc1", "doc2", "doc3", "doc4"] as const;
 
 export default async function InstallationRequestPage() {

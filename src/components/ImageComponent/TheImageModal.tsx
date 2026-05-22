@@ -8,7 +8,7 @@ import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 import styles from "./page.module.scss";
-import { useEffect, useState, type CSSProperties } from "react";
+import { useState, type CSSProperties } from "react";
 
 interface CSSVariables extends CSSProperties {
   "--width"?: string;
@@ -20,93 +20,6 @@ type Props = {
   gallery?: ImageElem[];
   initialIndex?: number;
 };
-
-function GalleryCursor({ active }: { active: boolean }) {
-  const [cursor, setCursor] = useState({
-    isPressed: false,
-    isVisible: false,
-    x: 0,
-    y: 0,
-  });
-
-  useEffect(() => {
-    if (!active || window.matchMedia("(pointer: coarse)").matches) {
-      setCursor((current) => ({ ...current, isVisible: false }));
-      return;
-    }
-
-    const isGalleryImageArea = (target: EventTarget | null) => {
-      return (
-        target instanceof Element &&
-        Boolean(target.closest(".yarl__slide_image, .yarl__slide"))
-      );
-    };
-
-    const isInteractiveControl = (target: EventTarget | null) => {
-      return (
-        target instanceof Element &&
-        Boolean(target.closest(".yarl__button, .yarl__thumbnails_thumbnail"))
-      );
-    };
-
-    const handlePointerMove = (event: PointerEvent) => {
-      setCursor((current) => ({
-        ...current,
-        isVisible:
-          isGalleryImageArea(event.target) && !isInteractiveControl(event.target),
-        x: event.clientX,
-        y: event.clientY,
-      }));
-    };
-
-    const handlePointerDown = (event: PointerEvent) => {
-      if (isGalleryImageArea(event.target) && !isInteractiveControl(event.target)) {
-        setCursor((current) => ({ ...current, isPressed: true }));
-      }
-    };
-
-    const handlePointerUp = () => {
-      setCursor((current) => ({ ...current, isPressed: false }));
-    };
-
-    const handlePointerLeave = () => {
-      setCursor((current) => ({
-        ...current,
-        isPressed: false,
-        isVisible: false,
-      }));
-    };
-
-    document.addEventListener("pointermove", handlePointerMove);
-    document.addEventListener("pointerdown", handlePointerDown);
-    document.addEventListener("pointerup", handlePointerUp);
-    document.addEventListener("pointerleave", handlePointerLeave);
-
-    return () => {
-      document.removeEventListener("pointermove", handlePointerMove);
-      document.removeEventListener("pointerdown", handlePointerDown);
-      document.removeEventListener("pointerup", handlePointerUp);
-      document.removeEventListener("pointerleave", handlePointerLeave);
-    };
-  }, [active]);
-
-  if (!active) {
-    return null;
-  }
-
-  return (
-    <div
-      className={`${styles.galleryCursor} ${
-        cursor.isVisible ? styles.galleryCursorVisible : ""
-      } ${cursor.isPressed ? styles.galleryCursorPressed : ""}`}
-      style={{
-        transform: `translate3d(${cursor.x}px, ${cursor.y}px, 0) translate(-50%, -50%)`,
-      }}
-    >
-      <span />
-    </div>
-  );
-}
 
 export default function TheImageModal({
   elem,
@@ -159,9 +72,6 @@ export default function TheImageModal({
           height: 64,
           padding: 4,
           width: 96,
-        }}
-        render={{
-          controls: () => <GalleryCursor active={isOpen} />,
         }}
         styles={{
           container: {
