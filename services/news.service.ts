@@ -70,6 +70,39 @@ export const NewsService = {
     return data.news?.[0] || null;
   },
 
+  getNewsByIds: async (ids: string[], locale: string) => {
+    if (!ids.length) {
+      return [];
+    }
+
+    const query = gql`
+      query GetNewsByIds($ids: [ID!], $locale: Locale!) {
+        news(where: { id_in: $ids }, locales: [$locale]) {
+          date
+          id
+          slug
+          title
+          excerpt
+          description {
+            raw
+          }
+          cover {
+            url
+            fileName
+            height
+            width
+          }
+        }
+      }
+    `;
+    const data = await fetchData<NewsResponse>(query, {
+      ids,
+      locale: resolveCmsLocale(locale),
+    });
+
+    return data.news;
+  },
+
   getLastNews: async (locale: string) => {
     const query = gql`
       query GetLastNews($locale: Locale!) {

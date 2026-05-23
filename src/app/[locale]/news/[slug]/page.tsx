@@ -12,6 +12,8 @@ import { redirect } from "@/i18n/navigation";
 import { articleJsonLd, breadcrumbJsonLd, createMetadata } from "@/lib/seo";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 import { TheNewsViewTracker } from "@/components/NewsViewTracker/TheNewsViewTracker";
+import { ThePopularNews } from "@/components/PopularNewsComponent/ThePopularNews";
+import { getPopularNews, getPopularNewsLabels } from "@/lib/popular-news";
 
 type Props = {
   params: Promise<{ locale: Locale; slug: string }>;
@@ -54,6 +56,7 @@ export default async function NewsPage({ params }: Props) {
 
   if (!news) notFound();
 
+  const popularNews = await getPopularNews(locale, news.id);
 
   return (
     <>
@@ -103,6 +106,10 @@ export default async function NewsPage({ params }: Props) {
               </div>
             </div>
           </div>
+          <ThePopularNews
+            news={popularNews}
+            labels={getPopularNewsLabels(locale)}
+          />
       </div>
     </>
   );

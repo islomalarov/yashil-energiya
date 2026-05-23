@@ -28,7 +28,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: clamp(10px, 2.2vw, 28px);
+  gap: clamp(8px, 1.4vw, 18px);
   position: relative;
   min-width: 0;
 
@@ -43,7 +43,7 @@
 
 .logo {
   flex: 0 0 auto;
-  width: clamp(100px, 11vw, 150px);
+  width: clamp(96px, 10vw, 142px);
   max-width: 150px;
   height: auto;
   transition: all 0.3s linear;
@@ -58,13 +58,13 @@
 .menuBlock {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(6, minmax(96px, 1fr));
+  grid-template-columns: repeat(6, minmax(112px, 1fr));
   justify-items: center;
   align-items: center;
-  gap: clamp(8px, 1.4vw, 18px);
+  gap: clamp(6px, 1vw, 14px);
   min-width: 0;
 
-  @media (max-width: $lg) {
+  @media (max-width: 1260px) {
     display: none;
   }
 }

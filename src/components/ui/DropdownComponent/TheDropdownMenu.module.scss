@@ -13,12 +13,12 @@
 .dropBtn {
   display: flex;
   justify-content: center;
-  width: clamp(104px, 8.5vw, 132px);
+  width: 100%;
   min-height: 33px;
   color: $whiteColor;
-  padding: 6px 8px;
+  padding: 6px clamp(9px, 0.9vw, 12px);
   cursor: pointer;
-  font-size: clamp(12px, 1vw, 14px);
+  font-size: clamp(12px, 0.9vw, 14px);
   background: $primaryColor;
   border-radius: 10px;
 
@@ -40,14 +40,15 @@
 
       &:first-child {
         flex: 1 1 auto;
-        overflow: hidden;
+        overflow: visible;
         text-align: center;
-        text-overflow: ellipsis;
+        text-overflow: clip;
         white-space: nowrap;
       }
 
       &:last-child {
         flex: 0 0 auto;
+        margin-left: 6px;
       }
     }
   }

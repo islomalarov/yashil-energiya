@@ -114,12 +114,12 @@ const nextConfig = {
       {
         source: "/:lang(en|ru|uz)/mhp",
         destination: "/:lang/microges",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/:lang(en|ru|uz)/ev",
         destination: "/:lang/chargingstation",
-        permanent: true,
+        statusCode: 301,
       },
     ];
   },

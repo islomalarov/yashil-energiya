@@ -7,6 +7,8 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { redirect } from "@/i18n/navigation";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 import { absoluteUrl, itemListJsonLd, localizedPath } from "@/lib/seo";
+import { ThePopularNews } from "@/components/PopularNewsComponent/ThePopularNews";
+import { getPopularNews, getPopularNewsLabels } from "@/lib/popular-news";
 
 type NewsPageProps = {
   searchParams?: Promise<{ page?: string }>;
@@ -34,6 +36,7 @@ export default async function News({ searchParams }: NewsPageProps) {
     news,
     newsConnection: { aggregate },
   } = await NewsService.getAllNews(DEFAULT_PAGE_SIZE, skip, locale);
+  const popularNews = await getPopularNews(locale);
 
   const totalPages = Math.ceil(aggregate.count / DEFAULT_PAGE_SIZE);
 
@@ -52,6 +55,10 @@ export default async function News({ searchParams }: NewsPageProps) {
           totalPages={totalPages}
           currentPage={currentPage}
           hrefBase="/news"
+        />
+        <ThePopularNews
+          news={popularNews}
+          labels={getPopularNewsLabels(locale)}
         />
       </div>
       <TheFeedback />

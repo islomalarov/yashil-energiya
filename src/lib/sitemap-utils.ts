@@ -18,7 +18,7 @@ export type SitemapContent = {
   vacancies: Awaited<ReturnType<typeof VacancyService.getAllVacancies>>;
 };
 
-export const cmsLocales: SeoLocale[] = ["en", "ru"];
+export const cmsLocales: SeoLocale[] = ["en", "ru", "uz"];
 
 export function escapeXml(value: string | number | null | undefined) {
   return String(value ?? "")
