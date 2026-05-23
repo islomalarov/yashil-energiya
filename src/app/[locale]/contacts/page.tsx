@@ -23,7 +23,7 @@ const departments = [
 ];
 
 const mapSrc =
-  "https://www.google.com/maps?q=Yashil%20Energiya%2C%20Tashkent%2C%20Yunusabad%20district%2C%20Bodomzor%20street%202B&z=17&output=embed&hl={locale}";
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d629.8574893084249!2d69.29235218411685!3d41.32791623011573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef502436398eb%3A0xa40ec419e35355df!2sJV%20%22Yashil%20Energiya%22%20LLC!5e0!3m2!1s{locale}!2s!4v1779561905690!5m2!1s{locale}!2s";
 
 export default async function Contacts() {
   const locale = await getLocale();

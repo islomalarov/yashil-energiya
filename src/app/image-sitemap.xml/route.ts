@@ -6,7 +6,7 @@ import {
   getSafeSitemapContent,
   unique,
 } from "@/lib/sitemap-utils";
-import { absoluteUrl, localizedPath, siteName } from "@/lib/seo";
+import { absoluteUrl, defaultOgImage, localizedPath, siteName } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -20,7 +20,7 @@ export async function GET() {
   const staticImages: ImageItem[] = buildMultilingualStaticUrls().map(
     ({ url }) => ({
       pageUrl: url,
-      imageUrl: absoluteUrl("/hero.png"),
+      imageUrl: absoluteUrl(defaultOgImage),
       title: `${siteName} renewable energy`,
     }),
   );

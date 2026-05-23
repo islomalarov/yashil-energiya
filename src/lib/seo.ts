@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 export const siteUrl = "https://yashil-energiya.uz";
 export const siteName = "Yashil Energiya";
+export const defaultOgImage = "/og-image.jpg";
 export const supportedLocales = ["en", "ru", "uz"] as const;
 
 export type SeoLocale = (typeof supportedLocales)[number];
@@ -33,7 +34,7 @@ type SeoCopy = {
 export const staticSeo: Record<StaticSeoKey, Record<SeoLocale, SeoCopy>> = {
   home: {
     en: {
-      title: "Yashil Energiya - Renewable Energy in Uzbekistan",
+      title: "Yashil Energiya - Renewable Energy Solutions in Uzbekistan",
       description:
         "Yashil Energiya develops solar power plants, micro hydro projects and EV charging infrastructure for a cleaner energy future in Uzbekistan.",
     },
@@ -390,7 +391,7 @@ export function createMetadata({
   path,
   title,
   description,
-  image = "/hero.png",
+  image = defaultOgImage,
   type = "website",
   publishedTime,
   modifiedTime,
@@ -398,7 +399,16 @@ export function createMetadata({
 }: MetadataOptions): Metadata {
   const currentLocale = normalizeLocale(locale);
   const canonical = absoluteUrl(localizedPath(currentLocale, path));
-  const images = image ? [absoluteUrl(image)] : undefined;
+  const images = image
+    ? [
+        {
+          url: absoluteUrl(image),
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ]
+    : undefined;
 
   return {
     title,
@@ -422,7 +432,7 @@ export function createMetadata({
       card: "summary_large_image",
       title,
       description,
-      images,
+      images: image ? [absoluteUrl(image)] : undefined,
     },
     robots: {
       index: true,
@@ -598,7 +608,7 @@ export function articleJsonLd({
     },
     headline: title,
     description,
-    image: image ? [absoluteUrl(image)] : [absoluteUrl("/hero.png")],
+    image: image ? [absoluteUrl(image)] : [absoluteUrl(defaultOgImage)],
     datePublished: publishedTime,
     dateModified: modifiedTime || publishedTime,
     articleSection: section,
