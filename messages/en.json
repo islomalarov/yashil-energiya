@@ -289,7 +289,11 @@
     "name": "Surname N.F.",
     "phone": "Phone number",
     "comment": "Comment",
-    "send": "Send"
+    "send": "Send",
+    "verificationRequired": "Please complete the verification.",
+    "verificationUnavailable": "Verification is not configured.",
+    "submitSuccess": "{name}, thank you for contacting us! We will get in touch with you shortly.",
+    "submitError": "An error occurred while sending the message."
   },
   "ContactsPage": {
     "title": "Contacts",

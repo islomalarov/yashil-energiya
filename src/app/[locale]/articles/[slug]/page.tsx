@@ -8,11 +8,23 @@ import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { redirect } from "@/i18n/navigation";
-import { articleJsonLd, breadcrumbJsonLd, createMetadata } from "@/lib/seo";
+import {
+  articleJsonLd,
+  breadcrumbJsonLd,
+  createMetadata,
+  optimizedOgImagePath,
+  truncateSeoText,
+} from "@/lib/seo";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 
 type Props = {
   params: Promise<{ slug: string; locale: string }>;
+};
+
+const ogCtaLabels: Record<string, string> = {
+  en: "Read article",
+  ru: "Читать",
+  uz: "O'qish",
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -26,9 +38,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return createMetadata({
     locale,
     path: `/articles/${slug}`,
-    title: article.title,
-    description: article.excerpt,
-    image: article.cover?.url,
+    title: truncateSeoText(article.title, 60),
+    description: truncateSeoText(article.excerpt, 155),
+    image: optimizedOgImagePath(article.cover?.url, {
+      title: article.title,
+      cta: ogCtaLabels[locale] || ogCtaLabels.en,
+    }),
     type: "article",
     alternateLocales: ["en", "ru"],
   });
@@ -55,7 +70,10 @@ export default async function ArticlePage({ params }: Props) {
             path: `/articles/${slug}`,
             title: article.title,
             description: article.excerpt,
-            image: article.cover?.url,
+            image: optimizedOgImagePath(article.cover?.url, {
+              title: article.title,
+              cta: ogCtaLabels[locale] || ogCtaLabels.en,
+            }),
             schemaType: "Article",
             section: "Articles",
           }),

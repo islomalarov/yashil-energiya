@@ -31,12 +31,12 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: `
       default-src 'self';
-      script-src 'self' 'unsafe-inline'${isProduction ? "" : " 'unsafe-eval'"} https://challenges.cloudflare.com;
+      script-src 'self' 'unsafe-inline'${isProduction ? "" : " 'unsafe-eval'"} https://challenges.cloudflare.com https://www.googletagmanager.com;
       style-src 'self' 'unsafe-inline';
-      img-src 'self' data: blob: https://us-west-2.graphassets.com https://*.tile.openstreetmap.org https://unpkg.com https://raw.githubusercontent.com https://cdnjs.cloudflare.com;
+      img-src 'self' data: blob: https://us-west-2.graphassets.com https://*.tile.openstreetmap.org https://unpkg.com https://raw.githubusercontent.com https://cdnjs.cloudflare.com https://www.google-analytics.com https://stats.g.doubleclick.net;
       media-src 'self';
       font-src 'self' data:;
-      connect-src 'self' https://challenges.cloudflare.com https://*.upstash.io https://*.hygraph.com https://*.graphcms.com https://us-west-2.graphassets.com https://vitals.vercel-insights.com https://*.vercel-insights.com;
+      connect-src 'self' https://challenges.cloudflare.com https://*.upstash.io https://*.hygraph.com https://*.graphcms.com https://us-west-2.graphassets.com https://vitals.vercel-insights.com https://*.vercel-insights.com https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net;
       frame-src https://challenges.cloudflare.com https://www.google.com https://maps.google.com https://yandex.ru https://yandex.com https://*.yandex.ru https://*.yandex.net;
       worker-src 'self' blob:;
       object-src 'none';

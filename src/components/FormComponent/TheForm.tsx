@@ -30,12 +30,12 @@ export const TheForm = () => {
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!captchaToken) {
-      toast.error("Please complete the verification.");
+      toast.error(t("verificationRequired"));
       return;
     }
 
     if (!turnstileSiteKey) {
-      toast.error("Verification is not configured.");
+      toast.error(t("verificationUnavailable"));
       return;
     }
 
@@ -62,15 +62,13 @@ export const TheForm = () => {
           message: "",
         });
         setCaptchaToken("");
-        toast.success(
-          `${feedback.firstName}, Thank you for contacting us! We will get in touch with you shortly.`,
-        );
+        toast.success(t("submitSuccess", { name: feedback.firstName }));
       } else {
-        toast.error("An error occurred while sending the message.");
+        toast.error(t("submitError"));
       }
     } catch (error) {
       console.error("Error sending message:", error);
-      toast.error("An error occurred while sending the message.");
+      toast.error(t("submitError"));
     } finally {
       setIsSubmitting(false);
     }

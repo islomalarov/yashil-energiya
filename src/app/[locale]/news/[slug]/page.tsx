@@ -9,7 +9,13 @@ import { notFound } from "next/navigation";
 import type { Locale } from "next-intl";
 import type { Metadata } from "next";
 import { redirect } from "@/i18n/navigation";
-import { articleJsonLd, breadcrumbJsonLd, createMetadata } from "@/lib/seo";
+import {
+  articleJsonLd,
+  breadcrumbJsonLd,
+  createMetadata,
+  optimizedOgImagePath,
+  truncateSeoText,
+} from "@/lib/seo";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 import { TheNewsViewTracker } from "@/components/NewsViewTracker/TheNewsViewTracker";
 import { ThePopularNews } from "@/components/PopularNewsComponent/ThePopularNews";
@@ -17,6 +23,12 @@ import { getPopularNews, getPopularNewsLabels } from "@/lib/popular-news";
 
 type Props = {
   params: Promise<{ locale: Locale; slug: string }>;
+};
+
+const ogCtaLabels: Record<string, string> = {
+  en: "Read news",
+  ru: "Читать",
+  uz: "O'qish",
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -30,9 +42,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return createMetadata({
     locale,
     path: `/news/${slug}`,
-    title: news.title,
-    description: news.excerpt,
-    image: news.cover?.url,
+    title: truncateSeoText(news.title, 60),
+    description: truncateSeoText(news.excerpt, 155),
+    image: optimizedOgImagePath(news.cover?.url, {
+      title: news.title,
+      cta: ogCtaLabels[locale] || ogCtaLabels.en,
+    }),
     type: "article",
     publishedTime: news.date,
     alternateLocales: ["en", "ru"],
@@ -68,7 +83,10 @@ export default async function NewsPage({ params }: Props) {
             path: `/news/${slug}`,
             title: news.title,
             description: news.excerpt,
-            image: news.cover?.url,
+            image: optimizedOgImagePath(news.cover?.url, {
+              title: news.title,
+              cta: ogCtaLabels[locale] || ogCtaLabels.en,
+            }),
             publishedTime: news.date,
             schemaType: "NewsArticle",
             section: "News",

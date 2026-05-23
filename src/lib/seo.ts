@@ -359,6 +359,61 @@ export function absoluteUrl(path = "/") {
   return new URL(path, siteUrl).toString();
 }
 
+export function optimizedOgImagePath(
+  image?: string | null,
+  options?: {
+    title?: string;
+    cta?: string;
+  },
+) {
+  if (!image) {
+    return defaultOgImage;
+  }
+
+  try {
+    const imageUrl = new URL(image);
+
+    if (imageUrl.hostname !== "us-west-2.graphassets.com") {
+      return image;
+    }
+
+    const params = new URLSearchParams({
+      src: imageUrl.toString(),
+    });
+
+    if (options?.title) {
+      params.set("title", truncateSeoText(options.title, 86));
+    }
+
+    if (options?.cta) {
+      params.set("cta", options.cta);
+    }
+
+    return `/api/og-image?${params.toString()}`;
+  } catch {
+    return image;
+  }
+}
+
+export function truncateSeoText(text: string, maxLength: number) {
+  const normalizedText = text.replace(/\s+/g, " ").trim();
+
+  if (normalizedText.length <= maxLength) {
+    return normalizedText;
+  }
+
+  const suffix = "...";
+  const limit = maxLength - suffix.length;
+  const trimmed = normalizedText.slice(0, limit);
+  const lastSpaceIndex = trimmed.lastIndexOf(" ");
+  const safeText =
+    lastSpaceIndex > Math.floor(limit * 0.6)
+      ? trimmed.slice(0, lastSpaceIndex)
+      : trimmed;
+
+  return `${safeText.trim()}${suffix}`;
+}
+
 export function languageAlternates(
   path = "/",
   locales: readonly SeoLocale[] = supportedLocales,

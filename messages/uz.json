@@ -289,7 +289,11 @@
     "name": "F.I.SH",
     "phone": "Telefon raqami",
     "comment": "Izoh",
-    "send": "Jo'natish"
+    "send": "Jo'natish",
+    "verificationRequired": "Iltimos, tekshiruvdan o'ting.",
+    "verificationUnavailable": "Tekshiruv hozircha sozlanmagan.",
+    "submitSuccess": "{name}, murojaatingiz uchun rahmat! Tez orada siz bilan bog'lanamiz.",
+    "submitError": "Xabarni yuborishda xatolik yuz berdi."
   },
   "ContactsPage": {
     "title": "Kontaktlar",

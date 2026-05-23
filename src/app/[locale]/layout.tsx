@@ -3,6 +3,7 @@ import "leaflet.markercluster/dist/MarkerCluster.css";
 import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 import "@/scss/globals.scss";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import { Sofia_Sans } from "next/font/google";
@@ -19,7 +20,10 @@ import {
   websiteJsonLd,
 } from "@/lib/seo";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
-import Script from "next/script";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics/GoogleAnalytics";
+
+const gaMeasurementId =
+  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-Q1YP3BBCL1";
 
 const sofia = Sofia_Sans({
   subsets: ["latin", "cyrillic"],
@@ -72,23 +76,11 @@ export default async function RootLayout({ children, params }: Props) {
 
   return (
     <html lang={locale}>
-      <head>
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-Q1YP3BBCL1"
-        />
-
-        <Script id="google-analytics">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-Q1YP3BBCL1');
-          `}
-        </Script>
-      </head>
+      <head />
       <body className={sofia.className}>
+        <Suspense fallback={null}>
+          <GoogleAnalytics measurementId={gaMeasurementId} />
+        </Suspense>
         <TheJsonLd
           data={{
             "@context": "https://schema.org",
