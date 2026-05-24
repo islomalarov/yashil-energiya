@@ -1,17 +1,9 @@
 "use client";
 
-
 import styles from "./TheAdvantages.module.scss";
 import { useTranslations } from "next-intl";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
-import { useEffect, useRef } from "react";
-import {
-  animate,
-  motion,
-  useInView,
-  useMotionValue,
-  useTransform,
-} from "motion/react";
+import { useEffect, useRef, useState } from "react";
 import { useLocaleMotionState } from "@/lib/locale-transition";
 
 export const TheAdvantages = () => {
@@ -27,18 +19,33 @@ export const TheAdvantages = () => {
     "advantage4",
   ] as const;
 
-  const ref = useRef(null);
-  const isInView = useInView(ref, {
-    once: true, // Запускаем анимацию один раз
-    amount: 0.1, // Запускаем, когда 50% компонента в зоне видимости
-    margin: "0px 0px -20% 0px", // Добавляем небольшой отступ
-  });
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
-    if (isInView) {
-      markViewed();
+    const element = ref.current;
+    if (!element || skipMotion || isInView) {
+      if (skipMotion) {
+        setIsInView(true);
+        markViewed();
+      }
+      return;
     }
-  }, [isInView, markViewed]);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+
+        setIsInView(true);
+        markViewed();
+        observer.disconnect();
+      },
+      { rootMargin: "0px 0px -20% 0px", threshold: 0.1 },
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [isInView, markViewed, skipMotion]);
 
   return (
     <div className={styles.main} ref={ref}>
@@ -70,6 +77,7 @@ interface HTMLContentProps {
   duration: string;
   skipMotion: boolean;
 }
+
 export const HTMLContent = ({
   title,
   unit,
@@ -77,26 +85,42 @@ export const HTMLContent = ({
   duration,
   skipMotion,
 }: HTMLContentProps) => {
-  const count = useMotionValue(skipMotion ? Number(total) : 0);
-  const rounded = useTransform(() => Math.round(count.get()));
+  const target = Number(total);
+  const [value, setValue] = useState(skipMotion ? target : 0);
 
   useEffect(() => {
     if (skipMotion) {
-      count.set(Number(total));
+      setValue(target);
       return;
     }
 
-    const controls = animate(count, Number(total), {
-      duration: Number(duration),
-    });
-    return () => controls.stop();
-  }, [count, duration, skipMotion, total]);
+    let frame = 0;
+    let startTime = 0;
+    const durationMs = Math.max(Number(duration) * 1000, 0);
+
+    const tick = (time: number) => {
+      if (!startTime) {
+        startTime = time;
+      }
+
+      const progress =
+        durationMs === 0 ? 1 : Math.min((time - startTime) / durationMs, 1);
+      setValue(Math.round(target * progress));
+
+      if (progress < 1) {
+        frame = window.requestAnimationFrame(tick);
+      }
+    };
+
+    frame = window.requestAnimationFrame(tick);
+    return () => window.cancelAnimationFrame(frame);
+  }, [duration, skipMotion, target]);
 
   return (
     <li className={styles.adv}>
       <p className={styles.advTitle}>{title}</p>
       <div className={styles.box}>
-        <motion.p className={styles.numb}>{rounded}</motion.p>
+        <p className={styles.numb}>{value}</p>
         <span className={styles.unit}>
           <sup>+</sup>
           {unit}

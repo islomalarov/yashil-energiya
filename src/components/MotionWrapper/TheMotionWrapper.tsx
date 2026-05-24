@@ -2,8 +2,7 @@
 
 import { usePathname } from "@/i18n/navigation";
 import { useLocaleMotionState } from "@/lib/locale-transition";
-import { motion } from "motion/react";
-import React, { useId } from "react";
+import React, { useEffect, useId, useRef, useState } from "react";
 
 interface TheMotionWrapperProps {
   children: React.ReactNode;
@@ -15,23 +14,46 @@ export const TheMotionWrapper = ({
   motionKey,
 }: TheMotionWrapperProps) => {
   const id = useId();
+  const ref = useRef<HTMLDivElement | null>(null);
   const pathname = usePathname();
   const { skipMotion, markViewed } = useLocaleMotionState(
     `${pathname}:motion-wrapper:${motionKey ?? id}`,
   );
+  const [isVisible, setIsVisible] = useState(motionKey === "site-header");
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element || skipMotion || isVisible) {
+      if (skipMotion) {
+        setIsVisible(true);
+        markViewed();
+      }
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+
+        setIsVisible(true);
+        markViewed();
+        observer.disconnect();
+      },
+      { rootMargin: "0px 0px -15% 0px", threshold: 0.15 },
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [isVisible, markViewed, skipMotion]);
 
   return (
-    <motion.div
-      className="container"
-      initial={skipMotion ? false : { opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={
-        skipMotion ? { duration: 0 } : { duration: 0.8, ease: "easeOut" }
-      }
-      viewport={{ once: true, amount: 0.2 }}
-      onViewportEnter={markViewed}
+    <div
+      ref={ref}
+      className={`container motion-wrapper ${
+        isVisible || skipMotion ? "motion-wrapper--visible" : ""
+      }`}
     >
       {children}
-    </motion.div>
+    </div>
   );
 };

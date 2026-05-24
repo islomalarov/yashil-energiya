@@ -1,32 +1,43 @@
 "use client";
 
-
 import s from "./TheAbout.module.scss";
 import { useTranslations } from "next-intl";
-import { motion, useInView } from "motion/react";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TheButton } from "../ui/ButtonComponent/TheButton";
 import { useLocaleMotionState } from "@/lib/locale-transition";
 
 export const TheAbout = () => {
   const t = useTranslations("AboutPage");
-  const ref = useRef(null);
-  const { skipMotion, markViewed } = useLocaleMotionState(
-    "home:about-events",
-  );
-  const isInView = useInView(ref, {
-    once: true, // Запускаем анимацию один раз
-    amount: 0.3, // Запускаем, когда 50% компонента в зоне видимости
-    margin: "0px 0px -20% 0px", // Добавляем небольшой отступ
-  });
+  const ref = useRef<HTMLDivElement | null>(null);
+  const { skipMotion, markViewed } = useLocaleMotionState("home:about-events");
+  const [isInView, setIsInView] = useState(false);
   const events = ["event1", "event2", "event3", "event4"] as const;
 
   useEffect(() => {
-    if (isInView) {
-      markViewed();
+    const element = ref.current;
+    if (!element || skipMotion || isInView) {
+      if (skipMotion) {
+        setIsInView(true);
+        markViewed();
+      }
+      return;
     }
-  }, [isInView, markViewed]);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+
+        setIsInView(true);
+        markViewed();
+        observer.disconnect();
+      },
+      { rootMargin: "0px 0px -20% 0px", threshold: 0.3 },
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [isInView, markViewed, skipMotion]);
 
   return (
     <TheMotionWrapper motionKey="home-about">
@@ -37,11 +48,10 @@ export const TheAbout = () => {
           <p className={s.title}>{t("content")}</p>
           <TheButton title={t("link")} url="about" />
         </div>
-        <motion.div
-          className={s.events}
-          initial={skipMotion ? false : { opacity: 0, y: 50 }}
-          animate={skipMotion || isInView ? { opacity: 1, y: 0 } : {}}
-          transition={skipMotion ? { duration: 0 } : { duration: 1 }}
+        <div
+          className={`${s.events} ${
+            isInView || skipMotion ? s.eventsVisible : s.eventsHidden
+          }`}
         >
           {events.map((event) => {
             const year = t(`${event}.year`);
@@ -61,7 +71,7 @@ export const TheAbout = () => {
                           <p key={index} className="description">
                             {ev.description}
                           </p>
-                        )
+                        ),
                       )}
                     </div>
                   </div>
@@ -69,7 +79,7 @@ export const TheAbout = () => {
               </div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </TheMotionWrapper>
   );
