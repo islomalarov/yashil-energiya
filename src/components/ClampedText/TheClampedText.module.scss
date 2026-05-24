@@ -23,6 +23,23 @@
   color: #fff;
   font-size: 14px;
   line-height: 1.55;
+  opacity: 0;
   pointer-events: none;
+  transform: translateY(6px) scale(0.98);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
   user-select: none;
+}
+
+.tooltipVisible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tooltip {
+    transition: none;
+    transform: none;
+  }
 }

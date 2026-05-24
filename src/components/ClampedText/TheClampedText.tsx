@@ -16,7 +16,9 @@ export const TheClampedText = ({
   lines = 3,
 }: ClampedTextProps) => {
   const textRef = useRef<HTMLParagraphElement>(null);
+  const hideTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [isOverflowing, setIsOverflowing] = useState(false);
+  const [shouldRenderTooltip, setShouldRenderTooltip] = useState(false);
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
   const [tooltipPosition, setTooltipPosition] = useState({
     left: 0,
@@ -28,6 +30,10 @@ export const TheClampedText = ({
   const showTooltip = () => {
     const element = textRef.current;
     if (!element || !isOverflowing) return;
+
+    if (hideTimerRef.current) {
+      clearTimeout(hideTimerRef.current);
+    }
 
     const rect = element.getBoundingClientRect();
     const viewportPadding = 12;
@@ -47,11 +53,15 @@ export const TheClampedText = ({
       top,
       width,
     });
-    setIsTooltipVisible(true);
+    setShouldRenderTooltip(true);
+    requestAnimationFrame(() => setIsTooltipVisible(true));
   };
 
   const hideTooltip = () => {
     setIsTooltipVisible(false);
+    hideTimerRef.current = setTimeout(() => {
+      setShouldRenderTooltip(false);
+    }, 180);
   };
 
   useEffect(() => {
@@ -82,6 +92,14 @@ export const TheClampedText = ({
     };
   }, [isTooltipVisible]);
 
+  useEffect(() => {
+    return () => {
+      if (hideTimerRef.current) {
+        clearTimeout(hideTimerRef.current);
+      }
+    };
+  }, []);
+
   return (
     <span className={s.wrapper}>
       <p
@@ -96,10 +114,12 @@ export const TheClampedText = ({
         {children}
       </p>
       {isOverflowing &&
-        isTooltipVisible &&
+        shouldRenderTooltip &&
         createPortal(
           <span
-            className={s.tooltip}
+            className={`${s.tooltip} ${
+              isTooltipVisible ? s.tooltipVisible : ""
+            }`}
             role="tooltip"
             style={{
               left: tooltipPosition.left,
