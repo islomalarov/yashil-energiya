@@ -127,6 +127,7 @@ export default async function NewsPage({ params }: Props) {
           <ThePopularNews
             news={popularNews}
             labels={getPopularNewsLabels(locale)}
+            locale={locale}
           />
       </div>
     </>

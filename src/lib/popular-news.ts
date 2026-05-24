@@ -11,6 +11,13 @@ export type PopularNewsItem = NewResponse & {
 };
 
 export function getPopularNewsLabels(locale: string) {
+  if (locale === "ru") {
+    return {
+      eyebrow: "В тренде",
+      title: "Популярные новости",
+    };
+  }
+
   if (locale === "uz") {
     return {
       eyebrow: "Trend",

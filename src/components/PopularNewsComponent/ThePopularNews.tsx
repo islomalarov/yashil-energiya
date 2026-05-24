@@ -12,9 +12,10 @@ type PopularNewsLabels = {
 type PopularNewsProps = {
   news: PopularNewsItem[];
   labels: PopularNewsLabels;
+  locale: string;
 };
 
-export function ThePopularNews({ news, labels }: PopularNewsProps) {
+export function ThePopularNews({ news, labels, locale }: PopularNewsProps) {
   if (!news.length) {
     return null;
   }
@@ -39,6 +40,7 @@ export function ThePopularNews({ news, labels }: PopularNewsProps) {
             key={item.id}
             className={s.card}
             href={`/news/${item.slug}`}
+            locale={locale}
             aria-label={item.title}
           >
             <div className={s.imageWrap}>

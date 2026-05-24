@@ -59,6 +59,7 @@ export default async function News({ searchParams }: NewsPageProps) {
         <ThePopularNews
           news={popularNews}
           labels={getPopularNewsLabels(locale)}
+          locale={locale}
         />
       </div>
       <TheFeedback />
