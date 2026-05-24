@@ -359,6 +359,12 @@ export function absoluteUrl(path = "/") {
   return new URL(path, siteUrl).toString();
 }
 
+const defaultOgCta: Record<SeoLocale, string> = {
+  en: "Learn more",
+  ru: "Подробнее",
+  uz: "Batafsil",
+};
+
 export function optimizedOgImagePath(
   image?: string | null,
   options?: {
@@ -371,14 +377,18 @@ export function optimizedOgImagePath(
   }
 
   try {
-    const imageUrl = new URL(image);
+    const imageUrl = new URL(image, siteUrl);
 
-    if (imageUrl.hostname !== "us-west-2.graphassets.com") {
+    if (
+      imageUrl.hostname !== "us-west-2.graphassets.com" &&
+      imageUrl.hostname !== new URL(siteUrl).hostname
+    ) {
       return image;
     }
 
     const params = new URLSearchParams({
       src: imageUrl.toString(),
+      v: "2",
     });
 
     if (options?.title) {
@@ -454,10 +464,17 @@ export function createMetadata({
 }: MetadataOptions): Metadata {
   const currentLocale = normalizeLocale(locale);
   const canonical = absoluteUrl(localizedPath(currentLocale, path));
-  const images = image
+  const sourceImage = image === defaultOgImage ? "/hero.png" : image;
+  const metadataImage = sourceImage?.startsWith("/api/og-image")
+    ? image
+    : optimizedOgImagePath(sourceImage, {
+        title,
+        cta: defaultOgCta[currentLocale],
+      });
+  const images = metadataImage
     ? [
         {
-          url: absoluteUrl(image),
+          url: absoluteUrl(metadataImage),
           width: 1200,
           height: 630,
           alt: title,
@@ -487,7 +504,7 @@ export function createMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: image ? [absoluteUrl(image)] : undefined,
+      images: metadataImage ? [absoluteUrl(metadataImage)] : undefined,
     },
     robots: {
       index: true,

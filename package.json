@@ -44,6 +44,7 @@
     "resend": "^3.2.0",
     "sass": "^1.66.1",
     "sharp": "^0.34.5",
+    "text-to-svg": "^3.1.5",
     "yet-another-react-lightbox": "^3.32.0"
   },
   "devDependencies": {

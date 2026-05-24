@@ -1,16 +1,31 @@
 import { NextRequest, NextResponse } from "next/server";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 import sharp from "sharp";
+import TextToSVG from "text-to-svg";
+import { siteUrl } from "@/lib/seo";
 
 const allowedImageHosts = new Set(["us-west-2.graphassets.com"]);
+const siteHostname = new URL(siteUrl).hostname;
+const publicDirectory = path.join(process.cwd(), "public");
+const notoSansBoldPath = path.join(
+  publicDirectory,
+  "fonts",
+  "noto-sans-bold.ttf",
+);
+const textToSvg = TextToSVG.loadSync(notoSansBoldPath);
 
 export const runtime = "nodejs";
 
-function escapeSvgText(text: string) {
-  return text
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
+async function readPublicFile(pathname: string) {
+  const publicPath = path.join(publicDirectory, pathname);
+  const normalizedPath = path.normalize(publicPath);
+
+  if (!normalizedPath.startsWith(publicDirectory)) {
+    throw new Error("Invalid public file path");
+  }
+
+  return readFile(normalizedPath);
 }
 
 function wrapText(text: string, maxLineLength: number, maxLines: number) {
@@ -41,14 +56,55 @@ function wrapText(text: string, maxLineLength: number, maxLines: number) {
   return lines.slice(0, maxLines);
 }
 
+function createTextPath({
+  text,
+  x,
+  y,
+  fontSize,
+  anchor = "left top",
+}: {
+  text: string;
+  x: number;
+  y: number;
+  fontSize: number;
+  anchor?: "left top" | "center middle";
+}) {
+  const d = textToSvg.getD(text, {
+    x,
+    y,
+    fontSize,
+    anchor,
+  });
+
+  return `<path d="${d}" fill="#ffffff"/>`;
+}
+
 function createOverlay(title: string, cta: string) {
   const titleLines = wrapText(title, 33, 3);
-  const titleText = titleLines
+  const titlePaths = titleLines
     .map(
       (line, index) =>
-        `<tspan x="74" dy="${index === 0 ? 0 : 54}">${escapeSvgText(line)}</tspan>`,
+        createTextPath({
+          text: line,
+          x: 74,
+          y: 244 + index * 58,
+          fontSize: 44,
+        }),
     )
     .join("");
+  const brandPath = createTextPath({
+    text: "Yashil Energiya",
+    x: 74,
+    y: 108,
+    fontSize: 26,
+  });
+  const ctaPath = createTextPath({
+    text: cta,
+    x: 163,
+    y: 527,
+    fontSize: 22,
+    anchor: "center middle",
+  });
 
   return Buffer.from(`
     <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
@@ -61,12 +117,28 @@ function createOverlay(title: string, cta: string) {
       </defs>
       <rect width="1200" height="630" fill="url(#shade)"/>
       <rect x="74" y="74" width="78" height="6" rx="3" fill="#159447"/>
-      <text x="74" y="126" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" letter-spacing="0">Yashil Energiya</text>
-      <text x="74" y="276" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700" letter-spacing="0">${titleText}</text>
+      ${brandPath}
+      ${titlePaths}
       <rect x="74" y="500" width="178" height="54" rx="8" fill="#159447"/>
-      <text x="163" y="535" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" letter-spacing="0">${escapeSvgText(cta)}</text>
+      ${ctaPath}
     </svg>
   `);
+}
+
+async function loadSourceImage(sourceUrl: URL) {
+  if (sourceUrl.hostname === siteHostname) {
+    return readPublicFile(sourceUrl.pathname);
+  }
+
+  const imageResponse = await fetch(sourceUrl, {
+    next: { revalidate: 60 * 60 * 24 * 30 },
+  });
+
+  if (!imageResponse.ok) {
+    return null;
+  }
+
+  return Buffer.from(await imageResponse.arrayBuffer());
 }
 
 export async function GET(request: NextRequest) {
@@ -88,20 +160,17 @@ export async function GET(request: NextRequest) {
 
   if (
     sourceUrl.protocol !== "https:" ||
-    !allowedImageHosts.has(sourceUrl.hostname)
+    (sourceUrl.hostname !== siteHostname &&
+      !allowedImageHosts.has(sourceUrl.hostname))
   ) {
     return new NextResponse("Unsupported image source", { status: 400 });
   }
 
-  const imageResponse = await fetch(sourceUrl, {
-    next: { revalidate: 60 * 60 * 24 * 30 },
-  });
-
-  if (!imageResponse.ok) {
+  const imageBuffer = await loadSourceImage(sourceUrl);
+  if (!imageBuffer) {
     return new NextResponse("Image source unavailable", { status: 502 });
   }
 
-  const imageBuffer = Buffer.from(await imageResponse.arrayBuffer());
   const image = sharp(imageBuffer)
     .resize(1200, 630, {
       fit: "cover",
