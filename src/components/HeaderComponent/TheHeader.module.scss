@@ -37,6 +37,19 @@
   }
 }
 
+.scrollIndicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  z-index: 1001;
+  background-color: $primaryColor;
+  border-radius: 0 0 5px 5px;
+  transform-origin: 0 50%;
+  transition: transform 0.08s linear;
+}
+
 .logoBlock {
   flex: 0 0 auto;
 }

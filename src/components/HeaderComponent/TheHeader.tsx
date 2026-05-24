@@ -12,7 +12,6 @@ import { TheBurgerMenu } from "../ui/BurgerComponent/TheBurgerMenu";
 import { TheBurgerBtn } from "../ui/BurgerComponent/TheBurgerBtn";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
 import { Link } from "@/i18n/navigation";
-import { motion, useScroll } from "motion/react";
 import { useSkipLocaleMotion } from "@/lib/locale-transition";
 import { TheSearch } from "../ui/SearchComponent/TheSearch";
 
@@ -20,7 +19,7 @@ export const TheHeader = () => {
   const [showBurgerBtn, setShowBurgerBtn] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isInitialStateSettled, setIsInitialStateSettled] = useState(false);
-  const { scrollYProgress } = useScroll();
+  const [scrollProgress, setScrollProgress] = useState(0);
   const skipLocaleMotion = useSkipLocaleMotion();
   const handleBurgerBtn = () => {
     setShowBurgerBtn(!showBurgerBtn);
@@ -28,7 +27,11 @@ export const TheHeader = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const scrollTop = window.scrollY;
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+
+      setIsScrolled(scrollTop > 50);
+      setScrollProgress(scrollable > 0 ? Math.min(scrollTop / scrollable, 1) : 0);
     };
 
     handleScroll();
@@ -55,19 +58,10 @@ export const TheHeader = () => {
       }`}
     >
       {showBurgerBtn && <TheBurgerMenu handleBurgerBtn={handleBurgerBtn} />}
-      <motion.div
+      <div
         id="scroll-indicator"
-        style={{
-          scaleX: scrollYProgress,
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          height: 4,
-          originX: 0,
-          backgroundColor: "#12903e",
-          borderRadius: "0 0 5px 5px",
-        }}
+        className={s.scrollIndicator}
+        style={{ transform: `scaleX(${scrollProgress})` }}
       />
       <TheMotionWrapper motionKey="site-header">
         <div className={s.content}>

@@ -1,16 +1,32 @@
 @use "./vars" as *;
 @use "./resets" as *;
 
-@import "leaflet/dist/leaflet.css";
-@import "leaflet.markercluster/dist/MarkerCluster.css";
-@import "leaflet.markercluster/dist/MarkerCluster.Default.css";
-
 .container {
   width: 100%;
   max-width: 1350px;
   margin: 0 auto;
   padding: 0 clamp(14px, 4vw, 24px);
   min-width: 0;
+}
+
+.motion-wrapper {
+  opacity: 0;
+  transform: translate3d(0, 40px, 0);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+
+.motion-wrapper--visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-wrapper {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 .wrapper {

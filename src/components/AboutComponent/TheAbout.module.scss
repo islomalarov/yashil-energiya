@@ -40,6 +40,17 @@
 .events {
   display: grid;
   flex-basis: 60%;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+
+  &.eventsHidden {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+  }
+
+  &.eventsVisible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 
   .event {
     width: 50px;
@@ -114,6 +125,17 @@
           }
         }
       }
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .events {
+    transition: none;
+
+    &.eventsHidden {
+      opacity: 1;
+      transform: none;
     }
   }
 }
