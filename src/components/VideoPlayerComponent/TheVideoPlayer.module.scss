@@ -2,22 +2,271 @@
 
 .video {
   position: relative;
-  display: flex;
-  justify-content: center;
-  aspect-ratio: 16 / 9;
+  min-height: clamp(560px, calc(100svh - 96px), 720px);
   overflow: hidden;
+  background: #07130d;
 
-  video {
-    display: block;
-    height: 100%;
-    object-fit: cover;
-    width: 100%;
+  @media (max-width: $md) {
+    min-height: 640px;
   }
 
-  .volumeBtn {
+  .poster {
+    z-index: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &::before,
+  &::after {
+    content: "";
     position: absolute;
-    top: 2%;
-    right: 1%;
-    cursor: pointer;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  &::before {
+    background:
+      linear-gradient(90deg, rgba(2, 18, 10, 0.9) 0%, rgba(2, 18, 10, 0.62) 44%, rgba(2, 18, 10, 0.32) 100%),
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 760px) minmax(120px, 220px);
+  align-items: center;
+  gap: clamp(28px, 7vw, 120px);
+  width: min(100% - 32px, 1350px);
+  min-height: inherit;
+  margin: 0 auto;
+  padding: clamp(54px, 8vw, 92px) 0;
+  container-type: inline-size;
+
+  @media (max-width: $md) {
+    grid-template-columns: 1fr;
+    align-content: center;
+    gap: 34px;
+    padding: 44px 0 70px;
+  }
+
+  @container (max-width: 860px) {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+}
+
+.copy {
+  display: grid;
+  gap: clamp(18px, 3cqw, 26px);
+  color: $whiteColor;
+}
+
+.title {
+  max-width: 780px;
+  color: inherit;
+  font-size: clamp(36px, 5.4cqw, 76px);
+  font-weight: 700;
+  line-height: 0.98;
+  text-wrap: balance;
+
+  @media (max-width: $md) {
+    font-size: clamp(34px, 10vw, 54px);
+    line-height: 1.04;
+  }
+}
+
+.subtitle {
+  max-width: 640px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: clamp(16px, 1.6cqw, 21px);
+  line-height: 1.55;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.primaryLink,
+.secondaryLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  border-radius: 8px;
+  padding: 0 22px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.primaryLink {
+  background: $primaryColor;
+  color: $whiteColor;
+}
+
+.secondaryLink {
+  border: 1px solid rgba(255, 255, 255, 0.52);
+  background: rgba(255, 255, 255, 0.08);
+  color: $whiteColor;
+}
+
+.playButton {
+  justify-self: center;
+  display: grid;
+  place-items: center;
+  width: clamp(112px, 14cqw, 158px);
+  height: clamp(112px, 14cqw, 158px);
+  border: 0;
+  background: transparent;
+  color: $whiteColor;
+  cursor: pointer;
+  transition:
+    filter 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    filter: brightness(1.12);
+    transform: scale(1.04);
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 8px;
+  }
+
+  @media (max-width: $md) {
+    justify-self: center;
+  }
+
+  @container (max-width: 860px) {
+    justify-self: center;
+  }
+}
+
+.action {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.playIcon {
+  position: relative;
+  z-index: 1;
+  width: 0;
+  height: 0;
+  margin-left: 6px;
+  border-top: clamp(17px, 2.4cqw, 25px) solid transparent;
+  border-bottom: clamp(17px, 2.4cqw, 25px) solid transparent;
+  border-left: clamp(28px, 3.8cqw, 40px) solid rgba(255, 255, 255, 0.97);
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.28));
+}
+
+.actionText {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  animation: spinActionText 14s linear infinite;
+  transform-origin: center;
+
+  text {
+    fill: rgba(255, 255, 255, 0.82);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3.2px;
+    text-transform: uppercase;
+  }
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@keyframes spinActionText {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: clamp(14px, 3vw, 36px);
+  background: rgba(0, 0, 0, 0.92);
+
+  video {
+    width: min(100%, 1280px);
+    max-height: calc(100vh - 72px);
+    aspect-ratio: 16 / 9;
+    background: #000;
+    object-fit: contain;
+  }
+}
+
+.closeButton {
+  position: fixed;
+  top: clamp(12px, 2vw, 24px);
+  right: clamp(12px, 2vw, 24px);
+  z-index: 1;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 2px;
+    background: #fff;
+  }
+
+  &::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  &:hover,
+  &:focus-visible {
+    background: rgba(255, 255, 255, 0.22);
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
   }
 }
