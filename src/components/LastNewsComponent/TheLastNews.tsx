@@ -5,10 +5,13 @@ import { TheNewsList } from "../NewsListComponent/TheNewsList";
 import { NewsService } from "services/news.service";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
 import { getLocale, getTranslations } from "next-intl/server";
+import { resolveCmsLocale } from "@/lib/cms-locale";
+import type { Locale } from "next-intl";
 
 export async function TheLastNews() {
   const t = await getTranslations("TheLastNews");
   const locale = await getLocale();
+  const contentLocale = resolveCmsLocale(locale) as Locale;
   const news = await NewsService.getLastNews(locale);
 
   return (
@@ -34,7 +37,7 @@ export async function TheLastNews() {
           </svg>
         </Link>
       </div>
-      <TheNewsList news={news} linkLabel={t("link")} />
+      <TheNewsList news={news} linkLabel={t("link")} contentLocale={contentLocale} />
     </TheMotionWrapper>
   );
 }

@@ -5,10 +5,13 @@ import { ThePlantsList } from "../PlantsListComponent/ThePlantsList";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
 import { getLocale, getTranslations } from "next-intl/server";
 import { PlantService } from "services/plants.service";
+import { resolveCmsLocale } from "@/lib/cms-locale";
+import type { Locale } from "next-intl";
 
 export const TheLastPlants = async () => {
   const t = await getTranslations("TheLastPlants");
   const locale = await getLocale();
+  const contentLocale = resolveCmsLocale(locale) as Locale;
   const lastPlants = await PlantService.getLastPlants(locale);
 
   return (
@@ -34,7 +37,11 @@ export const TheLastPlants = async () => {
           </svg>
         </Link>
       </div>
-      <ThePlantsList plants={lastPlants} linkLabel={t("link")} />
+      <ThePlantsList
+        plants={lastPlants}
+        linkLabel={t("link")}
+        contentLocale={contentLocale}
+      />
     </TheMotionWrapper>
   );
 };

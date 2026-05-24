@@ -110,7 +110,10 @@ export const PlantService = {
           production
           trees
           pictures {
+            fileName
             url
+            height
+            width
           }
         }
       }
