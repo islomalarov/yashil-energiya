@@ -1,8 +1,8 @@
 
-import { TheForm } from "@/components/FormComponent/TheForm";
 import styles from "./TheFeedback.module.scss";
 import { TheContacts } from "../ContactsComponent/TheContacts";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
+import { TheFeedbackFormLoader } from "./TheFeedbackFormLoader";
 
 export const TheFeedback = () => {
   return (
@@ -10,7 +10,7 @@ export const TheFeedback = () => {
       <TheMotionWrapper motionKey="feedback">
         <div className={styles.block}>
           <section className={styles.formPane}>
-            <TheForm />
+            <TheFeedbackFormLoader />
           </section>
           <section className={styles.contactsPane}>
             <TheContacts />
