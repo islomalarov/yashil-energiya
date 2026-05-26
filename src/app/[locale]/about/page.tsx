@@ -161,11 +161,11 @@ export default async function About() {
                 <h2 className={s.title}>{t("title4")}</h2>
               </div>
               <div className={s.partners}>
-                <Image src={tw} alt="tw" />
-                <Image src={foxEss} alt="foxEss" />
-                <Image src={huawei} alt="huawei" />
-                <Image src={tosh} alt="tosh" />
-                <Image src={solarMan} alt="solarMan" />
+                <Image src={tw} alt="tw" sizes="230px" />
+                <Image src={foxEss} alt="foxEss" sizes="230px" />
+                <Image src={huawei} alt="huawei" sizes="230px" />
+                <Image src={tosh} alt="tosh" sizes="230px" />
+                <Image src={solarMan} alt="solarMan" sizes="230px" />
               </div>
             </div>
           </div>

@@ -1,8 +1,5 @@
 import "@/scss/globals.scss";
-import type { Metadata } from "next";
-import { Suspense } from "react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/next";
+import type { Metadata, Viewport } from "next";
 import { Sofia_Sans } from "next/font/google";
 import { TheHeader } from "@/components/HeaderComponent/TheHeader";
 import { TheFooter } from "@/components/FooterComponent/TheFooter";
@@ -17,7 +14,7 @@ import {
   websiteJsonLd,
 } from "@/lib/seo";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
-import { GoogleAnalytics } from "@/components/GoogleAnalytics/GoogleAnalytics";
+import { ThirdPartyScripts } from "@/components/ThirdPartyScripts/ThirdPartyScripts";
 
 const gaMeasurementId =
   process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-Q1YP3BBCL1";
@@ -27,6 +24,12 @@ const sofia = Sofia_Sans({
   weight: ["400", "700"],
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
 
 type Props = {
   children: React.ReactNode;
@@ -73,11 +76,11 @@ export default async function RootLayout({ children, params }: Props) {
 
   return (
     <html lang={locale}>
-      <head />
+      <head>
+        <link rel="preconnect" href="https://us-west-2.graphassets.com" />
+        <link rel="dns-prefetch" href="https://us-west-2.graphassets.com" />
+      </head>
       <body className={sofia.className}>
-        <Suspense fallback={null}>
-          <GoogleAnalytics measurementId={gaMeasurementId} />
-        </Suspense>
         <TheJsonLd
           data={{
             "@context": "https://schema.org",
@@ -94,8 +97,7 @@ export default async function RootLayout({ children, params }: Props) {
             <TheFooter />
           </NextIntlClientProvider>
         </div>
-        <SpeedInsights />
-        <Analytics />
+        <ThirdPartyScripts gaMeasurementId={gaMeasurementId} />
       </body>
     </html>
   );

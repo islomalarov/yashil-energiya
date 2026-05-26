@@ -1,11 +1,16 @@
 "use client";
 
 import styles from "./page.module.scss";
-import { ChangeEvent, FormEvent, useState } from "react";
+import dynamic from "next/dynamic";
+import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useLocale, useTranslations } from "next-intl";
-import { Turnstile } from "@marsidev/react-turnstile";
+
+const Turnstile = dynamic(
+  () => import("@marsidev/react-turnstile").then((mod) => mod.Turnstile),
+  { ssr: false },
+);
 
 export interface FormData {
   firstName: string;
@@ -18,6 +23,8 @@ export const TheForm = () => {
   const t = useTranslations("FeedbackPage");
   const locale = useLocale();
   const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+  const captchaRef = useRef<HTMLDivElement | null>(null);
+  const [shouldLoadCaptcha, setShouldLoadCaptcha] = useState(false);
   const [captchaToken, setCaptchaToken] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [feedback, setFeedback] = useState<FormData>({
@@ -78,6 +85,24 @@ export const TheForm = () => {
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => setFeedback({ ...feedback, [e.target.name]: e.target.value });
 
+  useEffect(() => {
+    const element = captchaRef.current;
+    if (!element || shouldLoadCaptcha) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+
+        setShouldLoadCaptcha(true);
+        observer.disconnect();
+      },
+      { rootMargin: "360px 0px" },
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [shouldLoadCaptcha]);
+
   return (
     <>
       <form onSubmit={handleSubmit} className={styles.form}>
@@ -121,8 +146,8 @@ export const TheForm = () => {
           value={feedback.message}
           onChange={handleChange}
         />
-        <div className={styles.captchaWrapper}>
-          {turnstileSiteKey && (
+        <div ref={captchaRef} className={styles.captchaWrapper}>
+          {turnstileSiteKey && shouldLoadCaptcha && (
             <Turnstile
               siteKey={turnstileSiteKey}
               onSuccess={(token) => setCaptchaToken(token)}

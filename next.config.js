@@ -75,6 +75,14 @@ const nextConfig = {
   async headers() {
     return [
       {
+        source: "/",
+        headers: staticHtmlCacheHeaders,
+      },
+      {
+        source: "/:lang(en|ru|uz)",
+        headers: staticHtmlCacheHeaders,
+      },
+      {
         source: "/:lang(en|ru|uz)/about",
         headers: staticHtmlCacheHeaders,
       },

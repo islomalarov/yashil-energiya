@@ -47,7 +47,7 @@ export function ThePopularNews({ news, labels, locale }: PopularNewsProps) {
               <Image
                 className={s.image}
                 alt={item.cover ? item.cover.fileName : item.title}
-                src={item.cover ? item.cover.url : "/hero.png"}
+                src={item.cover ? item.cover.url : "/hero-poster.webp"}
                 width={item.cover?.width || 1280}
                 height={item.cover?.height || 720}
                 sizes="(max-width: 768px) 100vw, (max-width: 1180px) 50vw, 33vw"
