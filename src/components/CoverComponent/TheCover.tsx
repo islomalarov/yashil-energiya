@@ -24,6 +24,7 @@ export default function TheCover({ elem }: Props) {
         alt={fileName}
         width={width}
         height={height}
+        sizes="(max-width: 768px) 100vw, 960px"
       />
     </div>
   );

@@ -70,7 +70,10 @@ export default async function RootLayout({ children, params }: Props) {
 
   return (
     <html lang={locale}>
-      <head />
+      <head>
+        <link rel="preconnect" href="https://us-west-2.graphassets.com" />
+        <link rel="dns-prefetch" href="https://us-west-2.graphassets.com" />
+      </head>
       <body className={sofia.className}>
         <TheJsonLd
           data={{
