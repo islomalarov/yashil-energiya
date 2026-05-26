@@ -1,4 +1,5 @@
 import "@/scss/globals.scss";
+import "react-vertical-timeline-component/style.min.css";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
