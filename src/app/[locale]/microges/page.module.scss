@@ -21,7 +21,7 @@
   color: $primaryColor;
   font-size: clamp(15px, 1.8vw, $paragraphSize);
   padding: 20px 0 30px 0;
-  will-change: transform, opacity;
+  animation: microgesSubtitleIn 0.8s ease both;
 
   @media (max-width: $sm) {
     text-align: left;
@@ -49,10 +49,46 @@
     gap: 10px;
     cursor: pointer;
     min-width: 0;
+    transition: transform 0.24s ease, color 0.24s ease;
+
+    &:hover {
+      transform: scale(1.08);
+    }
+
+    &:active {
+      transform: scale(0.94);
+    }
 
     .achievementDescription {
       text-align: center;
       overflow-wrap: anywhere;
+    }
+  }
+}
+
+@keyframes microgesSubtitleIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .subTitle {
+    animation: none;
+  }
+
+  .achievements .achievement {
+    transition: none;
+
+    &:hover,
+    &:active {
+      transform: none;
     }
   }
 }

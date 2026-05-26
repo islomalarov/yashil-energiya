@@ -1,86 +1,70 @@
-"use client";
-
 import s from "./TheAbout.module.scss";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
-import { useEffect, useRef, useState } from "react";
 import { TheButton } from "../ui/ButtonComponent/TheButton";
-import { useLocaleMotionState } from "@/lib/locale-transition";
+import {
+  Handshake,
+  Rocket,
+  Sprout,
+  Zap,
+  type LucideIcon,
+} from "lucide-react";
 
-export const TheAbout = () => {
-  const t = useTranslations("AboutPage");
-  const ref = useRef<HTMLDivElement | null>(null);
-  const { skipMotion, markViewed } = useLocaleMotionState("home:about-events");
-  const [isInView, setIsInView] = useState(false);
+const eventIcons: Record<string, LucideIcon> = {
+  event1: Sprout,
+  event2: Zap,
+  event3: Handshake,
+  event4: Rocket,
+};
+
+export const TheAbout = async () => {
+  const t = await getTranslations("AboutPage");
   const events = ["event1", "event2", "event3", "event4"] as const;
-
-  useEffect(() => {
-    const element = ref.current;
-    if (!element || skipMotion || isInView) {
-      if (skipMotion) {
-        setIsInView(true);
-        markViewed();
-      }
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry?.isIntersecting) return;
-
-        setIsInView(true);
-        markViewed();
-        observer.disconnect();
-      },
-      { rootMargin: "0px 0px -20% 0px", threshold: 0.3 },
-    );
-
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, [isInView, markViewed, skipMotion]);
 
   return (
     <TheMotionWrapper motionKey="home-about">
-      <div className={s.content} ref={ref}>
-        <div className={s.info}>
-          <h2 className="title">{t("heroTitle1")}</h2>
-          <div className={s.line}></div>
-          <p className={s.title}>{t("content")}</p>
-          <TheButton title={t("link")} url="about" />
-        </div>
-        <div
-          className={`${s.events} ${
-            isInView || skipMotion ? s.eventsVisible : s.eventsHidden
-          }`}
-        >
-          {events.map((event) => {
-            const year = t(`${event}.year`);
-            const eventData = t.raw(`${event}.event`);
+      <section className={s.section}>
+        <div className={s.content}>
+          <div className={s.info}>
+            <h2 className="title">{t("heroTitle1")}</h2>
+            <div className={s.line}></div>
+            <p className={s.title}>{t("content")}</p>
+            <TheButton title={t("link")} url="about" />
+          </div>
+          <div className={s.timelineWrap}>
+            <ol className={s.timeline}>
+              {events.map((event) => {
+                const year = t(`${event}.year`);
+                const eventData = t.raw(`${event}.event`);
+                const EventIcon = eventIcons[event];
 
-            return (
-              <div key={event}>
-                <div className={s.event}>
-                  <p className={s.eventTitle}>{year}</p>
-                </div>
-                {eventData.length > 0 && (
-                  <div className={s.eventInfo}>
-                    <div className={s.divide}></div>
-                    <div className={s.eventText}>
-                      {eventData.map(
-                        (ev: { description: string }, index: number) => (
-                          <p key={index} className="description">
-                            {ev.description}
-                          </p>
-                        ),
+                return (
+                  <li
+                    key={event}
+                    className={s.timelineItem}
+                  >
+                    <span className={s.timelineIcon}>
+                      <EventIcon aria-hidden="true" strokeWidth={1.8} />
+                    </span>
+                    <article className={s.timelineCard}>
+                      <h3 className={s.eventTitle}>{year}</h3>
+                      {eventData.length > 0 && (
+                        <ul className={s.eventList}>
+                          {eventData.map(
+                            (ev: { description: string }, index: number) => (
+                              <li key={index}>{ev.description}</li>
+                            ),
+                          )}
+                        </ul>
                       )}
-                    </div>
-                  </div>
-                )}
-              </div>
-            );
-          })}
+                    </article>
+                  </li>
+                );
+              })}
+            </ol>
+          </div>
         </div>
-      </div>
+      </section>
     </TheMotionWrapper>
   );
 };

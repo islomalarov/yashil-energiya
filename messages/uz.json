@@ -18,14 +18,14 @@
     "contacts": "Kontaktlar",
     "documents": "Hujjatlar",
     "vacancies": "Bo'sh ish o'rinlari",
-    "installationRequest": "O'rnatish obyektiga aylanish"
+    "installationRequest": "Mijozimiz bo'lish"
   },
   "HomePage": {
     "title": "Bosh sahifa",
     "heroTitle": "\"Yashil Energiya\" MChJ — O'zbekistonning qayta tiklanuvchi energetika milliy operatori",
     "heroSubtitle": "Barqaror energiya ta'minoti uchun quyosh elektr stansiyalari, mikro GES va EV zaryadlash infratuzilmasini rivojlantiramiz.",
     "ctaContact": "Biz bilan bog'lanish",
-    "ctaProjects": "Loyihalar",
+    "ctaProjects": "Mijozimiz bo'lish",
     "about": "Biz haqimizda sahifasiga o'tish"
   },
   "AboutPage": {
@@ -37,6 +37,7 @@
     "title2": "Faoliyatimiz",
     "title3": "Yutuqlarimiz",
     "title4": "Hamkorlarimiz",
+    "timelineTitle": "Muhim voqealar",
     "event1": {
       "year": "2023",
       "event": [
@@ -66,7 +67,7 @@
           "description": "2025-yil 24-sentabrda \"Yashil Energiya\" MChJning 51% ulushi BAAning \"GSU\" kompaniyasi tomonidan sotib olindi."
         },
         {
-          "description": "2025-yil 29-sentabrda kompaniya yangi mulkchilik shakliga o'tdi va \"JV Yashil Energiya\" MChJ qo'shma korxonasi sifatida qayta tashkil etildi."
+          "description": "2025-yil 29-sentabrda kompaniya yangi mulkchilik shakliga o'tdi va \"Yashil Energiya\" MChJ QK qo'shma korxonasi sifatida qayta tashkil etildi."
         },
         {
           "description": "2025-yil oxiriga kelib Yashil Energiya faol obyektlarining o'rnatilgan quvvati 130 000 kVt ga yetdi."
@@ -75,21 +76,25 @@
     },
     "event4": {
       "year": "2026",
-      "event": []
+      "event": [
+        {
+          "description": "Qashqadaryo, Jizzax va Buxoro viloyatlarida elektromobillar uchun 6 ta yangi quvvatlash stansiyasi ishga tushirildi."
+        }
+      ]
     },
     "paragraph1": "\"Yashil Energiya\" MChJ – O‘zbekiston Respublikasida qayta tiklanuvchi energiya manbalarini rivojlantirish va joriy etishga ixtisoslashgan kompaniya. Kompaniyamiz 2023-yil 16-fevralda O‘zbekiston Respublikasi Prezidentining PQ-57-son qaroriga asosan tashkil etilgan.",
     "paragraph2": "Barqaror rivojlanishni ta'minlash va atrof-muhitni muhofaza qilish maqsadida, qayta tiklanuvchi energiya manbalarini keng joriy etish orqali mamlakatimizning energiya mustaqilligiga hissa qo‘shish. Bunda dastlab ijtimoiy soha obyektlari sifatli elektr energiyasi bilan ta’minlash asosiy maqsad qilingan.",
     "project1": {
       "title": "Ijtimoiy soha obyektlari, davlat organlari va boshqa tashkilotlarning binolarining tom qismiga quyosh fotoelektr stansiyasini o’rnatish va sifatli elektr energiyasini yetkazib berish.",
-      "src": "pv.png"
+      "src": "about-solar.webp"
     },
     "project2": {
       "title": "Bir vaqting o’zida bir qancha elektr mashinalarini innovatsion qurilmalar yordamida sifatli elektr energiyasi bilan quvvatlash.",
-      "src": "chs.png"
+      "src": "about-ev-charging.webp"
     },
     "project3": {
       "title": "O‘zbekiston hududida kichik quvvatli gidroelektr stansiyalarini barpo etish va ulardan samarali foydalanishni amalga oshirish.",
-      "src": "micro.jpg"
+      "src": "about-micro-hydro.webp"
     },
     "achievement1": {
       "description": "Respublikaning barcha viloyatlarida servis markazlari mavjud",
@@ -310,7 +315,7 @@
     "department3": "Mijozlar bo'limi"
   },
   "InstallationPage": {
-    "title": "O'rnatish obyektiga qanday aylanish mumkin",
+    "title": "Qanday qilib mijozimiz bo'lish mumkin",
     "intro": "Yashil Energiya ijtimoiy soha obyektlari, davlat organlari va tashkilotlarga binoda quyosh fotoelektr stansiyasini o'rnatish imkoniyatini baholash va tasdiqlangan tartibda toza elektr energiyasini olishda yordam beradi.",
     "stepsTitle": "Ariza yuborish tartibi",
     "step1": "Tashkilot blankasida rasmiy murojaat tayyorlang.",

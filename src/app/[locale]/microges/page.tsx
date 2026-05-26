@@ -4,12 +4,7 @@ import { TheHero } from "@/components/HeroComponent/TheHero";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import s from "./page.module.scss";
 import { useTranslations } from "next-intl";
-import { splitText } from "motion-plus";
-import { animate, stagger } from "motion";
-import { useEffect, useRef } from "react";
-import * as motion from "motion/react-client";
 import dynamic from "next/dynamic";
-import { useLocaleMotionState } from "@/lib/locale-transition";
 import {
   Activity,
   BatteryCharging,
@@ -31,8 +26,6 @@ const TheMicroMap = dynamic(
 );
 export default function MicroGes() {
   const t = useTranslations("MicroGesPage");
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { skipMotion, markViewed } = useLocaleMotionState("microges:intro");
 
   const listItems = [
     {
@@ -64,44 +57,13 @@ export default function MicroGes() {
     },
   ] satisfies Array<{ icon: LucideIcon }>;
 
-  useEffect(() => {
-    if (skipMotion) {
-      if (containerRef.current) {
-        containerRef.current.style.visibility = "visible";
-      }
-      return;
-    }
-
-    document.fonts.ready.then(() => {
-      if (!containerRef.current) return;
-
-      // Hide the container until the fonts are loaded
-      containerRef.current.style.visibility = "visible";
-
-      const { words } = splitText(containerRef.current.querySelector("p")!);
-
-      // Animate the words in the p
-      animate(
-        words,
-        { opacity: [0, 1], y: [10, 0] },
-        {
-          type: "spring",
-          duration: 2,
-          bounce: 0,
-          delay: stagger(0.05),
-        },
-      );
-      markViewed();
-    });
-  }, [markViewed, skipMotion]);
-
   return (
     <>
       <TheHero title1={t("heroTitle")} url1="microGes" />
       <div className="container">
         <div className={s.content}>
           <h1 className={s.title}>{t("title")}</h1>
-          <div ref={containerRef}>
+          <div>
             <p className={s.subTitle}>{t("subTitle")}</p>
           </div>
           <div>
@@ -112,10 +74,8 @@ export default function MicroGes() {
             <p className="description">{t("listDescription")}</p>
             <div className={s.achievements}>
               {listItems.map(({ icon: ItemIcon }, index) => (
-                <motion.div
+                <div
                   key={index}
-                  whileHover={{ scale: 1.2 }}
-                  whileTap={{ scale: 0.8 }}
                   className={s.achievement}
                 >
                   <ItemIcon
@@ -126,7 +86,7 @@ export default function MicroGes() {
                   <p className={s.achievementDescription}>
                     {t(`listItem${index + 1}`)}
                   </p>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
