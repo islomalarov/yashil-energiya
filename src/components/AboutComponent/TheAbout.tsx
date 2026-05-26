@@ -1,13 +1,7 @@
-"use client";
-
 import s from "./TheAbout.module.scss";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
 import { TheButton } from "../ui/ButtonComponent/TheButton";
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
 import {
   Handshake,
   Rocket,
@@ -23,8 +17,8 @@ const eventIcons: Record<string, LucideIcon> = {
   event4: Rocket,
 };
 
-export const TheAbout = () => {
-  const t = useTranslations("AboutPage");
+export const TheAbout = async () => {
+  const t = await getTranslations("AboutPage");
   const events = ["event1", "event2", "event3", "event4"] as const;
 
   return (
@@ -38,40 +32,36 @@ export const TheAbout = () => {
             <TheButton title={t("link")} url="about" />
           </div>
           <div className={s.timelineWrap}>
-            <VerticalTimeline
-              animate
-              layout="1-column-left"
-              lineColor="rgba(18, 144, 62, 0.24)"
-              className={s.timeline}
-            >
-              {events.map((event, eventIndex) => {
+            <ol className={s.timeline}>
+              {events.map((event) => {
                 const year = t(`${event}.year`);
                 const eventData = t.raw(`${event}.event`);
                 const EventIcon = eventIcons[event];
 
                 return (
-                  <VerticalTimelineElement
+                  <li
                     key={event}
                     className={s.timelineItem}
-                    contentArrowStyle={{ borderRightColor: "#ffffff" }}
-                    icon={<EventIcon aria-hidden="true" strokeWidth={1.8} />}
-                    iconClassName={s.timelineIcon}
-                    visible={eventIndex === 0}
                   >
-                    <h3 className={s.eventTitle}>{year}</h3>
-                    {eventData.length > 0 && (
-                      <ul className={s.eventList}>
-                        {eventData.map(
-                          (ev: { description: string }, index: number) => (
-                            <li key={index}>{ev.description}</li>
-                          ),
-                        )}
-                      </ul>
-                    )}
-                  </VerticalTimelineElement>
+                    <span className={s.timelineIcon}>
+                      <EventIcon aria-hidden="true" strokeWidth={1.8} />
+                    </span>
+                    <article className={s.timelineCard}>
+                      <h3 className={s.eventTitle}>{year}</h3>
+                      {eventData.length > 0 && (
+                        <ul className={s.eventList}>
+                          {eventData.map(
+                            (ev: { description: string }, index: number) => (
+                              <li key={index}>{ev.description}</li>
+                            ),
+                          )}
+                        </ul>
+                      )}
+                    </article>
+                  </li>
                 );
               })}
-            </VerticalTimeline>
+            </ol>
           </div>
         </div>
       </section>

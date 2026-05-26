@@ -1,9 +1,7 @@
-"use client";
-
 import s from "./page.module.scss";
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import {
   BadgeCheck,
@@ -21,12 +19,6 @@ import solarMan from "public/partners/solarMan.jpg";
 import foxEss from "public/partners/foxEss.jpg";
 import tosh from "public/partners/tosh.jpg";
 import tw from "public/partners/tw.jpg";
-import { motion } from "motion/react";
-import { useLocaleMotionState } from "@/lib/locale-transition";
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
 
 const eventIcons: Record<string, LucideIcon> = {
   event1: Sprout,
@@ -35,9 +27,8 @@ const eventIcons: Record<string, LucideIcon> = {
   event4: Rocket,
 };
 
-export default function About() {
-  const t = useTranslations("AboutPage");
-  const { skipMotion, markViewed } = useLocaleMotionState("about:partners");
+export default async function About() {
+  const t = await getTranslations("AboutPage");
   const projects = ["project1", "project2", "project3"] as const;
   const events = ["event1", "event2", "event3", "event4"] as const;
   const achievements = [
@@ -87,6 +78,7 @@ export default function About() {
                         src={projectImageSrc}
                         alt={projectSrc}
                         fill
+                        priority={project === "project1"}
                         sizes="(max-width: 768px) 100vw, 33vw"
                       />
                     </div>
@@ -105,39 +97,36 @@ export default function About() {
             <div className={s.sectionHeader}>
               <h2 className={s.title}>{t("timelineTitle")}</h2>
             </div>
-            <VerticalTimeline
-              animate
-              layout="1-column-left"
-              lineColor="rgba(18, 144, 62, 0.24)"
-              className={s.timeline}
-            >
-              {events.map((event, eventIndex) => {
+            <ol className={s.timeline}>
+              {events.map((event) => {
                 const year = t(`${event}.year`);
                 const eventData = t.raw(`${event}.event`);
                 const EventIcon = eventIcons[event];
 
                 return (
-                  <VerticalTimelineElement
+                  <li
                     key={event}
-                    contentArrowStyle={{ borderRightColor: "#ffffff" }}
-                    icon={<EventIcon aria-hidden="true" strokeWidth={1.8} />}
-                    iconClassName={s.timelineIcon}
-                    visible={eventIndex === 0}
+                    className={s.timelineItem}
                   >
-                    <h3 className={s.eventTitle}>{year}</h3>
-                    {eventData.length > 0 && (
-                      <ul className={s.eventList}>
-                        {eventData.map(
-                          (ev: { description: string }, index: number) => (
-                            <li key={index}>{ev.description}</li>
-                          ),
-                        )}
-                      </ul>
-                    )}
-                  </VerticalTimelineElement>
+                    <span className={s.timelineIcon}>
+                      <EventIcon aria-hidden="true" strokeWidth={1.8} />
+                    </span>
+                    <article className={s.timelineCard}>
+                      <h3 className={s.eventTitle}>{year}</h3>
+                      {eventData.length > 0 && (
+                        <ul className={s.eventList}>
+                          {eventData.map(
+                            (ev: { description: string }, index: number) => (
+                              <li key={index}>{ev.description}</li>
+                            ),
+                          )}
+                        </ul>
+                      )}
+                    </article>
+                  </li>
                 );
               })}
-            </VerticalTimeline>
+            </ol>
           </div>
         </section>
 
@@ -166,16 +155,7 @@ export default function About() {
         </section>
 
         <section className={s.partnersSection}>
-          <motion.div
-            className={s.partnersBlock}
-            initial={skipMotion ? false : { opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={
-              skipMotion ? { duration: 0 } : { duration: 0.8, ease: "easeOut" }
-            }
-            viewport={{ once: true, amount: 0.2 }}
-            onViewportEnter={markViewed}
-          >
+          <div className={s.partnersBlock}>
             <div className="container">
               <div className={s.sectionHeader}>
                 <h2 className={s.title}>{t("title4")}</h2>
@@ -188,7 +168,7 @@ export default function About() {
                 <Image src={solarMan} alt="solarMan" />
               </div>
             </div>
-          </motion.div>
+          </div>
         </section>
       </main>
       <TheFeedback />

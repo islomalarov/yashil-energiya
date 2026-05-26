@@ -54,82 +54,80 @@
 }
 
 .timeline {
+  position: relative;
+  display: grid;
+  gap: clamp(18px, 3vw, 28px);
   width: 100%;
   max-width: none;
   margin: 0;
   padding: 0;
+  list-style: none;
+}
 
-  :global(.vertical-timeline::before) {
-    left: 30px;
-    width: 3px;
-    background: linear-gradient(
-      180deg,
-      rgba(18, 144, 62, 0.05),
-      rgba(18, 144, 62, 0.55) 18%,
-      rgba(18, 144, 62, 0.55) 82%,
-      rgba(18, 144, 62, 0.05)
-    );
-  }
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 30px;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 144, 62, 0.05),
+    rgba(18, 144, 62, 0.55) 18%,
+    rgba(18, 144, 62, 0.55) 82%,
+    rgba(18, 144, 62, 0.05)
+  );
+}
 
-  :global(.vertical-timeline-element) {
-    margin: 0 0 clamp(18px, 3vw, 28px);
-  }
-
-  :global(.vertical-timeline-element:last-child) {
-    margin-bottom: 0;
-  }
-
-  :global(.vertical-timeline-element-content) {
-    margin-left: 78px;
-    padding: clamp(18px, 3vw, 28px);
-    border: 1px solid rgba(18, 144, 62, 0.14);
-    border-radius: 8px;
-    background: $whiteColor;
-    box-shadow: 0 16px 42px rgba(20, 44, 30, 0.09);
-  }
-
-  :global(.vertical-timeline-element-content-arrow) {
-    top: 22px;
-    border-right: 7px solid $whiteColor;
-  }
-
-  :global(.vertical-timeline-element-icon) {
-    left: 9px;
-    width: 44px;
-    height: 44px;
-    margin-left: 0;
-    box-shadow: 0 0 0 8px rgba(18, 144, 62, 0.1),
-      0 10px 24px rgba(18, 144, 62, 0.24);
-  }
-
-  @media (max-width: $sm) {
-    :global(.vertical-timeline::before) {
-      left: 21px;
-    }
-
-    :global(.vertical-timeline-element-content) {
-      margin-left: 58px;
-      padding: 18px;
-    }
-
-    :global(.vertical-timeline-element-icon) {
-      left: 2px;
-      width: 38px;
-      height: 38px;
-    }
-  }
+.timelineItem {
+  position: relative;
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
 }
 
 .timelineIcon {
   display: grid;
   place-items: center;
+  width: 44px;
+  height: 44px;
+  margin: 0 auto;
+  border-radius: 50%;
   background: linear-gradient(145deg, $secondaryColor, $primaryColor);
   color: $whiteColor;
+  box-shadow: 0 0 0 8px rgba(18, 144, 62, 0.1),
+    0 10px 24px rgba(18, 144, 62, 0.24);
 
   svg {
     width: 20px;
     height: 20px;
   }
+}
+
+.timelineCard {
+  position: relative;
+  min-width: 0;
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid rgba(18, 144, 62, 0.14);
+  border-radius: 8px;
+  background: $whiteColor;
+  box-shadow: 0 16px 42px rgba(20, 44, 30, 0.09);
+}
+
+.timelineCard::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: -7px;
+  width: 14px;
+  height: 14px;
+  border-left: 1px solid rgba(18, 144, 62, 0.14);
+  border-bottom: 1px solid rgba(18, 144, 62, 0.14);
+  background: $whiteColor;
+  transform: rotate(45deg);
 }
 
 .eventTitle {
@@ -171,10 +169,33 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .timeline {
-    :global(.vertical-timeline-element-content.bounce-in),
-    :global(.vertical-timeline-element-icon.bounce-in) {
-      animation: none;
+  .timelineCard,
+  .timelineIcon {
+    transition: none;
+  }
+}
+
+@media (max-width: $sm) {
+  .timeline::before {
+    left: 21px;
+  }
+
+  .timelineItem {
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .timelineIcon {
+    width: 38px;
+    height: 38px;
+
+    svg {
+      width: 18px;
+      height: 18px;
     }
+  }
+
+  .timelineCard {
+    padding: 18px;
   }
 }
