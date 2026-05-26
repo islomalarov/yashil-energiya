@@ -1,5 +1,5 @@
 import "@/scss/globals.scss";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Sofia_Sans } from "next/font/google";
 import { TheHeader } from "@/components/HeaderComponent/TheHeader";
 import { TheFooter } from "@/components/FooterComponent/TheFooter";
@@ -24,6 +24,12 @@ const sofia = Sofia_Sans({
   weight: ["400", "700"],
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
 
 type Props = {
   children: React.ReactNode;

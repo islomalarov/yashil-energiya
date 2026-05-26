@@ -29,7 +29,6 @@ export const TheFooter = () => {
                   alt="logo"
                   width={40}
                   height={40}
-                  priority
                 />
               </Link>
             ))}

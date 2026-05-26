@@ -211,6 +211,23 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .actionText {
+    animation: none;
+  }
+
+  .primaryLink,
+  .secondaryLink,
+  .playButton {
+    transition: none;
+
+    &:hover,
+    &:focus-visible {
+      transform: none;
+    }
+  }
+}
+
 .overlay {
   position: fixed;
   inset: 0;
