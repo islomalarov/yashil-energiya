@@ -71,7 +71,7 @@ const TheVideoPlayer = ({
               <Link className={styles.primaryLink} href="/contacts">
                 {contactLabel}
               </Link>
-              <Link className={styles.secondaryLink} href="/plants">
+              <Link className={styles.secondaryLink} href="/installation-request">
                 {projectsLabel}
               </Link>
             </div>

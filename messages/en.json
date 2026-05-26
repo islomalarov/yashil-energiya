@@ -18,14 +18,14 @@
     "contacts": "Contacts",
     "documents": "Documents",
     "vacancies": "Vacancies",
-    "installationRequest": "Become an installation site"
+    "installationRequest": "Become our client"
   },
   "HomePage": {
     "title": "Home page",
     "heroTitle": "JV Yashil Energiya LLC — Uzbekistan's national renewable energy operator",
     "heroSubtitle": "Developing solar power plants, micro hydro projects and EV charging infrastructure for sustainable energy supply.",
     "ctaContact": "Contact us",
-    "ctaProjects": "Projects",
+    "ctaProjects": "Become our client",
     "about": "Go to the about page"
   },
   "AboutPage": {
@@ -37,6 +37,7 @@
     "title2": "Activities",
     "title3": "Achievements",
     "title4": "Partners",
+    "timelineTitle": "Key milestones",
     "event1": {
       "year": "2023",
       "event": [
@@ -75,21 +76,25 @@
     },
     "event4": {
       "year": "2026",
-      "event": []
+      "event": [
+        {
+          "description": "EV charging stations have been successfully launched in the Kashkadarya, Jizzakh, and Bukhara regions."
+        }
+      ]
     },
     "paragraph1": "JV \"Yashil Energiya\" LLC is a company that specializes in the development and implementation of renewable energy solutions in the Republic of Uzbekistan. We were founded on February 16, 2023, under the Decree of the President of the Republic, No-57.",
     "paragraph2": "Ensuring sustainable development and protecting the environment in order to contribute to the energy independence of the country by widely introducing renewable energy sources. Our main goal is to ensure the provision of quality electricity to all social and governmental facilities.",
     "project1": {
       "title": "Establish solar photovoltaic power plants to provide quality electricity for the buildings of social facilities, government agencies, and other organizations.",
-      "src": "pv.png"
+      "src": "about-solar.webp"
     },
     "project2": {
       "title": "Simultaneously charging multiple electric vehicles using high-quality electricity from innovative devices.",
-      "src": "chs.png"
+      "src": "about-ev-charging.webp"
     },
     "project3": {
       "title": "The construction and efficient use of micro hydro power plants in Uzbekistan.",
-      "src": "micro.jpg"
+      "src": "about-micro-hydro.webp"
     },
     "achievement1": {
       "description": "Service centers in all regions of the Republic",
@@ -310,7 +315,7 @@
     "department3": "Commercial Department"
   },
   "InstallationPage": {
-    "title": "How to become an installation site",
+    "title": "How to become our client",
     "intro": "Yashil Energiya helps social facilities, government agencies and organizations assess whether their buildings can host a solar photovoltaic installation and receive clean electricity under the approved procedure.",
     "stepsTitle": "Application process",
     "step1": "Prepare a formal application on the organization's letterhead.",

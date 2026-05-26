@@ -14,18 +14,38 @@ export default async function InstallationRequestPage() {
       <TheHero title1={t("title")} url1="installation-request" />
       <section className={s.page}>
         <div className="container">
-          <p className={s.intro}>{t("intro")}</p>
+          <div className={s.lead}>
+            <div className={s.leadContent}>
+              <h2 className={s.leadTitle}>{t("title")}</h2>
+              <p className={s.intro}>{t("intro")}</p>
+            </div>
+            <div className={s.contactCard}>
+              <span className={s.contactLabel}>{t("contactTitle")}</span>
+              <p className={s.contact}>{t("contactText")}</p>
+            </div>
+          </div>
+
           <div className={s.grid}>
-            <article className={s.panel}>
-              <h2 className={s.title}>{t("stepsTitle")}</h2>
+            <article className={s.stepsPanel}>
+              <div className={s.sectionHeader}>
+                <span className={s.sectionNumber}>01</span>
+                <h2 className={s.title}>{t("stepsTitle")}</h2>
+              </div>
               <ol className={s.steps}>
-                {steps.map((step) => (
-                  <li key={step}>{t(step)}</li>
+                {steps.map((step, index) => (
+                  <li key={step}>
+                    <span className={s.stepIndex}>{String(index + 1).padStart(2, "0")}</span>
+                    <span>{t(step)}</span>
+                  </li>
                 ))}
               </ol>
             </article>
-            <aside className={s.panel}>
-              <h2 className={s.title}>{t("docsTitle")}</h2>
+
+            <aside className={s.docsPanel}>
+              <div className={s.sectionHeader}>
+                <span className={s.sectionNumber}>02</span>
+                <h2 className={s.title}>{t("docsTitle")}</h2>
+              </div>
               <ul className={s.docs}>
                 {docs.map((doc) => (
                   <li key={doc}>{t(doc)}</li>
@@ -33,11 +53,13 @@ export default async function InstallationRequestPage() {
               </ul>
             </aside>
           </div>
-          <article className={s.panel}>
-            <h2 className={s.title}>{t("templateTitle")}</h2>
+
+          <article className={s.templatePanel}>
+            <div className={s.sectionHeader}>
+              <span className={s.sectionNumber}>03</span>
+              <h2 className={s.title}>{t("templateTitle")}</h2>
+            </div>
             <p className={s.template}>{t("templateText")}</p>
-            <h2 className={s.title}>{t("contactTitle")}</h2>
-            <p className={s.contact}>{t("contactText")}</p>
           </article>
         </div>
       </section>

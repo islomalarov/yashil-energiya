@@ -1,101 +1,452 @@
 @use "@/scss/vars" as *;
 
-.content {
+.page {
+  background: $whiteColor;
+}
+
+.overview,
+.projectsSection,
+.timelineSection,
+.achievementsSection,
+.partnersSection {
+  padding: clamp(52px, 8vw, 96px) 0;
+}
+
+.overview {
+  background:
+    linear-gradient(180deg, rgba(18, 144, 62, 0.07), rgba(255, 255, 255, 0) 42%),
+    $whiteColor;
+}
+
+.overviewGrid {
   display: grid;
-  grid-template-columns: 1fr;
-  row-gap: clamp(28px, 5vw, 40px);
+  grid-template-columns: minmax(0, 0.58fr) minmax(300px, 0.42fr);
+  gap: clamp(24px, 5vw, 60px);
+  align-items: stretch;
+
+  @media (max-width: $lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.overviewIntro,
+.missionPanel {
+  min-width: 0;
+}
+
+.overviewIntro {
+  display: grid;
+  align-content: center;
+  gap: 20px;
 
   p {
-    text-align: justify;
-    font-size: clamp(15px, 2.2vw, 18px);
-    overflow-wrap: anywhere;
+    max-width: 820px;
+    margin: 0;
+    color: rgba(43, 43, 43, 0.82);
+    font-size: clamp(16px, 1.7vw, 20px);
+    line-height: 1.75;
+  }
+}
 
-    @media (max-width: $sm) {
-      text-align: left;
-    }
+.pageTitle {
+  margin: 0;
+  color: $primaryColor;
+  font-size: clamp(42px, 7vw, 84px);
+  line-height: 0.95;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.headline {
+  max-width: 760px;
+  margin: 0;
+  color: $blackColor;
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1.12;
+  font-weight: 800;
+}
+
+.missionPanel {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+  border: 1px solid rgba(18, 144, 62, 0.16);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(18, 144, 62, 0.1), rgba(92, 182, 63, 0.04)),
+    $whiteColor;
+  box-shadow: 0 20px 48px rgba(20, 44, 30, 0.08);
+  padding: clamp(24px, 4vw, 40px);
+
+  h3 {
+    margin: 0;
+    color: $blackColor;
+    font-size: clamp(24px, 3vw, 34px);
+    line-height: 1.15;
   }
 
-  .title {
-    text-align: center;
-    font-size: clamp(28px, 5vw, $titleSize);
-    color: $primaryColor;
-    padding: 20px 0 30px;
-    overflow-wrap: anywhere;
+  p {
+    margin: 0;
+    color: rgba(43, 43, 43, 0.8);
+    font-size: clamp(15px, 1.5vw, 18px);
+    line-height: 1.7;
+  }
+}
+
+.sectionHeader {
+  display: grid;
+  justify-items: center;
+  margin-bottom: clamp(28px, 5vw, 48px);
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  color: $blackColor;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.12;
+  font-weight: 800;
+}
+
+.projectsSection,
+.achievementsSection {
+  background: #f7faf8;
+}
+
+.projectsList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 3vw, 28px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @media (max-width: $lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.projectsItem {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(18, 144, 62, 0.14);
+  border-radius: 8px;
+  background: $whiteColor;
+  box-shadow: 0 14px 36px rgba(20, 44, 30, 0.08);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.projectsItem:hover {
+  transform: translateY(-8px);
+  border-color: rgba(18, 144, 62, 0.32);
+  box-shadow: 0 24px 58px rgba(20, 44, 30, 0.14);
+}
+
+.projectMedia {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: rgba(18, 144, 62, 0.08);
+  overflow: hidden;
+
+  img {
+    object-fit: cover;
+    transition: transform 0.45s ease, filter 0.45s ease;
+  }
+}
+
+.projectMedia::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.02),
+    rgba(18, 144, 62, 0.22)
+  );
+  opacity: 0.42;
+  transition: opacity 0.3s ease;
+}
+
+.projectsItem:hover .projectMedia img {
+  transform: scale(1.06);
+  filter: saturate(1.08) contrast(1.04);
+}
+
+.projectsItem:hover .projectMedia::after {
+  opacity: 0.68;
+}
+
+.projectBody {
+  position: relative;
+  display: grid;
+  align-content: start;
+  padding: clamp(18px, 3vw, 26px);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: clamp(18px, 3vw, 26px);
+    width: 58px;
+    height: 3px;
+    border-radius: 999px;
+    background: $primaryColor;
+    transform: translateY(-50%);
   }
 
-  .projectsBlock {
-    max-width: $lg;
-    margin: 0 auto;
+  p {
+    margin: 0;
+    color: $blackColor;
+    font-size: clamp(15px, 1.5vw, 18px);
+    line-height: 1.65;
+  }
+}
 
-    .projectsList {
-      .projectsItem {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        padding: 10px 0;
+@media (hover: none) {
+  .projectsItem:hover {
+    transform: none;
+  }
+}
 
-        @media (max-width: $md) {
-          flex-direction: column;
-          text-align: center;
-        }
+.timeline {
+  width: 100%;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0;
 
-        .projectAva {
-          object-fit: cover;
-          width: 80px;
-          height: 80px;
-          flex: 0 0 auto;
-        }
-      }
-    }
+  :global(.vertical-timeline::before) {
+    left: 30px;
+    width: 3px;
+    background: linear-gradient(
+      180deg,
+      rgba(18, 144, 62, 0.05),
+      rgba(18, 144, 62, 0.54) 18%,
+      rgba(18, 144, 62, 0.54) 82%,
+      rgba(18, 144, 62, 0.05)
+    );
   }
 
-  .achievements {
-    display: grid;
-    align-items: start;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 10px;
-
-    @media (max-width: $md) {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    @media (max-width: $sm) {
-      grid-template-columns: 1fr;
-    }
-
-    .achievement {
-      padding: 10px;
-      display: grid;
-      align-items: center;
-      justify-items: center;
-      gap: 10px;
-      min-width: 0;
-
-      .achievementIcon {
-        width: clamp(64px, 10vw, 100px);
-        height: clamp(64px, 10vw, 100px);
-        color: $primaryColor;
-        flex: 0 0 auto;
-      }
-
-      .achievementDescription {
-        text-align: center;
-        overflow-wrap: anywhere;
-      }
-    }
+  :global(.vertical-timeline-element) {
+    margin: 0 0 clamp(18px, 3vw, 30px);
   }
 
-  .partners {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
-    align-items: center;
-    justify-items: center;
-    gap: clamp(14px, 3vw, 24px);
+  :global(.vertical-timeline-element-content) {
+    margin-left: 78px;
+    padding: clamp(18px, 3vw, 28px);
+    border: 1px solid rgba(18, 144, 62, 0.14);
+    border-radius: 8px;
+    background: $whiteColor;
+    box-shadow: 0 16px 42px rgba(20, 44, 30, 0.09);
+  }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      width: min(250px, 100%);
+  :global(.vertical-timeline-element-content-arrow) {
+    top: 22px;
+    border-right: 7px solid $whiteColor;
+  }
+
+  :global(.vertical-timeline-element-icon) {
+    left: 9px;
+    width: 44px;
+    height: 44px;
+    margin-left: 0;
+    box-shadow: 0 0 0 8px rgba(18, 144, 62, 0.1),
+      0 10px 24px rgba(18, 144, 62, 0.24);
+  }
+
+  @media (max-width: $sm) {
+    :global(.vertical-timeline::before) {
+      left: 21px;
+    }
+
+    :global(.vertical-timeline-element-content) {
+      margin-left: 58px;
+      padding: 18px;
+    }
+
+    :global(.vertical-timeline-element-icon) {
+      left: 2px;
+      width: 38px;
+      height: 38px;
+    }
+  }
+}
+
+.timelineIcon {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, $secondaryColor, $primaryColor);
+  color: $whiteColor;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.eventTitle {
+  margin: 0 0 14px;
+  color: $blackColor;
+  font-size: clamp(22px, 2.6vw, 30px);
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.eventList {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: rgba(43, 43, 43, 0.82);
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.65;
+}
+
+.eventList li {
+  position: relative;
+  padding-left: 24px;
+  overflow-wrap: anywhere;
+}
+
+.eventList li::before {
+  content: "";
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: $primaryColor;
+  box-shadow: 0 0 0 6px rgba(18, 144, 62, 0.1);
+}
+
+.achievements {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 24px);
+
+  @media (max-width: $lg) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: $sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.achievement {
+  position: relative;
+  display: grid;
+  gap: 20px;
+  align-content: start;
+  min-width: 0;
+  min-height: 220px;
+  overflow: hidden;
+  border: 1px solid rgba(18, 144, 62, 0.14);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(18, 144, 62, 0.08), rgba(255, 255, 255, 0) 42%),
+    $whiteColor;
+  box-shadow: 0 12px 34px rgba(20, 44, 30, 0.07);
+  padding: clamp(20px, 3vw, 28px);
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    background 0.28s ease;
+}
+
+.achievement::after {
+  content: "";
+  position: absolute;
+  right: -42px;
+  bottom: -42px;
+  width: 116px;
+  height: 116px;
+  border-radius: 50%;
+  background: rgba(92, 182, 63, 0.12);
+  transition: transform 0.28s ease, opacity 0.28s ease;
+}
+
+.achievement:hover {
+  transform: translateY(-8px);
+  border-color: rgba(18, 144, 62, 0.34);
+  box-shadow: 0 22px 52px rgba(20, 44, 30, 0.13);
+}
+
+.achievement:hover::after {
+  opacity: 0.9;
+  transform: scale(1.18);
+}
+
+.achievementIconWrap {
+  position: relative;
+  z-index: 1;
+  display: inline-grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 8px;
+  background: linear-gradient(145deg, $secondaryColor, $primaryColor);
+  box-shadow: 0 14px 32px rgba(18, 144, 62, 0.2);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.achievement:hover .achievementIconWrap {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 18px 38px rgba(18, 144, 62, 0.28);
+}
+
+.achievementIcon {
+  width: 32px;
+  height: 32px;
+  color: $whiteColor;
+}
+
+.achievementDescription {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: rgba(43, 43, 43, 0.84);
+  font-size: clamp(15px, 1.5vw, 17px);
+  line-height: 1.6;
+}
+
+@media (hover: none) {
+  .achievement:hover {
+    transform: none;
+  }
+}
+
+.partnersBlock {
+  width: 100%;
+}
+
+.partners {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));
+  align-items: center;
+  justify-items: center;
+  gap: clamp(16px, 3vw, 28px);
+
+  img {
+    width: min(230px, 100%);
+    height: auto;
+    filter: saturate(0.95);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline {
+    :global(.vertical-timeline-element-content.bounce-in),
+    :global(.vertical-timeline-element-icon.bounce-in) {
+      animation: none;
     }
   }
 }

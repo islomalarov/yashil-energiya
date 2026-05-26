@@ -1,73 +1,221 @@
 @use "@/scss/vars" as *;
 
 .page {
-  padding-bottom: clamp(56px, 8vw, 96px);
+  position: relative;
+  overflow: hidden;
+  padding: clamp(44px, 7vw, 82px) 0 clamp(64px, 9vw, 108px);
+  background:
+    linear-gradient(180deg, rgba(18, 144, 62, 0.06), rgba(255, 255, 255, 0) 34%),
+    $whiteColor;
 }
 
-.intro {
-  max-width: 980px;
-  margin: 0 auto clamp(34px, 6vw, 64px);
-  color: $blackColor;
-  font-size: clamp(17px, 2vw, 21px);
-  line-height: 1.7;
-}
-
-.grid {
+.lead {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
-  gap: clamp(24px, 4vw, 48px);
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+  gap: clamp(22px, 4vw, 44px);
+  align-items: stretch;
+  margin-bottom: clamp(30px, 5vw, 56px);
 
   @media (max-width: $lg) {
     grid-template-columns: 1fr;
   }
 }
 
-.panel {
-  border: 1px solid rgba(18, 144, 62, 0.16);
-  border-radius: 10px;
-  background: $whiteColor;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
-  margin: 10px 0;
+.leadContent,
+.contactCard,
+.stepsPanel,
+.docsPanel,
+.templatePanel {
+  min-width: 0;
+  border: 1px solid rgba(18, 144, 62, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 18px 44px rgba(20, 44, 30, 0.08);
+}
+
+.leadContent {
+  padding: clamp(26px, 5vw, 48px);
+}
+
+.contactLabel,
+.sectionNumber,
+.stepIndex {
+  color: $primaryColor;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.leadTitle {
+  max-width: 820px;
+  margin: 0 0 18px;
+  color: $blackColor;
+  font-size: clamp(30px, 4.8vw, 54px);
+  line-height: 1.08;
+  font-weight: 800;
+}
+
+.intro {
+  max-width: 900px;
+  margin: 0;
+  color: rgba(43, 43, 43, 0.82);
+  font-size: clamp(16px, 1.7vw, 20px);
+  line-height: 1.7;
+}
+
+.contactCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: clamp(22px, 4vw, 34px);
+  border-color: rgba(18, 144, 62, 0.22);
+  background:
+    linear-gradient(135deg, rgba(18, 144, 62, 0.12), rgba(92, 182, 63, 0.05)),
+    $whiteColor;
+}
+
+.contact {
+  margin: 12px 0 0;
+  color: $blackColor;
+  font-size: clamp(15px, 1.5vw, 17px);
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(300px, 0.82fr);
+  gap: clamp(20px, 3vw, 34px);
+  margin-bottom: clamp(20px, 3vw, 34px);
+
+  @media (max-width: $lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stepsPanel,
+.docsPanel,
+.templatePanel {
+  padding: clamp(22px, 4vw, 36px);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: clamp(20px, 3vw, 28px);
+}
+
+.sectionNumber {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(18, 144, 62, 0.1);
 }
 
 .title {
-  margin: 0 0 20px;
-  color: $primaryColor;
-  font-size: clamp(24px, 3.4vw, 34px);
-  line-height: 1.16;
+  margin: 0;
+  color: $blackColor;
+  font-size: clamp(22px, 2.6vw, 32px);
+  line-height: 1.18;
+  font-weight: 800;
 }
 
 .steps,
 .docs {
   margin: 0;
-  padding-left: 22px;
   color: $blackColor;
-  font-size: clamp(16px, 1.7vw, 18px);
-  line-height: 1.7;
+  font-size: clamp(15px, 1.5vw, 17px);
+  line-height: 1.65;
 }
 
-.steps li,
+.steps {
+  display: grid;
+  gap: 14px;
+  padding: 0;
+  list-style: none;
+}
+
+.steps li {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  padding: 16px;
+  border-radius: 8px;
+  background: rgba(18, 144, 62, 0.055);
+
+  @media (max-width: $sm) {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+.stepIndex {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: $primaryColor;
+  color: $whiteColor;
+}
+
+.docs {
+  display: grid;
+  gap: 14px;
+  padding: 0;
+  list-style: none;
+}
+
 .docs li {
-  padding-left: 6px;
-  margin-bottom: 12px;
+  position: relative;
+  padding: 0 0 0 26px;
+}
+
+.docs li::before {
+  content: "";
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: $secondaryColor;
+  box-shadow: 0 0 0 6px rgba(92, 182, 63, 0.12);
+}
+
+.templatePanel {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.42fr) minmax(0, 0.58fr);
+  gap: clamp(18px, 4vw, 42px);
+  align-items: start;
+  border-color: rgba(18, 144, 62, 0.24);
+
+  .sectionHeader {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: $md) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .template {
+  position: relative;
   margin: 0;
   border-left: 4px solid $primaryColor;
   border-radius: 8px;
   background: rgba(18, 144, 62, 0.08);
-  padding: 18px;
+  padding: clamp(18px, 3vw, 24px);
   color: $blackColor;
-  font-size: 16px;
-  line-height: 1.65;
+  font-size: clamp(15px, 1.5vw, 17px);
+  line-height: 1.7;
   white-space: pre-wrap;
-}
-
-.contact {
-  margin-top: 24px;
-  color: rgba(43, 43, 43, 0.78);
-  font-size: 16px;
-  line-height: 1.6;
 }
