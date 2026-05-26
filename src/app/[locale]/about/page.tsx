@@ -45,6 +45,7 @@ export default async function About() {
         url1="about"
         title2={t("heroTitle2")}
         url2="ceo"
+        activeUrl="about"
       />
       <main className={s.page}>
         <section className={s.overview}>

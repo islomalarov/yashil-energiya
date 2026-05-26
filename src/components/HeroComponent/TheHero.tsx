@@ -5,22 +5,22 @@ import styles from "./TheHero.module.scss";
 import hero from "public/hero.png";
 import ges from "public/ges.jpg";
 import { useTranslations } from "next-intl";
-import { Link, usePathname } from "@/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 
 type HeroProps = {
   title1: string;
   url1: string;
   title2?: string;
   url2?: string;
+  activeUrl?: string;
 };
 
-export const TheHero = ({ title1, title2, url1, url2 }: HeroProps) => {
+export const TheHero = ({ title1, title2, url1, url2, activeUrl }: HeroProps) => {
   const t = useTranslations("HomePage");
-  const pathname = usePathname().replace("/", "");
-  const currentSlug = pathname.toLowerCase();
   const primarySlug = url1.toLowerCase();
   const secondarySlug = url2?.toLowerCase();
-  const heroImage = currentSlug === "microges" ? ges : hero;
+  const currentSlug = (activeUrl ?? primarySlug).toLowerCase();
+  const heroImage = primarySlug === "microges" ? ges : hero;
 
   return (
     <div className={styles.hero}>
@@ -37,7 +37,7 @@ export const TheHero = ({ title1, title2, url1, url2 }: HeroProps) => {
         <div className="container">
           <div className={styles.info}>
             <h3 className={styles.title}>
-              {currentSlug === primarySlug ? title1 : title2}
+              {currentSlug === secondarySlug && title2 ? title2 : title1}
             </h3>
             <div className={styles.links}>
               <Link className={styles.link} href="/">

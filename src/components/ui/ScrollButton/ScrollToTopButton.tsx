@@ -1,19 +1,44 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowUpCircle } from "lucide-react";
 import styles from "./ScrollToTopButton.module.scss";
 
 export default function ScrollToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
+  const isVisibleRef = useRef(false);
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      setIsVisible(window.scrollY > window.innerHeight);
+    let frame = 0;
+
+    const updateVisibility = () => {
+      frame = 0;
+      const nextIsVisible = window.scrollY > window.innerHeight;
+
+      if (isVisibleRef.current !== nextIsVisible) {
+        isVisibleRef.current = nextIsVisible;
+        setIsVisible(nextIsVisible);
+      }
     };
 
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    const scheduleVisibilityUpdate = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(updateVisibility);
+    };
+
+    updateVisibility();
+    window.addEventListener("scroll", scheduleVisibilityUpdate, {
+      passive: true,
+    });
+    window.addEventListener("resize", scheduleVisibilityUpdate);
+
+    return () => {
+      if (frame) {
+        window.cancelAnimationFrame(frame);
+      }
+      window.removeEventListener("scroll", scheduleVisibilityUpdate);
+      window.removeEventListener("resize", scheduleVisibilityUpdate);
+    };
   }, []);
 
   const scrollToTop = () => {

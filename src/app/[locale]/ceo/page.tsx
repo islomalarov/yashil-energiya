@@ -19,6 +19,7 @@ export default async function Ceo() {
         url1="about"
         title2={t("heroTitle2")}
         url2="ceo"
+        activeUrl="ceo"
       />
       <div className="container">
         <TheCeo />
