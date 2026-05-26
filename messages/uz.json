@@ -22,7 +22,7 @@
   },
   "HomePage": {
     "title": "Bosh sahifa",
-    "heroTitle": "\"Yashil Energiya\" MChJ — O'zbekistonning qayta tiklanuvchi energetika milliy operatori",
+    "heroTitle": "Yashil Energiya — O'zbekistonning qayta tiklanuvchi energetika milliy operatori",
     "heroSubtitle": "Barqaror energiya ta'minoti uchun quyosh elektr stansiyalari, mikro GES va EV zaryadlash infratuzilmasini rivojlantiramiz.",
     "ctaContact": "Biz bilan bog'lanish",
     "ctaProjects": "Mijozimiz bo'lish",
@@ -177,7 +177,7 @@
       "title": "Gibrid tizim",
       "description": "on-grid va off-grid tizimlarining kombinatsiyasi bo‘lib, u elektr tarmog‘iga ulanib ishlashi yoki akkumulyator orqali mustaqil ravishda energiya ta’minotini davom ettirishi mumkin, bu esa uni eng moslashuvchan, lekin nisbatan qimmat tizimga aylantiradi."
     },
-    "mapTitle": "“Yashil Energiya” MChJ ning mavjud QFES lari haqida ma’lumot",
+    "mapTitle": "“Yashil Energiya” MChJ QK ning mavjud QFES lari haqida ma’lumot",
     "chartDescription": "“Yashil Energiya” MChJ 2023-yildan buyon O’zbekiston Respublikasi hududida joylashgan ijtimoiy soha obyektlariga QFES o’rnatish bilan shug’ullanib kelmoqda. Quyidagi diagrammada jamiyatga tegishli QFES larning umumiy quvvatini o’zgarishini ko’rishingiz mumkin.",
     "chartLabel": "Umumiy quvvat",
     "chartLabelUnit": "kVt",
@@ -225,11 +225,11 @@
     "projectsDescription": "Hozirda \"Yashil Energiya\" MCHJ tomonidan Toshkent viloyati Oqqo’rg’on tumani, Margunenkova kanalida mikro GES-1 loyihasi amalga oshirilmoqda. Ushbu stansiya 270 kVt quvvatga ega bo‘lib, mahalliy suv resurslaridan samarali foydalanish va yaqin hududlarni elektr energiyasi bilan ta’minlashni ko‘zda tutadi.",
     "futuresTitle": "Rejalashtirilayotgan loyihalar",
     "futuresDescription": "2025-yil davomida kompaniyamiz tomonidan yana 5 ta yangi mikro GES loyihasini boshlash rejalashtirilgan. Bu loyihalar O‘zbekistonning turli    hududlarida amalga oshirilib, minglab aholining barqaror elektr ta’minotini yaxshilashga xizmat qiladi.",
-    "mapTitle": "Information about the current MHP status of JV \"Yashil Energiya\" LLC",
-    "mapLabel": "Total capacity",
-    "mapLabelUnit": "kW",
+    "mapTitle": "\"Yashil Energiya\" MChJ QK joriy MikroGES holati haqida ma’lumot",
+    "mapLabel": "Quvvat",
+    "mapLabelUnit": "kVt",
     "mapLabel1": "Status",
-    "planning": "Planning"
+    "planning": "Rejalashtirish"
   },
   "ChargingStationPage": {
     "heroTitle": "Elektr mobillarni zaryadlash stansiyasi",
@@ -276,12 +276,13 @@
       "title": "O'sish prognozi",
       "description": "Ma'lumotlarga koʻra, Oʻzbekiston avtomobil bozorida elektr mobillar ulushi 2030-yilgacha sezilarli darajada oshishi kutilmoqda, bu esa zaryadlash stansiyalariga talabni oshiradi."
     },
-    "mapTitle": "Information about the current EVs status of JV \"Yashil Energiya\" LLC",
-    "mapLabel": "Total capacity",
-    "mapLabelUnit": "kW",
+    "mapTitle": " \"Yashil Energiya\" MChJ QK joriy EV holati haqida ma’lumot",
+    "mapLabel": "Quvvat",
+    "mapLabelUnit": "kVt",
     "mapLabel1": "Status",
-    "running": "Running",
-    "construction": "Construction"
+    "running": "Ishlamoqda",
+    "construction": "Qurilish",
+    "commissioning": "Ishga tushirish"
   },
   "LinksPage": {
     "title": "Foydali havolalar",
