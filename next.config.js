@@ -148,6 +148,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/sitemap.txt",
+        destination: "/sitemap.xml",
+        statusCode: 301,
+      },
+      {
         source: "/:lang(en|ru|uz)/mhp",
         destination: "/:lang/microges",
         statusCode: 301,
