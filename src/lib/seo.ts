@@ -4,6 +4,7 @@ export const siteUrl = "https://yashil-energiya.uz";
 export const siteName = "Yashil Energiya";
 export const defaultOgImage = "/og-image.jpg";
 export const supportedLocales = ["en", "ru", "uz"] as const;
+export const cmsContentLocales = ["en", "ru"] as const;
 
 export type SeoLocale = (typeof supportedLocales)[number];
 
@@ -349,6 +350,13 @@ export function normalizeLocale(locale?: string): SeoLocale {
     : "en";
 }
 
+export function isLocaleIncluded(
+  locale: SeoLocale,
+  locales: readonly SeoLocale[],
+) {
+  return locales.includes(locale);
+}
+
 export function localizedPath(locale: string, path = "/") {
   const currentLocale = normalizeLocale(locale);
   const normalizedPath = path === "/" ? "" : path;
@@ -463,6 +471,7 @@ export function createMetadata({
   alternateLocales = supportedLocales,
 }: MetadataOptions): Metadata {
   const currentLocale = normalizeLocale(locale);
+  const shouldIndex = isLocaleIncluded(currentLocale, alternateLocales);
   const canonical = absoluteUrl(localizedPath(currentLocale, path));
   const sourceImage = image === defaultOgImage ? "/hero.png" : image;
   const metadataImage = sourceImage?.startsWith("/api/og-image")
@@ -507,10 +516,10 @@ export function createMetadata({
       images: metadataImage ? [absoluteUrl(metadataImage)] : undefined,
     },
     robots: {
-      index: true,
+      index: shouldIndex,
       follow: true,
       googleBot: {
-        index: true,
+        index: shouldIndex,
         follow: true,
         "max-image-preview": "large",
         "max-snippet": -1,
@@ -526,12 +535,20 @@ export function createStaticMetadata(
 ): Metadata {
   const currentLocale = normalizeLocale(locale);
   const copy = staticSeo[key][currentLocale];
+  const alternateLocales =
+    key === "news" ||
+    key === "articles" ||
+    key === "plants" ||
+    key === "vacancies"
+      ? cmsContentLocales
+      : supportedLocales;
 
   return createMetadata({
     locale: currentLocale,
     path: staticRoutes[key],
     title: copy.title,
     description: copy.description,
+    alternateLocales,
   });
 }
 

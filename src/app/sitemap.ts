@@ -5,9 +5,12 @@ import {
   localizedPath,
   SeoLocale,
   staticRoutes,
-  supportedLocales,
 } from "@/lib/seo";
-import { cmsLocales, getSafeSitemapContent } from "@/lib/sitemap-utils";
+import {
+  cmsLocales,
+  getSafeSitemapContent,
+  getStaticPathLocales,
+} from "@/lib/sitemap-utils";
 
 const now = new Date();
 
@@ -17,7 +20,7 @@ export const revalidate = 3600;
 function sitemapEntry(
   locale: SeoLocale,
   path: string,
-  alternates: readonly SeoLocale[] = supportedLocales,
+  alternates: readonly SeoLocale[] = getStaticPathLocales(path),
 ): MetadataRoute.Sitemap[number] {
   return {
     url: absoluteUrl(localizedPath(locale, path)),
@@ -32,7 +35,7 @@ function sitemapEntry(
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticEntries = Object.values(staticRoutes).flatMap((path) =>
-    supportedLocales.map((locale) => sitemapEntry(locale, path)),
+    getStaticPathLocales(path).map((locale) => sitemapEntry(locale, path)),
   );
 
   const dynamicEntries = [];

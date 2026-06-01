@@ -7,6 +7,7 @@ import {
 import { absoluteUrl, localizedPath, siteName } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
+const NEWS_SITEMAP_MAX_AGE_MS = 48 * 60 * 60 * 1000;
 
 type NewsSitemapItem = {
   url: string;
@@ -15,17 +16,30 @@ type NewsSitemapItem = {
   language: string;
 };
 
+function isRecentNewsDate(date: string) {
+  const publishedAt = new Date(date).getTime();
+  const ageMs = Date.now() - publishedAt;
+
+  return (
+    Number.isFinite(publishedAt) &&
+    ageMs >= 0 &&
+    ageMs <= NEWS_SITEMAP_MAX_AGE_MS
+  );
+}
+
 export async function GET() {
   const newsItemsNested = await Promise.all(
     cmsLocales.map(async (locale) => {
       const { news } = await getSafeSitemapContent(locale);
 
-      return news.map((item) => ({
-        url: absoluteUrl(localizedPath(locale, `/news/${item.slug}`)),
-        title: item.title,
-        date: item.date,
-        language: locale,
-      }));
+      return news
+        .filter((item) => isRecentNewsDate(item.date))
+        .map((item) => ({
+          url: absoluteUrl(localizedPath(locale, `/news/${item.slug}`)),
+          title: item.title,
+          date: item.date,
+          language: locale,
+        }));
     }),
   );
 

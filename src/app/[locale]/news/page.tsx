@@ -9,6 +9,7 @@ import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 import { absoluteUrl, itemListJsonLd, localizedPath } from "@/lib/seo";
 import { ThePopularNews } from "@/components/PopularNewsComponent/ThePopularNews";
 import { getPopularNews, getPopularNewsLabels } from "@/lib/popular-news";
+import type { Metadata } from "next";
 
 type NewsPageProps = {
   searchParams?: Promise<{ page?: string }>;
@@ -19,6 +20,27 @@ const DEFAULT_PAGE_SIZE = 9;
 function normalizePage(page?: string) {
   const parsed = Number(page);
   return Number.isInteger(parsed) && parsed > 0 ? parsed : 1;
+}
+
+export async function generateMetadata({
+  searchParams,
+}: NewsPageProps): Promise<Metadata> {
+  const { page } = (await searchParams) ?? {};
+
+  if (normalizePage(page) <= 1) {
+    return {};
+  }
+
+  return {
+    robots: {
+      index: false,
+      follow: true,
+      googleBot: {
+        index: false,
+        follow: true,
+      },
+    },
+  };
 }
 
 export default async function News({ searchParams }: NewsPageProps) {

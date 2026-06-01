@@ -7,6 +7,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { redirect } from "@/i18n/navigation";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 import { absoluteUrl, itemListJsonLd, localizedPath } from "@/lib/seo";
+import type { Metadata } from "next";
 
 type PlantsPageProps = {
   searchParams?: Promise<{ page?: string }>;
@@ -17,6 +18,27 @@ const DEFAULT_PAGE_SIZE = 6;
 function normalizePage(page?: string) {
   const parsed = Number(page);
   return Number.isInteger(parsed) && parsed > 0 ? parsed : 1;
+}
+
+export async function generateMetadata({
+  searchParams,
+}: PlantsPageProps): Promise<Metadata> {
+  const { page } = (await searchParams) ?? {};
+
+  if (normalizePage(page) <= 1) {
+    return {};
+  }
+
+  return {
+    robots: {
+      index: false,
+      follow: true,
+      googleBot: {
+        index: false,
+        follow: true,
+      },
+    },
+  };
 }
 
 export default async function Plants({ searchParams }: PlantsPageProps) {

@@ -4,6 +4,7 @@ import { PlantService } from "services/plants.service";
 import { VacancyService } from "services/vacancies.service";
 import {
   absoluteUrl,
+  cmsContentLocales,
   localizedPath,
   SeoLocale,
   siteName,
@@ -18,7 +19,7 @@ export type SitemapContent = {
   vacancies: Awaited<ReturnType<typeof VacancyService.getAllVacancies>>;
 };
 
-export const cmsLocales: SeoLocale[] = ["en", "ru", "uz"];
+export const cmsLocales: SeoLocale[] = [...cmsContentLocales];
 
 export function escapeXml(value: string | number | null | undefined) {
   return String(value ?? "")
@@ -78,10 +79,19 @@ export function buildNewsImageAlt(title: string) {
 
 export function buildMultilingualStaticUrls() {
   return getStaticSitemapPaths().flatMap((path) =>
-    supportedLocales.map((locale) => ({
+    getStaticPathLocales(path).map((locale) => ({
       locale,
       path,
       url: absoluteUrl(localizedPath(locale, path)),
     })),
   );
+}
+
+export function getStaticPathLocales(path: string): readonly SeoLocale[] {
+  return path === "/news" ||
+    path === "/articles" ||
+    path === "/plants" ||
+    path === "/vacancies"
+    ? cmsLocales
+    : supportedLocales;
 }

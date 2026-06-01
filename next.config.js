@@ -57,6 +57,20 @@ const staticHtmlCacheHeaders = [
   },
 ];
 
+const noIndexHeaders = [
+  {
+    key: "X-Robots-Tag",
+    value: "noindex, nofollow",
+  },
+];
+
+const noIndexFollowHeaders = [
+  {
+    key: "X-Robots-Tag",
+    value: "noindex, follow",
+  },
+];
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   compress: true,
@@ -74,6 +88,20 @@ const nextConfig = {
   },
   async headers() {
     return [
+      {
+        source: "/(.*)",
+        has: [
+          {
+            type: "host",
+            value: "app.yashil-energiya.uz",
+          },
+        ],
+        headers: noIndexHeaders,
+      },
+      {
+        source: "/uz/:path(news|articles|plants|vacancies)/:slug*",
+        headers: noIndexFollowHeaders,
+      },
       {
         source: "/",
         headers: staticHtmlCacheHeaders,
@@ -127,6 +155,16 @@ const nextConfig = {
       {
         source: "/:lang(en|ru|uz)/ev",
         destination: "/:lang/chargingstation",
+        statusCode: 301,
+      },
+      {
+        source: "/:lang(en|ru|uz)/articles/page:page(\\d+)",
+        destination: "/:lang/articles",
+        statusCode: 301,
+      },
+      {
+        source: "/articles/page:page(\\d+)",
+        destination: "/en/articles",
         statusCode: 301,
       },
     ];
