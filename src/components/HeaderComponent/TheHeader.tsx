@@ -12,10 +12,13 @@ import { TheBurgerMenu } from "../ui/BurgerComponent/TheBurgerMenu";
 import { TheBurgerBtn } from "../ui/BurgerComponent/TheBurgerBtn";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
 import { Link } from "@/i18n/navigation";
+import { usePathname } from "@/i18n/navigation";
 import { useSkipLocaleMotion } from "@/lib/locale-transition";
 import { TheSearch } from "../ui/SearchComponent/TheSearch";
 
 export const TheHeader = () => {
+  const pathname = usePathname();
+  const hideHeader = pathname === "/taplink";
   const [showBurgerBtn, setShowBurgerBtn] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isInitialStateSettled, setIsInitialStateSettled] = useState(false);
@@ -68,6 +71,10 @@ export const TheHeader = () => {
       window.removeEventListener("resize", handleScroll);
     };
   }, []);
+
+  if (hideHeader) {
+    return null;
+  }
 
   return (
     <header

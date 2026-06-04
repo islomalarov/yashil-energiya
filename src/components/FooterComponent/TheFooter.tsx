@@ -2,7 +2,6 @@
 import s from "./TheFooter.module.scss";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import footerLogo from "public/logo2.svg";
 import { socialLinks } from "data/links";
 
 export const TheFooter = () => {
@@ -10,11 +9,6 @@ export const TheFooter = () => {
     <footer className={s.footer}>
       <div className="container">
         <div className={s.content}>
-          <div className={s.logoBlock}>
-            <Link href="/">
-              <Image src={footerLogo} alt="logo2" />
-            </Link>
-          </div>
           <div className={s.socialLinks}>
             {socialLinks.map(({ url, path }) => (
               <Link

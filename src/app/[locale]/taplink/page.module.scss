@@ -1,0 +1,366 @@
+@use "@/scss/vars" as *;
+
+.page {
+  width: 100vw;
+  max-width: 100vw;
+  min-height: 100vh;
+  padding: clamp(20px, 4vw, 48px) clamp(14px, 4vw, 24px)
+    clamp(48px, 7vw, 84px);
+  overflow-x: hidden;
+  background:
+    linear-gradient(135deg, rgba(10, 37, 26, 0.86), rgba(11, 89, 47, 0.64)),
+    url("/hero-poster.webp") center / cover fixed;
+  color: $whiteColor;
+}
+
+.shell {
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  min-width: 0;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding-bottom: clamp(22px, 5vw, 48px);
+}
+
+.topLogo {
+  display: grid;
+  place-items: center;
+  flex: 0 1 280px;
+  min-width: 0;
+  max-width: clamp(154px, 34vw, 280px);
+}
+
+.localeSwitcher {
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.18);
+
+  button {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border-radius: 50%;
+    color: $primaryColor;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      transform: translateY(-1px);
+      color: $whiteColor;
+      background: $secondaryColor;
+      outline: none;
+    }
+  }
+}
+
+.activeLocale {
+  color: $whiteColor !important;
+  background: $primaryColor;
+}
+
+.hero {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: clamp(10px, 2vw, 16px);
+  min-width: 0;
+  padding: 0 0 clamp(22px, 5vw, 48px);
+
+  h1 {
+    max-width: 100%;
+    margin: 0;
+    font-size: clamp(38px, 9vw, 86px);
+    line-height: 0.98;
+    font-weight: 700;
+    letter-spacing: 0;
+    overflow-wrap: anywhere;
+  }
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: clamp(12px, 2vw, 14px);
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: #b7f3c7;
+}
+
+.subtitle {
+  width: min(100%, 680px);
+  margin: 0;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: clamp(16px, 2.6vw, 22px);
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: minmax(300px, 420px) minmax(0, 1fr);
+  gap: clamp(18px, 3vw, 28px);
+  align-items: stretch;
+  min-width: 0;
+
+  @media (max-width: $lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.links {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  min-width: 0;
+}
+
+.linkCard {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+  min-height: 78px;
+  padding: 14px;
+  color: $blackColor;
+  text-decoration: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-2px);
+    background: $whiteColor;
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.24);
+    outline: none;
+  }
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  color: $whiteColor;
+  background: linear-gradient(135deg, $primaryColor, #83c74a);
+}
+
+.linkText {
+  display: grid;
+  min-width: 0;
+  gap: 4px;
+
+  strong,
+  span {
+    overflow-wrap: anywhere;
+  }
+
+  strong {
+    color: #143322;
+    font-size: clamp(17px, 2.4vw, 20px);
+    line-height: 1.15;
+  }
+
+  span {
+    color: #52635a;
+    font-size: clamp(14px, 2vw, 16px);
+    line-height: 1.35;
+  }
+}
+
+.mapPanel {
+  display: grid;
+  grid-template-rows: auto minmax(320px, 1fr) auto;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: $whiteColor;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+
+  @media (max-width: $sm) {
+    grid-template-rows: auto 330px;
+  }
+}
+
+.mapHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: clamp(16px, 3vw, 24px);
+  color: $blackColor;
+  min-width: 0;
+
+  > div {
+    min-width: 0;
+  }
+
+  h2,
+  p {
+    margin: 0;
+  }
+
+  h2 {
+    font-size: clamp(22px, 3vw, 30px);
+    line-height: 1.15;
+  }
+
+  p {
+    margin-top: 6px;
+    color: #52635a;
+    font-size: clamp(14px, 2vw, 16px);
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+
+  @media (max-width: $sm) {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+.map {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  border: 0;
+}
+
+.routeApps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px clamp(16px, 3vw, 24px) clamp(16px, 3vw, 24px);
+  color: $blackColor;
+
+  p {
+    margin: 0;
+    color: #52635a;
+    font-size: clamp(14px, 2vw, 16px);
+    font-weight: 700;
+  }
+
+  > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 14px;
+    gap: 8px;
+    border: 1px solid rgba(18, 144, 62, 0.18);
+    border-radius: 8px;
+    color: $primaryColor;
+    background: rgba(18, 144, 62, 0.08);
+    text-decoration: none;
+    font-weight: 700;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      transform: translateY(-1px);
+      color: $whiteColor;
+      background: $primaryColor;
+      outline: none;
+    }
+  }
+
+  @media (max-width: $sm) {
+    align-items: stretch;
+    flex-direction: column;
+
+    > div {
+      justify-content: stretch;
+    }
+
+    a {
+      flex: 1 1 150px;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .page {
+    padding-inline: 10px;
+  }
+
+  .topBar {
+    gap: 10px;
+    padding-bottom: 28px;
+  }
+
+  .topLogo {
+    max-width: 156px;
+  }
+
+  .localeSwitcher {
+    gap: 2px;
+    padding: 3px;
+
+    button {
+      width: 31px;
+      height: 31px;
+      font-size: 12px;
+    }
+  }
+
+  .hero {
+    h1 {
+      font-size: 36px;
+    }
+  }
+
+  .subtitle {
+    width: min(100%, 330px);
+    font-size: 15px;
+  }
+
+  .linkCard {
+    grid-template-columns: 46px minmax(0, 1fr);
+    min-height: 72px;
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .mapHeader {
+    p {
+      max-width: 320px;
+      font-size: 13px;
+    }
+  }
+}

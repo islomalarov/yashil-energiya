@@ -10,6 +10,9 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           "/api/",
           "/_vercel/",
+          "/en/taplink",
+          "/ru/taplink",
+          "/uz/taplink",
         ],
       },
     ],
