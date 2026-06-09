@@ -284,6 +284,40 @@
     "construction": "Qurilish",
     "commissioning": "Ishga tushirish"
   },
+  "ChargingGuide": {
+    "eyebrow": "EV zaryadlash yo'riqnomasi",
+    "title": "Elektromobilni qanday zaryadlash kerak",
+    "subtitle": "Yashil Energiya ilovasi orqali stansiyani topishdan tortib zaryadlashni xavfsiz yakunlashgacha bo'lgan oddiy bosqichlar.",
+    "stepLabel": "{number}-bosqich",
+    "step1": {
+      "title": "Ilovani yuklab oling",
+      "description": "Zaryadlash seanslarini boshqarish uchun Yashil Energiya mobil ilovasini o'rnating va tizimga kiring."
+    },
+    "step2": {
+      "title": "Balansni to'ldiring",
+      "description": "Zaryadlashni kechiktirmasdan boshlash uchun hisobingizga oldindan mablag' kiriting."
+    },
+    "step3": {
+      "title": "Stansiyani toping",
+      "description": "Xaritadan yaqin atrofdagi bo'sh zaryadlash stansiyasini tanlang va yo'nalishni belgilang."
+    },
+    "step4": {
+      "title": "Kabelni ulang",
+      "description": "Avtomobilni qurilma yoniga qo'ying, zaryadlash portini oching va kabelni mahkam ulang."
+    },
+    "step5": {
+      "title": "Zaryadlashni boshlang",
+      "description": "Ilovada kerakli konnektorni tanlang va avtomobil tayyor bo'lganda seansni ishga tushiring."
+    },
+    "step6": {
+      "title": "Avtomobil zaryadlanmoqda",
+      "description": "Batareya foizi, quvvat va seans holatini real vaqt rejimida kuzatib boring."
+    },
+    "step7": {
+      "title": "Zaryadlashni yakunlang",
+      "description": "Ilovada seansni to'xtating, kabelni ajrating va yakuniy to'lov ma'lumotlarini tekshiring."
+    }
+  },
   "LinksPage": {
     "title": "Foydali havolalar",
     "legalDatabase": "O'zbekiston Respublikasi qonunchilik ma'lumotlari milliy bazasi",

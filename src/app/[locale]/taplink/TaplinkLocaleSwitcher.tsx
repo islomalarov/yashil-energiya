@@ -16,7 +16,11 @@ const localeLabels: Record<Locale, string> = {
   en: "EN",
 };
 
-export function TaplinkLocaleSwitcher() {
+type Props = {
+  pathname?: "/taplink" | "/ev-guide";
+};
+
+export function TaplinkLocaleSwitcher({ pathname = "/taplink" }: Props) {
   const locale = useLocale() as Locale;
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
@@ -38,7 +42,7 @@ export function TaplinkLocaleSwitcher() {
     startTransition(() => {
       router.replace(
         {
-          pathname: "/taplink",
+          pathname,
         },
         {
           locale: nextLocale,

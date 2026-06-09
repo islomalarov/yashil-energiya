@@ -48,6 +48,10 @@
   padding-top: 0;
 }
 
+.main:has(.ev-guide-page) {
+  padding-top: 0;
+}
+
 .taplink-page {
   transition: opacity 0.22s ease, filter 0.22s ease;
 }

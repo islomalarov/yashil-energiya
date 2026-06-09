@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import {
   AppWindow,
+  BatteryCharging,
   Globe2,
   Mail,
   MapPinned,
   Navigation,
 } from "lucide-react";
 import Logo from "public/logo2.svg";
+import { Link } from "@/i18n/navigation";
 import { TaplinkLocaleSwitcher } from "./TaplinkLocaleSwitcher";
 import s from "./page.module.scss";
 
@@ -28,6 +30,21 @@ const yandexRouteUrl = `https://yandex.uz/maps/?rtext=~${latitude}%2C${longitude
 const twoGisRouteUrl = `https://2gis.uz/tashkent/routeSearch/rsType/car/to/${longitude}%2C${latitude}`;
 const mapSrc =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d629.8574893084249!2d69.29235218411685!3d41.32791623011573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef502436398eb%3A0xa40ec419e35355df!2sJV%20%22Yashil%20Energiya%22%20LLC!5e0!3m2!1s{locale}!2s!4v1779561905690!5m2!1s{locale}!2s";
+
+const evGuideCopy = {
+  en: {
+    title: "EV charging guide",
+    text: "Step-by-step charging instruction",
+  },
+  ru: {
+    title: "Инструкция по зарядке",
+    text: "Пошаговая инструкция для электромобиля",
+  },
+  uz: {
+    title: "Zaryadlash yo'riqnomasi",
+    text: "Elektromobil uchun bosqichma-bosqich qo'llanma",
+  },
+} satisfies Record<Locale, Record<string, string>>;
 
 const copy = {
   en: {
@@ -122,19 +139,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function TaplinkPage({ params }: Props) {
   const { locale } = await params;
   const t = copy[locale] ?? copy.en;
+  const evGuide = evGuideCopy[locale] ?? evGuideCopy.en;
   const mapLocale = locale === "uz" ? "uz" : locale;
   const links = [
-    {
-      href: websiteUrl,
-      title: t.website,
-      text: t.websiteText,
-      icon: Globe2,
-    },
     {
       href: appUrl,
       title: t.app,
       text: t.appText,
       icon: AppWindow,
+    },
+    {
+      href: websiteUrl,
+      title: t.website,
+      text: t.websiteText,
+      icon: Globe2,
     },
     {
       href: emailUrl,
@@ -178,7 +196,29 @@ export default async function TaplinkPage({ params }: Props) {
 
         <div className={s.content}>
           <div className={s.links}>
-            {links.map(({ href, title, text, icon: Icon }) => (
+            {links.slice(0, 1).map(({ href, title, text, icon: Icon }) => (
+              <a className={s.linkCard} href={href} key={href} target="_blank">
+                <span className={s.icon}>
+                  <Icon aria-hidden="true" size={24} strokeWidth={2.2} />
+                </span>
+                <span className={s.linkText}>
+                  <strong>{title}</strong>
+                  <span>{text}</span>
+                </span>
+              </a>
+            ))}
+
+            <Link className={s.linkCard} href="/ev-guide">
+              <span className={s.icon}>
+                <BatteryCharging aria-hidden="true" size={24} strokeWidth={2.2} />
+              </span>
+              <span className={s.linkText}>
+                <strong>{evGuide.title}</strong>
+                <span>{evGuide.text}</span>
+              </span>
+            </Link>
+
+            {links.slice(1).map(({ href, title, text, icon: Icon }) => (
               <a className={s.linkCard} href={href} key={href} target="_blank">
                 <span className={s.icon}>
                   <Icon aria-hidden="true" size={24} strokeWidth={2.2} />

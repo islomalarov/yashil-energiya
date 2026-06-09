@@ -127,6 +127,41 @@
   }
 }
 
+.evGuideActions {
+  display: flex;
+  justify-content: center;
+  padding: clamp(22px, 4vw, 38px) 0 0;
+}
+
+.backLink {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 18px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  color: $primaryColor;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.18);
+  font-size: clamp(15px, 2vw, 17px);
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    color: $whiteColor;
+    background: $primaryColor;
+    outline: none;
+    transform: translateY(-2px);
+  }
+}
+
 .links {
   display: grid;
   gap: 12px;

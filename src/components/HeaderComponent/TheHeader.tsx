@@ -18,7 +18,7 @@ import { TheSearch } from "../ui/SearchComponent/TheSearch";
 
 export const TheHeader = () => {
   const pathname = usePathname();
-  const hideHeader = pathname === "/taplink";
+  const hideHeader = pathname === "/taplink" || pathname === "/ev-guide";
   const [showBurgerBtn, setShowBurgerBtn] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isInitialStateSettled, setIsInitialStateSettled] = useState(false);

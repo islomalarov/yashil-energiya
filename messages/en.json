@@ -284,6 +284,40 @@
     "construction": "Construction",
     "commissioning": "Commissioning"
   },
+  "ChargingGuide": {
+    "eyebrow": "EV charging guide",
+    "title": "How to charge an electric vehicle",
+    "subtitle": "A simple step-by-step flow for charging through the Yashil Energiya app, from finding a station to safely finishing the session.",
+    "stepLabel": "Step {number}",
+    "step1": {
+      "title": "Download the app",
+      "description": "Install the Yashil Energiya mobile app and sign in to manage charging sessions."
+    },
+    "step2": {
+      "title": "Top up balance",
+      "description": "Add funds to your account in advance so the charging session can start without delay."
+    },
+    "step3": {
+      "title": "Find a station",
+      "description": "Use the map to choose a nearby available charging station and plan your route."
+    },
+    "step4": {
+      "title": "Connect cable",
+      "description": "Park near the charger, open the charging port and connect the cable securely."
+    },
+    "step5": {
+      "title": "Start charging",
+      "description": "Select the connector in the app and start the session when the vehicle is ready."
+    },
+    "step6": {
+      "title": "Vehicle charging",
+      "description": "Track battery percentage, charging power and session status in real time."
+    },
+    "step7": {
+      "title": "Finish charging",
+      "description": "Stop the session in the app, disconnect the cable and check the final payment details."
+    }
+  },
   "LinksPage": {
     "title": "Useful links",
     "legalDatabase": "National Legislation Database of the Republic of Uzbekistan",
