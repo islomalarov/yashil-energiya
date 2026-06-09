@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import Logo from "public/logo2.svg";
 import { ChargingGuide } from "@/components/ChargingGuide/ChargingGuide";
 import { Link } from "@/i18n/navigation";
+import { absoluteUrl, optimizedOgImagePath, siteName } from "@/lib/seo";
 import { TaplinkLocaleSwitcher } from "../taplink/TaplinkLocaleSwitcher";
 import s from "../taplink/page.module.scss";
 
@@ -52,10 +53,39 @@ const backCopy = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = copy[locale] ?? copy.en;
+  const url = absoluteUrl(`/${locale}/ev-guide`);
+  const image = absoluteUrl(
+    optimizedOgImagePath("/hero-poster.webp", {
+      title: t.metaTitle,
+      cta: "Open guide",
+    }),
+  );
 
   return {
     title: t.metaTitle,
     description: t.metaDescription,
+    openGraph: {
+      title: t.metaTitle,
+      description: t.metaDescription,
+      url,
+      siteName,
+      locale,
+      type: "website",
+      images: [
+        {
+          url: image,
+          width: 1200,
+          height: 630,
+          alt: t.metaTitle,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t.metaTitle,
+      description: t.metaDescription,
+      images: [image],
+    },
   };
 }
 

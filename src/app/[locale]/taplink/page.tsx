@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import Logo from "public/logo2.svg";
 import { Link } from "@/i18n/navigation";
+import { absoluteUrl, optimizedOgImagePath, siteName } from "@/lib/seo";
 import { TaplinkLocaleSwitcher } from "./TaplinkLocaleSwitcher";
 import s from "./page.module.scss";
 
@@ -121,10 +122,39 @@ const copy = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = copy[locale] ?? copy.en;
+  const url = absoluteUrl(`/${locale}/taplink`);
+  const image = absoluteUrl(
+    optimizedOgImagePath("/hero-poster.webp", {
+      title: t.metaTitle,
+      cta: "Open links",
+    }),
+  );
 
   return {
     title: t.metaTitle,
     description: t.metaDescription,
+    openGraph: {
+      title: t.metaTitle,
+      description: t.metaDescription,
+      url,
+      siteName,
+      locale,
+      type: "website",
+      images: [
+        {
+          url: image,
+          width: 1200,
+          height: 630,
+          alt: t.metaTitle,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t.metaTitle,
+      description: t.metaDescription,
+      images: [image],
+    },
     robots: {
       index: false,
       follow: false,
