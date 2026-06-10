@@ -18,17 +18,13 @@
   background: transparent;
 
   .grid {
-    gap: clamp(14px, 2.2vw, 22px);
+    gap: clamp(16px, 2.4vw, 24px);
   }
 
   .card {
-    border-color: rgba(255, 255, 255, 0.16);
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 18px 52px rgba(0, 0, 0, 0.18);
-  }
-
-  .description {
-    color: rgba(255, 255, 255, 0.84);
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 22px 62px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -73,27 +69,27 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(16px, 2vw, 24px);
   list-style: none;
-  justify-items: center;
+  align-items: stretch;
 }
 
 .card {
   --delay: 0ms;
 
   position: relative;
-  display: flex;
-  width: min(100%, 264px);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  width: 100%;
   min-width: 0;
   min-height: 100%;
   overflow: hidden;
-  flex-direction: column;
-  gap: 12px;
-  padding: 10px;
+  gap: 0;
+  padding: 0;
   border: 1px solid rgba($primaryColor, 0.12);
-  border-radius: 28px;
-  background: rgba($whiteColor, 0.82);
+  border-radius: 8px;
+  background: rgba($whiteColor, 0.95);
   backdrop-filter: blur(14px);
   box-shadow: 0 18px 42px rgba(22, 95, 51, 0.09);
   animation: guide-card-in 0.72s ease both;
@@ -106,52 +102,95 @@
   &:hover {
     border-color: rgba($primaryColor, 0.34);
     box-shadow: 0 28px 70px rgba(18, 144, 62, 0.18);
-    transform: translateY(-8px) scale(1.025);
-  }
-}
-
-.imageLink {
-  display: block;
-  border-radius: 24px;
-  text-decoration: none;
-
-  &:focus-visible {
-    outline: 3px solid rgba($secondaryColor, 0.72);
-    outline-offset: 4px;
+    transform: translateY(-4px);
   }
 }
 
 .imageWrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 232 / 770;
+  aspect-ratio: 1672 / 941;
   overflow: hidden;
-  border-radius: 24px;
-  background: #f2f4f3;
+  background: #ffffff;
   box-shadow: inset 0 0 0 1px rgba($primaryColor, 0.08);
 }
 
+.stepBadge {
+  position: absolute;
+  top: clamp(10px, 1.5vw, 16px);
+  left: clamp(10px, 1.5vw, 16px);
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: clamp(34px, 4vw, 44px);
+  height: clamp(34px, 4vw, 44px);
+  border: 3px solid rgba($whiteColor, 0.94);
+  border-radius: 50%;
+  color: $whiteColor;
+  background: linear-gradient(135deg, $primaryColor, #0d7f34);
+  box-shadow: 0 10px 24px rgba(5, 70, 28, 0.24);
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 800;
+  line-height: 1;
+}
+
 .image {
-  object-fit: cover;
+  padding: clamp(6px, 1vw, 10px);
+  object-fit: contain;
   transition: transform 0.55s ease;
 
   .card:hover & {
-    transform: scale(1.045);
+    transform: none;
   }
+}
+
+.cardBody {
+  display: grid;
+  align-content: space-between;
+  gap: 14px;
+  min-height: 126px;
+  padding: clamp(14px, 2vw, 18px);
 }
 
 .description {
   margin: 0;
-  padding: 0 8px 6px;
   color: rgba($blackColor, 0.72);
+  font-size: clamp(14px, 1.7vw, 16px);
+  line-height: 1.5;
+  text-align: left;
+}
+
+.stepLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: start;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid rgba($primaryColor, 0.18);
+  border-radius: 8px;
+  color: $whiteColor;
+  background: $primaryColor;
   font-size: 14px;
-  line-height: 1.45;
-  text-align: center;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(18, 144, 62, 0.2);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-1px);
+    background: #0f7d36;
+    box-shadow: 0 14px 30px rgba(18, 144, 62, 0.28);
+    outline: none;
+  }
 }
 
 @media (max-width: $lg) {
   .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
   }
 }
 
@@ -178,35 +217,35 @@
 
   .card {
     width: 100%;
-    max-width: 238px;
-    gap: 8px;
-    padding: 7px;
-    border-radius: 24px;
+    max-width: none;
+    border-radius: 8px;
 
     &:hover {
-      transform: translateY(-4px);
+      transform: none;
     }
   }
 
-  .imageLink,
   .imageWrap {
-    border-radius: 20px;
+    aspect-ratio: 1672 / 941;
   }
 
-  .imageWrap {
-    aspect-ratio: 232 / 770;
+  .cardBody {
+    min-height: auto;
+    padding: 14px;
   }
 
   .description {
-    padding: 0 4px 4px;
-    font-size: 12px;
-    line-height: 1.35;
+    font-size: 14px;
+  }
+
+  .stepLink {
+    width: 100%;
   }
 }
 
 @media (max-width: 420px) {
   .card {
-    max-width: min(62vw, 224px);
+    width: 100%;
   }
 }
 
