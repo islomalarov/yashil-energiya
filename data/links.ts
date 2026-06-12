@@ -79,11 +79,11 @@ export const menuLinks = [
 
 export const socialLinks = [
   {
-    url: "https://www.instagram.com/yashilenergiya/",
+    url: "https://www.instagram.com/yashilenergiyauz?igsh=MXNuYjFjNmJncmU0Zw%3D%3D&utm_source=qr",
     path: "/socialsLogo/instagram.svg",
   },
   {
-    url: "https://www.facebook.com/yashilenergiyamchj",
+    url: "https://www.facebook.com/profile.php?id=61590344596892",
     path: "/socialsLogo/facebook.svg",
   },
   {

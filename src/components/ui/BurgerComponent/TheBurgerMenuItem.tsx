@@ -1,8 +1,7 @@
-import { usePathname } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import s from "./TheBurger.module.scss";
-import Link from "next/link";
 
 interface BurgerMenuItemProps {
   title: string;

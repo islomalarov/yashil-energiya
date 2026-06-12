@@ -2,9 +2,9 @@
 
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import { TheHero } from "@/components/HeroComponent/TheHero";
+import { Link } from "@/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import s from "./page.module.scss";
-import Link from "next/link";
 import { tenders } from "data/tenders";
 
 export default function TendersPage() {
@@ -19,7 +19,7 @@ export default function TendersPage() {
           {tenders.map((tender) => (
             <Link
               key={tender.id}
-              href={`/procurements/procurement${tender.id}?lang=${locale}`}
+              href={`/procurements/procurement${tender.id}`}
               className={s.tenderItem}
             >
               <div>
