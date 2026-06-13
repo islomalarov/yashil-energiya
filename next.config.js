@@ -53,7 +53,7 @@ const securityHeaders = [
 const staticHtmlCacheHeaders = [
   {
     key: "Cache-Control",
-    value: "public, s-maxage=3600, stale-while-revalidate=86400",
+    value: "public, s-maxage=300, stale-while-revalidate=600",
   },
 ];
 
@@ -101,6 +101,10 @@ const nextConfig = {
       {
         source: "/uz/:path(news|articles|plants|vacancies)/:slug*",
         headers: noIndexFollowHeaders,
+      },
+      {
+        source: "/:lang(en|ru|uz)/ev-guide",
+        headers: noIndexHeaders,
       },
       {
         source: "/",
@@ -153,6 +157,16 @@ const nextConfig = {
         statusCode: 301,
       },
       {
+        source: "/:lang(en|ru|uz)/jobs",
+        destination: "/:lang/vacancies",
+        statusCode: 301,
+      },
+      {
+        source: "/jobs",
+        destination: "/en/vacancies",
+        statusCode: 301,
+      },
+      {
         source: "/:lang(en|ru|uz)/mhp",
         destination: "/:lang/microges",
         statusCode: 301,
@@ -168,8 +182,42 @@ const nextConfig = {
         statusCode: 301,
       },
       {
+        source: "/:lang(en|ru|uz)/news/page:page(\\d+)",
+        destination: "/:lang/news",
+        statusCode: 301,
+      },
+      {
         source: "/articles/page:page(\\d+)",
         destination: "/en/articles",
+        statusCode: 301,
+      },
+      {
+        source: "/news/page:page(\\d+)",
+        destination: "/en/news",
+        statusCode: 301,
+      },
+      {
+        source:
+          "/news/global-south-utilities-tomonidan-ulushni-sotib-olish-boyicha-memorandum-imzolandi",
+        destination: "/en/news",
+        statusCode: 301,
+      },
+      {
+        source:
+          "/news/yangi-toshkentda-elektromobillarni-tezkor-zaryadlash-stansiyasi-ishga-tushirildi",
+        destination: "/en/news",
+        statusCode: 301,
+      },
+      {
+        source:
+          "/news/employees-of-yashil-energiya-llc-improve-their-skills",
+        destination: "/en/news",
+        statusCode: 301,
+      },
+      {
+        source:
+          "/news/yashil-energiya-mchj-xodimlari-malakasini-oshirmoqda",
+        destination: "/en/news",
         statusCode: 301,
       },
     ];

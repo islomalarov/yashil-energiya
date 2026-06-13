@@ -572,8 +572,8 @@ export function organizationJsonLd(locale: string) {
       addressCountry: "UZ",
     },
     sameAs: [
-      "https://www.instagram.com/yashilenergiya/",
-      "https://www.facebook.com/yashilenergiyamchj",
+      "https://www.instagram.com/yashilenergiyauz?igsh=MXNuYjFjNmJncmU0Zw%3D%3D&utm_source=qr",
+      "https://www.facebook.com/profile.php?id=61590344596892",
       "https://t.me/yashilenergiyauz",
       "https://www.linkedin.com/company/yashil-energiya/",
     ],

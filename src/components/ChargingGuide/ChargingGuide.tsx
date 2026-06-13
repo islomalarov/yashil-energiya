@@ -173,7 +173,7 @@ export function ChargingGuide({ compact = false }: Props) {
                       className={s.stepLink}
                       href={step.link.href}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer nofollow"
                       aria-label={`${step.title}: ${step.link.label}`}
                     >
                       <span>{step.link.label}</span>
@@ -181,7 +181,6 @@ export function ChargingGuide({ compact = false }: Props) {
                     </a>
                   )}
                 </div>
-                {step.link && <meta itemProp="url" content={step.link.href} />}
               </li>
             );
           })}
