@@ -28,3 +28,17 @@
   color: $blackColor;
   overflow-wrap: anywhere;
 }
+
+.blockquote {
+  margin: 0;
+  padding: clamp(14px, 2.4vw, 22px) clamp(16px, 3vw, 28px);
+  border-left: 4px solid $primaryColor;
+  background: rgba(18, 144, 62, 0.08);
+  border-radius: 0 8px 8px 0;
+
+  p {
+    margin: 0;
+    font-style: italic;
+    text-align: left;
+  }
+}

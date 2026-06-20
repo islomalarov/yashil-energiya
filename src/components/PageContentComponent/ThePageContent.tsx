@@ -29,6 +29,14 @@ export default function ThePageContent({ content }: Props) {
           case "bulleted-list":
           case "numbered-list":
             return <TheList key={index} content={children} type={type} />;
+          case "block-quote":
+          case "blockquote":
+          case "block_quote":
+            return (
+              <blockquote key={index} className={s.blockquote}>
+                <TheParagraph content={children} />
+              </blockquote>
+            );
           case "image":
             if (!isImageElem(elem)) return null;
             return (
