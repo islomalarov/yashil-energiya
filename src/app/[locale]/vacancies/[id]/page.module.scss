@@ -77,7 +77,6 @@
   display: grid;
   gap: 10px;
 
-  /* чуть улучшаем типографику если внутри обычные теги */
   :global(p) {
     margin: 0;
     color: $blackColor;
@@ -106,34 +105,6 @@
     margin: 14px 0 6px;
     color: $blackColor;
   }
-
-  :global(a),
-:global(a:visited) {
-  color: $blackColor;       // ключевое — убираем синий/фиолетовый
-  text-decoration: none;    // у тебя и так глобально none, но оставим явно
-  font-weight: 600;
-
-  border-bottom: 1px dashed rgba(43, 43, 43, 0.35);
-  padding-bottom: 2px;
-
-  transition: border-color 0.18s ease, opacity 0.18s ease;
-  word-break: break-word;
-}
-
-:global(a:hover) {
-  border-bottom-style: solid;
-  border-bottom-color: rgba(43, 43, 43, 0.7);
-}
-
-:global(a:active) {
-  opacity: 0.75;
-}
-
-:global(a:focus-visible) {
-  outline: 2px solid rgba(43, 43, 43, 0.28);
-  outline-offset: 3px;
-  border-radius: 8px;
-}
 }
 
 /* Attachments */
@@ -168,7 +139,10 @@
   background: #f7f9fb;
   border: 1px solid #eef1f4;
   text-decoration: none;
-  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease;
 
   &:hover {
     background: #eef3f7;
