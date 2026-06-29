@@ -9,11 +9,11 @@
 .content {
   display: flex;
   align-items: center;
-  padding: 10px 0;
+  padding: 14px 0;
   justify-content: center;
-  gap: 20px;
+  gap: 18px;
+  flex-direction: column;
   @media (max-width: 485px) {
-    flex-direction: column;
     gap: 20px;
   }
 }
@@ -29,6 +29,24 @@
   .icon {
     background-color: $secondaryColor;
     border-radius: 50%;
+  }
+}
+
+.legalLinks {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.legalLink {
+  color: rgba($whiteColor, 0.78);
+  font-size: 14px;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $whiteColor;
   }
 }
 

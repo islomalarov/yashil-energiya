@@ -4,6 +4,7 @@ import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import s from "./page.module.scss";
 import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
+import { Link } from "@/i18n/navigation";
 
 const TheChSMap = dynamic(
   () =>
@@ -52,6 +53,15 @@ export default function ChargingStationPage() {
             <h2 className={s.title}>{t("mapTitle")}</h2>
             <TheChSMap />
           </div>
+          <section className={s.legalNotice}>
+            <p>{t("publicOfferNotice")}</p>
+            <Link
+              className={s.legalLink}
+              href="/chargingstation/public-offer"
+            >
+              {t("publicOfferButton")}
+            </Link>
+          </section>
         </div>
       </div>
       <TheFeedback />

@@ -3,8 +3,11 @@ import s from "./TheFooter.module.scss";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { socialLinks } from "data/links";
+import { getTranslations } from "next-intl/server";
 
-export const TheFooter = () => {
+export const TheFooter = async () => {
+  const t = await getTranslations("Footer");
+
   return (
     <footer className={s.footer}>
       <div className="container">
@@ -27,6 +30,14 @@ export const TheFooter = () => {
               </Link>
             ))}
           </div>
+          <nav className={s.legalLinks} aria-label={t("legalNav")}>
+            <Link
+              className={s.legalLink}
+              href="/chargingstation/public-offer"
+            >
+              {t("publicOfferChargingStations")}
+            </Link>
+          </nav>
         </div>
       </div>
       <div className={s.subFooter}>

@@ -282,7 +282,9 @@
     "mapLabel1": "Status",
     "running": "Ishlamoqda",
     "construction": "Qurilish",
-    "commissioning": "Ishga tushirish"
+    "commissioning": "Ishga tushirish",
+    "publicOfferNotice": "Quvvatlash stansiyalaridan foydalanishdan oldin xizmat ko‘rsatish shartlari bilan tanishing.",
+    "publicOfferButton": "Ommaviy oferta"
   },
   "ChargingGuide": {
     "eyebrow": "EV zaryadlash yo'riqnomasi",
@@ -474,10 +476,17 @@
     "chsDoc5": {
       "title": "O'zbekiston Respublikasi Vazirlar Mahkamasining qarori, 03.08.2021 yildagi 485-son \"Ko'chma savdo faoliyatiga zamonaviy axborot texnologiyalarini yanada keng joriy etish hamda savdo avtomati orqali chakana savdo faoliyatini tartibga solish chora-tadbirlari to'g'risida\"",
       "url": "https://lex.uz/uz/docs/5546373"
+    },
+    "chsPublicOffer": {
+      "title": "Charging Stations ommaviy ofertasi"
     }
   },
   "TendersPage": {
     "title": "Xaridlar"
+  },
+  "Footer": {
+    "legalNav": "Yuridik hujjatlar",
+    "publicOfferChargingStations": "Charging Stations ommaviy ofertasi"
   },
   "LocaleSwitcher": {
     "label": "Tilni o'zgartirish",

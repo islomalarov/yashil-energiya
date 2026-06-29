@@ -282,7 +282,9 @@
     "mapLabel1": "Status",
     "running": "Running",
     "construction": "Construction",
-    "commissioning": "Commissioning"
+    "commissioning": "Commissioning",
+    "publicOfferNotice": "Before using the charging stations, please review the terms of service.",
+    "publicOfferButton": "Public Offer"
   },
   "ChargingGuide": {
     "eyebrow": "EV charging guide",
@@ -476,10 +478,17 @@
     "chsDoc5": {
       "title": "Resolution of the Cabinet of Ministers of the Republic of Uzbekistan, \"On measures to further introduce modern information technologies and regulate retail trade through mobile sales.\"",
       "url": "https://lex.uz/uz/docs/5546373"
+    },
+    "chsPublicOffer": {
+      "title": "Charging Stations Public Offer"
     }
   },
   "TendersPage": {
     "title": "Procurements"
+  },
+  "Footer": {
+    "legalNav": "Legal documents",
+    "publicOfferChargingStations": "Charging Stations Public Offer"
   },
   "LocaleSwitcher": {
     "label": "Change Language",

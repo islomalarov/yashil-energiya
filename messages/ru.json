@@ -282,7 +282,9 @@
     "mapLabel1": "Статус",
     "running": "В эксплуатации",
     "construction": "Строительство",
-    "commissioning": "Ввод в эксплуатацию"
+    "commissioning": "Ввод в эксплуатацию",
+    "publicOfferNotice": "Перед использованием зарядных станций ознакомьтесь с условиями оказания услуг.",
+    "publicOfferButton": "Публичная оферта"
   },
   "ChargingGuide": {
     "eyebrow": "Инструкция EV-зарядки",
@@ -475,10 +477,17 @@
     "chsDoc5": {
       "title": "Постановление Кабинета Министров Республики Узбекистан, от 03.08.2021 г. № 485 \"О мерах по более широкому внедрению современных информационных технологий в выездную торговую деятельность и регулированию розничной торговой деятельности посредством торговых автоматов\"",
       "url": "https://lex.uz/uz/docs/5546373"
+    },
+    "chsPublicOffer": {
+      "title": "Публичная оферта Charging Stations"
     }
   },
   "TendersPage": {
     "title": "Закупки"
+  },
+  "Footer": {
+    "legalNav": "Юридические документы",
+    "publicOfferChargingStations": "Публичная оферта Charging Stations"
   },
   "LocaleSwitcher": {
     "label": "Change language",

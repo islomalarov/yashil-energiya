@@ -1,5 +1,6 @@
 import styles from "./documents.module.scss";
-import Link from "next/link";
+import NextLink from "next/link";
+import { Link } from "@/i18n/navigation";
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import { getTranslations } from "next-intl/server";
 import { FileText } from "lucide-react";
@@ -22,9 +23,9 @@ export default async function DocumentsPage() {
     "document11",
     "document12",
     "document13",
-  ] as const;
+  ].map((key) => ({ key }));
 
-  const mgDocuments = ["mgDoc1"] as const;
+  const mgDocuments = ["mgDoc1"].map((key) => ({ key }));
 
   const chSDocument = [
     "chsDoc1",
@@ -32,16 +33,28 @@ export default async function DocumentsPage() {
     "chsDoc3",
     "chsDoc4",
     "chsDoc5",
-  ] as const;
+  ].map((key) => ({ key }));
+
+  const chSInternalDocuments = [
+    {
+      key: "chsPublicOffer",
+      href: "/chargingstation/public-offer",
+      isInternal: true,
+    },
+  ];
 
   return (
     <>
       <TheHero title1={t("title")} url1="documents" />
       <div className="container">
         <div className={styles.content}>
-          <DocumentLinks title="direction1" docs={[...pvDocuments]} t={t} />
-          <DocumentLinks title="direction2" docs={[...mgDocuments]} t={t} />
-          <DocumentLinks title="direction3" docs={[...chSDocument]} t={t} />
+          <DocumentLinks title="direction1" docs={pvDocuments} t={t} />
+          <DocumentLinks title="direction2" docs={mgDocuments} t={t} />
+          <DocumentLinks
+            title="direction3"
+            docs={[...chSInternalDocuments, ...chSDocument]}
+            t={t}
+          />
         </div>
       </div>
     </>
@@ -50,29 +63,47 @@ export default async function DocumentsPage() {
 
 interface DocumentLinksProps {
   title: string;
-  docs: string[];
+  docs: DocumentLinkItem[];
   t: Translations;
 }
+
+type DocumentLinkItem = {
+  key: string;
+  href?: string;
+  isInternal?: boolean;
+};
 
 const DocumentLinks = ({ title, docs, t }: DocumentLinksProps) => {
   return (
     <div className={styles.linksBlock}>
       <h2 className={styles.linkBlockTitle}>{t(title)}</h2>
       <ul className={styles.linksList}>
-        {docs.map((doc: string) => (
-          <li className={styles.linkItem} key={doc}>
-            <div className={styles.linkIcon}>
-              <FileText className={styles.badge} />
-            </div>
-            <Link
-              className={styles.linkTitle}
-              href={t(`${doc}.url`)}
-              target="_blank"
-            >
-              {t(`${doc}.title`)}
-            </Link>
-          </li>
-        ))}
+        {docs.map((doc) => {
+          const linkTitle = t(`${doc.key}.title`);
+          const href = doc.href ?? t(`${doc.key}.url`);
+
+          return (
+            <li className={styles.linkItem} key={doc.key}>
+              <div className={styles.linkIcon}>
+                <FileText className={styles.badge} />
+              </div>
+              {doc.isInternal ? (
+                <Link className={styles.linkTitle} href={href}>
+                  {linkTitle}
+                </Link>
+              ) : (
+                <NextLink
+                  className={styles.linkTitle}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {linkTitle}
+                </NextLink>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
