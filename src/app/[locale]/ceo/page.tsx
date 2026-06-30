@@ -15,6 +15,9 @@ import { ManagerService } from "services/managers.service";
 import type { Manager } from "services/managers.service";
 import s from "./page.module.scss";
 
+// Set to false to render Hygraph/local leadership photos again.
+const useLeadershipPhotoPlaceholders = true;
+
 export default async function Ceo() {
   const locale = await getLocale();
   const t = await getTranslations("CeoPage");
@@ -26,7 +29,9 @@ export default async function Ceo() {
     { preferLocalPositions: isUnsupportedCmsLocale(locale) },
   ).map((member) => ({
     ...member,
-    image: resolveLeadershipImage(member.image),
+    image: useLeadershipPhotoPlaceholders
+      ? null
+      : resolveLeadershipImage(member.image),
   }));
   const featuredMember = members.find((member) => member.isFeatured) ?? members[0];
   const leadershipMembers = members.filter(
