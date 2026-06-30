@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocale } from "next-intl";
 import {
   BarChart,
   Bar,
@@ -11,12 +12,12 @@ import {
   Cell,
 } from "recharts";
 
-
 type Datum = {
   year: string;
   power: number;
   color: string;
 };
+
 type TooltipPayloadItem = {
   value?: number | string;
 };
@@ -27,17 +28,24 @@ type CustomTooltipProps = {
   label?: string | number;
 };
 
-const data: Datum[] = [
+type TheChartProps = {
+  currentPower: number;
+  label: string;
+  unit: string;
+  yearLabel: string;
+};
+
+const historicalData: Datum[] = [
   { year: "2023", power: 25418, color: "#5cb63f" },
   { year: "2024", power: 48066, color: "#5cb63f" },
-  { year: "2025", power: 131051, color: "#5cb63f" },
 ];
-const makeCustomTooltip = (unit: string) => {
-  const CustomTooltip = ({
-    active,
-    payload,
-    label,
-  }: CustomTooltipProps) => {
+
+const makeCustomTooltip = (
+  labelText: string,
+  unit: string,
+  numberFormatter: Intl.NumberFormat,
+) => {
+  const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
     if (!active || !payload || payload.length === 0) return null;
 
     return (
@@ -52,19 +60,31 @@ const makeCustomTooltip = (unit: string) => {
       >
         <div style={{ fontWeight: 600, marginBottom: 4 }}>{label}</div>
         <div style={{ color: "#5cb63f" }}>
-          Total capacity:{" "}
-          {Number(payload[0].value).toLocaleString()} {unit}
+          {labelText}: {numberFormatter.format(Number(payload[0].value))} {unit}
         </div>
       </div>
     );
   };
+
   CustomTooltip.displayName = "CustomTooltip";
   return CustomTooltip;
 };
 
+export const TheChart = ({
+  currentPower,
+  label,
+  unit,
+  yearLabel,
+}: TheChartProps) => {
+  const locale = useLocale();
+  const numberFormatter = new Intl.NumberFormat(locale, {
+    maximumFractionDigits: 2,
+  });
+  const data: Datum[] = [
+    ...historicalData,
+    { year: "2025", power: currentPower, color: "#5cb63f" },
+  ];
 
-
-export const TheChart = ({ unit }: { unit: string }) => {
   return (
     <div
       style={{
@@ -76,8 +96,8 @@ export const TheChart = ({ unit }: { unit: string }) => {
       <div
         style={{
           width: "100%",
-          minWidth: 0,   // <-- ширина графика на больших экранах
-          height: 340,     // <-- важно для flex/grid родителей (fix for -1)
+          minWidth: 0,
+          height: 340,
           minHeight: 340,
         }}
       >
@@ -87,24 +107,24 @@ export const TheChart = ({ unit }: { unit: string }) => {
             margin={{ top: 30, right: 40, left: 60, bottom: 40 }}
           >
             <CartesianGrid strokeDasharray="3 6" stroke="#e0e0e0" />
-            <XAxis 
+            <XAxis
               dataKey="year"
               tickMargin={6}
-              label={{value: "Years", position: "insideBottom", offset: -20}} 
+              label={{ value: yearLabel, position: "insideBottom", offset: -20 }}
             />
-            <YAxis />
             <YAxis
+              tickFormatter={(value) => numberFormatter.format(Number(value))}
               label={{
-                value: `Total capacity (${unit})`,
+                value: `${label} (${unit})`,
                 angle: -90,
                 position: "insideLeft",
                 offset: -20,
               }}
             />
-            <Tooltip content={makeCustomTooltip(unit)} />
+            <Tooltip content={makeCustomTooltip(label, unit, numberFormatter)} />
             <Bar dataKey="power" radius={[6, 6, 0, 0]} isAnimationActive={false}>
-              {data.map((entry, index) => (
-                <Cell key={index} fill={entry.color} />
+              {data.map((entry) => (
+                <Cell key={entry.year} fill={entry.color} />
               ))}
             </Bar>
           </BarChart>

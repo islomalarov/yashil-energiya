@@ -4,8 +4,14 @@ import L from "leaflet";
 import "leaflet.markercluster";
 import LeafletMap from "@/components/MapComponent/LeafletMap";
 import styles from "./Map.module.scss";
-import { plants } from "data/plants";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { escapeHtml } from "@/lib/html";
+import { resolveRegionLabel } from "@/lib/region-labels";
+import type { PlantStatus } from "services/plant-status.service";
+
+type ThePlantsMapProps = {
+  plants: PlantStatus[];
+};
 
 const isLatLng = (c: unknown): c is [number, number] =>
   Array.isArray(c) &&
@@ -15,8 +21,13 @@ const isLatLng = (c: unknown): c is [number, number] =>
   Number.isFinite(c[0]) &&
   Number.isFinite(c[1]);
 
-export const ThePlantsMap = () => {
+export const ThePlantsMap = ({ plants }: ThePlantsMapProps) => {
+  const locale = useLocale();
   const t = useTranslations("SolarPanelsPage");
+  const integerFormatter = new Intl.NumberFormat(locale);
+  const decimalFormatter = new Intl.NumberFormat(locale, {
+    maximumFractionDigits: 2,
+  });
 
   return (
     <LeafletMap
@@ -35,9 +46,15 @@ export const ThePlantsMap = () => {
 
           const marker = L.marker(plant.coords);
           marker.bindPopup(
-            `<strong>${t(plant.name)}</strong><br/>
-             🏭 ${t("chartLabel1")}: ${plant.plants}<br/>
-             ⚡ ${t("chartLabel")} (${t("chartLabelUnit")}): ${plant.power}`
+            `<strong>${escapeHtml(
+              resolveRegionLabel(t, plant.name, plant.regionName),
+            )}</strong><br/>
+             &#x1F3ED; ${escapeHtml(t("chartLabel1"))}: ${escapeHtml(
+               integerFormatter.format(plant.plants),
+             )}<br/>
+             &#9889; ${escapeHtml(t("chartLabel"))} (${escapeHtml(
+               t("chartLabelUnit"),
+             )}): ${escapeHtml(decimalFormatter.format(plant.power))}`
           );
 
           cluster.addLayer(marker);

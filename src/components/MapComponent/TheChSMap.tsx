@@ -5,8 +5,14 @@ import L from "leaflet";
 import "leaflet.markercluster";
 import LeafletMap from "@/components/MapComponent/LeafletMap";
 import styles from "@/components/MapComponent/Map.module.scss";
-import { plants } from "data/EV_Charge";
-import { useTranslations } from "next-intl";
+import { escapeHtml } from "@/lib/html";
+import { resolveRegionLabel } from "@/lib/region-labels";
+import { useLocale, useTranslations } from "next-intl";
+import type { EvCharge } from "services/operational-assets.service";
+
+type TheChSMapProps = {
+  stations: EvCharge[];
+};
 
 const isLatLng = (c: unknown): c is [number, number] =>
   Array.isArray(c) &&
@@ -38,8 +44,21 @@ const yellowIcon = new L.Icon({
   shadowSize: [41, 41],
 });
 
-export const TheChSMap = () => {
+export const TheChSMap = ({ stations }: TheChSMapProps) => {
+  const locale = useLocale();
   const t = useTranslations("ChargingStationPage");
+  const regionT = useTranslations("SolarPanelsPage");
+  const numberFormatter = new Intl.NumberFormat(locale, {
+    maximumFractionDigits: 2,
+  });
+
+  const getConditionLabel = (condition: string) => {
+    try {
+      return t(condition);
+    } catch {
+      return condition;
+    }
+  };
 
   return (
     <LeafletMap
@@ -51,18 +70,25 @@ export const TheChSMap = () => {
         const cluster = L.markerClusterGroup();
         const bounds = L.latLngBounds([]);
 
-        plants.forEach((plant) => {
-          if (!isLatLng(plant.coords)) return;
+        stations.forEach((station) => {
+          if (!isLatLng(station.coords)) return;
 
-          bounds.extend(plant.coords);
+          bounds.extend(station.coords);
 
-          const icon = plant.status === "running" ? greenIcon : yellowIcon;
-          const marker = L.marker(plant.coords, { icon });
+          const icon = station.condition === "running" ? greenIcon : yellowIcon;
+          const marker = L.marker(station.coords, { icon });
 
           marker.bindPopup(
-            `<strong>${plant.name}</strong><br/>
-             🏭 ${t("mapLabel1")}: ${t(plant.status)}<br/>
-             ⚡ ${t("mapLabel")} (${t("mapLabelUnit")}): ${plant.capacity}`
+            `<strong>${escapeHtml(station.name)}</strong><br/>
+             ${escapeHtml(
+               resolveRegionLabel(regionT, station.region, station.regionName),
+             )}<br/>
+             &#x1F3ED; ${escapeHtml(t("mapLabel1"))}: ${escapeHtml(
+               getConditionLabel(station.condition),
+             )}<br/>
+             &#9889; ${escapeHtml(t("mapLabel"))} (${escapeHtml(
+               t("mapLabelUnit"),
+             )}): ${escapeHtml(numberFormatter.format(station.capacity))}`
           );
 
           cluster.addLayer(marker);

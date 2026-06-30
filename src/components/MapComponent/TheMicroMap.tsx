@@ -5,8 +5,14 @@ import L from "leaflet";
 import "leaflet.markercluster";
 import LeafletMap from "@/components/MapComponent/LeafletMap";
 import styles from "@/components/MapComponent/Map.module.scss";
-import { plants } from "data/MHP";
-import { useTranslations } from "next-intl";
+import { escapeHtml } from "@/lib/html";
+import { resolveRegionLabel } from "@/lib/region-labels";
+import { useLocale, useTranslations } from "next-intl";
+import type { Mhp } from "services/operational-assets.service";
+
+type TheMicroMapProps = {
+  plants: Mhp[];
+};
 
 const isLatLng = (c: unknown): c is [number, number] =>
   Array.isArray(c) &&
@@ -38,8 +44,21 @@ const greyIcon = new L.Icon({
   shadowSize: [41, 41],
 });
 
-export const TheMicroMap = () => {
+export const TheMicroMap = ({ plants }: TheMicroMapProps) => {
+  const locale = useLocale();
   const t = useTranslations("MicroGesPage");
+  const regionT = useTranslations("SolarPanelsPage");
+  const numberFormatter = new Intl.NumberFormat(locale, {
+    maximumFractionDigits: 2,
+  });
+
+  const getConditionLabel = (condition: string) => {
+    try {
+      return t(condition);
+    } catch {
+      return condition;
+    }
+  };
 
   return (
     <LeafletMap
@@ -56,13 +75,20 @@ export const TheMicroMap = () => {
 
           bounds.extend(plant.coords);
 
-          const icon = plant.status === "planning" ? greyIcon : greenIcon;
+          const icon = plant.condition === "planning" ? greyIcon : greenIcon;
           const marker = L.marker(plant.coords, { icon });
 
           marker.bindPopup(
-            `<strong>${plant.name}</strong><br/>
-             🏭 ${t("mapLabel1")}: ${t(plant.status)}<br/>
-             ⚡ ${t("mapLabel")} (${t("mapLabelUnit")}): ${plant.capacity}`
+            `<strong>${escapeHtml(plant.name)}</strong><br/>
+             ${escapeHtml(
+               resolveRegionLabel(regionT, plant.region, plant.regionName),
+             )}<br/>
+             &#x1F3ED; ${escapeHtml(t("mapLabel1"))}: ${escapeHtml(
+               getConditionLabel(plant.condition),
+             )}<br/>
+             &#9889; ${escapeHtml(t("mapLabel"))} (${escapeHtml(
+               t("mapLabelUnit"),
+             )}): ${escapeHtml(numberFormatter.format(plant.capacity))}`
           );
 
           cluster.addLayer(marker);
