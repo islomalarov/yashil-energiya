@@ -1,62 +1,1105 @@
 @use "@/scss/vars" as *;
 
-.content {
-  color: $blackColor;
-  display: grid;
-  gap: 20px;
-}
-.title {
-  text-align: center;
-  color: $primaryColor;
-  padding-bottom: 20px;
-}
-.list {
-  display: grid;
-  gap: 20px;
-  font-size: $paragraphSize;
-}
-.listItem {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.systemsBlock {
-  display: grid;
-  align-items: center;
-  gap: 20px;
-  grid-template-columns: repeat(2, 1fr);
+.page {
+  --solar-ink: #173023;
+  --solar-muted: #5e7067;
+  --solar-soft: #f4faf5;
+  --solar-line: rgba(18, 144, 62, 0.16);
+  --solar-shadow: 0 18px 48px rgba(25, 72, 44, 0.1);
+  --solar-shadow-strong: 0 26px 64px rgba(25, 72, 44, 0.16);
+  --solar-gold: #e9ad32;
 
-  :nth-child(1) {
-    grid-column: 1/2;
-    @media (max-width: $md) {
-      grid-column: 1/3;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, #f8fcf8 0, #ffffff 420px),
+    $whiteColor;
+  color: var(--solar-ink);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+}
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 72px 0 58px;
+  background:
+    radial-gradient(circle at 74% 20%, rgba(233, 173, 50, 0.16), transparent 28%),
+    linear-gradient(135deg, rgba(18, 144, 62, 0.1), rgba(255, 255, 255, 0) 42%),
+    #f8fcf8;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(115deg, rgba(18, 144, 62, 0.08) 0 1px, transparent 1px 100%),
+      linear-gradient(25deg, rgba(18, 144, 62, 0.06) 0 1px, transparent 1px 100%);
+    background-size: 58px 58px;
+    mask-image: linear-gradient(90deg, transparent, #000 28%, #000 86%, transparent);
+  }
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(380px, 0.9fr);
+  gap: 56px;
+  align-items: center;
+  min-height: 560px;
+}
+
+.heroContent {
+  display: grid;
+  max-width: 680px;
+  gap: 24px;
+  animation: solarFadeUp 0.62s ease both;
+}
+
+.eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  border: 1px solid rgba($primaryColor, 0.18);
+  border-radius: 999px;
+  background: rgba($primaryColor, 0.07);
+  color: $primaryColor;
+  font-size: 0.84rem;
+  font-weight: 800;
+  line-height: 1.2;
+  padding: 8px 13px;
+}
+
+.heroTitle,
+.sectionHeader h2,
+.potentialCopy h2,
+.statusIntro h2,
+.ctaPanel h2 {
+  margin: 0;
+  color: var(--solar-ink);
+  font-weight: 900;
+  line-height: 1.04;
+  overflow-wrap: anywhere;
+}
+
+.heroTitle {
+  max-width: 620px;
+  font-size: 4.45rem;
+}
+
+.heroSubtitle {
+  max-width: 610px;
+  margin: 0;
+  color: var(--solar-muted);
+  font-size: 1.25rem;
+  line-height: 1.62;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  padding-top: 4px;
+}
+
+.primaryAction,
+.secondaryAction {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border-radius: 8px;
+  font-size: 0.94rem;
+  font-weight: 850;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+  padding: 0 18px;
+  text-decoration: none;
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    background 0.28s ease,
+    box-shadow 0.28s ease,
+    color 0.28s ease;
+
+  svg {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-4px);
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba($primaryColor, 0.28);
+    outline-offset: 3px;
+  }
+}
+
+.primaryAction {
+  border: 1px solid $primaryColor;
+  background: $primaryColor;
+  color: $whiteColor;
+  box-shadow: 0 14px 26px rgba(18, 144, 62, 0.22);
+
+  &:hover,
+  &:focus-visible {
+    background: #0d7f35;
+    color: $whiteColor;
+    box-shadow: 0 18px 36px rgba(18, 144, 62, 0.26);
+  }
+}
+
+.secondaryAction {
+  border: 1px solid rgba($primaryColor, 0.22);
+  background: rgba($whiteColor, 0.72);
+  color: $primaryColor;
+
+  &:hover,
+  &:focus-visible {
+    border-color: rgba($primaryColor, 0.44);
+    background: $whiteColor;
+    color: $secondaryColor;
+    box-shadow: 0 14px 30px rgba(25, 72, 44, 0.1);
+  }
+}
+
+.heroVisual {
+  position: relative;
+  min-height: 520px;
+  animation: solarVisualIn 0.78s 0.08s ease both;
+}
+
+.sunCore {
+  position: absolute;
+  top: 22px;
+  right: 54px;
+  display: grid;
+  width: 112px;
+  height: 112px;
+  place-items: center;
+  border: 1px solid rgba(233, 173, 50, 0.32);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.96) 0 38%, rgba(233, 173, 50, 0.22) 39% 100%),
+    #fff7e2;
+  color: var(--solar-gold);
+  box-shadow: 0 18px 44px rgba(233, 173, 50, 0.16);
+
+  svg {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.panelField {
+  position: absolute;
+  inset: 98px 32px auto auto;
+  display: grid;
+  width: 370px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  transform: perspective(760px) rotateX(58deg) rotateZ(-14deg);
+  transform-origin: center;
+
+  span {
+    aspect-ratio: 1.45 / 1;
+    border: 1px solid rgba($primaryColor, 0.18);
+    border-radius: 8px;
+    background:
+      linear-gradient(135deg, rgba($whiteColor, 0.78), rgba($primaryColor, 0.1)),
+      repeating-linear-gradient(
+        90deg,
+        rgba($primaryColor, 0.1) 0 1px,
+        transparent 1px 28px
+      );
+    box-shadow: 0 18px 30px rgba(25, 72, 44, 0.08);
+  }
+}
+
+.heroImageCard {
+  position: absolute;
+  right: 34px;
+  bottom: 42px;
+  width: min(360px, 72%);
+  overflow: hidden;
+  border: 1px solid rgba($primaryColor, 0.16);
+  border-radius: 8px;
+  background: rgba($whiteColor, 0.86);
+  box-shadow: var(--solar-shadow-strong);
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.heroSignal {
+  position: absolute;
+  bottom: 116px;
+  left: 18px;
+  display: flex;
+  width: min(320px, 72%);
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba($primaryColor, 0.18);
+  border-radius: 8px;
+  background: rgba($whiteColor, 0.92);
+  box-shadow: 0 18px 44px rgba(25, 72, 44, 0.12);
+  padding: 16px;
+
+  svg {
+    flex: 0 0 auto;
+    width: 34px;
+    height: 34px;
+    color: $primaryColor;
+  }
+
+  div {
+    display: grid;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  strong {
+    color: var(--solar-ink);
+    font-size: 1rem;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+
+  span {
+    color: var(--solar-muted);
+    font-size: 0.9rem;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+}
+
+.metricsSection,
+.benefitsSection,
+.potentialSection,
+.systemTypes,
+.statusSection,
+.ctaSection {
+  padding: 72px 0;
+}
+
+.metricsSection {
+  padding-top: 28px;
+}
+
+.metricsGrid,
+.benefitsGrid,
+.systemsGrid,
+.statusGrid {
+  display: grid;
+  gap: 20px;
+  min-width: 0;
+}
+
+.metricsGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.metricCard,
+.benefitCard,
+.systemCard,
+.statusCard,
+.chartCard,
+.mapCard {
+  min-width: 0;
+  border: 1px solid var(--solar-line);
+  border-radius: 8px;
+  background: rgba($whiteColor, 0.92);
+  box-shadow: var(--solar-shadow);
+}
+
+.metricCard,
+.benefitCard,
+.systemCard {
+  animation: solarCardIn 0.58s ease both;
+  animation-delay: calc(var(--item-index) * 70ms);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover,
+  &:focus-within {
+    transform: translateY(-6px);
+    border-color: rgba($primaryColor, 0.38);
+    box-shadow: var(--solar-shadow-strong);
+  }
+}
+
+.metricCard {
+  display: grid;
+  gap: 9px;
+  align-content: start;
+  min-height: 188px;
+  padding: 24px;
+
+  strong {
+    color: $primaryColor;
+    font-size: 2.35rem;
+    font-weight: 950;
+    line-height: 1;
+    overflow-wrap: anywhere;
+  }
+
+  span {
+    color: var(--solar-muted);
+    font-size: 0.98rem;
+    font-weight: 700;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+
+  p {
+    margin: 4px 0 0;
+    border-top: 1px solid rgba($primaryColor, 0.1);
+    color: rgba(23, 48, 35, 0.72);
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.42;
+    overflow-wrap: anywhere;
+    padding-top: 12px;
+  }
+}
+
+.sectionHeader {
+  display: grid;
+  max-width: 760px;
+  gap: 16px;
+  margin-bottom: 34px;
+
+  h2 {
+    font-size: 2.8rem;
+  }
+
+  p {
+    margin: 0;
+    color: var(--solar-muted);
+    font-size: 1.08rem;
+    line-height: 1.65;
+  }
+}
+
+.benefitsSection {
+  background:
+    linear-gradient(180deg, rgba(18, 144, 62, 0.055), rgba(255, 255, 255, 0)),
+    $whiteColor;
+}
+
+.benefitsGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.benefitCard {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+  padding: 24px;
+
+  h3 {
+    margin: 0;
+    color: var(--solar-ink);
+    font-size: 1.25rem;
+    font-weight: 850;
+    line-height: 1.22;
+    overflow-wrap: anywhere;
+  }
+
+  p {
+    margin: 0;
+    color: var(--solar-muted);
+    font-size: 0.98rem;
+    line-height: 1.58;
+  }
+}
+
+.iconCircle {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border: 1px solid rgba($primaryColor, 0.18);
+  border-radius: 50%;
+  background: rgba($primaryColor, 0.08);
+  color: $primaryColor;
+
+  svg {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.potentialSection {
+  background: #fbfdfb;
+}
+
+.potentialGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(360px, 0.8fr);
+  gap: 54px;
+  align-items: center;
+}
+
+.potentialCopy {
+  display: grid;
+  gap: 18px;
+
+  h2 {
+    max-width: 720px;
+    font-size: 3rem;
+  }
+
+  p {
+    max-width: 780px;
+    margin: 0;
+    color: var(--solar-muted);
+    font-size: 1.12rem;
+    line-height: 1.72;
+  }
+}
+
+.potentialVisual {
+  position: relative;
+  min-height: 430px;
+  overflow: hidden;
+  border: 1px solid var(--solar-line);
+  border-radius: 8px;
+  background:
+    linear-gradient(140deg, rgba(18, 144, 62, 0.08), rgba(233, 173, 50, 0.1)),
+    #ffffff;
+  box-shadow: var(--solar-shadow);
+}
+
+.sunPath {
+  position: absolute;
+  top: 42px;
+  left: 50%;
+  display: grid;
+  width: 118px;
+  height: 118px;
+  place-items: center;
+  border: 1px solid rgba(233, 173, 50, 0.35);
+  border-radius: 50%;
+  background: #fff7e5;
+  color: var(--solar-gold);
+  transform: translateX(-50%);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 58px -150px auto;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(233, 173, 50, 0.7), transparent);
+  }
+
+  svg {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.potentialPanelGrid {
+  position: absolute;
+  right: 36px;
+  bottom: 58px;
+  left: 36px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  transform: perspective(620px) rotateX(58deg);
+  transform-origin: bottom center;
+
+  span {
+    aspect-ratio: 1.2 / 1;
+    border: 1px solid rgba($primaryColor, 0.16);
+    border-radius: 8px;
+    background:
+      linear-gradient(135deg, rgba($whiteColor, 0.88), rgba($primaryColor, 0.12)),
+      repeating-linear-gradient(
+        90deg,
+        rgba($primaryColor, 0.1) 0 1px,
+        transparent 1px 24px
+      );
+  }
+}
+
+.potentialBadge {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  display: grid;
+  max-width: 190px;
+  gap: 5px;
+  border: 1px solid rgba($primaryColor, 0.2);
+  border-radius: 8px;
+  background: rgba($whiteColor, 0.92);
+  padding: 14px 16px;
+
+  strong {
+    color: $primaryColor;
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  span {
+    color: var(--solar-muted);
+    font-size: 0.9rem;
+    font-weight: 750;
+    line-height: 1.35;
+  }
+}
+
+.systemTypes {
+  background:
+    linear-gradient(180deg, #ffffff, rgba(18, 144, 62, 0.045)),
+    $whiteColor;
+}
+
+.systemsGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.systemCard {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+}
+
+.systemImage {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-bottom: 1px solid rgba($primaryColor, 0.1);
+  background:
+    radial-gradient(circle at 82% 12%, rgba(233, 173, 50, 0.1), transparent 28%),
+    linear-gradient(135deg, rgba($primaryColor, 0.055), rgba($whiteColor, 0.88)),
+    #ffffff;
+}
+
+.systemPhoto {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: clamp(16px, 2.2vw, 24px);
+  object-fit: contain;
+  filter: saturate(1.04) contrast(1.02);
+  transition: transform 0.32s ease, filter 0.32s ease;
+}
+
+.systemCard:hover .systemPhoto,
+.systemCard:focus-within .systemPhoto {
+  transform: scale(1.03);
+  filter: saturate(1.14) contrast(1.05);
+}
+
+.systemBadge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  display: inline-flex;
+  max-width: calc(100% - 28px);
+  align-items: center;
+  gap: 7px;
+  border: 1px solid rgba($primaryColor, 0.18);
+  border-radius: 999px;
+  background: rgba($whiteColor, 0.92);
+  color: $primaryColor;
+  font-size: 0.78rem;
+  font-weight: 850;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+  padding: 8px 10px;
+
+  svg {
+    flex: 0 0 auto;
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.systemBody {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+  padding: 24px;
+
+  h3 {
+    margin: 0;
+    color: var(--solar-ink);
+    font-size: 1.4rem;
+    font-weight: 900;
+    line-height: 1.18;
+    overflow-wrap: anywhere;
+  }
+
+  p {
+    margin: 0;
+    color: var(--solar-muted);
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+}
+
+.systemFooter {
+  display: grid;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 4px;
+
+  > span:first-child {
+    color: var(--solar-ink);
+    font-size: 0.92rem;
+    font-weight: 800;
+    line-height: 1.36;
+  }
+}
+
+.statusSection {
+  background: #f4faf5;
+}
+
+.statusIntro {
+  display: grid;
+  max-width: 820px;
+  gap: 16px;
+  margin-bottom: 30px;
+
+  h2 {
+    font-size: 2.8rem;
+  }
+
+  p {
+    margin: 0;
+    color: var(--solar-muted);
+    font-size: 1.08rem;
+    line-height: 1.65;
+  }
+}
+
+.statusGrid {
+  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
+  align-items: stretch;
+}
+
+.statusCard,
+.chartCard,
+.mapCard {
+  padding: 24px;
+}
+
+.statusCard {
+  display: grid;
+  gap: 20px;
+  align-content: start;
+  background:
+    linear-gradient(135deg, rgba($primaryColor, 0.1), rgba($whiteColor, 0) 52%),
+    $whiteColor;
+
+  > span {
+    color: $primaryColor;
+    font-size: 0.86rem;
+    font-weight: 900;
+  }
+
+  > strong {
+    color: var(--solar-ink);
+    font-size: 1.9rem;
+    font-weight: 950;
+    line-height: 1.12;
+    overflow-wrap: anywhere;
+  }
+}
+
+.statusFacts {
+  display: grid;
+  gap: 12px;
+
+  div {
+    display: grid;
+    gap: 5px;
+    border-top: 1px solid rgba($primaryColor, 0.12);
+    padding-top: 14px;
+  }
+
+  b {
+    color: $primaryColor;
+    font-size: 1.5rem;
+    line-height: 1.1;
+    overflow-wrap: anywhere;
+  }
+
+  small {
+    color: var(--solar-muted);
+    font-size: 0.92rem;
+    font-weight: 750;
+    line-height: 1.35;
+  }
+}
+
+.chartCard,
+.mapCard {
+  h3 {
+    margin: 0 0 18px;
+    color: var(--solar-ink);
+    font-size: 1.35rem;
+    font-weight: 900;
+    line-height: 1.2;
+  }
+}
+
+.chartFrame {
+  min-width: 0;
+  width: 100%;
+  height: 360px;
+  min-height: 360px;
+  overflow: hidden;
+}
+
+.mapCard {
+  margin-top: 20px;
+}
+
+.mapFrame {
+  overflow: hidden;
+  border: 1px solid rgba($primaryColor, 0.1);
+  border-radius: 8px;
+}
+
+.ctaSection {
+  padding-bottom: 86px;
+  background: $whiteColor;
+}
+
+.ctaPanel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba($primaryColor, 0.18);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba($primaryColor, 0.1), rgba(233, 173, 50, 0.1)),
+    #f8fcf8;
+  box-shadow: var(--solar-shadow);
+  padding: 34px;
+
+  > div {
+    display: grid;
+    gap: 14px;
+  }
+
+  h2 {
+    max-width: 820px;
+    font-size: 2.35rem;
+  }
+
+  p {
+    max-width: 760px;
+    margin: 0;
+    color: var(--solar-muted);
+    font-size: 1.06rem;
+    line-height: 1.62;
+  }
+}
+
+.feedbackAnchor {
+  scroll-margin-top: 120px;
+}
+
+@keyframes solarFadeUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes solarVisualIn {
+  from {
+    opacity: 0;
+    transform: translate3d(18px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes solarCardIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (max-width: 1200px) {
+  .heroGrid {
+    grid-template-columns: minmax(0, 1fr) minmax(330px, 0.86fr);
+    gap: 38px;
+  }
+
+  .heroTitle {
+    font-size: 3.7rem;
+  }
+
+  .metricsGrid,
+  .benefitsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .systemsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .statusGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: $lg) {
+  .hero {
+    padding-top: 54px;
+  }
+
+  .heroGrid,
+  .potentialGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroGrid {
+    min-height: 0;
+  }
+
+  .heroContent {
+    max-width: 760px;
+  }
+
+  .heroVisual {
+    min-height: 460px;
+  }
+
+  .potentialVisual {
+    min-height: 380px;
+  }
+
+  .ctaPanel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: $md) {
+  .hero {
+    padding: 42px 0 44px;
+  }
+
+  .heroTitle {
+    font-size: 3rem;
+  }
+
+  .heroSubtitle,
+  .potentialCopy p,
+  .sectionHeader p,
+  .statusIntro p,
+  .ctaPanel p {
+    font-size: 1rem;
+  }
+
+  .heroVisual {
+    min-height: 420px;
+  }
+
+  .sunCore {
+    right: 18px;
+    width: 92px;
+    height: 92px;
+  }
+
+  .panelField {
+    right: 0;
+    width: 330px;
+  }
+
+  .heroImageCard {
+    right: 0;
+    width: min(330px, 82%);
+  }
+
+  .heroSignal {
+    left: 0;
+    width: min(310px, 84%);
+  }
+
+  .metricsSection,
+  .benefitsSection,
+  .potentialSection,
+  .systemTypes,
+  .statusSection,
+  .ctaSection {
+    padding: 54px 0;
+  }
+
+  .metricsSection {
+    padding-top: 24px;
+  }
+
+  .sectionHeader h2,
+  .potentialCopy h2,
+  .statusIntro h2 {
+    font-size: 2.25rem;
+  }
+
+  .systemsGrid,
+  .metricsGrid,
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaPanel {
+    padding: 24px;
+
+    h2 {
+      font-size: 2rem;
     }
   }
-  :nth-child(2) {
-    grid-column: 2/3;
-    display: flex;
-    justify-content: center;
-    @media (max-width: $md) {
-      grid-column: 1/3;
+}
+
+@media (max-width: $sm) {
+  .heroTitle {
+    font-size: 2.42rem;
+  }
+
+  .heroActions,
+  .primaryAction,
+  .secondaryAction {
+    width: 100%;
+  }
+
+  .heroVisual {
+    min-height: 360px;
+  }
+
+  .sunCore {
+    top: 4px;
+    width: 78px;
+    height: 78px;
+
+    svg {
+      width: 36px;
+      height: 36px;
     }
   }
-  :nth-child(3) {
-    grid-column: 2/3;
-    @media (max-width: $md) {
-      grid-column: 1/3;
-    }
+
+  .panelField {
+    top: 86px;
+    width: 270px;
+    gap: 8px;
   }
-  :nth-child(4) {
-    grid-column: 1/2;
-    grid-row: 2;
-    display: flex;
-    justify-content: center;
-    @media (max-width: $md) {
-      grid-column: 1/3;
-      grid-row: 4;
-    }
+
+  .heroImageCard {
+    bottom: 18px;
+    width: min(270px, 78%);
   }
-  :nth-child(5) {
-    grid-column: 1/3;
+
+  .heroSignal {
+    bottom: 86px;
+    width: min(278px, 86%);
+    padding: 13px;
+  }
+
+  .metricCard,
+  .benefitCard,
+  .systemBody,
+  .statusCard,
+  .chartCard,
+  .mapCard {
+    padding: 18px;
+  }
+
+  .potentialVisual {
+    min-height: 320px;
+  }
+
+  .potentialPanelGrid {
+    right: 18px;
+    left: 18px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .potentialBadge {
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .systemPhoto {
+    padding: 12px;
+  }
+}
+
+@media (hover: none) {
+  .metricCard:hover,
+  .benefitCard:hover,
+  .systemCard:hover,
+  .primaryAction:hover,
+  .secondaryAction:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroContent,
+  .heroVisual,
+  .metricCard,
+  .benefitCard,
+  .systemCard,
+  .primaryAction,
+  .secondaryAction,
+  .systemPhoto {
+    animation: none;
+    transition: none;
+  }
+
+  .metricCard:hover,
+  .metricCard:focus-within,
+  .benefitCard:hover,
+  .benefitCard:focus-within,
+  .systemCard:hover,
+  .systemCard:focus-within,
+  .primaryAction:hover,
+  .primaryAction:focus-visible,
+  .secondaryAction:hover,
+  .secondaryAction:focus-visible {
+    transform: none;
+  }
+
+  .systemCard:hover .systemPhoto,
+  .systemCard:focus-within .systemPhoto {
+    transform: none;
   }
 }

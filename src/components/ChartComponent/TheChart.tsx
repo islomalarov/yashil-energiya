@@ -102,7 +102,7 @@ export const TheChart = ({ unit }: { unit: string }) => {
               }}
             />
             <Tooltip content={makeCustomTooltip(unit)} />
-            <Bar dataKey="power" radius={[6, 6, 0, 0]} isAnimationActive>
+            <Bar dataKey="power" radius={[6, 6, 0, 0]} isAnimationActive={false}>
               {data.map((entry, index) => (
                 <Cell key={index} fill={entry.color} />
               ))}

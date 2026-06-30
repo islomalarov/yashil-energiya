@@ -154,12 +154,13 @@
     "link": "Batafsil"
   },
   "SolarPanelsPage": {
-    "heroTitle": "Quyosh fotoelektr stansiyalari",
-    "title": "Quyosh fotoelektr stansiyalari",
+    "heroTitle": "Quyosh elektr stansiyalari",
+    "title": "Quyosh elektr stansiyalari",
     "list": "Hozirgi kunda quyosh fotoelektr stansiyalari (QFES) dunyoning ko‘plab mamlakatlarida muhim energiya manbai bo‘lib bormoqda. Ular:",
     "listItem1": "Atrof-muhitga zarar yetkazmaydi (toza energiya manbai hisoblanadi).",
     "listItem2": "Neft, gaz kabi yoqilg‘ilarga qaramlikni kamaytiradi.",
     "listItem3": "Elektr energiyasi narxini pasaytirishga yordam beradi.",
+    "listItem4": "Energiya samaradorligini oshiradi.",
     "content": {
       "description1": "Ko‘plab rivojlangan davlatlar (AQSh, Xitoy, Germaniya) quyosh energiyasidan keng foydalanmoqda. Masalan, Xitoy dunyodagi eng yirik quyosh elektr stansiyalariga ega.",
       "description2": "O‘zbekistonda ham quyosh energiyasiga katta e’tibor berilmoqda,chunki mamlakatda quyoshli kunlar soni yiliga 300 kundan ortiq. Bu quyosh elektr stansiyalarini rivojlantirish uchun katta imkoniyat yaratadi. O‘zbekistonda quyosh energiyasidan kengroq foydalanish kelajakda elektr ta’minotini yaxshilash va energiya xarajatlarini kamaytirishga yordam beradi."
@@ -167,18 +168,112 @@
     "systemTitle": "Quyosh fotoelektr stansiyalari 3 xil asosiy turga bo‘linadi:",
     "system1": {
       "title": "On-grid tizim",
-      "description": "umumiy elektr tarmog‘iga ulangan bo‘lib, quyosh panellari ishlab chiqargan elektrni birinchi navbatda iste’mol qiladi, ortiqchasini esa davlat tarmog‘iga uzatadi, lekin elektr tarmog‘ida uzilish bo‘lsa, tizim ham ishlamaydi."
+      "description": "Elektr tarmog‘iga ulangan tizim. Avvalo quyosh stansiyasi ishlab chiqargan elektr energiyasi ishlatiladi, tarmoqda uzilish bo‘lsa tizim ham ishlashni to‘xtatadi.",
+      "technicalLabel": "Tarmoqqa ulangan",
+      "context": "Barqaror elektr tarmog‘i mavjud obyektlar uchun",
+      "alt": "Tarmoqqa ulangan quyosh elektr stansiyasi sxemasi"
     },
     "system2": {
       "title": "Off-grid tizim",
-      "description": "elektr tarmog‘iga ulanmagan va mustaqil ishlaydi, energiyani akkumulyatorlarda saqlaydi, shu sababli elektr tarmog‘i mavjud bo‘lmagan joylar uchun mos keladi, ammo akkumulyatorlarning qimmatligi sababli narxi yuqoriroq bo‘ladi."
+      "description": "Elektr tarmog‘iga ulanmagan avtonom tizim. Energiya akkumulyatorlarda saqlanadi va bu yechim uzoq hududlar uchun qulay hisoblanadi.",
+      "technicalLabel": "Akkumulyatorli saqlash",
+      "context": "Uzoq hududlar va avtonom ta’minot uchun",
+      "alt": "Avtonom quyosh elektr stansiyasi sxemasi"
     },
     "system3": {
-      "title": "Gibrid tizim",
-      "description": "on-grid va off-grid tizimlarining kombinatsiyasi bo‘lib, u elektr tarmog‘iga ulanib ishlashi yoki akkumulyator orqali mustaqil ravishda energiya ta’minotini davom ettirishi mumkin, bu esa uni eng moslashuvchan, lekin nisbatan qimmat tizimga aylantiradi."
+      "title": "Hybrid tizim",
+      "description": "Tarmoq ulanishi va akkumulyator saqlash tizimini birlashtirgan gibrid yechim bo‘lib, yuqori moslashuvchanlik va ishonchlilikni ta’minlaydi.",
+      "technicalLabel": "Tarmoq + saqlash",
+      "context": "Moslashuvchan va ishonchli ekspluatatsiya uchun",
+      "alt": "Gibrid quyosh elektr stansiyasi abstrakt sxemasi"
     },
     "mapTitle": "“Yashil Energiya” MChJ QK ning mavjud QFES lari haqida ma’lumot",
     "chartDescription": "“Yashil Energiya” MChJ 2023-yildan buyon O’zbekiston Respublikasi hududida joylashgan ijtimoiy soha obyektlariga QFES o’rnatish bilan shug’ullanib kelmoqda. Quyidagi diagrammada jamiyatga tegishli QFES larning umumiy quvvatini o’zgarishini ko’rishingiz mumkin.",
+    "hero": {
+      "eyebrow": "Quyosh infratuzilmasi",
+      "title": "Quyosh elektr stansiyalari",
+      "subtitle": "Barqaror va energiya samarador O‘zbekiston uchun toza energetika infratuzilmasi.",
+      "primaryCta": "Yechimlarni ko‘rish",
+      "secondaryCta": "Joriy holat",
+      "visualTitle": "QES infratuzilmasi",
+      "visualText": "Jamoat obyektlari uchun toza generatsiya"
+    },
+    "metrics": {
+      "label": "Quyosh elektr stansiyalari ta’sir ko‘rsatkichlari",
+      "metric1": {
+        "value": "300+",
+        "label": "Yiliga quyoshli kunlar",
+        "description": "O‘zbekiston iqlimi quyosh energetikasini rivojlantirish uchun yuqori salohiyat yaratadi."
+      },
+      "metric2": {
+        "value": "3",
+        "label": "PV tizim turlari",
+        "description": "Turli ekspluatatsiya holatlari uchun on-grid, off-grid va hybrid yechimlar."
+      },
+      "metric3": {
+        "value": "2023",
+        "label": "Investitsiya faoliyati boshlangan yil",
+        "description": "Yashil Energiya 2023-yildan buyon ijtimoiy va davlat obyektlaridagi quyosh elektr stansiyalariga investitsiya kiritib kelmoqda."
+      },
+      "metric4": {
+        "value": "QES portfeli",
+        "label": "Portfeldagi QES",
+        "description": "Yashil Energiya portfeliga tegishli quyosh elektr stansiyalarining joriy soni."
+      }
+    },
+    "benefits": {
+      "eyebrow": "Energiya samaradorligi",
+      "title": "Quyosh energetikasining afzalliklari",
+      "description": "Quyosh elektr stansiyalari toza elektr energiyasi, xarajatlarni kamaytirish va barqaror jamoat infratuzilmasini rivojlantirishga xizmat qiladi.",
+      "benefit1": {
+        "title": "Ekologik toza",
+        "description": "Quyosh generatsiyasi toza elektr energiyasini ishlab chiqarishga va atrof-muhitga ta’sirni kamaytirishga yordam beradi."
+      },
+      "benefit2": {
+        "title": "Qazib olinadigan yoqilg‘iga qaramlikni kamaytiradi",
+        "description": "Qayta tiklanuvchi generatsiya energiya manbalarini diversifikatsiya qiladi va neft hamda gazga qaramlikni pasaytiradi."
+      },
+      "benefit3": {
+        "title": "Elektr energiyasi xarajatlarini kamaytiradi",
+        "description": "Mahalliy quyosh generatsiyasi obyektlar uchun uzoq muddatli iqtisodiy samaradorlikni oshiradi."
+      },
+      "benefit4": {
+        "title": "Energiya samaradorligini oshiradi",
+        "description": "Zamonaviy quyosh infratuzilmasi energiyadan oqilona va barqaror foydalanishni qo‘llab-quvvatlaydi."
+      }
+    },
+    "potential": {
+      "eyebrow": "O‘zbekistonning quyosh salohiyati",
+      "title": "300 dan ortiq quyoshli kun strategik ustunlik yaratadi",
+      "description": "O‘zbekistonda yiliga 300 dan ortiq quyoshli kun mavjud bo‘lib, quyosh energetikasi energiya samaradorligi va barqaror rivojlanishning eng istiqbolli yo‘nalishlaridan biridir.",
+      "badgeValue": "300+",
+      "badgeLabel": "yiliga quyoshli kun"
+    },
+    "systems": {
+      "eyebrow": "QES turlari",
+      "title": "Turli ekspluatatsiya modellariga mos quyosh tizimlari",
+      "description": "On-grid, off-grid va hybrid tizimlari har bir obyektning texnik sharoitiga mos quyosh infratuzilmasini tanlash imkonini beradi.",
+      "learnMore": "Batafsil"
+    },
+    "status": {
+      "eyebrow": "Joriy QES holati",
+      "title": "O‘zbekiston bo‘ylab quyosh infratuzilmasi rivojlanmoqda",
+      "description": "“Yashil Energiya” QK MChJ 2023-yildan buyon O‘zbekiston Respublikasi hududidagi ijtimoiy va davlat obyektlarida quyosh elektr stansiyalariga investitsiya kiritib kelmoqda. Ushbu bo‘lim kompaniyaning quyosh infratuzilmasi va operatsion yo‘nalishi rivojlanishini aks ettiradi.",
+      "cardLabel": "Operatsion yo‘nalish",
+      "cardTitle": "Ijtimoiy va davlat obyektlari uchun quyosh infratuzilmasi",
+      "capacityValue": "131 051 kVt",
+      "capacityLabel": "2025-yilda kuzatilgan umumiy quvvat",
+      "sinceValue": "2023",
+      "sinceLabel": "Investitsiya faoliyati boshlangan yil",
+      "chartTitle": "Yillar bo‘yicha quvvat o‘sishi",
+      "mapTitle": "QES geografiyasi"
+    },
+    "cta": {
+      "eyebrow": "Toza energiyaga o‘tish",
+      "title": "Jamoat infratuzilmasini toza energiya bilan ta’minlaymiz",
+      "text": "Yashil Energiya uzoq muddatli energiya samaradorligi, barqarorlik va ishonchli ekspluatatsiyani qo‘llab-quvvatlovchi quyosh infratuzilmasini rivojlantiradi.",
+      "button": "Bog‘lanish"
+    },
     "chartLabel": "Umumiy quvvat",
     "chartLabelUnit": "kVt",
     "chartLabel1": "Obyektlar soni",

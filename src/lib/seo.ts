@@ -169,19 +169,19 @@ export const staticSeo: Record<StaticSeoKey, Record<SeoLocale, SeoCopy>> = {
   },
   solarpanels: {
     en: {
-      title: "Solar Power Plants",
+      title: "Solar Power Plants | Yashil Energiya",
       description:
-        "Solar photovoltaic power plants by Yashil Energiya: clean electricity for social facilities, government buildings and communities.",
+        "Solar power plants and clean energy infrastructure developed by Yashil Energiya in Uzbekistan.",
     },
     ru: {
-      title: "Солнечные электростанции",
+      title: "Солнечные электростанции | Yashil Energiya",
       description:
-        "Солнечные фотоэлектрические станции Yashil Energiya для социальной сферы, государственных объектов и населенных пунктов.",
+        "Солнечные электростанции и инфраструктура чистой энергетики, развиваемая Yashil Energiya в Узбекистане.",
     },
     uz: {
-      title: "Quyosh fotoelektr stansiyalari",
+      title: "Quyosh elektr stansiyalari | Yashil Energiya",
       description:
-        "Yashil Energiya quyosh fotoelektr stansiyalari: ijtimoiy obyektlar, davlat binolari va hududlar uchun toza elektr energiyasi.",
+        "Yashil Energiya tomonidan O‘zbekistonda rivojlantirilayotgan quyosh elektr stansiyalari va toza energetika infratuzilmasi.",
     },
   },
   microges: {
