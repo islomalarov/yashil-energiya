@@ -1,0 +1,360 @@
+@use "@/scss/vars" as *;
+
+.page {
+  background: $whiteColor;
+  color: $blackColor;
+}
+
+.featuredSection {
+  padding: clamp(28px, 5vw, 64px) 0 clamp(48px, 7vw, 88px);
+}
+
+.featuredCard {
+  position: relative;
+  display: grid;
+  width: min(100%, 1180px);
+  margin: 0 auto;
+  grid-template-columns: minmax(300px, 420px) minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid rgba($primaryColor, 0.16);
+  border-radius: 28px;
+  background:
+    linear-gradient(135deg, rgba($primaryColor, 0.08), rgba($whiteColor, 0) 42%),
+    $whiteColor;
+  box-shadow: 0 24px 70px rgba(20, 44, 30, 0.13);
+  animation: leadershipCardIn 0.64s ease both;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, $secondaryColor, $primaryColor);
+  }
+
+  @media (max-width: $lg) {
+    grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+  }
+
+  @media (max-width: $md) {
+    grid-template-columns: minmax(240px, 300px) minmax(0, 1fr);
+  }
+
+  @media (max-width: $sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.featuredMedia,
+.memberMedia {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, rgba($primaryColor, 0.12), rgba($secondaryColor, 0.06)),
+    #eef7ef;
+}
+
+.featuredMedia {
+  aspect-ratio: 4 / 5;
+
+  @media (max-width: $sm) {
+    width: min(100%, 330px);
+    justify-self: center;
+    border-radius: 22px;
+    margin: clamp(16px, 5vw, 22px) clamp(16px, 5vw, 22px) 0;
+  }
+
+  @media (max-width: 420px) {
+    width: calc(100% - 32px);
+  }
+}
+
+.photo,
+.placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+}
+
+.photo {
+  object-fit: cover;
+  object-position: center top;
+  transition:
+    transform 0.45s ease,
+    filter 0.45s ease;
+}
+
+.placeholder {
+  display: grid;
+  place-items: center;
+  color: $primaryColor;
+  font-size: clamp(44px, 7vw, 74px);
+  font-weight: 900;
+  background:
+    linear-gradient(145deg, rgba($primaryColor, 0.16), rgba($secondaryColor, 0.08)),
+    repeating-linear-gradient(
+      135deg,
+      rgba($whiteColor, 0.5) 0 8px,
+      rgba($whiteColor, 0.12) 8px 16px
+    );
+}
+
+.featuredBody {
+  display: grid;
+  align-content: center;
+  gap: clamp(14px, 2vw, 22px);
+  padding: clamp(22px, 4vw, 48px);
+
+  @media (max-width: $md) {
+    padding: clamp(18px, 3vw, 28px);
+  }
+
+  @media (max-width: $sm) {
+    padding: 22px;
+  }
+}
+
+.badge {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba($primaryColor, 0.18);
+  border-radius: 999px;
+  background: rgba($primaryColor, 0.08);
+  color: $primaryColor;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.2;
+  padding: 9px 14px;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.featuredName {
+  margin: 0;
+  color: $blackColor;
+  font-size: clamp(30px, 4vw, 54px);
+  font-weight: 900;
+  line-height: 1.02;
+  overflow-wrap: anywhere;
+}
+
+.featuredPosition {
+  margin: 14px 0 0;
+  color: $primaryColor;
+  font-size: clamp(17px, 1.8vw, 23px);
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.featuredEmail {
+  width: fit-content;
+}
+
+.teamSection {
+  background: #f7faf8;
+  padding: clamp(48px, 7vw, 88px) 0;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
+  align-items: stretch;
+  gap: clamp(18px, 2.6vw, 28px);
+}
+
+.memberCard {
+  --member-index: 0;
+
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba($primaryColor, 0.13);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba($primaryColor, 0.035), rgba($whiteColor, 0) 42%),
+    $whiteColor;
+  box-shadow: 0 14px 38px rgba(20, 44, 30, 0.08);
+  animation: leadershipCardIn 0.58s ease both;
+  animation-delay: calc(var(--member-index) * 55ms);
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: clamp(20px, 3vw, 26px);
+    z-index: 2;
+    width: 56px;
+    height: 4px;
+    border-radius: 0 0 999px 999px;
+    background: $primaryColor;
+  }
+
+  &:hover,
+  &:focus-within {
+    transform: translateY(-6px);
+    border-color: rgba($primaryColor, 0.36);
+    box-shadow: 0 24px 58px rgba(20, 44, 30, 0.14);
+  }
+
+  &:hover .photo,
+  &:focus-within .photo {
+    transform: scale(1.03);
+    filter: saturate(1.06) contrast(1.03);
+  }
+}
+
+.memberMedia {
+  aspect-ratio: 4 / 5;
+  border-bottom: 1px solid rgba($primaryColor, 0.08);
+}
+
+.memberBody {
+  display: flex;
+  min-height: 230px;
+  flex-direction: column;
+  gap: 14px;
+  padding: clamp(20px, 2.4vw, 26px);
+}
+
+.memberName {
+  min-height: 68px;
+  margin: 0;
+  color: $blackColor;
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 850;
+  line-height: 1.12;
+  overflow-wrap: anywhere;
+}
+
+.memberPosition {
+  min-height: 82px;
+  margin: 0;
+  color: rgba($blackColor, 0.72);
+  font-size: clamp(15px, 1.4vw, 17px);
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.emailLink {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba($primaryColor, 0.14);
+  border-radius: 14px;
+  background: rgba($primaryColor, 0.055);
+  color: $primaryColor;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+  padding: 10px 12px;
+  transition:
+    background 0.22s ease,
+    border-color 0.22s ease,
+    color 0.22s ease,
+    outline-color 0.22s ease;
+
+  svg {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover {
+    border-color: rgba($primaryColor, 0.32);
+    background: rgba($primaryColor, 0.09);
+    color: $secondaryColor;
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba($primaryColor, 0.26);
+    outline-offset: 4px;
+  }
+
+  span:last-child {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+}
+
+.memberBody > .emailLink {
+  margin-top: auto;
+}
+
+.emailLabel {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+@keyframes leadershipCardIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (max-width: $md) {
+  .heroMeta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .featuredCard,
+  .memberCard {
+    border-radius: 22px;
+  }
+}
+
+@media (hover: none) {
+  .memberCard:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .featuredCard,
+  .memberCard,
+  .photo,
+  .emailLink {
+    animation: none;
+    transition: none;
+  }
+
+  .memberCard:hover,
+  .memberCard:focus-within {
+    transform: none;
+  }
+
+  .memberCard:hover .photo,
+  .memberCard:focus-within .photo {
+    transform: none;
+    filter: none;
+  }
+}

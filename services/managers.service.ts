@@ -7,6 +7,12 @@ export interface Manager {
   email: string;
   jobTitle: string;
   name: string;
+  photo?: {
+    fileName?: string | null;
+    height?: number | null;
+    url: string;
+    width?: number | null;
+  } | null;
   queue: number;
 }
 
@@ -23,6 +29,12 @@ export const ManagerService = {
           email
           jobTitle
           name
+          photo {
+            fileName
+            height
+            url
+            width
+          }
           queue
         }
       }

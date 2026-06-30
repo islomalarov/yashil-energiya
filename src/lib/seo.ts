@@ -70,19 +70,16 @@ export const staticSeo: Record<StaticSeoKey, Record<SeoLocale, SeoCopy>> = {
   },
   ceo: {
     en: {
-      title: "Leadership",
-      description:
-        "Meet the leadership team of Yashil Energiya and learn about the company's strategic direction in renewable energy.",
+      title: "Company Leadership",
+      description: "Meet the leadership team of Yashil Energiya.",
     },
     ru: {
-      title: "Руководство",
-      description:
-        "Руководство Yashil Energiya и стратегическое развитие компании в сфере возобновляемой энергетики.",
+      title: "Руководство компании",
+      description: "Руководство компании Yashil Energiya.",
     },
     uz: {
-      title: "Rahbariyat",
-      description:
-        "Yashil Energiya rahbariyati va kompaniyaning qayta tiklanuvchi energiya sohasidagi strategik yo'nalishlari.",
+      title: "Kompaniya rahbariyati",
+      description: "Yashil Energiya kompaniyasi rahbariyati.",
     },
   },
   news: {

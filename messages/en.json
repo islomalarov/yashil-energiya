@@ -372,7 +372,39 @@
   },
   "CeoPage": {
     "jobTitle": "Position",
-    "email": "E-mail"
+    "email": "E-mail",
+    "error": "Leadership information is temporarily unavailable.",
+    "hero": {
+      "eyebrow": "Company leadership",
+      "title": "Company leadership",
+      "subtitle": "Meet the team leading Yashil Energiya’s growth, digital transformation and renewable energy operations.",
+      "statsLabel": "Leadership page highlights",
+      "statLeaders": "{count} leaders",
+      "statFocus": "Renewable energy, operations and digital services"
+    },
+    "grid": {
+      "label": "Executive team",
+      "title": "Responsible leadership for sustainable infrastructure, operations and digital services.",
+      "note": "Yashil Energiya brings together specialists in finance, operations, engineering, procurement, international cooperation and digital transformation.",
+      "heading": "Executive team"
+    },
+    "ceoBadge": "Chief Executive Officer",
+    "featuredNote": "Strategic leadership focused on reliable renewable infrastructure, operational excellence and long-term value for Uzbekistan.",
+    "photoAlt": "Photo of {name}",
+    "positions": {
+      "ceo": "CEO",
+      "cfo": "CFO",
+      "headCorporateServices": "Head of Corporate Services",
+      "headOperations": "Head of Operations",
+      "directorService": "Director of \"Yashil Energiya Servis\" LLC",
+      "headHr": "Head of HR",
+      "headCommercialOperations": "Head of the Commercial Operations",
+      "headAccounting": "Head of the Accounting Department",
+      "headProcurementContracts": "Head of the Procurement & Contracts",
+      "headItDigitalization": "Head of the IT & Digitalization",
+      "headInternationalCooperation": "Head of the International Cooperation",
+      "headEngineeringManagement": "Head of Engineering Management Department"
+    }
   },
   "BranchesPage": {
     "title": "\"Yashil Energiya Servis\" LLC",

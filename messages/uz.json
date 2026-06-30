@@ -371,7 +371,39 @@
   },
   "CeoPage": {
     "jobTitle": "Lavozimi",
-    "email": "Elektron manzil"
+    "email": "Elektron manzil",
+    "error": "Rahbariyat haqidagi ma'lumot vaqtincha mavjud emas.",
+    "hero": {
+      "eyebrow": "Kompaniya rahbariyati",
+      "title": "Kompaniya rahbariyati",
+      "subtitle": "Yashil Energiya rivojlanishi, raqamli transformatsiyasi va operatsion faoliyatini boshqarayotgan jamoa.",
+      "statsLabel": "Rahbariyat sahifasidagi asosiy ma'lumotlar",
+      "statLeaders": "{count} rahbar",
+      "statFocus": "Qayta tiklanuvchi energiya, operatsion faoliyat va raqamli xizmatlar"
+    },
+    "grid": {
+      "label": "Rahbarlar jamoasi",
+      "title": "Barqaror infratuzilma, operatsion faoliyat va raqamli xizmatlarni rivojlantirish uchun mas'ul rahbariyat.",
+      "note": "Yashil Energiya moliya, operatsiyalar, muhandislik, xaridlar, xalqaro hamkorlik va raqamli transformatsiya yo'nalishlaridagi mutaxassislarni birlashtiradi.",
+      "heading": "Rahbarlar jamoasi"
+    },
+    "ceoBadge": "Bosh ijrochi direktor",
+    "featuredNote": "O'zbekiston uchun ishonchli qayta tiklanuvchi energiya infratuzilmasi, operatsion samaradorlik va uzoq muddatli qiymatga yo'naltirilgan strategik rahbarlik.",
+    "photoAlt": "{name} fotosurati",
+    "positions": {
+      "ceo": "Bosh ijrochi direktor",
+      "cfo": "Moliyaviy direktor",
+      "headCorporateServices": "Korporativ xizmatlar rahbari",
+      "headOperations": "Operatsion faoliyat rahbari",
+      "directorService": "\"Yashil Energiya Servis\" MChJ direktori",
+      "headHr": "HR rahbari",
+      "headCommercialOperations": "Tijorat operatsiyalari rahbari",
+      "headAccounting": "Buxgalteriya bo'limi rahbari",
+      "headProcurementContracts": "Xaridlar va shartnomalar bo'limi rahbari",
+      "headItDigitalization": "IT va raqamlashtirish rahbari",
+      "headInternationalCooperation": "Xalqaro hamkorlik rahbari",
+      "headEngineeringManagement": "Muhandislik boshqaruvi departamenti rahbari"
+    }
   },
   "BranchesPage": {
     "title": "Filiallar",
