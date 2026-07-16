@@ -2,8 +2,31 @@ import "leaflet/dist/leaflet.css";
 import "leaflet.markercluster/dist/MarkerCluster.css";
 import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { createStaticMetadata, staticPageJsonLd } from "@/lib/seo";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
+
+const faqKeys = ["q1", "q2", "q3", "q4", "q5", "q6"] as const;
+
+async function faqPageJsonLd(locale: string) {
+  const t = await getTranslations({
+    locale,
+    namespace: "ChargingStationPage",
+  });
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqKeys.map((key) => ({
+      "@type": "Question",
+      name: t(`faq.${key}.question`),
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: t(`faq.${key}.answer`),
+      },
+    })),
+  };
+}
 
 export const revalidate = 3600;
 
@@ -37,5 +60,10 @@ export default function ChargingStationLayout({
 async function StaticJsonLd({ params }: MetadataProps) {
   const { locale } = await params;
 
-  return <TheJsonLd data={staticPageJsonLd(locale, "chargingstation")} />;
+  return (
+    <>
+      <TheJsonLd data={staticPageJsonLd(locale, "chargingstation")} />
+      <TheJsonLd data={await faqPageJsonLd(locale)} />
+    </>
+  );
 }

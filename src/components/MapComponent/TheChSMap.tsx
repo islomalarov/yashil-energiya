@@ -1,6 +1,7 @@
 "use client";
 
 import "@/lib/leaflet-icons";
+import { memo } from "react";
 import L from "leaflet";
 import "leaflet.markercluster";
 import LeafletMap from "@/components/MapComponent/LeafletMap";
@@ -10,8 +11,13 @@ import { resolveRegionLabel } from "@/lib/region-labels";
 import { useLocale, useTranslations } from "next-intl";
 import type { EvCharge } from "services/operational-assets.service";
 
+export type ChSMapControls = {
+  focusStation: (id: string) => void;
+};
+
 type TheChSMapProps = {
   stations: EvCharge[];
+  onReady?: (controls: ChSMapControls) => void;
 };
 
 const isLatLng = (c: unknown): c is [number, number] =>
@@ -44,7 +50,10 @@ const yellowIcon = new L.Icon({
   shadowSize: [41, 41],
 });
 
-export const TheChSMap = ({ stations }: TheChSMapProps) => {
+export const TheChSMap = memo(function TheChSMap({
+  stations,
+  onReady,
+}: TheChSMapProps) {
   const locale = useLocale();
   const t = useTranslations("ChargingStationPage");
   const regionT = useTranslations("SolarPanelsPage");
@@ -69,6 +78,7 @@ export const TheChSMap = ({ stations }: TheChSMapProps) => {
       onMap={(map, { restoredView }) => {
         const cluster = L.markerClusterGroup();
         const bounds = L.latLngBounds([]);
+        const markersById = new Map<string, L.Marker>();
 
         stations.forEach((station) => {
           if (!isLatLng(station.coords)) return;
@@ -77,6 +87,7 @@ export const TheChSMap = ({ stations }: TheChSMapProps) => {
 
           const icon = station.condition === "running" ? greenIcon : yellowIcon;
           const marker = L.marker(station.coords, { icon });
+          markersById.set(station.id, marker);
 
           marker.bindPopup(
             `<strong>${escapeHtml(station.name)}</strong><br/>
@@ -100,6 +111,17 @@ export const TheChSMap = ({ stations }: TheChSMapProps) => {
           map.fitBounds(bounds, { padding: [20, 20], maxZoom: 10 });
         }
 
+        onReady?.({
+          focusStation: (id) => {
+            const marker = markersById.get(id);
+            if (!marker) return;
+
+            cluster.zoomToShowLayer(marker, () => {
+              marker.openPopup();
+            });
+          },
+        });
+
         return () => {
           cluster.clearLayers();
           map.removeLayer(cluster);
@@ -107,4 +129,4 @@ export const TheChSMap = ({ stations }: TheChSMapProps) => {
       }}
     />
   );
-};
+});
