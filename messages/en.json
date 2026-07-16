@@ -485,59 +485,160 @@
     "planning": "Planning"
   },
   "ChargingStationPage": {
-    "heroTitle": "Electric Vehicle Charging Station",
-    "needsTitle": "The need for an electricity charging station in Uzbekistan:",
-    "need1": {
-      "title": "Environmental protection",
-      "description": "The use of electric vehicles (EVs) will increase through charging stations, which helps reduce the amount of the air harmful gases, including carbon dioxide. This will reduce environmental pollution, contribute to the preservation of a healthy lifestyle."
+    "heroTitle": "EV Charging Stations",
+    "breadcrumbs": {
+      "label": "Breadcrumbs"
     },
-    "need2": {
-      "title": " More efficient energy use",
-      "description": "EVs do not rely on traditional fuels, which means they help to save natural resources in Uzbekistan. The country has a high need to diversify its energy sources, and supporting electric vehicles can help achieve this goal."
+    "hero": {
+      "eyebrow": "EV charging infrastructure",
+      "title": "Electric vehicle charging stations",
+      "subtitle": "Building a reliable charging network for clean transport across Uzbekistan, so drivers can switch to electric with confidence.",
+      "primaryCta": "How to charge",
+      "secondaryCta": "View the network",
+      "imageAlt": "Electric vehicle charging at a Yashil Energiya station",
+      "visualTitle": "Charging network",
+      "visualText": "Clean energy for electric mobility"
     },
-    "need3": {
-      "title": "Reduce transportation costs",
-      "description": "The use of EVs is cheaper than vehicles moving on traditional fuel. This will help reduce transport costs for the population."
+    "metrics": {
+      "label": "EV charging network metrics",
+      "stations": {
+        "label": "Charging stations",
+        "description": "Charging stations in the Yashil Energiya network, based on live data."
+      },
+      "regions": {
+        "label": "Regions covered",
+        "description": "Regions of Uzbekistan where our charging stations already operate.",
+        "fallbackValue": "3+"
+      },
+      "power": {
+        "label": "Total charging power",
+        "description": "Combined installed power of the charging network, in kilowatts."
+      },
+      "launch": {
+        "value": "2025",
+        "label": "Network launched",
+        "description": "The year the first Yashil Energiya charging stations went live."
+      }
     },
-    "benefitsTitle": "The benefits of an EV charging station:",
-    "benefit1": {
-      "title": "Sustainable energy supply",
-      "description": "Recharge stations, especially when connected to renewable energy sources, ensure the duration and stability of energy supply."
+    "benefits": {
+      "eyebrow": "Why it matters",
+      "title": "Why Uzbekistan needs a charging network",
+      "description": "Electric mobility lowers emissions, cuts running costs and builds a more resilient, digital energy system.",
+      "environment": {
+        "title": "Cleaner air",
+        "description": "Electric vehicles produce no tailpipe emissions, reducing carbon dioxide and other pollutants in cities."
+      },
+      "energy": {
+        "title": "Smarter energy use",
+        "description": "EVs reduce reliance on imported fuel and help diversify the country's energy mix."
+      },
+      "cost": {
+        "title": "Lower running costs",
+        "description": "Charging an electric vehicle is cheaper than refuelling, easing transport costs for drivers and businesses."
+      },
+      "supply": {
+        "title": "Renewable-ready supply",
+        "description": "Stations designed to work with renewable generation support a steady, sustainable power supply."
+      },
+      "growth": {
+        "title": "New economic opportunities",
+        "description": "A growing charging network creates jobs and opens opportunities for private investors and services."
+      },
+      "digital": {
+        "title": "Digital and convenient",
+        "description": "Find stations, start sessions and track charging in the mobile app, with balance top-up and QR payment."
+      }
     },
-    "benefit2": {
-      "title": "Opportunities for economic growth",
-      "description": "With the development of electric charging infrastructure, new jobs will be created and new business opportunities will open up for private investors. This will contribute to economic growth and the adoption of new technologies."
+    "network": {
+      "eyebrow": "Our stations",
+      "title": "The charging network",
+      "description": "Explore where Yashil Energiya charging stations are already running and how much charging power is available.",
+      "summaryLabel": "Network overview",
+      "summaryTitle": "Charging stations across Uzbekistan's regions",
+      "capacityLabel": "Total charging power",
+      "stationsLabel": "Charging stations",
+      "regionsLabel": "Regions covered",
+      "statusLabel": "Status",
+      "mapTitle": "Station map",
+      "emptyTitle": "Network map coming soon",
+      "emptyText": "Station details are being prepared. In the meantime, our team is happy to help you find the nearest charging point."
     },
-    "benefit3": {
-      "title": " Convenience for EV owners",
-      "description": "Charging stations will be useful for managing electricity over long distances if they are installed in strategic locations along roads. This would support domestic tourism and economic activity."
+    "chargingTypes": {
+      "eyebrow": "Charging types",
+      "title": "AC and DC charging explained",
+      "description": "Different connectors and power levels suit different journeys, from an overnight top-up to a fast charge on the road.",
+      "powerLabel": "Power",
+      "timeLabel": "Typical charge time",
+      "connectorLabel": "Connectors",
+      "bestForLabel": "Best for",
+      "ac": {
+        "name": "AC — standard charging",
+        "badge": "Slow / overnight",
+        "power": "up to 22 kW",
+        "time": "4–8 hours",
+        "connector": "Type 2, GB/T AC",
+        "bestFor": "Home, office and long-stay parking"
+      },
+      "dc": {
+        "name": "DC — fast charging",
+        "badge": "Fast / on the road",
+        "power": "60–120 kW and above",
+        "time": "20–60 minutes",
+        "connector": "GB/T DC, CCS2",
+        "bestFor": "Highways, hubs and quick top-ups"
+      },
+      "note": "Connector standards and power ratings are indicative for the Uzbekistan market and are confirmed per station."
     },
-    "benefit4": {
-      "title": "Digital integration opportunity",
-      "description": "Modern charge stations can be managed and monitored through mobile applications. This allows users to find close charging stations, monitor charging time, and power."
+    "offer": {
+      "eyebrow": "Terms of service",
+      "title": "Review the terms before you charge",
+      "description": "Charging tariffs and service conditions are set out in the public offer. Please read it before using the stations.",
+      "button": "Public offer",
+      "note": "Have a tariff question? Our support team is one call away."
     },
-    "statisticsTitle": "Statistical data and forecasts:",
-    "statistic1": {
-      "title": "Current status",
-      "description": "As of 2025, there are several EV charging stations operating in Uzbekistan. These stations are mainly located around the capital city of Tashkent and other major cities."
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Frequently asked questions",
+      "description": "Answers to the most common questions about charging with Yashil Energiya.",
+      "q1": {
+        "question": "Which electric vehicles are supported?",
+        "answer": "Our stations support the common standards on the Uzbekistan market — GB/T for AC and DC, and CCS2 for DC fast charging. Check your vehicle's connector type before charging."
+      },
+      "q2": {
+        "question": "How do I pay for a session?",
+        "answer": "Payment runs through the Yashil Energiya app: top up your balance, scan the station QR code and start the session. The final cost is shown when charging ends."
+      },
+      "q3": {
+        "question": "What should I do if a station fails?",
+        "answer": "Stop the session in the app and try another connector or a nearby station. If the problem continues, contact support on +998 55 514 88 44."
+      },
+      "q4": {
+        "question": "Are the stations available around the clock?",
+        "answer": "Availability depends on the site. Opening hours and real-time status for each station are shown on the map in the app."
+      },
+      "q5": {
+        "question": "Will the network expand?",
+        "answer": "Yes. The charging network keeps growing: new stations are planned in more regions and along key routes across Uzbekistan."
+      },
+      "q6": {
+        "question": "How do I contact support?",
+        "answer": "Call +998 55 514 88 44 or use the contacts page. Our team helps with charging, payments and partnership questions."
+      }
     },
-    "statistic2": {
-      "title": "Plans",
-      "description": "The Uzbek government plans to expand electricity recharges in the next 5 years and establish additional charges stations on large highways."
+    "cta": {
+      "eyebrow": "Partnership",
+      "title": "Want a charging station on your territory?",
+      "text": "Host a station or become a partner in Uzbekistan's growing charging network. Let's talk about the options for your site.",
+      "button": "Contact us",
+      "phoneLabel": "Call us",
+      "phone": "+998 55 514 88 44"
     },
-    "statistic3": {
-      "title": "Growth forecast",
-      "description": "According to the data, the share of electricity in the Uzbek car market is expected to increase significantly until 2030, which increases the demand for charging stations."
-    },
-    "mapTitle": "Information about the current EVs status of JV \"Yashil Energiya\" LLC",
     "mapLabel": "Total capacity",
     "mapLabelUnit": "kW",
     "mapLabel1": "Status",
     "running": "Running",
     "construction": "Construction",
-    "commissioning": "Commissioning",
-    "publicOfferNotice": "Before using the charging stations, please review the terms of service.",
-    "publicOfferButton": "Public Offer"
+    "commissioning": "Commissioning"
   },
   "ChargingGuide": {
     "eyebrow": "EV charging guide",
@@ -685,7 +786,6 @@
   "DocumentsPage": {
     "title": "Documents",
     "direction1": "Renewable energy sources",
-
     "document1": {
       "title": "Resolution of the President of the Republic of Uzbekistan dated 16.02.2023 \"On measures to accelerate the introduction of renewable energy sources and energy-saving technologies\" in 2023. \"",
       "url": "https://lex/ru/docs/6385716"
@@ -889,5 +989,5 @@
   },
   "TheChartList": {
     "year": "Year"
-    }
+  }
 }

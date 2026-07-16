@@ -485,59 +485,160 @@
     "planning": "Rejalashtirish"
   },
   "ChargingStationPage": {
-    "heroTitle": "Elektr mobillarni zaryadlash stansiyasi",
-    "needsTitle": "Elektr mobillarni zaryadlash stansiyasining Oʻzbekistonga kerakligi:",
-    "need1": {
-      "title": "Atrof-muhitni muhofaza qilish",
-      "description": "Zaryadlash stansiyalari orqali elektr mobillardan foydalanish oshadi va bu esa havodagi zararli gazlar, jumladan, karbonat angidrid miqdorini kamaytirishga yordam beradi. Bu atrof-muhit ifloslanishini kamaytirib, sogʻlom turmush tarzini saqlashga hissa qoʻshadi."
+    "heroTitle": "Elektromobil zaryadlash stansiyalari",
+    "breadcrumbs": {
+      "label": "Yo'l xaritasi"
     },
-    "need2": {
-      "title": " Yanada samarali energiya foydalanish",
-      "description": "Elektr mobillar an’anaviy yonilgʻiga tayanmaydi, ya'ni Oʻzbekistonda tabiiy resurslar tejashga imkon beradi. Mamlakatda energiya manbalarini diversifikatsiya qilish zarurati yuqori bo'lib, elektr transportini qoʻllab-quvvatlash orqali bu maqsadga erishish mumkin."
+    "hero": {
+      "eyebrow": "Zaryadlash infratuzilmasi",
+      "title": "Elektromobil zaryadlash stansiyalari",
+      "subtitle": "O'zbekiston bo'ylab toza transport uchun ishonchli zaryadlash tarmog'ini rivojlantiramiz, shunda elektromobilga o'tish ishonchli bo'ladi.",
+      "primaryCta": "Qanday zaryadlanadi",
+      "secondaryCta": "Tarmoqni ko'rish",
+      "imageAlt": "Yashil Energiya stansiyasida elektromobil zaryadlanmoqda",
+      "visualTitle": "Zaryadlash tarmog'i",
+      "visualText": "Elektr transport uchun toza energiya"
     },
-    "need3": {
-      "title": "Transport xarajatlarini kamaytirish",
-      "description": "Elektr mobillarni ishlatish an’anaviy yoqilgʻida harakatlanadigan transport vositalariga qaraganda arzonroq boʻladi. Bu esa aholi uchun transport xarajatlarini kamaytirishga yordam beradi."
+    "metrics": {
+      "label": "Zaryadlash tarmog'i ko'rsatkichlari",
+      "stations": {
+        "label": "Zaryadlash stansiyalari",
+        "description": "Yashil Energiya tarmog'idagi zaryadlash stansiyalari, joriy ma'lumotlar asosida."
+      },
+      "regions": {
+        "label": "Qamrab olingan hududlar",
+        "description": "O'zbekistonning stansiyalarimiz allaqachon ishlab turgan hududlari.",
+        "fallbackValue": "3+"
+      },
+      "power": {
+        "label": "Umumiy quvvat",
+        "description": "Zaryadlash tarmog'ining umumiy o'rnatilgan quvvati, kilovattda."
+      },
+      "launch": {
+        "value": "2025",
+        "label": "Tarmoq ishga tushdi",
+        "description": "Yashil Energiya dastlabki zaryadlash stansiyalari ishga tushgan yil."
+      }
     },
-    "benefitsTitle": "Elektr mobillarni zaryadlash stansiyasining foydalari:",
-    "benefit1": {
-      "title": "Barqaror energiya ta'minoti",
-      "description": "Zaryadlash stansiyalari, ayniqsa, qayta tiklanuvchi energiya manbalariga ulansa, energiya bilan ta’minlashda davomiylik va barqarorlikni ta’minlaydi."
+    "benefits": {
+      "eyebrow": "Nima uchun muhim",
+      "title": "O'zbekistonga zaryadlash tarmog'i nega kerak",
+      "description": "Elektr transport chiqindilarni kamaytiradi, xarajatlarni qisqartiradi va energetika tizimini barqaror hamda raqamli qiladi.",
+      "environment": {
+        "title": "Toza havo",
+        "description": "Elektromobillar chiqindi gaz chiqarmaydi, shaharlarda karbonat angidrid va boshqa ifloslantiruvchilarni kamaytiradi."
+      },
+      "energy": {
+        "title": "Energiyadan oqilona foydalanish",
+        "description": "Elektromobillar chetdan keltiriladigan yoqilg'iga bog'liqlikni kamaytiradi va mamlakat energiya balansini diversifikatsiya qiladi."
+      },
+      "cost": {
+        "title": "Yo'l xarajatlari kamayadi",
+        "description": "Elektromobilni zaryadlash yoqilg'i quyishdan arzonroq, bu haydovchilar va biznes uchun transport xarajatlarini kamaytiradi."
+      },
+      "supply": {
+        "title": "Barqaror energiya ta'minoti",
+        "description": "Stansiyalar qayta tiklanuvchi generatsiya bilan ishlashga mo'ljallangan va barqaror, ekologik toza ta'minotni qo'llab-quvvatlaydi."
+      },
+      "growth": {
+        "title": "Yangi iqtisodiy imkoniyatlar",
+        "description": "Zaryadlash tarmog'ining rivojlanishi yangi ish o'rinlari yaratadi va xususiy investorlar hamda xizmatlar uchun imkoniyatlar ochadi."
+      },
+      "digital": {
+        "title": "Raqamli va qulay",
+        "description": "Stansiyalarni toping, seanslarni boshlang va zaryadlashni mobil ilovada kuzating, balansni to'ldirish va QR orqali to'lov bilan."
+      }
     },
-    "benefit2": {
-      "title": "Iqtisodiy rivojlanish uchun imkoniyatlar",
-      "description": "Elektr zaryadlash infratuzilmasini rivojlantirish orqali yangi ish o'rinlari yaratiladi va xususiy investorlar uchun yangi biznes imkoniyatlari ochiladi. Bu iqtisodiy rivojlanish va yangi texnologiyalarning kirib kelishiga yordam beradi."
+    "network": {
+      "eyebrow": "Bizning stansiyalar",
+      "title": "Zaryadlash tarmog'i",
+      "description": "Yashil Energiya stansiyalari qayerda ishlayotganini va qancha zaryadlash quvvati mavjudligini ko'ring.",
+      "summaryLabel": "Tarmoq sharhi",
+      "summaryTitle": "O'zbekiston hududlaridagi zaryadlash stansiyalari",
+      "capacityLabel": "Umumiy quvvat",
+      "stationsLabel": "Zaryadlash stansiyalari",
+      "regionsLabel": "Qamrab olingan hududlar",
+      "statusLabel": "Holati",
+      "mapTitle": "Stansiyalar xaritasi",
+      "emptyTitle": "Tarmoq xaritasi tez orada",
+      "emptyText": "Stansiyalar bo'yicha ma'lumotlar tayyorlanmoqda. Shu vaqtda jamoamiz sizga eng yaqin zaryadlash nuqtasini topishda yordam beradi."
     },
-    "benefit3": {
-      "title": " Sayohatchilar uchun qulaylik",
-      "description": "Zaryadlash stansiyalari yo‘l bo'ylab strategik joylarda o'rnatilsa, elektr mobillarni uzoq masofalarga boshqarish qulay bo'ladi. Bu esa ichki turizm va iqtisodiy faoliyatni qo'llab-quvvatlaydi."
+    "chargingTypes": {
+      "eyebrow": "Zaryadlash turlari",
+      "title": "AC va DC zaryadlash — farqi nimada",
+      "description": "Turli konnektorlar va quvvat darajalari turli sayohatlarga mos keladi, tungi to'ldirishdan yo'ldagi tez zaryadlashgacha.",
+      "powerLabel": "Quvvat",
+      "timeLabel": "Taxminiy zaryadlash vaqti",
+      "connectorLabel": "Konnektorlar",
+      "bestForLabel": "Nima uchun mos",
+      "ac": {
+        "name": "AC — standart zaryadlash",
+        "badge": "Sekin / tunda",
+        "power": "22 kVt gacha",
+        "time": "4–8 soat",
+        "connector": "Type 2, GB/T AC",
+        "bestFor": "Uy, ofis va uzoq muddatli to'xtash"
+      },
+      "dc": {
+        "name": "DC — tez zaryadlash",
+        "badge": "Tez / yo'lda",
+        "power": "60–120 kVt va yuqori",
+        "time": "20–60 daqiqa",
+        "connector": "GB/T DC, CCS2",
+        "bestFor": "Avtomagistrallar, hablar va tez to'ldirish"
+      },
+      "note": "Konnektor standartlari va quvvat ko'rsatkichlari O'zbekiston bozori uchun taxminiy bo'lib, har bir stansiya bo'yicha aniqlanadi."
     },
-    "benefit4": {
-      "title": "Raqamli integratsiya imkoniyati",
-      "description": "Zamonaviy zaryadlash stansiyalari mobil ilovalar orqali boshqarilishi va kuzatilishi mumkin. Bu foydalanuvchilarga yaqin zaryadlash stansiyalarini topish, zaryadlash vaqti va quvvatini kuzatish imkonini beradi."
+    "offer": {
+      "eyebrow": "Xizmat shartlari",
+      "title": "Zaryadlashdan oldin shartlar bilan tanishing",
+      "description": "Zaryadlash tariflari va xizmat shartlari ommaviy ofertada bayon etilgan. Iltimos, stansiyalardan foydalanishdan oldin u bilan tanishing.",
+      "button": "Ommaviy oferta",
+      "note": "Tarif bo'yicha savolingiz bormi? Qo'llab-quvvatlash xizmati doim aloqada."
     },
-    "statisticsTitle": "Statistik ma'lumotlar va prognozlar:",
-    "statistic1": {
-      "title": "Hozirgi holat",
-      "description": "2024-yil holatiga koʻra, Oʻzbekistonda bir nechta elektr mobillar zaryadlash stansiyalari mavjud boʻlib, ular asosan Toshkent va yirik shaharlar atrofida joylashgan."
+    "faq": {
+      "eyebrow": "Savol-javob",
+      "title": "Ko'p beriladigan savollar",
+      "description": "Yashil Energiya bilan zaryadlash haqida eng ko'p beriladigan savollarga javoblar.",
+      "q1": {
+        "question": "Qaysi elektromobillar qo'llab-quvvatlanadi?",
+        "answer": "Stansiyalarimiz O'zbekiston bozoridagi keng tarqalgan standartlarni — AC va DC uchun GB/T, hamda tez DC zaryadlash uchun CCS2 ni qo'llab-quvvatlaydi. Zaryadlashdan oldin avtomobilingiz konnektori turini tekshiring."
+      },
+      "q2": {
+        "question": "Seans uchun qanday to'lanadi?",
+        "answer": "To'lov Yashil Energiya ilovasi orqali amalga oshiriladi: balansni to'ldiring, stansiya QR-kodini skanerlang va seansni boshlang. Yakuniy narx zaryadlash tugagach ko'rsatiladi."
+      },
+      "q3": {
+        "question": "Stansiya nosozligida nima qilish kerak?",
+        "answer": "Seansni ilovada to'xtating va boshqa konnektor yoki yaqin stansiyani sinab ko'ring. Muammo davom etsa, +998 55 514 88 44 raqami orqali qo'llab-quvvatlashga murojaat qiling."
+      },
+      "q4": {
+        "question": "Stansiyalar kunu-tun ishlaydimi?",
+        "answer": "Mavjudlik ob'ektga bog'liq. Har bir stansiyaning ish vaqti va real vaqtdagi holati ilovadagi xaritada ko'rsatiladi."
+      },
+      "q5": {
+        "question": "Tarmoq kengaytiriladimi?",
+        "answer": "Ha. Zaryadlash tarmog'i o'sishda davom etadi: yangi stansiyalar mamlakatning boshqa hududlari va asosiy yo'nalishlarida rejalashtirilgan."
+      },
+      "q6": {
+        "question": "Qo'llab-quvvatlash bilan qanday bog'lanish mumkin?",
+        "answer": "+998 55 514 88 44 raqamiga qo'ng'iroq qiling yoki kontaktlar sahifasidan foydalaning. Jamoamiz zaryadlash, to'lov va hamkorlik savollarida yordam beradi."
+      }
     },
-    "statistic2": {
-      "title": "Rejalar",
-      "description": "Oʻzbekiston hukumati kelgusi 5 yil ichida elektr mobillarni zaryadlash infratuzilmasini kengaytirishni va katta avtomobil yoʻllarida qoʻshimcha zaryadlash stansiyalarini oʻrnatishni rejalashtirmoqda."
+    "cta": {
+      "eyebrow": "Hamkorlik",
+      "title": "Hududingizda zaryadlash stansiyasini joylashtirmoqchimisiz?",
+      "text": "Stansiya joylashtiring yoki O'zbekistonning o'sib borayotgan zaryadlash tarmog'iga hamkor bo'ling. Ob'ektingiz uchun variantlarni muhokama qilamiz.",
+      "button": "Biz bilan bog'lanish",
+      "phoneLabel": "Qo'ng'iroq qilish",
+      "phone": "+998 55 514 88 44"
     },
-    "statistic3": {
-      "title": "O'sish prognozi",
-      "description": "Ma'lumotlarga koʻra, Oʻzbekiston avtomobil bozorida elektr mobillar ulushi 2030-yilgacha sezilarli darajada oshishi kutilmoqda, bu esa zaryadlash stansiyalariga talabni oshiradi."
-    },
-    "mapTitle": " \"Yashil Energiya\" MChJ QK joriy EV holati haqida ma’lumot",
     "mapLabel": "Quvvat",
     "mapLabelUnit": "kVt",
     "mapLabel1": "Status",
     "running": "Ishlamoqda",
     "construction": "Qurilish",
-    "commissioning": "Ishga tushirish",
-    "publicOfferNotice": "Quvvatlash stansiyalaridan foydalanishdan oldin xizmat ko‘rsatish shartlari bilan tanishing.",
-    "publicOfferButton": "Ommaviy oferta"
+    "commissioning": "Ishga tushirish"
   },
   "ChargingGuide": {
     "eyebrow": "EV zaryadlash yo'riqnomasi",
