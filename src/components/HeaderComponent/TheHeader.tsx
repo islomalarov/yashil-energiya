@@ -22,9 +22,8 @@ export const TheHeader = () => {
   const [showBurgerBtn, setShowBurgerBtn] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isInitialStateSettled, setIsInitialStateSettled] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const isScrolledRef = useRef(false);
-  const scrollProgressRef = useRef(0);
+  const scrollIndicatorRef = useRef<HTMLDivElement | null>(null);
   const skipLocaleMotion = useSkipLocaleMotion();
   const handleBurgerBtn = () => {
     setShowBurgerBtn(!showBurgerBtn);
@@ -47,9 +46,8 @@ export const TheHeader = () => {
         setIsScrolled(nextIsScrolled);
       }
 
-      if (Math.abs(scrollProgressRef.current - nextProgress) > 0.01) {
-        scrollProgressRef.current = nextProgress;
-        setScrollProgress(nextProgress);
+      if (scrollIndicatorRef.current) {
+        scrollIndicatorRef.current.style.transform = `scaleX(${nextProgress})`;
       }
     };
 
@@ -85,8 +83,8 @@ export const TheHeader = () => {
       {showBurgerBtn && <TheBurgerMenu handleBurgerBtn={handleBurgerBtn} />}
       <div
         id="scroll-indicator"
+        ref={scrollIndicatorRef}
         className={s.scrollIndicator}
-        style={{ transform: `scaleX(${scrollProgress})` }}
       />
       <TheMotionWrapper motionKey="site-header">
         <div className={s.content}>

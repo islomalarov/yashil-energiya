@@ -294,33 +294,191 @@
   },
   "MicroGesPage": {
     "heroTitle": "Mikro GES",
-    "title": "GIDROELEKTR STANSIYALAR",
-    "subTitle": "Tabiatdan – toza energiya sari!",
-    "content": "\"Yashil Energiya\" MCHJ O‘zbekiston hududida barqaror va ekologik toza energiya manbalarini joriy etishga doimiy hissa qo‘shib kelmoqda. Mikro gidroelektrostansiyalar bo‘limi esa shu yo‘ldagi muhim yo‘nalishlardan biridir.",
-    "listTitle": "Nima uchun mikro GES",
-    "listDescription": "Mikro gidroelektrostansiyalar – bu quvvati 5 kVt dan 500 kVt gacha bo‘lgan, suv oqimidan foydalanib elektr energiyasi ishlab chiqaruvchi kichik quvvatli inshootlardir. Ular quyidagi afzalliklarga ega:",
-    "listItem1": "Doimiy va barqaror elektr ta’minoti",
-    "listItem2": "Ekologik xavfsizlik – atrof-muhitga zarar yetkazmaydi",
-    "listItem3": "Qishloq hududlaridagi energiya tanqisligini bartaraf etish",
-    "listItem4": "Kam xarajatli texnik xizmat va uzoq xizmat muddati",
-    "servicesTitle": "Bizning xizmatlar:",
-    "servicesItem1": "Gidrotexnik va energetik loyihalash",
-    "servicesItem2": "\"Tayyor biznes\" loyiha (kalit topshirish) asosida mikro GES qurilishi",
-    "servicesItem3": "Montaj va ishga tushirish",
-    "servicesItem4": "Monitoring va texnik xizmat ko‘rsatish",
-    "schemaTitle": "“Yashil Energiya” MCHJ hamda xorijiy va mahalliy investortor tomonidan “tayyor biznes loyiha” sifatida mikroGESlarni quradi va ishga tushirish",
-    "schemaDescription1": "MikroGES orqali elektr energiya ishlab chiqariladi",
-    "schemaDescription2": "Ishlab chiqarilgan va o‘zidan ortgan energiyaga “HET” AJ tomonidan sotib olinadi",
-    "schemaDescription3": "Auksion g‘olibi",
-    "schemaDescription4": "“HET” AJ (Energosavdo)",
-    "schemaDescription5": "Isteʼmolchi",
-    "docsTitle": "Normativ-huquqiy asos",
-    "docsDescription": "Mikro gidroelektr stansiyalar bo‘yicha faoliyatimiz O‘zbekiston Respublikasi hukumatining rasmiy siyosati va qo‘llab-quvvatloviga asoslanadi. Xususan: O‘zbekiston Respublikasi Prezidentining 2025-yil 28-martdagi PQ-129-sonli qarori – \"Respublika hududlarida mikro gidroelektr stansiyalari tarmog‘ini rivojlantirish bo‘yicha qo‘shimcha chora-tadbirlar to‘g‘risida\"gi ushbu qaror mavjud suv resurslaridan oqilona foydalangan holda tadbirkorlik subyektlari tomonidan elektr energiyasini ishlab chiqarish quvvatlarini oshirish, iqtisodiyot tarmoqlari va aholini elektr energiyasi bilan ta’minlashning barqarorligini yanada oshirish va shu orqali butun iqtisodiyotning energiya xavfsizligini ta’minlashga qaratilgan chora-tadbirlar ko‘zda tutilgan.",
-    "projectsTitle": "Amalga oshirilayotgan loyihalar",
-    "projectsDescription": "Hozirda \"Yashil Energiya\" MCHJ tomonidan Toshkent viloyati Oqqo’rg’on tumani, Margunenkova kanalida mikro GES-1 loyihasi amalga oshirilmoqda. Ushbu stansiya 270 kVt quvvatga ega bo‘lib, mahalliy suv resurslaridan samarali foydalanish va yaqin hududlarni elektr energiyasi bilan ta’minlashni ko‘zda tutadi.",
-    "futuresTitle": "Rejalashtirilayotgan loyihalar",
-    "futuresDescription": "2025-yil davomida kompaniyamiz tomonidan yana 5 ta yangi mikro GES loyihasini boshlash rejalashtirilgan. Bu loyihalar O‘zbekistonning turli    hududlarida amalga oshirilib, minglab aholining barqaror elektr ta’minotini yaxshilashga xizmat qiladi.",
-    "mapTitle": "\"Yashil Energiya\" MChJ QK joriy MikroGES holati haqida ma’lumot",
+    "breadcrumbs": {
+      "label": "Mikro GES sahifasi navigatsiyasi"
+    },
+    "hero": {
+      "eyebrow": "Kichik gidroenergetika",
+      "title": "Barqaror energetika uchun suv kuchi",
+      "subtitle": "Yashil Energiya O‘zbekiston suv resurslari salohiyatidan foydalanib kichik va mikro gidroelektr stansiyalari loyihalarini rivojlantiradi. Yo‘nalish muhandislik loyihalash, qurilish, ishga tushirish va obyektlarga keyingi texnik xizmat ko‘rsatishni birlashtiradi.",
+      "primaryCta": "Bog‘lanish",
+      "secondaryCta": "Mikro GES qanday ishlaydi",
+      "imageAlt": "Suv kanali va gidrotexnik inshootga ega kichik gidroelektr stansiyasi",
+      "visualTitle": "Suv oqimidan energiyaga",
+      "visualText": "Mahalliy elektr ta’minoti uchun ixcham generatsiya"
+    },
+    "metrics": {
+      "label": "Mikro GES yo‘nalishining asosiy ko‘rsatkichlari",
+      "capacityRange": {
+        "value": "5–500 kVt",
+        "label": "Mikro GES quvvat diapazoni",
+        "description": "Joriy sahifa kontentida tasdiqlangan kichik obyektlar diapazoni."
+      },
+      "projectPower": {
+        "value": "270 kVt",
+        "label": "Mikro GES-1 loyiha quvvati",
+        "description": "Margunenkova kanalidagi loyiha uchun ko‘rsatilgan o‘rnatilgan quvvat."
+      },
+      "serviceDirections": {
+        "value": "4",
+        "label": "Xizmat yo‘nalishlari",
+        "description": "Loyihalash, qurilish, ishga tushirish va texnik xizmat."
+      },
+      "legalBasis": {
+        "value": "PQ-129",
+        "label": "Normativ asos",
+        "description": "O‘zbekiston Respublikasi Prezidentining 2025-yil 28-martdagi qarori."
+      }
+    },
+    "benefits": {
+      "eyebrow": "Yo‘nalish afzalliklari",
+      "title": "Kichik gidroenergetikaning afzalliklari",
+      "description": "Kichik gidroelektr stansiyalari mahalliy suv resurslaridan foydalanib, elektr ishlab chiqarish vaqtida yoqilg‘i yoqmasdan barqaror generatsiyani qo‘llab-quvvatlaydi.",
+      "stableGeneration": {
+        "title": "Barqaror generatsiya",
+        "description": "Gidrotexnik uzel to‘g‘ri loyihalanganda suv oqimi nisbatan prognoz qilinadigan ishlab chiqarishni ta’minlaydi."
+      },
+      "renewableWater": {
+        "title": "Qayta tiklanuvchi suv resursi",
+        "description": "Loyihalar suv oqimi energiyasidan foydalanadi va mavjud suv infratuzilmasi samaradorligini oshirishga yordam beradi."
+      },
+      "remoteSupply": {
+        "title": "Uzoq hududlarni qo‘llab-quvvatlash",
+        "description": "Mikro GES mahalliy generatsiya muhim bo‘lgan qishloq va uzoq hududlarda elektr ta’minotini to‘ldirishi mumkin."
+      },
+      "lowMaintenance": {
+        "title": "Uzoq xizmat muddati",
+        "description": "Sifatli qurilish va muntazam xizmat ko‘rsatish bunday obyektlarning uzoq muddat ishlashiga xizmat qiladi."
+      }
+    },
+    "process": {
+      "eyebrow": "Ishlash prinsipi",
+      "title": "Mikro GES qanday ishlaydi",
+      "description": "Sxema energiyaning asosiy yo‘lini ko‘rsatadi: suv oqimidan iste’molchi yoki tarmoqqa elektr uzatishgacha.",
+      "ariaLabel": "Mikro GES ishlash ketma-ketligi",
+      "waterFlow": {
+        "title": "Suv oqimi",
+        "description": "Kanal yoki suv oqimidan kelgan suv gidrotexnik uzelga yo‘naltiriladi."
+      },
+      "hydroNode": {
+        "title": "Gidrotexnik uzel",
+        "description": "Inshoot suv berilishini barqarorlashtirib, oqimni turbinaga tayyorlaydi."
+      },
+      "turbine": {
+        "title": "Turbina",
+        "description": "Suvning kinetik energiyasi turbinani harakatga keltiradi."
+      },
+      "generator": {
+        "title": "Generator",
+        "description": "Mexanik aylanish elektr energiyasiga aylantiriladi."
+      },
+      "delivery": {
+        "title": "Elektr uzatish",
+        "description": "Elektr energiyasi iste’molchiga yoki elektr tarmog‘iga uzatiladi."
+      }
+    },
+    "services": {
+      "eyebrow": "Loyiha hayotiy sikli",
+      "title": "Mikro GES bo‘yicha xizmatlar",
+      "description": "Yashil Energiya loyihani muhandislik ishlab chiqish bosqichidan ekspluatatsiya va texnik xizmatgacha kuzatib boradi.",
+      "design": {
+        "title": "Tizimlarni loyihalash",
+        "description": "Obyekt sharoitlarini hisobga olgan holda gidrotexnik va energetik yechimlarni ishlab chiqish."
+      },
+      "construction": {
+        "title": "Kalit topshirish qurilishi",
+        "description": "Mikro GESni tayyor muhandislik obyekti sifatida qurishni tashkil qilish."
+      },
+      "commissioning": {
+        "title": "Montaj va ishga tushirish",
+        "description": "Uskunalarni o‘rnatish, tizimlarni tekshirish va obyektni ekspluatatsiyaga tayyorlash."
+      },
+      "operation": {
+        "title": "Monitoring va xizmat",
+        "description": "Ishlashni nazorat qilish, ekspluatatsion kuzatuv va texnik xizmat ko‘rsatish."
+      }
+    },
+    "business": {
+      "eyebrow": "Hamkorlik modeli",
+      "title": "Auksiondan iste’molchigacha",
+      "description": "Sxema tariflar yoki moliyaviy shartlarni qo‘shmasdan mavjud ishtirokchilar mantiqini saqlaydi.",
+      "ariaLabel": "Mikro GES biznes modeli",
+      "auctionWinner": {
+        "title": "Auksion g‘olibi",
+        "description": "Loyihani amalga oshirish huquqini olgan ishtirokchi."
+      },
+      "construction": {
+        "title": "Qurilish yoki ekspluatatsiya",
+        "description": "Gidroenergetika obyektini tayyorlash va ishga tushirish."
+      },
+      "generation": {
+        "title": "Elektr energiyasi ishlab chiqarish",
+        "description": "Mikro GES suv oqimi hisobiga elektr energiyasi ishlab chiqaradi."
+      },
+      "energosavdo": {
+        "title": "“HET” AJ / Energosavdo",
+        "description": "Ishlab chiqarilgan elektr energiyasini xarid qilish sxemasidagi mavjud ishtirokchi."
+      },
+      "consumer": {
+        "title": "Iste’molchi",
+        "description": "Elektr energiyasi yakuniy iste’molchiga yoki tarmoqqa uzatiladi."
+      },
+      "note": "Ishtirokchilarning huquqiy nomlari joriy tarjimalardagi shaklda saqlandi."
+    },
+    "project": {
+      "eyebrow": "Joriy loyiha",
+      "title": "Margunenkova kanalidagi Mikro GES-1",
+      "description": "Yashil Energiya Toshkent viloyati Oqqo‘rg‘on tumanidagi Margunenkova kanalida Mikro GES-1 loyihasini amalga oshirmoqda. Obyekt mahalliy suv resurslaridan samarali foydalanishga mo‘ljallangan.",
+      "imageAlt": "Kichik gidroelektr stansiyasi va suv kanalining mavzuli tasviri",
+      "imageBadge": "Mikro GES bo‘yicha umumiy mavzuli tasvir",
+      "facts": {
+        "capacity": {
+          "label": "O‘rnatilgan quvvat",
+          "value": "270 kVt"
+        },
+        "location": {
+          "label": "Joylashuv",
+          "value": "Toshkent viloyati Oqqo‘rg‘on tumani"
+        },
+        "object": {
+          "label": "Obyekt",
+          "value": "Margunenkova kanali"
+        }
+      },
+      "badges": {
+        "waterResource": "Suv resurslaridan foydalanish",
+        "localGeneration": "Mahalliy generatsiya",
+        "renewable": "Qayta tiklanuvchi energetika"
+      }
+    },
+    "status": {
+      "eyebrow": "Joriy holat",
+      "title": "Mikro GES obyektlari ma’lumotlari",
+      "description": "Ushbu bo‘lim mavjud manbadagi tuzilmali loyiha ma’lumotlaridan foydalanadi. Ma’lumotlar bo‘lmasa, sahifa soxta statistikani ko‘rsatmaydi.",
+      "cardLabel": "Operatsion ma’lumotlar",
+      "cardTitle": "Joriy manbadagi Mikro GES portfeli",
+      "capacityLabel": "Mavjud yozuvlar bo‘yicha umumiy quvvat",
+      "objectsLabel": "Ma’lumotlar manbasidagi obyektlar",
+      "regionsLabel": "Ma’lumotlar manbasidagi hududlar",
+      "mapTitle": "Mikro GES obyektlari geografiyasi",
+      "emptyTitle": "Tuzilmali ma’lumotlar hali e’lon qilinmagan",
+      "emptyText": "Manbada tasdiqlangan Mikro GES obyektlari paydo bo‘lganda, ushbu blok sahifa arxitekturasini o‘zgartirmasdan xarita va ko‘rsatkichlarni ko‘rsata oladi."
+    },
+    "legal": {
+      "eyebrow": "Normativ-huquqiy asos",
+      "title": "Mikro GES tarmog‘ini rivojlantirish bo‘yicha qaror",
+      "description": "O‘zbekiston Respublikasi Prezidentining 2025-yil 28-martdagi PQ-129-sonli qarori mikro gidroelektr stansiyalari tarmog‘ini rivojlantirish chora-tadbirlarini belgilaydi. Hujjat suv resurslaridan oqilona foydalanish hamda iqtisodiyot tarmoqlari va aholining elektr ta’minoti barqarorligini oshirishga qaratilgan.",
+      "dateLabel": "Hujjat sanasi",
+      "dateValue": "2025-yil 28-mart",
+      "documentLabel": "Raqami",
+      "documentValue": "PQ-129"
+    },
+    "cta": {
+      "eyebrow": "Hamkorlik",
+      "title": "Suv energetikasi salohiyatini rivojlantiramiz",
+      "text": "Yashil Energiya kichik gidroenergetika loyihalarini amalga oshiradi hamda davlat tashkilotlari, investorlar va texnik hamkorlar bilan ishlaydi.",
+      "button": "Bog‘lanish"
+    },
     "mapLabel": "Quvvat",
     "mapLabelUnit": "kVt",
     "mapLabel1": "Status",

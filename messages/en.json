@@ -293,34 +293,192 @@
     "region14": "Khorezm region"
   },
   "MicroGesPage": {
-    "heroTitle": "Micro Hydro Power",
-    "title": "Hydroelectric power plants",
-    "subTitle": "From nature - towards clean energy!",
-    "content": "JV \"Yashil Energiya\" LLC is constantly contributing to the introduction of stable and environmental sources in Uzbekistan. The Department of micro hydropower is one of the important directions in this way.",
-    "listTitle": "Why MHP",
-    "listDescription": "MHP plants are small facilities with a capacity ranging from 5 kW to 500 kW that generate electricity using the flow of water. These plants have several advantages:",
-    "listItem1": "Permanent and stable electricity",
-    "listItem2": "Environmental safety – no harm to the environmen",
-    "listItem3": "Addressing energy shortages in rural areas",
-    "listItem4": "Low-cost maintenance and a long-life service.",
-    "servicesTitle": "Our services:",
-    "servicesItem1": "Design of hydraulic engineering and energy systems",
-    "servicesItem2": "The construction of a MHP under the \"turnkey\" project",
-    "servicesItem3": "Installation and running",
-    "servicesItem4": "Operating & Maintenance",
-    "schemaTitle": "JV \"Yashil Energiya\" LLC, in collaboration with foreign and local investors, is planning to construct and commission a MHP as a \"turnkey\" business project.",
-    "schemaDescription1": "Electricity is produced through the MHP",
-    "schemaDescription2": "Produced and purchased by \"Regional Electric Networks\" JSC",
-    "schemaDescription3": "Auction winner",
-    "schemaDescription4": "\"REN\" JSC (Energosavdo)",
-    "schemaDescription5": "Consumer",
-    "docsTitle": "Normative-legal framework",
-    "docsDescription": "Our MHP activities are based on the official policy and support of the Government of the Republic of Uzbekistan, as outlined in Decree No. 129, dated March 28th, 2025. This decree provides for measures to increase the capacity of businesses to generate electricity through the use of water resources, thereby improving the sustainability of the electricity supply to various sectors of the economy and the general population. The goal is to ensure energy security for the entire economy and promote sustainable development.",
-    "projectsTitle": "Projects implemented",
-    "projectsDescription": "Currently, JV \"Yashil Energya\" LLC is implementing the MHP-1 project on the Margunenkov Canal in the Okrugan district of the Tashkent region. The station has a capacity of 270 kW and is designed to efficiently utilize local water resources to generate electricity for nearby areas.",
-    "futuresTitle": "Future plans",
-    "futuresDescription": "Our company plans to launch five new MHP projects in 2025. These projects will be implemented in different regions of Uzbekistan, and will help improve the stable supply of electricity for thousands of residents.",
-    "mapTitle": "Information about the current MHP status of JV \"Yashil Energiya\" LLC",
+    "heroTitle": "Micro hydro power",
+    "breadcrumbs": {
+      "label": "Micro hydro page navigation"
+    },
+    "hero": {
+      "eyebrow": "Small hydropower",
+      "title": "Harnessing water for sustainable energy",
+      "subtitle": "Yashil Energiya develops small and micro hydropower projects using the potential of Uzbekistan’s water resources. The direction combines engineering design, construction, commissioning and ongoing facility maintenance.",
+      "primaryCta": "Contact us",
+      "secondaryCta": "How a micro HPP works",
+      "imageAlt": "Small hydropower plant with a water channel and hydraulic structure",
+      "visualTitle": "Water flow into energy",
+      "visualText": "Compact generation for local electricity supply"
+    },
+    "metrics": {
+      "label": "Key micro hydropower metrics",
+      "capacityRange": {
+        "value": "5–500 kW",
+        "label": "Micro HPP capacity range",
+        "description": "The confirmed range for small facilities from the current page content."
+      },
+      "projectPower": {
+        "value": "270 kW",
+        "label": "MHP-1 project capacity",
+        "description": "Installed capacity of the project on the Margunenkov Canal."
+      },
+      "serviceDirections": {
+        "value": "4",
+        "label": "Service directions",
+        "description": "Design, construction, commissioning and maintenance."
+      },
+      "legalBasis": {
+        "value": "PQ-129",
+        "label": "Legal basis",
+        "description": "Presidential Resolution of the Republic of Uzbekistan dated March 28, 2025."
+      }
+    },
+    "benefits": {
+      "eyebrow": "Direction advantages",
+      "title": "Advantages of small hydropower",
+      "description": "Small hydropower plants help use local water resources for stable generation without burning fuel during electricity production.",
+      "stableGeneration": {
+        "title": "Stable generation",
+        "description": "Water flow can support more predictable output when the hydraulic unit is properly designed."
+      },
+      "renewableWater": {
+        "title": "Renewable water resource",
+        "description": "Projects use the energy of water flow and can improve the efficiency of existing water infrastructure."
+      },
+      "remoteSupply": {
+        "title": "Support for remote areas",
+        "description": "Micro HPPs can complement electricity supply in rural and remote areas where local generation matters."
+      },
+      "lowMaintenance": {
+        "title": "Long service life",
+        "description": "With quality construction and regular maintenance, these facilities are designed for long-term operation."
+      }
+    },
+    "process": {
+      "eyebrow": "Operating principle",
+      "title": "How a micro HPP works",
+      "description": "The diagram shows the basic energy path: from water flow to electricity delivery to a consumer or the grid.",
+      "ariaLabel": "Micro HPP operating sequence",
+      "waterFlow": {
+        "title": "Water flow",
+        "description": "Water from a canal or watercourse is directed to the hydraulic unit."
+      },
+      "hydroNode": {
+        "title": "Hydraulic unit",
+        "description": "The structure stabilizes water delivery and prepares the flow for the turbine."
+      },
+      "turbine": {
+        "title": "Turbine",
+        "description": "The kinetic energy of water sets the turbine in motion."
+      },
+      "generator": {
+        "title": "Generator",
+        "description": "Mechanical rotation is converted into electrical energy."
+      },
+      "delivery": {
+        "title": "Electricity delivery",
+        "description": "Electricity is delivered to the consumer or to the power grid."
+      }
+    },
+    "services": {
+      "eyebrow": "Project lifecycle",
+      "title": "Micro hydropower services",
+      "description": "Yashil Energiya supports projects from engineering development to operation and technical maintenance.",
+      "design": {
+        "title": "System design",
+        "description": "Development of hydraulic engineering and energy solutions based on site conditions."
+      },
+      "construction": {
+        "title": "Turnkey construction",
+        "description": "Construction of a micro HPP as a complete engineered facility."
+      },
+      "commissioning": {
+        "title": "Installation and commissioning",
+        "description": "Equipment installation, system checks and preparation for operation."
+      },
+      "operation": {
+        "title": "Monitoring and maintenance",
+        "description": "Performance control, operational support and technical service."
+      }
+    },
+    "business": {
+      "eyebrow": "Interaction model",
+      "title": "From auction to consumer",
+      "description": "The scheme preserves the existing participant logic without adding tariffs or financial terms.",
+      "ariaLabel": "Micro HPP business model",
+      "auctionWinner": {
+        "title": "Auction winner",
+        "description": "The participant that receives the right to implement the project."
+      },
+      "construction": {
+        "title": "Construction or operation",
+        "description": "Preparation and launch of the hydropower facility."
+      },
+      "generation": {
+        "title": "Electricity generation",
+        "description": "The micro HPP generates electricity using water flow."
+      },
+      "energosavdo": {
+        "title": "REN JSC / Energosavdo",
+        "description": "The existing participant in the purchase scheme for generated electricity."
+      },
+      "consumer": {
+        "title": "Consumer",
+        "description": "Electricity is delivered to the end consumer or to the grid."
+      },
+      "note": "The legal names of participants are kept according to the current translations."
+    },
+    "project": {
+      "eyebrow": "Current project",
+      "title": "MHP-1 on the Margunenkov Canal",
+      "description": "Yashil Energiya is implementing the MHP-1 project on the Margunenkov Canal in the Oqqo‘rg‘on district of Tashkent region. The facility is intended to use local water resources efficiently.",
+      "imageAlt": "Thematic image of a small hydropower plant and water channel",
+      "imageBadge": "General thematic micro hydropower image",
+      "facts": {
+        "capacity": {
+          "label": "Installed capacity",
+          "value": "270 kW"
+        },
+        "location": {
+          "label": "Location",
+          "value": "Oqqo‘rg‘on district, Tashkent region"
+        },
+        "object": {
+          "label": "Facility",
+          "value": "Margunenkov Canal"
+        }
+      },
+      "badges": {
+        "waterResource": "Water resource use",
+        "localGeneration": "Local generation",
+        "renewable": "Renewable energy"
+      }
+    },
+    "status": {
+      "eyebrow": "Current status",
+      "title": "Micro HPP facility data",
+      "description": "This section uses structured project data from the existing source. If data is not available, the page shows a neutral state without fictional statistics.",
+      "cardLabel": "Operational data",
+      "cardTitle": "Micro HPP portfolio from the current source",
+      "capacityLabel": "Total capacity across available records",
+      "objectsLabel": "Facilities in the data source",
+      "regionsLabel": "Regions in the data source",
+      "mapTitle": "Micro HPP geography",
+      "emptyTitle": "Structured data has not been published yet",
+      "emptyText": "When confirmed micro HPP facilities appear in the source, this block can automatically show the map and metrics without changing the page architecture."
+    },
+    "legal": {
+      "eyebrow": "Normative and legal framework",
+      "title": "Resolution on developing the micro HPP network",
+      "description": "Presidential Resolution No. PQ-129 of the Republic of Uzbekistan dated March 28, 2025 provides measures for developing the micro hydropower plant network. The document focuses on rational use of water resources and greater stability of electricity supply for the economy and population.",
+      "dateLabel": "Document date",
+      "dateValue": "March 28, 2025",
+      "documentLabel": "Number",
+      "documentValue": "No. PQ-129"
+    },
+    "cta": {
+      "eyebrow": "Partnership",
+      "title": "Developing the potential of water energy",
+      "text": "Yashil Energiya implements small hydropower projects and works with government organizations, investors and technical partners.",
+      "button": "Contact us"
+    },
     "mapLabel": "Total capacity",
     "mapLabelUnit": "kW",
     "mapLabel1": "Status",

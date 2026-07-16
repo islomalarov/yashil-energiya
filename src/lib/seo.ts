@@ -188,17 +188,17 @@ export const staticSeo: Record<StaticSeoKey, Record<SeoLocale, SeoCopy>> = {
     en: {
       title: "Micro Hydro Power Plants",
       description:
-        "Micro hydro power projects by Yashil Energiya for stable, clean and local electricity generation in Uzbekistan.",
+        "Small and micro hydro power projects by Yashil Energiya using Uzbekistan's water resources for renewable electricity generation.",
     },
     ru: {
-      title: "Микро ГЭС",
+      title: "МикроГЭС и малая гидроэнергетика",
       description:
-        "Проекты микро ГЭС Yashil Energiya для стабильной, чистой и локальной выработки электроэнергии в Узбекистане.",
+        "Проекты малых и микрогидроэлектростанций Yashil Energiya с использованием водных ресурсов для развития возобновляемой энергетики Узбекистана.",
     },
     uz: {
-      title: "Mikro GES",
+      title: "Mikro GES va kichik gidroenergetika",
       description:
-        "Yashil Energiya mikro GES loyihalari O'zbekistonda barqaror, toza va mahalliy elektr energiyasini ishlab chiqarishga xizmat qiladi.",
+        "Yashil Energiya suv resurslaridan foydalanib O'zbekistonda qayta tiklanuvchi elektr energiyasi uchun kichik va mikro GES loyihalarini rivojlantiradi.",
     },
   },
   chargingstation: {

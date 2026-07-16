@@ -1,20 +1,32 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import dynamic from "next/dynamic";
-import { useTranslations } from "next-intl";
+import Image from "next/image";
+import { useLocale, useTranslations } from "next-intl";
 import {
   Activity,
   BatteryCharging,
   BriefcaseBusiness,
+  Cable,
+  ChevronRight,
   CircleDollarSign,
   ClipboardCheck,
   Construction,
   Droplets,
-  Leaf,
+  Factory,
+  FileText,
+  Gauge,
+  Landmark,
+  MapPin,
+  Network,
+  PlugZap,
+  Settings,
+  Zap,
   type LucideIcon,
 } from "lucide-react";
-import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
-import { TheHero } from "@/components/HeroComponent/TheHero";
+import { TheMotionWrapper } from "@/components/MotionWrapper/TheMotionWrapper";
+import { Link } from "@/i18n/navigation";
 import type { Mhp } from "services/operational-assets.service";
 import s from "./page.module.scss";
 
@@ -30,137 +42,399 @@ type MicroGesClientProps = {
   mhps: Mhp[];
 };
 
+type MetricKey =
+  | "capacityRange"
+  | "projectPower"
+  | "serviceDirections"
+  | "legalBasis";
+type BenefitKey =
+  | "stableGeneration"
+  | "renewableWater"
+  | "remoteSupply"
+  | "lowMaintenance";
+type ProcessKey =
+  | "waterFlow"
+  | "hydroNode"
+  | "turbine"
+  | "generator"
+  | "delivery";
+type ServiceKey = "design" | "construction" | "commissioning" | "operation";
+type BusinessKey =
+  | "auctionWinner"
+  | "construction"
+  | "generation"
+  | "energosavdo"
+  | "consumer";
+type ProjectFactKey = "capacity" | "location" | "object";
+type ProjectBadgeKey = "waterResource" | "localGeneration" | "renewable";
+
+const metricKeys = [
+  "capacityRange",
+  "projectPower",
+  "serviceDirections",
+  "legalBasis",
+] as const satisfies readonly MetricKey[];
+
+const benefitCards = [
+  { key: "stableGeneration", icon: Gauge },
+  { key: "renewableWater", icon: Droplets },
+  { key: "remoteSupply", icon: PlugZap },
+  { key: "lowMaintenance", icon: CircleDollarSign },
+] satisfies Array<{ key: BenefitKey; icon: LucideIcon }>;
+
+const processSteps = [
+  { key: "waterFlow", icon: Droplets },
+  { key: "hydroNode", icon: Factory },
+  { key: "turbine", icon: Settings },
+  { key: "generator", icon: Zap },
+  { key: "delivery", icon: Cable },
+] satisfies Array<{ key: ProcessKey; icon: LucideIcon }>;
+
+const serviceCards = [
+  { key: "design", icon: ClipboardCheck },
+  { key: "construction", icon: Construction },
+  { key: "commissioning", icon: Activity },
+  { key: "operation", icon: BriefcaseBusiness },
+] satisfies Array<{ key: ServiceKey; icon: LucideIcon }>;
+
+const businessSteps = [
+  { key: "auctionWinner", icon: Landmark },
+  { key: "construction", icon: Construction },
+  { key: "generation", icon: BatteryCharging },
+  { key: "energosavdo", icon: Network },
+  { key: "consumer", icon: PlugZap },
+] satisfies Array<{ key: BusinessKey; icon: LucideIcon }>;
+
+const projectFactKeys = [
+  "capacity",
+  "location",
+  "object",
+] as const satisfies readonly ProjectFactKey[];
+
+const projectBadgeKeys = [
+  "waterResource",
+  "localGeneration",
+  "renewable",
+] as const satisfies readonly ProjectBadgeKey[];
+
+const staggerStyle = (index: number) =>
+  ({ "--item-index": index } as CSSProperties);
+
 export function MicroGesClient({ mhps }: MicroGesClientProps) {
+  const locale = useLocale();
   const t = useTranslations("MicroGesPage");
+  const homeT = useTranslations("HomePage");
+  const integerFormatter = new Intl.NumberFormat(locale);
+  const capacityFormatter = new Intl.NumberFormat(locale, {
+    maximumFractionDigits: 2,
+  });
 
-  const listItems = [
-    {
-      icon: BatteryCharging,
-    },
-    {
-      icon: Droplets,
-    },
-    {
-      icon: Leaf,
-    },
-    {
-      icon: CircleDollarSign,
-    },
-  ] satisfies Array<{ icon: LucideIcon }>;
-
-  const ServicesItemIcons = [
-    {
-      icon: ClipboardCheck,
-    },
-    {
-      icon: BriefcaseBusiness,
-    },
-    {
-      icon: Construction,
-    },
-    {
-      icon: Activity,
-    },
-  ] satisfies Array<{ icon: LucideIcon }>;
+  const totalCapacity = mhps.reduce((total, plant) => total + plant.capacity, 0);
+  const regionCount = new Set(mhps.map((plant) => plant.region)).size;
+  const hasMhpData = mhps.length > 0;
 
   return (
-    <>
-      <TheHero title1={t("heroTitle")} url1="microGes" />
-      <div className="container">
-        <div className={s.content}>
-          <h1 className={s.title}>{t("title")}</h1>
-          <div>
-            <p className={s.subTitle}>{t("subTitle")}</p>
-          </div>
-          <div>
-            <p className="description">{t("content")}</p>
-          </div>
-          <div>
-            <h2 className={s.title}>{t("listTitle")}</h2>
-            <p className="description">{t("listDescription")}</p>
-            <div className={s.achievements}>
-              {listItems.map(({ icon: ItemIcon }, index) => (
-                <div key={index} className={s.achievement}>
-                  <ItemIcon
-                    className={s.achievementIcon}
-                    aria-hidden="true"
-                    strokeWidth={1.75}
-                  />
-                  <p className={s.achievementDescription}>
-                    {t(`listItem${index + 1}`)}
-                  </p>
+    <div className={s.page}>
+      <section className={s.hero} aria-labelledby="micro-hydro-title">
+        <div className="container">
+          <nav className={s.breadcrumbs} aria-label={t("breadcrumbs.label")}>
+            <ol>
+              <li>
+                <Link href="/">{homeT("title")}</Link>
+              </li>
+              <li aria-current="page">{t("heroTitle")}</li>
+            </ol>
+          </nav>
+
+          <div className={s.heroGrid}>
+            <div className={s.heroCopy}>
+              <span className={s.eyebrow}>{t("hero.eyebrow")}</span>
+              <h1 id="micro-hydro-title">{t("hero.title")}</h1>
+              <p>{t("hero.subtitle")}</p>
+              <div className={s.heroActions}>
+                <Link className={s.primaryAction} href="/contacts">
+                  <span>{t("hero.primaryCta")}</span>
+                  <ChevronRight aria-hidden="true" />
+                </Link>
+                <a className={s.secondaryAction} href="#micro-hydro-process">
+                  <span>{t("hero.secondaryCta")}</span>
+                  <ChevronRight aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+
+            <div className={s.heroVisual}>
+              <div className={s.heroImage}>
+                <Image
+                  src="/aboutPage/about-micro-hydro.webp"
+                  alt={t("hero.imageAlt")}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 48vw, 620px"
+                />
+              </div>
+              <div className={s.heroBadge}>
+                <Droplets aria-hidden="true" />
+                <div>
+                  <strong>{t("hero.visualTitle")}</strong>
+                  <span>{t("hero.visualText")}</span>
                 </div>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h2 className={s.title}>{t("servicesTitle")}</h2>
-            <ul className={s.list}>
-              {ServicesItemIcons.map(({ icon: ItemIcon }, index) => (
-                <li key={index} className={s.listItem}>
-                  <ItemIcon className={s.listIcon} aria-hidden="true" />
-                  <span>{t(`servicesItem${index + 1}`)}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className={s.schemaBlock}>
-            <div className={s.border}>{t("schemaTitle")}</div>
-            <div className={s.border}>{t("schemaDescription1")}</div>
-            <div className={s.schemaArrowSlot}>
-              <svg className={s.topArrows} viewBox="0 0 90 72" aria-hidden>
-                <path className={s.arrowStroke} d="M32 62V14" />
-                <path className={s.arrowHead} d="M22 24 32 14l10 10" />
-                <path className={s.arrowStroke} d="M58 10v48" />
-                <path className={s.arrowHead} d="m48 48 10 10 10-10" />
-              </svg>
-            </div>
-            <div className={s.border}>{t("schemaDescription2")}</div>
-            <div className={`${s.border} ${s.bg}`}>
-              {t("schemaDescription3")}
-            </div>
-            <div className={s.schemaArrowSlot}>
-              <svg className={s.splitArrows} viewBox="0 0 180 82" aria-hidden>
-                <path className={s.arrowStroke} d="M76 8 24 60" />
-                <path className={s.arrowHead} d="M26 46 24 60l14-2" />
-                <path className={s.arrowStroke} d="M104 8 156 60" />
-                <path className={s.arrowHead} d="m142 58 14 2-2-14" />
-              </svg>
-            </div>
-            <div>
-              <div className={`${s.border} ${s.bg}`}>
-                {t("schemaDescription4")}
-              </div>
-              <div>
-                <svg className={s.rightArrow} viewBox="0 0 96 42" aria-hidden>
-                  <path className={s.arrowStroke} d="M12 21h64" />
-                  <path className={s.arrowHead} d="m64 9 12 12-12 12" />
-                </svg>
-              </div>
-              <div className={`${s.border} ${s.bg}`}>
-                {t("schemaDescription5")}
               </div>
             </div>
           </div>
-          <div>
-            <h2 className={s.title}>{t("docsTitle")}</h2>
-            <p className="description">{t("docsDescription")}</p>
-          </div>
-          <div>
-            <h2 className={s.title}>{t("projectsTitle")}</h2>
-            <p className="description">{t("projectsDescription")}</p>
-          </div>
-          <div>
-            <h2 className={s.title}>{t("futuresTitle")}</h2>
-            <p className="description">{t("futuresDescription")}</p>
-          </div>
-          <div>
-            <h2 className={s.title}>{t("mapTitle")}</h2>
-            <TheMicroMap plants={mhps} />
+
+          <div className={s.metricsGrid} aria-label={t("metrics.label")}>
+            {metricKeys.map((metric, index) => (
+              <article
+                className={s.metricCard}
+                key={metric}
+                style={staggerStyle(index)}
+              >
+                <strong>{t(`metrics.${metric}.value`)}</strong>
+                <span>{t(`metrics.${metric}.label`)}</span>
+                <p>{t(`metrics.${metric}.description`)}</p>
+              </article>
+            ))}
           </div>
         </div>
-      </div>
-      <TheFeedback />
-    </>
+      </section>
+
+      <section className={s.benefitsSection} aria-labelledby="micro-benefits-title">
+        <TheMotionWrapper motionKey="micro-benefits">
+          <div className={s.sectionHeader}>
+            <span className={s.eyebrow}>{t("benefits.eyebrow")}</span>
+            <h2 id="micro-benefits-title">{t("benefits.title")}</h2>
+            <p>{t("benefits.description")}</p>
+          </div>
+          <div className={s.benefitsGrid}>
+            {benefitCards.map(({ key, icon: Icon }, index) => (
+              <article
+                className={s.benefitCard}
+                key={key}
+                style={staggerStyle(index)}
+              >
+                <span className={s.iconCircle}>
+                  <Icon aria-hidden="true" />
+                </span>
+                <h3>{t(`benefits.${key}.title`)}</h3>
+                <p>{t(`benefits.${key}.description`)}</p>
+              </article>
+            ))}
+          </div>
+        </TheMotionWrapper>
+      </section>
+
+      <section
+        id="micro-hydro-process"
+        className={s.processSection}
+        aria-labelledby="micro-process-title"
+      >
+        <TheMotionWrapper motionKey="micro-process">
+          <div className={s.sectionHeader}>
+            <span className={s.eyebrow}>{t("process.eyebrow")}</span>
+            <h2 id="micro-process-title">{t("process.title")}</h2>
+            <p>{t("process.description")}</p>
+          </div>
+          <ol className={s.processSteps} aria-label={t("process.ariaLabel")}>
+            {processSteps.map(({ key, icon: Icon }, index) => (
+              <li
+                className={s.processStep}
+                key={key}
+                style={staggerStyle(index)}
+              >
+                <span className={s.processNumber}>
+                  {integerFormatter.format(index + 1)}
+                </span>
+                <span className={s.processIcon}>
+                  <Icon aria-hidden="true" />
+                </span>
+                <h3>{t(`process.${key}.title`)}</h3>
+                <p>{t(`process.${key}.description`)}</p>
+              </li>
+            ))}
+          </ol>
+        </TheMotionWrapper>
+      </section>
+
+      <section className={s.servicesSection} aria-labelledby="micro-services-title">
+        <TheMotionWrapper motionKey="micro-services">
+          <div className={s.sectionHeader}>
+            <span className={s.eyebrow}>{t("services.eyebrow")}</span>
+            <h2 id="micro-services-title">{t("services.title")}</h2>
+            <p>{t("services.description")}</p>
+          </div>
+          <div className={s.servicesGrid}>
+            {serviceCards.map(({ key, icon: Icon }, index) => (
+              <article
+                className={s.serviceCard}
+                key={key}
+                style={staggerStyle(index)}
+              >
+                <div className={s.serviceMeta}>
+                  <span>{integerFormatter.format(index + 1)}</span>
+                  <Icon aria-hidden="true" />
+                </div>
+                <h3>{t(`services.${key}.title`)}</h3>
+                <p>{t(`services.${key}.description`)}</p>
+              </article>
+            ))}
+          </div>
+        </TheMotionWrapper>
+      </section>
+
+      <section className={s.businessSection} aria-labelledby="micro-business-title">
+        <TheMotionWrapper motionKey="micro-business">
+          <div className={s.businessPanel}>
+            <div className={s.sectionHeader}>
+              <span className={s.eyebrow}>{t("business.eyebrow")}</span>
+              <h2 id="micro-business-title">{t("business.title")}</h2>
+              <p>{t("business.description")}</p>
+            </div>
+            <ol className={s.businessFlow} aria-label={t("business.ariaLabel")}>
+              {businessSteps.map(({ key, icon: Icon }, index) => (
+                <li
+                  className={s.businessStep}
+                  key={key}
+                  style={staggerStyle(index)}
+                >
+                  <span className={s.businessIcon}>
+                    <Icon aria-hidden="true" />
+                  </span>
+                  <h3>{t(`business.${key}.title`)}</h3>
+                  <p>{t(`business.${key}.description`)}</p>
+                </li>
+              ))}
+            </ol>
+            <p className={s.businessNote}>{t("business.note")}</p>
+          </div>
+        </TheMotionWrapper>
+      </section>
+
+      <section className={s.projectSection} aria-labelledby="micro-project-title">
+        <TheMotionWrapper motionKey="micro-project">
+          <div className={s.projectGrid}>
+            <div className={s.projectImageWrap}>
+              <Image
+                src="/aboutPage/about-micro-hydro.webp"
+                alt={t("project.imageAlt")}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 48vw, 620px"
+                className={s.projectImage}
+              />
+              <span>{t("project.imageBadge")}</span>
+            </div>
+            <div className={s.projectCopy}>
+              <span className={s.eyebrow}>{t("project.eyebrow")}</span>
+              <h2 id="micro-project-title">{t("project.title")}</h2>
+              <p>{t("project.description")}</p>
+              <dl className={s.projectFacts}>
+                {projectFactKeys.map((fact) => (
+                  <div key={fact}>
+                    <dt>{t(`project.facts.${fact}.label`)}</dt>
+                    <dd>{t(`project.facts.${fact}.value`)}</dd>
+                  </div>
+                ))}
+              </dl>
+              <div className={s.projectBadges}>
+                {projectBadgeKeys.map((badge) => (
+                  <span key={badge}>{t(`project.badges.${badge}`)}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </TheMotionWrapper>
+      </section>
+
+      <section className={s.statusSection} aria-labelledby="micro-status-title">
+        <TheMotionWrapper motionKey="micro-status">
+          <div className={s.statusIntro}>
+            <span className={s.eyebrow}>{t("status.eyebrow")}</span>
+            <h2 id="micro-status-title">{t("status.title")}</h2>
+            <p>{t("status.description")}</p>
+          </div>
+
+          {hasMhpData ? (
+            <div className={s.statusGrid}>
+              <article className={s.statusCard}>
+                <span>{t("status.cardLabel")}</span>
+                <strong>{t("status.cardTitle")}</strong>
+                <div className={s.statusFacts}>
+                  <div>
+                    <b>
+                      {capacityFormatter.format(totalCapacity)}{" "}
+                      {t("mapLabelUnit")}
+                    </b>
+                    <small>{t("status.capacityLabel")}</small>
+                  </div>
+                  <div>
+                    <b>{integerFormatter.format(mhps.length)}</b>
+                    <small>{t("status.objectsLabel")}</small>
+                  </div>
+                  <div>
+                    <b>{integerFormatter.format(regionCount)}</b>
+                    <small>{t("status.regionsLabel")}</small>
+                  </div>
+                </div>
+              </article>
+              <article className={s.mapCard}>
+                <h3>{t("status.mapTitle")}</h3>
+                <div className={s.mapFrame}>
+                  <TheMicroMap plants={mhps} />
+                </div>
+              </article>
+            </div>
+          ) : (
+            <article className={s.emptyState}>
+              <MapPin aria-hidden="true" />
+              <div>
+                <h3>{t("status.emptyTitle")}</h3>
+                <p>{t("status.emptyText")}</p>
+              </div>
+            </article>
+          )}
+        </TheMotionWrapper>
+      </section>
+
+      <section className={s.legalSection} aria-labelledby="micro-legal-title">
+        <TheMotionWrapper motionKey="micro-legal">
+          <article className={s.legalPanel}>
+            <span className={s.legalIcon}>
+              <FileText aria-hidden="true" />
+            </span>
+            <div>
+              <span className={s.eyebrow}>{t("legal.eyebrow")}</span>
+              <h2 id="micro-legal-title">{t("legal.title")}</h2>
+              <p>{t("legal.description")}</p>
+              <dl className={s.legalFacts}>
+                <div>
+                  <dt>{t("legal.dateLabel")}</dt>
+                  <dd>{t("legal.dateValue")}</dd>
+                </div>
+                <div>
+                  <dt>{t("legal.documentLabel")}</dt>
+                  <dd>{t("legal.documentValue")}</dd>
+                </div>
+              </dl>
+            </div>
+          </article>
+        </TheMotionWrapper>
+      </section>
+
+      <section className={s.ctaSection} aria-labelledby="micro-cta-title">
+        <TheMotionWrapper motionKey="micro-cta">
+          <div className={s.ctaPanel}>
+            <div>
+              <span className={s.eyebrow}>{t("cta.eyebrow")}</span>
+              <h2 id="micro-cta-title">{t("cta.title")}</h2>
+              <p>{t("cta.text")}</p>
+            </div>
+            <Link className={s.primaryAction} href="/contacts">
+              <span>{t("cta.button")}</span>
+              <ChevronRight aria-hidden="true" />
+            </Link>
+          </div>
+        </TheMotionWrapper>
+      </section>
+    </div>
   );
 }
