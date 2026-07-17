@@ -102,7 +102,7 @@ export const PlantService = {
   getLastPlants: async (locale: string) => {
     const query = gql`
       query GetLastPlants($locale: Locale!) {
-        plants(first: 2, locales: [$locale]) {
+        plants(first: 4, locales: [$locale]) {
           id
           title
           address
