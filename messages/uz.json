@@ -688,7 +688,14 @@
     "verificationRequired": "Iltimos, tekshiruvdan o'ting.",
     "verificationUnavailable": "Tekshiruv hozircha sozlanmagan.",
     "submitSuccess": "{name}, murojaatingiz uchun rahmat! Tez orada siz bilan bog'lanamiz.",
-    "submitError": "Xabarni yuborishda xatolik yuz berdi."
+    "submitError": "Xabarni yuborishda xatolik yuz berdi.",
+    "subtitle": "Ariza qoldiring — jamoamiz loyihangizni muhokama qilish va savollaringizga javob berish uchun siz bilan bog'lanadi.",
+    "email": "Email",
+    "sending": "Yuborilmoqda…",
+    "fieldRequired": "Bu maydonni to'ldirish shart.",
+    "emailInvalid": "Yaroqli elektron pochta manzilini kiriting.",
+    "successTitle": "Ariza yuborildi",
+    "sendAnother": "Yana ariza yuborish"
   },
   "ContactsPage": {
     "title": "Kontaktlar",

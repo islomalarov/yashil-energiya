@@ -688,7 +688,14 @@
     "verificationRequired": "Please complete the verification.",
     "verificationUnavailable": "Verification is not configured.",
     "submitSuccess": "{name}, thank you for contacting us! We will get in touch with you shortly.",
-    "submitError": "An error occurred while sending the message."
+    "submitError": "An error occurred while sending the message.",
+    "subtitle": "Leave a request and our team will get in touch to discuss your project and answer your questions.",
+    "email": "Email",
+    "sending": "Sending…",
+    "fieldRequired": "This field is required.",
+    "emailInvalid": "Please enter a valid email address.",
+    "successTitle": "Request sent",
+    "sendAnother": "Send another request"
   },
   "ContactsPage": {
     "title": "Contacts",
