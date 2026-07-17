@@ -38,6 +38,12 @@ export const ThePlantLocationMap = memo(function ThePlantLocationMap({
         const marker = L.marker(coords, { icon: greenIcon }).addTo(map);
         marker.bindPopup(
           `<strong>${escapeHtml(title)}</strong><br/>${escapeHtml(address)}`,
+          {
+            maxWidth: 190,
+            keepInView: true,
+            autoPanPadding: L.point(16, 16),
+            className: styles.plantPopup,
+          },
         );
 
         return () => {

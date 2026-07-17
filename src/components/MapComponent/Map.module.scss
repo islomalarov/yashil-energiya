@@ -25,3 +25,12 @@
     height: 280px;
   }
 }
+
+.plantPopup {
+  :global(.leaflet-popup-content) {
+    margin: 10px 12px;
+    font-size: 12.5px;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+}
