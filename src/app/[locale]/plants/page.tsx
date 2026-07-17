@@ -1,19 +1,20 @@
+import s from "./page.module.scss";
 import { TheHero } from "@/components/HeroComponent/TheHero";
-import { ThePlantsList } from "@/components/PlantsListComponent/ThePlantsList";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import { PlantService } from "services/plants.service";
-import { ThePaginationControls } from "@/components/PaginationComponent/ThePaginationControls";
+import { PlantsExplorer } from "./PlantsExplorer";
 import { getLocale, getTranslations } from "next-intl/server";
 import { redirect } from "@/i18n/navigation";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 import { absoluteUrl, itemListJsonLd, localizedPath } from "@/lib/seo";
+import { summarizePlants } from "@/lib/plant-metrics";
 import type { Metadata } from "next";
 
 type PlantsPageProps = {
   searchParams?: Promise<{ page?: string }>;
 };
 
-const DEFAULT_PAGE_SIZE = 6;
+const ALL_PLANTS_LIMIT = 100;
 
 function normalizePage(page?: string) {
   const parsed = Number(page);
@@ -25,6 +26,8 @@ export async function generateMetadata({
 }: PlantsPageProps): Promise<Metadata> {
   const { page } = (await searchParams) ?? {};
 
+  // Pagination was replaced by client-side filters; legacy /plants?page=2
+  // links still resolve but stay out of the index.
   if (normalizePage(page) <= 1) {
     return {};
   }
@@ -41,23 +44,57 @@ export async function generateMetadata({
   };
 }
 
-export default async function Plants({ searchParams }: PlantsPageProps) {
+export default async function Plants() {
   const locale = await getLocale();
   if (locale === "uz") {
     redirect({ href: "/plants", locale: "en" });
   }
 
   const t = await getTranslations("TheLastPlants");
-  const { page } = (await searchParams) ?? {};
-  const currentPage = normalizePage(page);
-  const skip = DEFAULT_PAGE_SIZE * (currentPage - 1);
+  const tSummary = await getTranslations("PlantsPage.summary");
 
-  const {
-    plants,
-    plantsConnection: { aggregate },
-  } = await PlantService.getAllPlants(DEFAULT_PAGE_SIZE, skip, locale);
+  const { plants } = await PlantService.getAllPlants(
+    ALL_PLANTS_LIMIT,
+    0,
+    locale,
+  );
 
-  const totalPages = Math.ceil(aggregate.count / DEFAULT_PAGE_SIZE);
+  const summary = summarizePlants(plants);
+  const integerFormat = new Intl.NumberFormat(locale, {
+    maximumFractionDigits: 0,
+  });
+  const decimalFormat = new Intl.NumberFormat(locale, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+
+  const powerValue =
+    summary.totalPowerKw > 1000
+      ? { value: decimalFormat.format(summary.totalPowerKw / 1000), unit: tSummary("unitMw") }
+      : { value: integerFormat.format(summary.totalPowerKw), unit: tSummary("unitKw") };
+
+  const metrics = [
+    {
+      label: tSummary("plantsLabel"),
+      value: integerFormat.format(summary.count),
+      unit: null,
+    },
+    {
+      label: tSummary("powerLabel"),
+      value: powerValue.value,
+      unit: powerValue.unit,
+    },
+    {
+      label: tSummary("productionLabel"),
+      value: decimalFormat.format(summary.totalProductionKwh / 1_000_000),
+      unit: tSummary("unitGwh"),
+    },
+    {
+      label: tSummary("co2Label"),
+      value: integerFormat.format(Math.round(summary.totalCo2Tons)),
+      unit: tSummary("unitTons"),
+    },
+  ];
 
   return (
     <>
@@ -69,12 +106,18 @@ export default async function Plants({ searchParams }: PlantsPageProps) {
       />
       <TheHero title1={t("heroTitle")} url1="plants" />
       <div className="container">
-        <ThePlantsList plants={plants} linkLabel={t("link")} />
-        <ThePaginationControls
-          totalPages={totalPages}
-          currentPage={currentPage}
-          hrefBase="/plants"
-        />
+        <section className={s.summary} aria-label={tSummary("label")}>
+          {metrics.map((metric) => (
+            <article key={metric.label} className={s.summaryCard}>
+              <p className={s.summaryLabel}>{metric.label}</p>
+              <p className={s.summaryValue}>
+                {metric.value}
+                {metric.unit && <span>{metric.unit}</span>}
+              </p>
+            </article>
+          ))}
+        </section>
+        <PlantsExplorer plants={plants} />
       </div>
       <TheFeedback />
     </>

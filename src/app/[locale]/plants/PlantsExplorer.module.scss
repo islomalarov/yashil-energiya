@@ -1,0 +1,247 @@
+@use "@/scss/vars" as *;
+
+.filtersToggle {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding: 10px 16px;
+  border: 1px solid rgba(18, 144, 62, 0.24);
+  border-radius: 10px;
+  background: $whiteColor;
+  color: $blackColor;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    color: $primaryColor;
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba($primaryColor, 0.35);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: $md) {
+    display: inline-flex;
+  }
+}
+
+.toggleDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $primaryColor;
+}
+
+.panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 14px;
+  margin-bottom: 16px;
+
+  @media (max-width: $md) {
+    display: none;
+    grid-template-columns: 1fr;
+
+    &.panelOpen {
+      display: grid;
+    }
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.fieldLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: #5f6f66;
+}
+
+.input {
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid rgba(43, 43, 43, 0.16);
+  border-radius: 10px;
+  background: $whiteColor;
+  color: $blackColor;
+  font-size: 14px;
+  font-family: inherit;
+
+  &:focus-visible {
+    outline: 3px solid rgba($primaryColor, 0.3);
+    outline-offset: 1px;
+    border-color: rgba($primaryColor, 0.5);
+  }
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid rgba(18, 144, 62, 0.3);
+  border-radius: 999px;
+  background: rgba(18, 144, 62, 0.08);
+  color: #17693a;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+
+  svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  &:hover {
+    background: rgba(18, 144, 62, 0.14);
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba($primaryColor, 0.35);
+    outline-offset: 2px;
+  }
+}
+
+.reset {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: #5f6f66;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover {
+    color: $blackColor;
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba($primaryColor, 0.35);
+    outline-offset: 2px;
+  }
+}
+
+.resultCount {
+  margin-bottom: 18px;
+  font-size: 14px;
+  color: #5f6f66;
+}
+
+.skeletonGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: clamp(18px, 3vw, 28px);
+  padding: 0 0 clamp(48px, 8vw, 90px);
+  list-style: none;
+  margin: 0;
+}
+
+.skeletonCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid rgba(43, 43, 43, 0.08);
+  border-radius: 14px;
+  padding-bottom: 18px;
+  overflow: hidden;
+  background: $whiteColor;
+}
+
+@keyframes skeletonPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.skeletonMedia,
+.skeletonLine,
+.skeletonLineShort {
+  background: #e8eeea;
+  animation: skeletonPulse 1.4s ease-in-out infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+.skeletonMedia {
+  aspect-ratio: 16 / 10;
+}
+
+.skeletonLine {
+  height: 16px;
+  margin: 0 16px;
+  border-radius: 6px;
+}
+
+.skeletonLineShort {
+  height: 13px;
+  margin: 0 16px;
+  width: 55%;
+  border-radius: 6px;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: clamp(48px, 8vw, 90px) 20px;
+  text-align: center;
+  color: #5f6f66;
+
+  svg {
+    width: 44px;
+    height: 44px;
+    color: rgba(18, 144, 62, 0.4);
+  }
+
+  p {
+    font-size: 16px;
+    font-weight: 600;
+    color: $blackColor;
+  }
+}
+
+.emptyReset {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 10px;
+  background: $primaryColor;
+  color: $whiteColor;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    background: #0e7532;
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba($primaryColor, 0.35);
+    outline-offset: 2px;
+  }
+}

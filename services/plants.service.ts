@@ -18,6 +18,7 @@ export interface Plant {
   production: string;
   title: string;
   trees: string;
+  coords: number[] | null;
 }
 
 export interface PlantsResponse {
@@ -46,6 +47,7 @@ export const PlantService = {
           production
           title
           trees
+          coords
           pictures {
             fileName
             url
@@ -80,6 +82,7 @@ export const PlantService = {
           production
           title
           trees
+          coords
           pictures {
             fileName
             url
@@ -109,6 +112,7 @@ export const PlantService = {
           power
           production
           trees
+          coords
           pictures {
             fileName
             url
