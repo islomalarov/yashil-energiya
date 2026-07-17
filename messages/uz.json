@@ -143,8 +143,7 @@
   "TheLastPlants": {
     "heroTitle": "QFESlar ro'yhati",
     "title": "Bizning QFESlar",
-    "linkTitle": "Barcha QFESlar",
-    "link": "Batafsil"
+    "linkTitle": "Barcha QFESlar"
   },
   "TheLastNews": {
     "heroTitle": "Yangiliklar",
@@ -888,7 +887,28 @@
     "averageAnnualProduction": "O'rtacha yillik ishlab chiqarish",
     "coalSaved": "Tejalgan ko'mir",
     "co2Saved": "Tejalgan CO₂ gazlari",
-    "treesSaved": "Saqlab qolingan daraxtlar"
+    "treesSaved": "Saqlab qolingan daraxtlar",
+    "backToList": "Ro'yxatga qaytish",
+    "breadcrumbsLabel": "Yo'l ko'rsatkichi",
+    "breadcrumbHome": "Bosh sahifa",
+    "statusOperating": "Ishlamoqda",
+    "techTitle": "Texnik xususiyatlar",
+    "locationTitle": "Joylashuv",
+    "openInMaps": "Google Maps'da ochish",
+    "ecoTitle": "Ekologik samara",
+    "ecoNote": "Ko'rsatkichlar stansiyaning o'rtacha yillik ishlab chiqarishi asosida hisoblangan.",
+    "otherPlants": "Boshqa stansiyalar",
+    "allPlants": "Barcha QFESlar",
+    "unitKw": "kVt",
+    "unitKwh": "kVt·soat",
+    "unitTons": "t",
+    "unitKTons": "ming t",
+    "gallery": {
+      "label": "Fotogalereya",
+      "photoAlt": "{title} — {number}-surat",
+      "openPhoto": "{total} tadan {number}-suratni ochish",
+      "goToPhoto": "{number}-suratga o'tish"
+    }
   },
   "VacanciesPage": {
     "title": "Bo'sh ish o'rinlari",
@@ -988,5 +1008,44 @@
   },
   "TheChartList": {
     "year": "Yil"
+  },
+  "PlantCard": {
+    "unitKw": "kVt",
+    "unitKwh": "kVt·soat",
+    "unitGwh": "GVt·soat",
+    "unitTons": "t",
+    "productionLabel": "Yillik ishlab chiqarish",
+    "co2Label": "CO₂ kamaytirildi"
+  },
+  "PlantsPage": {
+    "summary": {
+      "label": "Portfel bo'yicha xulosa",
+      "plantsLabel": "Jami stansiyalar",
+      "powerLabel": "O'rnatilgan quvvat",
+      "productionLabel": "Yillik ishlab chiqarish",
+      "co2Label": "CO₂ kamaytirish",
+      "unitMw": "MVt",
+      "unitKw": "kVt",
+      "unitGwh": "GVt·soat",
+      "unitTons": "t"
+    },
+    "filters": {
+      "panelLabel": "Stansiya filtrlari",
+      "toggle": "Filtrlar",
+      "searchLabel": "Qidiruv",
+      "searchPlaceholder": "Nomi bo'yicha qidirish…",
+      "regionLabel": "Hudud",
+      "regionAll": "Barcha hududlar",
+      "sortLabel": "Saralash",
+      "sort_default": "Odatiy",
+      "sort_powerDesc": "Quvvat: kamayish tartibida",
+      "sort_powerAsc": "Quvvat: o'sish tartibida",
+      "sort_date": "Avval yangilari",
+      "sort_name": "Nomi bo'yicha",
+      "chipSearch": "Qidiruv: {query}",
+      "reset": "Filtrlarni tozalash",
+      "resultCount": "Topilgan stansiyalar: {count}",
+      "emptyTitle": "Hech narsa topilmadi"
+    }
   }
 }

@@ -1,0 +1,45 @@
+@use "@/scss/vars" as *;
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin: clamp(28px, 5vw, 44px) 0 clamp(24px, 4vw, 36px);
+
+  @media (max-width: $lg) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: $sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.summaryCard {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 20px;
+  border: 1px solid rgba(18, 144, 62, 0.14);
+  border-radius: 14px;
+  background: #f6faf7;
+}
+
+.summaryLabel {
+  font-size: 13px;
+  color: #5f6f66;
+}
+
+.summaryValue {
+  font-size: 24px;
+  font-weight: 500;
+  color: $blackColor;
+  overflow-wrap: anywhere;
+
+  span {
+    margin-left: 6px;
+    font-size: 15px;
+    color: #17693a;
+    font-weight: 600;
+  }
+}

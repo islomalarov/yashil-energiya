@@ -1,0 +1,42 @@
+@use "@/scss/vars" as *;
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: clamp(20px, 4vw, 30px) 0 0;
+  color: #17693a;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+
+  svg {
+    width: 17px;
+    height: 17px;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    color: $primaryColor;
+
+    svg {
+      transform: translateX(-3px);
+    }
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba($primaryColor, 0.35);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    svg {
+      transition: none;
+    }
+
+    &:hover svg {
+      transform: none;
+    }
+  }
+}

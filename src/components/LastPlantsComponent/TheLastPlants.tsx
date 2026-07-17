@@ -37,11 +37,7 @@ export const TheLastPlants = async () => {
           </svg>
         </Link>
       </div>
-      <ThePlantsList
-        plants={lastPlants}
-        linkLabel={t("link")}
-        contentLocale={contentLocale}
-      />
+      <ThePlantsList plants={lastPlants} contentLocale={contentLocale} />
     </TheMotionWrapper>
   );
 };

@@ -1,122 +1,176 @@
- 
 @use "@/scss/vars" as *;
-
 
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
-  gap: clamp(18px, 3vw, 30px);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: clamp(18px, 3vw, 28px);
   padding-bottom: clamp(48px, 8vw, 90px);
   align-items: stretch;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
 }
 
 .project {
-  position: relative;
-  height: clamp(300px, 40vw, 440px);
-  border-radius: 1.8rem;
+  display: flex;
+  min-width: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  background: $whiteColor;
+  border: 1px solid rgba(18, 144, 62, 0.14);
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  color: $blackColor;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   transition:
-    transform 0.24s ease,
-    box-shadow 0.24s ease;
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 
   &:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 38px rgba(18, 144, 62, 0.18);
+    transform: translateY(-2px);
+    border-color: rgba(18, 144, 62, 0.42);
+    box-shadow: 0 18px 38px rgba(18, 144, 62, 0.16);
   }
 
-  .info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 12px 16px 18px;
-    display: grid;
-    gap: 5px;
-    background-color: rgba(67, 68, 66, 0.466);
-    // backdrop-filter: blur(50px);
-
-    // Скрытие и начальная позиция
-    opacity: 1;
-    transform: translateY(70%);
-    transition: all 0.5s ease;
-    min-height: 145px;
-
-    @media (max-width: $md) {
-      transform: translateY(0);
-      padding: 14px;
-      min-height: auto;
-      background-color: rgba(43, 43, 43, 0.62);
-    }
-
-    .projectTitle {
-      color: #fff;
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      font-weight: 700;
-      overflow-wrap: anywhere;
-    }
-
-    p {
-      color: #fff;
-      font-size: clamp(14px, 2.2vw, 18px);
-      font-weight: 400;
-      line-height: 24px;
-      display: -webkit-box;
-      overflow: hidden;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-    }
-
-    .link {
-      border: 1px solid $secondaryColor;
-      height: 40px;
-      color: #fff;
-
-      &:hover {
-        background-color: $secondaryColor;
-      }
-    }
-  }
-
-  // Показываем .info при наведении на .project
-  &:hover .info {
-    opacity: 1;
-    transform: translateY(0);
+  &:focus-visible {
+    outline: 3px solid rgba($primaryColor, 0.35);
+    outline-offset: 2px;
   }
 }
 
-.coverWrapper {
-  overflow: hidden;
+.media {
   position: relative;
-  border-radius: 1.8rem;
-  display: flex;
-  height: 100%;
-
-  .cover {
-    background-color: $secondaryColor;
-    position: absolute;
-    top: 3%;
-    right: 2%;
-    object-fit: cover;
-    z-index: 2;
-    padding: 5px;
-    max-width: calc(100% - 24px);
-    overflow-wrap: anywhere;
-    color: white;
-    border-radius: 1.8rem;
-  }
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #eef5f0;
 }
 
 .coverImage {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
-
   transform: scale(1);
-  transition: transform 2s ease-in-out;
+  transition: transform 0.3s ease;
 
-  // При наведении на родителя .project, увеличиваем масштаб
-  .project:hover & {
-    transform: scale(1.2);
+  .card:hover & {
+    transform: scale(1.04);
+  }
+}
+
+.powerBadge,
+.yearBadge {
+  position: absolute;
+  top: 12px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.powerBadge {
+  left: 12px;
+  background: $primaryColor;
+  color: $whiteColor;
+}
+
+.yearBadge {
+  right: 12px;
+  background: rgba(255, 255, 255, 0.88);
+  color: #244d33;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 16px 14px;
+}
+
+.projectTitle {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: $blackColor;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  min-height: calc(2 * 1.35em);
+  overflow-wrap: anywhere;
+}
+
+.location {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #5f6f66;
+
+  svg {
+    flex-shrink: 0;
+    width: 15px;
+    height: 15px;
+    margin-top: 1px;
+    color: $primaryColor;
+  }
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: auto;
+  padding: 12px 16px 16px;
+  border-top: 0.5px solid rgba(43, 43, 43, 0.14);
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.metricLabel {
+  font-size: 11px;
+  line-height: 1.3;
+  color: #7c8a81;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.metricValue {
+  font-size: 14px;
+  font-weight: 500;
+  color: $blackColor;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .coverImage {
+    transition: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+
+  .card:hover .coverImage {
+    transform: none;
   }
 }

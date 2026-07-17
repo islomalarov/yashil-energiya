@@ -143,8 +143,7 @@
   "TheLastPlants": {
     "heroTitle": "List of PVPP",
     "title": "Our PVPP",
-    "linkTitle": "All PVPP",
-    "link": "Detailed"
+    "linkTitle": "All PVPP"
   },
   "TheLastNews": {
     "heroTitle": "News",
@@ -889,7 +888,28 @@
     "averageAnnualProduction": "Average annual production",
     "coalSaved": "Coal saved",
     "co2Saved": "Saved co₂ gases",
-    "treesSaved": "Preserved trees"
+    "treesSaved": "Preserved trees",
+    "backToList": "Back to the list",
+    "breadcrumbsLabel": "Breadcrumbs",
+    "breadcrumbHome": "Home page",
+    "statusOperating": "In operation",
+    "techTitle": "Technical specifications",
+    "locationTitle": "Location",
+    "openInMaps": "Open in Google Maps",
+    "ecoTitle": "Environmental impact",
+    "ecoNote": "Figures are estimated from the plant's average annual output.",
+    "otherPlants": "Other plants",
+    "allPlants": "All PVPP",
+    "unitKw": "kW",
+    "unitKwh": "kWh",
+    "unitTons": "t",
+    "unitKTons": "K t",
+    "gallery": {
+      "label": "Photo gallery",
+      "photoAlt": "{title} — photo {number}",
+      "openPhoto": "Open photo {number} of {total}",
+      "goToPhoto": "Go to photo {number}"
+    }
   },
   "VacanciesPage": {
     "title": "Vacancies",
@@ -989,5 +1009,44 @@
   },
   "TheChartList": {
     "year": "Year"
+  },
+  "PlantCard": {
+    "unitKw": "kW",
+    "unitKwh": "kWh",
+    "unitGwh": "GWh",
+    "unitTons": "t",
+    "productionLabel": "Output / year",
+    "co2Label": "CO₂ reduced"
+  },
+  "PlantsPage": {
+    "summary": {
+      "label": "Portfolio summary",
+      "plantsLabel": "Total plants",
+      "powerLabel": "Installed capacity",
+      "productionLabel": "Annual output",
+      "co2Label": "CO₂ reduction",
+      "unitMw": "MW",
+      "unitKw": "kW",
+      "unitGwh": "GWh",
+      "unitTons": "t"
+    },
+    "filters": {
+      "panelLabel": "Plant filters",
+      "toggle": "Filters",
+      "searchLabel": "Search",
+      "searchPlaceholder": "Search by name…",
+      "regionLabel": "Region",
+      "regionAll": "All regions",
+      "sortLabel": "Sort by",
+      "sort_default": "Default",
+      "sort_powerDesc": "Power: high to low",
+      "sort_powerAsc": "Power: low to high",
+      "sort_date": "Newest first",
+      "sort_name": "By name",
+      "chipSearch": "Search: {query}",
+      "reset": "Reset filters",
+      "resultCount": "Plants found: {count}",
+      "emptyTitle": "Nothing found"
+    }
   }
 }

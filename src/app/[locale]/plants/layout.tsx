@@ -1,3 +1,4 @@
+import "leaflet/dist/leaflet.css";
 import type { Metadata } from "next";
 import { createStaticMetadata, staticPageJsonLd } from "@/lib/seo";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";

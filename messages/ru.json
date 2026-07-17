@@ -143,8 +143,7 @@
   "TheLastPlants": {
     "heroTitle": "Список ФЭС",
     "title": "Наши ФЭСы",
-    "linkTitle": "Все ФЭСы",
-    "link": "Подробнее"
+    "linkTitle": "Все ФЭСы"
   },
   "TheLastNews": {
     "heroTitle": "Новости",
@@ -888,7 +887,28 @@
     "averageAnnualProduction": "Среднегодовая выработка",
     "coalSaved": "Сэкономлено угля",
     "co2Saved": "Сэкономлено CO₂",
-    "treesSaved": "Сохранено деревьев"
+    "treesSaved": "Сохранено деревьев",
+    "backToList": "Назад к списку",
+    "breadcrumbsLabel": "Хлебные крошки",
+    "breadcrumbHome": "Главная страница",
+    "statusOperating": "В эксплуатации",
+    "techTitle": "Технические характеристики",
+    "locationTitle": "Расположение",
+    "openInMaps": "Открыть в Google Maps",
+    "ecoTitle": "Экологический эффект",
+    "ecoNote": "Показатели рассчитаны на основе среднегодовой выработки станции.",
+    "otherPlants": "Другие станции",
+    "allPlants": "Все ФЭС",
+    "unitKw": "кВт",
+    "unitKwh": "кВт·ч",
+    "unitTons": "т",
+    "unitKTons": "тыс. т",
+    "gallery": {
+      "label": "Фотогалерея",
+      "photoAlt": "{title} — фото {number}",
+      "openPhoto": "Открыть фото {number} из {total}",
+      "goToPhoto": "Перейти к фото {number}"
+    }
   },
   "VacanciesPage": {
     "title": "Вакансии",
@@ -987,5 +1007,44 @@
   },
   "TheChartList": {
     "year": "Год"
+  },
+  "PlantCard": {
+    "unitKw": "кВт",
+    "unitKwh": "кВт·ч",
+    "unitGwh": "ГВт·ч",
+    "unitTons": "т",
+    "productionLabel": "Выработка/год",
+    "co2Label": "CO₂ сокращено"
+  },
+  "PlantsPage": {
+    "summary": {
+      "label": "Сводка по портфелю",
+      "plantsLabel": "Всего станций",
+      "powerLabel": "Установленная мощность",
+      "productionLabel": "Годовая выработка",
+      "co2Label": "Сокращение CO₂",
+      "unitMw": "МВт",
+      "unitKw": "кВт",
+      "unitGwh": "ГВт·ч",
+      "unitTons": "т"
+    },
+    "filters": {
+      "panelLabel": "Фильтры станций",
+      "toggle": "Фильтры",
+      "searchLabel": "Поиск",
+      "searchPlaceholder": "Поиск по названию…",
+      "regionLabel": "Регион",
+      "regionAll": "Все регионы",
+      "sortLabel": "Сортировка",
+      "sort_default": "По умолчанию",
+      "sort_powerDesc": "Мощность: по убыванию",
+      "sort_powerAsc": "Мощность: по возрастанию",
+      "sort_date": "Сначала новые",
+      "sort_name": "По названию",
+      "chipSearch": "Поиск: {query}",
+      "reset": "Сбросить фильтры",
+      "resultCount": "Найдено станций: {count}",
+      "emptyTitle": "Ничего не найдено"
+    }
   }
 }
