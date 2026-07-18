@@ -123,14 +123,6 @@ const nextConfig = {
         headers: staticHtmlCacheHeaders,
       },
       {
-        source: "/:lang(en|ru|uz)/microges",
-        headers: staticHtmlCacheHeaders,
-      },
-      {
-        source: "/:lang(en|ru|uz)/chargingstation",
-        headers: staticHtmlCacheHeaders,
-      },
-      {
         source: "/:lang(en|ru|uz)/contacts",
         headers: staticHtmlCacheHeaders,
       },

@@ -1,19 +1,47 @@
 import { publicEnv } from "@/lib/public-env";
 
+const DEFAULT_REVALIDATE = 300;
+
+export type FetchDataOptions = {
+  /**
+   * Next.js Data Cache revalidation window in seconds. Defaults to 300s.
+   * Pass `false` to bypass the cache entirely and always fetch fresh data.
+   */
+  revalidate?: number | false;
+  /**
+   * Cache tags for on-demand invalidation via `revalidateTag`. Tagged data is
+   * cached (using `revalidate` as a time-based fallback) and purged instantly
+   * when the Hygraph webhook fires. Ignored when `revalidate` is `false`.
+   */
+  tags?: string[];
+};
+
 export const fetchData = async <T>(
   query: string,
   variables?: Record<string, unknown>,
+  options?: FetchDataOptions,
 ) => {
+  const revalidate = options?.revalidate ?? DEFAULT_REVALIDATE;
+  const cacheInit: RequestInit =
+    revalidate === false
+      ? ({ cache: "no-store" } as RequestInit)
+      : ({
+          next: {
+            revalidate,
+            ...(options?.tags ? { tags: options.tags } : {}),
+          },
+        } as RequestInit & {
+          next: { revalidate: number; tags?: string[] };
+        });
+
   const response = await fetch(publicEnv.hygraphEndpoint, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ query, variables }),
-    next: {
-      revalidate: 300,
-    },
-  } as RequestInit & { next: { revalidate: number } });
+    ...cacheInit,
+  });
 
   if (!response.ok) {
     throw new Error(`GraphQL request failed with status ${response.status}`);

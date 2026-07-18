@@ -5,8 +5,6 @@ import type { Metadata } from "next";
 import { createStaticMetadata, staticPageJsonLd } from "@/lib/seo";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 
-export const revalidate = 3600;
-
 type MetadataProps = {
   params: Promise<{ locale: string }>;
 };

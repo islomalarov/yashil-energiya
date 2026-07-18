@@ -28,8 +28,6 @@ async function faqPageJsonLd(locale: string) {
   };
 }
 
-export const revalidate = 3600;
-
 type MetadataProps = {
   params: Promise<{ locale: string }>;
 };

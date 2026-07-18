@@ -1,5 +1,11 @@
 import { gql } from "graphql-request";
 import { fetchData } from "lib/graphql-client";
+import { CACHE_TAGS, LIVE_FALLBACK_REVALIDATE } from "lib/cache-tags";
+
+const OPERATIONAL_ASSET_TAG = {
+  evCharges: CACHE_TAGS.EvCharge,
+  mhps: CACHE_TAGS.Mhp,
+} as const;
 
 export type OperationalAsset = {
   id: string;
@@ -100,8 +106,14 @@ const fetchOperationalAssets = async <TQueryKey extends "evCharges" | "mhps">(
   serviceName: string,
 ) => {
   try {
-    const response =
-      await fetchData<OperationalAssetsResponse<TQueryKey>>(query);
+    const response = await fetchData<OperationalAssetsResponse<TQueryKey>>(
+      query,
+      undefined,
+      {
+        revalidate: LIVE_FALLBACK_REVALIDATE,
+        tags: [OPERATIONAL_ASSET_TAG[queryKey]],
+      },
+    );
     const records = response[queryKey] ?? [];
     const assets = records
       .map(normalizeOperationalAsset)
