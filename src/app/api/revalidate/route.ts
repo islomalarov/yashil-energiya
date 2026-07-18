@@ -108,9 +108,11 @@ export async function POST(req: NextRequest) {
       : ALL_LIVE_CACHE_TAGS;
 
   for (const tag of tags) {
-    // Next 16 requires a cache-life profile; "max" performs an immediate
-    // on-demand purge of the tag.
-    revalidateTag(tag, "max");
+    // Next 16 requires a cache-life profile. `{ expire: 0 }` forces an
+    // immediate hard purge (no stale-while-revalidate window) so the next
+    // request refetches from Hygraph. A named profile like "max" only marks
+    // the tag stale with a long grace window and keeps serving old data.
+    revalidateTag(tag, { expire: 0 });
   }
 
   return NextResponse.json({ revalidated: true, tags });
