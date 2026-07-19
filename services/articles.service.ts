@@ -1,6 +1,7 @@
 import { fetchData } from "lib/graphql-client";
 import { gql } from "graphql-request";
 import type { RichTextNode } from "@/types/richtext";
+import type { SeoFields } from "./news.service.types";
 import { resolveCmsLocale } from "@/lib/cms-locale";
 
 export interface Article {
@@ -14,6 +15,8 @@ export interface Article {
   };
   slug: string;
   excerpt: string;
+  updatedAt?: string;
+  seo?: SeoFields | null;
   content: {
     raw: {
       children: RichTextNode[];
@@ -43,6 +46,10 @@ export const ArticlesService = {
           }
           slug
           excerpt
+          updatedAt
+          seo {
+            noIndex
+          }
           content {
             raw
           }
@@ -69,6 +76,16 @@ export const ArticlesService = {
           }
           slug
           excerpt
+          updatedAt
+          seo {
+            metaTitle
+            metaDescription
+            ogImage {
+              url
+            }
+            noIndex
+            canonicalUrl
+          }
           content {
             raw
           }
