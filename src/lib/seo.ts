@@ -582,6 +582,8 @@ export function createMetadata({
   const currentLocale = normalizeLocale(locale);
   const shouldIndex =
     isLocaleIncluded(currentLocale, alternateLocales) && !noIndex;
+  // Deliberately hidden pages (noIndex) also drop follow -> "noindex, nofollow".
+  const shouldFollow = !noIndex;
   const canonical =
     canonicalOverride?.trim() || absoluteUrl(localizedPath(currentLocale, path));
   const sourceImage = image === defaultOgImage ? "/hero.png" : image;
@@ -628,10 +630,10 @@ export function createMetadata({
     },
     robots: {
       index: shouldIndex,
-      follow: true,
+      follow: shouldFollow,
       googleBot: {
         index: shouldIndex,
-        follow: true,
+        follow: shouldFollow,
         "max-image-preview": "large",
         "max-snippet": -1,
         "max-video-preview": -1,
