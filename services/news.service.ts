@@ -18,6 +18,10 @@ export const NewsService = {
           slug
           title
           excerpt
+          updatedAt
+          seo {
+            noIndex
+          }
           description {
             raw
           }
@@ -51,6 +55,16 @@ export const NewsService = {
           slug
           title
           excerpt
+          updatedAt
+          seo {
+            metaTitle
+            metaDescription
+            ogImage {
+              url
+            }
+            noIndex
+            canonicalUrl
+          }
           description {
             raw
           }

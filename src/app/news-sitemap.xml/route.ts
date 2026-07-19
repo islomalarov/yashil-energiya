@@ -33,7 +33,7 @@ export async function GET() {
       const { news } = await getSafeSitemapContent(locale);
 
       return news
-        .filter((item) => isRecentNewsDate(item.date))
+        .filter((item) => isRecentNewsDate(item.date) && !item.seo?.noIndex)
         .map((item) => ({
           url: absoluteUrl(localizedPath(locale, `/news/${item.slug}`)),
           title: item.title,

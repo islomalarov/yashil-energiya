@@ -11,9 +11,10 @@ import { redirect } from "@/i18n/navigation";
 import {
   articleJsonLd,
   breadcrumbJsonLd,
+  buildDescription,
+  buildTitle,
   createMetadata,
   optimizedOgImagePath,
-  truncateSeoText,
 } from "@/lib/seo";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 
@@ -35,16 +36,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
 
+  const seo = article.seo;
+
   return createMetadata({
     locale,
     path: `/articles/${slug}`,
-    title: truncateSeoText(article.title, 60),
-    description: truncateSeoText(article.excerpt, 155),
-    image: optimizedOgImagePath(article.cover?.url, {
+    title: buildTitle(seo?.metaTitle, article.title),
+    absoluteTitle: true,
+    description: buildDescription(
+      seo?.metaDescription,
+      article.excerpt,
+      article.content?.raw?.children,
+    ),
+    image: optimizedOgImagePath(seo?.ogImage?.url ?? article.cover?.url, {
       title: article.title,
       cta: ogCtaLabels[locale] || ogCtaLabels.en,
     }),
     type: "article",
+    modifiedTime: article.updatedAt,
+    noIndex: seo?.noIndex ?? false,
+    canonicalOverride: seo?.canonicalUrl ?? undefined,
     alternateLocales: ["en", "ru"],
   });
 }
@@ -70,10 +81,14 @@ export default async function ArticlePage({ params }: Props) {
             path: `/articles/${slug}`,
             title: article.title,
             description: article.excerpt,
-            image: optimizedOgImagePath(article.cover?.url, {
-              title: article.title,
-              cta: ogCtaLabels[locale] || ogCtaLabels.en,
-            }),
+            image: optimizedOgImagePath(
+              article.seo?.ogImage?.url ?? article.cover?.url,
+              {
+                title: article.title,
+                cta: ogCtaLabels[locale] || ogCtaLabels.en,
+              },
+            ),
+            modifiedTime: article.updatedAt,
             schemaType: "Article",
             section: "Articles",
           }),

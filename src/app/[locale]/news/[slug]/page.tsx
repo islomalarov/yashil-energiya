@@ -12,9 +12,10 @@ import { redirect } from "@/i18n/navigation";
 import {
   articleJsonLd,
   breadcrumbJsonLd,
+  buildDescription,
+  buildTitle,
   createMetadata,
   optimizedOgImagePath,
-  truncateSeoText,
 } from "@/lib/seo";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 import { TheNewsViewTracker } from "@/components/NewsViewTracker/TheNewsViewTracker";
@@ -39,17 +40,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
 
+  const seo = news.seo;
+
   return createMetadata({
     locale,
     path: `/news/${slug}`,
-    title: truncateSeoText(news.title, 60),
-    description: truncateSeoText(news.excerpt, 155),
-    image: optimizedOgImagePath(news.cover?.url, {
+    title: buildTitle(seo?.metaTitle, news.title),
+    absoluteTitle: true,
+    description: buildDescription(
+      seo?.metaDescription,
+      news.excerpt,
+      news.description?.raw?.children,
+    ),
+    image: optimizedOgImagePath(seo?.ogImage?.url ?? news.cover?.url, {
       title: news.title,
       cta: ogCtaLabels[locale] || ogCtaLabels.en,
     }),
     type: "article",
     publishedTime: news.date,
+    modifiedTime: news.updatedAt,
+    noIndex: seo?.noIndex ?? false,
+    canonicalOverride: seo?.canonicalUrl ?? undefined,
     alternateLocales: ["en", "ru"],
   });
 }
@@ -83,11 +94,12 @@ export default async function NewsPage({ params }: Props) {
             path: `/news/${slug}`,
             title: news.title,
             description: news.excerpt,
-            image: optimizedOgImagePath(news.cover?.url, {
+            image: optimizedOgImagePath(news.seo?.ogImage?.url ?? news.cover?.url, {
               title: news.title,
               cta: ogCtaLabels[locale] || ogCtaLabels.en,
             }),
             publishedTime: news.date,
+            modifiedTime: news.updatedAt,
             schemaType: "NewsArticle",
             section: "News",
           }),

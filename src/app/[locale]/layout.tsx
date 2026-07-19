@@ -49,17 +49,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     applicationName: "Yashil Energiya",
     generator: "Next.js",
-    keywords: [
-      "Yashil Energiya",
-      "renewable energy Uzbekistan",
-      "solar power plants",
-      "micro hydro power",
-      "EV charging stations",
-      "qayta tiklanuvchi energiya",
-      "quyosh energiyasi",
-      "зелёная энергетика",
-      "солнечные электростанции",
-    ],
     icons: {
       icon: "/logo_cut.svg",
       shortcut: "/favicon.ico",

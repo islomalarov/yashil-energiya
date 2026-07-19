@@ -21,10 +21,11 @@ function sitemapEntry(
   locale: SeoLocale,
   path: string,
   alternates: readonly SeoLocale[] = getStaticPathLocales(path),
+  lastModified: Date | string = now,
 ): MetadataRoute.Sitemap[number] {
   return {
     url: absoluteUrl(localizedPath(locale, path)),
-    lastModified: now,
+    lastModified,
     changeFrequency: path === "/" ? "daily" : "weekly",
     priority: path === "/" ? 1 : 0.7,
     alternates: {
@@ -46,12 +47,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     dynamicEntries.push(
       ...[
-        ...news.map((item) =>
-          sitemapEntry(locale, `/news/${item.slug}`, cmsLocales),
-        ),
-        ...articles.map((item) =>
-          sitemapEntry(locale, `/articles/${item.slug}`, cmsLocales),
-        ),
+        ...news
+          .filter((item) => !item.seo?.noIndex)
+          .map((item) =>
+            sitemapEntry(
+              locale,
+              `/news/${item.slug}`,
+              cmsLocales,
+              item.updatedAt ?? now,
+            ),
+          ),
+        ...articles
+          .filter((item) => !item.seo?.noIndex)
+          .map((item) =>
+            sitemapEntry(
+              locale,
+              `/articles/${item.slug}`,
+              cmsLocales,
+              item.updatedAt ?? now,
+            ),
+          ),
         ...plants.map((item) =>
           sitemapEntry(locale, `/plants/${item.id}`, cmsLocales),
         ),

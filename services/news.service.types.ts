@@ -1,11 +1,21 @@
 import type { RichTextNode } from "@/types/richtext";
 
+export interface SeoFields {
+  metaTitle?: string | null;
+  metaDescription?: string | null;
+  ogImage?: { url: string } | null;
+  noIndex?: boolean | null;
+  canonicalUrl?: string | null;
+}
+
 export interface NewResponse {
   date: string;
   id: string;
   slug: string;
   title: string;
   excerpt: string;
+  updatedAt?: string;
+  seo?: SeoFields | null;
   description: {
     raw: {
       children: RichTextNode[];
