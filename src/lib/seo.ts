@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getChildren, getText, getType, type RichTextNode } from "@/types/richtext";
 
 export const siteUrl = "https://yashil-energiya.uz";
 export const siteName = "Yashil Energiya";
@@ -448,6 +449,91 @@ export function truncateSeoText(text: string, maxLength: number) {
   return `${safeText.trim()}${suffix}`;
 }
 
+// Word-boundary truncation with "..." only when actually truncated.
+export const smartTruncate = truncateSeoText;
+
+// Prefer cutting at a sentence boundary; fall back to word boundary.
+export function truncateBySentence(text: string, maxLength: number) {
+  const normalizedText = text.replace(/\s+/g, " ").trim();
+
+  if (normalizedText.length <= maxLength) {
+    return normalizedText;
+  }
+
+  const slice = normalizedText.slice(0, maxLength);
+  const lastSentenceEnd = Math.max(
+    slice.lastIndexOf(". "),
+    slice.lastIndexOf("! "),
+    slice.lastIndexOf("? "),
+    slice.lastIndexOf("… "),
+  );
+
+  if (lastSentenceEnd > maxLength * 0.5) {
+    return normalizedText.slice(0, lastSentenceEnd + 1).trim();
+  }
+
+  return truncateSeoText(normalizedText, maxLength);
+}
+
+function nodePlainText(node: RichTextNode): string {
+  const direct = getText(node);
+  if (direct) {
+    return direct;
+  }
+
+  return getChildren(node).map(nodePlainText).join("");
+}
+
+// First non-empty text block from a Hygraph rich-text `raw.children` array.
+export function richTextToPlainText(nodes?: RichTextNode[] | null) {
+  if (!Array.isArray(nodes)) {
+    return "";
+  }
+
+  for (const node of nodes) {
+    if (getType(node) === "image") {
+      continue;
+    }
+
+    const text = nodePlainText(node).replace(/\s+/g, " ").trim();
+    if (text) {
+      return text;
+    }
+  }
+
+  return "";
+}
+
+// title fallback chain: CMS metaTitle -> material title (smart-truncated to 60).
+export function buildTitle(metaTitle?: string | null, title = "") {
+  const fromCms = metaTitle?.trim();
+  return fromCms || smartTruncate(title, 60);
+}
+
+// description fallback chain: CMS metaDescription -> excerpt -> first body paragraph.
+export function buildDescription(
+  metaDescription?: string | null,
+  excerpt?: string | null,
+  body?: RichTextNode[] | null,
+) {
+  const fromCms = metaDescription?.trim();
+  if (fromCms) {
+    return smartTruncate(fromCms, 160);
+  }
+
+  const fromExcerpt = excerpt?.trim();
+  if (fromExcerpt) {
+    return truncateBySentence(fromExcerpt, 160);
+  }
+
+  const fromBody = richTextToPlainText(body);
+  if (fromBody) {
+    return truncateBySentence(fromBody, 160);
+  }
+
+  return "";
+}
+
 export function languageAlternates(
   path = "/",
   locales: readonly SeoLocale[] = supportedLocales,
@@ -473,6 +559,10 @@ type MetadataOptions = {
   publishedTime?: string;
   modifiedTime?: string;
   alternateLocales?: readonly SeoLocale[];
+  noIndex?: boolean;
+  canonicalOverride?: string;
+  // When true, bypass the "%s | Yashil Energiya" template (keeps title ≤60 chars).
+  absoluteTitle?: boolean;
 };
 
 export function createMetadata({
@@ -485,10 +575,15 @@ export function createMetadata({
   publishedTime,
   modifiedTime,
   alternateLocales = supportedLocales,
+  noIndex = false,
+  canonicalOverride,
+  absoluteTitle = false,
 }: MetadataOptions): Metadata {
   const currentLocale = normalizeLocale(locale);
-  const shouldIndex = isLocaleIncluded(currentLocale, alternateLocales);
-  const canonical = absoluteUrl(localizedPath(currentLocale, path));
+  const shouldIndex =
+    isLocaleIncluded(currentLocale, alternateLocales) && !noIndex;
+  const canonical =
+    canonicalOverride?.trim() || absoluteUrl(localizedPath(currentLocale, path));
   const sourceImage = image === defaultOgImage ? "/hero.png" : image;
   const metadataImage = sourceImage?.startsWith("/api/og-image")
     ? image
@@ -508,7 +603,7 @@ export function createMetadata({
     : undefined;
 
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     alternates: {
       canonical,
