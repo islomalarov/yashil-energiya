@@ -4,6 +4,16 @@ $secondaryColor: #5cb63f;
 $whiteColor: #ffffff;
 $blackColor: #2b2b2b;
 
+// corporate design tokens (redesign 2026)
+$green-primary: #12903e; // == $primaryColor, kept as semantic alias
+$green-deep: #244d33; // dark plates, gradients, dark button hover
+$green-ink: #07130d; // darkest background (bottom of footer gradient)
+$mint-bg: #eef5f0; // light section / card backgrounds
+$green-tint: rgba(18, 144, 62, 0.14); // light highlights, badge backgrounds
+$ink: #2b2b2b; // == $blackColor, primary text
+$gray-green: #5f6f66; // secondary text, captions, metadata
+$gray-green-soft: #7c8a81; // lighter secondary text on dark/mint
+
 //screen
 $sm: 640px;
 $md: 768px;
@@ -12,3 +22,12 @@ $lg: 1024px;
 //fontsSize
 $paragraphSize: 18px;
 $titleSize: 40px;
+
+// radii
+$radius-card: 14px;
+$radius-control: 8px;
+$radius-pill: 999px;
+
+// shadows
+$shadow-card: 0 8px 24px rgba(7, 19, 13, 0.08);
+$shadow-card-hover: 0 12px 32px rgba(7, 19, 13, 0.14);
