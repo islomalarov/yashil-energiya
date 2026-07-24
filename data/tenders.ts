@@ -4,9 +4,12 @@ export const tenders = [
     projectNumber: "",
     projectNameRu: "Общие закупки",
     projectNameEn: "General procurements",
+    projectNameUz: "Umumiy xaridlar",
     projectDescriptionRu:
       "",
     projectDescriptionEn:
+      "",
+    projectDescriptionUz:
       "",
     tendersRu: [
       {
@@ -41,16 +44,35 @@ export const tenders = [
         file: "RFQ-04-1371.pdf",
       },
     ],
+    tendersUz: [
+      {
+        id: 1,
+        title: "Import qilinadigan yuklarni bojxona rasmiylashtiruvi xizmatlarini xarid qilish tanlovi",
+        status: "Yopiq",
+        deadline: "15.01.2025",
+        file: "RFQ-04-1360.pdf",
+      },
+      {
+        id: 2,
+        title: "Moliyaviy hisobot auditini o‘tkazish uchun konsalting kompaniyasini tanlash",
+        status: "Yopiq",
+        deadline: "15.01.2025",
+        file: "RFQ-04-1371.pdf",
+      },
+    ],
   },
   {
     id: 2,
     projectNumber: "P000827",
     projectNameRu: "Проект развития",
     projectNameEn: "Project development",
+    projectNameUz: "Rivojlanish loyihasi",
     projectDescriptionRu:
       "Республика Узбекистан получила Специальный фонд подготовки проекта (PPSF), далее именуемый «Грант», в размере, эквивалентном 1 700 000 долл. США, от Азиатского банка инфраструктурных инвестиций (далее – АБИИ) на подготовительные мероприятия по проекту развития государственной распределенной солнечной энергетики в Узбекистане и намерена использовать часть средств на оплату товаров, работ, неконсультационных услуг и консультационных услуг, которые будут закуплены в рамках этого гранта.",
     projectDescriptionEn:
       "The Republic of Uzbekistan has received a Project Preparation Special Fund (PPSF) grant in the amount equivalent to US$1,700,000 from the Asian Infrastructure Investment Bank (AIIB) for preparatory activities for the project to develop state distributed solar energy in Uzbekistan and intends to use part of the funds to pay for goods, works, non-consulting services and consulting services to be procured under this grant.",
+    projectDescriptionUz:
+      "O‘zbekiston Respublikasi Osiyo infratuzilma investitsiyalari bankidan (keyingi o‘rinlarda – AIIB) O‘zbekistonda davlat taqsimlangan quyosh energetikasini rivojlantirish loyihasi bo‘yicha tayyorgarlik tadbirlari uchun 1 700 000 AQSh dollariga teng miqdorda Loyihani tayyorlash maxsus jamg‘armasini (PPSF, keyingi o‘rinlarda – «Grant») oldi va mablag‘larning bir qismini ushbu grant doirasida xarid qilinadigan tovarlar, ishlar, nokonsalting va konsalting xizmatlari uchun to‘lashga yo‘naltirish niyatida.",
     tendersRu: [
       {
         id: 1,
@@ -95,6 +117,29 @@ export const tenders = [
         status: "Completed",
         deadline: "19.09.2025",
         file: "REOI_QCBS_1_eng.docx",
+      },
+    ],
+    tendersUz: [
+      {
+        id: 1,
+        title: "Ofis texnikasini xarid qilish tanlovi",
+        status: "Yakunlangan",
+        deadline: "30.05.2025",
+        file: "RFQ_IT_office.docx",
+      },
+      {
+        id: 2,
+        title: "Kanselyariya tovarlarini xarid qilish tanlovi",
+        status: "Yakunlangan",
+        deadline: "02.06.2025",
+        file: "RFQ_Invitation_eng_stationery.docx",
+      },
+      {
+        id: 3,
+        title: "Loyihaning texnik-iqtisodiy asoslashini (TIA) ishlab chiqish uchun konsalting kompaniyasini tanlash",
+        status: "Yakunlangan",
+        deadline: "19.09.2025",
+        file: "REOI_QCBS_1_rus.docx",
       },
     ],
   },
