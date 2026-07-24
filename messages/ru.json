@@ -874,11 +874,34 @@
     }
   },
   "TendersPage": {
-    "title": "Закупки"
+    "title": "Закупки",
+    "intro": "Здесь публикуются закупочные процедуры и тендеры компании по мере их объявления.",
+    "generalLabel": "Общие закупки",
+    "tendersCount": "Тендеров: {count}",
+    "more": "Подробнее",
+    "tabNotice": "Уведомление",
+    "tabTenders": "Тендеры",
+    "noticeTitle": "Общее уведомление о закупках",
+    "tendersTitle": "Тендеры",
+    "colTender": "Тендер",
+    "colStatus": "Статус",
+    "colDeadline": "Крайний срок",
+    "colDocs": "Документация",
+    "download": "Скачать",
+    "noAttachment": "—",
+    "breadcrumbAria": "Хлебные крошки"
   },
   "Footer": {
     "legalNav": "Юридические документы",
-    "publicOfferChargingStations": "Публичная оферта Charging Stations"
+    "publicOfferChargingStations": "Публичная оферта Charging Stations",
+    "mission": "Национальный оператор возобновляемой энергетики Узбекистана — солнечные станции, микро-ГЭС и зарядная инфраструктура для электромобилей.",
+    "rights": "Все права защищены",
+    "backToTop": "Наверх",
+    "sections": {
+      "company": "Компания",
+      "activity": "Деятельность",
+      "contacts": "Контакты"
+    }
   },
   "LocaleSwitcher": {
     "label": "Change language",

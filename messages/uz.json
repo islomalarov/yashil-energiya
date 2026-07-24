@@ -874,11 +874,34 @@
     }
   },
   "TendersPage": {
-    "title": "Xaridlar"
+    "title": "Xaridlar",
+    "intro": "Bu yerda kompaniyaning xarid protseduralari va tenderlari e'lon qilinishiga qarab joylashtiriladi.",
+    "generalLabel": "Umumiy xaridlar",
+    "tendersCount": "Tenderlar: {count}",
+    "more": "Batafsil",
+    "tabNotice": "Bildirishnoma",
+    "tabTenders": "Tenderlar",
+    "noticeTitle": "Xaridlar to‘g‘risida umumiy bildirishnoma",
+    "tendersTitle": "Tenderlar",
+    "colTender": "Tender",
+    "colStatus": "Holati",
+    "colDeadline": "Muddat",
+    "colDocs": "Hujjatlar",
+    "download": "Yuklab olish",
+    "noAttachment": "—",
+    "breadcrumbAria": "Yo‘l xaritasi"
   },
   "Footer": {
     "legalNav": "Yuridik hujjatlar",
-    "publicOfferChargingStations": "Charging Stations ommaviy ofertasi"
+    "publicOfferChargingStations": "Charging Stations ommaviy ofertasi",
+    "mission": "O‘zbekistonning qayta tiklanuvchi energetika bo‘yicha milliy operatori — quyosh elektr stansiyalari, mikro-GES va elektromobillar uchun zaryadlash infratuzilmasi.",
+    "rights": "Barcha huquqlar himoyalangan",
+    "backToTop": "Yuqoriga",
+    "sections": {
+      "company": "Kompaniya",
+      "activity": "Faoliyat",
+      "contacts": "Kontaktlar"
+    }
   },
   "LocaleSwitcher": {
     "label": "Tilni o'zgartirish",

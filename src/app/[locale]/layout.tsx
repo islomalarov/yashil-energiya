@@ -3,6 +3,8 @@ import type { Metadata, Viewport } from "next";
 import { Sofia_Sans } from "next/font/google";
 import { TheHeader } from "@/components/HeaderComponent/TheHeader";
 import { TheFooter } from "@/components/FooterComponent/TheFooter";
+import { TheFooterMinimal } from "@/components/FooterComponent/TheFooterMinimal";
+import { FooterSwitcher } from "@/components/FooterComponent/FooterSwitcher";
 import { NextIntlClientProvider, Locale, hasLocale } from "next-intl";
 import ScrollToTopButton from "@/components/ui/ScrollButton/ScrollToTopButton";
 import { routing } from "@/i18n/routing";
@@ -21,7 +23,7 @@ const gaMeasurementId =
 
 const sofia = Sofia_Sans({
   subsets: ["latin", "cyrillic"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -83,7 +85,10 @@ export default async function RootLayout({ children, params }: Props) {
               {children}
               <ScrollToTopButton />
             </main>
-            <TheFooter />
+            <FooterSwitcher
+              main={<TheFooter />}
+              minimal={<TheFooterMinimal />}
+            />
           </NextIntlClientProvider>
         </div>
         <ThirdPartyScripts gaMeasurementId={gaMeasurementId} />

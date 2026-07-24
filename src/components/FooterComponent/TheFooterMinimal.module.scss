@@ -1,0 +1,66 @@
+@use "@/scss/vars" as *;
+
+.footer {
+  background: #292929;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  padding: 14px 0;
+  justify-content: center;
+  gap: 18px;
+  flex-direction: column;
+  @media (max-width: 485px) {
+    gap: 20px;
+  }
+}
+
+.socialLinks {
+  display: flex;
+  gap: clamp(10px, 4vw, 20px);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.socialLink:hover {
+  .icon {
+    background-color: $secondaryColor;
+    border-radius: 50%;
+  }
+}
+
+.legalLinks {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.legalLink {
+  color: rgba($whiteColor, 0.78);
+  font-size: 14px;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $whiteColor;
+  }
+}
+
+.subFooter {
+  background: #1f1f1f;
+  display: flex;
+  justify-content: center;
+}
+
+.text {
+  color: $whiteColor;
+  opacity: 0.5;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 15px 0;
+  text-align: center;
+}

@@ -875,11 +875,34 @@
     }
   },
   "TendersPage": {
-    "title": "Procurements"
+    "title": "Procurements",
+    "intro": "Here we publish the company's procurement procedures and tenders as they are announced.",
+    "generalLabel": "General procurements",
+    "tendersCount": "{count} tenders",
+    "more": "Details",
+    "tabNotice": "Notice",
+    "tabTenders": "Tenders",
+    "noticeTitle": "General Procurement Notice",
+    "tendersTitle": "Tenders",
+    "colTender": "Tender",
+    "colStatus": "Status",
+    "colDeadline": "Deadline",
+    "colDocs": "Documentation",
+    "download": "Download",
+    "noAttachment": "—",
+    "breadcrumbAria": "Breadcrumb"
   },
   "Footer": {
     "legalNav": "Legal documents",
-    "publicOfferChargingStations": "Charging Stations Public Offer"
+    "publicOfferChargingStations": "Charging Stations Public Offer",
+    "mission": "National operator for renewable energy in Uzbekistan — solar power plants, micro-hydro and EV charging infrastructure.",
+    "rights": "All rights reserved",
+    "backToTop": "Back to top",
+    "sections": {
+      "company": "Company",
+      "activity": "Activity",
+      "contacts": "Contacts"
+    }
   },
   "LocaleSwitcher": {
     "label": "Change Language",

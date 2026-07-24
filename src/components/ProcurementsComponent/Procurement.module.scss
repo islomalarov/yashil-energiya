@@ -1,0 +1,397 @@
+@use "@/scss/vars" as *;
+
+/* ---------- breadcrumbs ---------- */
+.breadcrumbs {
+  padding: clamp(20px, 3vw, 32px) 0 4px;
+
+  ol {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: $gray-green;
+
+    svg {
+      color: rgba($ink, 0.3);
+    }
+
+    a {
+      color: $gray-green;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $green-primary;
+      }
+    }
+
+    &[aria-current="page"] span {
+      color: $ink;
+      font-weight: 600;
+    }
+  }
+}
+
+/* ---------- layout ---------- */
+.content {
+  padding-bottom: clamp(48px, 6vw, 72px);
+}
+
+/* ---------- anchor sub-nav (Variant A) ---------- */
+.subNav {
+  position: sticky;
+  top: clamp(72px, 8vw, 96px);
+  z-index: 5;
+  display: inline-flex;
+  gap: 4px;
+  margin: clamp(8px, 2vw, 20px) 0 clamp(24px, 3vw, 36px);
+  padding: 5px;
+  background: $mint-bg;
+  border-radius: $radius-pill;
+
+  @media (max-width: $sm) {
+    display: flex;
+    width: 100%;
+  }
+}
+
+.subNavLink {
+  padding: 8px 20px;
+  border-radius: $radius-pill;
+  font-size: 14px;
+  font-weight: 600;
+  color: $gray-green;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  @media (max-width: $sm) {
+    flex: 1;
+    text-align: center;
+  }
+
+  &:hover {
+    color: $green-primary;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $green-primary;
+    outline-offset: 2px;
+  }
+}
+
+.subNavLinkActive {
+  background: $whiteColor;
+  color: $green-primary;
+  box-shadow: 0 2px 8px rgba(7, 19, 13, 0.08);
+}
+
+/* ---------- notice document ---------- */
+.notice {
+  margin-bottom: clamp(40px, 5vw, 64px);
+  scroll-margin-top: 120px;
+}
+
+.sectionTitle {
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: $ink;
+  margin-bottom: 20px;
+}
+
+.accentLine {
+  width: 44px;
+  height: 3px;
+  background: $green-primary;
+  border-radius: 2px;
+  margin: -12px 0 24px;
+}
+
+.doc {
+  max-width: 78ch;
+  padding: clamp(24px, 4vw, 40px);
+  background: $whiteColor;
+  border: 1px solid rgba($green-ink, 0.06);
+  border-radius: $radius-card;
+  box-shadow: $shadow-card;
+
+  :global(.description) {
+    margin-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    color: $green-primary;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+}
+
+.docEyebrow {
+  margin: 0 0 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba($green-ink, 0.08);
+
+  :global(.description) {
+    margin-bottom: 4px;
+    color: $gray-green;
+    font-size: 14px;
+    text-align: left;
+  }
+}
+
+/* ---------- contact plaque ---------- */
+.contactPlaque {
+  max-width: 78ch;
+  margin-top: 20px;
+  display: grid;
+  gap: 14px;
+  padding: clamp(20px, 3vw, 28px);
+  background: $mint-bg;
+  border-radius: $radius-card;
+  font-style: normal;
+}
+
+.contactRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: $ink;
+
+  a {
+    color: $green-primary;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $green-primary;
+      outline-offset: 2px;
+    }
+  }
+}
+
+.contactIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: $radius-control;
+  background: $green-tint;
+  color: $green-primary;
+}
+
+.contactName {
+  display: block;
+  font-weight: 600;
+}
+
+.contactRole {
+  display: block;
+  color: $gray-green;
+  font-size: 14px;
+}
+
+/* ---------- tenders ---------- */
+.tenders {
+  scroll-margin-top: 120px;
+}
+
+.tendersList {
+  display: grid;
+  gap: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid rgba($green-ink, 0.08);
+  border-radius: $radius-card;
+  overflow: hidden;
+  background: $whiteColor;
+}
+
+$tender-cols: minmax(0, 3fr) minmax(120px, 1fr) minmax(120px, 1.2fr) minmax(
+    150px,
+    1.2fr
+  );
+
+.tendersHead {
+  display: grid;
+  grid-template-columns: $tender-cols;
+  gap: 16px;
+  padding: 14px 20px;
+  background: $mint-bg;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $gray-green;
+
+  @media (max-width: $md) {
+    display: none;
+  }
+}
+
+.tenderRow {
+  display: grid;
+  grid-template-columns: $tender-cols;
+  gap: 16px;
+  align-items: center;
+  padding: 18px 20px;
+  border-top: 1px solid rgba($green-ink, 0.08);
+
+  @media (max-width: $md) {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 20px;
+  }
+}
+
+.cellLabel {
+  display: none;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $gray-green;
+  margin-bottom: 4px;
+
+  @media (max-width: $md) {
+    display: block;
+  }
+}
+
+.cellTitle,
+.cellStatus,
+.cellDeadline,
+.cellDocs {
+  min-width: 0;
+}
+
+.tenderTitle {
+  font-size: 15px;
+  line-height: 1.45;
+  color: $ink;
+  overflow-wrap: anywhere;
+}
+
+.deadline {
+  font-size: 14px;
+  color: $gray-green;
+}
+
+/* status pill */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: $radius-pill;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.pillOpen {
+  background: $green-tint;
+  color: $green-primary;
+}
+
+.pillNeutral {
+  background: rgba($ink, 0.08);
+  color: $gray-green;
+}
+
+.pillDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $green-primary;
+  animation: pillPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pillPulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pillDot {
+    animation: none;
+  }
+}
+
+/* download button */
+.downloadBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid $green-primary;
+  border-radius: $radius-control;
+  font-size: 14px;
+  font-weight: 600;
+  color: $green-primary;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  @media (max-width: $md) {
+    width: 100%;
+    justify-content: center;
+  }
+
+  &:hover {
+    background: $green-primary;
+    color: $whiteColor;
+
+    .fileExt {
+      border-color: rgba($whiteColor, 0.5);
+      color: $whiteColor;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid $green-primary;
+    outline-offset: 2px;
+  }
+}
+
+.fileExt {
+  padding: 1px 6px;
+  border: 1px solid rgba($green-primary, 0.4);
+  border-radius: 4px;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.noFile {
+  color: $gray-green;
+  font-size: 15px;
+}
