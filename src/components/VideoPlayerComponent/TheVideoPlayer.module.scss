@@ -237,12 +237,12 @@
   padding: clamp(14px, 3vw, 36px);
   background: rgba(0, 0, 0, 0.92);
 
-  video {
+  .player {
     width: min(100%, 1280px);
     max-height: calc(100vh - 72px);
     aspect-ratio: 16 / 9;
+    border: 0;
     background: #000;
-    object-fit: contain;
   }
 }
 

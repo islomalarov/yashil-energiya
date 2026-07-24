@@ -124,13 +124,12 @@ const TheVideoPlayer = ({
             aria-label="Close video"
             onClick={closeVideo}
           />
-          <video
-            src="/video/YASHIL_ENERGY_FINAL11_01_2026.mp4"
-            autoPlay
-            controls
-            controlsList="nodownload"
-            playsInline
-            poster="/hero-poster.webp"
+          <iframe
+            className={styles.player}
+            src="https://www.youtube-nocookie.com/embed/eboueRpCb-I?autoplay=1&rel=0"
+            title={ringLabel}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
             onClick={(event) => event.stopPropagation()}
           />
         </div>

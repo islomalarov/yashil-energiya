@@ -37,7 +37,7 @@ const securityHeaders = [
       media-src 'self';
       font-src 'self' data:;
       connect-src 'self' https://challenges.cloudflare.com https://*.upstash.io https://*.hygraph.com https://*.graphcms.com https://us-west-2.graphassets.com https://vitals.vercel-insights.com https://*.vercel-insights.com https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net;
-      frame-src https://challenges.cloudflare.com https://www.google.com https://maps.google.com https://yandex.ru https://yandex.com https://*.yandex.ru https://*.yandex.net;
+      frame-src https://challenges.cloudflare.com https://www.google.com https://maps.google.com https://www.youtube-nocookie.com https://www.youtube.com https://yandex.ru https://yandex.com https://*.yandex.ru https://*.yandex.net;
       worker-src 'self' blob:;
       object-src 'none';
       base-uri 'self';
