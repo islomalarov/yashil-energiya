@@ -1,6 +1,11 @@
 "use client";
 
 import s from "./TheList.module.scss";
+import {
+  renderRichLeaves,
+  richLeavesHaveText,
+  type RichTextLeaf,
+} from "../RichText/renderRichLeaves";
 
 type ListType = "bulleted-list" | "numbered-list";
 
@@ -13,29 +18,10 @@ function isRecord(v: unknown): v is Record<string, unknown> {
   return typeof v === "object" && v !== null;
 }
 
-function getChildren(v: unknown): unknown[] {
+function getChildren(v: unknown): RichTextLeaf[] {
   if (!isRecord(v)) return [];
   const ch = v["children"];
-  return Array.isArray(ch) ? ch : [];
-}
-
-function getText(v: unknown): string {
-  if (!isRecord(v)) return "";
-  const t = v["text"];
-  return typeof t === "string" ? t : "";
-}
-
-/**
- * Рекурсивно собирает весь текст из поддерева.
- * В Hygraph text-ноды обычно выглядят как { text: "..." } без поля type.
- */
-function collectText(node: unknown): string {
-  const self = getText(node);
-  const children = getChildren(node);
-
-  if (!children.length) return self;
-
-  return self + children.map(collectText).join("");
+  return Array.isArray(ch) ? (ch as RichTextLeaf[]) : [];
 }
 
 export default function TheList({ content, type }: Props) {
@@ -45,12 +31,13 @@ export default function TheList({ content, type }: Props) {
   return (
     <Tag className={className}>
       {content.map((item, index) => {
-        const text = collectText(item).trim();
-        if (!text) return null;
+        const children = getChildren(item);
+        // Skip fully empty list items.
+        if (!richLeavesHaveText(children)) return null;
 
         return (
           <li key={index} className={s.listItem}>
-            {text}
+            {renderRichLeaves(children, `li-${index}`)}
           </li>
         );
       })}
