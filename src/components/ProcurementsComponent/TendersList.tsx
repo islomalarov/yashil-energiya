@@ -20,13 +20,36 @@ function isOpen(status: string) {
   return OPEN_STATUSES.has(status.trim().toLowerCase());
 }
 
+// Uzbek (Latin) month names — ICU long-month data for "uz" is unreliable
+// (renders as "M05"), so format uz dates manually.
+const UZ_MONTHS = [
+  "yanvar",
+  "fevral",
+  "mart",
+  "aprel",
+  "may",
+  "iyun",
+  "iyul",
+  "avgust",
+  "sentyabr",
+  "oktyabr",
+  "noyabr",
+  "dekabr",
+];
+
 // Deadlines come as "dd.mm.yyyy" strings — format by locale, keep raw on fail.
 function formatDeadline(raw: string, locale: string) {
   const match = raw.trim().match(/^(\d{2})\.(\d{2})\.(\d{4})$/);
   if (!match) return raw;
   const [, dd, mm, yyyy] = match;
-  const date = new Date(Number(yyyy), Number(mm) - 1, Number(dd));
+  const day = Number(dd);
+  const monthIndex = Number(mm) - 1;
+  const year = Number(yyyy);
+  const date = new Date(year, monthIndex, day);
   if (Number.isNaN(date.getTime())) return raw;
+  if (locale.startsWith("uz")) {
+    return `${day}-${UZ_MONTHS[monthIndex]}, ${year}-yil`;
+  }
   try {
     return new Intl.DateTimeFormat(locale, {
       day: "numeric",

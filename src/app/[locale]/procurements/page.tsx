@@ -24,15 +24,23 @@ export default function TendersPage() {
         <TheReveal stagger className={s.grid} motionKey="procurements-grid">
           {tenders.map((tender) => {
             const name =
-              locale === "en" ? tender.projectNameEn : tender.projectNameRu;
+              locale === "uz"
+                ? tender.projectNameUz
+                : locale === "en"
+                  ? tender.projectNameEn
+                  : tender.projectNameRu;
             const description =
-              locale === "en"
-                ? tender.projectDescriptionEn
-                : tender.projectDescriptionRu;
+              locale === "uz"
+                ? tender.projectDescriptionUz
+                : locale === "en"
+                  ? tender.projectDescriptionEn
+                  : tender.projectDescriptionRu;
             const count =
-              locale === "en"
-                ? tender.tendersEn?.length
-                : tender.tendersRu?.length;
+              locale === "uz"
+                ? tender.tendersUz?.length
+                : locale === "en"
+                  ? tender.tendersEn?.length
+                  : tender.tendersRu?.length;
 
             return (
               <Link
