@@ -237,7 +237,7 @@ export default function TenderPage() {
               name={contact[lang].name}
               role={contact[lang].role}
               address={contact[lang].address}
-              email="x.alisherov@yashil-energiya.uz"
+              email="marketing@yashil-energiya.uz"
               website="https://www.yashil-energiya.uz"
             />
           </TheReveal>
