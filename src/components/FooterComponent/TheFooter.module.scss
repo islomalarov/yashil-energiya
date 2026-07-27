@@ -39,9 +39,12 @@
     gap: 36px 40px;
   }
 
+  // On phones keep the two nav columns side by side so the footer stays
+  // compact instead of turning into a tall single stack.
   @media (max-width: $sm) {
-    grid-template-columns: 1fr;
-    gap: 32px;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 24px;
+    padding: 32px 0 24px;
   }
 }
 
@@ -52,6 +55,17 @@
   gap: 18px;
 
   @media (max-width: $lg) {
+    grid-column: 1 / -1;
+  }
+
+  @media (max-width: $sm) {
+    gap: 14px;
+  }
+}
+
+// Contacts span the full width beneath the two nav columns on phones.
+.contactsCol {
+  @media (max-width: $sm) {
     grid-column: 1 / -1;
   }
 }
@@ -93,6 +107,11 @@
   background: rgba($whiteColor, 0.08);
   transition: background-color 0.22s ease, transform 0.22s ease;
 
+  @media (max-width: $sm) {
+    width: 36px;
+    height: 36px;
+  }
+
   &:hover {
     background: $green-primary;
     transform: scale(1.06);
@@ -114,6 +133,10 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
+
+  @media (max-width: $sm) {
+    gap: 12px;
+  }
 }
 
 .colTitle {
@@ -128,6 +151,10 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  @media (max-width: $sm) {
+    gap: 8px;
+  }
 }
 
 .navLink {

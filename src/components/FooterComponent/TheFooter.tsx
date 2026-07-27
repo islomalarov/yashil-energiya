@@ -105,7 +105,7 @@ export const TheFooter = async () => {
           </nav>
 
           {/* Contacts */}
-          <div className={s.navCol}>
+          <div className={`${s.navCol} ${s.contactsCol}`}>
             <h2 className={s.colTitle}>{t("sections.contacts")}</h2>
             <address className={s.contacts}>
               <a className={s.contactRow} href={`tel:${PHONE.replace(/[^\d+]/g, "")}`}>
