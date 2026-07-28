@@ -1,6 +1,5 @@
 import { gql } from "graphql-request";
 import { fetchData } from "lib/graphql-client";
-import { CACHE_TAGS, LIVE_FALLBACK_REVALIDATE } from "lib/cache-tags";
 
 export type PlantStatus = {
   id: string;
@@ -102,10 +101,7 @@ export const PlantStatusService = {
       const response = await fetchData<PlantStatusesResponse>(
         query,
         undefined,
-        {
-          revalidate: LIVE_FALLBACK_REVALIDATE,
-          tags: [CACHE_TAGS.PlantStatus],
-        },
+        { revalidate: false },
       );
       const records = response.plantStatuses ?? [];
       const plantStatuses = records
