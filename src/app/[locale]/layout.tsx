@@ -6,6 +6,7 @@ import { TheFooter } from "@/components/FooterComponent/TheFooter";
 import { TheFooterMinimal } from "@/components/FooterComponent/TheFooterMinimal";
 import { FooterSwitcher } from "@/components/FooterComponent/FooterSwitcher";
 import { NextIntlClientProvider, Locale, hasLocale } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import ScrollToTopButton from "@/components/ui/ScrollButton/ScrollToTopButton";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
@@ -59,11 +60,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 export default async function RootLayout({ children, params }: Props) {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+
+  // Enable static rendering for this locale (next-intl).
+  setRequestLocale(locale);
 
   return (
     <html lang={locale}>

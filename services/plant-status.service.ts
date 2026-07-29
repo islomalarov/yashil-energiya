@@ -101,7 +101,7 @@ export const PlantStatusService = {
       const response = await fetchData<PlantStatusesResponse>(
         query,
         undefined,
-        { revalidate: false },
+        { cache: "force-cache" },
       );
       const records = response.plantStatuses ?? [];
       const plantStatuses = records

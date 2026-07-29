@@ -103,7 +103,7 @@ const fetchOperationalAssets = async <TQueryKey extends "evCharges" | "mhps">(
     const response = await fetchData<OperationalAssetsResponse<TQueryKey>>(
       query,
       undefined,
-      { revalidate: false },
+      { cache: "force-cache" },
     );
     const records = response[queryKey] ?? [];
     const assets = records

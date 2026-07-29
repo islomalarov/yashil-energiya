@@ -2,6 +2,7 @@ import "leaflet/dist/leaflet.css";
 import "leaflet.markercluster/dist/MarkerCluster.css";
 import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import { createStaticMetadata, staticPageJsonLd } from "@/lib/seo";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 
@@ -34,6 +35,7 @@ export default function MicrogesLayout({
 
 async function StaticJsonLd({ params }: MetadataProps) {
   const { locale } = await params;
+  setRequestLocale(locale);
 
   return <TheJsonLd data={staticPageJsonLd(locale, "microges")} />;
 }
