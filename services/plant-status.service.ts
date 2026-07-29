@@ -89,7 +89,9 @@ export const PlantStatusService = {
         plantStatuses(first: 100, stage: PUBLISHED) {
           id
           regionName
-          name
+          # The region key lives in the "region" field on PlantStatus; alias it
+          # to "name" so the downstream normalize/sort/label logic is unchanged.
+          name: region
           coords
           plants
           power
