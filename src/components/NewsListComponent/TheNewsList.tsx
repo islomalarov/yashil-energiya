@@ -4,14 +4,21 @@ import { TheClampedText } from "../ClampedText/TheClampedText";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import type { Locale } from "next-intl";
+import { formatPublicationDate } from "@/lib/format-date";
 
 interface NewsProps {
   news: NewResponse[];
   linkLabel: string;
+  locale?: Locale;
   contentLocale?: Locale;
 }
 
-export const TheNewsList = ({ news, linkLabel, contentLocale }: NewsProps) => {
+export const TheNewsList = ({
+  news,
+  linkLabel,
+  locale,
+  contentLocale,
+}: NewsProps) => {
   return (
     <div className={s.newsList}>
       {news.map(({ id, cover, date, title, excerpt, slug }: NewResponse) => (
@@ -32,7 +39,11 @@ export const TheNewsList = ({ news, linkLabel, contentLocale }: NewsProps) => {
           </Link>
 
           <div className={s.content}>
-            <time className={s.date}>{date}</time>
+            {date && (
+              <time className={s.date} dateTime={date}>
+                {formatPublicationDate(date, locale ?? contentLocale)}
+              </time>
+            )}
             <h3 className={s.title}>{title}</h3>
             <TheClampedText className={s.excerpt} lines={3}>
               {excerpt}

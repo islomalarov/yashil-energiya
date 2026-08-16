@@ -72,7 +72,7 @@ export default async function News({ searchParams }: NewsPageProps) {
       />
       <TheHero title1={t("heroTitle")} url1="news" />
       <div className="container">
-        <TheNewsList news={news} linkLabel={t("link")} />
+        <TheNewsList news={news} linkLabel={t("link")} locale={locale} />
         <ThePaginationControls
           totalPages={totalPages}
           currentPage={currentPage}

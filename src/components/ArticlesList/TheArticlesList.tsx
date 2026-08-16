@@ -4,20 +4,23 @@ import { TheClampedText } from "../ClampedText/TheClampedText";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import type { Locale } from "next-intl";
+import { formatPublicationDate } from "@/lib/format-date";
 
 type TheArticlesListProps = ArticlesResponse & {
   linkLabel: string;
+  locale?: Locale;
   contentLocale?: Locale;
 };
 
 export const TheArticlesList = ({
   articles,
   linkLabel,
+  locale,
   contentLocale,
 }: TheArticlesListProps) => {
   return (
     <div className={s.articlesList}>
-      {articles.map(({ id, cover, title, excerpt, slug }: Article) => (
+      {articles.map(({ id, cover, title, excerpt, slug, createdAt }: Article) => (
         <article key={id} className={s.card}>
           <Link
             className={s.mediaLink}
@@ -35,8 +38,13 @@ export const TheArticlesList = ({
           </Link>
 
           <div className={s.content}>
+            {createdAt && (
+              <time className={s.date} dateTime={createdAt}>
+                {formatPublicationDate(createdAt, locale ?? contentLocale)}
+              </time>
+            )}
             <h3 className={s.title}>{title}</h3>
-            <TheClampedText className={s.excerpt} lines={4}>
+            <TheClampedText className={s.excerpt} lines={3}>
               {excerpt}
             </TheClampedText>
           </div>

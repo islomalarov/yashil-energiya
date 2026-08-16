@@ -15,6 +15,7 @@ export interface Article {
   };
   slug: string;
   excerpt: string;
+  createdAt?: string;
   updatedAt?: string;
   seo?: SeoFields | null;
   content: {
@@ -46,6 +47,7 @@ export const ArticlesService = {
           }
           slug
           excerpt
+          createdAt
           updatedAt
           seo {
             noIndex
@@ -76,6 +78,7 @@ export const ArticlesService = {
           }
           slug
           excerpt
+          createdAt
           updatedAt
           seo {
             metaTitle

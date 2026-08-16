@@ -2,6 +2,7 @@ import Image from "next/image";
 import { TrendingUp } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import type { PopularNewsItem } from "@/lib/popular-news";
+import { formatPublicationDate } from "@/lib/format-date";
 import s from "./ThePopularNews.module.scss";
 
 type PopularNewsLabels = {
@@ -55,9 +56,11 @@ export function ThePopularNews({ news, labels, locale }: PopularNewsProps) {
             </div>
 
             <div className={s.body}>
-              <div className={s.meta}>
-                <span>{item.date}</span>
-              </div>
+              {item.date && (
+                <div className={s.meta}>
+                  <span>{formatPublicationDate(item.date, locale)}</span>
+                </div>
+              )}
               <h3 className={s.cardTitle}>{item.title}</h3>
               <p className={s.excerpt}>{item.excerpt}</p>
             </div>

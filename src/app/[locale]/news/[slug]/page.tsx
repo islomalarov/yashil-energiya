@@ -21,6 +21,7 @@ import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 import { TheNewsViewTracker } from "@/components/NewsViewTracker/TheNewsViewTracker";
 import { ThePopularNews } from "@/components/PopularNewsComponent/ThePopularNews";
 import { getPopularNews, getPopularNewsLabels } from "@/lib/popular-news";
+import { formatPublicationDate } from "@/lib/format-date";
 
 type Props = {
   params: Promise<{ locale: Locale; slug: string }>;
@@ -114,6 +115,11 @@ export default async function NewsPage({ params }: Props) {
           <div className={s.newsPage}>
             <div className={s.content}>
               <h1 className={s.title}>{news.title}</h1>
+              {news.date && (
+                <time className={s.publishDate} dateTime={news.date}>
+                  {formatPublicationDate(news.date, locale)}
+                </time>
+              )}
               <ThePageContent content={news.description.raw.children} />
             </div>
             <div className={s.separator}></div>
@@ -125,7 +131,11 @@ export default async function NewsPage({ params }: Props) {
                     <li key={id}>
                       <Link className={s.link} href={`/${locale}/news/${slug}`}>
                         <div className={s.titleBlock}>
-                          <p className={s.date}>{date}</p>
+                          {date && (
+                            <p className={s.date}>
+                              {formatPublicationDate(date, locale)}
+                            </p>
+                          )}
                           <h3>{title}</h3>
                           {/* <p className={s.description}>{excerpt}</p> */}
                         </div>

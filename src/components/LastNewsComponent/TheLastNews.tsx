@@ -37,7 +37,12 @@ export async function TheLastNews() {
           </svg>
         </Link>
       </div>
-      <TheNewsList news={news} linkLabel={t("link")} contentLocale={contentLocale} />
+      <TheNewsList
+        news={news}
+        linkLabel={t("link")}
+        locale={locale as Locale}
+        contentLocale={contentLocale}
+      />
     </TheMotionWrapper>
   );
 }
