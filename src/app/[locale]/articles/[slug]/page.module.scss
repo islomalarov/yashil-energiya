@@ -10,4 +10,12 @@
     line-height: 1.2;
     overflow-wrap: anywhere;
   }
+  .publishDate {
+    margin-top: clamp(-10px, -1.4vw, -6px);
+    display: block;
+    text-align: center;
+    color: $primaryColor;
+    font-size: clamp(14px, 1.6vw, 16px);
+    line-height: 1.2;
+  }
 }

@@ -17,6 +17,7 @@ import {
   optimizedOgImagePath,
 } from "@/lib/seo";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
+import { formatPublicationDate } from "@/lib/format-date";
 
 type Props = {
   params: Promise<{ slug: string; locale: string }>;
@@ -102,6 +103,11 @@ export default async function ArticlePage({ params }: Props) {
       <div className="container">
         <div className={s.content}>
           <h1 className={s.title}>{article.title}</h1>
+          {article.createdAt && (
+            <time className={s.publishDate} dateTime={article.createdAt}>
+              {formatPublicationDate(article.createdAt, locale)}
+            </time>
+          )}
           <ThePageContent content={article.content.raw.children} />
         </div>
       </div>

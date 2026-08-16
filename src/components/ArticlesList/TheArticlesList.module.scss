@@ -66,6 +66,13 @@
   padding: clamp(16px, 2vw, 20px);
 }
 
+.date {
+  margin-bottom: 8px;
+  color: $primaryColor;
+  font-size: clamp(13px, 1.4vw, 14px);
+  line-height: 1.2;
+}
+
 .title {
   margin: 0 0 8px;
   color: $blackColor;

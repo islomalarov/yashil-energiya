@@ -27,7 +27,7 @@ export default async function Articles() {
       />
       <TheHero title1={t("heroTitle")} url1="articles" />
       <div className="container">
-        <TheArticlesList articles={articles} linkLabel={t("link")} />
+        <TheArticlesList articles={articles} linkLabel={t("link")} locale={locale} />
       </div>
       <TheFeedback />
     </>
