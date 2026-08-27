@@ -7,6 +7,7 @@ import s from "./ThePageContent.module.scss";
 import TheList from "../ListComponent/TheList";
 import TheParagraph from "../ParagraphComponent/TheParagraph";
 import TheImageModal from "../ImageComponent/TheImageModal";
+import TheTable from "../TableComponent/TheTable";
 
 type Props = {
   content: RichTextNode[];
@@ -37,6 +38,8 @@ export default function ThePageContent({ content }: Props) {
                 <TheParagraph content={children} />
               </blockquote>
             );
+          case "table":
+            return <TheTable key={index} elem={elem} />;
           case "image":
             if (!isImageElem(elem)) return null;
             return (
