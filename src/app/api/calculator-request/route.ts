@@ -4,10 +4,12 @@ import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
 import { serverEnv } from "@/lib/server-env";
 
-// Dedicated endpoint for solar-calculator lead requests. Mirrors the feedback
-// pipeline (Upstash rate limit → Turnstile → Microsoft Graph, same recipient
-// from env) but carries the calculator parameters and treats email as optional.
-// The existing /api/resend route is intentionally left untouched.
+// Dedicated endpoint for solar-calculator lead requests.
+// Sends through the project's mail integration — Microsoft Graph
+// (@azure/msal-node → graph.microsoft.com/sendMail), NOT the Resend service —
+// behind the same protections as the feedback form: Upstash rate limit +
+// Cloudflare Turnstile, delivering to the corporate mailbox (serverEnv from env).
+// Email is optional here; all other contact/calculation fields are required.
 
 interface CalculatorRequestData {
   firstName: string;
@@ -128,6 +130,12 @@ export async function POST(req: NextRequest) {
     const captchaResult = await captchaVerify.json();
 
     if (!captchaResult.success) {
+      // Surface the real reason (e.g. invalid-input-secret, hostname-mismatch,
+      // timeout-or-duplicate) so failures are diagnosable from server logs.
+      console.error(
+        "[calculator-request] Turnstile verification failed:",
+        captchaResult["error-codes"],
+      );
       return NextResponse.json(
         { error: "Captcha verification failed" },
         { status: 400 },

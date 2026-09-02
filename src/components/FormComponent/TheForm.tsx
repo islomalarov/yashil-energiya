@@ -117,7 +117,7 @@ export const TheForm = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/resend", {
+      const response = await fetch("/api/feedback", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

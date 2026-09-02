@@ -107,6 +107,12 @@ export async function POST(req: NextRequest) {
     const captchaResult = await captchaVerify.json();
 
     if (!captchaResult.success) {
+      // Surface the real reason (e.g. invalid-input-secret, hostname-mismatch,
+      // timeout-or-duplicate) so failures are diagnosable from server logs.
+      console.error(
+        "[feedback] Turnstile verification failed:",
+        captchaResult["error-codes"],
+      );
       return NextResponse.json(
         { error: "Captcha verification failed" },
         { status: 400 },
