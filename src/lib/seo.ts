@@ -26,6 +26,7 @@ export type StaticSeoKey =
   | "plants"
   | "branches"
   | "documents"
+  | "calculator"
   | "contacts"
   | "vacancies";
 
@@ -304,6 +305,23 @@ export const staticSeo: Record<StaticSeoKey, Record<SeoLocale, SeoCopy>> = {
         "Yashil Energiya faoliyatiga oid rasmiy hujjatlar, huquqiy asoslar va xarid fayllari.",
     },
   },
+  calculator: {
+    en: {
+      title: "Solar Station Calculator",
+      description:
+        "Estimate your electricity use, size a solar power station, and see savings and payback under Uzbekistan's net-billing rules with Yashil Energiya's calculator.",
+    },
+    ru: {
+      title: "Калькулятор солнечной станции",
+      description:
+        "Оцените потребление, подберите мощность солнечной станции и рассчитайте экономию и окупаемость с учётом нетто-биллинга Узбекистана — калькулятор Yashil Energiya.",
+    },
+    uz: {
+      title: "Quyosh stansiyasi kalkulyatori",
+      description:
+        "Elektr energiyasi sarfini baholang, quyosh stansiyasi quvvatini tanlang va O'zbekiston netto-billing qoidalari asosida tejamkorlik va qoplanish muddatini hisoblang.",
+    },
+  },
   contacts: {
     en: {
       title: "Contacts",
@@ -357,6 +375,7 @@ export const staticRoutes: Record<StaticSeoKey, string> = {
   plants: "/plants",
   branches: "/branches",
   documents: "/documents",
+  calculator: "/resources/calculator",
   contacts: "/contacts",
   vacancies: "/vacancies",
 };

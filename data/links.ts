@@ -73,7 +73,15 @@ export const menuLinks = [
       { id: 5.4, url: "/vacancies", title: "vacancies" },
     ],
   },
-  { id: 6, url: "/documents", title: "documents" },
+  {
+    id: 6,
+    url: "#",
+    title: "resources",
+    subMenu: [
+      { id: 6.1, url: "/documents", title: "documents" },
+      { id: 6.2, url: "/resources/calculator", title: "calculator" },
+    ],
+  },
   { id: 7, url: "/contacts", title: "contacts" },
 ];
 

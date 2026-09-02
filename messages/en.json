@@ -18,7 +18,9 @@
     "contacts": "Contacts",
     "documents": "Documents",
     "vacancies": "Vacancies",
-    "installationRequest": "Become our client"
+    "installationRequest": "Become our client",
+    "resources": "Resources",
+    "calculator": "Calculator"
   },
   "HomePage": {
     "title": "Home page",
@@ -1077,6 +1079,173 @@
       "reset": "Reset filters",
       "resultCount": "Plants found: {count}",
       "emptyTitle": "Nothing found"
+    }
+  },
+  "CalculatorPage": {
+    "eyebrow": "Online calculator",
+    "title": "Solar Station Calculator",
+    "lead": "Estimate your electricity use, size a solar power station and calculate savings and payback under Uzbekistan's tariffs and net-billing rules.",
+    "steps": {
+      "segment": "Consumer type",
+      "consumption": "Electricity consumption",
+      "region": "Region",
+      "parameters": "Station parameters"
+    },
+    "segment": {
+      "residential": "Residential",
+      "commercial": "Business"
+    },
+    "mode": {
+      "consumption": "I know my usage",
+      "appliances": "Estimate by appliances"
+    },
+    "fields": {
+      "monthlyConsumption": "Monthly consumption",
+      "region": "Region",
+      "coverage": "Consumption coverage",
+      "solarHouseProgram": "\"Solar Home\" programme participant (1000 sum/kWh subsidy on surplus)",
+      "includeBESS": "With battery storage (BESS)",
+      "estimatedConsumption": "Estimated consumption: {value} per month",
+      "moreInfo": "Learn more",
+      "solarHouseInfoTitle": "\"Solar Home\" programme",
+      "solarHouseInfo": "A state programme supporting households that install solar panels: participants receive a 1000 sum budget subsidy for every kWh of surplus fed into the grid. It applies to installations of up to 50 kW per household."
+    },
+    "appliancesTable": {
+      "name": "Appliance",
+      "power": "Power, W",
+      "hours": "Hours/day",
+      "qty": "Qty",
+      "customName": "Appliance name",
+      "remove": "Remove",
+      "addPreset": "+ Add appliance from list",
+      "addCustom": "Custom appliance"
+    },
+    "appliances": {
+      "fridge": "Refrigerator",
+      "ac": "Air conditioner",
+      "washingMachine": "Washing machine",
+      "tv": "TV",
+      "lighting": "Lighting",
+      "waterHeater": "Water heater",
+      "computer": "Computer",
+      "microwave": "Microwave oven",
+      "kettle": "Electric kettle",
+      "pump": "Water pump",
+      "officeLighting": "Office lighting",
+      "officeAc": "Office air conditioning",
+      "workstations": "Workstations (PCs)",
+      "serverRoom": "Server room",
+      "refrigeration": "Refrigeration units",
+      "productionLine": "Production line"
+    },
+    "regions": {
+      "tashkentCity": "Tashkent (city)",
+      "tashkent": "Tashkent region",
+      "andijan": "Andijan region",
+      "bukhara": "Bukhara region",
+      "jizzakh": "Jizzakh region",
+      "kashkadarya": "Kashkadarya region",
+      "navoi": "Navoi region",
+      "namangan": "Namangan region",
+      "samarkand": "Samarkand region",
+      "surkhandarya": "Surkhandarya region",
+      "syrdarya": "Syrdarya region",
+      "fergana": "Fergana region",
+      "khorezm": "Khorezm region",
+      "karakalpakstan": "Republic of Karakalpakstan"
+    },
+    "months": {
+      "jan": "Jan",
+      "feb": "Feb",
+      "mar": "Mar",
+      "apr": "Apr",
+      "may": "May",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Aug",
+      "sep": "Sep",
+      "oct": "Oct",
+      "nov": "Nov",
+      "dec": "Dec"
+    },
+    "units": {
+      "sum": "sum",
+      "kwh": "kWh",
+      "kwhMonth": "kWh/mo",
+      "kw": "kW",
+      "m2": "m²"
+    },
+    "result": {
+      "eyebrow": "Your station",
+      "coverageNote": "Covers ~{percent}% of annual consumption",
+      "panels": "panels × {watt} W",
+      "area": "Array area",
+      "inverterThreePhase": "Inverter (3-phase)",
+      "inverterSinglePhase": "Inverter (1-phase)",
+      "annualGeneration": "Annual generation",
+      "generation": "Generation",
+      "consumption": "Consumption",
+      "chartTitle": "Monthly generation vs consumption",
+      "monthlySavings": "Monthly savings",
+      "annualSavings": "Annual savings",
+      "systemCost": "System cost",
+      "payback": "Payback",
+      "paybackYears": "{years} yrs",
+      "cta": "Get a precise quote",
+      "breakdownHint": "Monthly breakdown"
+    },
+    "warnings": {
+      "solarHouseCap": "Power exceeds 50 kW — the \"Solar Home\" subsidy does not apply above this threshold.",
+      "taxIncentiveCap": "Power above 100 kW — the 3-year tax incentives apply up to 100 kW; with BESS ≥25% the term extends to 10 years.",
+      "gridRegistration": "Power of 300 kW or more — the installation must be registered with the Ministry of Energy before grid connection."
+    },
+    "disclaimer": "This is an approximate estimate (10–20% margin). The exact configuration is determined after an on-site survey.",
+    "breakdown": {
+      "month": "Month",
+      "billWithoutPV": "Bill without PV",
+      "generation": "Generation",
+      "export": "Grid export",
+      "savings": "Savings",
+      "total": "Year total",
+      "unitsNote": "Amounts in sum; generation and export in kWh."
+    },
+    "leadForm": {
+      "title": "Request a precise quote",
+      "subtitle": "Leave your contact details — a specialist will reach out and prepare a precise station quote.",
+      "confirmSubtitle": "Review the parameters that will be shared to process your request.",
+      "fields": {
+        "name": "Full name",
+        "phone": "Contact phone",
+        "email": "Email",
+        "optional": "(optional)"
+      },
+      "next": "Next",
+      "back": "Back",
+      "submit": "Send request",
+      "submitting": "Sending…",
+      "close": "Close",
+      "consentNote": "I agree to share the following calculation data to process the request:",
+      "review": {
+        "consumerType": "Consumer type",
+        "annualConsumption": "Annual consumption",
+        "region": "Region",
+        "coverage": "Consumption coverage",
+        "bess": "Battery storage (BESS)",
+        "yes": "Yes",
+        "no": "No"
+      },
+      "errors": {
+        "required": "This field is required",
+        "emailInvalid": "Invalid email",
+        "captchaRequired": "Please confirm you are not a robot",
+        "verificationUnavailable": "Verification is unavailable. Please try again later.",
+        "submitError": "Could not send the request. Please try again."
+      },
+      "success": {
+        "title": "Request sent!",
+        "text": "Thank you! We will contact you shortly to clarify the details and prepare a precise quote.",
+        "newCalculation": "Calculate a new station"
+      }
     }
   }
 }

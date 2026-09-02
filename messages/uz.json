@@ -18,7 +18,9 @@
     "contacts": "Kontaktlar",
     "documents": "Hujjatlar",
     "vacancies": "Bo'sh ish o'rinlari",
-    "installationRequest": "Mijozimiz bo'lish"
+    "installationRequest": "Mijozimiz bo'lish",
+    "resources": "Resurslar",
+    "calculator": "Kalkulyator"
   },
   "HomePage": {
     "title": "Bosh sahifa",
@@ -1076,6 +1078,173 @@
       "reset": "Filtrlarni tozalash",
       "resultCount": "Topilgan stansiyalar: {count}",
       "emptyTitle": "Hech narsa topilmadi"
+    }
+  },
+  "CalculatorPage": {
+    "eyebrow": "Onlayn kalkulyator",
+    "title": "Quyosh stansiyasi kalkulyatori",
+    "lead": "Elektr energiyasi sarfini baholang, quyosh stansiyasi quvvatini tanlang va O'zbekiston tariflari hamda netto-billing qoidalari asosida tejamkorlik va qoplanish muddatini hisoblang.",
+    "steps": {
+      "segment": "Iste'molchi turi",
+      "consumption": "Elektr energiyasi sarfi",
+      "region": "Hudud",
+      "parameters": "Stansiya parametrlari"
+    },
+    "segment": {
+      "residential": "Maishiy",
+      "commercial": "Biznes"
+    },
+    "mode": {
+      "consumption": "Sarfni bilaman",
+      "appliances": "Jihozlar bo'yicha hisoblash"
+    },
+    "fields": {
+      "monthlyConsumption": "Oylik sarf",
+      "region": "Viloyat / hudud",
+      "coverage": "Sarfni qoplash",
+      "solarHouseProgram": "«Quyoshli uy» dasturi ishtirokchisi (ortiqcha energiya uchun 1000 so'm/kVt·s subsidiya)",
+      "includeBESS": "Akkumulyator tizimi (BESS) bilan",
+      "estimatedConsumption": "Hisoblangan sarf: {value} oyiga",
+      "moreInfo": "Batafsil",
+      "solarHouseInfoTitle": "«Quyoshli uy» dasturi",
+      "solarHouseInfo": "Quyosh panellarini o'rnatuvchi aholini qo'llab-quvvatlash bo'yicha davlat dasturi: ishtirokchilarga tarmoqqa berilgan har bir kVt·s ortiqcha energiya uchun davlat byudjetidan 1000 so'm subsidiya to'lanadi. Har bir xonadon uchun 50 kVt gacha quvvatdagi qurilmalarga tatbiq etiladi."
+    },
+    "appliancesTable": {
+      "name": "Jihoz",
+      "power": "Quvvat, Vt",
+      "hours": "Soat/kun",
+      "qty": "Soni",
+      "customName": "Jihoz nomi",
+      "remove": "O'chirish",
+      "addPreset": "+ Ro'yxatdan jihoz qo'shish",
+      "addCustom": "O'z jihozim"
+    },
+    "appliances": {
+      "fridge": "Muzlatgich",
+      "ac": "Konditsioner",
+      "washingMachine": "Kir yuvish mashinasi",
+      "tv": "Televizor",
+      "lighting": "Yoritish",
+      "waterHeater": "Suv isitgich",
+      "computer": "Kompyuter",
+      "microwave": "Mikroto'lqinli pech",
+      "kettle": "Elektr choynak",
+      "pump": "Nasos",
+      "officeLighting": "Ofis yoritishi",
+      "officeAc": "Ofis konditsioneri",
+      "workstations": "Ish o'rinlari (kompyuterlar)",
+      "serverRoom": "Server xonasi",
+      "refrigeration": "Sovutish jihozlari",
+      "productionLine": "Ishlab chiqarish liniyasi"
+    },
+    "regions": {
+      "tashkentCity": "Toshkent (shahar)",
+      "tashkent": "Toshkent viloyati",
+      "andijan": "Andijon viloyati",
+      "bukhara": "Buxoro viloyati",
+      "jizzakh": "Jizzax viloyati",
+      "kashkadarya": "Qashqadaryo viloyati",
+      "navoi": "Navoiy viloyati",
+      "namangan": "Namangan viloyati",
+      "samarkand": "Samarqand viloyati",
+      "surkhandarya": "Surxondaryo viloyati",
+      "syrdarya": "Sirdaryo viloyati",
+      "fergana": "Farg'ona viloyati",
+      "khorezm": "Xorazm viloyati",
+      "karakalpakstan": "Qoraqalpog'iston Respublikasi"
+    },
+    "months": {
+      "jan": "Yan",
+      "feb": "Fev",
+      "mar": "Mar",
+      "apr": "Apr",
+      "may": "May",
+      "jun": "Iyn",
+      "jul": "Iyl",
+      "aug": "Avg",
+      "sep": "Sen",
+      "oct": "Okt",
+      "nov": "Noy",
+      "dec": "Dek"
+    },
+    "units": {
+      "sum": "so'm",
+      "kwh": "kVt·s",
+      "kwhMonth": "kVt·s/oy",
+      "kw": "kVt",
+      "m2": "m²"
+    },
+    "result": {
+      "eyebrow": "Sizning stansiyangiz",
+      "coverageNote": "Yillik sarfning ~{percent}% qoplaydi",
+      "panels": "{watt} Vt panellar",
+      "area": "Massiv maydoni",
+      "inverterThreePhase": "Invertor (3 faza)",
+      "inverterSinglePhase": "Invertor (1 faza)",
+      "annualGeneration": "Yillik ishlab chiqarish",
+      "generation": "Ishlab chiqarish",
+      "consumption": "Sarf",
+      "chartTitle": "Oylar bo'yicha ishlab chiqarish va sarf",
+      "monthlySavings": "Oylik tejamkorlik",
+      "annualSavings": "Yillik tejamkorlik",
+      "systemCost": "Stansiya narxi",
+      "payback": "Qoplanish",
+      "paybackYears": "{years} yil",
+      "cta": "Aniq hisob-kitob olish",
+      "breakdownHint": "Oylik tafsilot"
+    },
+    "warnings": {
+      "solarHouseCap": "Quvvat 50 kVt dan oshadi — «Quyoshli uy» subsidiyasi bu chegaradan yuqorisiga tatbiq etilmaydi.",
+      "taxIncentiveCap": "Quvvat 100 kVt dan yuqori — 3 yillik soliq imtiyozlari 100 kVt gacha amal qiladi; BESS ≥25% bo'lsa muddat 10 yilgacha uzaytiriladi.",
+      "gridRegistration": "Quvvat 300 kVt va undan yuqori — tarmoqqa ulashdan oldin qurilma Energetika vazirligida ro'yxatdan o'tkazilishi shart."
+    },
+    "disclaimer": "Hisob-kitob taxminiy xarakterga ega (10–20% xatolik). Aniq konfiguratsiya mutaxassis chiqib, obyekt tahlil qilingandan so'ng belgilanadi.",
+    "breakdown": {
+      "month": "Oy",
+      "billWithoutPV": "SES'siz xarajat",
+      "generation": "Ishlab chiqarish",
+      "export": "Tarmoqqa berish",
+      "savings": "Tejamkorlik",
+      "total": "Yillik jami",
+      "unitsNote": "Summalar so'mda, ishlab chiqarish va berish kVt·s da."
+    },
+    "leadForm": {
+      "title": "Aniq hisob-kitobga ariza",
+      "subtitle": "Kontakt ma'lumotlaringizni qoldiring — mutaxassis siz bilan bog'lanib, stansiyaning aniq hisob-kitobini tayyorlaydi.",
+      "confirmSubtitle": "Ariza qayta ishlash uchun uzatiladigan parametrlarni tekshiring.",
+      "fields": {
+        "name": "F.I.Sh.",
+        "phone": "Bog'lanish uchun telefon",
+        "email": "Email",
+        "optional": "(ixtiyoriy)"
+      },
+      "next": "Keyingi",
+      "back": "Orqaga",
+      "submit": "Arizani yuborish",
+      "submitting": "Yuborilmoqda…",
+      "close": "Yopish",
+      "consentNote": "Arizani qayta ishlash uchun quyidagi hisob-kitob ma'lumotlarini uzatishga rozilik beraman:",
+      "review": {
+        "consumerType": "Iste'molchi turi",
+        "annualConsumption": "Yillik sarf",
+        "region": "Hudud",
+        "coverage": "Sarfni qoplash",
+        "bess": "Akkumulyator tizimi (BESS)",
+        "yes": "Ha",
+        "no": "Yo'q"
+      },
+      "errors": {
+        "required": "Ushbu maydonni to'ldiring",
+        "emailInvalid": "Email noto'g'ri",
+        "captchaRequired": "Robot emasligingizni tasdiqlang",
+        "verificationUnavailable": "Tekshiruv mavjud emas. Keyinroq urinib ko'ring.",
+        "submitError": "Arizani yuborib bo'lmadi. Qayta urinib ko'ring."
+      },
+      "success": {
+        "title": "Ariza yuborildi!",
+        "text": "Rahmat! Tafsilotlarni aniqlashtirish va aniq hisob-kitobni tayyorlash uchun tez orada siz bilan bog'lanamiz.",
+        "newCalculation": "Yangi stansiyani hisoblash"
+      }
     }
   }
 }
