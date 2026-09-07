@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
-import { playChime } from "./sound";
+import { playChime, unlockAudio } from "./sound";
 
 interface ChatMessage {
   role: "user" | "assistant";
@@ -213,6 +213,7 @@ export const TheAssistant = () => {
   }
 
   function openPanel() {
+    unlockAudio(); // gesture → allow notification sounds later
     setIsOpen(true);
     setUnread(false);
     setTeaser(null);
@@ -329,6 +330,7 @@ export const TheAssistant = () => {
     const trimmed = text.trim();
     if (!trimmed || isStreaming) return;
 
+    unlockAudio(); // called from a click/tap → unlock audio for the reply chime
     setNotice(null);
     setInput("");
 
@@ -405,11 +407,14 @@ export const TheAssistant = () => {
         });
       }
 
-      // Answer finished while the panel was closed → notify the user.
+      // Chime when the answer is ready. If the panel is closed, also raise the
+      // unread badge + teaser so the user knows to come back.
       if (!openRef.current) {
         setUnread(true);
         setTeaser("answer");
         notifySound("notify");
+      } else {
+        notifySound("soft");
       }
     } catch (error) {
       console.error("[assistant] send failed:", error);

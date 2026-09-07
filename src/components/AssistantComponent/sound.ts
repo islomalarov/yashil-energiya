@@ -26,6 +26,19 @@ function getContext(): AudioContext | null {
 }
 
 /**
+ * Create/resume the audio context from within a user gesture (click/tap).
+ * Browsers keep the context "suspended" until a gesture, so notification
+ * sounds fired later (e.g. when an answer arrives) stay silent unless we
+ * unlock it here first.
+ */
+export function unlockAudio(): void {
+  const audio = getContext();
+  if (audio && audio.state === "suspended") {
+    audio.resume().catch(() => {});
+  }
+}
+
+/**
  * Play a short, soft chime.
  * - "notify": a two-note rise, used when an answer is ready.
  * - "soft": a single gentle note, used for the attention teaser.

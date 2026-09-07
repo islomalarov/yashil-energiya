@@ -19,18 +19,17 @@ import { COMPANY_CONTACTS, SITE_PAGES } from "@/lib/assistant/site-map";
  * get the `en` digest as source material — the model still answers in uz.
  */
 
-const KB_CACHE_PREFIX = "assistant:kb:v3";
+const KB_CACHE_PREFIX = "assistant:kb:v4";
 const KB_CACHE_TTL_SECONDS = 3600;
 
-// Prompt-size budget. Smaller digest => smaller input => faster time-to-first
-// -token from Gemini. These caps keep the assistant grounded without bloating
-// the request; raise them only if answers start missing content.
+// Prompt-size budget. Enough per item for the assistant to give informative
+// answers (full sentences, real summaries), while still bounding the request.
 /** Max plain-text characters kept per CMS item. */
-const MAX_ITEM_CHARS = 280;
+const MAX_ITEM_CHARS = 900;
 /** Newest N news items to include. */
-const NEWS_LIMIT = 6;
+const NEWS_LIMIT = 8;
 /** Max articles to include. */
-const ARTICLES_LIMIT = 10;
+const ARTICLES_LIMIT = 12;
 
 const redis = Redis.fromEnv();
 
@@ -83,9 +82,10 @@ async function buildArticlesSection(
 
     const lines = articles.slice(0, ARTICLES_LIMIT).map((article) => {
       const url = localizedUrl(locale, `/articles/${article.slug}`);
-      const body =
-        article.excerpt?.trim() ||
-        truncate(richTextToPlainText(article.content?.raw?.children));
+      // Prefer the full body (truncated) over the short excerpt so the assistant
+      // has real content to summarise from, not a one-line teaser.
+      const fullText = richTextToPlainText(article.content?.raw?.children);
+      const body = fullText || article.excerpt?.trim() || "";
       return `- ${article.title} (${url}): ${truncate(body)}`;
     });
 
@@ -108,9 +108,8 @@ async function buildNewsSection(
     const lines = news.map((item) => {
       const url = localizedUrl(locale, `/news/${item.slug}`);
       const date = item.date ? ` [${item.date}]` : "";
-      const body =
-        item.excerpt?.trim() ||
-        truncate(richTextToPlainText(item.description?.raw?.children));
+      const fullText = richTextToPlainText(item.description?.raw?.children);
+      const body = fullText || item.excerpt?.trim() || "";
       return `- ${item.title}${date} (${url}): ${truncate(body)}`;
     });
 
