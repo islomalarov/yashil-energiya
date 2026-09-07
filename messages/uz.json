@@ -1246,5 +1246,30 @@
         "newCalculation": "Yangi stansiyani hisoblash"
       }
     }
+  },
+  "Assistant": {
+    "fabLabel": "Virtual yordamchini ochish",
+    "title": "Virtual yordamchi",
+    "subtitle": "Yashil Energiya",
+    "greeting": "Assalomu alaykum! Sayt bo'ylab yo'l topishga va quyosh stansiyalari, MikroGES hamda zaryadlash stansiyalari haqidagi savollarga yordam beraman. Sizni nima qiziqtiradi?",
+    "placeholder": "Savolingizni yozing…",
+    "send": "Yuborish",
+    "close": "Yopish",
+    "error": "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring.",
+    "retry": "Qayta urinish",
+    "suggestions": [
+      "Quyosh stansiyasini hisoblash",
+      "Qayerda joylashgansiz?",
+      "Qanday xizmatlaringiz bor?"
+    ],
+    "newChat": "Yangi suhbat",
+    "statusProcessing": "So'rovingiz qayta ishlanmoqda…",
+    "statusAlmost": "Ozgina qoldi, biroz kuting…",
+    "timeout": "Qayta ishlash juda uzoq davom etdi va bekor qilindi. Iltimos, qayta urinib ko'ring.",
+    "teaserGreeting": "👋 Assalomu alaykum! Sayt bo'ylab yo'l topishga yordam beraman.",
+    "teaserAnswer": "✅ Javobingiz tayyor — o'qish uchun bosing.",
+    "muteSound": "Ovozni o'chirish",
+    "unmuteSound": "Ovozni yoqish",
+    "overloaded": "Xizmat hozir band. Iltimos, bir daqiqadan so'ng qayta urinib ko'ring."
   }
 }

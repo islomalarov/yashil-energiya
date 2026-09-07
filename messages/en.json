@@ -1247,5 +1247,30 @@
         "newCalculation": "Calculate a new station"
       }
     }
+  },
+  "Assistant": {
+    "fabLabel": "Open the virtual assistant",
+    "title": "Virtual assistant",
+    "subtitle": "Yashil Energiya",
+    "greeting": "Hi! I can help you find your way around the site and answer questions about our solar, micro hydro and EV charging solutions. What would you like to know?",
+    "placeholder": "Type your question…",
+    "send": "Send",
+    "close": "Close",
+    "error": "Something went wrong. Please try again.",
+    "retry": "Retry",
+    "suggestions": [
+      "Calculate a solar station",
+      "Where are you located?",
+      "What services do you offer?"
+    ],
+    "newChat": "New chat",
+    "statusProcessing": "Processing your request…",
+    "statusAlmost": "Almost there, just a moment…",
+    "timeout": "This is taking too long, so the request was cancelled. Please try again.",
+    "teaserGreeting": "👋 Hi! I can help you find your way around the site.",
+    "teaserAnswer": "✅ Your answer is ready — tap to read it.",
+    "muteSound": "Mute sound",
+    "unmuteSound": "Unmute sound",
+    "overloaded": "The assistant is busy right now. Please try again in a moment."
   }
 }

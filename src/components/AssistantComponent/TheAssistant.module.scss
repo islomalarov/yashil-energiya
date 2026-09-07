@@ -1,0 +1,449 @@
+@use "@/scss/vars" as *;
+
+$fab-size: 60px;
+
+.fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+  width: $fab-size;
+  height: $fab-size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background-color: $primaryColor;
+  color: $whiteColor;
+  box-shadow: $shadow-card-hover;
+  cursor: pointer;
+  transition: transform 0.25s ease, background-color 0.25s ease, opacity 0.2s ease;
+
+  &:hover {
+    background-color: $green-deep;
+    transform: translateY(-2px);
+  }
+}
+
+.fabHidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.7);
+}
+
+.panel {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  width: min(384px, calc(100vw - 32px));
+  height: min(600px, calc(100dvh - 40px));
+  background-color: $whiteColor;
+  border-radius: $radius-card;
+  box-shadow: $shadow-card-hover;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(24px) scale(0.98);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+
+  @media (max-width: $sm) {
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100dvh;
+    border-radius: 0;
+  }
+}
+
+.panelOpen {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, $primaryColor, $green-deep);
+  color: $whiteColor;
+}
+
+.headerIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.16);
+}
+
+.headerText {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.headerTitle {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.headerSubtitle {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.closeBtn,
+.headerBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: $whiteColor;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.16);
+  }
+}
+
+.messages {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  overflow-y: auto;
+  background-color: $mint-bg;
+}
+
+.bubble {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: $radius-card;
+  font-size: 14px;
+  line-height: 1.5;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.bubbleAssistant {
+  align-self: flex-start;
+  background-color: $whiteColor;
+  color: $ink;
+  border-bottom-left-radius: 4px;
+  box-shadow: $shadow-card;
+}
+
+.bubbleUser {
+  align-self: flex-end;
+  background-color: $primaryColor;
+  color: $whiteColor;
+  border-bottom-right-radius: 4px;
+  white-space: pre-wrap;
+}
+
+.bullet {
+  display: block;
+  padding-left: 16px;
+  position: relative;
+
+  &::before {
+    content: "•";
+    position: absolute;
+    left: 4px;
+    color: $primaryColor;
+  }
+}
+
+.link {
+  color: $primaryColor;
+  font-weight: 600;
+  text-decoration: underline;
+
+  &:hover {
+    color: $green-deep;
+  }
+}
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.suggestion {
+  padding: 8px 12px;
+  border: 1px solid $green-tint;
+  border-radius: $radius-pill;
+  background-color: $whiteColor;
+  color: $primaryColor;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    background-color: $green-tint;
+  }
+}
+
+.errorRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+}
+
+.errorText {
+  font-size: 13px;
+  color: #b3261e;
+}
+
+.retryBtn {
+  padding: 4px 10px;
+  border: none;
+  border-radius: $radius-control;
+  background-color: $primaryColor;
+  color: $whiteColor;
+  font-size: 13px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $green-deep;
+  }
+}
+
+.inputBar {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid $green-tint;
+  background-color: $whiteColor;
+}
+
+.textarea {
+  flex: 1;
+  resize: none;
+  max-height: 120px;
+  padding: 10px 12px;
+  border: 1px solid $green-tint;
+  border-radius: $radius-control;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.4;
+  color: $ink;
+  outline: none;
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    border-color: $primaryColor;
+  }
+}
+
+.sendBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: $primaryColor;
+  color: $whiteColor;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background-color: $green-deep;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+/* ----- Attention teaser (near the FAB) ----- */
+.teaser {
+  position: fixed;
+  right: 20px;
+  bottom: calc(#{$fab-size} + 32px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: min(260px, calc(100vw - 40px));
+  padding: 10px 12px;
+  background-color: $whiteColor;
+  color: $ink;
+  border-radius: $radius-card;
+  border-bottom-right-radius: 4px;
+  box-shadow: $shadow-card-hover;
+  font-size: 13px;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.teaserVisible {
+  animation: assistant-teaser-in 0.35s ease both;
+}
+
+.teaserText {
+  flex: 1;
+}
+
+.teaserClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: $gray-green;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $mint-bg;
+    color: $ink;
+  }
+}
+
+/* ----- Unread badge + FAB attention pulse ----- */
+.unreadDot {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #e5484d;
+  border: 2px solid $whiteColor;
+  animation: assistant-badge-pop 0.3s ease both;
+}
+
+.fabPulse {
+  animation: assistant-fab-pulse 2s ease-in-out infinite;
+}
+
+/* ----- Typing indicator + status text ----- */
+.typingBubble {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.typingDots {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: $gray-green;
+    animation: assistant-typing 1.2s ease-in-out infinite;
+  }
+
+  span:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+
+  span:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+}
+
+.statusText {
+  font-size: 13px;
+  color: $gray-green;
+}
+
+/* ----- Message entrance ----- */
+.bubbleEnter {
+  animation: assistant-bubble-in 0.28s ease both;
+}
+
+@keyframes assistant-teaser-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes assistant-badge-pop {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes assistant-fab-pulse {
+  0%,
+  100% {
+    box-shadow: $shadow-card-hover, 0 0 0 0 rgba(18, 144, 62, 0.5);
+  }
+  50% {
+    box-shadow: $shadow-card-hover, 0 0 0 10px rgba(18, 144, 62, 0);
+  }
+}
+
+@keyframes assistant-typing {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+@keyframes assistant-bubble-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .teaserVisible,
+  .unreadDot,
+  .fabPulse,
+  .bubbleEnter,
+  .typingDots span {
+    animation: none;
+  }
+}
