@@ -19,6 +19,18 @@ export interface SitePage {
   description: string;
 }
 
+/**
+ * Company contact facts injected into the knowledge base so the assistant can
+ * answer "where are you located?" / "how do I reach you?" directly. Keep in sync
+ * with the Contacts page (messages/*.json → ContactsPage).
+ */
+export const COMPANY_CONTACTS = [
+  "Head office address: Tashkent, Yunusabad district, Bodomzor street 2B (landmark: UZGIDROMET / Uzhydromet).",
+  "Phone: +998 55-514-88-44.",
+  "Email: info@yashil-energiya.uz.",
+  "Regional branches are listed on the Branches page; full contact details and a map are on the Contacts page.",
+].join(" ");
+
 export const SITE_PAGES: SitePage[] = [
   {
     path: "/",

@@ -11,6 +11,9 @@ import { buildKnowledgeBase } from "@/lib/assistant/knowledge";
 // this only reads content and talks to the Gemini API.
 
 export const runtime = "nodejs";
+// Allow more than Vercel's 10s default: KB build (on cache miss) + captcha
+// verify + Gemini streaming can exceed 10s, which caused FUNCTION_INVOCATION_TIMEOUT.
+export const maxDuration = 30;
 
 const MODEL = "gemini-3.6-flash";
 const SUPPORTED_LOCALES = ["en", "ru", "uz"] as const;
@@ -50,7 +53,9 @@ const genai = new GoogleGenAI({
   // loader. Cap it to one quick retry so an overloaded model surfaces the
   // "try again" notice within a couple of seconds.
   httpOptions: {
-    timeout: 30000,
+    // Keep below the route's maxDuration so an overloaded model surfaces a clean
+    // 503 instead of the whole function being killed (504).
+    timeout: 20000,
     retryOptions: {
       attempts: 2,
       initialDelay: 0.5,

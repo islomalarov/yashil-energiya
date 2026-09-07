@@ -4,7 +4,7 @@ import { ArticlesService } from "services/articles.service";
 import { NewsService } from "services/news.service";
 import { resolveCmsLocale } from "@/lib/cms-locale";
 import { getChildren, getText, isRecord } from "@/types/richtext";
-import { SITE_PAGES } from "@/lib/assistant/site-map";
+import { COMPANY_CONTACTS, SITE_PAGES } from "@/lib/assistant/site-map";
 
 /**
  * Knowledge-base layer for the virtual assistant.
@@ -19,7 +19,7 @@ import { SITE_PAGES } from "@/lib/assistant/site-map";
  * get the `en` digest as source material — the model still answers in uz.
  */
 
-const KB_CACHE_PREFIX = "assistant:kb:v2";
+const KB_CACHE_PREFIX = "assistant:kb:v3";
 const KB_CACHE_TTL_SECONDS = 3600;
 
 // Prompt-size budget. Smaller digest => smaller input => faster time-to-first
@@ -143,7 +143,9 @@ export async function buildKnowledgeBase(locale: string): Promise<string> {
     buildNewsSection(locale, cmsLocale),
   ]);
 
-  const digest = [navigation, articles, news]
+  const contacts = `## Company contacts\n${COMPANY_CONTACTS}`;
+
+  const digest = [contacts, navigation, articles, news]
     .filter(Boolean)
     .join("\n\n");
 
