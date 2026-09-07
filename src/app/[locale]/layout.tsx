@@ -7,6 +7,7 @@ import { TheFooterMinimal } from "@/components/FooterComponent/TheFooterMinimal"
 import { FooterSwitcher } from "@/components/FooterComponent/FooterSwitcher";
 import { NextIntlClientProvider, Locale, hasLocale } from "next-intl";
 import ScrollToTopButton from "@/components/ui/ScrollButton/ScrollToTopButton";
+import { TheAssistant } from "@/components/AssistantComponent/TheAssistant";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import {
@@ -89,6 +90,7 @@ export default async function RootLayout({ children, params }: Props) {
               main={<TheFooter />}
               minimal={<TheFooterMinimal />}
             />
+            <TheAssistant />
           </NextIntlClientProvider>
         </div>
         <ThirdPartyScripts gaMeasurementId={gaMeasurementId} />

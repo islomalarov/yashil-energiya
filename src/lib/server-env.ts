@@ -17,4 +17,10 @@ export const serverEnv = {
   msSenderEmail: readRequiredEnv("MS_SENDER_EMAIL"),
   msRecipientEmail: readRequiredEnv("MS_RECIPIENT_EMAIL"),
   turnstileSecretKey: readRequiredEnv("TURNSTILE_SECRET_KEY"),
+  // Dedicated Turnstile secret for the virtual assistant (invisible-mode widget).
+  // Falls back to the shared secret until a dedicated key pair is configured.
+  turnstileAssistantSecretKey:
+    process.env.TURNSTILE_ASSISTANT_SECRET_KEY ||
+    readRequiredEnv("TURNSTILE_SECRET_KEY"),
+  geminiApiKey: readRequiredEnv("GEMINI_API_KEY"),
 };
