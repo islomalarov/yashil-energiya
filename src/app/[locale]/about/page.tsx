@@ -19,6 +19,20 @@ import solarMan from "public/partners/solarMan.jpg";
 import foxEss from "public/partners/foxEss.jpg";
 import tosh from "public/partners/tosh.jpg";
 import tw from "public/partners/tw.jpg";
+import sungrow from "public/partners/sungrow.png";
+import minvuz from "public/partners/minvuz.png";
+import ozsuvtaminot from "public/partners/ozsuvtaminot.png";
+
+const partnerLogos = [
+  { src: minvuz, alt: "Oliy ta'lim, fan va innovatsiyalar vazirligi" },
+  { src: ozsuvtaminot, alt: "O'zsuvta'minot" },
+  { src: tw, alt: "Tongwei" },
+  { src: foxEss, alt: "FoxESS" },
+  { src: huawei, alt: "Huawei" },
+  { src: sungrow, alt: "Sungrow" },
+  { src: tosh, alt: "Toshiba" },
+  { src: solarMan, alt: "SolarMAN" },
+];
 
 const eventIcons: Record<string, LucideIcon> = {
   event1: Sprout,
@@ -161,13 +175,20 @@ export default async function About() {
               <div className={s.sectionHeader}>
                 <h2 className={s.title}>{t("title4")}</h2>
               </div>
-              <div className={s.partners}>
-                <Image src={tw} alt="tw" sizes="230px" />
-                <Image src={foxEss} alt="foxEss" sizes="230px" />
-                <Image src={huawei} alt="huawei" sizes="230px" />
-                <Image src={tosh} alt="tosh" sizes="230px" />
-                <Image src={solarMan} alt="solarMan" sizes="230px" />
-              </div>
+            </div>
+            <div className={s.marquee}>
+              <ul className={s.marqueeTrack} aria-hidden="false">
+                {[...partnerLogos, ...partnerLogos].map((logo, i) => (
+                  <li className={s.marqueeItem} key={i}>
+                    <Image
+                      src={logo.src}
+                      alt={logo.alt}
+                      sizes="260px"
+                      priority={false}
+                    />
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>
