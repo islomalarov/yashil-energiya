@@ -46,6 +46,7 @@ export default async function Ceo() {
         title2={t("hero.title")}
         url2="ceo"
         activeUrl="ceo"
+        titleTag="h1"
       />
       <main className={s.page}>
         {featuredMember && (

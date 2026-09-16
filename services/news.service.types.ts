@@ -26,6 +26,7 @@ export interface NewResponse {
     fileName: string;
     height: number;
     width: number;
+    altText?: string | null;
   };
 }
 export interface NewsResponse {

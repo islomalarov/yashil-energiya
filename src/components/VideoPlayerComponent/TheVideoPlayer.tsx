@@ -12,6 +12,7 @@ type VideoHeroProps = {
   subtitle: string;
   contactLabel: string;
   projectsLabel: string;
+  calculatorLabel: string;
 };
 
 const videoLabel = "Watch video";
@@ -22,6 +23,7 @@ const TheVideoPlayer = ({
   subtitle,
   contactLabel,
   projectsLabel,
+  calculatorLabel,
 }: VideoHeroProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const openVideo = () => setIsOpen(true);
@@ -73,6 +75,12 @@ const TheVideoPlayer = ({
               </Link>
               <Link className={styles.secondaryLink} href="/installation-request">
                 {projectsLabel}
+              </Link>
+              <Link
+                className={styles.secondaryLink}
+                href="/resources/calculator"
+              >
+                {calculatorLabel}
               </Link>
             </div>
           </div>

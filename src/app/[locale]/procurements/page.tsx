@@ -15,7 +15,7 @@ export default function TendersPage() {
 
   return (
     <>
-      <TheHero title1={t("title")} url1="procurements" />
+      <TheHero title1={t("title")} url1="procurements" titleTag="h1" />
       <div className={`${s.container} container`}>
         <TheReveal className={s.intro}>
           <p>{t("intro")}</p>

@@ -29,7 +29,7 @@ export const TheArticlesList = ({
           >
             <Image
               className={s.mediaImage}
-              alt={cover ? cover.fileName : "Article cover image"}
+              alt={cover?.altText || title || "Article cover image"}
               src={cover ? cover.url : "/hero-poster.webp"}
               width={cover?.width || 1280}
               height={cover?.height || 720}

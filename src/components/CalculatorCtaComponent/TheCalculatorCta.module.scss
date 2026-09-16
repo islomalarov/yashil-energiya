@@ -1,0 +1,174 @@
+@use "@/scss/vars" as *;
+
+.section {
+  padding: 48px 0;
+}
+
+.panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: clamp(28px, 4vw, 64px);
+  align-items: center;
+  padding: clamp(28px, 4vw, 60px);
+  border-radius: 28px;
+  color: $whiteColor;
+  background:
+    radial-gradient(
+      circle at 88% 12%,
+      rgba($secondaryColor, 0.55),
+      transparent 58%
+    ),
+    linear-gradient(135deg, #12903e 0%, #0c6f30 58%, #0a5828 100%);
+  box-shadow: 0 34px 68px rgba(12, 111, 48, 0.3);
+}
+
+// Decorative panel-grid texture, kept very subtle.
+.panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba($whiteColor, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba($whiteColor, 0.08) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: radial-gradient(circle at 80% 20%, #000 0%, transparent 70%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba($whiteColor, 0.16);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.55rem, 3vw, 2.35rem);
+  font-weight: 850;
+  line-height: 1.14;
+}
+
+.description {
+  margin: 0;
+  max-width: 48ch;
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+  line-height: 1.55;
+  opacity: 0.92;
+}
+
+.points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.point {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba($whiteColor, 0.12);
+  border: 1px solid rgba($whiteColor, 0.18);
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  svg {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.action {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: stretch;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 58px;
+  padding: 0 30px;
+  border-radius: 14px;
+  background: $whiteColor;
+  color: $primaryColor;
+  font-size: 1.05rem;
+  font-weight: 850;
+  text-decoration: none;
+  box-shadow: 0 18px 34px rgba(6, 48, 22, 0.28);
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    background 0.28s ease,
+    color 0.28s ease;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.28s ease;
+  }
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-4px);
+    background: #f2fff6;
+    color: #0d7f35;
+    box-shadow: 0 24px 44px rgba(6, 48, 22, 0.32);
+  }
+
+  &:hover svg,
+  &:focus-visible svg {
+    transform: translateX(4px);
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba($whiteColor, 0.65);
+    outline-offset: 3px;
+  }
+}
+
+.badge {
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+@media (max-width: 860px) {
+  .panel {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}

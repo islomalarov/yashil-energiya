@@ -1,4 +1,14 @@
 {
+  "CalculatorCta": {
+    "eyebrow": "Online calculator",
+    "title": "Design your solar station in 2 minutes",
+    "description": "See the capacity, cost, savings and payback period — based on your regional tariffs and the “Solar Home” programme.",
+    "point1": "Capacity and panel count",
+    "point2": "Savings and payback period",
+    "point3": "Request from a specialist",
+    "button": "Calculate the cost",
+    "badge": "Free · 2 minutes"
+  },
   "Header": {
     "main": "Home",
     "about": "About us",

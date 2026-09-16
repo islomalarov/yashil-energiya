@@ -4,6 +4,8 @@ export type ImageElem = RichTextNode & {
   type: "image";
   src: string;
   title?: string;
+  // Custom localized asset field (Hygraph snapshots it into the rich-text node).
+  altText?: string | null;
   height: number;
   width: number;
   // handle?: string;

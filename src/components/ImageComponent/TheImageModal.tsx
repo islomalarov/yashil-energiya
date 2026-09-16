@@ -26,10 +26,11 @@ export default function TheImageModal({
   gallery = [elem],
   initialIndex = 0,
 }: Props) {
-  const { src, title, height, width } = elem;
+  const { src, title, altText, height, width } = elem;
+  const imageAlt = altText ?? title ?? "";
   const [isOpen, setIsOpen] = useState(false);
   const slides = gallery.map((image) => ({
-    alt: image.title ?? "",
+    alt: image.altText ?? image.title ?? "",
     height: image.height,
     src: image.src,
     width: image.width,
@@ -45,7 +46,7 @@ export default function TheImageModal({
       <div className={styles.imgBlock} style={style}>
         <Image
           src={src}
-          alt={title ?? ""}
+          alt={imageAlt}
           width={width}
           height={height}
           onClick={() => setIsOpen(true)}

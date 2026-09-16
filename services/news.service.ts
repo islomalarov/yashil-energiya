@@ -30,6 +30,7 @@ export const NewsService = {
             fileName
             height
             width
+            altText
           }
         }
         newsConnection(locales: [$locale]) {
@@ -73,6 +74,7 @@ export const NewsService = {
             fileName
             height
             width
+            altText
           }
         }
       }
@@ -105,6 +107,7 @@ export const NewsService = {
             fileName
             height
             width
+            altText
           }
         }
       }
@@ -134,6 +137,7 @@ export const NewsService = {
             fileName
             height
             width
+            altText
           }
         }
       }

@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 
 export const TheSlider = async () => {
   const t = await getTranslations("HomePage");
+  const tHeader = await getTranslations("Header");
 
   return (
     <section className={styles.hero}>
@@ -14,6 +15,7 @@ export const TheSlider = async () => {
           subtitle={t("heroSubtitle")}
           contactLabel={t("ctaContact")}
           projectsLabel={t("ctaProjects")}
+          calculatorLabel={tHeader("calculator")}
         />
       </div>
     </section>

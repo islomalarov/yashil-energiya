@@ -219,7 +219,7 @@ export default function TenderPage() {
 
   return (
     <>
-      <TheHero title1={t("title")} url1="procurements" />
+      <TheHero title1={t("title")} url1="procurements" titleTag="h1" />
       <div className="container">
         <ProcurementBreadcrumbs current={currentName || t("noticeTitle")} />
         <div className={s.content}>
