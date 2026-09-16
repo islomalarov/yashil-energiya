@@ -45,7 +45,7 @@ export default async function DocumentsPage() {
 
   return (
     <>
-      <TheHero title1={t("title")} url1="documents" />
+      <TheHero title1={t("title")} url1="documents" titleTag="h1" />
       <div className="container">
         <div className={styles.content}>
           <DocumentSection title="direction1" docs={pvDocuments} t={t} />

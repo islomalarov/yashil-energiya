@@ -13,14 +13,26 @@ type HeroProps = {
   title2?: string;
   url2?: string;
   activeUrl?: string;
+  // Heading level for the hero title. Defaults to "h3" (visual style is
+  // class-based, so the level is purely semantic). Pass "h1" on pages where
+  // the hero title is the page's main heading and no other h1 exists.
+  titleTag?: "h1" | "h2" | "h3";
 };
 
-export const TheHero = ({ title1, title2, url1, url2, activeUrl }: HeroProps) => {
+export const TheHero = ({
+  title1,
+  title2,
+  url1,
+  url2,
+  activeUrl,
+  titleTag = "h3",
+}: HeroProps) => {
   const t = useTranslations("HomePage");
   const primarySlug = url1.toLowerCase();
   const secondarySlug = url2?.toLowerCase();
   const currentSlug = (activeUrl ?? primarySlug).toLowerCase();
   const heroImage = primarySlug === "microges" ? ges : hero;
+  const TitleTag = titleTag;
 
   return (
     <div className={styles.hero}>
@@ -36,9 +48,9 @@ export const TheHero = ({ title1, title2, url1, url2, activeUrl }: HeroProps) =>
         />
         <div className="container">
           <div className={styles.info}>
-            <h3 className={styles.title}>
+            <TitleTag className={styles.title}>
               {currentSlug === secondarySlug && title2 ? title2 : title1}
-            </h3>
+            </TitleTag>
             <div className={styles.links}>
               <Link className={styles.link} href="/">
                 {t("title")}

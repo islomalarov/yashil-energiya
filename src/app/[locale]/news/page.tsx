@@ -70,7 +70,7 @@ export default async function News({ searchParams }: NewsPageProps) {
           url: absoluteUrl(localizedPath(locale, `/news/${item.slug}`)),
         }))}
       />
-      <TheHero title1={t("heroTitle")} url1="news" />
+      <TheHero title1={t("heroTitle")} url1="news" titleTag="h1" />
       <div className="container">
         <TheNewsList news={news} linkLabel={t("link")} locale={locale} />
         <ThePaginationControls

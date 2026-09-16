@@ -115,15 +115,25 @@ const nextConfig = {
         headers: staticHtmlCacheHeaders,
       },
       {
-        source: "/:lang(en|ru|uz)/about",
+        source:
+          "/:lang(en|ru|uz)/:section(about|ceo|contacts|solarpanels|microges|chargingstation|installation-request|plants|branches|documents|news|articles|procurements|vacancies)",
         headers: staticHtmlCacheHeaders,
       },
       {
-        source: "/:lang(en|ru|uz)/ceo",
+        source: "/:lang(en|ru|uz)/resources/calculator",
         headers: staticHtmlCacheHeaders,
       },
       {
-        source: "/:lang(en|ru|uz)/contacts",
+        source: "/:lang(en|ru|uz)/chargingstation/public-offer",
+        headers: staticHtmlCacheHeaders,
+      },
+      {
+        source: "/:lang(en|ru|uz)/procurements/:sub(procurement1|procurement2)",
+        headers: staticHtmlCacheHeaders,
+      },
+      {
+        source:
+          "/:lang(en|ru|uz)/:section(news|articles|plants|vacancies)/:slug*",
         headers: staticHtmlCacheHeaders,
       },
       {

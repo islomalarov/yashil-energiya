@@ -55,17 +55,17 @@ export const staticSeo: Record<StaticSeoKey, Record<SeoLocale, SeoCopy>> = {
   },
   about: {
     en: {
-      title: "About Yashil Energiya",
+      title: "About the company",
       description:
         "Learn about Yashil Energiya, its mission, renewable energy projects, milestones and contribution to Uzbekistan's green economy.",
     },
     ru: {
-      title: "О компании Yashil Energiya",
+      title: "О компании",
       description:
         "Информация о Yashil Energiya: миссия, проекты возобновляемой энергетики, достижения и вклад в зеленую экономику Узбекистана.",
     },
     uz: {
-      title: "Yashil Energiya kompaniyasi haqida",
+      title: "Kompaniya haqida",
       description:
         "Yashil Energiya missiyasi, qayta tiklanuvchi energiya loyihalari, yutuqlari va O'zbekiston yashil iqtisodiyotiga qo'shayotgan hissasi.",
     },
@@ -171,17 +171,17 @@ export const staticSeo: Record<StaticSeoKey, Record<SeoLocale, SeoCopy>> = {
   },
   solarpanels: {
     en: {
-      title: "Solar Power Plants | Yashil Energiya",
+      title: "Solar Power Plants",
       description:
         "Solar power plants and clean energy infrastructure developed by Yashil Energiya in Uzbekistan.",
     },
     ru: {
-      title: "Солнечные электростанции | Yashil Energiya",
+      title: "Солнечные электростанции",
       description:
         "Солнечные электростанции и инфраструктура чистой энергетики, развиваемая Yashil Energiya в Узбекистане.",
     },
     uz: {
-      title: "Quyosh elektr stansiyalari | Yashil Energiya",
+      title: "Quyosh elektr stansiyalari",
       description:
         "Yashil Energiya tomonidan O‘zbekistonda rivojlantirilayotgan quyosh elektr stansiyalari va toza energetika infratuzilmasi.",
     },
@@ -222,17 +222,17 @@ export const staticSeo: Record<StaticSeoKey, Record<SeoLocale, SeoCopy>> = {
   },
   chargingstationPublicOffer: {
     en: {
-      title: "Public Offer | Charging Stations | Yashil Energiya",
+      title: "Public Offer | Charging Stations",
       description:
         "Public offer for the provision of electric vehicle charging services through the Yashil Energiya charging station network.",
     },
     ru: {
-      title: "Публичная оферта | Charging Stations | Yashil Energiya",
+      title: "Публичная оферта | Charging Stations",
       description:
         "Публичная оферта на оказание услуг по зарядке электрических транспортных средств через сеть зарядных станций Yashil Energiya.",
     },
     uz: {
-      title: "Ommaviy oferta | Charging Stations | Yashil Energiya",
+      title: "Ommaviy oferta | Charging Stations",
       description:
         "Yashil Energiya quvvatlash stansiyalari orqali elektr transport vositalarini quvvatlash xizmatlarini ko‘rsatish bo‘yicha ommaviy oferta.",
     },

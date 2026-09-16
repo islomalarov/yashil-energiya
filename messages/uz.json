@@ -1,4 +1,14 @@
 {
+  "CalculatorCta": {
+    "eyebrow": "Onlayn kalkulyator",
+    "title": "Quyosh stansiyangizni 2 daqiqada hisoblang",
+    "description": "Quvvat, narx, tejamkorlik va qoplanish muddatini bilib oling — hududingiz tariflari va «Quyoshli uy» dasturi asosida.",
+    "point1": "Quvvat va panellar soni",
+    "point2": "Tejamkorlik va qoplanish muddati",
+    "point3": "Mutaxassisdan ariza",
+    "button": "Narxni hisoblash",
+    "badge": "Bepul · 2 daqiqa"
+  },
   "Header": {
     "main": "Bosh sahifa",
     "about": "Biz haqimizda",

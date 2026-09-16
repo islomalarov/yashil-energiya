@@ -104,7 +104,7 @@ export default async function Plants() {
           url: absoluteUrl(localizedPath(locale, `/plants/${item.id}`)),
         }))}
       />
-      <TheHero title1={t("heroTitle")} url1="plants" />
+      <TheHero title1={t("heroTitle")} url1="plants" titleTag="h1" />
       <div className="container">
         <section className={s.summary} aria-label={tSummary("label")}>
           {metrics.map((metric) => (

@@ -25,7 +25,7 @@ export default async function Articles() {
           url: absoluteUrl(localizedPath(locale, `/articles/${item.slug}`)),
         }))}
       />
-      <TheHero title1={t("heroTitle")} url1="articles" />
+      <TheHero title1={t("heroTitle")} url1="articles" titleTag="h1" />
       <div className="container">
         <TheArticlesList articles={articles} linkLabel={t("link")} locale={locale} />
       </div>

@@ -11,7 +11,7 @@ export default async function InstallationRequestPage() {
 
   return (
     <>
-      <TheHero title1={t("title")} url1="installation-request" />
+      <TheHero title1={t("title")} url1="installation-request" titleTag="h1" />
       <section className={s.page}>
         <div className="container">
           <div className={s.lead}>

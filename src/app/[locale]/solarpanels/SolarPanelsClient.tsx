@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import {
   BatteryCharging,
+  Calculator,
   ChevronRight,
   CircleDollarSign,
   Gauge,
@@ -101,6 +102,7 @@ const staggerStyle = (index: number) =>
 export function SolarPanelsClient({ plantStatuses }: SolarPanelsClientProps) {
   const locale = useLocale();
   const t = useTranslations("SolarPanelsPage");
+  const tCalc = useTranslations("CalculatorPage");
   const integerFormatter = new Intl.NumberFormat(locale);
   const decimalFormatter = new Intl.NumberFormat(locale, {
     maximumFractionDigits: 2,
@@ -118,7 +120,7 @@ export function SolarPanelsClient({ plantStatuses }: SolarPanelsClientProps) {
 
   return (
     <>
-      <TheHero title1={t("heroTitle")} url1="solarPanels" />
+      <TheHero title1={t("heroTitle")} url1="solarPanels" titleTag="h1" />
       <div className={s.page}>
         <section className={s.metricsSection} aria-label={t("metrics.label")}>
           <TheMotionWrapper motionKey="solar-metrics">
@@ -300,10 +302,19 @@ export function SolarPanelsClient({ plantStatuses }: SolarPanelsClientProps) {
                 <h2 id="solar-cta-title">{t("cta.title")}</h2>
                 <p>{t("cta.text")}</p>
               </div>
-              <Link className={s.primaryAction} href="/contacts">
-                <span>{t("cta.button")}</span>
-                <ChevronRight aria-hidden="true" />
-              </Link>
+              <div className={s.heroActions}>
+                <Link className={s.primaryAction} href="/contacts">
+                  <span>{t("cta.button")}</span>
+                  <ChevronRight aria-hidden="true" />
+                </Link>
+                <Link
+                  className={s.secondaryAction}
+                  href="/resources/calculator"
+                >
+                  <Calculator aria-hidden="true" />
+                  <span>{tCalc("title")}</span>
+                </Link>
+              </div>
             </div>
           </TheMotionWrapper>
         </section>
