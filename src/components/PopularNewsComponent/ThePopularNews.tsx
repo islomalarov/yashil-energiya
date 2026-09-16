@@ -47,7 +47,7 @@ export function ThePopularNews({ news, labels, locale }: PopularNewsProps) {
             <div className={s.imageWrap}>
               <Image
                 className={s.image}
-                alt={item.cover ? item.cover.fileName : item.title}
+                alt={item.cover?.altText || item.title}
                 src={item.cover ? item.cover.url : "/hero-poster.webp"}
                 width={item.cover?.width || 1280}
                 height={item.cover?.height || 720}

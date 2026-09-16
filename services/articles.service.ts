@@ -12,6 +12,7 @@ export interface Article {
     fileName: string;
     height: number;
     width: number;
+    altText?: string | null;
   };
   slug: string;
   excerpt: string;
@@ -44,6 +45,7 @@ export const ArticlesService = {
             fileName
             height
             width
+            altText
           }
           slug
           excerpt
@@ -75,6 +77,7 @@ export const ArticlesService = {
             fileName
             height
             width
+            altText
           }
           slug
           excerpt
