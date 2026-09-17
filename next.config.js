@@ -76,8 +76,11 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   images: {
-    formats: ["image/avif", "image/webp"],
-    minimumCacheTTL: 86400,
+    formats: ["image/webp"],
+    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 дней: CMS-картинки почти не меняются, URL при замене новый
+    deviceSizes: [640, 828, 1080, 1920],
+    imageSizes: [128, 256, 384],
+    qualities: [75],
     remotePatterns: [
       {
         protocol: "https",
