@@ -63,7 +63,7 @@ const systemCards = [
     key: "system1",
     icon: PlugZap,
     image: {
-      src: "/solarPanelsPage/on-grid1.png",
+      src: "/solarPanelsPage/on-grid1.webp",
       width: 1600,
       height: 900,
     },
@@ -72,7 +72,7 @@ const systemCards = [
     key: "system2",
     icon: BatteryCharging,
     image: {
-      src: "/solarPanelsPage/off-grid.png",
+      src: "/solarPanelsPage/off-grid.webp",
       width: 1600,
       height: 900,
     },
@@ -81,7 +81,7 @@ const systemCards = [
     key: "system3",
     icon: Zap,
     image: {
-      src: "/solarPanelsPage/hybrid.png",
+      src: "/solarPanelsPage/hybrid.webp",
       width: 1600,
       height: 900,
     },
