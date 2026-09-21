@@ -19,7 +19,10 @@ const content = {
     "information": "Hujjat haqida ma’lumot",
     "toc": "Mundarija",
     "archive": "Tahrirlar arxivi",
-    "archiveEntry": "1.0-versiya, 15.05.2024",
+    "archiveEntries": [
+      "1.1-versiya, 29.06.2026",
+      "1.0-versiya, 15.05.2024"
+    ],
     "backToChargingStations": "Charging Stations sahifasiga qaytish"
   },
   "seo": {
@@ -126,7 +129,7 @@ const content = {
       "paragraphs": [
         "8.1. Mijoz quyidagi huquqlarga ega:",
         "8.1.1. Ijrochidan Xizmatlar qiymati va ularni ko‘rsatish tartibi to‘g‘risida Ijrochining saytida va mobil ilovada to‘liq hamda ishonchli ma’lumot olish;",
-        "8.1.2. Ijrochi yoki to‘lov shlyuzlari tomonida rejali texnik ishlar o‘tkazilayotgan davrlar bundan mustasno, shuningdek mazkur Ofertaning 5-bo‘limiga muvofiq xavflarni nazorat qilish va firibgarlik operatsiyalarining oldini olish tizimlari tomonidan qo‘yilgan cheklovlar mavjud bo‘lmagan taqdirda, mazkur Ofertaning 3-bo‘limida nazarda tutilgan usullar bilan mavjud texnik imkoniyatlar doirasida Ijrochi tizimidagi shaxsiy hisobni to‘ldirish.",
+        "8.1.2. Ijrochi yoki to‘lov shlyuzlari tomonida rejali texnik ishlar o‘tkazilayotgan davrlar bundan mustasno, shuningdek mazkur Ofertaning 6-bo‘limiga muvofiq xavflarni nazorat qilish va firibgarlik operatsiyalarining oldini olish tizimlari tomonidan qo‘yilgan cheklovlar mavjud bo‘lmagan taqdirda, mazkur Ofertaning 4-bo‘limida nazarda tutilgan usullar bilan mavjud texnik imkoniyatlar doirasida Ijrochi tizimidagi shaxsiy hisobni to‘ldirish.",
         "8.2. Ijrochi quyidagi huquqlarga ega:",
         "8.2.1. Xizmatlar qiymatini, Balans limitlarini, bekor turib qolish tariflarini o‘zgartirish, shuningdek qo‘shimcha pullik xizmatlarni joriy etish;",
         "8.2.2. Sayt va mobil ilovada amaldagi tahrirni joylashtirish orqali Ofertaga bir tomonlama tartibda o‘zgartirishlar kiritish;",
@@ -168,26 +171,35 @@ const content = {
       ]
     },
     {
-      "id": "penalties",
-      "title": "12. Tomonlarning javobgarligi va jarima sanksiyalari",
+      "id": "emission-reductions",
+      "title": "12. Emissiyalar qisqarishiga bo‘lgan huquqlar",
       "paragraphs": [
-        "12.1. Majburiyatlarni bajarmaganlik yoki lozim darajada bajarmaganlik uchun Tomonlar O‘zbekiston Respublikasi qonunchiligiga muvofiq javobgar bo‘ladilar.",
-        "12.2. Ijrochi Mijoz tomonidan mazkur Ofertaning 7.3.1-bandi (uskunaga beparvo munosabatda bo‘lish), 7.3.2-bandi (ishonchsiz ma’lumot), 7.3.3-bandi (maxfiy ma’lumotlarni oshkor qilish)da nazarda tutilgan buzilishlar sodir etilgan taqdirda, Mijozga nisbatan jarima sanksiyalarini qo‘llashga haqli.",
-        "12.3. Jarima miqdori Ijrochi tomonidan har bir holatda yetkazilgan zararga mutanosib ravishda individual tartibda belgilanadi, bu haqda Mijoz ro‘yxatdan o‘tgan raqamiga SMS orqali yoki ilova orqali bildirishnoma bilan xabardor qilinadi. Jarima to‘liq to‘languniga qadar Xizmatlar ko‘rsatish to‘xtatib turilishi mumkin."
+        "12.1. Mazkur Oferta shartlarini qabul qilish orqali Mijoz Ijrochi tomonidan Zaryadlash stansiyalari orqali Mijozga yetkazib beriladigan elektr energiyasidan foydalanish natijasida yoki u bilan bog‘liq holda yuzaga keladigan emissiyalar qisqarishiga bo‘lgan mulk huquqini Ijrochiga o‘tkazishga rozilik bildiradi.",
+        "12.2. Mijoz Ijrochi tomonidan Zaryadlash stansiyalari orqali Mijozga yetkazib beriladigan elektr energiyasidan foydalanish natijasida yoki u bilan bog‘liq holda yuzaga keladigan emissiyalar qisqarishining e’tirof etilishini yoki ularga nisbatan biror-bir yuridik huquqlarni Ijrochidan ham, har qanday uchinchi shaxslardan ham talab qilish, so‘rash, olish yoki bu haqda ariza bilan murojaat qilish huquqidan voz kechadi.",
+        "12.3. Mijoz Ijrochi tomonidan Zaryadlash stansiyalari orqali Mijozga yetkazib beriladigan elektr energiyasidan foydalanish natijasida yoki u bilan bog‘liq holda yuzaga keladigan har qanday emissiyalar qisqarishiga nisbatan Ijrochi hech qanday yuklamalarsiz to‘liq va mutlaq yuridik hamda huquqiy titulga, shuningdek barcha huquqlarga ega bo‘lishini va ulardan keyinchalik o‘z xohishiga ko‘ra foydalanishi mumkinligini tasdiqlaydi."
+      ]
+    },
+    {
+      "id": "penalties",
+      "title": "13. Tomonlarning javobgarligi va jarima sanksiyalari",
+      "paragraphs": [
+        "13.1. Majburiyatlarni bajarmaganlik yoki lozim darajada bajarmaganlik uchun Tomonlar O‘zbekiston Respublikasi qonunchiligiga muvofiq javobgar bo‘ladilar.",
+        "13.2. Ijrochi Mijoz tomonidan mazkur Ofertaning 8.3.1-bandi (uskunaga beparvo munosabatda bo‘lish), 8.3.2-bandi (ishonchsiz ma’lumot), 8.3.3-bandi (maxfiy ma’lumotlarni oshkor qilish)da nazarda tutilgan buzilishlar sodir etilgan taqdirda, Mijozga nisbatan jarima sanksiyalarini qo‘llashga haqli.",
+        "13.3. Jarima miqdori Ijrochi tomonidan har bir holatda yetkazilgan zararga mutanosib ravishda individual tartibda belgilanadi, bu haqda Mijoz ro‘yxatdan o‘tgan raqamiga SMS orqali yoki ilova orqali bildirishnoma bilan xabardor qilinadi. Jarima to‘liq to‘languniga qadar Xizmatlar ko‘rsatish to‘xtatib turilishi mumkin."
       ]
     },
     {
       "id": "term-amendments",
-      "title": "13. Ofertaning amal qilish muddati va uni o‘zgartirish tartibi",
+      "title": "14. Ofertaning amal qilish muddati va uni o‘zgartirish tartibi",
       "paragraphs": [
-        "13.1. Ofertaga kiritilgan o‘zgartirishlar Ofertaning matni tarkibida mobil ilovada va Ijrochining rasmiy saytida e’lon qilingan paytdan boshlab kuchga kiradi.",
-        "13.2. O‘zgartirishlarga rozi bo‘lmagan taqdirda, Mijoz Xizmatlarni olishni darhol to‘xtatishi va Ijrochiga yozma xabarnoma yuborishi shart. Ilova va zaryadlash stansiyalaridan foydalanishni davom ettirish Mijozning Ofertaning yangi tahririga avtomatik va to‘liq roziligi deb e’tirof etiladi.",
-        "13.3. Mazkur Oferta Mijoz ro‘yxatdan o‘tgan yoki akkauntga kirgan paytdan (konklyudent harakat) boshlab kuchga kiradi."
+        "14.1. Ofertaga kiritilgan o‘zgartirishlar Ofertaning matni tarkibida mobil ilovada va Ijrochining rasmiy saytida e’lon qilingan paytdan boshlab kuchga kiradi.",
+        "14.2. O‘zgartirishlarga rozi bo‘lmagan taqdirda, Mijoz Xizmatlarni olishni darhol to‘xtatishi va Ijrochiga yozma xabarnoma yuborishi shart. Ilova va zaryadlash stansiyalaridan foydalanishni davom ettirish Mijozning Ofertaning yangi tahririga avtomatik va to‘liq roziligi deb e’tirof etiladi.",
+        "14.3. Mazkur Oferta Mijoz ro‘yxatdan o‘tgan yoki akkauntga kirgan paytdan (konklyudent harakat) boshlab kuchga kiradi."
       ]
     },
     {
       "id": "legal-details",
-      "title": "14. Tomonlarning yuridik manzillari va rekvizitlari",
+      "title": "15. Tomonlarning yuridik manzillari va rekvizitlari",
       "paragraphs": [
         "Ijrochi:",
         "\"Yashil Energiya\" MChJ QK",

@@ -146,7 +146,9 @@ export default async function PublicOfferPage({
 
             <section className={s.archive} aria-labelledby="version-archive">
               <h2 id="version-archive">{offer.labels.archive}</h2>
-              <p>{offer.labels.archiveEntry}</p>
+              {offer.labels.archiveEntries.map((entry) => (
+                <p key={entry}>{entry}</p>
+              ))}
             </section>
 
             <Link className={s.backLink} href="/chargingstation">
