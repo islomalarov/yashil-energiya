@@ -16,7 +16,7 @@ import type { Manager } from "services/managers.service";
 import s from "./page.module.scss";
 
 // Set to false to render Hygraph/local leadership photos again.
-const useLeadershipPhotoPlaceholders = true;
+const useLeadershipPhotoPlaceholders = false;
 
 export default async function Ceo() {
   const locale = await getLocale();
