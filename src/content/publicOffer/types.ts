@@ -28,7 +28,7 @@ export type PublicOfferContent = {
     information: string;
     toc: string;
     archive: string;
-    archiveEntry: string;
+    archiveEntries: string[];
     backToChargingStations: string;
   };
   seo: {
