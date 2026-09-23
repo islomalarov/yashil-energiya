@@ -10,7 +10,7 @@
 
 | Слой | Технология / версия | Примечание |
 |---|---|---|
-| Runtime | Node.js **20.x** (`engines`, `.nvmrc`), пакетный менеджер — **npm** (`package-lock.json`) | не использовать yarn/pnpm/bun |
+| Runtime | Node.js **24.x** (`engines`, `.nvmrc`), пакетный менеджер — **npm** (`package-lock.json`) | не использовать yarn/pnpm/bun |
 | Фреймворк | **Next.js ^16** (App Router), **React 19**, **TypeScript ^6** | dev запускается с `NEXT_TURBOPACK=0` — не включать Turbopack самовольно |
 | Стили | **SCSS-модули** (`sass`) + `classnames` | не добавлять Tailwind, styled-components, CSS-in-JS |
 | i18n | **next-intl ^4**, локали `en / ru / uz` в `src/i18n/routing.ts`, словари в `messages/` | вся маршрутизация локализована |
