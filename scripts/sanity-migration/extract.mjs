@@ -30,7 +30,19 @@ async function main() {
     const locales = model.localized ? HYGRAPH_LOCALES : [null];
 
     for (const locale of locales) {
-      const records = await fetchAll(model.field, model.selection, { locale });
+      // Requested locale first, the others as asset fallback (see fetchAll).
+      const chain = locale
+        ? [locale, ...HYGRAPH_LOCALES.filter((l) => l !== locale)]
+        : undefined;
+      const records = await fetchAll(model.field, model.selection, {
+        locales: chain,
+      });
+      const foreign = records.filter((r) => locale && r.locale !== locale);
+      if (foreign.length) {
+        throw new Error(
+          `${model.key}.${locale}: ${foreign.length} entries resolved to another locale`,
+        );
+      }
       const suffix = locale ?? "all";
       await writeJson(`${model.key}.${suffix}.json`, records);
       manifest.counts[`${model.key}.${suffix}`] = records.length;

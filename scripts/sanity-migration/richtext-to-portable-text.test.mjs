@@ -124,10 +124,25 @@ describe("links", () => {
 });
 
 describe("headings and quotes", () => {
-  it("shifts heading levels down by one, never above h2", () => {
+  it("shifts heading levels down by one, clamped to h2..h4", () => {
     assert.equal(headingStyle("heading-one"), "h2");
     assert.equal(headingStyle("heading-three"), "h2");
     assert.equal(headingStyle("heading-four"), "h3");
+    assert.equal(headingStyle("heading-six"), "h4");
+  });
+
+  it("drops marks the schema does not support and reports them", () => {
+    const { blocks, issues } = convert([
+      { type: "paragraph", children: [{ text: "H2O", subscript: true, code: true }] },
+    ]);
+    assert.deepEqual(blocks[0].children[0].marks, []);
+    assert.deepEqual(
+      issues.map((i) => [i.type, i.mark]),
+      [
+        ["unsupported-mark-dropped", "subscript"],
+        ["unsupported-mark-dropped", "code"],
+      ],
+    );
   });
 
   it("converts heading-four, which the current renderer hides", () => {

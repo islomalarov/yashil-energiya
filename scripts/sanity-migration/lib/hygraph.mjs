@@ -66,9 +66,15 @@ export async function hygraphQuery(query, variables) {
 const PAGE_SIZE = 100;
 
 // Pages through a plural query field until a short page is returned.
-export async function fetchAll(field, selection, { locale } = {}) {
-  const localeArgs = locale ? ", locales: [$locale]" : "";
-  const localeVar = locale ? ", $locale: Locale!" : "";
+//
+// `locales` is a fallback chain. Hygraph assets are localized entries too: an
+// asset without a translation in the requested locale comes back as null
+// (production ru pages lose plant photos and a news cover this way). Passing
+// e.g. [ru, en] resolves such assets from en, while entries that exist in ru
+// keep their ru fields.
+export async function fetchAll(field, selection, { locales } = {}) {
+  const localeArgs = locales ? ", locales: $locales" : "";
+  const localeVar = locales ? ", $locales: [Locale!]!" : "";
   const query = `
     query Page($first: Int!, $skip: Int!${localeVar}) {
       items: ${field}(first: $first, skip: $skip, stage: PUBLISHED${localeArgs}) {
@@ -79,7 +85,7 @@ export async function fetchAll(field, selection, { locale } = {}) {
 
   const records = [];
   for (let skip = 0; ; skip += PAGE_SIZE) {
-    const data = await hygraphQuery(query, { first: PAGE_SIZE, skip, locale });
+    const data = await hygraphQuery(query, { first: PAGE_SIZE, skip, locales });
     records.push(...data.items);
     if (data.items.length < PAGE_SIZE) return records;
   }

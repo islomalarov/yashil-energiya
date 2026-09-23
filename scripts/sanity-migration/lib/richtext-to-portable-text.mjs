@@ -10,23 +10,23 @@
 import { createHash } from "node:crypto";
 import { originalAssetUrl, sanityAssetDirective } from "./assets.mjs";
 
-// Hygraph leaf flag -> Portable Text decorator.
+// Hygraph leaf flag -> Portable Text decorator. Must match the decorators in
+// studio/schemaTypes/objects/richText.ts; any other flag is dropped + reported.
 export const DECORATORS = {
   bold: "strong",
   italic: "em",
   underline: "underline",
   superscript: "sup",
-  subscript: "sub",
-  code: "code",
 };
 
-export const BLOCK_STYLES = ["normal", "h2", "h3", "h4", "h5", "blockquote"];
+// Must match the block styles in studio/schemaTypes/objects/richText.ts.
+export const BLOCK_STYLES = ["normal", "h2", "h3", "h4", "blockquote"];
 export const LIST_TYPES = { "bulleted-list": "bullet", "numbered-list": "number" };
 export const CUSTOM_BLOCK_TYPES = ["imageBlock", "table"];
 
 // The page title is the only <h1>; the current renderer already outputs a
 // CMS `heading-three` as <h2>. Keep that shift for every level so hierarchy is
-// preserved: heading-N -> h(N-1), never above h2.
+// preserved: heading-N -> h(N-1), clamped to the schema's h2..h4.
 const HEADING_LEVELS = {
   "heading-one": 1,
   "heading-two": 2,
@@ -37,7 +37,7 @@ const HEADING_LEVELS = {
 };
 
 export function headingStyle(type) {
-  return `h${Math.max(2, HEADING_LEVELS[type] - 1)}`;
+  return `h${Math.min(4, Math.max(2, HEADING_LEVELS[type] - 1))}`;
 }
 
 export function createKeyFactory(seed) {
