@@ -14,9 +14,11 @@ import {
   breadcrumbJsonLd,
   buildDescription,
   buildTitle,
+  cmsAlternateLocales,
   createMetadata,
   optimizedOgImagePath,
 } from "@/lib/seo";
+import { loadWithFallback } from "@/lib/cms-locale";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 import { TheNewsViewTracker } from "@/components/NewsViewTracker/TheNewsViewTracker";
 import { ThePopularNews } from "@/components/PopularNewsComponent/ThePopularNews";
@@ -51,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: buildDescription(
       seo?.metaDescription,
       news.excerpt,
-      news.description?.raw?.children,
+      news.description,
     ),
     image: optimizedOgImagePath(seo?.ogImage?.url ?? news.cover?.url, {
       title: news.title,
@@ -62,15 +64,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     modifiedTime: news.updatedAt,
     noIndex: seo?.noIndex ?? false,
     canonicalOverride: seo?.canonicalUrl ?? undefined,
-    alternateLocales: ["en", "ru"],
+    alternateLocales: cmsAlternateLocales(news.languages),
   });
 }
 
 export default async function NewsPage({ params }: Props) {
   const { locale, slug } = await params;
-  if (locale === "uz") {
-    redirect({ href: `/news/${slug}`, locale: "en" });
-  }
 
   if (!slug) {
     notFound();
@@ -79,9 +78,21 @@ export default async function NewsPage({ params }: Props) {
   const t = await getTranslations("TheLastNews");
 
   const news = await NewsService.getOneNews(slug, locale);
-  const lastNews = await NewsService.getLastNews(locale);
 
-  if (!news) notFound();
+  if (!news) {
+    // uz is translated gradually: until this item has a uz version, send
+    // readers to the English page, as before the Sanity migration.
+    if (locale === "uz") {
+      redirect({ href: `/news/${slug}`, locale: "en" });
+    }
+    notFound();
+  }
+
+  const { data: lastNews } = await loadWithFallback(
+    locale,
+    NewsService.getLastNews,
+    (items) => items.length === 0,
+  );
 
   const popularNews = await getPopularNews(locale, news.id);
 
@@ -120,7 +131,7 @@ export default async function NewsPage({ params }: Props) {
                   {formatPublicationDate(news.date, locale)}
                 </time>
               )}
-              <ThePageContent content={news.description.raw.children} />
+              <ThePageContent content={news.description} />
             </div>
             <div className={s.separator}></div>
             <div className={s.lastNews}>

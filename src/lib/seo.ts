@@ -1,13 +1,27 @@
 import type { Metadata } from "next";
-import { getChildren, getText, getType, type RichTextNode } from "@/types/richtext";
+import { toPlainText, type PortableTextBlock } from "@portabletext/react";
+import type { RichText } from "@/types/richtext";
+import { isSanityImageUrl, sanityImage } from "@/lib/sanity-image";
 
 export const siteUrl = "https://yashil-energiya.uz";
 export const siteName = "Yashil Energiya";
 export const defaultOgImage = "/og-image.jpg";
 export const supportedLocales = ["en", "ru", "uz"] as const;
+// Locales whose CMS pages are exposed to search engines (hreflang, sitemaps).
+// uz translations can already be published in Sanity; add "uz" here — and
+// drop the /uz noindex header in next.config.js — once uz content is ready.
 export const cmsContentLocales = ["en", "ru"] as const;
 
 export type SeoLocale = (typeof supportedLocales)[number];
+
+/**
+ * hreflang locales for one CMS entry: the languages it is published in,
+ * limited to the indexable CMS locales.
+ */
+export function cmsAlternateLocales(languages?: readonly string[] | null) {
+  if (!languages?.length) return cmsContentLocales;
+  return cmsContentLocales.filter((locale) => languages.includes(locale));
+}
 
 export type StaticSeoKey =
   | "home"
@@ -422,16 +436,20 @@ export function optimizedOgImagePath(
 
   try {
     const imageUrl = new URL(image, siteUrl);
+    const isCmsImage = isSanityImageUrl(imageUrl);
 
-    if (
-      imageUrl.hostname !== "us-west-2.graphassets.com" &&
-      imageUrl.hostname !== new URL(siteUrl).hostname
-    ) {
+    if (!isCmsImage && imageUrl.hostname !== new URL(siteUrl).hostname) {
       return image;
     }
 
+    // CMS originals can be several MB; let the Sanity CDN crop them to the
+    // OG size before /api/og-image composes the card.
+    const source = isCmsImage
+      ? sanityImage(imageUrl.toString()).width(1200).height(630).fit("crop").url()
+      : imageUrl.toString();
+
     const params = new URLSearchParams({
-      src: imageUrl.toString(),
+      src: source,
       v: "2",
     });
 
@@ -494,27 +512,20 @@ export function truncateBySentence(text: string, maxLength: number) {
   return truncateSeoText(normalizedText, maxLength);
 }
 
-function nodePlainText(node: RichTextNode): string {
-  const direct = getText(node);
-  if (direct) {
-    return direct;
-  }
-
-  return getChildren(node).map(nodePlainText).join("");
-}
-
-// First non-empty text block from a Hygraph rich-text `raw.children` array.
-export function richTextToPlainText(nodes?: RichTextNode[] | null) {
-  if (!Array.isArray(nodes)) {
+// First non-empty text block of Portable Text (images and tables skipped).
+export function richTextToPlainText(blocks?: RichText | null) {
+  if (!Array.isArray(blocks)) {
     return "";
   }
 
-  for (const node of nodes) {
-    if (getType(node) === "image") {
+  for (const block of blocks) {
+    if (block._type !== "block") {
       continue;
     }
 
-    const text = nodePlainText(node).replace(/\s+/g, " ").trim();
+    const text = toPlainText([block as PortableTextBlock])
+      .replace(/\s+/g, " ")
+      .trim();
     if (text) {
       return text;
     }
@@ -533,7 +544,7 @@ export function buildTitle(metaTitle?: string | null, title = "") {
 export function buildDescription(
   metaDescription?: string | null,
   excerpt?: string | null,
-  body?: RichTextNode[] | null,
+  body?: RichText | null,
 ) {
   const fromCms = metaDescription?.trim();
   if (fromCms) {

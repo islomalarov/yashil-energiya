@@ -9,13 +9,12 @@ import {
   leadershipTeam,
   resolveLeadershipMembers,
 } from "@/content/leadership";
-import { isUnsupportedCmsLocale } from "@/lib/cms-locale";
 import { getLocale, getTranslations } from "next-intl/server";
 import { ManagerService } from "services/managers.service";
 import type { Manager } from "services/managers.service";
 import s from "./page.module.scss";
 
-// Set to false to render Hygraph/local leadership photos again.
+// Set to false to render CMS/local leadership photos again.
 const useLeadershipPhotoPlaceholders = false;
 
 export default async function Ceo() {
@@ -23,10 +22,11 @@ export default async function Ceo() {
   const t = await getTranslations("CeoPage");
   const aboutT = await getTranslations("AboutPage");
   const managers = await getManagers(locale);
+  // Without CMS managers in this language (uz until translated), members come
+  // from src/content/leadership with positions from the dictionaries.
   const members = resolveLeadershipMembers(
     managers,
     (key) => t(`positions.${key}`),
-    { preferLocalPositions: isUnsupportedCmsLocale(locale) },
   ).map((member) => ({
     ...member,
     image: useLeadershipPhotoPlaceholders
@@ -120,10 +120,6 @@ export default async function Ceo() {
 }
 
 async function getManagers(locale: string): Promise<Manager[]> {
-  if (isUnsupportedCmsLocale(locale)) {
-    return [];
-  }
-
   try {
     const data = await ManagerService.getAllManagers(locale);
 

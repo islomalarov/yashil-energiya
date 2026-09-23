@@ -46,9 +46,6 @@ export async function generateMetadata({
 
 export default async function Plants() {
   const locale = await getLocale();
-  if (locale === "uz") {
-    redirect({ href: "/plants", locale: "en" });
-  }
 
   const t = await getTranslations("TheLastPlants");
   const tSummary = await getTranslations("PlantsPage.summary");
@@ -58,6 +55,11 @@ export default async function Plants() {
     0,
     locale,
   );
+
+  // uz is translated gradually: until uz plants exist, use the English list.
+  if (locale === "uz" && plants.length === 0) {
+    redirect({ href: "/plants", locale: "en" });
+  }
 
   const summary = summarizePlants(plants);
   const integerFormat = new Intl.NumberFormat(locale, {

@@ -33,10 +33,10 @@ const securityHeaders = [
       default-src 'self';
       script-src 'self' 'unsafe-inline'${isProduction ? "" : " 'unsafe-eval'"} https://challenges.cloudflare.com https://www.googletagmanager.com;
       style-src 'self' 'unsafe-inline';
-      img-src 'self' data: blob: https://us-west-2.graphassets.com https://*.tile.openstreetmap.org https://unpkg.com https://raw.githubusercontent.com https://cdnjs.cloudflare.com https://www.google-analytics.com https://stats.g.doubleclick.net;
+      img-src 'self' data: blob: https://cdn.sanity.io https://*.tile.openstreetmap.org https://unpkg.com https://raw.githubusercontent.com https://cdnjs.cloudflare.com https://www.google-analytics.com https://stats.g.doubleclick.net;
       media-src 'self';
       font-src 'self' data:;
-      connect-src 'self' https://challenges.cloudflare.com https://*.upstash.io https://*.hygraph.com https://*.graphcms.com https://us-west-2.graphassets.com https://vitals.vercel-insights.com https://*.vercel-insights.com https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net;
+      connect-src 'self' https://challenges.cloudflare.com https://*.upstash.io https://vitals.vercel-insights.com https://*.vercel-insights.com https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net;
       frame-src https://challenges.cloudflare.com https://www.google.com https://maps.google.com https://www.youtube-nocookie.com https://www.youtube.com https://yandex.ru https://yandex.com https://*.yandex.ru https://*.yandex.net;
       worker-src 'self' blob:;
       object-src 'none';
@@ -84,8 +84,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "us-west-2.graphassets.com",
+        hostname: "cdn.sanity.io",
         port: "",
+        pathname: "/images/**",
       },
     ],
   },
@@ -101,6 +102,8 @@ const nextConfig = {
         ],
         headers: noIndexHeaders,
       },
+      // uz CMS pages stay out of the index until uz content is published:
+      // remove this together with adding "uz" to cmsContentLocales (src/lib/seo.ts).
       {
         source: "/uz/:path(news|articles|plants|vacancies)/:slug*",
         headers: noIndexFollowHeaders,

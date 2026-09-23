@@ -1,16 +1,12 @@
-import { gql } from "graphql-request";
-import { fetchData } from "lib/graphql-client";
-import { resolveCmsLocale } from "@/lib/cms-locale";
+import { fetchData } from "lib/sanity-client";
+import { CACHE_TAGS } from "lib/cache-tags";
+import { ENTRY_ID, IMAGE, LANGUAGES } from "./fragments";
+import type { CmsImage } from "./news.service.types";
 
 export interface Plant {
   id: string;
   address: string;
-  pictures: {
-    fileName: string;
-    url: string;
-    height: number;
-    width: number;
-  }[];
+  pictures: CmsImage[];
   coal: string;
   date: string;
   gases: string;
@@ -19,6 +15,8 @@ export interface Plant {
   title: string;
   trees: string;
   coords: number[] | null;
+  /** Languages with a published version of this plant. */
+  languages?: string[];
 }
 
 export interface PlantsResponse {
@@ -29,102 +27,52 @@ export interface PlantsResponse {
     };
   };
 }
-interface PlantResponse {
-  plant: Plant;
-}
+
+const tags = [CACHE_TAGS.plant];
+
+const FILTER = `_type == "plant" && language == $locale`;
+
+// Oldest first — the order the Hygraph queries returned (createdAt asc);
+// `_createdAt` is carried over by the migration.
+const ORDER = `order(_createdAt asc, _id asc)`;
+
+const FIELDS = `
+  ${ENTRY_ID},
+  title,
+  address,
+  power,
+  date,
+  production,
+  coal,
+  gases,
+  trees,
+  "coords": select(defined(coords) => [coords.lat, coords.lng], null),
+  "pictures": coalesce(pictures[]${IMAGE}, []),
+  ${LANGUAGES}
+`;
 
 export const PlantService = {
-  getAllPlants: async (first?: number, skip?: number, locale?: string) => {
-    const query = gql`
-      query GetPlants($first: Int, $skip: Int, $locale: Locale!) {
-        plants(first: $first, skip: $skip, locales: [$locale]) {
-          id
-          address
-          coal
-          date
-          gases
-          power
-          production
-          title
-          trees
-          coords
-          pictures {
-            fileName
-            url
-            height
-            width
-          }
-        }
-        plantsConnection(locales: [$locale]) {
-          aggregate {
-            count
-          }
-        }
-      }
-    `;
-    return fetchData<PlantsResponse>(query, {
-      first,
-      skip,
-      locale: resolveCmsLocale(locale),
-    });
+  getAllPlants: async (first?: number, skip = 0, locale = "en") => {
+    const paginated = first !== undefined;
+    const query = `{
+      "plants": *[${FILTER}] | ${ORDER} ${paginated ? "[$start...$end]" : ""} { ${FIELDS} },
+      "plantsConnection": { "aggregate": { "count": count(*[${FILTER}]) } }
+    }`;
+
+    return fetchData<PlantsResponse>(
+      query,
+      paginated ? { locale, start: skip, end: skip + first } : { locale },
+      { tags },
+    );
   },
 
   getPlantById: async (id: string, locale: string) => {
-    const query = gql`
-      query GetPlantById($id: ID!, $locale: Locale!) {
-        plant(where: { id: $id }, locales: [$locale]) {
-          id
-          address
-          coal
-          date
-          gases
-          power
-          production
-          title
-          trees
-          coords
-          pictures {
-            fileName
-            url
-            height
-            width
-          }
-        }
-      }
-    `;
-    const response = await fetchData<PlantResponse>(query, {
-      id,
-      locale: resolveCmsLocale(locale),
-    });
-    return response.plant;
+    const query = `*[${FILTER} && entryId == $id][0]{ ${FIELDS} }`;
+    return fetchData<Plant | null>(query, { id, locale }, { tags });
   },
 
   getLastPlants: async (locale: string) => {
-    const query = gql`
-      query GetLastPlants($locale: Locale!) {
-        plants(first: 4, locales: [$locale]) {
-          id
-          title
-          address
-          date
-          coal
-          gases
-          power
-          production
-          trees
-          coords
-          pictures {
-            fileName
-            url
-            height
-            width
-          }
-        }
-      }
-    `;
-    const response = await fetchData<PlantsResponse>(query, {
-      locale: resolveCmsLocale(locale),
-    });
-    return response.plants;
+    const query = `*[${FILTER}] | ${ORDER} [0...4]{ ${FIELDS} }`;
+    return fetchData<Plant[]>(query, { locale }, { tags });
   },
 };

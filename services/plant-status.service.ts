@@ -1,5 +1,4 @@
-import { gql } from "graphql-request";
-import { fetchData } from "lib/graphql-client";
+import { fetchData } from "lib/sanity-client";
 
 export type PlantStatus = {
   id: string;
@@ -84,25 +83,23 @@ const sortPlantStatuses = (a: PlantStatus, b: PlantStatus) =>
 
 export const PlantStatusService = {
   getPlantStatuses: async () => {
-    const query = gql`
-      query PlantStatuses {
-        plantStatuses(first: 100, stage: PUBLISHED) {
-          id
-          regionName
-          # The region key lives in the "region" field on PlantStatus; alias it
-          # to "name" so the downstream normalize/sort/label logic is unchanged.
-          name: region
-          coords
-          plants
-          power
-        }
+    // The region key lives in `region`; alias it to `name` so the downstream
+    // normalize/sort/label logic is unchanged. Uncached: see operational-assets.
+    const query = `{
+      "plantStatuses": *[_type == "plantStatus"][0...100]{
+        "id": _id,
+        regionName,
+        "name": region,
+        "coords": [coords.lat, coords.lng],
+        plants,
+        power
       }
-    `;
+    }`;
 
     try {
       const response = await fetchData<PlantStatusesResponse>(
         query,
-        undefined,
+        {},
         { revalidate: false },
       );
       const records = response.plantStatuses ?? [];

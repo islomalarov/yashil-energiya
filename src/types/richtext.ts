@@ -1,53 +1,46 @@
-export type RichTextNode = Record<string, unknown>;
+import type { PortableTextBlock } from "@portabletext/react";
 
-export type ImageElem = RichTextNode & {
-  type: "image";
+// Rich text is Portable Text (see studio/schemaTypes/objects/richText.ts).
+// GROQ projections in services/fragments.ts resolve image assets inline.
+
+export type ImageElem = {
+  _type?: "imageBlock";
+  _key?: string;
   src: string;
-  title?: string;
-  // Custom localized asset field (Hygraph snapshots it into the rich-text node).
-  altText?: string | null;
-  height: number;
   width: number;
-  // handle?: string;
-  // mimeType?: string;
-  // children?: RichTextNode[];
+  height: number;
+  altText?: string | null;
+  title?: string;
 };
 
-export function isRecord(v: unknown): v is Record<string, unknown> {
-  return typeof v === "object" && v !== null;
-}
+export type RichTextTableCell = {
+  _key: string;
+  content?: PortableTextBlock[];
+};
 
-export function getChildren(v: unknown): RichTextNode[] {
-  if (!isRecord(v)) return [];
-  const c = v["children"];
-  return Array.isArray(c) ? (c.filter(isRecord) as RichTextNode[]) : [];
-}
+export type RichTextTableRow = {
+  _key: string;
+  isHeader?: boolean;
+  cells?: RichTextTableCell[];
+};
 
-export function getText(v: unknown): string | null {
-  if (!isRecord(v)) return null;
-  const t = v["text"];
-  return typeof t === "string" ? t : null;
-}
+export type RichTextTable = {
+  _type: "table";
+  _key: string;
+  rows?: RichTextTableRow[];
+};
 
-export function getType(v: unknown): string | null {
-  if (!isRecord(v)) return null;
-  const t = v["type"];
-  return typeof t === "string" ? t : null;
-}
+export type RichTextImage = ImageElem & { _type: "imageBlock"; _key: string };
 
-export function isImageElem(v: unknown): v is ImageElem {
-  if (!isRecord(v)) return false;
-  if (v["type"] !== "image") return false;
+export type RichText = Array<PortableTextBlock | RichTextImage | RichTextTable>;
 
-  const title = v["title"];
-  const titleOk = title === undefined || typeof title === "string";
-
+export function isImageElem(value: unknown): value is RichTextImage {
+  if (typeof value !== "object" || value === null) return false;
+  const node = value as Record<string, unknown>;
   return (
-    typeof v["src"] === "string" &&
-    titleOk &&
-    typeof v["width"] === "number" &&
-    typeof v["height"] === "number"
+    node._type === "imageBlock" &&
+    typeof node.src === "string" &&
+    typeof node.width === "number" &&
+    typeof node.height === "number"
   );
 }
-
-

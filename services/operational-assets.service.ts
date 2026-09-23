@@ -1,5 +1,4 @@
-import { gql } from "graphql-request";
-import { fetchData } from "lib/graphql-client";
+import { fetchData } from "lib/sanity-client";
 
 export type OperationalAsset = {
   id: string;
@@ -102,7 +101,7 @@ const fetchOperationalAssets = async <TQueryKey extends "evCharges" | "mhps">(
   try {
     const response = await fetchData<OperationalAssetsResponse<TQueryKey>>(
       query,
-      undefined,
+      {},
       { revalidate: false },
     );
     const records = response[queryKey] ?? [];
@@ -122,46 +121,34 @@ const fetchOperationalAssets = async <TQueryKey extends "evCharges" | "mhps">(
   }
 };
 
-export const EvChargeService = {
-  getEvCharges: async () => {
-    const query = gql`
-      query EvCharges {
-        evCharges(first: 100, stage: PUBLISHED) {
-          id
-          regionName
-          region
-          name
-          coords
-          condition
-          capacity
-        }
-      }
-    `;
+// Status pages must show changes immediately, so these queries are uncached
+// (`revalidate: false`): tag-based revalidation proved unreliable on Next 16.
+const assetsQuery = (type: "evCharge" | "mhp", key: string) => `{
+  "${key}": *[_type == "${type}"][0...100]{
+    "id": _id,
+    regionName,
+    region,
+    name,
+    "coords": [coords.lat, coords.lng],
+    condition,
+    capacity
+  }
+}`;
 
-    return fetchOperationalAssets(
-      query,
+export const EvChargeService = {
+  getEvCharges: async () =>
+    fetchOperationalAssets(
+      assetsQuery("evCharge", "evCharges"),
       "evCharges",
       "EvChargeService.getEvCharges",
-    );
-  },
+    ),
 };
 
 export const MhpService = {
-  getMhps: async () => {
-    const query = gql`
-      query Mhps {
-        mhps(first: 100, stage: PUBLISHED) {
-          id
-          regionName
-          region
-          name
-          coords
-          condition
-          capacity
-        }
-      }
-    `;
-
-    return fetchOperationalAssets(query, "mhps", "MhpService.getMhps");
-  },
+  getMhps: async () =>
+    fetchOperationalAssets(
+      assetsQuery("mhp", "mhps"),
+      "mhps",
+      "MhpService.getMhps",
+    ),
 };

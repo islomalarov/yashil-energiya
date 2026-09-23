@@ -2,24 +2,26 @@ import "server-only";
 import { Redis } from "@upstash/redis";
 import { ArticlesService } from "services/articles.service";
 import { NewsService } from "services/news.service";
-import { resolveCmsLocale } from "@/lib/cms-locale";
-import { getChildren, getText, isRecord } from "@/types/richtext";
+import { toPlainText, type PortableTextBlock } from "@portabletext/react";
+import { loadWithFallback } from "@/lib/cms-locale";
+import type { RichText, RichTextTable } from "@/types/richtext";
 import { COMPANY_CONTACTS, SITE_PAGES } from "@/lib/assistant/site-map";
 
 /**
  * Knowledge-base layer for the virtual assistant.
  *
  * Aggregates the site's content (static navigation + CMS articles/news from
- * Hygraph) into a single compact text digest that is stuffed into the model's
+ * Sanity) into a single compact text digest that is stuffed into the model's
  * system prompt. For a site this size a vector store is unnecessary; the digest
  * fits comfortably in Gemini's context window.
  *
- * The digest is cached in Upstash Redis (keyed by CMS locale) so we don't hit
- * Hygraph on every chat message. Note: Hygraph has no `uz` locale, so uz users
- * get the `en` digest as source material — the model still answers in uz.
+ * The digest is cached in Upstash Redis (keyed by UI locale) so we don't hit
+ * the CMS on every chat message. uz content is translated gradually: while a
+ * section has no uz documents, uz users get the `en` material — the model
+ * still answers in uz.
  */
 
-const KB_CACHE_PREFIX = "assistant:kb:v4";
+const KB_CACHE_PREFIX = "assistant:kb:v5";
 const KB_CACHE_TTL_SECONDS = 3600;
 
 // Prompt-size budget. Enough per item for the assistant to give informative
@@ -33,21 +35,21 @@ const ARTICLES_LIMIT = 12;
 
 const redis = Redis.fromEnv();
 
-/** Flatten a Hygraph RichText `raw` tree into collapsed plain text. */
-export function richTextToPlainText(raw: unknown): string {
+/** Flatten Portable Text (including table cells) into collapsed plain text. */
+export function richTextToPlainText(blocks: RichText | null | undefined): string {
+  if (!Array.isArray(blocks)) return "";
+
   const parts: string[] = [];
-
-  const walk = (node: unknown) => {
-    const text = getText(node);
-    if (text) parts.push(text);
-    for (const child of getChildren(node)) walk(child);
-  };
-
-  // `raw` may be the root object `{ children: [...] }` or already an array.
-  if (Array.isArray(raw)) {
-    for (const node of raw) walk(node);
-  } else if (isRecord(raw)) {
-    walk(raw);
+  for (const block of blocks) {
+    if (block._type === "block") {
+      parts.push(toPlainText([block as PortableTextBlock]));
+    } else if (block._type === "table") {
+      for (const row of (block as RichTextTable).rows ?? []) {
+        for (const cell of row.cells ?? []) {
+          parts.push(toPlainText(cell.content ?? []));
+        }
+      }
+    }
   }
 
   return parts.join(" ").replace(/\s+/g, " ").trim();
@@ -72,19 +74,20 @@ function buildNavigationSection(locale: string): string {
   return `## Site pages\n${lines.join("\n")}`;
 }
 
-async function buildArticlesSection(
-  locale: string,
-  cmsLocale: string,
-): Promise<string> {
+async function buildArticlesSection(locale: string): Promise<string> {
   try {
-    const articles = await ArticlesService.getAllArticles(cmsLocale);
+    const { data: articles } = await loadWithFallback(
+      locale,
+      ArticlesService.getAllArticles,
+      (items) => items.length === 0,
+    );
     if (!articles?.length) return "";
 
     const lines = articles.slice(0, ARTICLES_LIMIT).map((article) => {
       const url = localizedUrl(locale, `/articles/${article.slug}`);
       // Prefer the full body (truncated) over the short excerpt so the assistant
       // has real content to summarise from, not a one-line teaser.
-      const fullText = richTextToPlainText(article.content?.raw?.children);
+      const fullText = richTextToPlainText(article.content);
       const body = fullText || article.excerpt?.trim() || "";
       return `- ${article.title} (${url}): ${truncate(body)}`;
     });
@@ -96,19 +99,20 @@ async function buildArticlesSection(
   }
 }
 
-async function buildNewsSection(
-  locale: string,
-  cmsLocale: string,
-): Promise<string> {
+async function buildNewsSection(locale: string): Promise<string> {
   try {
-    const data = await NewsService.getAllNews(NEWS_LIMIT, 0, cmsLocale);
+    const { data } = await loadWithFallback(
+      locale,
+      (contentLocale) => NewsService.getAllNews(NEWS_LIMIT, 0, contentLocale),
+      (result) => result.news.length === 0,
+    );
     const news = data?.news ?? [];
     if (!news.length) return "";
 
     const lines = news.map((item) => {
       const url = localizedUrl(locale, `/news/${item.slug}`);
       const date = item.date ? ` [${item.date}]` : "";
-      const fullText = richTextToPlainText(item.description?.raw?.children);
+      const fullText = richTextToPlainText(item.description);
       const body = fullText || item.excerpt?.trim() || "";
       return `- ${item.title}${date} (${url}): ${truncate(body)}`;
     });
@@ -123,10 +127,9 @@ async function buildNewsSection(
 /**
  * Build (or read from cache) the knowledge digest for a given user locale.
  * `locale` is the user's UI locale (en | ru | uz) and is used for links;
- * CMS content is fetched in the resolved Hygraph locale.
+ * CMS content falls back to English where the locale has none yet.
  */
 export async function buildKnowledgeBase(locale: string): Promise<string> {
-  const cmsLocale = resolveCmsLocale(locale);
   const cacheKey = `${KB_CACHE_PREFIX}:${locale}`;
 
   try {
@@ -138,8 +141,8 @@ export async function buildKnowledgeBase(locale: string): Promise<string> {
 
   const [navigation, articles, news] = await Promise.all([
     Promise.resolve(buildNavigationSection(locale)),
-    buildArticlesSection(locale, cmsLocale),
-    buildNewsSection(locale, cmsLocale),
+    buildArticlesSection(locale),
+    buildNewsSection(locale),
   ]);
 
   const contacts = `## Company contacts\n${COMPANY_CONTACTS}`;

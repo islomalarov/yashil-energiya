@@ -1,107 +1,60 @@
-import { fetchData } from "lib/graphql-client";
-import { gql } from "graphql-request";
-import type { RichTextNode } from "@/types/richtext";
-import type { SeoFields } from "./news.service.types";
-import { resolveCmsLocale } from "@/lib/cms-locale";
+import { fetchData } from "lib/sanity-client";
+import { CACHE_TAGS } from "lib/cache-tags";
+import type { RichText } from "@/types/richtext";
+import { ENTRY_ID, IMAGE, LANGUAGES, SEO, richText } from "./fragments";
+import type { CmsImage, SeoFields } from "./news.service.types";
 
 export interface Article {
   id: string;
   title: string;
-  cover: {
-    url: string;
-    fileName: string;
-    height: number;
-    width: number;
-    altText?: string | null;
-  };
+  cover: CmsImage;
   slug: string;
   excerpt: string;
   createdAt?: string;
   updatedAt?: string;
   seo?: SeoFields | null;
-  content: {
-    raw: {
-      children: RichTextNode[];
-    };
-  };
+  content: RichText;
+  /** Languages with a published version of this article. */
+  languages?: string[];
 }
 
 export interface ArticlesResponse {
   articles: Article[];
 }
-interface ArticleResponse {
-  article: Article;
-}
+
+const tags = [CACHE_TAGS.article];
+
+const FILTER = `_type == "article" && language == $locale`;
+
+const FIELDS = `
+  ${ENTRY_ID},
+  title,
+  "slug": slug.current,
+  excerpt,
+  "cover": cover${IMAGE},
+  "createdAt": publishedAt,
+  "updatedAt": _updatedAt,
+  ${richText("content")},
+  ${LANGUAGES}
+`;
 
 export const ArticlesService = {
   getAllArticles: async (locale: string) => {
-    const query = gql`
-      query GetArticles($locale: Locale!) {
-        articles(locales: [$locale]) {
-          id
-          title
-          cover {
-            url
-            fileName
-            height
-            width
-            altText
-          }
-          slug
-          excerpt
-          createdAt
-          updatedAt
-          seo {
-            noIndex
-          }
-          content {
-            raw
-          }
-        }
-      }
-    `;
-    const response = await fetchData<ArticlesResponse>(query, {
-      locale: resolveCmsLocale(locale),
-    });
-    return response.articles;
+    // Oldest first — the order the Hygraph query returned (createdAt asc).
+    const query = `*[${FILTER}] | order(publishedAt asc, _id asc){
+      ${FIELDS},
+      "seo": seo{ noIndex }
+    }`;
+
+    return fetchData<Article[]>(query, { locale }, { tags });
   },
 
   getOneArticle: async (slug: string, locale: string) => {
-    const query = gql`
-      query GetOneArticle($slug: String!, $locale: Locale!) {
-        article(where: { slug: $slug }, locales: [$locale]) {
-          id
-          title
-          cover {
-            url
-            fileName
-            height
-            width
-            altText
-          }
-          slug
-          excerpt
-          createdAt
-          updatedAt
-          seo {
-            metaTitle
-            metaDescription
-            ogImage {
-              url
-            }
-            noIndex
-            canonicalUrl
-          }
-          content {
-            raw
-          }
-        }
-      }
-    `;
-    const response = await fetchData<ArticleResponse>(query, {
-      slug,
-      locale: resolveCmsLocale(locale),
-    });
-    return response.article;
+    const query = `*[${FILTER} && slug.current == $slug][0]{
+      ${FIELDS},
+      ${SEO}
+    }`;
+
+    return fetchData<Article | null>(query, { slug, locale }, { tags });
   },
 };

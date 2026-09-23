@@ -3,6 +3,7 @@ import "server-only";
 import { NewsService } from "services/news.service";
 import type { NewResponse } from "services/news.service.types";
 import { getPopularNewsViews } from "@/lib/news-views";
+import { loadWithFallback } from "@/lib/cms-locale";
 
 const POPULAR_NEWS_LIMIT = 6;
 
@@ -48,7 +49,12 @@ export async function getPopularNews(
       return [];
     }
 
-    const popularNews = await NewsService.getNewsByIds(ids, locale);
+    // uz is translated gradually: without uz versions, show the English ones.
+    const { data: popularNews } = await loadWithFallback(
+      locale,
+      (contentLocale) => NewsService.getNewsByIds(ids, contentLocale),
+      (items) => items.length === 0,
+    );
     const viewsById = new Map(filteredViews.map((item) => [item.id, item.views]));
     const newsById = new Map(popularNews.map((item) => [item.id, item]));
 

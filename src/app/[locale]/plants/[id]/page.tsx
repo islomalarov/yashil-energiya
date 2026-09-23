@@ -7,7 +7,12 @@ import { getTranslations } from "next-intl/server";
 import { Link, redirect } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { breadcrumbJsonLd, createMetadata, powerPlantJsonLd } from "@/lib/seo";
+import {
+  breadcrumbJsonLd,
+  cmsAlternateLocales,
+  createMetadata,
+  powerPlantJsonLd,
+} from "@/lib/seo";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 import { PlantGallery } from "./PlantGallery";
 import { BackToListLink } from "./BackToListLink";
@@ -55,20 +60,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: `${plant.address}. Power: ${plant.power}. Average annual production: ${plant.production}.`,
     image: plant.pictures[0]?.url,
     type: "article",
-    alternateLocales: ["en", "ru"],
+    alternateLocales: cmsAlternateLocales(plant.languages),
   });
 }
 
 export default async function Plant({ params }: Props) {
   const { id, locale } = await params;
-  if (locale === "uz") {
-    redirect({ href: `/plants/${id}`, locale: "en" });
-  }
 
   const t = await getTranslations({ locale, namespace: "PlantDetail" });
   const plant = await PlantService.getPlantById(id, locale);
 
   if (!plant) {
+    // uz is translated gradually: without a uz version, use the English page.
+    if (locale === "uz") {
+      redirect({ href: `/plants/${id}`, locale: "en" });
+    }
     notFound();
   }
 

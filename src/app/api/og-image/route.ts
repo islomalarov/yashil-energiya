@@ -4,8 +4,9 @@ import path from "node:path";
 import sharp from "sharp";
 import TextToSVG from "text-to-svg";
 import { siteUrl } from "@/lib/seo";
+import { SANITY_CDN_HOSTNAME } from "@/lib/sanity-image";
 
-const allowedImageHosts = new Set(["us-west-2.graphassets.com"]);
+const allowedImageHosts = new Set([SANITY_CDN_HOSTNAME]);
 const siteHostname = new URL(siteUrl).hostname;
 const publicDirectory = path.join(process.cwd(), "public");
 const notoSansBoldPath = path.join(

@@ -1,89 +1,51 @@
-import { gql } from "graphql-request";
-import { NewsResponse } from "./news.service.types";
-import { fetchData } from "lib/graphql-client";
-import { resolveCmsLocale } from "@/lib/cms-locale";
+import { fetchData } from "lib/sanity-client";
+import { CACHE_TAGS } from "lib/cache-tags";
+import { ENTRY_ID, IMAGE, LANGUAGES, SEO, richText } from "./fragments";
+import type { NewResponse, NewsResponse } from "./news.service.types";
+
+const tags = [CACHE_TAGS.news];
+
+const FILTER = `_type == "news" && language == $locale`;
+
+const CARD = `
+  ${ENTRY_ID},
+  "slug": slug.current,
+  title,
+  date,
+  excerpt,
+  "cover": cover${IMAGE},
+  ${richText("description")}
+`;
 
 export const NewsService = {
-  getAllNews: async (first?: number, skip?: number, locale?: string) => {
-    const query = gql`
-      query GetNews($first: Int, $skip: Int, $locale: Locale!) {
-        news(
-          first: $first
-          skip: $skip
-          orderBy: date_DESC
-          locales: [$locale]
-        ) {
-          date
-          id
-          slug
-          title
-          excerpt
-          updatedAt
-          seo {
-            noIndex
-          }
-          description {
-            raw
-          }
-          cover {
-            url
-            fileName
-            height
-            width
-            altText
-          }
-        }
-        newsConnection(locales: [$locale]) {
-          aggregate {
-            count
-          }
-        }
-      }
-    `;
-    return fetchData<NewsResponse>(query, {
-      first,
-      skip,
-      locale: resolveCmsLocale(locale),
-    });
+  getAllNews: async (first?: number, skip = 0, locale = "en") => {
+    const paginated = first !== undefined;
+    const query = `{
+      "news": *[${FILTER}] | order(date desc, _id asc) ${paginated ? "[$start...$end]" : ""} {
+        ${CARD},
+        "updatedAt": _updatedAt,
+        "seo": seo{ noIndex },
+        ${LANGUAGES}
+      },
+      "newsConnection": { "aggregate": { "count": count(*[${FILTER}]) } }
+    }`;
+
+    return fetchData<NewsResponse>(
+      query,
+      paginated ? { locale, start: skip, end: skip + first } : { locale },
+      { tags },
+    );
   },
 
   getOneNews: async (slug: string, locale: string) => {
-    const query = gql`
-      query GetOneNews($slug: String!, $locale: Locale!) {
-        news(where: { slug: $slug }, locales: [$locale]) {
-          date
-          id
-          slug
-          title
-          excerpt
-          updatedAt
-          seo {
-            metaTitle
-            metaDescription
-            ogImage {
-              url
-            }
-            noIndex
-            canonicalUrl
-          }
-          description {
-            raw
-          }
-          cover {
-            url
-            fileName
-            height
-            width
-            altText
-          }
-        }
-      }
-    `;
-    const data = await fetchData<NewsResponse>(query, {
-      slug,
-      locale: resolveCmsLocale(locale),
-    });
-    return data.news?.[0] || null;
+    const query = `*[${FILTER} && slug.current == $slug][0]{
+      ${CARD},
+      "updatedAt": _updatedAt,
+      ${SEO},
+      ${LANGUAGES}
+    }`;
+
+    return fetchData<NewResponse | null>(query, { slug, locale }, { tags });
   },
 
   getNewsByIds: async (ids: string[], locale: string) => {
@@ -91,60 +53,12 @@ export const NewsService = {
       return [];
     }
 
-    const query = gql`
-      query GetNewsByIds($ids: [ID!], $locale: Locale!) {
-        news(where: { id_in: $ids }, locales: [$locale]) {
-          date
-          id
-          slug
-          title
-          excerpt
-          description {
-            raw
-          }
-          cover {
-            url
-            fileName
-            height
-            width
-            altText
-          }
-        }
-      }
-    `;
-    const data = await fetchData<NewsResponse>(query, {
-      ids,
-      locale: resolveCmsLocale(locale),
-    });
-
-    return data.news;
+    const query = `*[${FILTER} && entryId in $ids]{ ${CARD} }`;
+    return fetchData<NewResponse[]>(query, { ids, locale }, { tags });
   },
 
   getLastNews: async (locale: string) => {
-    const query = gql`
-      query GetLastNews($locale: Locale!) {
-        news(first: 3, orderBy: date_DESC, locales: [$locale]) {
-          date
-          id
-          slug
-          title
-          excerpt
-          description {
-            raw
-          }
-          cover {
-            url
-            fileName
-            height
-            width
-            altText
-          }
-        }
-      }
-    `;
-    const data = await fetchData<NewsResponse>(query, {
-      locale: resolveCmsLocale(locale),
-    });
-    return data.news;
+    const query = `*[${FILTER}] | order(date desc, _id asc) [0...3]{ ${CARD} }`;
+    return fetchData<NewResponse[]>(query, { locale }, { tags });
   },
 };

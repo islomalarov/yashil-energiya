@@ -1,7 +1,7 @@
 import type { Plant } from "services/plants.service";
 
 /**
- * Plant metric fields come from Hygraph as free-form strings
+ * Plant metric fields come from the CMS as free-form strings
  * ("1500 kW", " 815 000", "1.12 K t."). These helpers parse them
  * defensively; `null` means "could not parse" and callers fall back
  * to the raw CMS string instead of showing invented numbers.

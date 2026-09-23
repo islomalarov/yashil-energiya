@@ -1,4 +1,4 @@
-import type { RichTextNode } from "@/types/richtext";
+import type { RichText } from "@/types/richtext";
 
 export interface SeoFields {
   metaTitle?: string | null;
@@ -6,6 +6,14 @@ export interface SeoFields {
   ogImage?: { url: string } | null;
   noIndex?: boolean | null;
   canonicalUrl?: string | null;
+}
+
+export interface CmsImage {
+  url: string;
+  fileName: string;
+  height: number;
+  width: number;
+  altText?: string | null;
 }
 
 export interface NewResponse {
@@ -16,29 +24,15 @@ export interface NewResponse {
   excerpt: string;
   updatedAt?: string;
   seo?: SeoFields | null;
-  description: {
-    raw: {
-      children: RichTextNode[];
-    };
-  };
-  cover: {
-    url: string;
-    fileName: string;
-    height: number;
-    width: number;
-    altText?: string | null;
-  };
+  description?: RichText | null;
+  cover: CmsImage;
+  /** Languages with a published version of this news item. */
+  languages?: string[];
 }
+
 export interface NewsResponse {
   news: NewResponse[];
   newsConnection: {
-    pageInfo: {
-      hasNextPage: boolean;
-      hasPreviousPage: boolean;
-      pageSize: number;
-      startCursor: string;
-      endCursor: string;
-    };
     aggregate: {
       count: number;
     };
