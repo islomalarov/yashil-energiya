@@ -29,5 +29,14 @@ export default [
     },
   },
 
-  { ignores: ["node_modules/**", ".next/**", "dist/**", "out/**"] },
+  {
+    ignores: [
+      "node_modules/**",
+      ".next/**",
+      "dist/**",
+      "out/**",
+      // Separate package with its own deps (`cd studio && npm run typecheck`).
+      "studio/**",
+    ],
+  },
 ];
