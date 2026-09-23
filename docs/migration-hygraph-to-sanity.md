@@ -65,7 +65,7 @@
 3. Узлы RichText: `paragraph` 1389, `image` 376 (206 уникальных), `list-item` 563 (вложенных списков нет), `link` 72, `heading-three` 40, `block-quote` 14, `heading-four` 6, `table` 4. Метки: `bold`, `italic`, `underline`, `superscript`.
 4. **`heading-four` сейчас не отображается на сайте**: в `ThePageContent` для него срабатывает `default → null`. В статье «what-is-the-difference-between-renewable-and-green-energy» (en+ru) скрыты подзаголовки «Renewable Energy», «Green Energy», «Conclusion:».
 5. **4 битые ссылки на проде**: в ru-версии статьи `when-does-a-solar-plant-pay-off` ссылки сохранены без `https://` и открываются как относительные (404). Конвертер их исправляет и помечает в отчёте.
-6. **alt у картинок**: у 146 из 153 ассетов нет `altText`; у 312 из 376 картинок в RichText тоже нет alt. При этом `TheImageModal` подставляет в `alt` поле `title`, в котором лежит **имя файла** («en.png»). В Sanity переносим настоящий `altText`, недостающие alt заполняют редакторы.
+6. **alt у картинок**: у 146 из 153 ассетов нет `altText`; у 312 из 376 картинок в RichText тоже нет alt. `TheImageModal` берёт `altText ?? title` (коммит `4cc0159`), поэтому у картинок без `altText` в `alt` по-прежнему попадает **имя файла** («en.png»). В Sanity переносим `altText`, а без него `alt` остаётся пустым. Недостающие alt заполняют редакторы.
 7. Ассеты: 153 сущности на 206 МБ, все на `us-west-2.graphassets.com`. Картинки в RichText хранятся как уже трансформированные URL (`output=format:webp/resize=…/<handle>`), а импортировать нужно оригинал `…/<env>/<handle>`.
 8. `region` и `condition` — enum'ы Hygraph; их значения снимаются в `enums.json` и переносятся в `options.list`.
 9. В `Plant` все показатели (`power`, `production`, `coal` и т. д.) — строки. На этапе стабилизации переносим как есть, нормализацию в числа делаем отдельной задачей.
@@ -154,7 +154,7 @@
 ## 5. Ассеты и конфигурация
 
 - Импорт: `_sanityAsset: "image@<оригинальный URL>"` для обложек, `pictures`, `photo`, `ogImage` и картинок в теле; `file@…` для `vacancy.attachments`. Перед импортом проверить, что каждый файл доступен и не нулевого размера.
-- `next.config.js`: `images.remotePatterns` → `cdn.sanity.io`; CSP `img-src` — убрать `us-west-2.graphassets.com`, добавить `https://cdn.sanity.io`; CSP `connect-src` — убрать `*.hygraph.com`, `*.graphcms.com`, `us-west-2.graphassets.com`, добавить `https://<projectId>.api.sanity.io` и `https://<projectId>.apicdn.sanity.io`.
+- `next.config.js`: `images.remotePatterns` → `cdn.sanity.io`. Текущие настройки оптимизации (`formats: ["image/webp"]`, кэш 30 дней, `deviceSizes`, `imageSizes`, `qualities: [75]`) сохраняются. CSP `img-src` — убрать `us-west-2.graphassets.com`, добавить `https://cdn.sanity.io`; CSP `connect-src` — убрать `*.hygraph.com`, `*.graphcms.com`, `us-west-2.graphassets.com`, добавить `https://<projectId>.api.sanity.io` и `https://<projectId>.apicdn.sanity.io`.
 - `src/lib/seo.ts` → `optimizedOgImagePath`: проверку хоста `us-west-2.graphassets.com` заменить на `cdn.sanity.io`.
 
 ## 6. Вебхук ревалидации
@@ -163,6 +163,7 @@
 - `lib/cache-tags.ts`: ключи сейчас соответствуют `__typename` Hygraph (3 live-типа). Переходим на `_type` Sanity и расширяем на все 8 типов.
 - Аутентификация: вместо Bearer + `timingSafeEqual` проверяется подпись Sanity (`sanity-webhook-signature`). Логика `revalidateTag(tag, { expire: 0 })` остаётся.
 - На время массового импорта вебхуки отключаются.
+- Для детальных страниц `news` / `articles` / `plants` / `vacancies` в `next.config.js` заданы CDN-заголовки `s-maxage=300, stale-while-revalidate=600`. На preview проверить, через сколько правка в Sanity видна на сайте: `revalidateTag` сбрасывает кэш данных Next, а HTML в CDN может жить до окончания этого окна.
 
 ## 7. SEO, sitemap, ассистент
 
@@ -234,7 +235,7 @@
 
 ## Скрипты миграции
 
-Лежат в `scripts/sanity-migration/`. Это plain ESM `.mjs`, как `scripts/generate-og-image.mjs`, **без новых зависимостей**. Промежуточные данные пишутся в `scripts/sanity-migration/.data/` (в `.gitignore`: это полный экспорт контента, его нельзя коммитить).
+Лежат в `scripts/sanity-migration/`. Это plain ESM `.mjs`, как `scripts/generate-og-image.mjs`, **без новых зависимостей**. Рантайм — Node 24 (`engines: 24.x`, `.nvmrc`). Промежуточные данные пишутся в `scripts/sanity-migration/.data/` (в `.gitignore`: это полный экспорт контента, его нельзя коммитить).
 
 ```bash
 node --env-file=.env.local scripts/sanity-migration/extract.mjs
