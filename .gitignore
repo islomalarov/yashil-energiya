@@ -37,3 +37,6 @@ next-env.d.ts
 # trash
 ds
 eslint
+
+# Sanity migration: raw Hygraph snapshots, transformed NDJSON, reports
+/scripts/sanity-migration/.data/
