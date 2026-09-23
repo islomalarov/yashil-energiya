@@ -14,7 +14,7 @@
 | Фреймворк | **Next.js ^16** (App Router), **React 19**, **TypeScript ^6** | dev запускается с `NEXT_TURBOPACK=0` — не включать Turbopack самовольно |
 | Стили | **SCSS-модули** (`sass`) + `classnames` | не добавлять Tailwind, styled-components, CSS-in-JS |
 | i18n | **next-intl ^4**, локали `en / ru / uz` в `src/i18n/routing.ts`, словари в `messages/` | вся маршрутизация локализована |
-| CMS | **Hygraph**, клиент `graphql-request` + `graphql`, эндпоинт `NEXT_PUBLIC_HYGRAPH_ENDPOINT` | контент и медиа (`us-west-2.graphassets.com`) |
+| CMS | **Sanity** (проект `NEXT_PUBLIC_SANITY_PROJECT_ID`, датасет `NEXT_PUBLIC_SANITY_DATASET`), запросы на **GROQ** через `lib/sanity-client.ts` (тонкая обёртка над `fetch`, без SDK); rich text — Portable Text (`@portabletext/react`) | контент и медиа (`cdn.sanity.io`); Studio — отдельный пакет `studio/` |
 | Формы / почта | **Microsoft Graph** через `@azure/msal-node` (`MS_*` переменные), серверная валидация env в `src/lib/server-env.ts` | также в зависимостях есть `resend` — уточнить актуальный канал перед правками |
 | Антибот | **Cloudflare Turnstile** (`@marsidev/react-turnstile`, `TURNSTILE_SECRET_KEY`) | не удалять и не обходить в формах |
 | Rate limiting | **Upstash Redis** (`@upstash/ratelimit`, `@upstash/redis`) | защита API-роутов |
@@ -28,7 +28,7 @@
 | Аналитика | `@vercel/analytics`, `@vercel/speed-insights`, GA (`NEXT_PUBLIC_GA_MEASUREMENT_ID`) | |
 | Качество кода | ESLint 9 (`eslint.config.mjs`), Prettier (`.prettierrc`), `tsc` (`tsconfig.typecheck.json`) | |
 
-**Запрещено:** менять стек, добавлять дублирующие библиотеки (второй UI-кит, второй слайдер, второй способ стилизации, axios вместо graphql-request/fetch), включать/обновлять мажорные версии Next/React в рамках фич-задач.
+**Запрещено:** менять стек, добавлять дублирующие библиотеки (второй UI-кит, второй слайдер, второй способ стилизации, axios вместо fetch, `next-sanity`/`sanity` в приложении — Studio-пакеты живут только в `studio/`), включать/обновлять мажорные версии Next/React в рамках фич-задач.
 
 ---
 
@@ -43,9 +43,10 @@ interface/   — TypeScript-типы и интерфейсы
 lib/         — утилиты
 messages/    — словари переводов next-intl (en, ru, uz)
 public/      — статика (логотипы, socialsLogo/, hero и т.д.)
-scripts/     — служебные скрипты
-services/    — слой работы с данными (GraphQL-запросы к Hygraph и пр.)
+scripts/     — служебные скрипты (в т.ч. scripts/sanity-migration — перенос из Hygraph)
+services/    — слой работы с данными (GROQ-запросы к Sanity, общие проекции в services/fragments.ts)
 src/         — приложение (App Router, i18n, server-env и т.д.)
+studio/      — Sanity Studio: схемы контента, отдельный package.json (не входит в сборку сайта)
 ```
 
 Правила:
@@ -60,7 +61,7 @@ src/         — приложение (App Router, i18n, server-env и т.д.)
 1. Все страницы живут под сегментом локали (`/en`, `/ru`, `/uz`); маршрутизация управляется **next-intl** (`src/i18n/routing.ts` + middleware). Запрещено создавать страницы вне этой схемы или обходить middleware.
 2. Карта публичных маршрутов (не ломать URL — на них завязаны SEO, canonical и внешние ссылки):
    - `/{locale}` — главная; `/{locale}/about`; `/{locale}/documents`; `/{locale}/contacts`
-   - `/{locale}/plants` (пагинация `?page=N`) и `/{locale}/plants/[id]` — id записи Hygraph
+   - `/{locale}/plants` (пагинация `?page=N`) и `/{locale}/plants/[id]` — `entryId` записи (общий для всех языковых версий; у перенесённых записей это прежний id Hygraph)
    - `/{locale}/news` и `/{locale}/news/[slug]` — человекочитаемый slug из CMS
    - `/{locale}/installation-request`; `/{locale}/chargingstation/...` (в т.ч. `public-offer`)
    - `/api/og-image` и прочие route handlers
@@ -73,10 +74,10 @@ src/         — приложение (App Router, i18n, server-env и т.д.)
 
 ## 4. Данные и интеграции
 
-1. **Hygraph — единственный источник контента** (новости, СЭС, документы, зарядные станции). Контент не хардкодится. Запросы — в `services/` через `graphql-request`; перед написанием нового запроса найти и переиспользовать существующие запросы/фрагменты и типы из `interface/`.
-2. Запросы выполняются с учётом текущей локали — следовать образцу существующих запросов. Стратегию кэширования/ревалидации (ISR) копировать с соседних страниц того же раздела.
+1. **Sanity — единственный источник контента** (новости, статьи, СЭС, вакансии, руководство, данные карт). Контент не хардкодится. Запросы — в `services/` на GROQ через `fetchData` из `lib/sanity-client.ts`; перед написанием нового запроса переиспользовать проекции из `services/fragments.ts` и типы из `interface/`. Схемы контента меняются в `studio/schemaTypes` (после правок: `cd studio && npm run typecheck && npx sanity schema validate`).
+2. Локализация — document-level: отдельный документ на язык (`language == $locale`), языковые версии связаны `entryId`. Если перевода на uz ещё нет, использовать откат на en (`loadWithFallback` из `src/lib/cms-locale.ts`, редирект на en на страницах записей). Индексация uz-страниц CMS включается одним местом: `cmsContentLocales` в `src/lib/seo.ts` + правило noindex в `next.config.js`. Стратегию кэширования (теги из `lib/cache-tags.ts`) копировать с соседних сервисов того же раздела.
 3. **Формы обратной связи** — не трогать без необходимости связку: клиент → route handler → валидация env (`src/lib/server-env.ts`) → Turnstile-проверка → rate limit (Upstash) → отправка через Microsoft Graph. При изменении форм все звенья цепочки сохраняются.
-4. **Секреты** — только через переменные окружения из `.env.example` (`NEXT_PUBLIC_HYGRAPH_ENDPOINT`, `TURNSTILE_*`, `MS_*`, `UPSTASH_*`, `NEXT_PUBLIC_GA_MEASUREMENT_ID`). Новые секреты добавляются в `.env.example` (без значений) и в валидацию `server-env.ts`. Реальные значения никогда не коммитятся.
+4. **Секреты** — только через переменные окружения из `.env.example` (`NEXT_PUBLIC_SANITY_*`, `SANITY_REVALIDATE_SECRET`, `TURNSTILE_*`, `MS_*`, `UPSTASH_*`, `NEXT_PUBLIC_GA_MEASUREMENT_ID`). Новые секреты добавляются в `.env.example` (без значений) и в валидацию `server-env.ts`. Реальные значения никогда не коммитятся.
 5. Изображения из CMS и статики — только через `next/image`; новые внешние хосты добавлять в `next.config.js`, а не использовать `<img>`.
 6. Leaflet-компоненты — только client-side (`'use client'` + dynamic import без SSR), иначе билд упадёт.
 
@@ -135,7 +136,7 @@ npm run build
 ## 9. Запрещено без явного согласования владельца
 
 - Менять схему URL, canonical, удалять опубликованные страницы.
-- Менять модели/контент в Hygraph.
+- Менять схемы (`studio/schemaTypes`) и контент в Sanity, запускать импорт/запись в датасеты.
 - Отключать или ослаблять Turnstile и rate limiting.
 - Менять конфигурацию отправки почты (Microsoft Graph) и получателей.
 - Коммитить секреты и реальные `.env`.
