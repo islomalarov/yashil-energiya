@@ -62,37 +62,30 @@ function validateTextBlock(block, path, errors) {
   });
 }
 
-function validateTable(table, path, errors) {
-  if (!Array.isArray(table.rows) || !table.rows.length) {
+// dataTable = { hasHeaderRow, table: { _type: "table", rows: [{ _type:
+// "tableRow", _key, cells: string[] }] } } — the @sanity/table shape.
+function validateTable(block, path, errors) {
+  if (typeof block.hasHeaderRow !== "boolean") errors.push(`${path}: hasHeaderRow must be boolean`);
+  const rows = block.table?.rows;
+  if (block.table?._type !== "table") errors.push(`${path}.table: expected _type table`);
+  if (!Array.isArray(rows) || !rows.length) {
     errors.push(`${path}: table has no rows`);
     return;
   }
-  checkKeys(table.rows, `${path}.rows`, errors);
-  table.rows.forEach((row, r) => {
-    const rowPath = `${path}.rows[${r}]`;
+  checkKeys(rows, `${path}.table.rows`, errors);
+  rows.forEach((row, r) => {
+    const rowPath = `${path}.table.rows[${r}]`;
     if (row._type !== "tableRow") errors.push(`${rowPath}: expected tableRow`);
-    if (typeof row.isHeader !== "boolean") errors.push(`${rowPath}: isHeader must be boolean`);
-    checkKeys(row.cells ?? [], `${rowPath}.cells`, errors);
-    (row.cells ?? []).forEach((cell, c) => {
-      const cellPath = `${rowPath}.cells[${c}]`;
-      if (cell._type !== "tableCell") errors.push(`${cellPath}: expected tableCell`);
-      // Cell bodies are Portable Text too, restricted to text blocks.
-      validatePortableText(cell.content ?? [], `${cellPath}.content`, errors, {
-        allowCustom: false,
-      });
-    });
+    if (!Array.isArray(row.cells) || !row.cells.every((c) => typeof c === "string")) {
+      errors.push(`${rowPath}: cells must be an array of strings`);
+    }
   });
 }
 
 /**
  * Returns a list of human-readable errors; empty means valid.
  */
-export function validatePortableText(
-  blocks,
-  path = "body",
-  errors = [],
-  { allowCustom = true } = {},
-) {
+export function validatePortableText(blocks, path = "body", errors = []) {
   if (!Array.isArray(blocks)) {
     errors.push(`${path}: must be an array`);
     return errors;
@@ -103,11 +96,11 @@ export function validatePortableText(
     const blockPath = `${path}[${i}]`;
     if (block?._type === "block") return validateTextBlock(block, blockPath, errors);
 
-    if (!allowCustom || !CUSTOM_BLOCK_TYPES.includes(block?._type)) {
+    if (!CUSTOM_BLOCK_TYPES.includes(block?._type)) {
       errors.push(`${blockPath}: unexpected block type ${block?._type}`);
       return;
     }
-    if (block._type === "table") return validateTable(block, blockPath, errors);
+    if (block._type === "dataTable") return validateTable(block, blockPath, errors);
     if (block._type === "imageBlock" && !block._sanityAsset && !block.asset) {
       errors.push(`${blockPath}: imageBlock without asset`);
     }
@@ -129,10 +122,8 @@ export function portableText(blocks) {
   return blocks
     .map((block) => {
       if (block._type === "block") return block.children.map((s) => s.text).join("");
-      if (block._type === "table") {
-        return block.rows
-          .flatMap((row) => row.cells.map((cell) => portableText(cell.content)))
-          .join("");
+      if (block._type === "dataTable") {
+        return block.table.rows.flatMap((row) => row.cells).join("");
       }
       return "";
     })

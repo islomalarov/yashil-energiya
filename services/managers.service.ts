@@ -1,6 +1,6 @@
 import { fetchData } from "lib/sanity-client";
 import { CACHE_TAGS } from "lib/cache-tags";
-import { ENTRY_ID, IMAGE } from "./fragments";
+import { ENTRY_ID, IMAGE, cmsLocale, hasLocale, localized } from "./fragments";
 
 export interface Manager {
   id: string;
@@ -23,19 +23,18 @@ interface ManagerResponse {
 export const ManagerService = {
   getAllManagers: async (locale: string) => {
     const query = `{
-      "managers": *[_type == "manager" && language == $locale] | order(queue asc, _id asc) [0...50]{
+      "managers": *[_type == "manager" && ${hasLocale("name")}] | order(queue asc, _id asc) [0...50]{
         ${ENTRY_ID},
         email,
-        jobTitle,
-        name,
         "photo": photo${IMAGE},
-        queue
+        queue,
+        ${localized("name, jobTitle")}
       }
     }`;
 
     return fetchData<ManagerResponse>(
       query,
-      { locale },
+      { locale: cmsLocale(locale) },
       { tags: [CACHE_TAGS.manager] },
     );
   },

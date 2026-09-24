@@ -14,11 +14,11 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@sanity/document-internationalization": "^6.2.37",
+    "@sanity/locale-ru-kz": "^1.1.36",
+    "@sanity/table": "^3.1.16",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "sanity": "^6.16.0",
-    "sanity-plugin-internationalized-array": "^5.3.1",
     "styled-components": "^6.5.3"
   },
   "devDependencies": {

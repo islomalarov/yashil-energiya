@@ -55,6 +55,6 @@ export const richText = defineType({
       },
     }),
     defineArrayMember({ type: "imageBlock" }),
-    defineArrayMember({ type: "table" }),
+    defineArrayMember({ type: "dataTable" }),
   ],
 });

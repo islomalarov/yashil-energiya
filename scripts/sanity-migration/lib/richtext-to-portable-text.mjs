@@ -22,7 +22,7 @@ export const DECORATORS = {
 // Must match the block styles in studio/schemaTypes/objects/richText.ts.
 export const BLOCK_STYLES = ["normal", "h2", "h3", "h4", "blockquote"];
 export const LIST_TYPES = { "bulleted-list": "bullet", "numbered-list": "number" };
-export const CUSTOM_BLOCK_TYPES = ["imageBlock", "table"];
+export const CUSTOM_BLOCK_TYPES = ["imageBlock", "dataTable"];
 
 // The page title is the only <h1>; the current renderer already outputs a
 // CMS `heading-three` as <h2>. Keep that shift for every level so hierarchy is
@@ -186,15 +186,34 @@ function convertList(node, ctx, level, out) {
   }
 }
 
-function convertCellContent(cell, ctx) {
+// Table cells become plain strings (the @sanity/table grid editor). Several
+// paragraphs are kept as lines; inline formatting and links cannot be stored
+// and are reported. Bold in a header row is expected — the header flag
+// carries it.
+function cellText(cell, ctx, { isHeader }) {
   const nodes = children(cell);
   const paragraphs = nodes.filter((n) => n.type === "paragraph");
   // Some cells hold leaves directly, without a paragraph wrapper.
-  const sources = paragraphs.length ? paragraphs.map(children) : [nodes];
+  const sources = paragraphs.length ? paragraphs : [cell];
 
-  const blocks = [];
-  sources.forEach((inline) => pushIfText(blocks, textBlock(inline, ctx), ctx));
-  return blocks;
+  const visit = (node) => {
+    if (node?.type === "link") ctx.issue("table-cell-link-dropped", { href: node.href });
+    if (isLeaf(node)) {
+      const marks = Object.keys(node).filter(
+        (flag) => flag !== "text" && node[flag] === true && !(isHeader && flag === "bold"),
+      );
+      if (marks.length && node.text.trim()) {
+        ctx.issue("table-cell-formatting-dropped", { marks, text: node.text });
+      }
+    }
+    children(node).forEach(visit);
+  };
+  nodes.forEach(visit);
+
+  return sources
+    .map((source) => leafText(source).replace(/\r\n?/g, "\n"))
+    .filter((line) => line.trim() !== "")
+    .join("\n");
 }
 
 function cellIsBold(cell) {
@@ -249,19 +268,26 @@ function convertTable(node, ctx) {
     ctx.issue("table-header-inferred", { firstRow: hygraphRowText(rows[0].source) });
   }
 
+  // The block stores one flag: "first row is the header".
+  const hasHeaderRow = rows.length > 0 && rows[0].isHeader;
+  if (rows.some((row, index) => row.isHeader && index > 0)) {
+    ctx.issue("table-header-not-first-row");
+  }
+
   return {
-    _type: "table",
+    _type: "dataTable",
     _key: ctx.key(),
-    rows: rows.map((row) => ({
-      _type: "tableRow",
-      _key: ctx.key(),
-      isHeader: row.isHeader,
-      cells: row.source.map((cell) => ({
-        _type: "tableCell",
+    hasHeaderRow,
+    table: {
+      _type: "table",
+      rows: rows.map((row, index) => ({
+        _type: "tableRow",
         _key: ctx.key(),
-        content: convertCellContent(cell, ctx),
+        cells: row.source.map((cell) =>
+          cellText(cell, ctx, { isHeader: hasHeaderRow && index === 0 }),
+        ),
       })),
-    })),
+    },
   };
 }
 

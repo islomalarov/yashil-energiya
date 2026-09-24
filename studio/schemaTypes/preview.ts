@@ -1,19 +1,25 @@
-// Shared preview for localized documents: title plus a language badge.
-export function localizedPreview(title = "title", media?: string) {
+import { LANGUAGES } from "../languages";
+
+type Localized = Partial<Record<(typeof LANGUAGES)[number]["id"], string>>;
+
+// List preview for multilingual documents: the English title (or the first
+// filled one) and which languages are filled, e.g. "EN ✓ · RU ✓ · UZ —",
+// so untranslated entries are visible at a glance.
+export function localizedPreview(titleField = "title", media?: string) {
   return {
-    select: { title, language: "language", ...(media ? { media } : {}) },
-    prepare: ({
-      title,
-      language,
-      media,
-    }: {
-      title?: string;
-      language?: string;
-      media?: unknown;
-    }) => ({
-      title: title || "Без названия",
-      subtitle: language ? language.toUpperCase() : "язык не задан",
-      media: media as never,
-    }),
+    select: {
+      ...Object.fromEntries(LANGUAGES.map((l) => [l.id, `${l.id}.${titleField}`])),
+      ...(media ? { media } : {}),
+    },
+    prepare: (selection: Localized & { media?: unknown }) => {
+      const title = LANGUAGES.map((l) => selection[l.id]).find(Boolean);
+      return {
+        title: title || "Без названия",
+        subtitle: LANGUAGES.map(
+          (l) => `${l.id.toUpperCase()} ${selection[l.id] ? "✓" : "—"}`,
+        ).join(" · "),
+        media: selection.media as never,
+      };
+    },
   };
 }

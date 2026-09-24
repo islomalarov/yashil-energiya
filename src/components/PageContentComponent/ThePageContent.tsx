@@ -77,7 +77,7 @@ export default function ThePageContent({ content }: Props) {
           />
         );
       },
-      table: ({ value }) => <TheTable value={value as RichTextTable} />,
+      dataTable: ({ value }) => <TheTable value={value as RichTextTable} />,
     },
   };
 

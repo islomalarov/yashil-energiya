@@ -13,21 +13,17 @@ export type ImageElem = {
   title?: string;
 };
 
-export type RichTextTableCell = {
-  _key: string;
-  content?: PortableTextBlock[];
-};
-
+// Table block: a @sanity/table grid (plain-text cells) + header-row flag.
 export type RichTextTableRow = {
   _key: string;
-  isHeader?: boolean;
-  cells?: RichTextTableCell[];
+  cells?: string[];
 };
 
 export type RichTextTable = {
-  _type: "table";
+  _type: "dataTable";
   _key: string;
-  rows?: RichTextTableRow[];
+  hasHeaderRow?: boolean;
+  table?: { rows?: RichTextTableRow[] };
 };
 
 export type RichTextImage = ImageElem & { _type: "imageBlock"; _key: string };

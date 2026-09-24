@@ -1,7 +1,14 @@
 import { fetchData } from "lib/sanity-client";
 import { CACHE_TAGS } from "lib/cache-tags";
 import type { RichText } from "@/types/richtext";
-import { ENTRY_ID, LANGUAGES, richText } from "./fragments";
+import {
+  ENTRY_ID,
+  cmsLocale,
+  hasLocale,
+  languages,
+  localized,
+  richText,
+} from "./fragments";
 
 export interface Vacancy {
   id: string;
@@ -16,20 +23,16 @@ export interface Vacancy {
     mimeType?: string | null;
     size?: number | null;
   }[];
-  /** Languages with a published version of this vacancy. */
+  /** Languages this vacancy is filled in. */
   languages?: string[];
 }
 
 const tags = [CACHE_TAGS.vacancy];
 
-const FILTER = `_type == "vacancy" && language == $locale`;
+const FILTER = `_type == "vacancy" && ${hasLocale()}`;
 
 const FIELDS = `
   ${ENTRY_ID},
-  title,
-  references,
-  excerpt,
-  ${richText("description")},
   "attachments": coalesce(attachments[]{
     "id": _key,
     "url": asset->url,
@@ -37,14 +40,15 @@ const FIELDS = `
     "mimeType": asset->mimeType,
     "size": asset->size
   }, []),
-  ${LANGUAGES}
+  ${localized(`title, references, excerpt, ${richText("description")}`)},
+  ${languages()}
 `;
 
 export const VacancyService = {
   getAllVacancies: async (locale: string) => {
     // Oldest first — the order the Hygraph query returned (createdAt asc).
     const query = `*[${FILTER}] | order(_createdAt asc, _id asc){ ${FIELDS} }`;
-    return fetchData<Vacancy[]>(query, { locale }, { tags });
+    return fetchData<Vacancy[]>(query, { locale: cmsLocale(locale) }, { tags });
   },
 
   getOneVacancy: async (id: string, locale: string) => {
@@ -55,6 +59,10 @@ export const VacancyService = {
     }
 
     const query = `*[${FILTER} && entryId == $id][0]{ ${FIELDS} }`;
-    return fetchData<Vacancy | null>(query, { id, locale }, { tags });
+    return fetchData<Vacancy | null>(
+      query,
+      { id, locale: cmsLocale(locale) },
+      { tags },
+    );
   },
 };

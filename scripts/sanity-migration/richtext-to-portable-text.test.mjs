@@ -291,8 +291,10 @@ describe("images", () => {
 });
 
 describe("tables", () => {
-  it("marks table_head rows as header rows", () => {
-    const { blocks } = convert([
+  const cellsOf = (block) => block.table.rows.map((r) => r.cells);
+
+  it("converts to a @sanity/table grid with a header flag", () => {
+    const { blocks, issues } = convert([
       {
         type: "table",
         children: [
@@ -303,12 +305,18 @@ describe("tables", () => {
     ]);
 
     const [table] = blocks;
-    assert.equal(table._type, "table");
-    assert.deepEqual(table.rows.map((r) => r.isHeader), [true, false]);
-    assert.equal(table.rows[1].cells[0].content[0].children[0].text, "Small\n  system");
+    assert.equal(table._type, "dataTable");
+    assert.equal(table.hasHeaderRow, true);
+    assert.equal(table.table._type, "table");
+    assert.deepEqual(table.table.rows.map((r) => r._type), ["tableRow", "tableRow"]);
+    assert.deepEqual(cellsOf(table), [
+      ["Type", "Capacity"],
+      ["Small\n  system", "5 kW"],
+    ]);
+    assert.deepEqual(issues, []);
   });
 
-  it("infers a header from a leading all-bold row and reports it", () => {
+  it("infers a header from a leading all-bold row; its bold is not reported as lost", () => {
     const { blocks, issues } = convert([
       {
         type: "table",
@@ -320,18 +328,64 @@ describe("tables", () => {
         ],
       },
     ]);
-    assert.deepEqual(blocks[0].rows.map((r) => r.isHeader), [true, false]);
+    assert.equal(blocks[0].hasHeaderRow, true);
     assert.deepEqual(issues, [{ type: "table-header-inferred", firstRow: "A | B" }]);
   });
 
-  it("does not infer a header when the first row is not all bold", () => {
+  it("reports formatting and links that plain-text cells cannot keep", () => {
+    const { blocks, issues } = convert([
+      {
+        type: "table",
+        children: [
+          {
+            type: "table_body",
+            children: [
+              row(
+                cell("A", { bold: true }),
+                {
+                  type: "table_cell",
+                  children: [
+                    {
+                      type: "paragraph",
+                      children: [{ type: "link", href: "https://x.uz", children: [{ text: "site" }] }],
+                    },
+                  ],
+                },
+              ),
+            ],
+          },
+        ],
+      },
+    ]);
+    assert.equal(blocks[0].hasHeaderRow, false);
+    assert.deepEqual(cellsOf(blocks[0]), [["A", "site"]]);
+    assert.deepEqual(issues.map((i) => i.type), [
+      "table-cell-formatting-dropped",
+      "table-cell-link-dropped",
+    ]);
+  });
+
+  it("keeps several paragraphs of a cell as separate lines", () => {
     const { blocks } = convert([
       {
         type: "table",
-        children: [{ type: "table_body", children: [row(cell("A", { bold: true }), cell("B"))] }],
+        children: [
+          {
+            type: "table_row",
+            children: [
+              {
+                type: "table_cell",
+                children: [
+                  { type: "paragraph", children: [{ text: "line 1" }] },
+                  { type: "paragraph", children: [{ text: "line 2" }] },
+                ],
+              },
+            ],
+          },
+        ],
       },
     ]);
-    assert.deepEqual(blocks[0].rows.map((r) => r.isHeader), [false]);
+    assert.deepEqual(cellsOf(blocks[0]), [["line 1\nline 2"]]);
   });
 });
 

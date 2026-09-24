@@ -43,11 +43,9 @@ export function richTextToPlainText(blocks: RichText | null | undefined): string
   for (const block of blocks) {
     if (block._type === "block") {
       parts.push(toPlainText([block as PortableTextBlock]));
-    } else if (block._type === "table") {
-      for (const row of (block as RichTextTable).rows ?? []) {
-        for (const cell of row.cells ?? []) {
-          parts.push(toPlainText(cell.content ?? []));
-        }
+    } else if (block._type === "dataTable") {
+      for (const row of (block as RichTextTable).table?.rows ?? []) {
+        parts.push(...(row.cells ?? []));
       }
     }
   }

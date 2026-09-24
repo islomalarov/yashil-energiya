@@ -1,28 +1,17 @@
 "use client";
 
 import { useLayoutEffect, useRef } from "react";
-import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import s from "./TheTable.module.scss";
-import { richTextMarks } from "../RichText/portableTextMarks";
-import type { RichTextTable, RichTextTableCell } from "@/types/richtext";
+import type { RichTextTable } from "@/types/richtext";
 
 type Props = {
   value: RichTextTable;
 };
 
-// A cell holds simple rich text: one <p> per paragraph so multi-line cells
-// keep their breaks.
-const cellComponents: PortableTextComponents = {
-  block: {
-    normal: ({ children }) => <p>{children}</p>,
-  },
-  marks: richTextMarks,
-};
-
-function renderCell(cell: RichTextTableCell) {
-  return cell.content?.length ? (
-    <PortableText value={cell.content} components={cellComponents} />
-  ) : null;
+// Cells are plain text. Stray line breaks from pasted text collapse into a
+// space in HTML, exactly as the Hygraph renderer showed them.
+function renderCell(text: string) {
+  return text.trim() ? <p>{text}</p> : null;
 }
 
 export default function TheTable({ value }: Props) {
@@ -48,35 +37,33 @@ export default function TheTable({ value }: Props) {
     return () => ro.disconnect();
   }, []);
 
-  // Header rows are flagged explicitly in the CMS (`isHeader`).
-  const rows = value.rows ?? [];
-  const headRows = rows.filter((row) => row.isHeader);
-  const bodyRows = rows.filter((row) => !row.isHeader);
-
+  const rows = value.table?.rows ?? [];
   if (!rows.length) return null;
+
+  // "Первая строка — заголовок" in the CMS.
+  const [headRow, ...rest] = rows;
+  const bodyRows = value.hasHeaderRow ? rest : rows;
 
   return (
     <div className={s.tableWrapper}>
       <table ref={tableRef} className={s.table}>
-        {headRows.length > 0 && (
+        {value.hasHeaderRow && (
           <thead>
-            {headRows.map((row) => (
-              <tr key={row._key}>
-                {(row.cells ?? []).map((cell) => (
-                  <th key={cell._key} scope="col">
-                    {renderCell(cell)}
-                  </th>
-                ))}
-              </tr>
-            ))}
+            <tr>
+              {(headRow.cells ?? []).map((cell, ci) => (
+                <th key={ci} scope="col">
+                  {renderCell(cell)}
+                </th>
+              ))}
+            </tr>
           </thead>
         )}
         {bodyRows.length > 0 && (
           <tbody>
             {bodyRows.map((row) => (
               <tr key={row._key}>
-                {(row.cells ?? []).map((cell) => (
-                  <td key={cell._key}>{renderCell(cell)}</td>
+                {(row.cells ?? []).map((cell, ci) => (
+                  <td key={ci}>{renderCell(cell)}</td>
                 ))}
               </tr>
             ))}

@@ -1,51 +1,64 @@
 import { fetchData } from "lib/sanity-client";
 import { CACHE_TAGS } from "lib/cache-tags";
-import { ENTRY_ID, IMAGE, LANGUAGES, SEO, richText } from "./fragments";
+import {
+  ENTRY_ID,
+  IMAGE,
+  SEO,
+  cmsLocale,
+  hasLocale,
+  languages,
+  localized,
+  richText,
+} from "./fragments";
 import type { NewResponse, NewsResponse } from "./news.service.types";
 
 const tags = [CACHE_TAGS.news];
 
-const FILTER = `_type == "news" && language == $locale`;
+const FILTER = `_type == "news" && ${hasLocale()}`;
 
-const CARD = `
+const CARD_FIELDS = `
   ${ENTRY_ID},
   "slug": slug.current,
-  title,
   date,
-  excerpt,
-  "cover": cover${IMAGE},
-  ${richText("description")}
+  "cover": cover${IMAGE}
 `;
+
+const CARD_LOCALIZED = `title, excerpt, ${richText("description")}`;
 
 export const NewsService = {
   getAllNews: async (first?: number, skip = 0, locale = "en") => {
     const paginated = first !== undefined;
     const query = `{
       "news": *[${FILTER}] | order(date desc, _id asc) ${paginated ? "[$start...$end]" : ""} {
-        ${CARD},
+        ${CARD_FIELDS},
         "updatedAt": _updatedAt,
-        "seo": seo{ noIndex },
-        ${LANGUAGES}
+        ${localized(`${CARD_LOCALIZED}, "seo": seo{ noIndex }`)},
+        ${languages()}
       },
       "newsConnection": { "aggregate": { "count": count(*[${FILTER}]) } }
     }`;
 
+    const params = { locale: cmsLocale(locale) };
     return fetchData<NewsResponse>(
       query,
-      paginated ? { locale, start: skip, end: skip + first } : { locale },
+      paginated ? { ...params, start: skip, end: skip + first } : params,
       { tags },
     );
   },
 
   getOneNews: async (slug: string, locale: string) => {
     const query = `*[${FILTER} && slug.current == $slug][0]{
-      ${CARD},
+      ${CARD_FIELDS},
       "updatedAt": _updatedAt,
-      ${SEO},
-      ${LANGUAGES}
+      ${localized(`${CARD_LOCALIZED}, ${SEO}`)},
+      ${languages()}
     }`;
 
-    return fetchData<NewResponse | null>(query, { slug, locale }, { tags });
+    return fetchData<NewResponse | null>(
+      query,
+      { slug, locale: cmsLocale(locale) },
+      { tags },
+    );
   },
 
   getNewsByIds: async (ids: string[], locale: string) => {
@@ -53,12 +66,22 @@ export const NewsService = {
       return [];
     }
 
-    const query = `*[${FILTER} && entryId in $ids]{ ${CARD} }`;
-    return fetchData<NewResponse[]>(query, { ids, locale }, { tags });
+    const query = `*[${FILTER} && entryId in $ids]{
+      ${CARD_FIELDS},
+      ${localized(CARD_LOCALIZED)}
+    }`;
+    return fetchData<NewResponse[]>(
+      query,
+      { ids, locale: cmsLocale(locale) },
+      { tags },
+    );
   },
 
   getLastNews: async (locale: string) => {
-    const query = `*[${FILTER}] | order(date desc, _id asc) [0...3]{ ${CARD} }`;
-    return fetchData<NewResponse[]>(query, { locale }, { tags });
+    const query = `*[${FILTER}] | order(date desc, _id asc) [0...3]{
+      ${CARD_FIELDS},
+      ${localized(CARD_LOCALIZED)}
+    }`;
+    return fetchData<NewResponse[]>(query, { locale: cmsLocale(locale) }, { tags });
   },
 };

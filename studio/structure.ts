@@ -1,5 +1,5 @@
 import type { StructureBuilder, StructureResolver } from "sanity/structure";
-import { LANGUAGES } from "./languages";
+import { BASE_LANGUAGE, LANGUAGES } from "./languages";
 
 const CONTENT_TYPES = [
   { type: "news", title: "Новости" },
@@ -15,9 +15,14 @@ const MAP_TYPES = [
   { type: "mhp", title: "МикроГЭС (карта)" },
 ];
 
-// One sub-list per language; "create" inside it uses the plugin's
-// `<type>-<language>` template, so new documents get the right language.
-function localizedList(S: StructureBuilder, type: string, title: string) {
+// Title field used to tell whether a language version is filled in.
+const TITLE_FIELD: Record<string, string> = { manager: "name" };
+
+// Each multilingual type: all entries, plus work queues of entries that still
+// miss a translation (the site falls back to English for them).
+function contentList(S: StructureBuilder, type: string, title: string) {
+  const titleField = TITLE_FIELD[type] ?? "title";
+
   return S.listItem()
     .title(title)
     .schemaType(type)
@@ -25,22 +30,19 @@ function localizedList(S: StructureBuilder, type: string, title: string) {
       S.list()
         .title(title)
         .items([
-          ...LANGUAGES.map((language) =>
+          S.documentTypeListItem(type).title("Все"),
+          S.divider(),
+          ...LANGUAGES.filter((l) => l.id !== BASE_LANGUAGE).map((language) =>
             S.listItem()
-              .title(language.title)
+              .title(`Без перевода: ${language.title}`)
               .schemaType(type)
               .child(
                 S.documentTypeList(type)
-                  .title(`${title} — ${language.title}`)
-                  .filter("_type == $type && language == $language")
-                  .params({ type, language: language.id })
-                  .initialValueTemplates([
-                    S.initialValueTemplateItem(`${type}-${language.id}`),
-                  ]),
+                  .title(`${title} — без перевода: ${language.title}`)
+                  .filter(`_type == $type && !defined(${language.id}.${titleField})`)
+                  .params({ type }),
               ),
           ),
-          S.divider(),
-          S.documentTypeListItem(type).title("Все языки"),
         ]),
     );
 }
@@ -49,7 +51,7 @@ export const structure: StructureResolver = (S) =>
   S.list()
     .title("Контент")
     .items([
-      ...CONTENT_TYPES.map(({ type, title }) => localizedList(S, type, title)),
+      ...CONTENT_TYPES.map(({ type, title }) => contentList(S, type, title)),
       S.divider(),
       ...MAP_TYPES.map(({ type, title }) =>
         S.documentTypeListItem(type).title(title),
