@@ -10,7 +10,7 @@ type Translations = Awaited<ReturnType<typeof getTranslations>>;
 
 // Temporary front-end fix for broken lex.uz URLs stored in the dictionaries
 // (e.g. "https://lex/ru/docs/..." with the domain suffix dropped).
-// TODO: исправить в Hygraph / словарях — см. отчёт по дефектам данных.
+// TODO: исправить в CMS / словарях — см. отчёт по дефектам данных.
 function normalizeUrl(url: string): { href: string; wasBroken: boolean } {
   const fixed = url.replace(/^(https?:\/\/)lex\//i, "$1lex.uz/");
   return { href: fixed, wasBroken: fixed !== url };

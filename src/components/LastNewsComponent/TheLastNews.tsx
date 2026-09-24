@@ -5,14 +5,17 @@ import { TheNewsList } from "../NewsListComponent/TheNewsList";
 import { NewsService } from "services/news.service";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
 import { getLocale, getTranslations } from "next-intl/server";
-import { resolveCmsLocale } from "@/lib/cms-locale";
+import { loadWithFallback } from "@/lib/cms-locale";
 import type { Locale } from "next-intl";
 
 export async function TheLastNews() {
   const t = await getTranslations("TheLastNews");
   const locale = await getLocale();
-  const contentLocale = resolveCmsLocale(locale) as Locale;
-  const news = await NewsService.getLastNews(locale);
+  const { data: news, contentLocale } = await loadWithFallback(
+    locale,
+    NewsService.getLastNews,
+    (items) => items.length === 0,
+  );
 
   return (
     <TheMotionWrapper motionKey="last-news">
@@ -41,7 +44,7 @@ export async function TheLastNews() {
         news={news}
         linkLabel={t("link")}
         locale={locale as Locale}
-        contentLocale={contentLocale}
+        contentLocale={contentLocale as Locale}
       />
     </TheMotionWrapper>
   );

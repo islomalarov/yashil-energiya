@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import {
   absoluteUrl,
+  cmsAlternateLocales,
   languageAlternates,
   localizedPath,
   SeoLocale,
@@ -45,6 +46,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const { news, articles, plants, vacancies } =
       await getSafeSitemapContent(locale);
 
+    // hreflang per entry: only the languages it is actually published in.
     dynamicEntries.push(
       ...[
         ...news
@@ -53,7 +55,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             sitemapEntry(
               locale,
               `/news/${item.slug}`,
-              cmsLocales,
+              cmsAlternateLocales(item.languages),
               item.updatedAt ?? now,
             ),
           ),
@@ -63,15 +65,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             sitemapEntry(
               locale,
               `/articles/${item.slug}`,
-              cmsLocales,
+              cmsAlternateLocales(item.languages),
               item.updatedAt ?? now,
             ),
           ),
         ...plants.map((item) =>
-          sitemapEntry(locale, `/plants/${item.id}`, cmsLocales),
+          sitemapEntry(
+            locale,
+            `/plants/${item.id}`,
+            cmsAlternateLocales(item.languages),
+          ),
         ),
         ...vacancies.map((item) =>
-          sitemapEntry(locale, `/vacancies/${item.id}`, cmsLocales),
+          sitemapEntry(
+            locale,
+            `/vacancies/${item.id}`,
+            cmsAlternateLocales(item.languages),
+          ),
         ),
       ],
     );

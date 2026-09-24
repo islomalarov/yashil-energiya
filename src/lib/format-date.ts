@@ -16,7 +16,7 @@ const UZ_MONTHS = [
   "dekabr",
 ];
 
-// Formats a CMS date/datetime string (ISO from Hygraph — `date`, `createdAt`,
+// Formats a CMS date/datetime string (ISO from the CMS — `date`, `createdAt`,
 // `updatedAt`, …) as a localized publication date. Falls back to the trimmed
 // raw value when it cannot be parsed, so nothing ever renders as "Invalid Date".
 export function formatPublicationDate(

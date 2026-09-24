@@ -1,24 +1,21 @@
 /**
- * Cache tags for Hygraph-backed data that must reflect content changes in
- * real time. Each live query is tagged so the `/api/revalidate` webhook can
- * invalidate exactly the affected data when Hygraph publishes an update.
+ * Cache tags for Sanity-backed data. Every CMS query is tagged with the
+ * document type it reads, so the `/api/revalidate` webhook can purge exactly
+ * the affected data when a document is published or unpublished.
  *
- * Keys mirror the Hygraph model `__typename` values so the webhook can map an
- * incoming payload to the tag it needs to purge.
+ * Keys are Sanity `_type` values (what the webhook projection sends).
  */
 export const CACHE_TAGS = {
-  EvCharge: "ev-charges",
-  Mhp: "mhps",
-  PlantStatus: "plant-statuses",
+  article: "sanity:article",
+  news: "sanity:news",
+  plant: "sanity:plant",
+  vacancy: "sanity:vacancy",
+  manager: "sanity:manager",
+  evCharge: "sanity:ev-charge",
+  mhp: "sanity:mhp",
+  plantStatus: "sanity:plant-status",
 } as const;
 
-export type HygraphModel = keyof typeof CACHE_TAGS;
+export type SanityDocumentType = keyof typeof CACHE_TAGS;
 
-export const ALL_LIVE_CACHE_TAGS = Object.values(CACHE_TAGS);
-
-/**
- * Time-based fallback (seconds) for live queries. On-demand revalidation via
- * the webhook is the primary mechanism; this only bounds staleness if a
- * webhook is ever missed.
- */
-export const LIVE_FALLBACK_REVALIDATE = 3600;
+export const ALL_CACHE_TAGS = Object.values(CACHE_TAGS);

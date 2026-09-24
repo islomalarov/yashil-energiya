@@ -1,0 +1,28 @@
+{
+  "name": "yashil-energiya-studio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "dev": "sanity dev",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "schema:extract": "sanity schema extract --enforce-required-fields",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@sanity/locale-ru-kz": "^1.1.36",
+    "@sanity/table": "^3.1.16",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "sanity": "^6.16.0",
+    "styled-components": "^6.5.3"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "typescript": "^6.0.3"
+  }
+}

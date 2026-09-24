@@ -69,8 +69,8 @@ export default async function RootLayout({ children, params }: Props) {
   return (
     <html lang={locale}>
       <head>
-        <link rel="preconnect" href="https://us-west-2.graphassets.com" />
-        <link rel="dns-prefetch" href="https://us-west-2.graphassets.com" />
+        <link rel="preconnect" href="https://cdn.sanity.io" />
+        <link rel="dns-prefetch" href="https://cdn.sanity.io" />
       </head>
       <body className={sofia.className}>
         <TheJsonLd

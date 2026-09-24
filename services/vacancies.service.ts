@@ -1,18 +1,21 @@
-import { fetchData } from "lib/graphql-client";
-import { gql } from "graphql-request";
-import type { RichTextNode } from "@/types/richtext";
-import { resolveCmsLocale } from "@/lib/cms-locale";
+import { fetchData } from "lib/sanity-client";
+import { CACHE_TAGS } from "lib/cache-tags";
+import type { RichText } from "@/types/richtext";
+import {
+  ENTRY_ID,
+  cmsLocale,
+  hasLocale,
+  languages,
+  localized,
+  richText,
+} from "./fragments";
 
 export interface Vacancy {
   id: string;
   title: string;
   references: string;
   excerpt: string;
-  description: {
-    raw: {
-      children: RichTextNode[];
-    };
-  };
+  description: RichText | null;
   attachments?: {
     id: string;
     url: string;
@@ -20,72 +23,46 @@ export interface Vacancy {
     mimeType?: string | null;
     size?: number | null;
   }[];
+  /** Languages this vacancy is filled in. */
+  languages?: string[];
 }
 
-interface VacanciesResponse {
-  vacancies: Vacancy[];
-}
-interface VacancyResponse {
-  vacancy: Vacancy;
-}
+const tags = [CACHE_TAGS.vacancy];
+
+const FILTER = `_type == "vacancy" && ${hasLocale()}`;
+
+const FIELDS = `
+  ${ENTRY_ID},
+  "attachments": coalesce(attachments[]{
+    "id": _key,
+    "url": asset->url,
+    "fileName": asset->originalFilename,
+    "mimeType": asset->mimeType,
+    "size": asset->size
+  }, []),
+  ${localized(`title, references, excerpt, ${richText("description")}`)},
+  ${languages()}
+`;
 
 export const VacancyService = {
   getAllVacancies: async (locale: string) => {
-    const query = gql`
-      query GetVacancies($locale: Locale!) {
-        vacancies(locales: [$locale]) {
-          id
-          excerpt
-          title
-          references
-          description {
-            raw
-          }
-          attachments {
-          id
-          url
-          fileName
-          mimeType
-          size
-          }
-        }
-      }
-    `;
-    const response = await fetchData<VacanciesResponse>(query, {
-      locale: resolveCmsLocale(locale),
-    });
-    return response.vacancies;
+    // Oldest first — the order the Hygraph query returned (createdAt asc).
+    const query = `*[${FILTER}] | order(_createdAt asc, _id asc){ ${FIELDS} }`;
+    return fetchData<Vacancy[]>(query, { locale: cmsLocale(locale) }, { tags });
   },
 
   getOneVacancy: async (id: string, locale: string) => {
     if (!id) {
-    throw new Error(
-      `VacancyService.getOneVacancy: id is missing. locale=${locale}`
+      throw new Error(
+        `VacancyService.getOneVacancy: id is missing. locale=${locale}`,
+      );
+    }
+
+    const query = `*[${FILTER} && entryId == $id][0]{ ${FIELDS} }`;
+    return fetchData<Vacancy | null>(
+      query,
+      { id, locale: cmsLocale(locale) },
+      { tags },
     );
-  }
-    const query = gql`
-      query GetOneVacancy($id: ID!, $locale: Locale!) {
-        vacancy(where: { id: $id }, locales: [$locale]) {
-          title
-          references
-          description {
-            raw
-          }
-          attachments {
-          id
-          url
-          fileName
-          mimeType
-          size
-          }
-          excerpt
-        }
-      }
-    `;
-    const response = await fetchData<VacancyResponse>(query, {
-      id,
-      locale: resolveCmsLocale(locale),
-    });
-    return response.vacancy;
   },
 };

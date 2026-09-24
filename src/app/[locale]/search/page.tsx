@@ -3,6 +3,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { ArticlesService } from "services/articles.service";
 import { NewsService } from "services/news.service";
 import { PlantService } from "services/plants.service";
+import { loadWithFallback } from "@/lib/cms-locale";
 import s from "./page.module.scss";
 import { SearchPageForm } from "./SearchPageForm";
 
@@ -39,11 +40,23 @@ function matches(result: SearchResult, query: string) {
 }
 
 async function getCmsResults(locale: string): Promise<SearchResult[]> {
-  const cmsLocale = locale === "uz" ? "en" : locale;
+  // uz is translated gradually: search the English content until uz exists.
   const [news, articles, plants] = await Promise.allSettled([
-    NewsService.getAllNews(50, 0, cmsLocale),
-    ArticlesService.getAllArticles(cmsLocale),
-    PlantService.getAllPlants(50, 0, cmsLocale),
+    loadWithFallback(
+      locale,
+      (contentLocale) => NewsService.getAllNews(50, 0, contentLocale),
+      (data) => data.news.length === 0,
+    ).then(({ data }) => data),
+    loadWithFallback(
+      locale,
+      ArticlesService.getAllArticles,
+      (data) => data.length === 0,
+    ).then(({ data }) => data),
+    loadWithFallback(
+      locale,
+      (contentLocale) => PlantService.getAllPlants(50, 0, contentLocale),
+      (data) => data.plants.length === 0,
+    ).then(({ data }) => data),
   ]);
 
   return [

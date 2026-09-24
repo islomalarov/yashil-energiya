@@ -7,7 +7,11 @@ import ThePageContent from "@/components/PageContentComponent/ThePageContent";
 import { notFound } from "next/navigation";
 import { redirect } from "@/i18n/navigation";
 import type { Metadata } from "next";
-import { breadcrumbJsonLd, createMetadata } from "@/lib/seo";
+import {
+  breadcrumbJsonLd,
+  cmsAlternateLocales,
+  createMetadata,
+} from "@/lib/seo";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 
 type Props = {
@@ -33,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: vacancy.title,
     description: vacancy.excerpt,
     type: "article",
-    alternateLocales: ["en", "ru"],
+    alternateLocales: cmsAlternateLocales(vacancy.languages),
   });
 }
 
@@ -56,10 +60,7 @@ function pickIcon(mime?: string | null) {
 }
 
 export default async function VacancyPage({ params }: Props) {
-  const { id, locale: routeLocale } = await params;
-  if (routeLocale === "uz" && id) {
-    redirect({ href: `/vacancies/${id}`, locale: "en" });
-  }
+  const { id } = await params;
 
   const t = await getTranslations("VacanciesPage");
   const locale = await getLocale();
@@ -67,7 +68,13 @@ export default async function VacancyPage({ params }: Props) {
   if (!id) notFound();
 
   const vacancy = await VacancyService.getOneVacancy(id, locale);
-  if (!vacancy) return <div className="container">{t("notFound")}</div>;
+  if (!vacancy) {
+    // uz is translated gradually: without a uz version, use the English page.
+    if (locale === "uz") {
+      redirect({ href: `/vacancies/${id}`, locale: "en" });
+    }
+    return <div className="container">{t("notFound")}</div>;
+  }
 
   const { title, description, references, attachments } = vacancy;
 
@@ -101,7 +108,7 @@ export default async function VacancyPage({ params }: Props) {
             </div>
 
             <div className={s.rich}>
-              <ThePageContent content={description?.raw?.children ?? []} />
+              <ThePageContent content={description} />
             </div>
 
             {attachments?.length ? (

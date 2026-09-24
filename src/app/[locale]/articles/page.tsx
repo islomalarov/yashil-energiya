@@ -10,12 +10,14 @@ import { absoluteUrl, itemListJsonLd, localizedPath } from "@/lib/seo";
 
 export default async function Articles() {
   const locale = await getLocale();
-  if (locale === "uz") {
-    redirect({ href: "/articles", locale: "en" });
-  }
 
   const t = await getTranslations("TheArticlesList");
   const articles = await ArticlesService.getAllArticles(locale);
+
+  // uz is translated gradually: until uz articles exist, use the English list.
+  if (locale === "uz" && articles.length === 0) {
+    redirect({ href: "/articles", locale: "en" });
+  }
 
   return (
     <>

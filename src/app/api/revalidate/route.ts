@@ -1,10 +1,10 @@
-import { timingSafeEqual } from "node:crypto";
 import { revalidateTag } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
+import { SIGNATURE_HEADER_NAME, isValidSignature } from "@sanity/webhook";
 import {
-  ALL_LIVE_CACHE_TAGS,
+  ALL_CACHE_TAGS,
   CACHE_TAGS,
-  type HygraphModel,
+  type SanityDocumentType,
 } from "lib/cache-tags";
 
 export const runtime = "nodejs";
@@ -12,72 +12,20 @@ export const runtime = "nodejs";
 // Never cache the webhook response itself.
 export const dynamic = "force-dynamic";
 
-const isKnownModel = (value: unknown): value is HygraphModel =>
+const isKnownType = (value: unknown): value is SanityDocumentType =>
   typeof value === "string" && value in CACHE_TAGS;
 
 /**
- * Pull the affected Hygraph model name(s) out of a webhook payload. Hygraph
- * sends the changed record under `data`, with its model exposed as
- * `__typename`. We stay defensive about the exact shape and fall back to
- * purging every live tag when the model can't be determined.
+ * Sanity webhook (Manage → API → Webhooks) with the projection
+ * `{ _type, _id, "slug": slug.current }`, fired on publish/unpublish/delete.
+ * The request is signed with SANITY_REVALIDATE_SECRET; the signature covers
+ * the raw body, so it is read as text before parsing.
  */
-const extractModels = (body: unknown): HygraphModel[] => {
-  if (!body || typeof body !== "object") {
-    return [];
-  }
-
-  const records: unknown[] = [];
-  const data = (body as { data?: unknown }).data;
-
-  if (Array.isArray(data)) {
-    records.push(...data);
-  } else if (data) {
-    records.push(data);
-  } else {
-    records.push(body);
-  }
-
-  const models = new Set<HygraphModel>();
-
-  for (const record of records) {
-    const typename =
-      record && typeof record === "object"
-        ? (record as { __typename?: unknown }).__typename
-        : undefined;
-
-    if (isKnownModel(typename)) {
-      models.add(typename);
-    }
-  }
-
-  return [...models];
-};
-
-const secretsMatch = (provided: string, expected: string) => {
-  const providedBuffer = Buffer.from(provided);
-  const expectedBuffer = Buffer.from(expected);
-
-  return (
-    providedBuffer.length === expectedBuffer.length &&
-    timingSafeEqual(providedBuffer, expectedBuffer)
-  );
-};
-
-const readProvidedSecret = (req: NextRequest) => {
-  const authHeader = req.headers.get("authorization");
-
-  if (authHeader?.startsWith("Bearer ")) {
-    return authHeader.slice("Bearer ".length).trim();
-  }
-
-  return req.headers.get("x-webhook-secret")?.trim() ?? "";
-};
-
 export async function POST(req: NextRequest) {
-  const expectedSecret = process.env.HYGRAPH_REVALIDATE_SECRET;
+  const secret = process.env.SANITY_REVALIDATE_SECRET;
 
-  if (!expectedSecret) {
-    console.error("Revalidate webhook: HYGRAPH_REVALIDATE_SECRET is not set");
+  if (!secret) {
+    console.error("Revalidate webhook: SANITY_REVALIDATE_SECRET is not set");
 
     return NextResponse.json(
       { error: "Revalidation is not configured" },
@@ -85,33 +33,35 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const providedSecret = readProvidedSecret(req);
+  const signature = req.headers.get(SIGNATURE_HEADER_NAME) ?? "";
+  const body = await req.text();
 
-  if (!providedSecret || !secretsMatch(providedSecret, expectedSecret)) {
+  let authorized = false;
+  try {
+    authorized = Boolean(signature) && (await isValidSignature(body, signature, secret));
+  } catch {
+    authorized = false;
+  }
+
+  if (!authorized) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  // A missing / unparseable body is not fatal: purge every live tag so a
-  // valid, authorized webhook never silently fails to refresh the site.
-  let body: unknown = null;
-
+  // An unknown or unparseable payload is not fatal: purge every tag so a
+  // valid, signed webhook never silently fails to refresh the site.
+  let type: unknown;
   try {
-    body = await req.json();
+    type = (JSON.parse(body) as { _type?: unknown })._type;
   } catch {
-    body = null;
+    type = undefined;
   }
 
-  const models = extractModels(body);
-  const tags =
-    models.length > 0
-      ? models.map((model) => CACHE_TAGS[model])
-      : ALL_LIVE_CACHE_TAGS;
+  const tags = isKnownType(type) ? [CACHE_TAGS[type]] : ALL_CACHE_TAGS;
 
   for (const tag of tags) {
     // Next 16 requires a cache-life profile. `{ expire: 0 }` forces an
-    // immediate hard purge (no stale-while-revalidate window) so the next
-    // request refetches from Hygraph. A named profile like "max" only marks
-    // the tag stale with a long grace window and keeps serving old data.
+    // immediate hard purge (no stale-while-revalidate window). The time-based
+    // `revalidate` window in lib/sanity-client.ts remains the upper bound.
     revalidateTag(tag, { expire: 0 });
   }
 

@@ -45,9 +45,6 @@ export async function generateMetadata({
 
 export default async function News({ searchParams }: NewsPageProps) {
   const locale = await getLocale();
-  if (locale === "uz") {
-    redirect({ href: "/news", locale: "en" });
-  }
 
   const t = await getTranslations("TheLastNews");
   const { page } = (await searchParams) ?? {};
@@ -58,6 +55,11 @@ export default async function News({ searchParams }: NewsPageProps) {
     news,
     newsConnection: { aggregate },
   } = await NewsService.getAllNews(DEFAULT_PAGE_SIZE, skip, locale);
+
+  // uz is translated gradually: until uz news exist, use the English list.
+  if (locale === "uz" && aggregate.count === 0) {
+    redirect({ href: "/news", locale: "en" });
+  }
   const popularNews = await getPopularNews(locale);
 
   const totalPages = Math.ceil(aggregate.count / DEFAULT_PAGE_SIZE);

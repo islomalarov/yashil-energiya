@@ -1,6 +1,6 @@
-import { gql } from "graphql-request";
-import { fetchData } from "lib/graphql-client";
-import { resolveCmsLocale } from "@/lib/cms-locale";
+import { fetchData } from "lib/sanity-client";
+import { CACHE_TAGS } from "lib/cache-tags";
+import { ENTRY_ID, IMAGE, cmsLocale, hasLocale, localized } from "./fragments";
 
 export interface Manager {
   id: string;
@@ -22,27 +22,20 @@ interface ManagerResponse {
 
 export const ManagerService = {
   getAllManagers: async (locale: string) => {
-    const query = gql`
-      query GetManagers($locale: Locale!) {
-        managers(first: 50, locales: [$locale], orderBy: queue_ASC) {
-          id
-          email
-          jobTitle
-          name
-          photo {
-            fileName
-            height
-            url
-            width
-          }
-          queue
-        }
+    const query = `{
+      "managers": *[_type == "manager" && ${hasLocale("name")}] | order(queue asc, _id asc) [0...50]{
+        ${ENTRY_ID},
+        email,
+        "photo": photo${IMAGE},
+        queue,
+        ${localized("name, jobTitle")}
       }
-    `;
+    }`;
 
-    return fetchData<ManagerResponse>(query, {
-      locale: resolveCmsLocale(locale),
-    });
+    return fetchData<ManagerResponse>(
+      query,
+      { locale: cmsLocale(locale) },
+      { tags: [CACHE_TAGS.manager] },
+    );
   },
 };
-

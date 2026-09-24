@@ -29,6 +29,12 @@
   overflow-wrap: anywhere;
 }
 
+// h3/h4 inside the body (were not rendered before the Sanity migration).
+.subtitle {
+  color: $blackColor;
+  overflow-wrap: anywhere;
+}
+
 .blockquote {
   margin: 0;
   padding: clamp(14px, 2.4vw, 22px) clamp(16px, 3vw, 28px);

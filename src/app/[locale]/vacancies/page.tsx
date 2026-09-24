@@ -11,11 +11,14 @@ import { absoluteUrl, itemListJsonLd, localizedPath } from "@/lib/seo";
 export default async function VacanciesPage() {
   const t = await getTranslations("VacanciesPage");
   const locale = await getLocale();
-  if (locale === "uz") {
-    redirect({ href: "/vacancies", locale: "en" });
-  }
 
   const vacancies = (await VacancyService.getAllVacancies(locale)) ?? [];
+
+  // uz is translated gradually: without uz vacancies, use the English list
+  // (it may have open positions even when there is nothing in uz yet).
+  if (locale === "uz" && vacancies.length === 0) {
+    redirect({ href: "/vacancies", locale: "en" });
+  }
 
   return (
     <>

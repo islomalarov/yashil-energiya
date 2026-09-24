@@ -13,6 +13,7 @@ import {
   breadcrumbJsonLd,
   buildDescription,
   buildTitle,
+  cmsAlternateLocales,
   createMetadata,
   optimizedOgImagePath,
 } from "@/lib/seo";
@@ -47,7 +48,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: buildDescription(
       seo?.metaDescription,
       article.excerpt,
-      article.content?.raw?.children,
+      article.content,
     ),
     image: optimizedOgImagePath(seo?.ogImage?.url ?? article.cover?.url, {
       title: article.title,
@@ -57,21 +58,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     modifiedTime: article.updatedAt,
     noIndex: seo?.noIndex ?? false,
     canonicalOverride: seo?.canonicalUrl ?? undefined,
-    alternateLocales: ["en", "ru"],
+    alternateLocales: cmsAlternateLocales(article.languages),
   });
 }
 
 export default async function ArticlePage({ params }: Props) {
   const { slug, locale } = await params;
-  if (locale === "uz") {
-    redirect({ href: `/articles/${slug}`, locale: "en" });
-  }
 
   if (!slug) notFound();
   const t = await getTranslations("TheArticlesList");
   const article = await ArticlesService.getOneArticle(slug, locale);
 
-  if (!article) notFound();
+  if (!article) {
+    // uz is translated gradually: without a uz version, use the English page.
+    if (locale === "uz") {
+      redirect({ href: `/articles/${slug}`, locale: "en" });
+    }
+    notFound();
+  }
 
   return (
     <>
@@ -108,7 +112,7 @@ export default async function ArticlePage({ params }: Props) {
               {formatPublicationDate(article.createdAt, locale)}
             </time>
           )}
-          <ThePageContent content={article.content.raw.children} />
+          <ThePageContent content={article.content} />
         </div>
       </div>
       <TheFeedback />

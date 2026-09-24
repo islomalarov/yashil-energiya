@@ -1,6 +1,6 @@
 # Yashil Energiya
 
-Corporate website for Yashil Energiya built with Next.js App Router, TypeScript, SCSS modules, `next-intl`, Hygraph, Microsoft Graph email delivery, Cloudflare Turnstile, and Upstash rate limiting.
+Corporate website for Yashil Energiya built with Next.js App Router, TypeScript, SCSS modules, `next-intl`, Sanity (content, Studio in `studio/`), Microsoft Graph email delivery, Cloudflare Turnstile, and Upstash rate limiting.
 
 ## Requirements
 
@@ -27,6 +27,8 @@ npm run build
 
 ## Notes
 
-- Public GraphQL access is configured through `NEXT_PUBLIC_HYGRAPH_ENDPOINT`.
+- Content comes from Sanity (`NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET`) via GROQ queries in `services/`.
+- Sanity Studio is a separate package: `cd studio && npm install && npm run dev` (deploy with `npm run deploy`).
+- The Hygraph → Sanity migration is described in `docs/migration-hygraph-to-sanity.md`.
 - Feedback form secrets are validated on the server through `src/lib/server-env.ts`.
 - Supported locales are configured in `src/i18n/routing.ts`.
