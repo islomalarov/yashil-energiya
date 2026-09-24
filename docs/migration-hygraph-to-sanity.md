@@ -15,11 +15,12 @@
 |---|---|
 | Инвентаризация реального контента | ✅ `extract.mjs`, `inventory.mjs` |
 | Конвертер RichText → Portable Text | ✅ 160 полей, 0 ошибок, 0 потерь текста, 23 теста |
-| Sanity Studio: схемы 8 типов, i18n, структура | ✅ `studio/`, `sanity schema validate` — 0 ошибок |
-| Трансформ в NDJSON + проверка ассетов | ✅ 389 документов, 0 ошибок; 448 ассетов доступны |
-| Приложение на Sanity: сервисы GROQ, рендер PT, вебхук, SEO, конфиги | ✅ lint / typecheck / build; сервисы проверены на мигрированных данных (24 проверки) |
-| **Импорт в Sanity** | ⏳ нужен доступ на запись — см. «Регламент», шаг 1 |
-| Деплой Studio, env в Vercel, вебхук | ⏳ после импорта |
+| Sanity Studio: схемы 8 типов, мультиязычный документ, русский интерфейс, табличный редактор | ✅ `studio/`, `sanity schema validate` — 0 ошибок |
+| Трансформ в NDJSON + проверка ассетов | ✅ 161 документ, 0 ошибок; 448 ассетов доступны |
+| Приложение на Sanity: сервисы GROQ, рендер PT, вебхук, SEO, конфиги | ✅ lint / typecheck / build; сервисы проверены на мигрированных данных (25 проверок) |
+| Импорт в Sanity (модель «документ на язык») | ✅ 2026-09-23, проверен — **заменяется** новой моделью |
+| **Пересоздание датасета под мультиязычные документы** | ⏳ владелец — «Регламент», шаг 3 |
+| Деплой Studio, env в Vercel | ✅ Studio — передеплоить после смены схемы (шаг 5); env заданы |
 | Preview-QA на 3 локалях → мерж → прод | ⏳ |
 | Перевод контента на uz и включение индексации uz | ⏳ редакционная работа |
 
@@ -29,7 +30,8 @@
 
 | Вопрос | Решение | Почему |
 |---|---|---|
-| i18n | **Document-level** (`@sanity/document-internationalization`): документ на каждый язык | Фронт рендерит одну локаль на роут; добавление uz не меняет схему; GROQ простой (`language == $locale`) |
+| i18n | **Field-level: один документ на запись**, вкладки «Общее» / English / Русский / Oʻzbekcha; одна кнопка Publish публикует все языки | Решение владельца (2026-09-24): контент публикуется сразу на 3 языках; обложки и фото загружаются один раз для всех языков (alt — по языкам) — в 2,4 раза меньше документов. Первый вариант (документ на язык, `@sanity/document-internationalization`) заменён |
+| Studio | Русский интерфейс (`@sanity/locale-ru-kz`), таблицы — редактор-сетка `@sanity/table` | Удобство редакторов |
 | Клиент | **Свой тонкий `fetch`** к Query API (`lib/sanity-client.ts`), без `next-sanity` | У `next-sanity` v13 обязательные peer-зависимости `sanity` + `styled-components` — ~900 пакетов в приложении, и styled-components запрещён AGENTS.md §1. Нужна была только обёртка с `next: { revalidate, tags }` — та же, что была для Hygraph |
 | Запросы | **GROQ** | Без `graphql deploy` при каждом изменении схемы, произвольные проекции |
 | Rich text | Portable Text, рендер `@portabletext/react` | Структурная конвертация без потерь |
@@ -57,7 +59,7 @@
 | компонент `Seo` | объект `seo` | да | — | в article/news |
 | `DemoComponent` | — | — | — | не переносится (не используется) |
 
-**275 записей-локалей + 114 документов связей переводов = 389 документов.** «513» в Hygraph включали ассеты.
+**275 записей-локалей → 161 документ Sanity** (114 многоязычных записей + 47 записей для карт). «513» в Hygraph включали ассеты.
 
 **Находки** (часть — дефекты текущего прода, миграция их исправляет):
 
@@ -66,7 +68,7 @@
 3. **`heading-four` (6 шт.) сейчас не выводится** (`ThePageContent` → `default: null`): скрыты подзаголовки «Renewable Energy», «Green Energy», «Conclusion:» (en+ru). После миграции видны как `h3`.
 4. **4 битые ссылки** в ru-версии `when-does-a-solar-plant-pay-off` (без `https://` → 404). Исправлены при конвертации.
 5. **alt**: у 146 из 153 ассетов и 312 из 376 картинок в тексте нет `altText`; сейчас в `alt` попадает имя файла («en.png»). В Sanity `alt` пустой, пока его не заполнят (Studio показывает предупреждение).
-6. Таблицы: 4, заголовки строк выведены явным флагом `isHeader`. **На ревью**: во 2-й таблице en-версии `when-does-a-solar-plant-pay-off` нет строки «Показатель | Значение», которая есть в ru, — заголовком стала первая строка данных (как и сейчас на проде).
+6. Таблицы: 4, строка-заголовок выведена явным флагом «Первая строка — заголовок» (`hasHeaderRow`). **На ревью**: во 2-й таблице en-версии `when-does-a-solar-plant-pay-off` нет строки «Показатель | Значение», которая есть в ru, — заголовком стала первая строка данных (как и сейчас на проде).
 7. `Plant.power/production/coal/…` — строки (как в Hygraph); `region6` подписан по-разному («Jizzakh» / «Jizakh»).
 8. Порядок по умолчанию в Hygraph — `createdAt asc`. Трансформ переносит `_createdAt`, запросы сортируют по нему — списки и «последние СЭС» на главной совпадают.
 9. Бесплатный Hygraph ограничивает частоту запросов (429), прод делит этот лимит — экстрактор работает с паузой и backoff.
@@ -76,17 +78,29 @@
 
 ## Схемы Sanity (`studio/schemaTypes`)
 
-- Документы: `news`, `article`, `plant`, `vacancy`, `manager` (локализованные: `language`, `entryId`) и `plantStatus`, `evCharge`, `mhp` (без языка; `region`/`condition` — списки значений бывших enum).
-- Объекты: `richText` (стили `normal/h2/h3/h4/blockquote`, списки, декораторы `strong/em/underline/sup`, аннотация `link { href, openInNewTab }`, блоки `imageBlock`, `table`), `table → tableRow { isHeader, cells[] } → tableCell { content }`, `seo`.
-- Картинки: `hotspot` + поле `alt` (предупреждение, если пусто). Размеры берутся из метаданных ассета.
+**Мультиязычный документ** (`news`, `article`, `plant`, `vacancy`, `manager`): общие поля в корне (вкладка «Общее»), каждый язык — объект `en` / `ru` / `uz` (своя вкладка).
+
+| Тип | Общее для всех языков | На каждом языке |
+|---|---|---|
+| `news` | `slug`, `date`, `cover` | `title`, `excerpt`, `description`, `seo` |
+| `article` | `slug`, `publishedAt`, `cover` | `title`, `excerpt`, `content`, `seo` |
+| `plant` | `date`, `trees`, `coords`, `pictures` | `title`, `address`, `power`, `production`, `coal`, `gases` (значения с единицами) |
+| `vacancy` | `attachments` | `title`, `references`, `excerpt`, `description` |
+| `manager` | `email`, `queue`, `photo` | `name`, `jobTitle` |
+
+- English обязателен (ошибка), нет ru/uz — **предупреждение** «Нет перевода»: старые непереведённые записи можно править и публиковать. Внутри начатого языка заголовок обязателен.
+- Общие картинки (обложка, фото СЭС и руководства): одна картинка, `alt` — объект `{ en, ru, uz }` (предупреждение о пустых). Картинки внутри текста — `alt` строкой (текст и так на своём языке).
+- `plantStatus`, `evCharge`, `mhp` — без языков (`region` / `condition` — списки значений бывших enum).
+- `richText`: стили `normal/h2/h3/h4/blockquote`, списки, `strong/em/underline/sup`, аннотация `link { href, openInNewTab }`, блоки `imageBlock` и **`dataTable`** = `{ hasHeaderRow, table }`, где `table` — сетка `@sanity/table` (ячейки — текст; в данных Hygraph форматирования в ячейках нет, кроме жирных строк-заголовков — их передаёт флаг).
 - Координаты — `geopoint`, во фронт отдаются как `[lat, lng]`.
-- Structure: каждый тип разбит по языкам; «создать» внутри языка использует шаблон плагина `<type>-<lang>`. Стандартные шаблоны без языка скрыты.
+- Structure: у каждого типа «Все» и очереди «Без перевода: Русский / Oʻzbekcha». В списке у документа видно, какие языки заполнены: `EN ✓ · RU ✓ · UZ —`.
 
 ### ID и роуты
 
-- `_id`: `<type>-<hygraphId>-<locale>` / `<type>-<hygraphId>`; связи переводов — `translations-<type>-<hygraphId>`. Без точек (id с точкой в Sanity приватный).
-- **`entryId`** — общий id всех языковых версий записи: у перенесённых = id Hygraph. Отдаётся как `id`, поэтому `/plants/{id}`, `/vacancies/{id}` и статистика просмотров новостей в Redis остаются валидными. Плагин при создании перевода копирует документ целиком — `entryId` и `slug` переносятся сами; у новых записей `entryId` генерируется.
-- Уникальность `slug` и `entryId` проверяется **в рамках языка** (стандартный `isUnique` ругался бы на переводы).
+- `_id`: `<type>-<hygraphId>`. Без точек (id с точкой в Sanity приватный).
+- **`entryId`** — публичный id записи: у перенесённых = id Hygraph, у новых генерируется (только чтение). Отдаётся как `id`, поэтому `/plants/{id}`, `/vacancies/{id}` и статистика просмотров новостей в Redis остаются валидными.
+- `slug` — один на все языки (как и было в Hygraph у всех статей и новостей), генерируется из английского заголовка.
+- Язык в запросах — `@[$locale]` (объект языка); `$locale` пропускается только из `en/ru/uz` (`cmsLocale` в `services/fragments.ts`). «Есть перевод» = заполнен заголовок языка.
 
 ---
 
@@ -96,8 +110,8 @@
 |---|---|
 | Данные | `lib/sanity-client.ts` (`fetchData` с прежней сигнатурой), `services/*` на GROQ, общие проекции `services/fragments.ts`; формы ответов сохранены |
 | Кэш | Все запросы с тегами `lib/cache-tags.ts` + прежний предел 300 с. Данные карт — без кэша (`no-store`, как сейчас: `revalidateTag` на Next 16 оказался ненадёжным, коммит `ef2e027`); они идут через API CDN Sanity, чтобы не расходовать квоту |
-| Rich text | `ThePageContent` на `@portabletext/react` с прежними классами стилей; `TheTable` читает `isHeader`; `TheImageModal` без изменений |
-| uz | Страницы записей: нет uz-перевода → редирект на en (как сейчас); списки: нет ни одного uz-документа → редирект на en; виджеты, поиск, популярное, ассистент — откат на en (`loadWithFallback` в `src/lib/cms-locale.ts`) |
+| Rich text | `ThePageContent` на `@portabletext/react` с прежними классами стилей; `TheTable` рендерит сетку `@sanity/table` и флаг `hasHeaderRow`; `TheImageModal` без изменений |
+| uz | Страницы записей: вкладка Oʻzbekcha не заполнена → редирект на en (как сейчас); списки: нет ни одной записи с uz → редирект на en; виджеты, поиск, популярное, ассистент — откат на en (`loadWithFallback` в `src/lib/cms-locale.ts`) |
 | SEO | hreflang записи = её реальные языки ∩ `cmsContentLocales` (`cmsAlternateLocales`); sitemap так же; OG-картинки режутся на Sanity CDN |
 | Вебхук | `/api/revalidate` проверяет подпись Sanity (`SANITY_REVALIDATE_SECRET`), сбрасывает тег по `_type` |
 | Конфиг | `next.config.js`: `images` → `cdn.sanity.io/images/**` (настройки оптимизации прежние), CSP `img-src` → `cdn.sanity.io`, домены Hygraph убраны; preconnect в layout; allowlist `/api/og-image` |
@@ -130,18 +144,22 @@ node scripts/sanity-migration/check-assets.mjs
 
 ### 3. Импорт
 
+**Однократно, при смене модели на мультиязычные документы (2026-09-24):** датасет пересоздаётся, потому что прежние документы «один на язык» имеют другие `_id` и `--replace` их не удалит. В датасете нет ничего, кроме импорта (проверено: 0 черновиков, 0 созданных вручную документов). Ассеты загрузятся заново — одинаковые файлы Sanity хранит один раз.
+
 ```bash
 cd studio
+npx sanity dataset delete production
+npx sanity dataset create production --visibility public
 npx sanity dataset import ../scripts/sanity-migration/.data/transformed/dataset.ndjson production --replace
 ```
 
-Импорт идемпотентен (детерминированные `_id` и `_key`) — его можно перезапускать. Внимание: `--replace` **перезаписывает** документы, изменённые в Sanity после предыдущего импорта, и **не удаляет** документы, удалённые в Hygraph (сверять счётчики).
+**Дальше (финальная синхронизация при переходе)** — только последняя команда. Импорт идемпотентен (детерминированные `_id` и `_key`) — его можно перезапускать. Внимание: `--replace` **перезаписывает** документы, изменённые в Sanity после предыдущего импорта, и **не удаляет** документы, удалённые в Hygraph (сверять счётчики).
 
 ### 4. Проверка после импорта
 
-- Счётчики по типам и языкам совпадают с `reports/transform.json` (Vision в Studio или запрос `count(*[_type == "news" && language == "ru"])`).
-- `_createdAt` перенёсся: `*[_type == "plant" && language == "en"] | order(_createdAt asc)[0...4].entryId` = первые 4 id из `extracted/plant.en.json`.
-- `npx sanity documents validate -y` (из `studio/`) — без ошибок (предупреждения про alt ожидаемы).
+- Счётчики по типам и языкам совпадают с `reports/transform.json` (например, `count(*[_type == "news" && defined(ru.title)])`).
+- `_createdAt` перенёсся: `*[_type == "plant"] | order(_createdAt asc)[0...4].entryId` = первые 4 id из `extracted/plant.en.json`.
+- `npx sanity documents validate -y` (из `studio/`) — без ошибок (предупреждения про alt и «Нет перевода: Oʻzbekcha» ожидаемы).
 - Выборочно в Studio: статья с таблицами, новость с картинками, СЭС с галереей, вакансия.
 
 ### 5. Studio
