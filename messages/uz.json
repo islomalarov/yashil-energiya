@@ -306,11 +306,11 @@
     "seoSections": [
       {
         "id": "price",
-        "title": "Quyosh elektr stansiyasi narxi: Yashil Energiya bilan bu qanday ishlaydi",
+        "title": "Quyosh fotoelektr stansiyasi narxi: Yashil Energiya bilan bu qanday ishlaydi",
         "body": [
           {
             "type": "p",
-            "text": "Yashil Energiya bilan ishlaganda siz quyosh elektr stansiyasini sotib olmaysiz. Stansiyani loyihalash, uskunalarni xarid qilish, qurish va o'rnatish xarajatlarini kompaniya to'liq o'z zimmasiga oladi. Shu sababli sizdan boshlang'ich sarmoya, oldindan to'lov yoki kredit talab qilinmaydi."
+            "text": "Yashil Energiya bilan ishlaganda siz quyosh fotoelektr stansiyasini sotib olmaysiz. Stansiyani loyihalash, uskunalarni xarid qilish, qurish va o'rnatish xarajatlarini kompaniya to'liq o'z zimmasiga oladi. Shu sababli sizdan boshlang'ich sarmoya, oldindan to'lov yoki kredit talab qilinmaydi."
           },
           {
             "type": "p",
@@ -804,15 +804,15 @@
     "seoSections": [
       {
         "id": "price",
-        "title": "Zaryadlash qancha turadi",
+        "title": "Quvvatlash qancha turadi",
         "body": [
           {
             "type": "p",
-            "text": "Siz faqat avtomobilingiz olgan elektr energiyasi uchun to'laysiz. Yakuniy summa zaryadlangan kilovatt-soatlar miqdoriga va amaldagi tarifga bog'liq."
+            "text": "Siz faqat avtomobilingiz olgan elektr energiyasi uchun to'laysiz. Yakuniy summa avtomobilga berilgan kilovatt-soatlar miqdoriga va amaldagi tarifga bog'liq."
           },
           {
             "type": "p",
-            "text": "Amaldagi tariflar zaryadlashni boshlashdan oldin Yashil Energiya ilovasida ko'rsatiladi. Sessiyaning yakuniy summasi zaryadlash tugashi bilan ilovada ko'rinadi — yashirin to'lovlarsiz."
+            "text": "Amaldagi tariflar quvvatlashni boshlashdan oldin Yashil Energiya ilovasida ko'rsatiladi. Sessiyaning yakuniy summasi quvvatlash tugashi bilan ilovada ko'rinadi — yashirin to'lovlarsiz."
           },
           {
             "type": "p",
@@ -828,10 +828,10 @@
             "type": "list",
             "items": [
               "Asosiy yo'nalishlardagi tarmoq. Stansiyalar odamlar boradigan joylarda: tog'da, M39 trassasida, viloyatlarda.",
-              "Tezkor zaryadlash. 60 kVt dan yuqori stansiyalarda — 20 daqiqadan 60 daqiqagacha.",
-              "Keng tarqalgan razyomlar. GB/T va CCS2.",
+              "Tezkor quvvatlash. 60 kVt dan yuqori stansiyalarda — 20 daqiqadan 60 daqiqagacha.",
+              "Keng tarqalgan konnektorlar. GB/T va CCS2.",
               "Oson to'lov. Hammasi ilova orqali: balans, QR-kod, sessiya, yakuniy summa.",
-              "Shaffof tariflar. Ommaviy ofertada e'lon qilingan va zaryadlashdan oldin ilovada ko'rinadi.",
+              "Shaffof tariflar. Ommaviy ofertada e'lon qilingan va quvvatlashdan oldin ilovada ko'rinadi.",
               "Qo'llab-quvvatlash. +998 55 514 88 44, har kuni 9:00 dan 18:00 gacha.",
               "Biznes uchun. O'z maydonchangizda stansiya joylashtiring: o'rnatish va xizmat ko'rsatish — kompaniya hisobidan."
             ]
@@ -844,16 +844,16 @@
         "body": [
           {
             "type": "p",
-            "text": "Bugun Yashil Energiya tarmog'ida 14 ta stansiya ishlab turibdi — yetti hududda umumiy quvvati 2 440 kVt bo'lgan 26 ta zaryadlash ustuni: Toshkent shahri, Toshkent, Jizzax, Qashqadaryo, Buxoro, Andijon va Navoiy viloyatlari."
+            "text": "Bugun Yashil Energiya tarmog'ida 14 ta stansiya ishlab turibdi — yetti hududda umumiy quvvati 2 440 kVt bo'lgan 26 ta quvvatlash ustuni: Toshkent shahri, Toshkent, Jizzax, Qashqadaryo, Buxoro, Andijon va Navoiy viloyatlari."
           },
           {
             "type": "list",
             "items": [
               "Bir nechta misol:",
-              "Chimyon (Bo'stonliq tumani) — 8 ta zaryadlash ustuni, 600 kVt. Tarmoqdagi eng yirik nuqta: endi elektromobilda toqqa bemalol chiqib, qaytib kelsa bo'ladi.",
+              "Chimyon (Bo'stonliq tumani) — 8 ta quvvatlash ustuni, 600 kVt. Tarmoqdagi eng yirik nuqta: endi elektromobilda toqqa bemalol chiqib, qaytib kelsa bo'ladi.",
               "M39 trassasi, G'azli (Romitan tumani) — yonma-yon ikkita stansiya, 240 kVt. Toshkent — Buxoro yo'lini endi elektromobilda bosib o'tish mumkin.",
-              "Yangi Toshkent (Energetiklar ko'chasi) — 6 ta zaryadlash ustuni, 480 kVt. Poytaxtdagi eng quvvatli nuqta.",
-              "Jizzax viloyati — uchta nuqta: ikkitasi M39 va A-376 trassalarida, haydovchilar baribir to'xtaydigan joylarda, shuning uchun tushlik paytida zaryadlab olsa bo'ladi; uchinchisi — Zomin tumanidagi mehmonxona yonida.",
+              "Yangi Toshkent (Energetiklar ko'chasi) — 6 ta quvvatlash ustuni, 480 kVt. Poytaxtdagi eng quvvatli nuqta.",
+              "Jizzax viloyati — uchta nuqta: ikkitasi M39 va A-376 trassalarida, haydovchilar baribir to'xtaydigan joylarda, shuning uchun tushlik paytida quvvatlab olsa bo'ladi; uchinchisi — Zomin tumanidagi mehmonxona yonida.",
               "Qarshi — 160 kVt dan ikkita tezkor stansiya."
             ]
           },
@@ -869,28 +869,28 @@
         "body": [
           {
             "type": "qa",
-            "q": "Zaryadlash qancha vaqt oladi?",
-            "a": "Quvvati 60 kVt dan yuqori tezkor stansiyalarda — 20 daqiqadan 60 daqiqagacha. Quvvati 22 kVt gacha bo'lgan sekin stansiyalarda — 4–8 soat, bu tunda zaryadlash uchun qulay variant."
+            "q": "Quvvatlash qancha vaqt oladi?",
+            "a": "Quvvati 60 kVt dan yuqori tezkor stansiyalarda — 20 daqiqadan 60 daqiqagacha. Quvvati 22 kVt gacha bo'lgan sekin stansiyalarda — 4–8 soat, bu tunda quvvatlash uchun qulay variant."
           },
           {
             "type": "qa",
-            "q": "Stansiyalarda qanday razyomlar bor?",
-            "a": "GB/T — o'zgaruvchan (AC) va o'zgarmas (DC) tok bilan zaryadlash uchun, CCS2 — tezkor DC-zaryadlash uchun."
+            "q": "Stansiyalarda qanday konnektorlar bor?",
+            "a": "GB/T — o'zgaruvchan (AC) va o'zgarmas (DC) tok bilan quvvatlash uchun, CCS2 — tezkor DC-quvvatlash uchun."
           },
           {
             "type": "qa",
             "q": "Stansiya mening avtomobilimga mos keladimi?",
-            "a": "Agar avtomobilingiz GB/T yoki CCS2 razyomini qo'llab-quvvatlasa, Yashil Energiya stansiyalarida zaryadlashingiz mumkin."
+            "a": "Agar avtomobilingiz GB/T yoki CCS2 konnektorini qo'llab-quvvatlasa, Yashil Energiya stansiyalarida quvvatlashingiz mumkin."
           },
           {
             "type": "qa",
-            "q": "Zaryadlash uchun qanday to'layman?",
+            "q": "Quvvatlash uchun qanday to'layman?",
             "a": "Yashil Energiya ilovasi orqali: balansni to'ldiring, stansiyaning QR-kodini skanerlang va sessiyani boshlang."
           },
           {
             "type": "qa",
             "q": "Tariflarni qayerdan ko'rsam bo'ladi?",
-            "a": "Saytdagi ommaviy ofertada va zaryadlashni boshlashdan oldin ilovada."
+            "a": "Saytdagi ommaviy ofertada va quvvatlashni boshlashdan oldin ilovada."
           },
           {
             "type": "qa",
@@ -1011,7 +1011,7 @@
           },
           {
             "type": "p",
-            "text": "Ish modelining o'zi ham xarajat talab qilmaydi. Yashil Energiya quyosh elektr stansiyasini o'z hisobidan quradi, siz esa faqat haqiqatda foydalangan elektr energiyangiz uchun — tarmoq tarifidan arzonroq narxda to'laysiz. Shartnomadagi narx tarifga bog'langan va tarif o'zgarsa, avtomatik qayta hisoblanadi."
+            "text": "Ish modelining o'zi ham xarajat talab qilmaydi. Yashil Energiya quyosh fotoelektr stansiyasini o'z hisobidan quradi, siz esa faqat haqiqatda foydalangan elektr energiyangiz uchun — tarmoq tarifidan arzonroq narxda to'laysiz. Shartnomadagi narx tarifga bog'langan va tarif o'zgarsa, avtomatik qayta hisoblanadi."
           },
           {
             "type": "list",
