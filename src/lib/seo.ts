@@ -64,7 +64,7 @@ export const staticSeo: Record<StaticSeoKey, Record<SeoLocale, SeoCopy>> = {
     uz: {
       title: "Yashil Energiya - O'zbekistonda qayta tiklanuvchi energiya",
       description:
-        "Yashil Energiya O'zbekistonda quyosh elektr stansiyalari, mikro GES va elektromobil zaryadlash infratuzilmasini rivojlantiradi.",
+        "Yashil Energiya O'zbekistonda quyosh fotoelektr stansiyalari, mikro GES va elektromobillarni quvvatlash infratuzilmasini rivojlantiradi.",
     },
   },
   about: {
@@ -195,9 +195,9 @@ export const staticSeo: Record<StaticSeoKey, Record<SeoLocale, SeoCopy>> = {
         "Солнечные электростанции и инфраструктура чистой энергетики, развиваемая Yashil Energiya в Узбекистане.",
     },
     uz: {
-      title: "Quyosh elektr stansiyalari",
+      title: "Quyosh fotoelektr stansiyalari",
       description:
-        "Yashil Energiya tomonidan O‘zbekistonda rivojlantirilayotgan quyosh elektr stansiyalari va toza energetika infratuzilmasi.",
+        "Yashil Energiya tomonidan O'zbekistonda rivojlantirilayotgan quyosh fotoelektr stansiyalari va toza energetika infratuzilmasi.",
     },
   },
   microges: {
@@ -229,9 +229,9 @@ export const staticSeo: Record<StaticSeoKey, Record<SeoLocale, SeoCopy>> = {
         "Проекты зарядных станций Yashil Energiya для развития электромобильности и чистой транспортной инфраструктуры Узбекистана.",
     },
     uz: {
-      title: "Elektromobil zaryadlash stansiyalari",
+      title: "Elektromobillarni quvvatlash stansiyalari",
       description:
-        "Yashil Energiya elektromobil zaryadlash stansiyalari O'zbekistonda ekologik transport infratuzilmasini rivojlantiradi.",
+        "Yashil Energiya elektromobillarni quvvatlash stansiyalari O'zbekistonda ekologik transport infratuzilmasini rivojlantiradi.",
     },
   },
   chargingstationPublicOffer: {

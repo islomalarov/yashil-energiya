@@ -97,15 +97,15 @@ const copy = {
   uz: {
     metaTitle: "Yashil Energiya havolalari",
     metaDescription:
-      "Yashil Energiya rasmiy havolalari, zaryadlash ilovasi, elektron pochta va ofis manzili.",
+      "Yashil Energiya rasmiy havolalari, quvvatlash ilovasi, elektron pochta va ofis manzili.",
     eyebrow: "Rasmiy havolalar",
     title: "Yashil Energiya",
     subtitle:
-      "Sayt, zaryadlash stansiyalari ilovasi, elektron pochta va ofis manziliga tezkor kirish.",
+      "Sayt, elektromobillarni quvvatlash stansiyalari ilovasi, elektron pochta va ofis manziliga tezkor kirish.",
     website: "Rasmiy sayt",
     websiteText: "Yangiliklar, loyihalar va kompaniya haqida",
-    app: "Zaryadlash ilovasi",
-    appText: "Stansiyani toping va zaryadlashni boshlang",
+    app: "Quvvatlash ilovasi",
+    appText: "Stansiyani toping va quvvatlashni boshlang",
     email: "Elektron pochta",
     emailText: email,
     map: "Google Mapsdagi ofis",
