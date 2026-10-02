@@ -54,7 +54,7 @@
       "year": "2023",
       "event": [
         {
-          "description": "16.02.2023 yilda \"2023 yilda qayta tiklanuvchi energiya manbalarini va energiya tejovchi texnologiyalarni joriy etishni jadallashtirish chora-tadbirlari to‘g‘risida\"gi Prezident qarori (PQ–57-son) asosida \"Yashil Energiya\" MChJ tashkil etildi."
+          "description": "16.02.2023 yilda \"2023 yilda qayta tiklanuvchi energiya manbalarini va energiya tejovchi texnologiyalarni joriy etishni jadallashtirish chora-tadbirlari to'g'risida\"gi Prezident qarori (PQ–57-son) asosida \"Yashil Energiya\" MChJ tashkil etildi."
         },
         {
           "description": "2023-yil oxiriga kelib \"Yashil Energiya\" MChJ tomonidan o'rnatilgan va ishlab turgan stansiyalar quvvati 20 000 kVt dan ortdi."
@@ -94,18 +94,18 @@
         }
       ]
     },
-    "paragraph1": "\"Yashil Energiya\" MChJ – O‘zbekiston Respublikasida qayta tiklanuvchi energiya manbalarini rivojlantirish va joriy etishga ixtisoslashgan kompaniya. Kompaniyamiz 2023-yil 16-fevralda O‘zbekiston Respublikasi Prezidentining PQ-57-son qaroriga asosan tashkil etilgan.",
-    "paragraph2": "Barqaror rivojlanishni ta'minlash va atrof-muhitni muhofaza qilish maqsadida, qayta tiklanuvchi energiya manbalarini keng joriy etish orqali mamlakatimizning energiya mustaqilligiga hissa qo‘shish. Bunda dastlab ijtimoiy soha obyektlari sifatli elektr energiyasi bilan ta’minlash asosiy maqsad qilingan.",
+    "paragraph1": "\"Yashil Energiya\" MChJ – O'zbekiston Respublikasida qayta tiklanuvchi energiya manbalarini rivojlantirish va joriy etishga ixtisoslashgan kompaniya. Kompaniyamiz 2023-yil 16-fevralda O'zbekiston Respublikasi Prezidentining PQ-57-son qaroriga asosan tashkil etilgan.",
+    "paragraph2": "Barqaror rivojlanishni ta'minlash va atrof-muhitni muhofaza qilish maqsadida, qayta tiklanuvchi energiya manbalarini keng joriy etish orqali mamlakatimizning energiya mustaqilligiga hissa qo'shish. Bunda dastlab ijtimoiy soha obyektlari sifatli elektr energiyasi bilan ta'minlash asosiy maqsad qilingan.",
     "project1": {
-      "title": "Ijtimoiy soha obyektlari, davlat organlari va boshqa tashkilotlarning binolarining tom qismiga quyosh fotoelektr stansiyasini o’rnatish va sifatli elektr energiyasini yetkazib berish.",
+      "title": "Ijtimoiy soha obyektlari, davlat organlari va boshqa tashkilotlarning binolarining tom qismiga quyosh fotoelektr stansiyasini o'rnatish va sifatli elektr energiyasini yetkazib berish.",
       "src": "about-solar.webp"
     },
     "project2": {
-      "title": "Bir vaqting o’zida bir qancha elektr mashinalarini innovatsion qurilmalar yordamida sifatli elektr energiyasi bilan quvvatlash.",
+      "title": "Bir vaqting o'zida bir qancha elektr mashinalarini innovatsion qurilmalar yordamida sifatli elektr energiyasi bilan quvvatlash.",
       "src": "about-ev-charging.webp"
     },
     "project3": {
-      "title": "O‘zbekiston hududida kichik quvvatli gidroelektr stansiyalarini barpo etish va ulardan samarali foydalanishni amalga oshirish.",
+      "title": "O'zbekiston hududida kichik quvvatli gidroelektr stansiyalarini barpo etish va ulardan samarali foydalanishni amalga oshirish.",
       "src": "about-micro-hydro.webp"
     },
     "achievement1": {
@@ -117,7 +117,7 @@
       "src": "ph:solar-panel"
     },
     "achievement3": {
-      "description": "1 200 ga yaqin ijtimoiy soha obyektlariga quyosh fotoelektr stansiyasi o’rnatilgan",
+      "description": "1 200 ga yaqin ijtimoiy soha obyektlariga quyosh fotoelektr stansiyasi o'rnatilgan",
       "src": "fluent:building-bank-48-regular"
     },
     "achievement4": {
@@ -167,54 +167,54 @@
   "SolarPanelsPage": {
     "heroTitle": "Quyosh fotoelektr stansiyalari",
     "title": "Quyosh fotoelektr stansiyalari",
-    "list": "Hozirgi kunda quyosh fotoelektr stansiyalari (QFES) dunyoning ko‘plab mamlakatlarida muhim energiya manbai bo‘lib bormoqda. Ular:",
+    "list": "Hozirgi kunda quyosh fotoelektr stansiyalari (QFES) dunyoning ko'plab mamlakatlarida muhim energiya manbai bo'lib bormoqda. Ular:",
     "listItem1": "Atrof-muhitga zarar yetkazmaydi (toza energiya manbai hisoblanadi).",
-    "listItem2": "Neft, gaz kabi yoqilg‘ilarga qaramlikni kamaytiradi.",
+    "listItem2": "Neft, gaz kabi yoqilg'ilarga qaramlikni kamaytiradi.",
     "listItem3": "Elektr energiyasi narxini pasaytirishga yordam beradi.",
     "listItem4": "Energiya samaradorligini oshiradi.",
     "content": {
-      "description1": "Ko‘plab rivojlangan davlatlar (AQSh, Xitoy, Germaniya) quyosh energiyasidan keng foydalanmoqda. Masalan, Xitoy dunyodagi eng yirik quyosh fotoelektr stansiyalariga ega.",
-      "description2": "O‘zbekistonda ham quyosh energiyasiga katta e’tibor berilmoqda,chunki mamlakatda quyoshli kunlar soni yiliga 300 kundan ortiq. Bu quyosh fotoelektr stansiyalarini rivojlantirish uchun katta imkoniyat yaratadi. O‘zbekistonda quyosh energiyasidan kengroq foydalanish kelajakda elektr ta’minotini yaxshilash va energiya xarajatlarini kamaytirishga yordam beradi."
+      "description1": "Ko'plab rivojlangan davlatlar (AQSh, Xitoy, Germaniya) quyosh energiyasidan keng foydalanmoqda. Masalan, Xitoy dunyodagi eng yirik quyosh fotoelektr stansiyalariga ega.",
+      "description2": "O'zbekistonda ham quyosh energiyasiga katta e'tibor berilmoqda,chunki mamlakatda quyoshli kunlar soni yiliga 300 kundan ortiq. Bu quyosh fotoelektr stansiyalarini rivojlantirish uchun katta imkoniyat yaratadi. O'zbekistonda quyosh energiyasidan kengroq foydalanish kelajakda elektr ta'minotini yaxshilash va energiya xarajatlarini kamaytirishga yordam beradi."
     },
-    "systemTitle": "Quyosh fotoelektr stansiyalari 3 xil asosiy turga bo‘linadi:",
+    "systemTitle": "Quyosh fotoelektr stansiyalari 3 xil asosiy turga bo'linadi:",
     "system1": {
       "title": "On-grid tizim",
-      "description": "Elektr tarmog‘iga ulangan tizim. Avvalo quyosh stansiyasi ishlab chiqargan elektr energiyasi ishlatiladi, tarmoqda uzilish bo‘lsa tizim ham ishlashni to‘xtatadi.",
+      "description": "Elektr tarmog'iga ulangan tizim. Avvalo quyosh stansiyasi ishlab chiqargan elektr energiyasi ishlatiladi, tarmoqda uzilish bo'lsa tizim ham ishlashni to'xtatadi.",
       "technicalLabel": "Tarmoqqa ulangan",
-      "context": "Barqaror elektr tarmog‘i mavjud obyektlar uchun",
+      "context": "Barqaror elektr tarmog'i mavjud obyektlar uchun",
       "alt": "Tarmoqqa ulangan quyosh fotoelektr stansiyasi sxemasi"
     },
     "system2": {
       "title": "Off-grid tizim",
-      "description": "Elektr tarmog‘iga ulanmagan avtonom tizim. Energiya akkumulyatorlarda saqlanadi va bu yechim uzoq hududlar uchun qulay hisoblanadi.",
+      "description": "Elektr tarmog'iga ulanmagan avtonom tizim. Energiya akkumulyatorlarda saqlanadi va bu yechim uzoq hududlar uchun qulay hisoblanadi.",
       "technicalLabel": "Akkumulyatorli saqlash",
-      "context": "Uzoq hududlar va avtonom ta’minot uchun",
+      "context": "Uzoq hududlar va avtonom ta'minot uchun",
       "alt": "Avtonom quyosh fotoelektr stansiyasi sxemasi"
     },
     "system3": {
       "title": "Hybrid tizim",
-      "description": "Tarmoq ulanishi va akkumulyator saqlash tizimini birlashtirgan gibrid yechim bo‘lib, yuqori moslashuvchanlik va ishonchlilikni ta’minlaydi.",
+      "description": "Tarmoq ulanishi va akkumulyator saqlash tizimini birlashtirgan gibrid yechim bo'lib, yuqori moslashuvchanlik va ishonchlilikni ta'minlaydi.",
       "technicalLabel": "Tarmoq + saqlash",
       "context": "Moslashuvchan va ishonchli ekspluatatsiya uchun",
       "alt": "Gibrid quyosh fotoelektr stansiyasi abstrakt sxemasi"
     },
-    "mapTitle": "“Yashil Energiya” QK MChJning mavjud QFESlari haqida ma’lumot",
-    "chartDescription": "“Yashil Energiya” MChJ 2023-yildan buyon O’zbekiston Respublikasi hududida joylashgan ijtimoiy soha obyektlariga QFES o’rnatish bilan shug’ullanib kelmoqda. Quyidagi diagrammada jamiyatga tegishli QFES larning umumiy quvvatini o’zgarishini ko’rishingiz mumkin.",
+    "mapTitle": "“Yashil Energiya” QK MChJning mavjud QFESlari haqida ma'lumot",
+    "chartDescription": "“Yashil Energiya” MChJ 2023-yildan buyon O'zbekiston Respublikasi hududida joylashgan ijtimoiy soha obyektlariga QFES o'rnatish bilan shug'ullanib kelmoqda. Quyidagi diagrammada jamiyatga tegishli QFES larning umumiy quvvatini o'zgarishini ko'rishingiz mumkin.",
     "hero": {
       "eyebrow": "Quyosh infratuzilmasi",
       "title": "Quyosh fotoelektr stansiyalari",
-      "subtitle": "Barqaror va energiya samarador O‘zbekiston uchun toza energetika infratuzilmasi.",
-      "primaryCta": "Yechimlarni ko‘rish",
+      "subtitle": "Barqaror va energiya samarador O'zbekiston uchun toza energetika infratuzilmasi.",
+      "primaryCta": "Yechimlarni ko'rish",
       "secondaryCta": "Joriy holat",
       "visualTitle": "QFES infratuzilmasi",
       "visualText": "Jamoat obyektlari uchun toza generatsiya"
     },
     "metrics": {
-      "label": "Quyosh fotoelektr stansiyalari ta’sir ko‘rsatkichlari",
+      "label": "Quyosh fotoelektr stansiyalari ta'sir ko'rsatkichlari",
       "metric1": {
         "value": "300+",
         "label": "Yiliga quyoshli kunlar",
-        "description": "O‘zbekiston iqlimi quyosh energetikasini rivojlantirish uchun yuqori salohiyat yaratadi."
+        "description": "O'zbekiston iqlimi quyosh energetikasini rivojlantirish uchun yuqori salohiyat yaratadi."
       },
       "metric2": {
         "value": "3",
@@ -238,10 +238,10 @@
       "description": "Quyosh fotoelektr stansiyalari toza elektr energiyasi, xarajatlarni kamaytirish va barqaror jamoat infratuzilmasini rivojlantirishga xizmat qiladi.",
       "benefit1": {
         "title": "Ekologik toza",
-        "description": "Quyosh generatsiyasi toza elektr energiyasini ishlab chiqarishga va atrof-muhitga ta’sirni kamaytirishga yordam beradi."
+        "description": "Quyosh generatsiyasi toza elektr energiyasini ishlab chiqarishga va atrof-muhitga ta'sirni kamaytirishga yordam beradi."
       },
       "benefit2": {
-        "title": "Qazib olinadigan yoqilg‘iga qaramlikni kamaytiradi",
+        "title": "Qazib olinadigan yoqilg'iga qaramlikni kamaytiradi",
         "description": "Qayta tiklanuvchi generatsiya energiya manbalarini diversifikatsiya qiladi va neft hamda gazga qaramlikni pasaytiradi."
       },
       "benefit3": {
@@ -250,13 +250,13 @@
       },
       "benefit4": {
         "title": "Energiya samaradorligini oshiradi",
-        "description": "Zamonaviy quyosh infratuzilmasi energiyadan oqilona va barqaror foydalanishni qo‘llab-quvvatlaydi."
+        "description": "Zamonaviy quyosh infratuzilmasi energiyadan oqilona va barqaror foydalanishni qo'llab-quvvatlaydi."
       }
     },
     "potential": {
-      "eyebrow": "O‘zbekistonning quyosh salohiyati",
+      "eyebrow": "O'zbekistonning quyosh salohiyati",
       "title": "300 dan ortiq quyoshli kun strategik ustunlik yaratadi",
-      "description": "O‘zbekistonda yiliga 300 dan ortiq quyoshli kun mavjud bo‘lib, quyosh energetikasi energiya samaradorligi va barqaror rivojlanishning eng istiqbolli yo‘nalishlaridan biridir.",
+      "description": "O'zbekistonda yiliga 300 dan ortiq quyoshli kun mavjud bo'lib, quyosh energetikasi energiya samaradorligi va barqaror rivojlanishning eng istiqbolli yo'nalishlaridan biridir.",
       "badgeValue": "300+",
       "badgeLabel": "yiliga quyoshli kun"
     },
@@ -268,21 +268,21 @@
     },
     "status": {
       "eyebrow": "Joriy QFES holati",
-      "title": "O‘zbekiston bo‘ylab quyosh infratuzilmasi rivojlanmoqda",
-      "description": "“Yashil Energiya” QK MChJ 2023-yildan buyon O‘zbekiston Respublikasi hududidagi ijtimoiy va davlat obyektlarida quyosh fotoelektr stansiyalariga investitsiya kiritib kelmoqda. Ushbu bo‘lim kompaniyaning quyosh infratuzilmasi va operatsion yo‘nalishi rivojlanishini aks ettiradi.",
-      "cardLabel": "Operatsion yo‘nalish",
+      "title": "O'zbekiston bo'ylab quyosh infratuzilmasi rivojlanmoqda",
+      "description": "“Yashil Energiya” QK MChJ 2023-yildan buyon O'zbekiston Respublikasi hududidagi ijtimoiy va davlat obyektlarida quyosh fotoelektr stansiyalariga investitsiya kiritib kelmoqda. Ushbu bo'lim kompaniyaning quyosh infratuzilmasi va operatsion yo'nalishi rivojlanishini aks ettiradi.",
+      "cardLabel": "Operatsion yo'nalish",
       "cardTitle": "Ijtimoiy va davlat obyektlari uchun quyosh infratuzilmasi",
       "capacityLabel": "2025-yilda kuzatilgan umumiy quvvat",
       "sinceValue": "2023",
       "sinceLabel": "Investitsiya faoliyati boshlangan yil",
-      "chartTitle": "Yillar bo‘yicha quvvat o‘sishi",
+      "chartTitle": "Yillar bo'yicha quvvat o'sishi",
       "mapTitle": "QFES geografiyasi"
     },
     "cta": {
-      "eyebrow": "Toza energiyaga o‘tish",
-      "title": "Jamoat infratuzilmasini toza energiya bilan ta’minlaymiz",
-      "text": "Yashil Energiya uzoq muddatli energiya samaradorligi, barqarorlik va ishonchli ekspluatatsiyani qo‘llab-quvvatlovchi quyosh infratuzilmasini rivojlantiradi.",
-      "button": "Bog‘lanish"
+      "eyebrow": "Toza energiyaga o'tish",
+      "title": "Jamoat infratuzilmasini toza energiya bilan ta'minlaymiz",
+      "text": "Yashil Energiya uzoq muddatli energiya samaradorligi, barqarorlik va ishonchli ekspluatatsiyani qo'llab-quvvatlovchi quyosh infratuzilmasini rivojlantiradi.",
+      "button": "Bog'lanish"
     },
     "chartLabel": "Umumiy quvvat",
     "chartLabelUnit": "kVt",
@@ -292,12 +292,12 @@
     "region2": "Toshkent viloyati",
     "region3": "Andijon viloyati",
     "region4": "Buxoro viloyati",
-    "region5": "Farg‘ona viloyati",
+    "region5": "Farg'ona viloyati",
     "region6": "Jizzax viloyati",
     "region7": "Namangan viloyati",
     "region8": "Navoiy viloyati",
     "region9": "Qashqadaryo viloyati",
-    "region10": "Qoraqalpog‘iston Respublikasi",
+    "region10": "Qoraqalpog'iston Respublikasi",
     "region11": "Samarqand viloyati",
     "region12": "Sirdaryo viloyati",
     "region13": "Surxondaryo viloyati",
@@ -311,15 +311,15 @@
     "hero": {
       "eyebrow": "Kichik gidroenergetika",
       "title": "Barqaror energetika uchun suv kuchi",
-      "subtitle": "Yashil Energiya O‘zbekiston suv resurslari salohiyatidan foydalanib kichik va mikro gidroelektr stansiyalari loyihalarini rivojlantiradi. Yo‘nalish muhandislik loyihalash, qurilish, ishga tushirish va obyektlarga keyingi texnik xizmat ko‘rsatishni birlashtiradi.",
-      "primaryCta": "Bog‘lanish",
+      "subtitle": "Yashil Energiya O'zbekiston suv resurslari salohiyatidan foydalanib kichik va mikro gidroelektr stansiyalari loyihalarini rivojlantiradi. Yo'nalish muhandislik loyihalash, qurilish, ishga tushirish va obyektlarga keyingi texnik xizmat ko'rsatishni birlashtiradi.",
+      "primaryCta": "Bog'lanish",
       "secondaryCta": "Mikro GES qanday ishlaydi",
       "imageAlt": "Suv kanali va gidrotexnik inshootga ega kichik gidroelektr stansiyasi",
       "visualTitle": "Suv oqimidan energiyaga",
-      "visualText": "Mahalliy elektr ta’minoti uchun ixcham generatsiya"
+      "visualText": "Mahalliy elektr ta'minoti uchun ixcham generatsiya"
     },
     "metrics": {
-      "label": "Mikro GES yo‘nalishining asosiy ko‘rsatkichlari",
+      "label": "Mikro GES yo'nalishining asosiy ko'rsatkichlari",
       "capacityRange": {
         "value": "5–500 kVt",
         "label": "Mikro GES quvvat diapazoni",
@@ -328,48 +328,48 @@
       "projectPower": {
         "value": "270 kVt",
         "label": "Mikro GES-1 loyiha quvvati",
-        "description": "Margunenkova kanalidagi loyiha uchun ko‘rsatilgan o‘rnatilgan quvvat."
+        "description": "Margunenkova kanalidagi loyiha uchun ko'rsatilgan o'rnatilgan quvvat."
       },
       "serviceDirections": {
         "value": "4",
-        "label": "Xizmat yo‘nalishlari",
+        "label": "Xizmat yo'nalishlari",
         "description": "Loyihalash, qurilish, ishga tushirish va texnik xizmat."
       },
       "legalBasis": {
         "value": "PQ-129",
         "label": "Normativ asos",
-        "description": "O‘zbekiston Respublikasi Prezidentining 2025-yil 28-martdagi qarori."
+        "description": "O'zbekiston Respublikasi Prezidentining 2025-yil 28-martdagi qarori."
       }
     },
     "benefits": {
-      "eyebrow": "Yo‘nalish afzalliklari",
+      "eyebrow": "Yo'nalish afzalliklari",
       "title": "Kichik gidroenergetikaning afzalliklari",
-      "description": "Kichik gidroelektr stansiyalari mahalliy suv resurslaridan foydalanib, elektr ishlab chiqarish vaqtida yoqilg‘i yoqmasdan barqaror generatsiyani qo‘llab-quvvatlaydi.",
+      "description": "Kichik gidroelektr stansiyalari mahalliy suv resurslaridan foydalanib, elektr ishlab chiqarish vaqtida yoqilg'i yoqmasdan barqaror generatsiyani qo'llab-quvvatlaydi.",
       "stableGeneration": {
         "title": "Barqaror generatsiya",
-        "description": "Gidrotexnik uzel to‘g‘ri loyihalanganda suv oqimi nisbatan prognoz qilinadigan ishlab chiqarishni ta’minlaydi."
+        "description": "Gidrotexnik uzel to'g'ri loyihalanganda suv oqimi nisbatan prognoz qilinadigan ishlab chiqarishni ta'minlaydi."
       },
       "renewableWater": {
         "title": "Qayta tiklanuvchi suv resursi",
         "description": "Loyihalar suv oqimi energiyasidan foydalanadi va mavjud suv infratuzilmasi samaradorligini oshirishga yordam beradi."
       },
       "remoteSupply": {
-        "title": "Uzoq hududlarni qo‘llab-quvvatlash",
-        "description": "Mikro GES mahalliy generatsiya muhim bo‘lgan qishloq va uzoq hududlarda elektr ta’minotini to‘ldirishi mumkin."
+        "title": "Uzoq hududlarni qo'llab-quvvatlash",
+        "description": "Mikro GES mahalliy generatsiya muhim bo'lgan qishloq va uzoq hududlarda elektr ta'minotini to'ldirishi mumkin."
       },
       "lowMaintenance": {
         "title": "Uzoq xizmat muddati",
-        "description": "Sifatli qurilish va muntazam xizmat ko‘rsatish bunday obyektlarning uzoq muddat ishlashiga xizmat qiladi."
+        "description": "Sifatli qurilish va muntazam xizmat ko'rsatish bunday obyektlarning uzoq muddat ishlashiga xizmat qiladi."
       }
     },
     "process": {
       "eyebrow": "Ishlash prinsipi",
       "title": "Mikro GES qanday ishlaydi",
-      "description": "Sxema energiyaning asosiy yo‘lini ko‘rsatadi: suv oqimidan iste’molchi yoki tarmoqqa elektr uzatishgacha.",
+      "description": "Sxema energiyaning asosiy yo'lini ko'rsatadi: suv oqimidan iste'molchi yoki tarmoqqa elektr uzatishgacha.",
       "ariaLabel": "Mikro GES ishlash ketma-ketligi",
       "waterFlow": {
         "title": "Suv oqimi",
-        "description": "Kanal yoki suv oqimidan kelgan suv gidrotexnik uzelga yo‘naltiriladi."
+        "description": "Kanal yoki suv oqimidan kelgan suv gidrotexnik uzelga yo'naltiriladi."
       },
       "hydroNode": {
         "title": "Gidrotexnik uzel",
@@ -385,12 +385,12 @@
       },
       "delivery": {
         "title": "Elektr uzatish",
-        "description": "Elektr energiyasi iste’molchiga yoki elektr tarmog‘iga uzatiladi."
+        "description": "Elektr energiyasi iste'molchiga yoki elektr tarmog'iga uzatiladi."
       }
     },
     "services": {
       "eyebrow": "Loyiha hayotiy sikli",
-      "title": "Mikro GES bo‘yicha xizmatlar",
+      "title": "Mikro GES bo'yicha xizmatlar",
       "description": "Yashil Energiya loyihani muhandislik ishlab chiqish bosqichidan ekspluatatsiya va texnik xizmatgacha kuzatib boradi.",
       "design": {
         "title": "Tizimlarni loyihalash",
@@ -402,20 +402,20 @@
       },
       "commissioning": {
         "title": "Montaj va ishga tushirish",
-        "description": "Uskunalarni o‘rnatish, tizimlarni tekshirish va obyektni ekspluatatsiyaga tayyorlash."
+        "description": "Uskunalarni o'rnatish, tizimlarni tekshirish va obyektni ekspluatatsiyaga tayyorlash."
       },
       "operation": {
         "title": "Monitoring va xizmat",
-        "description": "Ishlashni nazorat qilish, ekspluatatsion kuzatuv va texnik xizmat ko‘rsatish."
+        "description": "Ishlashni nazorat qilish, ekspluatatsion kuzatuv va texnik xizmat ko'rsatish."
       }
     },
     "business": {
       "eyebrow": "Hamkorlik modeli",
-      "title": "Auksiondan iste’molchigacha",
-      "description": "Sxema tariflar yoki moliyaviy shartlarni qo‘shmasdan mavjud ishtirokchilar mantiqini saqlaydi.",
+      "title": "Auksiondan iste'molchigacha",
+      "description": "Sxema tariflar yoki moliyaviy shartlarni qo'shmasdan mavjud ishtirokchilar mantiqini saqlaydi.",
       "ariaLabel": "Mikro GES biznes modeli",
       "auctionWinner": {
-        "title": "Auksion g‘olibi",
+        "title": "Auksion g'olibi",
         "description": "Loyihani amalga oshirish huquqini olgan ishtirokchi."
       },
       "construction": {
@@ -431,25 +431,25 @@
         "description": "Ishlab chiqarilgan elektr energiyasini xarid qilish sxemasidagi mavjud ishtirokchi."
       },
       "consumer": {
-        "title": "Iste’molchi",
-        "description": "Elektr energiyasi yakuniy iste’molchiga yoki tarmoqqa uzatiladi."
+        "title": "Iste'molchi",
+        "description": "Elektr energiyasi yakuniy iste'molchiga yoki tarmoqqa uzatiladi."
       },
       "note": "Ishtirokchilarning huquqiy nomlari joriy tarjimalardagi shaklda saqlandi."
     },
     "project": {
       "eyebrow": "Joriy loyiha",
       "title": "Margunenkova kanalidagi Mikro GES-1",
-      "description": "Yashil Energiya Toshkent viloyati Oqqo‘rg‘on tumanidagi Margunenkova kanalida Mikro GES-1 loyihasini amalga oshirmoqda. Obyekt mahalliy suv resurslaridan samarali foydalanishga mo‘ljallangan.",
+      "description": "Yashil Energiya Toshkent viloyati Oqqo'rg'on tumanidagi Margunenkova kanalida Mikro GES-1 loyihasini amalga oshirmoqda. Obyekt mahalliy suv resurslaridan samarali foydalanishga mo'ljallangan.",
       "imageAlt": "Kichik gidroelektr stansiyasi va suv kanalining mavzuli tasviri",
-      "imageBadge": "Mikro GES bo‘yicha umumiy mavzuli tasvir",
+      "imageBadge": "Mikro GES bo'yicha umumiy mavzuli tasvir",
       "facts": {
         "capacity": {
-          "label": "O‘rnatilgan quvvat",
+          "label": "O'rnatilgan quvvat",
           "value": "270 kVt"
         },
         "location": {
           "label": "Joylashuv",
-          "value": "Toshkent viloyati Oqqo‘rg‘on tumani"
+          "value": "Toshkent viloyati Oqqo'rg'on tumani"
         },
         "object": {
           "label": "Obyekt",
@@ -464,21 +464,21 @@
     },
     "status": {
       "eyebrow": "Joriy holat",
-      "title": "Mikro GES obyektlari ma’lumotlari",
-      "description": "Ushbu bo‘lim mavjud manbadagi tuzilmali loyiha ma’lumotlaridan foydalanadi. Ma’lumotlar bo‘lmasa, sahifa soxta statistikani ko‘rsatmaydi.",
-      "cardLabel": "Operatsion ma’lumotlar",
+      "title": "Mikro GES obyektlari ma'lumotlari",
+      "description": "Ushbu bo'lim mavjud manbadagi tuzilmali loyiha ma'lumotlaridan foydalanadi. Ma'lumotlar bo'lmasa, sahifa soxta statistikani ko'rsatmaydi.",
+      "cardLabel": "Operatsion ma'lumotlar",
       "cardTitle": "Joriy manbadagi Mikro GES portfeli",
-      "capacityLabel": "Mavjud yozuvlar bo‘yicha umumiy quvvat",
-      "objectsLabel": "Ma’lumotlar manbasidagi obyektlar",
-      "regionsLabel": "Ma’lumotlar manbasidagi hududlar",
+      "capacityLabel": "Mavjud yozuvlar bo'yicha umumiy quvvat",
+      "objectsLabel": "Ma'lumotlar manbasidagi obyektlar",
+      "regionsLabel": "Ma'lumotlar manbasidagi hududlar",
       "mapTitle": "Mikro GES obyektlari geografiyasi",
-      "emptyTitle": "Tuzilmali ma’lumotlar hali e’lon qilinmagan",
-      "emptyText": "Manbada tasdiqlangan Mikro GES obyektlari paydo bo‘lganda, ushbu blok sahifa arxitekturasini o‘zgartirmasdan xarita va ko‘rsatkichlarni ko‘rsata oladi."
+      "emptyTitle": "Tuzilmali ma'lumotlar hali e'lon qilinmagan",
+      "emptyText": "Manbada tasdiqlangan Mikro GES obyektlari paydo bo'lganda, ushbu blok sahifa arxitekturasini o'zgartirmasdan xarita va ko'rsatkichlarni ko'rsata oladi."
     },
     "legal": {
       "eyebrow": "Normativ-huquqiy asos",
-      "title": "Mikro GES tarmog‘ini rivojlantirish bo‘yicha qaror",
-      "description": "O‘zbekiston Respublikasi Prezidentining 2025-yil 28-martdagi PQ-129-sonli qarori mikro gidroelektr stansiyalari tarmog‘ini rivojlantirish chora-tadbirlarini belgilaydi. Hujjat suv resurslaridan oqilona foydalanish hamda iqtisodiyot tarmoqlari va aholining elektr ta’minoti barqarorligini oshirishga qaratilgan.",
+      "title": "Mikro GES tarmog'ini rivojlantirish bo'yicha qaror",
+      "description": "O'zbekiston Respublikasi Prezidentining 2025-yil 28-martdagi PQ-129-sonli qarori mikro gidroelektr stansiyalari tarmog'ini rivojlantirish chora-tadbirlarini belgilaydi. Hujjat suv resurslaridan oqilona foydalanish hamda iqtisodiyot tarmoqlari va aholining elektr ta'minoti barqarorligini oshirishga qaratilgan.",
       "dateLabel": "Hujjat sanasi",
       "dateValue": "2025-yil 28-mart",
       "documentLabel": "Raqami",
@@ -488,7 +488,7 @@
       "eyebrow": "Hamkorlik",
       "title": "Suv energetikasi salohiyatini rivojlantiramiz",
       "text": "Yashil Energiya kichik gidroenergetika loyihalarini amalga oshiradi hamda davlat tashkilotlari, investorlar va texnik hamkorlar bilan ishlaydi.",
-      "button": "Bog‘lanish"
+      "button": "Bog'lanish"
     },
     "mapLabel": "Quvvat",
     "mapLabelUnit": "kVt",
@@ -730,7 +730,7 @@
     "step1": "Tashkilot blankasida rasmiy murojaat tayyorlang.",
     "step2": "Obyekt bo'yicha asosiy ma'lumotlarni ilova qiling: manzil, balans saqlovchi, tom maydoni, joriy elektr iste'moli va mas'ul shaxs kontakti.",
     "step3": "Ariza va ilovalarni dastlabki texnik ko'rib chiqish uchun Yashil Energiya'ga yuboring.",
-    "step4": "Ko‘rib chiqilgandan so‘ng siz bilan bog‘laniladi va obyektni ko‘zdan kechirish sanasi kelishib olinadi.",
+    "step4": "Ko'rib chiqilgandan so'ng siz bilan bog'laniladi va obyektni ko'zdan kechirish sanasi kelishib olinadi.",
     "docsTitle": "Tavsiya etiladigan ilovalar",
     "doc1": "Tashkilotning ro'yxatdan o'tganlik ma'lumotlari yoki rasmiy rekvizitlari nusxasi.",
     "doc2": "Tom, fasad, elektr xonasi va hisoblagich shkafi fotosuratlari.",
@@ -893,7 +893,7 @@
     "more": "Batafsil",
     "tabNotice": "Bildirishnoma",
     "tabTenders": "Tenderlar",
-    "noticeTitle": "Xaridlar to‘g‘risida umumiy bildirishnoma",
+    "noticeTitle": "Xaridlar to'g'risida umumiy bildirishnoma",
     "tendersTitle": "Tenderlar",
     "colTender": "Tender",
     "colStatus": "Holati",
@@ -901,12 +901,12 @@
     "colDocs": "Hujjatlar",
     "download": "Yuklab olish",
     "noAttachment": "—",
-    "breadcrumbAria": "Yo‘l xaritasi"
+    "breadcrumbAria": "Yo'l xaritasi"
   },
   "Footer": {
     "legalNav": "Yuridik hujjatlar",
     "publicOfferChargingStations": "Charging Stations ommaviy ofertasi",
-    "mission": "O‘zbekistonning qayta tiklanuvchi energetika bo‘yicha milliy operatori — quyosh fotoelektr stansiyalari, mikro GES va elektromobillarni quvvatlash infratuzilmasi.",
+    "mission": "O'zbekistonning qayta tiklanuvchi energetika bo'yicha milliy operatori — quyosh fotoelektr stansiyalari, mikro GES va elektromobillarni quvvatlash infratuzilmasi.",
     "rights": "Barcha huquqlar himoyalangan",
     "backToTop": "Yuqoriga",
     "sections": {
