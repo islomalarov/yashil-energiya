@@ -22,6 +22,10 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { ChargingGuide } from "@/components/ChargingGuide/ChargingGuide";
+import {
+  TheContentSections,
+  type ContentSection,
+} from "@/components/ContentSectionsComponent/TheContentSections";
 import { TheMotionWrapper } from "@/components/MotionWrapper/TheMotionWrapper";
 import { ThePaginationControls } from "@/components/PaginationComponent/ThePaginationControls";
 import { Link } from "@/i18n/navigation";
@@ -382,6 +386,12 @@ export function ChargingStationClient({
       <section id="how-to-charge" className={s.guideSection}>
         <ChargingGuide />
       </section>
+
+      <TheContentSections
+        sections={(t.raw("seoSections") as ContentSection[]).filter((x) =>
+          ["price", "whyUs"].includes(x.id),
+        )}
+      />
 
       <section className={s.offerSection} aria-labelledby="charging-offer-title">
         <TheMotionWrapper motionKey="charging-offer">
