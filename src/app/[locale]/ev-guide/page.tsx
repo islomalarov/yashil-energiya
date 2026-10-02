@@ -34,13 +34,13 @@ const copy = {
       "Семь понятных действий: найти станцию, запустить сессию и безопасно завершить зарядку.",
   },
   uz: {
-    metaTitle: "Elektromobilni zaryadlash yo'riqnomasi",
+    metaTitle: "Elektromobilni quvvatlash yo'riqnomasi",
     metaDescription:
-      "Yashil Energiya orqali elektromobilni zaryadlash bo'yicha bosqichma-bosqich yo'riqnoma.",
-    eyebrow: "Zaryadlash yo'riqnomasi",
-    title: "Elektromobilni zaryadlash oson",
+      "Yashil Energiya orqali elektromobilni quvvatlash bo'yicha bosqichma-bosqich yo'riqnoma.",
+    eyebrow: "Quvvatlash yo'riqnomasi",
+    title: "Elektromobilni quvvatlash oson",
     subtitle:
-      "Stansiyani topish, seansni boshlash va zaryadlashni xavfsiz yakunlash uchun yetti aniq bosqich.",
+      "Stansiyani topish, seansni boshlash va quvvatlashni xavfsiz yakunlash uchun yetti aniq bosqich.",
   },
 } satisfies Record<Locale, Record<string, string>>;
 
