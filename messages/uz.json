@@ -23,7 +23,7 @@
     "plants": "QFESlar ro'yxati",
     "solarPanels": "QFES",
     "microGes": "Mikro GES",
-    "chargingStation": "EV zaryadlash stansiyalari",
+    "chargingStation": "Quvvatlash stansiyalari",
     "projects": "Loyihalar",
     "contacts": "Kontaktlar",
     "documents": "Hujjatlar",
@@ -35,7 +35,7 @@
   "HomePage": {
     "title": "Bosh sahifa",
     "heroTitle": "Yashil Energiya — O'zbekistonning qayta tiklanuvchi energetika milliy operatori",
-    "heroSubtitle": "Barqaror energiya ta'minoti uchun quyosh elektr stansiyalari, mikro GES va EV zaryadlash infratuzilmasini rivojlantiramiz.",
+    "heroSubtitle": "Barqaror energiya ta'minoti uchun quyosh fotoelektr stansiyalari, mikro GES va elektromobillarni quvvatlash infratuzilmasini rivojlantiramiz.",
     "ctaContact": "Biz bilan bog'lanish",
     "ctaProjects": "Mijozimiz bo'lish",
     "about": "Biz haqimizda sahifasiga o'tish"
@@ -65,7 +65,7 @@
       "year": "2024",
       "event": [
         {
-          "description": "\"Yashil\" iqtisodiyot rivojiga hissa qo'shish maqsadida \"Yashil Energiya\" MChJ tarkibida \"Mini va MikroGES\" va elektr mashinalarni quvvatlash bilan shug'ullanuvchi \"Quvvatlash stansiyalari\" bo'limlari tashkil etildi."
+          "description": "\"Yashil\" iqtisodiyot rivojiga hissa qo'shish maqsadida \"Yashil Energiya\" MChJ tarkibida \"Mini va mikro GES\" va elektromobillarni quvvatlash bilan shug'ullanuvchi \"Quvvatlash stansiyalari\" bo'limlari tashkil etildi."
         },
         {
           "description": "2024-yil oxiriga kelib \"Yashil Energiya\" MChJ balansidagi mavjud stansiyalar quvvati 48 000 kVt dan ortdi."
@@ -79,7 +79,7 @@
           "description": "2025-yil 24-sentabrda \"Yashil Energiya\" MChJning 51% ulushi BAAning \"GSU\" kompaniyasi tomonidan sotib olindi."
         },
         {
-          "description": "2025-yil 29-sentabrda kompaniya yangi mulkchilik shakliga o'tdi va \"Yashil Energiya\" MChJ QK qo'shma korxonasi sifatida qayta tashkil etildi."
+          "description": "2025-yil 29-sentabrda kompaniya yangi mulkchilik shakliga o'tdi va \"Yashil Energiya\" QK MChJ qo'shma korxonasi sifatida qayta tashkil etildi."
         },
         {
           "description": "2025-yil oxiriga kelib Yashil Energiya faol obyektlarining o'rnatilgan quvvati 130 000 kVt ga yetdi."
@@ -153,7 +153,7 @@
     }
   },
   "TheLastPlants": {
-    "heroTitle": "QFESlar ro'yhati",
+    "heroTitle": "QFESlar ro'yxati",
     "title": "Bizning QFESlar",
     "linkTitle": "Barcha QFESlar"
   },
@@ -165,16 +165,16 @@
     "link": "Batafsil"
   },
   "SolarPanelsPage": {
-    "heroTitle": "Quyosh elektr stansiyalari",
-    "title": "Quyosh elektr stansiyalari",
+    "heroTitle": "Quyosh fotoelektr stansiyalari",
+    "title": "Quyosh fotoelektr stansiyalari",
     "list": "Hozirgi kunda quyosh fotoelektr stansiyalari (QFES) dunyoning ko‘plab mamlakatlarida muhim energiya manbai bo‘lib bormoqda. Ular:",
     "listItem1": "Atrof-muhitga zarar yetkazmaydi (toza energiya manbai hisoblanadi).",
     "listItem2": "Neft, gaz kabi yoqilg‘ilarga qaramlikni kamaytiradi.",
     "listItem3": "Elektr energiyasi narxini pasaytirishga yordam beradi.",
     "listItem4": "Energiya samaradorligini oshiradi.",
     "content": {
-      "description1": "Ko‘plab rivojlangan davlatlar (AQSh, Xitoy, Germaniya) quyosh energiyasidan keng foydalanmoqda. Masalan, Xitoy dunyodagi eng yirik quyosh elektr stansiyalariga ega.",
-      "description2": "O‘zbekistonda ham quyosh energiyasiga katta e’tibor berilmoqda,chunki mamlakatda quyoshli kunlar soni yiliga 300 kundan ortiq. Bu quyosh elektr stansiyalarini rivojlantirish uchun katta imkoniyat yaratadi. O‘zbekistonda quyosh energiyasidan kengroq foydalanish kelajakda elektr ta’minotini yaxshilash va energiya xarajatlarini kamaytirishga yordam beradi."
+      "description1": "Ko‘plab rivojlangan davlatlar (AQSh, Xitoy, Germaniya) quyosh energiyasidan keng foydalanmoqda. Masalan, Xitoy dunyodagi eng yirik quyosh fotoelektr stansiyalariga ega.",
+      "description2": "O‘zbekistonda ham quyosh energiyasiga katta e’tibor berilmoqda,chunki mamlakatda quyoshli kunlar soni yiliga 300 kundan ortiq. Bu quyosh fotoelektr stansiyalarini rivojlantirish uchun katta imkoniyat yaratadi. O‘zbekistonda quyosh energiyasidan kengroq foydalanish kelajakda elektr ta’minotini yaxshilash va energiya xarajatlarini kamaytirishga yordam beradi."
     },
     "systemTitle": "Quyosh fotoelektr stansiyalari 3 xil asosiy turga bo‘linadi:",
     "system1": {
@@ -182,35 +182,35 @@
       "description": "Elektr tarmog‘iga ulangan tizim. Avvalo quyosh stansiyasi ishlab chiqargan elektr energiyasi ishlatiladi, tarmoqda uzilish bo‘lsa tizim ham ishlashni to‘xtatadi.",
       "technicalLabel": "Tarmoqqa ulangan",
       "context": "Barqaror elektr tarmog‘i mavjud obyektlar uchun",
-      "alt": "Tarmoqqa ulangan quyosh elektr stansiyasi sxemasi"
+      "alt": "Tarmoqqa ulangan quyosh fotoelektr stansiyasi sxemasi"
     },
     "system2": {
       "title": "Off-grid tizim",
       "description": "Elektr tarmog‘iga ulanmagan avtonom tizim. Energiya akkumulyatorlarda saqlanadi va bu yechim uzoq hududlar uchun qulay hisoblanadi.",
       "technicalLabel": "Akkumulyatorli saqlash",
       "context": "Uzoq hududlar va avtonom ta’minot uchun",
-      "alt": "Avtonom quyosh elektr stansiyasi sxemasi"
+      "alt": "Avtonom quyosh fotoelektr stansiyasi sxemasi"
     },
     "system3": {
       "title": "Hybrid tizim",
       "description": "Tarmoq ulanishi va akkumulyator saqlash tizimini birlashtirgan gibrid yechim bo‘lib, yuqori moslashuvchanlik va ishonchlilikni ta’minlaydi.",
       "technicalLabel": "Tarmoq + saqlash",
       "context": "Moslashuvchan va ishonchli ekspluatatsiya uchun",
-      "alt": "Gibrid quyosh elektr stansiyasi abstrakt sxemasi"
+      "alt": "Gibrid quyosh fotoelektr stansiyasi abstrakt sxemasi"
     },
-    "mapTitle": "“Yashil Energiya” MChJ QK ning mavjud QFES lari haqida ma’lumot",
+    "mapTitle": "“Yashil Energiya” QK MChJning mavjud QFESlari haqida ma’lumot",
     "chartDescription": "“Yashil Energiya” MChJ 2023-yildan buyon O’zbekiston Respublikasi hududida joylashgan ijtimoiy soha obyektlariga QFES o’rnatish bilan shug’ullanib kelmoqda. Quyidagi diagrammada jamiyatga tegishli QFES larning umumiy quvvatini o’zgarishini ko’rishingiz mumkin.",
     "hero": {
       "eyebrow": "Quyosh infratuzilmasi",
-      "title": "Quyosh elektr stansiyalari",
+      "title": "Quyosh fotoelektr stansiyalari",
       "subtitle": "Barqaror va energiya samarador O‘zbekiston uchun toza energetika infratuzilmasi.",
       "primaryCta": "Yechimlarni ko‘rish",
       "secondaryCta": "Joriy holat",
-      "visualTitle": "QES infratuzilmasi",
+      "visualTitle": "QFES infratuzilmasi",
       "visualText": "Jamoat obyektlari uchun toza generatsiya"
     },
     "metrics": {
-      "label": "Quyosh elektr stansiyalari ta’sir ko‘rsatkichlari",
+      "label": "Quyosh fotoelektr stansiyalari ta’sir ko‘rsatkichlari",
       "metric1": {
         "value": "300+",
         "label": "Yiliga quyoshli kunlar",
@@ -218,24 +218,24 @@
       },
       "metric2": {
         "value": "3",
-        "label": "PV tizim turlari",
+        "label": "QFES turlari",
         "description": "Turli ekspluatatsiya holatlari uchun on-grid, off-grid va hybrid yechimlar."
       },
       "metric3": {
         "value": "2023",
         "label": "Investitsiya faoliyati boshlangan yil",
-        "description": "Yashil Energiya 2023-yildan buyon ijtimoiy va davlat obyektlaridagi quyosh elektr stansiyalariga investitsiya kiritib kelmoqda."
+        "description": "Yashil Energiya 2023-yildan buyon ijtimoiy va davlat obyektlaridagi quyosh fotoelektr stansiyalariga investitsiya kiritib kelmoqda."
       },
       "metric4": {
-        "value": "QES portfeli",
-        "label": "Portfeldagi QES",
-        "description": "Yashil Energiya portfeliga tegishli quyosh elektr stansiyalarining joriy soni."
+        "value": "QFES portfeli",
+        "label": "Portfeldagi QFES",
+        "description": "Yashil Energiya portfeliga tegishli quyosh fotoelektr stansiyalarining joriy soni."
       }
     },
     "benefits": {
       "eyebrow": "Energiya samaradorligi",
       "title": "Quyosh energetikasining afzalliklari",
-      "description": "Quyosh elektr stansiyalari toza elektr energiyasi, xarajatlarni kamaytirish va barqaror jamoat infratuzilmasini rivojlantirishga xizmat qiladi.",
+      "description": "Quyosh fotoelektr stansiyalari toza elektr energiyasi, xarajatlarni kamaytirish va barqaror jamoat infratuzilmasini rivojlantirishga xizmat qiladi.",
       "benefit1": {
         "title": "Ekologik toza",
         "description": "Quyosh generatsiyasi toza elektr energiyasini ishlab chiqarishga va atrof-muhitga ta’sirni kamaytirishga yordam beradi."
@@ -261,22 +261,22 @@
       "badgeLabel": "yiliga quyoshli kun"
     },
     "systems": {
-      "eyebrow": "QES turlari",
+      "eyebrow": "QFES turlari",
       "title": "Turli ekspluatatsiya modellariga mos quyosh tizimlari",
       "description": "On-grid, off-grid va hybrid tizimlari har bir obyektning texnik sharoitiga mos quyosh infratuzilmasini tanlash imkonini beradi.",
       "learnMore": "Batafsil"
     },
     "status": {
-      "eyebrow": "Joriy QES holati",
+      "eyebrow": "Joriy QFES holati",
       "title": "O‘zbekiston bo‘ylab quyosh infratuzilmasi rivojlanmoqda",
-      "description": "“Yashil Energiya” QK MChJ 2023-yildan buyon O‘zbekiston Respublikasi hududidagi ijtimoiy va davlat obyektlarida quyosh elektr stansiyalariga investitsiya kiritib kelmoqda. Ushbu bo‘lim kompaniyaning quyosh infratuzilmasi va operatsion yo‘nalishi rivojlanishini aks ettiradi.",
+      "description": "“Yashil Energiya” QK MChJ 2023-yildan buyon O‘zbekiston Respublikasi hududidagi ijtimoiy va davlat obyektlarida quyosh fotoelektr stansiyalariga investitsiya kiritib kelmoqda. Ushbu bo‘lim kompaniyaning quyosh infratuzilmasi va operatsion yo‘nalishi rivojlanishini aks ettiradi.",
       "cardLabel": "Operatsion yo‘nalish",
       "cardTitle": "Ijtimoiy va davlat obyektlari uchun quyosh infratuzilmasi",
       "capacityLabel": "2025-yilda kuzatilgan umumiy quvvat",
       "sinceValue": "2023",
       "sinceLabel": "Investitsiya faoliyati boshlangan yil",
       "chartTitle": "Yillar bo‘yicha quvvat o‘sishi",
-      "mapTitle": "QES geografiyasi"
+      "mapTitle": "QFES geografiyasi"
     },
     "cta": {
       "eyebrow": "Toza energiyaga o‘tish",
@@ -496,25 +496,25 @@
     "planning": "Rejalashtirish"
   },
   "ChargingStationPage": {
-    "heroTitle": "Elektromobil zaryadlash stansiyalari",
+    "heroTitle": "Elektromobillarni quvvatlash stansiyalari",
     "breadcrumbs": {
       "label": "Yo'l xaritasi"
     },
     "hero": {
-      "eyebrow": "Zaryadlash infratuzilmasi",
-      "title": "Elektromobil zaryadlash stansiyalari",
-      "subtitle": "O'zbekiston bo'ylab toza transport uchun ishonchli zaryadlash tarmog'ini rivojlantiramiz, shunda elektromobilga o'tish ishonchli bo'ladi.",
-      "primaryCta": "Qanday zaryadlanadi",
+      "eyebrow": "Quvvatlash infratuzilmasi",
+      "title": "Elektromobillarni quvvatlash stansiyalari",
+      "subtitle": "O'zbekiston bo'ylab toza transport uchun ishonchli quvvatlash tarmog'ini rivojlantiramiz, shunda elektromobilga o'tish ishonchli bo'ladi.",
+      "primaryCta": "Qanday quvvatlanadi",
       "secondaryCta": "Tarmoqni ko'rish",
-      "imageAlt": "Yashil Energiya stansiyasida elektromobil zaryadlanmoqda",
-      "visualTitle": "Zaryadlash tarmog'i",
+      "imageAlt": "Yashil Energiya stansiyasida elektromobil quvvatlanmoqda",
+      "visualTitle": "Quvvatlash tarmog'i",
       "visualText": "Elektr transport uchun toza energiya"
     },
     "metrics": {
-      "label": "Zaryadlash tarmog'i ko'rsatkichlari",
+      "label": "Quvvatlash tarmog'i ko'rsatkichlari",
       "stations": {
-        "label": "Zaryadlash stansiyalari",
-        "description": "Yashil Energiya tarmog'idagi zaryadlash stansiyalari, joriy ma'lumotlar asosida."
+        "label": "Quvvatlash stansiyalari",
+        "description": "Yashil Energiya tarmog'idagi quvvatlash stansiyalari, joriy ma'lumotlar asosida."
       },
       "regions": {
         "label": "Qamrab olingan hududlar",
@@ -523,17 +523,17 @@
       },
       "power": {
         "label": "Umumiy quvvat",
-        "description": "Zaryadlash tarmog'ining umumiy o'rnatilgan quvvati, kilovattda."
+        "description": "Quvvatlash tarmog'ining umumiy o'rnatilgan quvvati, kilovattda."
       },
       "launch": {
         "value": "2025",
         "label": "Tarmoq ishga tushdi",
-        "description": "Yashil Energiya dastlabki zaryadlash stansiyalari ishga tushgan yil."
+        "description": "Yashil Energiya dastlabki quvvatlash stansiyalari ishga tushgan yil."
       }
     },
     "benefits": {
       "eyebrow": "Nima uchun muhim",
-      "title": "O'zbekistonga zaryadlash tarmog'i nega kerak",
+      "title": "O'zbekistonga quvvatlash tarmog'i nega kerak",
       "description": "Elektr transport chiqindilarni kamaytiradi, xarajatlarni qisqartiradi va energetika tizimini barqaror hamda raqamli qiladi.",
       "environment": {
         "title": "Toza havo",
@@ -545,7 +545,7 @@
       },
       "cost": {
         "title": "Yo'l xarajatlari kamayadi",
-        "description": "Elektromobilni zaryadlash yoqilg'i quyishdan arzonroq, bu haydovchilar va biznes uchun transport xarajatlarini kamaytiradi."
+        "description": "Elektromobilni quvvatlash yoqilg'i quyishdan arzonroq, bu haydovchilar va biznes uchun transport xarajatlarini kamaytiradi."
       },
       "supply": {
         "title": "Barqaror energiya ta'minoti",
@@ -553,37 +553,37 @@
       },
       "growth": {
         "title": "Yangi iqtisodiy imkoniyatlar",
-        "description": "Zaryadlash tarmog'ining rivojlanishi yangi ish o'rinlari yaratadi va xususiy investorlar hamda xizmatlar uchun imkoniyatlar ochadi."
+        "description": "Quvvatlash tarmog'ining rivojlanishi yangi ish o'rinlari yaratadi va xususiy investorlar hamda xizmatlar uchun imkoniyatlar ochadi."
       },
       "digital": {
         "title": "Raqamli va qulay",
-        "description": "Stansiyalarni toping, seanslarni boshlang va zaryadlashni mobil ilovada kuzating, balansni to'ldirish va QR orqali to'lov bilan."
+        "description": "Stansiyalarni toping, seanslarni boshlang va quvvatlashni mobil ilovada kuzating, balansni to'ldirish va QR orqali to'lov bilan."
       }
     },
     "network": {
       "eyebrow": "Bizning stansiyalar",
-      "title": "Zaryadlash tarmog'i",
-      "description": "Yashil Energiya stansiyalari qayerda ishlayotganini va qancha zaryadlash quvvati mavjudligini ko'ring.",
+      "title": "Quvvatlash tarmog'i",
+      "description": "Yashil Energiya stansiyalari qayerda ishlayotganini va ularning umumiy quvvati qanchaligini ko'ring.",
       "summaryLabel": "Tarmoq sharhi",
-      "summaryTitle": "O'zbekiston hududlaridagi zaryadlash stansiyalari",
+      "summaryTitle": "O'zbekiston hududlaridagi quvvatlash stansiyalari",
       "capacityLabel": "Umumiy quvvat",
-      "stationsLabel": "Zaryadlash stansiyalari",
+      "stationsLabel": "Quvvatlash stansiyalari",
       "regionsLabel": "Qamrab olingan hududlar",
       "statusLabel": "Holati",
       "mapTitle": "Stansiyalar xaritasi",
       "emptyTitle": "Tarmoq xaritasi tez orada",
-      "emptyText": "Stansiyalar bo'yicha ma'lumotlar tayyorlanmoqda. Shu vaqtda jamoamiz sizga eng yaqin zaryadlash nuqtasini topishda yordam beradi."
+      "emptyText": "Stansiyalar bo'yicha ma'lumotlar tayyorlanmoqda. Shu vaqtda jamoamiz sizga eng yaqin quvvatlash nuqtasini topishda yordam beradi."
     },
     "chargingTypes": {
-      "eyebrow": "Zaryadlash turlari",
-      "title": "AC va DC zaryadlash — farqi nimada",
-      "description": "Turli konnektorlar va quvvat darajalari turli sayohatlarga mos keladi, tungi to'ldirishdan yo'ldagi tez zaryadlashgacha.",
+      "eyebrow": "Quvvatlash turlari",
+      "title": "AC va DC quvvatlash — farqi nimada",
+      "description": "Turli konnektorlar va quvvat darajalari turli sayohatlarga mos keladi, tungi to'ldirishdan yo'ldagi tez quvvatlashgacha.",
       "powerLabel": "Quvvat",
-      "timeLabel": "Taxminiy zaryadlash vaqti",
+      "timeLabel": "Taxminiy quvvatlash vaqti",
       "connectorLabel": "Konnektorlar",
       "bestForLabel": "Nima uchun mos",
       "ac": {
-        "name": "AC — standart zaryadlash",
+        "name": "AC — standart quvvatlash",
         "badge": "Sekin / tunda",
         "power": "22 kVt gacha",
         "time": "4–8 soat",
@@ -591,7 +591,7 @@
         "bestFor": "Uy, ofis va uzoq muddatli to'xtash"
       },
       "dc": {
-        "name": "DC — tez zaryadlash",
+        "name": "DC — tez quvvatlash",
         "badge": "Tez / yo'lda",
         "power": "60–120 kVt va yuqori",
         "time": "20–60 daqiqa",
@@ -602,22 +602,22 @@
     },
     "offer": {
       "eyebrow": "Xizmat shartlari",
-      "title": "Zaryadlashdan oldin shartlar bilan tanishing",
-      "description": "Zaryadlash tariflari va xizmat shartlari ommaviy ofertada bayon etilgan. Iltimos, stansiyalardan foydalanishdan oldin u bilan tanishing.",
+      "title": "Quvvatlashdan oldin shartlar bilan tanishing",
+      "description": "Quvvatlash tariflari va xizmat shartlari ommaviy ofertada bayon etilgan. Iltimos, stansiyalardan foydalanishdan oldin u bilan tanishing.",
       "button": "Ommaviy oferta",
       "note": "Tarif bo'yicha savolingiz bormi? Qo'llab-quvvatlash xizmati doim aloqada."
     },
     "faq": {
       "eyebrow": "Savol-javob",
       "title": "Ko'p beriladigan savollar",
-      "description": "Yashil Energiya bilan zaryadlash haqida eng ko'p beriladigan savollarga javoblar.",
+      "description": "Yashil Energiya bilan quvvatlash haqida eng ko'p beriladigan savollarga javoblar.",
       "q1": {
         "question": "Qaysi elektromobillar qo'llab-quvvatlanadi?",
-        "answer": "Stansiyalarimiz O'zbekiston bozoridagi keng tarqalgan standartlarni — AC va DC uchun GB/T, hamda tez DC zaryadlash uchun CCS2 ni qo'llab-quvvatlaydi. Zaryadlashdan oldin avtomobilingiz konnektori turini tekshiring."
+        "answer": "Stansiyalarimiz O'zbekiston bozoridagi keng tarqalgan standartlarni — AC va DC uchun GB/T, hamda tez DC quvvatlash uchun CCS2 ni qo'llab-quvvatlaydi. Quvvatlashdan oldin avtomobilingiz konnektori turini tekshiring."
       },
       "q2": {
         "question": "Seans uchun qanday to'lanadi?",
-        "answer": "To'lov Yashil Energiya ilovasi orqali amalga oshiriladi: balansni to'ldiring, stansiya QR-kodini skanerlang va seansni boshlang. Yakuniy narx zaryadlash tugagach ko'rsatiladi."
+        "answer": "To'lov Yashil Energiya ilovasi orqali amalga oshiriladi: balansni to'ldiring, stansiya QR-kodini skanerlang va seansni boshlang. Yakuniy narx quvvatlash tugagach ko'rsatiladi."
       },
       "q3": {
         "question": "Stansiya nosozligida nima qilish kerak?",
@@ -629,17 +629,17 @@
       },
       "q5": {
         "question": "Tarmoq kengaytiriladimi?",
-        "answer": "Ha. Zaryadlash tarmog'i o'sishda davom etadi: yangi stansiyalar mamlakatning boshqa hududlari va asosiy yo'nalishlarida rejalashtirilgan."
+        "answer": "Ha. Quvvatlash tarmog'i o'sishda davom etadi: yangi stansiyalar mamlakatning boshqa hududlari va asosiy yo'nalishlarida rejalashtirilgan."
       },
       "q6": {
         "question": "Qo'llab-quvvatlash bilan qanday bog'lanish mumkin?",
-        "answer": "+998 55 514 88 44 raqamiga qo'ng'iroq qiling yoki kontaktlar sahifasidan foydalaning. Jamoamiz zaryadlash, to'lov va hamkorlik savollarida yordam beradi."
+        "answer": "+998 55 514 88 44 raqamiga qo'ng'iroq qiling yoki kontaktlar sahifasidan foydalaning. Jamoamiz quvvatlash, to'lov va hamkorlik savollarida yordam beradi."
       }
     },
     "cta": {
       "eyebrow": "Hamkorlik",
-      "title": "Hududingizda zaryadlash stansiyasini joylashtirmoqchimisiz?",
-      "text": "Stansiya joylashtiring yoki O'zbekistonning o'sib borayotgan zaryadlash tarmog'iga hamkor bo'ling. Ob'ektingiz uchun variantlarni muhokama qilamiz.",
+      "title": "Hududingizda quvvatlash stansiyasini joylashtirmoqchimisiz?",
+      "text": "Stansiya joylashtiring yoki O'zbekistonning o'sib borayotgan quvvatlash tarmog'iga hamkor bo'ling. Ob'ektingiz uchun variantlarni muhokama qilamiz.",
       "button": "Biz bilan bog'lanish",
       "phoneLabel": "Qo'ng'iroq qilish",
       "phone": "+998 55 514 88 44"
@@ -652,36 +652,36 @@
     "commissioning": "Ishga tushirish"
   },
   "ChargingGuide": {
-    "eyebrow": "EV zaryadlash yo'riqnomasi",
-    "title": "Elektromobilni qanday zaryadlash kerak",
-    "subtitle": "Yashil Energiya ilovasi orqali stansiyani topishdan tortib zaryadlashni xavfsiz yakunlashgacha bo'lgan oddiy bosqichlar.",
+    "eyebrow": "Elektromobilni quvvatlash yo'riqnomasi",
+    "title": "Elektromobilni qanday quvvatlash kerak",
+    "subtitle": "Yashil Energiya ilovasi orqali stansiyani topishdan tortib quvvatlashni xavfsiz yakunlashgacha bo'lgan oddiy bosqichlar.",
     "stepLabel": "{number}-bosqich",
     "step1": {
       "title": "Ilovani yuklab oling",
-      "description": "Zaryadlash seanslarini boshqarish uchun Yashil Energiya mobil ilovasini o'rnating va tizimga kiring."
+      "description": "Quvvatlash seanslarini boshqarish uchun Yashil Energiya mobil ilovasini o'rnating va tizimga kiring."
     },
     "step2": {
       "title": "Balansni to'ldiring",
-      "description": "Zaryadlashni kechiktirmasdan boshlash uchun hisobingizga oldindan mablag' kiriting."
+      "description": "Quvvatlashni kechiktirmasdan boshlash uchun hisobingizga oldindan mablag' kiriting."
     },
     "step3": {
       "title": "Stansiyani toping",
-      "description": "Xaritadan yaqin atrofdagi bo'sh zaryadlash stansiyasini tanlang va yo'nalishni belgilang."
+      "description": "Xaritadan yaqin atrofdagi bo'sh quvvatlash stansiyasini tanlang va yo'nalishni belgilang."
     },
     "step4": {
       "title": "Kabelni ulang",
-      "description": "Avtomobilni qurilma yoniga qo'ying, zaryadlash portini oching va kabelni mahkam ulang."
+      "description": "Avtomobilni qurilma yoniga qo'ying, quvvatlash portini oching va kabelni mahkam ulang."
     },
     "step5": {
-      "title": "Zaryadlashni boshlang",
+      "title": "Quvvatlashni boshlang",
       "description": "Ilovada kerakli konnektorni tanlang va avtomobil tayyor bo'lganda seansni ishga tushiring."
     },
     "step6": {
-      "title": "Avtomobil zaryadlanmoqda",
+      "title": "Avtomobil quvvatlanmoqda",
       "description": "Batareya foizi, quvvat va seans holatini real vaqt rejimida kuzatib boring."
     },
     "step7": {
-      "title": "Zaryadlashni yakunlang",
+      "title": "Quvvatlashni yakunlang",
       "description": "Ilovada seansni to'xtating, kabelni ajrating va yakuniy to'lov ma'lumotlarini tekshiring."
     }
   },
@@ -860,7 +860,7 @@
       "title": "O'zbekiston Respublikasi Prezidentining Farmoni , 09.09.2022 yildagi PF-220-son \"Energiya tejovchi texnologiyalarni joriy qilish va kichik quvvatli qayta tiklanuvchi energiya manbalarini rivojlantirish bo'yicha qo'shimcha chora-tadbirlar to'g'risida\"",
       "url": "https://www.lex.uz/ru/docs/6189000"
     },
-    "direction3": "Elektr mobillarni zaryadlash stansiyasi",
+    "direction3": "Elektromobillarni quvvatlash stansiyasi",
     "chsDoc1": {
       "title": "O'zbekiston Respublikasi Prezidentining qarori, 19.12.2022 yildagi PQ-444-son \"Elektromobillardan foydalanish infratuzilmasini kengaytirish chora-tadbirlari to'g'risida\"",
       "url": "https://lex.uz/uz/docs/6316592"
@@ -906,7 +906,7 @@
   "Footer": {
     "legalNav": "Yuridik hujjatlar",
     "publicOfferChargingStations": "Charging Stations ommaviy ofertasi",
-    "mission": "O‘zbekistonning qayta tiklanuvchi energetika bo‘yicha milliy operatori — quyosh elektr stansiyalari, mikro-GES va elektromobillar uchun zaryadlash infratuzilmasi.",
+    "mission": "O‘zbekistonning qayta tiklanuvchi energetika bo‘yicha milliy operatori — quyosh fotoelektr stansiyalari, mikro GES va elektromobillarni quvvatlash infratuzilmasi.",
     "rights": "Barcha huquqlar himoyalangan",
     "backToTop": "Yuqoriga",
     "sections": {
@@ -922,7 +922,7 @@
     "en": "EN"
   },
   "PlantDetail": {
-    "heroTitle": "QFESlar ro'yhati",
+    "heroTitle": "QFESlar ro'yxati",
     "location": "Manzil",
     "power": "Quvvat",
     "gridConnection": "O'rnatilgan vaqti",
@@ -1023,8 +1023,8 @@
         "description": "Mikro gidroelektr stansiyalari loyihalari va xizmatlari."
       },
       "chargingstation": {
-        "title": "Zaryadlash stansiyalari",
-        "description": "Elektromobillarni zaryadlash infratuzilmasi."
+        "title": "Quvvatlash stansiyalari",
+        "description": "Elektromobillarni quvvatlash infratuzilmasi."
       },
       "installationRequest": {
         "title": "O'rnatish obyektiga qanday aylanish mumkin",
@@ -1112,12 +1112,12 @@
       "monthlyConsumption": "Oylik sarf",
       "region": "Viloyat / hudud",
       "coverage": "Sarfni qoplash",
-      "solarHouseProgram": "«Quyoshli uy» dasturi ishtirokchisi (ortiqcha energiya uchun 1000 so'm/kVt·s subsidiya)",
+      "solarHouseProgram": "«Quyoshli uy» dasturi ishtirokchisi (ortiqcha energiya uchun 1000 so'm/kVt·soat subsidiya)",
       "includeBESS": "Akkumulyator tizimi (BESS) bilan",
       "estimatedConsumption": "Hisoblangan sarf: {value} oyiga",
       "moreInfo": "Batafsil",
       "solarHouseInfoTitle": "«Quyoshli uy» dasturi",
-      "solarHouseInfo": "Quyosh panellarini o'rnatuvchi aholini qo'llab-quvvatlash bo'yicha davlat dasturi: ishtirokchilarga tarmoqqa berilgan har bir kVt·s ortiqcha energiya uchun davlat byudjetidan 1000 so'm subsidiya to'lanadi. Har bir xonadon uchun 50 kVt gacha quvvatdagi qurilmalarga tatbiq etiladi."
+      "solarHouseInfo": "Quyosh panellarini o'rnatuvchi aholini qo'llab-quvvatlash bo'yicha davlat dasturi: ishtirokchilarga tarmoqqa berilgan har bir kVt·soat ortiqcha energiya uchun davlat byudjetidan 1000 so'm subsidiya to'lanadi. Har bir xonadon uchun 50 kVt gacha quvvatdagi qurilmalarga tatbiq etiladi."
     },
     "appliancesTable": {
       "name": "Jihoz",
@@ -1179,8 +1179,8 @@
     },
     "units": {
       "sum": "so'm",
-      "kwh": "kVt·s",
-      "kwhMonth": "kVt·s/oy",
+      "kwh": "kVt·soat",
+      "kwhMonth": "kVt·soat/oy",
       "kw": "kVt",
       "m2": "m²"
     },
@@ -1211,12 +1211,12 @@
     "disclaimer": "Hisob-kitob taxminiy xarakterga ega (10–20% xatolik). Aniq konfiguratsiya mutaxassis chiqib, obyekt tahlil qilingandan so'ng belgilanadi.",
     "breakdown": {
       "month": "Oy",
-      "billWithoutPV": "SES'siz xarajat",
+      "billWithoutPV": "QFESsiz xarajat",
       "generation": "Ishlab chiqarish",
       "export": "Tarmoqqa berish",
       "savings": "Tejamkorlik",
       "total": "Yillik jami",
-      "unitsNote": "Summalar so'mda, ishlab chiqarish va berish kVt·s da."
+      "unitsNote": "Summalar so'mda, ishlab chiqarish va berish kVt·soatda."
     },
     "leadForm": {
       "title": "Aniq hisob-kitobga ariza",
@@ -1261,7 +1261,7 @@
     "fabLabel": "Virtual yordamchini ochish",
     "title": "Virtual yordamchi",
     "subtitle": "Yashil Energiya",
-    "greeting": "Assalomu alaykum! Sayt bo'ylab yo'l topishga va quyosh stansiyalari, MikroGES hamda zaryadlash stansiyalari haqidagi savollarga yordam beraman. Sizni nima qiziqtiradi?",
+    "greeting": "Assalomu alaykum! Sayt bo'ylab yo'l topishga va quyosh fotoelektr stansiyalari, mikro GES hamda elektromobillarni quvvatlash stansiyalari haqidagi savollarga yordam beraman. Sizni nima qiziqtiradi?",
     "placeholder": "Savolingizni yozing…",
     "send": "Yuborish",
     "close": "Yopish",
