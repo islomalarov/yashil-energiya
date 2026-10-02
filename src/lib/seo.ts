@@ -8,9 +8,7 @@ export const siteName = "Yashil Energiya";
 export const defaultOgImage = "/og-image.jpg";
 export const supportedLocales = ["en", "ru", "uz"] as const;
 // Locales whose CMS pages are exposed to search engines (hreflang, sitemaps).
-// uz translations can already be published in Sanity; add "uz" here — and
-// drop the /uz noindex header in next.config.js — once uz content is ready.
-export const cmsContentLocales = ["en", "ru"] as const;
+export const cmsContentLocales = ["en", "ru", "uz"] as const;
 
 export type SeoLocale = (typeof supportedLocales)[number];
 
