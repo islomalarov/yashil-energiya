@@ -15,13 +15,13 @@
 | Стили | **SCSS-модули** (`sass`) + `classnames` | не добавлять Tailwind, styled-components, CSS-in-JS |
 | i18n | **next-intl ^4**, локали `en / ru / uz` в `src/i18n/routing.ts`, словари в `messages/` | вся маршрутизация локализована |
 | CMS | **Sanity** (проект `NEXT_PUBLIC_SANITY_PROJECT_ID`, датасет `NEXT_PUBLIC_SANITY_DATASET`), запросы на **GROQ** через `lib/sanity-client.ts` (тонкая обёртка над `fetch`, без SDK); rich text — Portable Text (`@portabletext/react`) | контент и медиа (`cdn.sanity.io`); Studio — отдельный пакет `studio/` |
-| Формы / почта | **Microsoft Graph** через `@azure/msal-node` (`MS_*` переменные), серверная валидация env в `src/lib/server-env.ts` | также в зависимостях есть `resend` — уточнить актуальный канал перед правками |
+| Формы / почта | **Microsoft Graph** через `@azure/msal-node` (`MS_*` переменные), серверная валидация env в `src/lib/server-env.ts` | единственный канал отправки писем |
 | Антибот | **Cloudflare Turnstile** (`@marsidev/react-turnstile`, `TURNSTILE_SECRET_KEY`) | не удалять и не обходить в формах |
 | Rate limiting | **Upstash Redis** (`@upstash/ratelimit`, `@upstash/redis`) | защита API-роутов |
 | Карты | **Leaflet + react-leaflet + leaflet.markercluster** | карта зарядных станций; рендерить только на клиенте (dynamic import, ssr:false) |
 | Карусели | **Embla** (`embla-carousel`, `-react`, `-autoplay`) | не подключать swiper/slick |
 | Графики | **Recharts** | |
-| Иконки | **lucide-react** (+ `@iconify/react` в dev) | не добавлять другие icon-паки |
+| Иконки | **lucide-react** | не добавлять другие icon-паки |
 | Лайтбокс | **yet-another-react-lightbox** | |
 | Уведомления | **react-toastify** | |
 | Изображения | `next/image` + `sharp`; OG-картинки — API-роут `/api/og-image` (использует `sharp`/`text-to-svg`) | внешние домены картинок — только через `images` в `next.config.js` |

@@ -213,7 +213,7 @@ Studio будет доступна на `https://yashil-energiya.sanity.studio`.
 2. ~~Перевод контента на uz и включение индексации uz~~ — сделано 2026-10-03.
 3. Таблица в en-версии `when-does-a-solar-plant-pay-off` без строки-заголовка (находка 6).
 4. После окончания Growth Trial проект перейдёт на Free — проверить в Manage, что лимитов хватает (≈390 документов, 448 ассетов / ~600 МБ, 1 датасет, 1 вебхук).
-5. `src/components/CeoComponent/TheCeo.tsx` нигде не используется — кандидат на удаление отдельной задачей.
+5. ~~`src/components/CeoComponent/TheCeo.tsx` нигде не используется~~ — удалён 2026-10-03 вместе с другим неиспользуемым кодом.
 
 ---
 
@@ -233,7 +233,7 @@ Plain ESM `.mjs`, без зависимостей, Node 24. Данные — в 
 | `uz-build.mjs` | Переводы `.data/uz/translations/NN.txt` → проверки (все сегменты, теги, ссылки, нет кириллицы, валидный PT) → `.data/uz/patches.json`; `--check` — для частичной проверки |
 | `pt-markup.test.mjs` | `node --test scripts/sanity-migration/pt-markup.test.mjs` |
 
-**Перевод на uz (2026-10):** 114 записей без `uz` переведены через `uz-export` → перевод → `uz-build`, запись — миграцией `studio/migrations/add-uz-translations` (из папки `studio/`: `npx sanity migration run add-uz-translations`, затем с `--no-dry-run`). Миграция трогает только документы с `!defined(uz)` и пишет `setIfMissing`, поэтому правки редакторов не перезаписываются. Для проверки на копии датасета: `npx sanity migration run refresh-uz-review --project ljlv76fi --dataset uz-review --no-dry-run` перезаписывает `uz` текущими переводами (на production не запускается). Термины: QFES — quyosh fotoelektr stansiyasi, EQS — elektromobillarni quvvatlash stansiyasi; «SES», «EV», «Solar PV» в узбекских текстах не используются.
+**Перевод на uz (2026-10):** 114 записей без `uz` переведены через `uz-export` → перевод → `uz-build`, запись — миграцией `studio/migrations/add-uz-translations` (из папки `studio/`: `npx sanity migration run add-uz-translations`, затем с `--no-dry-run`). Миграция трогает только документы с `!defined(uz)` и пишет `setIfMissing`, поэтому правки редакторов не перезаписываются. Тот же конвейер подходит для новых записей без uz. Единые термины во всех uz-текстах CMS — миграция `studio/migrations/fix-uz-terms` (только перечисленные фрагменты, повторный запуск безопасен). Термины: QFES — quyosh fotoelektr stansiyasi, EQS — elektromobillarni quvvatlash stansiyasi; «SES», «EV», «Solar PV» в узбекских текстах не используются.
 
 ---
 

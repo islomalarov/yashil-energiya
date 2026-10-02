@@ -11,17 +11,14 @@ import type {
 // `Infinity` (the open-ended top tariff tier) and readable comments survive.
 //
 // Migration note: this mirrors the `SolarCalculatorConfig` shape from the spec
-// so it can later be moved to a Hygraph model and fetched, without touching the
-// calculation layer or the UI.
+// so it can later be moved to a Sanity document and fetched, without touching
+// the calculation layer or the UI.
 //
-// i18n / Hygraph nuance: Hygraph localization supports only 2 locales here
-// (see `cmsContentLocales = ["en", "ru"]`), but the site is trilingual
-// (en/ru/uz). Therefore NOTHING translatable is stored as localized text.
-// Regions and appliances carry stable, locale-neutral CODES (`code` / `nameKey`)
-// and language-neutral numbers only; the three translations live in
-// messages/{en,ru,uz}.json under CalculatorPage.* and are resolved by key.
-// A future Hygraph model must store only these neutral fields — never localized
-// labels — so the 3rd locale (uz) is served entirely from next-intl.
+// i18n: nothing translatable is stored here. Regions and appliances carry
+// stable, locale-neutral CODES (`code` / `nameKey`) and language-neutral
+// numbers only; the three translations live in messages/{en,ru,uz}.json under
+// CalculatorPage.* and are resolved by key. A CMS version should keep the same
+// split: neutral fields in the document, labels in next-intl.
 // ─────────────────────────────────────────────────────────────────────────────
 
 // Shared seasonal profile (share of yearly generation per month, Jan…Dec, Σ≈1).
