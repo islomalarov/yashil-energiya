@@ -1,5 +1,9 @@
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import { TheHero } from "@/components/HeroComponent/TheHero";
+import {
+  TheContentSections,
+  type ContentSection,
+} from "@/components/ContentSectionsComponent/TheContentSections";
 import { getTranslations } from "next-intl/server";
 import s from "./page.module.scss";
 
@@ -63,6 +67,12 @@ export default async function InstallationRequestPage() {
           </article>
         </div>
       </section>
+      <TheContentSections
+        sections={(t.raw("seoSections") as ContentSection[]).filter(
+          (x) => x.id !== "process",
+        )}
+        cta={{ href: "/resources/calculator", label: t("calculatorCta") }}
+      />
       <TheFeedback />
     </>
   );

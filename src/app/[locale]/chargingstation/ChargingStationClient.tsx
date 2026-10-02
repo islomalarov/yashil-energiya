@@ -6,7 +6,6 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import {
   BatteryCharging,
-  ChevronDown,
   ChevronRight,
   CircleDollarSign,
   FileText,
@@ -22,6 +21,10 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { ChargingGuide } from "@/components/ChargingGuide/ChargingGuide";
+import {
+  TheContentSections,
+  type ContentSection,
+} from "@/components/ContentSectionsComponent/TheContentSections";
 import { TheMotionWrapper } from "@/components/MotionWrapper/TheMotionWrapper";
 import { ThePaginationControls } from "@/components/PaginationComponent/ThePaginationControls";
 import { Link } from "@/i18n/navigation";
@@ -54,7 +57,6 @@ const benefitCards = [
 
 const chargingTypeSpecs = ["power", "time", "connector", "bestFor"] as const;
 
-const faqKeys = ["q1", "q2", "q3", "q4", "q5", "q6"] as const;
 
 const STATIONS_PER_PAGE = 6;
 const PHONE_HREF = "tel:+998555148844";
@@ -383,6 +385,12 @@ export function ChargingStationClient({
         <ChargingGuide />
       </section>
 
+      <TheContentSections
+        sections={(t.raw("seoSections") as ContentSection[]).filter((x) =>
+          ["price", "whyUs"].includes(x.id),
+        )}
+      />
+
       <section className={s.offerSection} aria-labelledby="charging-offer-title">
         <TheMotionWrapper motionKey="charging-offer">
           <article className={s.offerPanel}>
@@ -406,26 +414,11 @@ export function ChargingStationClient({
         </TheMotionWrapper>
       </section>
 
-      <section className={s.faqSection} aria-labelledby="charging-faq-title">
-        <TheMotionWrapper motionKey="charging-faq">
-          <div className={s.sectionHeader}>
-            <span className={s.eyebrow}>{t("faq.eyebrow")}</span>
-            <h2 id="charging-faq-title">{t("faq.title")}</h2>
-            <p>{t("faq.description")}</p>
-          </div>
-          <div className={s.faqList}>
-            {faqKeys.map((key) => (
-              <details className={s.faqItem} key={key}>
-                <summary className={s.faqSummary}>
-                  <span>{t(`faq.${key}.question`)}</span>
-                  <ChevronDown aria-hidden="true" />
-                </summary>
-                <p className={s.faqAnswer}>{t(`faq.${key}.answer`)}</p>
-              </details>
-            ))}
-          </div>
-        </TheMotionWrapper>
-      </section>
+      <TheContentSections
+        sections={(t.raw("seoSections") as ContentSection[]).filter(
+          (x) => x.id === "faq",
+        )}
+      />
 
       <section className={s.ctaSection} aria-labelledby="charging-cta-title">
         <TheMotionWrapper motionKey="charging-cta">

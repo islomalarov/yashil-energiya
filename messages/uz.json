@@ -6,7 +6,7 @@
     "point1": "Quvvat va panellar soni",
     "point2": "Tejamkorlik va qoplanish muddati",
     "point3": "Mutaxassisdan ariza",
-    "button": "Narxni hisoblash",
+    "button": "Tomingiz imkoniyatini hisoblang",
     "badge": "Bepul · 2 daqiqa"
   },
   "Header": {
@@ -282,7 +282,8 @@
       "eyebrow": "Toza energiyaga o'tish",
       "title": "Jamoat infratuzilmasini toza energiya bilan ta'minlaymiz",
       "text": "Yashil Energiya uzoq muddatli energiya samaradorligi, barqarorlik va ishonchli ekspluatatsiyani qo'llab-quvvatlovchi quyosh infratuzilmasini rivojlantiradi.",
-      "button": "Bog'lanish"
+      "button": "Bog'lanish",
+      "calculatorButton": "Bepul hisoblab ko'rish"
     },
     "chartLabel": "Umumiy quvvat",
     "chartLabelUnit": "kVt",
@@ -301,7 +302,157 @@
     "region11": "Samarqand viloyati",
     "region12": "Sirdaryo viloyati",
     "region13": "Surxondaryo viloyati",
-    "region14": "Xorazm viloyati"
+    "region14": "Xorazm viloyati",
+    "seoSections": [
+      {
+        "id": "price",
+        "title": "Quyosh elektr stansiyasi narxi: Yashil Energiya bilan bu qanday ishlaydi",
+        "body": [
+          {
+            "type": "p",
+            "text": "Yashil Energiya bilan ishlaganda siz quyosh elektr stansiyasini sotib olmaysiz. Stansiyani loyihalash, uskunalarni xarid qilish, qurish va o'rnatish xarajatlarini kompaniya to'liq o'z zimmasiga oladi. Shu sababli sizdan boshlang'ich sarmoya, oldindan to'lov yoki kredit talab qilinmaydi."
+          },
+          {
+            "type": "p",
+            "text": "Siz faqat stansiya ishlab chiqargan va obyektingiz haqiqatda foydalangan elektr energiyasi uchun to'laysiz. Bir kilovatt-soatning narxi tarmoq tarifidan arzon bo'ladi va shartnomada tarifga bog'lab belgilanadi. Davlat tarifi o'zgarsa, shartnomadagi narx ham avtomatik qayta hisoblanadi — shartnomani qayta imzolash shart emas. Shuning uchun tarif oshgan sari tarmoq elektri bilan quyosh elektri o'rtasidagi farq so'mda kattalashib boradi."
+          },
+          {
+            "type": "p",
+            "text": "Hisob-kitob hisoblagichning haqiqiy ko'rsatkichi asosida olib boriladi. Har bir stansiya ASKUE — elektr energiyasini avtomatlashtirilgan tijorat hisobi tizimiga ulanadi: ko'rsatkichlar avtomatik uzatiladi, taxminiy hisob bo'lmaydi."
+          },
+          {
+            "type": "p",
+            "text": "Tejash hajmi nimaga bog'liq? Birinchidan, stansiya quvvatiga — u tom yoki maydonning hajmiga qarab belgilanadi. Ikkinchidan, obyektning elektr iste'moliga: kunduzi qancha ko'p energiya sarflansa, stansiya shuncha katta ulushni qoplaydi. Uchinchidan, joylashuv, tomning qiyaligi va soya tushishiga — bular yillik ishlab chiqarishga ta'sir qiladi."
+          },
+          {
+            "type": "p",
+            "text": "Obyektingiz uchun aniq hisob-kitobni mutaxassislarimiz bepul tayyorlab beradi. Saytdagi kalkulyatordan boshlang yoki ariza qoldiring."
+          }
+        ]
+      },
+      {
+        "id": "process",
+        "title": "Ish tartibi: arizadan ishlab turgan stansiyagacha",
+        "body": [
+          {
+            "type": "p",
+            "text": "Stansiyani o'rnatish bir necha bosqichdan iborat va har bir bosqichni Yashil Energiya mutaxassislari olib boradi."
+          },
+          {
+            "type": "steps",
+            "items": [
+              "Ariza. Saytdagi forma orqali yoki telefon qilib murojaat qoldirasiz. Obyekt manzili va oylik elektr iste'moli haqida qisqacha ma'lumot bersangiz, ish tezroq boshlanadi.",
+              "Obyektni ko'rish. Mutaxassislarimiz obyektga chiqib, tom yoki maydon holatini, uning hajmini, soya tushishini va elektr tarmog'iga ulanish imkoniyatini o'rganadi.",
+              "Hisob-kitob va taklif. Olingan ma'lumotlar asosida stansiya quvvati va siz uchun tejash hisoblanadi. Hisob-kitob bepul.",
+              "Shartnoma. Tomonlar elektr energiyasini sotib olish shartnomasini (PPA) imzolaydi. Unda narx, hisob-kitob tartibi va xizmat ko'rsatish shartlari belgilanadi. Davlat tashkilotlari bilan shartnomalar qonunchilikda belgilangan tartibda — g'aznachilikda ro'yxatdan o'tkazish va davlat xaridlari tartib-taomillari orqali rasmiylashtiriladi.",
+              "Loyihalash va ruxsatnomalar. Kompaniya loyihani ishlab chiqadi, texnik shartlarni oladi va zarur kelishuvlarni rasmiylashtiradi.",
+              "Qurilish va montaj. Panellar, invertorlar va hisob tizimi o'rnatiladi. Barcha ishlar kompaniya hisobidan bajariladi.",
+              "Ishga tushirish. Stansiya obyektning elektr tizimiga ulanadi va ASKUE orqali onlayn nazoratga olinadi.",
+              "Yigirma yillik xizmat. Shartnoma davomida panellarni tozalash, texnik ko'rik, zarur bo'lsa uskunalarni almashtirish va onlayn monitoring kompaniya zimmasida bo'ladi."
+            ]
+          },
+          {
+            "type": "p",
+            "text": "Loyiha muddatlari obyektning xususiyatlari va ruxsatnomalarni olish tartibiga bog'liq, shuning uchun ular har bir obyekt uchun alohida belgilanadi."
+          }
+        ]
+      },
+      {
+        "id": "whyUs",
+        "title": "Nega Yashil Energiya",
+        "body": [
+          {
+            "type": "p",
+            "text": "Sarmoyasiz. Stansiya kompaniya hisobidan quriladi. Sizda uskuna va montaj uchun xarajat bo'lmaydi — faqat kamaygan elektr hisobi qoladi."
+          },
+          {
+            "type": "p",
+            "text": "Tarmoq tarifidan arzon. Shartnomadagi narx davlat tarifidan past va unga bog'langan, shuning uchun tarif oshganda ham foyda saqlanib qoladi."
+          },
+          {
+            "type": "p",
+            "text": "Faqat haqiqiy iste'mol uchun to'lov. Hisob-kitob taqdimotdagi va'dalar bo'yicha emas, hisoblagich ko'rsatkichi bo'yicha olib boriladi."
+          },
+          {
+            "type": "p",
+            "text": "Yigirma yillik xizmat. Panellarni tozalash, texnik ko'rik va uskunalarni almashtirish butun shartnoma davomida kompaniya zimmasida, alohida to'lovsiz."
+          },
+          {
+            "type": "p",
+            "text": "ASKUE orqali onlayn nazorat. Har bir stansiyaning ishi nazorat xonasida real vaqtda ko'rinib turadi. Biror nosozlik bo'lsa, buni darhol bilamiz."
+          },
+          {
+            "type": "p",
+            "text": "Montajdan keyin ketib qolmaymiz. Kompaniya faqat stansiya ishlab chiqargan energiyadan daromad ko'radi, shuning uchun stansiyaning har kuni to'liq quvvatda ishlashi avvalo bizga kerak."
+          },
+          {
+            "type": "p",
+            "text": "Xalqaro tajriba. Yashil Energiya — BAAning Global South Utilities (GSU) kompaniyasi ishtirokidagi qo'shma korxona. GSU rivojlanayotgan bozorlarda yirik quyosh energetikasi loyihalarini amalga oshiradi."
+          }
+        ]
+      },
+      {
+        "id": "cases",
+        "title": "Yashil Energiya stansiyalari qayerlarda ishlayapti",
+        "body": [
+          {
+            "type": "p",
+            "text": "Yashil Energiya stansiyalari bugun O'zbekistonning turli hududlarida — ijtimoiy obyektlarda, davlat muassasalarida va korxonalarda ishlab turibdi. Masalan, Toshkentdagi ijtimoiy soha obyektlaridan birining tomida quvvati 400 kVt bo'lgan stansiya ishlayapti: uni kompaniya o'z hisobidan qurgan, obyektning o'zi esa buning uchun bir so'm ham sarflamagan."
+          },
+          {
+            "type": "p",
+            "text": "Amalga oshirilgan barcha obyektlar bilan saytning obyektlar bo'limida tanishishingiz mumkin."
+          }
+        ]
+      },
+      {
+        "id": "faq",
+        "title": "Ko'p beriladigan savollar",
+        "body": [
+          {
+            "type": "qa",
+            "q": "Stansiya kimga tegishli bo'ladi?",
+            "a": "Shartnoma davomida stansiya Yashil Energiya mulki hisoblanadi. Shuning uchun uni qurish, ta'mirlash va unga xizmat ko'rsatish ham kompaniya zimmasida."
+          },
+          {
+            "type": "qa",
+            "q": "Oldindan biror narsa to'lashim kerakmi?",
+            "a": "Yo'q. Siz uskunaga ham, montajga ham mablag' sarflamaysiz. Oldindan to'lov va kredit talab qilinmaydi."
+          },
+          {
+            "type": "qa",
+            "q": "Aynan nima uchun to'layman?",
+            "a": "Faqat stansiya ishlab chiqargan va obyektingiz haqiqatda foydalangan elektr energiyasi uchun. Narx tarmoq tarifidan arzon, hisob-kitob hisoblagich ko'rsatkichi bo'yicha olib boriladi."
+          },
+          {
+            "type": "qa",
+            "q": "Kechasi va bulutli kunlarda-chi?",
+            "a": "Stansiya kunduzi, quyosh nuri bor paytda energiya ishlab chiqaradi. Kechasi obyekt avvalgidek tarmoqdan elektr oladi. Shuning uchun stansiya avvalo iste'molning kunduzgi qismini qoplaydi."
+          },
+          {
+            "type": "qa",
+            "q": "Panellarni kim tozalaydi va ta'mirlaydi?",
+            "a": "Kompaniya. Shartnomaning yigirma yili davomida panellarni tozalash, texnik ko'rik, uskunalarni almashtirish va onlayn monitoring Yashil Energiya zimmasida. Buning uchun alohida to'lov yo'q."
+          },
+          {
+            "type": "qa",
+            "q": "Qancha tejay olaman?",
+            "a": "Bu stansiya quvvatiga va obyektingiz kunduzi qancha energiya sarflashiga bog'liq. Mutaxassislarimiz obyektingiz uchun bepul hisob-kitob tayyorlab beradi."
+          },
+          {
+            "type": "qa",
+            "q": "Kimlar ariza qoldirishi mumkin?",
+            "a": "Yashil Energiya yuridik shaxslar bilan ishlaydi: korxonalar, savdo obyektlari, fermer xo'jaliklari, shuningdek davlat va ijtimoiy muassasalar — maktablar, kollejlar, shifoxonalar."
+          },
+          {
+            "type": "qa",
+            "q": "Tarif oshsa nima bo'ladi?",
+            "a": "Shartnomadagi narx tarifga bog'langan va avtomatik qayta hisoblanadi. U baribir tarmoq tarifidan arzonligicha qoladi, tarif oshgan sari esa so'mdagi farq kattalashadi."
+          }
+        ]
+      }
+    ],
+    "calculatorCapacityCta": "Stansiya quvvatini hisoblash"
   },
   "MicroGesPage": {
     "heroTitle": "Mikro GES",
@@ -649,7 +800,116 @@
     "mapLabel1": "Status",
     "running": "Ishlamoqda",
     "construction": "Qurilish",
-    "commissioning": "Ishga tushirish"
+    "commissioning": "Ishga tushirish",
+    "seoSections": [
+      {
+        "id": "price",
+        "title": "Zaryadlash qancha turadi",
+        "body": [
+          {
+            "type": "p",
+            "text": "Siz faqat avtomobilingiz olgan elektr energiyasi uchun to'laysiz. Yakuniy summa zaryadlangan kilovatt-soatlar miqdoriga va amaldagi tarifga bog'liq."
+          },
+          {
+            "type": "p",
+            "text": "Amaldagi tariflar zaryadlashni boshlashdan oldin Yashil Energiya ilovasida ko'rsatiladi. Sessiyaning yakuniy summasi zaryadlash tugashi bilan ilovada ko'rinadi — yashirin to'lovlarsiz."
+          },
+          {
+            "type": "p",
+            "text": "Maydoncha egalari uchun: agar o'z hududingizda quvvatlash stansiyasini joylashtirmoqchi bo'lsangiz, stansiyani o'rnatish va unga xizmat ko'rsatishni kompaniya o'z zimmasiga oladi. Sizdan — joy, sizga — mijozlar oqimi va daromad. Shartlar alohida kelishiladi."
+          }
+        ]
+      },
+      {
+        "id": "whyUs",
+        "title": "Nega Yashil Energiya",
+        "body": [
+          {
+            "type": "list",
+            "items": [
+              "Asosiy yo'nalishlardagi tarmoq. Stansiyalar odamlar boradigan joylarda: tog'da, M39 trassasida, viloyatlarda.",
+              "Tezkor zaryadlash. 60 kVt dan yuqori stansiyalarda — 20 daqiqadan 60 daqiqagacha.",
+              "Keng tarqalgan razyomlar. GB/T va CCS2.",
+              "Oson to'lov. Hammasi ilova orqali: balans, QR-kod, sessiya, yakuniy summa.",
+              "Shaffof tariflar. Ommaviy ofertada e'lon qilingan va zaryadlashdan oldin ilovada ko'rinadi.",
+              "Qo'llab-quvvatlash. +998 55 514 88 44, har kuni 9:00 dan 18:00 gacha.",
+              "Biznes uchun. O'z maydonchangizda stansiya joylashtiring: o'rnatish va xizmat ko'rsatish — kompaniya hisobidan."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cases",
+        "title": "Yashil Energiya quvvatlash tarmog'i",
+        "body": [
+          {
+            "type": "p",
+            "text": "Bugun Yashil Energiya tarmog'ida 14 ta stansiya ishlab turibdi — yetti hududda umumiy quvvati 2 440 kVt bo'lgan 26 ta zaryadlash ustuni: Toshkent shahri, Toshkent, Jizzax, Qashqadaryo, Buxoro, Andijon va Navoiy viloyatlari."
+          },
+          {
+            "type": "list",
+            "items": [
+              "Bir nechta misol:",
+              "Chimyon (Bo'stonliq tumani) — 8 ta zaryadlash ustuni, 600 kVt. Tarmoqdagi eng yirik nuqta: endi elektromobilda toqqa bemalol chiqib, qaytib kelsa bo'ladi.",
+              "M39 trassasi, G'azli (Romitan tumani) — yonma-yon ikkita stansiya, 240 kVt. Toshkent — Buxoro yo'lini endi elektromobilda bosib o'tish mumkin.",
+              "Yangi Toshkent (Energetiklar ko'chasi) — 6 ta zaryadlash ustuni, 480 kVt. Poytaxtdagi eng quvvatli nuqta.",
+              "Jizzax viloyati — uchta nuqta: ikkitasi M39 va A-376 trassalarida, haydovchilar baribir to'xtaydigan joylarda, shuning uchun tushlik paytida zaryadlab olsa bo'ladi; uchinchisi — Zomin tumanidagi mehmonxona yonida.",
+              "Qarshi — 160 kVt dan ikkita tezkor stansiya."
+            ]
+          },
+          {
+            "type": "p",
+            "text": "Manzillari bilan to'liq ro'yxat — shu sahifadagi xaritada."
+          }
+        ]
+      },
+      {
+        "id": "faq",
+        "title": "Ko'p beriladigan savollar",
+        "body": [
+          {
+            "type": "qa",
+            "q": "Zaryadlash qancha vaqt oladi?",
+            "a": "Quvvati 60 kVt dan yuqori tezkor stansiyalarda — 20 daqiqadan 60 daqiqagacha. Quvvati 22 kVt gacha bo'lgan sekin stansiyalarda — 4–8 soat, bu tunda zaryadlash uchun qulay variant."
+          },
+          {
+            "type": "qa",
+            "q": "Stansiyalarda qanday razyomlar bor?",
+            "a": "GB/T — o'zgaruvchan (AC) va o'zgarmas (DC) tok bilan zaryadlash uchun, CCS2 — tezkor DC-zaryadlash uchun."
+          },
+          {
+            "type": "qa",
+            "q": "Stansiya mening avtomobilimga mos keladimi?",
+            "a": "Agar avtomobilingiz GB/T yoki CCS2 razyomini qo'llab-quvvatlasa, Yashil Energiya stansiyalarida zaryadlashingiz mumkin."
+          },
+          {
+            "type": "qa",
+            "q": "Zaryadlash uchun qanday to'layman?",
+            "a": "Yashil Energiya ilovasi orqali: balansni to'ldiring, stansiyaning QR-kodini skanerlang va sessiyani boshlang."
+          },
+          {
+            "type": "qa",
+            "q": "Tariflarni qayerdan ko'rsam bo'ladi?",
+            "a": "Saytdagi ommaviy ofertada va zaryadlashni boshlashdan oldin ilovada."
+          },
+          {
+            "type": "qa",
+            "q": "Eng yaqin stansiyani qanday topaman?",
+            "a": "Shu sahifadagi xaritada — unda ishlab turgan barcha stansiyalarning manzil va koordinatalari ko'rsatilgan. Ro'yxat yangi nuqtalar ochilishi bilan yangilanib boradi."
+          },
+          {
+            "type": "qa",
+            "q": "Stansiyada muammo chiqsa nima qilaman?",
+            "a": "Qo'llab-quvvatlash xizmatiga qo'ng'iroq qiling: +998 55 514 88 44, har kuni 9:00 dan 18:00 gacha."
+          },
+          {
+            "type": "qa",
+            "q": "O'z hududimda quvvatlash stansiyasini o'rnatish mumkinmi?",
+            "a": "Ha. Ariza qoldiring — mutaxassislar maydonchani baholab, shartlarni taklif qiladi."
+          }
+        ]
+      }
+    ]
   },
   "ChargingGuide": {
     "eyebrow": "Elektromobilni quvvatlash yo'riqnomasi",
@@ -739,7 +999,140 @@
     "templateTitle": "Ariza namunasi",
     "templateText": "Obyektimizda quyosh fotoelektr stansiyasini o'rnatish imkoniyatini ko'rib chiqishingizni so'raymiz. Texnik tekshiruv uchun kirishni ta'minlashga va so'rov bo'yicha qo'shimcha ma'lumot berishga tayyormiz.",
     "contactTitle": "Mas'ul kontakt",
-    "contactText": "Ariza va savollarni info@yashil-energiya.uz manziliga yoki tijorat bo'limiga yuborishingiz mumkin."
+    "contactText": "Ariza va savollarni info@yashil-energiya.uz manziliga yoki tijorat bo'limiga yuborishingiz mumkin.",
+    "seoSections": [
+      {
+        "id": "price",
+        "title": "Ariza va hisob-kitob — bepul",
+        "body": [
+          {
+            "type": "p",
+            "text": "Ariza qoldirish va obyektingiz bo'yicha hisob-kitob olish bepul. Ariza sizga hech qanday majburiyat yuklamaydi: avval raqamlarni ko'rasiz, keyin qaror qabul qilasiz."
+          },
+          {
+            "type": "p",
+            "text": "Ish modelining o'zi ham xarajat talab qilmaydi. Yashil Energiya quyosh elektr stansiyasini o'z hisobidan quradi, siz esa faqat haqiqatda foydalangan elektr energiyangiz uchun — tarmoq tarifidan arzonroq narxda to'laysiz. Shartnomadagi narx tarifga bog'langan va tarif o'zgarsa, avtomatik qayta hisoblanadi."
+          },
+          {
+            "type": "list",
+            "items": [
+              "Hisob-kitob natijasiga nimalar ta'sir qiladi:",
+              "stansiya joylashadigan tom yoki maydonning hajmi;",
+              "obyektning kunduzgi elektr iste'moli;",
+              "obyektning joylashuvi, tomning qiyaligi va soya tushishi."
+            ]
+          },
+          {
+            "type": "p",
+            "text": "Arizadagi ma'lumotlar qanchalik aniq bo'lsa, dastlabki hisob-kitob ham shunchalik aniq chiqadi."
+          }
+        ]
+      },
+      {
+        "id": "process",
+        "title": "Arizadan keyin nima bo'ladi",
+        "body": [
+          {
+            "type": "steps",
+            "items": [
+              "Ariza qoldirasiz. Shu sahifadagi forma orqali yoki telefon qilib. Arizalar ish vaqtida — 9:00 dan 18:00 gacha qabul qilinadi.",
+              "Siz bilan bog'lanamiz. Mutaxassis obyekt haqidagi ma'lumotlarni aniqlashtiradi va obyektga chiqish vaqtini kelishib oladi.",
+              "Obyektni ko'rish. Mutaxassislar tom yoki maydonni, soya tushishini va tarmoqqa ulanish imkoniyatini o'rganadi.",
+              "Bepul hisob-kitob. Stansiya quvvati va siz uchun tejash hisob-kitobini olasiz.",
+              "Shartnoma va qurilish. Shartlar sizga ma'qul bo'lsa, shartnoma imzolanadi, so'ng kompaniya o'z hisobidan stansiyani loyihalaydi, quradi va ishga tushiradi."
+            ]
+          },
+          {
+            "type": "list",
+            "items": [
+              "Ish tezroq ketishi uchun arizada nimalarni ko'rsatish kerak:",
+              "obyekt manzili;",
+              "obyekt turi: korxona, savdo obyekti, maktab, shifoxona va hokazo;",
+              "oylik elektr sarfi taxminan qancha yoki so'nggi oylardagi hisoblar;",
+              "tom yoki maydonning surati (bo'lsa);",
+              "mas'ul shaxsning aloqa ma'lumotlari."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "whyUs",
+        "title": "Nega ariza qoldirish kerak",
+        "body": [
+          {
+            "type": "list",
+            "items": [
+              "Bir so'm ham sarmoya yo'q: stansiyani kompaniya loyihalaydi, quradi va ishga tushiradi.",
+              "Tarmoq tarifidan arzon elektr — faqat haqiqatda foydalanganingiz uchun to'laysiz.",
+              "Yigirma yillik xizmat va ASKUE orqali onlayn monitoring shartnomaga kiritilgan.",
+              "Hech qanday majburiyat yuklamaydigan bepul hisob-kitob."
+            ]
+          },
+          {
+            "type": "p",
+            "text": "Sizdan bitta qadam — ariza. Qolganini o'zimiz qilamiz."
+          }
+        ]
+      },
+      {
+        "id": "cases",
+        "title": "Bu model kimlar uchun",
+        "body": [
+          {
+            "type": "list",
+            "items": [
+              "Yashil Energiya stansiyalari mamlakatning turli hududlarida ijtimoiy obyektlarda, davlat muassasalarida va korxonalarda allaqachon ishlab turibdi. Model tomi yoki bo'sh maydoni bor va kunduzi sezilarli miqdorda elektr sarflaydigan obyektlarga mos keladi:",
+              "korxonalar va ishlab chiqarish sexlari;",
+              "sovutish uskunalari tunu kun ishlaydigan savdo markazlari va bozorlar;",
+              "nasoslari va sovutish omborlari bor fermer xo'jaliklari;",
+              "maktablar, kollejlar, shifoxonalar va boshqa davlat muassasalari;",
+              "yo'l bo'yidagi biznes."
+            ]
+          },
+          {
+            "type": "p",
+            "text": "Amalga oshirilgan obyektlar — saytning obyektlar bo'limida."
+          }
+        ]
+      },
+      {
+        "id": "faq",
+        "title": "Ariza bo'yicha savollar",
+        "body": [
+          {
+            "type": "qa",
+            "q": "Kimlar ariza qoldirishi mumkin?",
+            "a": "Yuridik shaxslar: korxonalar, savdo markazlari va bozorlar, fermer xo'jaliklari, yo'l bo'yidagi biznes, shuningdek davlat va ijtimoiy muassasalar — maktablar, kollejlar, shifoxonalar."
+          },
+          {
+            "type": "qa",
+            "q": "Ariza meni biror narsaga majbur qiladimi?",
+            "a": "Yo'q. Ariza va hisob-kitob bepul va hech qanday majburiyat yuklamaydi."
+          },
+          {
+            "type": "qa",
+            "q": "Birinchi bosqichda qanday hujjatlar kerak?",
+            "a": "Dastlabki hisob-kitob uchun obyekt va uning iste'moli haqidagi ma'lumotlar kifoya. Shartnoma uchun kerakli hujjatlar ro'yxatini mutaxassislar keyingi bosqichda aytadi."
+          },
+          {
+            "type": "qa",
+            "q": "Tomimiz kichik. Ariza qoldirishga arziydimi?",
+            "a": "Ha. Stansiya uchun faqat tom emas, bo'sh maydon ham mos kelishi mumkin. Maydon va sharoitlarni mutaxassislarimiz baholaydi."
+          },
+          {
+            "type": "qa",
+            "q": "Biz davlat muassasasimiz. Shartnoma qanday rasmiylashtiriladi?",
+            "a": "Davlat tashkilotlari bilan shartnomalar qonunchilikda belgilangan tartibda — g'aznachilikda ro'yxatdan o'tkazish va davlat xaridlari tartib-taomillari orqali rasmiylashtiriladi. Mutaxassislarimiz bu jarayonda yordam beradi."
+          },
+          {
+            "type": "qa",
+            "q": "Formadan tashqari qanday bog'lanish mumkin?",
+            "a": "Ish vaqtida — 9:00 dan 18:00 gacha — +998 55 514 88 44 raqamiga qo'ng'iroq qiling yoki info@yashil-energiya.uz manziliga yozing."
+          }
+        ]
+      }
+    ],
+    "calculatorCta": "Avval stansiyangizni hisoblang"
   },
   "CeoPage": {
     "jobTitle": "Lavozimi",

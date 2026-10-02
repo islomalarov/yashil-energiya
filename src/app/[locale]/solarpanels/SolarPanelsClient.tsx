@@ -18,6 +18,10 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { TheHero } from "@/components/HeroComponent/TheHero";
+import {
+  TheContentSections,
+  type ContentSection,
+} from "@/components/ContentSectionsComponent/TheContentSections";
 import { TheMotionWrapper } from "@/components/MotionWrapper/TheMotionWrapper";
 import { Link } from "@/i18n/navigation";
 import type { PlantStatus } from "services/plant-status.service";
@@ -102,7 +106,6 @@ const staggerStyle = (index: number) =>
 export function SolarPanelsClient({ plantStatuses }: SolarPanelsClientProps) {
   const locale = useLocale();
   const t = useTranslations("SolarPanelsPage");
-  const tCalc = useTranslations("CalculatorPage");
   const integerFormatter = new Intl.NumberFormat(locale);
   const decimalFormatter = new Intl.NumberFormat(locale, {
     maximumFractionDigits: 2,
@@ -294,6 +297,14 @@ export function SolarPanelsClient({ plantStatuses }: SolarPanelsClientProps) {
           </TheMotionWrapper>
         </section>
 
+        <TheContentSections
+          sections={t.raw("seoSections") as ContentSection[]}
+          cta={{
+            href: "/resources/calculator",
+            label: t("calculatorCapacityCta"),
+          }}
+        />
+
         <section className={s.ctaSection} aria-labelledby="solar-cta-title">
           <TheMotionWrapper motionKey="solar-cta">
             <div className={s.ctaPanel}>
@@ -312,7 +323,7 @@ export function SolarPanelsClient({ plantStatuses }: SolarPanelsClientProps) {
                   href="/resources/calculator"
                 >
                   <Calculator aria-hidden="true" />
-                  <span>{tCalc("title")}</span>
+                  <span>{t("cta.calculatorButton")}</span>
                 </Link>
               </div>
             </div>

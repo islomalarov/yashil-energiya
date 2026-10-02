@@ -6,7 +6,7 @@
     "point1": "Capacity and panel count",
     "point2": "Savings and payback period",
     "point3": "Request from a specialist",
-    "button": "Calculate the cost",
+    "button": "Calculate your roof’s potential",
     "badge": "Free · 2 minutes"
   },
   "Header": {
@@ -282,7 +282,8 @@
       "eyebrow": "Clean energy transformation",
       "title": "Powering public infrastructure with clean energy",
       "text": "Yashil Energiya develops solar infrastructure that supports long-term efficiency, sustainability and operational resilience.",
-      "button": "Contact us"
+      "button": "Contact us",
+      "calculatorButton": "Calculate for free"
     },
     "chartLabel": "Total capacity",
     "chartLabelUnit": "kW",
@@ -301,7 +302,157 @@
     "region11": "Samarkand region",
     "region12": "Syrdarya region",
     "region13": "Surkhandarya region",
-    "region14": "Khorezm region"
+    "region14": "Khorezm region",
+    "seoSections": [
+      {
+        "id": "price",
+        "title": "Solar power plant cost: how it works with Yashil Energiya",
+        "body": [
+          {
+            "type": "p",
+            "text": "With Yashil Energiya, you do not buy a solar power plant. The company fully covers the design, equipment procurement, construction and installation. That is why no upfront investment, prepayment or loan is required from you."
+          },
+          {
+            "type": "p",
+            "text": "You pay only for the electricity the plant has generated and your facility has actually used. The price per kilowatt-hour is lower than the grid tariff and is linked to the tariff in the contract. If the state tariff changes, the contract price is recalculated automatically — there is no need to re-sign the contract. As a result, the more the tariff grows, the bigger the difference in soums between grid electricity and solar electricity."
+          },
+          {
+            "type": "p",
+            "text": "Billing is based on actual meter readings. Every plant is connected to ASKUE, an automated commercial electricity metering system: readings are transmitted automatically, with no estimates."
+          },
+          {
+            "type": "p",
+            "text": "What do your savings depend on? First, on the plant's capacity, which is determined by the size of the roof or site. Second, on your facility's consumption: the more energy you use during the day, the larger the share the plant covers. Third, on the location, roof slope and shading, which affect annual generation."
+          },
+          {
+            "type": "p",
+            "text": "Our specialists will prepare an exact calculation for your facility free of charge. Start with the calculator on the website or submit a request."
+          }
+        ]
+      },
+      {
+        "id": "process",
+        "title": "How it works: from request to an operating plant",
+        "body": [
+          {
+            "type": "p",
+            "text": "Installing a plant takes several stages, and each of them is managed by Yashil Energiya specialists."
+          },
+          {
+            "type": "steps",
+            "items": [
+              "Request. You submit a request through the website form or by phone. If you provide the facility address and approximate monthly electricity consumption right away, the work will start faster.",
+              "Site visit. Our specialists visit the facility and assess the condition and size of the roof or site, shading and the possibility of connecting to the grid.",
+              "Calculation and proposal. Based on the data collected, we calculate the plant's capacity and your savings. The calculation is free.",
+              "Contract. The parties sign a power purchase agreement (PPA). It sets out the price, billing procedure and service terms. Contracts with state organisations are concluded in the manner established by law — with registration with the treasury and through public procurement procedures.",
+              "Design and permits. The company develops the project, obtains the technical conditions and arranges the necessary approvals.",
+              "Construction and installation. Panels, inverters and the metering system are installed. All work is carried out at the company's expense.",
+              "Commissioning. The plant is connected to the facility's electrical system and placed under online monitoring via ASKUE.",
+              "Twenty years of service. Throughout the contract, the company is responsible for panel cleaning, technical inspections, equipment replacement when needed and online monitoring."
+            ]
+          },
+          {
+            "type": "p",
+            "text": "Project timelines depend on the facility's specifics and the permitting procedure, so they are set individually for each facility."
+          }
+        ]
+      },
+      {
+        "id": "whyUs",
+        "title": "Why Yashil Energiya",
+        "body": [
+          {
+            "type": "p",
+            "text": "No investment. The plant is built at the company's expense. You have no costs for equipment or installation — only an electricity bill that gets smaller."
+          },
+          {
+            "type": "p",
+            "text": "Cheaper than the grid tariff. The contract price is lower than the state tariff and linked to it, so the benefit remains even when tariffs rise."
+          },
+          {
+            "type": "p",
+            "text": "Pay only for actual consumption. Billing is based on meter readings, not on figures promised in a presentation."
+          },
+          {
+            "type": "p",
+            "text": "Twenty years of service. Panel cleaning, technical inspections and equipment replacement are covered by the company for the entire term of the contract, at no extra charge."
+          },
+          {
+            "type": "p",
+            "text": "Online monitoring via ASKUE. The operation of every plant is visible in the control room in real time. If anything goes wrong, we know about it right away."
+          },
+          {
+            "type": "p",
+            "text": "We don't leave after installation. The company earns only from the energy the plant generates, so it is in our own interest that the plant works at full capacity every day."
+          },
+          {
+            "type": "p",
+            "text": "International experience. Yashil Energiya is a joint venture with the participation of Global South Utilities (GSU) from the UAE, which delivers large-scale solar energy projects in emerging markets."
+          }
+        ]
+      },
+      {
+        "id": "cases",
+        "title": "Where Yashil Energiya plants are already operating",
+        "body": [
+          {
+            "type": "p",
+            "text": "Yashil Energiya plants are already operating in various regions of Uzbekistan — at social facilities, state institutions and businesses. For example, a 400 kW plant is operating on the roof of one of the social facilities in Tashkent: the company built it at its own expense, and the facility did not spend a single soum."
+          },
+          {
+            "type": "p",
+            "text": "All completed projects can be found in the projects section of the website."
+          }
+        ]
+      },
+      {
+        "id": "faq",
+        "title": "Frequently asked questions",
+        "body": [
+          {
+            "type": "qa",
+            "q": "Who owns the plant?",
+            "a": "For the entire term of the contract, the plant remains the property of Yashil Energiya. That is why construction, repairs and maintenance are also the company's responsibility."
+          },
+          {
+            "type": "qa",
+            "q": "Do I need to pay anything upfront?",
+            "a": "No. You do not invest in equipment or installation. No prepayment or loan is required."
+          },
+          {
+            "type": "qa",
+            "q": "What exactly do I pay for?",
+            "a": "Only for the electricity the plant has generated and your facility has actually used. The price is lower than the grid tariff, and billing is based on meter readings."
+          },
+          {
+            "type": "qa",
+            "q": "What happens at night and on cloudy days?",
+            "a": "The plant generates energy during the day, when there is sunlight. At night, the facility receives electricity from the grid as before. That is why the plant mainly covers the daytime part of consumption."
+          },
+          {
+            "type": "qa",
+            "q": "Who cleans the panels and handles repairs?",
+            "a": "The company. For all twenty years of the contract, panel cleaning, technical inspections, equipment replacement and online monitoring are handled by Yashil Energiya. There is no separate charge for this."
+          },
+          {
+            "type": "qa",
+            "q": "How much can I save?",
+            "a": "It depends on the plant's capacity and how much energy your facility uses during the day. Our specialists will prepare a free calculation for your facility."
+          },
+          {
+            "type": "qa",
+            "q": "Who can submit a request?",
+            "a": "Yashil Energiya works with legal entities: businesses, retail facilities, farms, as well as state and social institutions — schools, colleges and hospitals."
+          },
+          {
+            "type": "qa",
+            "q": "What if the tariff goes up?",
+            "a": "The contract price is linked to the tariff and recalculated automatically. It stays below the grid tariff, and the difference in soums grows as the tariff increases."
+          }
+        ]
+      }
+    ],
+    "calculatorCapacityCta": "Calculate station capacity"
   },
   "MicroGesPage": {
     "heroTitle": "Micro hydro power",
@@ -649,7 +800,116 @@
     "mapLabel1": "Status",
     "running": "Running",
     "construction": "Construction",
-    "commissioning": "Commissioning"
+    "commissioning": "Commissioning",
+    "seoSections": [
+      {
+        "id": "price",
+        "title": "How much charging costs",
+        "body": [
+          {
+            "type": "p",
+            "text": "You pay only for the electricity your car has received. The final amount depends on the number of kilowatt-hours charged and the current tariff."
+          },
+          {
+            "type": "p",
+            "text": "Current tariffs are published in the Yashil Energiya app before charging starts. The final amount for the session appears in the app as soon as charging is complete — with no hidden fees."
+          },
+          {
+            "type": "p",
+            "text": "For site owners: if you would like to host a charging station at your location, the company takes care of installing and servicing it. You provide the space — and gain a flow of customers and income. Terms are agreed individually."
+          }
+        ]
+      },
+      {
+        "id": "whyUs",
+        "title": "Why Yashil Energiya",
+        "body": [
+          {
+            "type": "list",
+            "items": [
+              "A network on key routes. Stations are located where people travel: in the mountains, on the M39 highway and in the regions.",
+              "Fast charging. From 20 to 60 minutes at stations of 60 kW and above.",
+              "Common connectors. GB/T and CCS2.",
+              "Easy payment. Everything in the app: balance, QR code, session, final amount.",
+              "Transparent tariffs. Published in the public offer and visible in the app before charging.",
+              "Support. +998 55 514 88 44, daily from 9:00 to 18:00.",
+              "For business. Host a station at your site: installation and servicing are at the company's expense."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cases",
+        "title": "The Yashil Energiya charging network",
+        "body": [
+          {
+            "type": "p",
+            "text": "Today the Yashil Energiya network has 14 operating stations — 26 charging points with a total capacity of 2,440 kW in seven regions: Tashkent city and the Tashkent, Jizzakh, Kashkadarya, Bukhara, Andijan and Navoi regions."
+          },
+          {
+            "type": "list",
+            "items": [
+              "A few examples:",
+              "Chimgan (Bostanlyk district) — 8 charging points, 600 kW. The largest location in the network: you can now drive to the mountains and back by electric car with peace of mind.",
+              "M39 highway, Gazli (Romitan district) — two stations side by side, 240 kW. The Tashkent — Bukhara route can now be driven by electric car.",
+              "Yangi Tashkent (Energetikov Street) — 6 charging points, 480 kW. The most powerful location in the capital.",
+              "Jizzakh region — three locations: two on the M39 and A-376 highways, at places where drivers stop anyway, so you can charge over lunch; the third is next to a hotel in Zaamin district.",
+              "Karshi — two fast stations of 160 kW each."
+            ]
+          },
+          {
+            "type": "p",
+            "text": "The full list with addresses is on the map on this page."
+          }
+        ]
+      },
+      {
+        "id": "faq",
+        "title": "Frequently asked questions",
+        "body": [
+          {
+            "type": "qa",
+            "q": "How long charging takes?",
+            "a": "At fast stations of 60 kW and above — from 20 to 60 minutes. At slow stations of up to 22 kW — 4 to 8 hours, a convenient option for overnight charging."
+          },
+          {
+            "type": "qa",
+            "q": "Which connectors do the stations have?",
+            "a": "GB/T for AC and DC charging, and CCS2 for fast DC charging."
+          },
+          {
+            "type": "qa",
+            "q": "Will the station work with my car?",
+            "a": "If your car supports a GB/T or CCS2 connector, you can charge at Yashil Energiya stations."
+          },
+          {
+            "type": "qa",
+            "q": "How do I pay for charging?",
+            "a": "Through the Yashil Energiya app: top up your balance, scan the station's QR code and start the session."
+          },
+          {
+            "type": "qa",
+            "q": "Where can I see the tariffs?",
+            "a": "In the public offer on the website and in the app before charging starts."
+          },
+          {
+            "type": "qa",
+            "q": "How do I find the nearest station?",
+            "a": "On the map on this page, which shows the addresses and coordinates of all operating stations. The list is updated as new locations open."
+          },
+          {
+            "type": "qa",
+            "q": "What if there is a problem at a station?",
+            "a": "Call our support line: +998 55 514 88 44, daily from 9:00 to 18:00."
+          },
+          {
+            "type": "qa",
+            "q": "Can I install a charging station on my premises?",
+            "a": "Yes. Submit a request, and our specialists will assess the site and offer terms."
+          }
+        ]
+      }
+    ]
   },
   "ChargingGuide": {
     "eyebrow": "EV charging guide",
@@ -740,7 +1000,140 @@
     "templateTitle": "Application template",
     "templateText": "Please consider the possibility of installing a solar photovoltaic power plant at our facility. We are ready to provide access for a technical survey and submit additional information upon request.",
     "contactTitle": "Responsible contact",
-    "contactText": "Send applications and questions to info@yashil-energiya.uz or contact the commercial department."
+    "contactText": "Send applications and questions to info@yashil-energiya.uz or contact the commercial department.",
+    "seoSections": [
+      {
+        "id": "price",
+        "title": "Request and calculation — free of charge",
+        "body": [
+          {
+            "type": "p",
+            "text": "Submitting a request and receiving a calculation for your facility is free. The request does not commit you to anything: first you see the figures, then you decide."
+          },
+          {
+            "type": "p",
+            "text": "The business model itself requires no costs either. Yashil Energiya builds the solar power plant at its own expense, and you pay only for the electricity you actually use — at a price below the grid tariff. The contract price is linked to the tariff and recalculated automatically when the tariff changes."
+          },
+          {
+            "type": "list",
+            "items": [
+              "What affects the calculation result:",
+              "the size of the roof or site where the plant can be placed;",
+              "the facility's daytime electricity consumption;",
+              "the facility's location, roof slope and shading."
+            ]
+          },
+          {
+            "type": "p",
+            "text": "The more accurate the data in your request, the more accurate the first calculation will be."
+          }
+        ]
+      },
+      {
+        "id": "process",
+        "title": "What happens after you submit a request",
+        "body": [
+          {
+            "type": "steps",
+            "items": [
+              "You submit a request — via the form on this page or by phone. Requests are accepted during working hours, from 9:00 to 18:00.",
+              "We contact you. A specialist clarifies the details of your facility and arranges a site visit.",
+              "Site visit. Our specialists assess the roof or site, shading and the possibility of connecting to the grid.",
+              "Free calculation. You receive a calculation of the plant's capacity and your savings.",
+              "Contract and construction. If the terms suit you, a contract is signed, after which the company designs, builds and commissions the plant at its own expense."
+            ]
+          },
+          {
+            "type": "list",
+            "items": [
+              "What to include in your request to speed things up:",
+              "the facility address;",
+              "the type of facility: business, retail facility, school, hospital and so on;",
+              "approximate monthly electricity consumption or recent bills;",
+              "a photo of the roof or site, if available;",
+              "contact details of the responsible person."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "whyUs",
+        "title": "Why submit a request",
+        "body": [
+          {
+            "type": "list",
+            "items": [
+              "Not a single soum of investment: the company designs, builds and commissions the plant.",
+              "Electricity cheaper than the grid tariff — you pay only for what you actually use.",
+              "Twenty years of service and online ASKUE monitoring are included in the contract.",
+              "A free, non-binding calculation."
+            ]
+          },
+          {
+            "type": "p",
+            "text": "All it takes is one step — a request. We will do the rest."
+          }
+        ]
+      },
+      {
+        "id": "cases",
+        "title": "Who this model is for",
+        "body": [
+          {
+            "type": "list",
+            "items": [
+              "Yashil Energiya plants are already operating at social facilities, state institutions and businesses in various regions of the country. The model suits facilities that have a roof or a vacant site and noticeable daytime electricity consumption:",
+              "businesses and production workshops;",
+              "shopping centres and markets, where refrigeration equipment runs around the clock;",
+              "farms with pumps and cold storage;",
+              "schools, colleges, hospitals and other state institutions;",
+              "roadside businesses."
+            ]
+          },
+          {
+            "type": "p",
+            "text": "Completed projects can be found in the projects section of the website."
+          }
+        ]
+      },
+      {
+        "id": "faq",
+        "title": "Questions about the request",
+        "body": [
+          {
+            "type": "qa",
+            "q": "Who can submit a request?",
+            "a": "Legal entities: businesses, shopping centres and markets, farms, roadside businesses, as well as state and social institutions — schools, colleges and hospitals."
+          },
+          {
+            "type": "qa",
+            "q": "Does the request commit me to anything?",
+            "a": "No. The request and the calculation are free and non-binding."
+          },
+          {
+            "type": "qa",
+            "q": "What documents are needed at the first stage?",
+            "a": "For the initial calculation, information about the facility and its consumption is enough. Our specialists will tell you which documents are needed for the contract at the next stage."
+          },
+          {
+            "type": "qa",
+            "q": "Our roof is small. Is it worth submitting a request?",
+            "a": "Yes. Not only a roof but also a vacant plot of land may be suitable for a plant. Our specialists will assess the area and conditions."
+          },
+          {
+            "type": "qa",
+            "q": "We are a state institution. How is the contract concluded?",
+            "a": "Contracts with state organisations are concluded in the manner established by law — with registration with the treasury and through public procurement procedures. Our specialists will support you through this process."
+          },
+          {
+            "type": "qa",
+            "q": "How else can I contact you besides the form?",
+            "a": "Call +998 55 514 88 44 or email info@yashil-energiya.uz during working hours, from 9:00 to 18:00."
+          }
+        ]
+      }
+    ],
+    "calculatorCta": "Estimate your station first"
   },
   "CeoPage": {
     "jobTitle": "Position",
