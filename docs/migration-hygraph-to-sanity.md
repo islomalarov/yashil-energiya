@@ -229,6 +229,11 @@ Plain ESM `.mjs`, без зависимостей, Node 24. Данные — в 
 | `transform.mjs` | Документы Sanity + связи переводов → `transformed/dataset.ndjson`, валидация (обязательные поля, уникальность, ссылки, null) |
 | `check-assets.mjs` | HEAD-проверка всех ассетов (доступны, не пустые, тип) → `reports/assets.json` |
 | `richtext-to-portable-text.test.mjs` | `node --test scripts/sanity-migration/richtext-to-portable-text.test.mjs` |
+| `uz-export.mjs` | Записи без `uz` (экспорт `.data/uz/source.json` через `sanity documents query`) → сегменты для перевода `.data/uz/segments/NN.txt`; PT-блоки — в разметке `<b>`/`<i>`/`<u>`/`<sup>`/`<aN>` (`lib/pt-markup.mjs`) |
+| `uz-build.mjs` | Переводы `.data/uz/translations/NN.txt` → проверки (все сегменты, теги, ссылки, нет кириллицы, валидный PT) → `.data/uz/patches.json`; `--check` — для частичной проверки |
+| `pt-markup.test.mjs` | `node --test scripts/sanity-migration/pt-markup.test.mjs` |
+
+**Перевод на uz (2026-10):** 114 записей без `uz` переведены через `uz-export` → перевод → `uz-build`, запись — миграцией `studio/migrations/add-uz-translations` (из папки `studio/`: `npx sanity migration run add-uz-translations`, затем с `--no-dry-run`). Миграция трогает только документы с `!defined(uz)` и пишет `setIfMissing`, поэтому правки редакторов не перезаписываются.
 
 ---
 
