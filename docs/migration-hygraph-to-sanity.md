@@ -233,7 +233,7 @@ Plain ESM `.mjs`, без зависимостей, Node 24. Данные — в 
 | `uz-build.mjs` | Переводы `.data/uz/translations/NN.txt` → проверки (все сегменты, теги, ссылки, нет кириллицы, валидный PT) → `.data/uz/patches.json`; `--check` — для частичной проверки |
 | `pt-markup.test.mjs` | `node --test scripts/sanity-migration/pt-markup.test.mjs` |
 
-**Перевод на uz (2026-10):** 114 записей без `uz` переведены через `uz-export` → перевод → `uz-build`, запись — миграцией `studio/migrations/add-uz-translations` (из папки `studio/`: `npx sanity migration run add-uz-translations`, затем с `--no-dry-run`). Миграция трогает только документы с `!defined(uz)` и пишет `setIfMissing`, поэтому правки редакторов не перезаписываются.
+**Перевод на uz (2026-10):** 114 записей без `uz` переведены через `uz-export` → перевод → `uz-build`, запись — миграцией `studio/migrations/add-uz-translations` (из папки `studio/`: `npx sanity migration run add-uz-translations`, затем с `--no-dry-run`). Миграция трогает только документы с `!defined(uz)` и пишет `setIfMissing`, поэтому правки редакторов не перезаписываются. Для проверки на копии датасета: `npx sanity migration run refresh-uz-review --project ljlv76fi --dataset uz-review --no-dry-run` перезаписывает `uz` текущими переводами (на production не запускается). Термины: QFES — quyosh fotoelektr stansiyasi, EQS — elektromobillarni quvvatlash stansiyasi; «SES», «EV», «Solar PV» в узбекских текстах не используются.
 
 ---
 
