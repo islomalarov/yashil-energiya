@@ -64,13 +64,6 @@ const noIndexHeaders = [
   },
 ];
 
-const noIndexFollowHeaders = [
-  {
-    key: "X-Robots-Tag",
-    value: "noindex, follow",
-  },
-];
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   compress: true,
@@ -101,12 +94,6 @@ const nextConfig = {
           },
         ],
         headers: noIndexHeaders,
-      },
-      // uz CMS pages stay out of the index until uz content is published:
-      // remove this together with adding "uz" to cmsContentLocales (src/lib/seo.ts).
-      {
-        source: "/uz/:path(news|articles|plants|vacancies)/:slug*",
-        headers: noIndexFollowHeaders,
       },
       {
         source: "/:lang(en|ru|uz)/ev-guide",
