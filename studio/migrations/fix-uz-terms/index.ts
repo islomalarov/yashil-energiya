@@ -28,6 +28,8 @@ const REPLACEMENTS: [from: string, to: string][] = [
   ["Gran-Komor", "Grand-Komor"],
   // Board of Directors
   ["Kuzatuv kengashi", "Direktorlar kengashi"],
+  // A span right after a link ("Buyuk Britaniya" + "da ham PV …")
+  ["da ham PV sohasidagi", "da ham quyosh fotoelektr energetikasi sohasidagi"],
 ];
 
 const SKIP_KEYS = new Set(["_key", "_type", "_ref", "href", "url", "canonicalUrl"]);
