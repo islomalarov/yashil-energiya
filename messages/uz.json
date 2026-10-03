@@ -193,7 +193,7 @@
     },
     "system3": {
       "title": "Hybrid tizim",
-      "description": "Tarmoq ulanishi va akkumulyator saqlash tizimini birlashtirgan gibrid yechim bo'lib, yuqori moslashuvchanlik va ishonchlilikni ta'minlaydi.",
+      "description": "Tarmoq ulanishi va akkumulyatorli energiya to'plash tizimini birlashtirgan gibrid yechim bo'lib, yuqori moslashuvchanlik va ishonchlilikni ta'minlaydi.",
       "technicalLabel": "Tarmoq + saqlash",
       "context": "Moslashuvchan va ishonchli ekspluatatsiya uchun",
       "alt": "Gibrid quyosh fotoelektr stansiyasi abstrakt sxemasi"
