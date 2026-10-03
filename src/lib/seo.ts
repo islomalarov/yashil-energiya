@@ -573,7 +573,7 @@ export function languageAlternates(
         absoluteUrl(localizedPath(locale, path)),
       ]),
     ),
-    "x-default": absoluteUrl(localizedPath("en", path)),
+    "x-default": absoluteUrl(localizedPath("uz", path)),
   };
 }
 

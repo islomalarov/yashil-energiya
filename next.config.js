@@ -158,7 +158,7 @@ const nextConfig = {
       },
       {
         source: "/jobs",
-        destination: "/en/vacancies",
+        destination: "/uz/vacancies",
         statusCode: 301,
       },
       {
@@ -183,36 +183,36 @@ const nextConfig = {
       },
       {
         source: "/articles/page:page(\\d+)",
-        destination: "/en/articles",
+        destination: "/uz/articles",
         statusCode: 301,
       },
       {
         source: "/news/page:page(\\d+)",
-        destination: "/en/news",
+        destination: "/uz/news",
         statusCode: 301,
       },
       {
         source:
           "/news/global-south-utilities-tomonidan-ulushni-sotib-olish-boyicha-memorandum-imzolandi",
-        destination: "/en/news",
+        destination: "/uz/news",
         statusCode: 301,
       },
       {
         source:
           "/news/yangi-toshkentda-elektromobillarni-tezkor-zaryadlash-stansiyasi-ishga-tushirildi",
-        destination: "/en/news",
+        destination: "/uz/news",
         statusCode: 301,
       },
       {
         source:
           "/news/employees-of-yashil-energiya-llc-improve-their-skills",
-        destination: "/en/news",
+        destination: "/uz/news",
         statusCode: 301,
       },
       {
         source:
           "/news/yashil-energiya-mchj-xodimlari-malakasini-oshirmoqda",
-        destination: "/en/news",
+        destination: "/uz/news",
         statusCode: 301,
       },
     ];
