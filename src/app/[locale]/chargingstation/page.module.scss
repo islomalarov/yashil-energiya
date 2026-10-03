@@ -363,7 +363,6 @@
 .typesSection,
 .networkSection,
 .offerSection,
-.faqSection,
 .ctaSection {
   padding: 72px 0;
 }
@@ -872,77 +871,6 @@
   font-weight: 700;
 }
 
-/* FAQ */
-.faqSection {
-  background: var(--ev-soft);
-}
-
-.faqList {
-  display: grid;
-  max-width: 900px;
-  gap: 12px;
-}
-
-.faqItem {
-  overflow: hidden;
-  border: 1px solid var(--ev-green-line);
-  border-radius: 8px;
-  background: rgba($whiteColor, 0.96);
-  box-shadow: var(--ev-shadow);
-
-  &[open] {
-    border-color: rgba($primaryColor, 0.32);
-  }
-}
-
-.faqSummary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  cursor: pointer;
-  color: var(--ev-ink);
-  font-size: 1.08rem;
-  font-weight: 850;
-  line-height: 1.35;
-  list-style: none;
-  padding: 20px 22px;
-  transition: color 0.2s ease;
-
-  &::-webkit-details-marker {
-    display: none;
-  }
-
-  &:hover {
-    color: $primaryColor;
-  }
-
-  &:focus-visible {
-    outline: 3px solid rgba($primaryColor, 0.28);
-    outline-offset: -3px;
-  }
-
-  svg {
-    flex: 0 0 auto;
-    width: 20px;
-    height: 20px;
-    color: $primaryColor;
-    transition: transform 0.28s ease;
-  }
-}
-
-.faqItem[open] .faqSummary svg {
-  transform: rotate(180deg);
-}
-
-.faqAnswer {
-  margin: 0;
-  padding: 0 22px 22px;
-  color: var(--ev-muted);
-  font-size: 1rem;
-  line-height: 1.62;
-}
-
 /* CTA */
 .ctaSection {
   padding-bottom: 88px;
@@ -1159,7 +1087,6 @@
   .typesSection,
   .networkSection,
   .offerSection,
-  .faqSection,
   .ctaSection {
     padding: 54px 0;
   }
@@ -1229,14 +1156,6 @@
     display: grid;
   }
 
-  .faqSummary {
-    font-size: 1rem;
-    padding: 16px 18px;
-  }
-
-  .faqAnswer {
-    padding: 0 18px 18px;
-  }
 }
 
 @media (hover: none) {
@@ -1258,8 +1177,7 @@
   .stationCard,
   .primaryAction,
   .secondaryAction,
-  .ctaPhone,
-  .faqSummary svg {
+  .ctaPhone {
     animation: none;
     transition: none;
   }
