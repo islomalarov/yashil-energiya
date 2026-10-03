@@ -758,35 +758,6 @@
       "button": "Ommaviy oferta",
       "note": "Tarif bo'yicha savolingiz bormi? Qo'llab-quvvatlash xizmati doim aloqada."
     },
-    "faq": {
-      "eyebrow": "Savol-javob",
-      "title": "Ko'p beriladigan savollar",
-      "description": "Yashil Energiya bilan quvvatlash haqida eng ko'p beriladigan savollarga javoblar.",
-      "q1": {
-        "question": "Qaysi elektromobillar qo'llab-quvvatlanadi?",
-        "answer": "Stansiyalarimiz O'zbekiston bozoridagi keng tarqalgan standartlarni — AC va DC uchun GB/T, hamda tez DC quvvatlash uchun CCS2 ni qo'llab-quvvatlaydi. Quvvatlashdan oldin avtomobilingiz konnektori turini tekshiring."
-      },
-      "q2": {
-        "question": "Seans uchun qanday to'lanadi?",
-        "answer": "To'lov Yashil Energiya ilovasi orqali amalga oshiriladi: balansni to'ldiring, stansiya QR-kodini skanerlang va seansni boshlang. Yakuniy narx quvvatlash tugagach ko'rsatiladi."
-      },
-      "q3": {
-        "question": "Stansiya nosozligida nima qilish kerak?",
-        "answer": "Seansni ilovada to'xtating va boshqa konnektor yoki yaqin stansiyani sinab ko'ring. Muammo davom etsa, +998 55 514 88 44 raqami orqali qo'llab-quvvatlashga murojaat qiling."
-      },
-      "q4": {
-        "question": "Stansiyalar kunu-tun ishlaydimi?",
-        "answer": "Mavjudlik ob'ektga bog'liq. Har bir stansiyaning ish vaqti va real vaqtdagi holati ilovadagi xaritada ko'rsatiladi."
-      },
-      "q5": {
-        "question": "Tarmoq kengaytiriladimi?",
-        "answer": "Ha. Quvvatlash tarmog'i o'sishda davom etadi: yangi stansiyalar mamlakatning boshqa hududlari va asosiy yo'nalishlarida rejalashtirilgan."
-      },
-      "q6": {
-        "question": "Qo'llab-quvvatlash bilan qanday bog'lanish mumkin?",
-        "answer": "+998 55 514 88 44 raqamiga qo'ng'iroq qiling yoki kontaktlar sahifasidan foydalaning. Jamoamiz quvvatlash, to'lov va hamkorlik savollarida yordam beradi."
-      }
-    },
     "cta": {
       "eyebrow": "Hamkorlik",
       "title": "Hududingizda quvvatlash stansiyasini joylashtirmoqchimisiz?",

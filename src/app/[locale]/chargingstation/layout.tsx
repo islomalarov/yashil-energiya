@@ -5,8 +5,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { createStaticMetadata, staticPageJsonLd } from "@/lib/seo";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
-
-const faqKeys = ["q1", "q2", "q3", "q4", "q5", "q6"] as const;
+import type { ContentSection } from "@/components/ContentSectionsComponent/TheContentSections";
 
 async function faqPageJsonLd(locale: string) {
   const t = await getTranslations({
@@ -14,17 +13,24 @@ async function faqPageJsonLd(locale: string) {
     namespace: "ChargingStationPage",
   });
 
+  const sections = t.raw("seoSections") as ContentSection[];
+  const faq = sections.find((section) => section.id === "faq");
+  const questions = (faq?.body ?? []).flatMap((node) =>
+    node.type === "qa"
+      ? [
+          {
+            "@type": "Question",
+            name: node.q,
+            acceptedAnswer: { "@type": "Answer", text: node.a },
+          },
+        ]
+      : [],
+  );
+
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqKeys.map((key) => ({
-      "@type": "Question",
-      name: t(`faq.${key}.question`),
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: t(`faq.${key}.answer`),
-      },
-    })),
+    mainEntity: questions,
   };
 }
 

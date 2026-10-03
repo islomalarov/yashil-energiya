@@ -758,35 +758,6 @@
       "button": "Public offer",
       "note": "Have a tariff question? Our support team is one call away."
     },
-    "faq": {
-      "eyebrow": "FAQ",
-      "title": "Frequently asked questions",
-      "description": "Answers to the most common questions about charging with Yashil Energiya.",
-      "q1": {
-        "question": "Which electric vehicles are supported?",
-        "answer": "Our stations support the common standards on the Uzbekistan market — GB/T for AC and DC, and CCS2 for DC fast charging. Check your vehicle's connector type before charging."
-      },
-      "q2": {
-        "question": "How do I pay for a session?",
-        "answer": "Payment runs through the Yashil Energiya app: top up your balance, scan the station QR code and start the session. The final cost is shown when charging ends."
-      },
-      "q3": {
-        "question": "What should I do if a station fails?",
-        "answer": "Stop the session in the app and try another connector or a nearby station. If the problem continues, contact support on +998 55 514 88 44."
-      },
-      "q4": {
-        "question": "Are the stations available around the clock?",
-        "answer": "Availability depends on the site. Opening hours and real-time status for each station are shown on the map in the app."
-      },
-      "q5": {
-        "question": "Will the network expand?",
-        "answer": "Yes. The charging network keeps growing: new stations are planned in more regions and along key routes across Uzbekistan."
-      },
-      "q6": {
-        "question": "How do I contact support?",
-        "answer": "Call +998 55 514 88 44 or use the contacts page. Our team helps with charging, payments and partnership questions."
-      }
-    },
     "cta": {
       "eyebrow": "Partnership",
       "title": "Want a charging station on your territory?",
