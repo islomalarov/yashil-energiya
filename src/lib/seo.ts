@@ -887,6 +887,7 @@ export function powerPlantJsonLd({
   address,
   image,
   power,
+  powerLabel = "Power",
 }: {
   locale: string;
   id: string;
@@ -894,6 +895,7 @@ export function powerPlantJsonLd({
   address: string;
   image?: string | null;
   power?: string;
+  powerLabel?: string;
 }) {
   const currentLocale = normalizeLocale(locale);
   const canonical = absoluteUrl(localizedPath(currentLocale, `/plants/${id}`));
@@ -905,7 +907,7 @@ export function powerPlantJsonLd({
     name: title,
     url: canonical,
     image: image ? absoluteUrl(image) : absoluteUrl("/hero.png"),
-    description: power ? `${title}. Power: ${power}` : title,
+    description: power ? `${title}. ${powerLabel}: ${power}` : title,
     address: {
       "@type": "PostalAddress",
       streetAddress: address,

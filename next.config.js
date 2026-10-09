@@ -147,6 +147,13 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source:
+          "/:lang(en|ru|uz)/news/35th-anniversary-of-the-state-independence-of-the-republic-of-uzbekistan",
+        destination:
+          "/:lang/news/happy-35th-anniversary-of-the-independence-of-the-republic-of-uzbekistan",
+        statusCode: 301,
+      },
+      {
         source: "/sitemap.txt",
         destination: "/sitemap.xml",
         statusCode: 301,

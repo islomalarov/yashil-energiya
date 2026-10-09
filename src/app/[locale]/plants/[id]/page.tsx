@@ -53,11 +53,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
 
+  const t = await getTranslations({ locale, namespace: "PlantDetail" });
+
   return createMetadata({
     locale,
     path: `/plants/${id}`,
     title: plant.title,
-    description: `${plant.address}. Power: ${plant.power}. Average annual production: ${plant.production}.`,
+    description: `${plant.address}. ${t("power")}: ${plant.power}. ${t("averageAnnualProduction")}: ${plant.production}.`,
     image: plant.pictures[0]?.url,
     type: "article",
     alternateLocales: cmsAlternateLocales(plant.languages),
@@ -174,6 +176,7 @@ export default async function Plant({ params }: Props) {
             title,
             address,
             power,
+            powerLabel: t("power"),
             image: pictures[0]?.url,
           }),
           breadcrumbJsonLd(locale, [
