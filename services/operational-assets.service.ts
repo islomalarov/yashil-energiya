@@ -87,7 +87,17 @@ const regionOrder = (region: string) => {
   return match ? Number(match[1]) : Number.MAX_SAFE_INTEGER;
 };
 
+// Lists show working assets first, then those being commissioned, then the
+// ones still under construction or planned; unknown statuses go last.
+const CONDITION_ORDER = ["running", "commissioning", "construction", "planning"];
+
+const conditionOrder = (condition: string) => {
+  const index = CONDITION_ORDER.indexOf(condition);
+  return index === -1 ? CONDITION_ORDER.length : index;
+};
+
 const sortOperationalAssets = (a: OperationalAsset, b: OperationalAsset) =>
+  conditionOrder(a.condition) - conditionOrder(b.condition) ||
   regionOrder(a.region) - regionOrder(b.region) ||
   a.region.localeCompare(b.region) ||
   a.name.localeCompare(b.name) ||
