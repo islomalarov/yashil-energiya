@@ -3,13 +3,8 @@
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { useEffect, useState } from "react";
-import { GoogleAnalytics } from "@/components/GoogleAnalytics/GoogleAnalytics";
 
-type ThirdPartyScriptsProps = {
-  gaMeasurementId: string;
-};
-
-export function ThirdPartyScripts({ gaMeasurementId }: ThirdPartyScriptsProps) {
+export function ThirdPartyScripts() {
   const [canLoad, setCanLoad] = useState(false);
 
   useEffect(() => {
@@ -31,7 +26,6 @@ export function ThirdPartyScripts({ gaMeasurementId }: ThirdPartyScriptsProps) {
 
   return (
     <>
-      <GoogleAnalytics measurementId={gaMeasurementId} />
       <SpeedInsights />
       <Analytics />
     </>

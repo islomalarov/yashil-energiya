@@ -25,7 +25,7 @@
 | Лайтбокс | **yet-another-react-lightbox** | |
 | Уведомления | **react-toastify** | |
 | Изображения | `next/image` + `sharp`; OG-картинки — API-роут `/api/og-image` (использует `sharp`/`text-to-svg`) | внешние домены картинок — только через `images` в `next.config.js` |
-| Аналитика | `@vercel/analytics`, `@vercel/speed-insights`, GA (`NEXT_PUBLIC_GA_MEASUREMENT_ID`) | |
+| Аналитика | `@vercel/analytics`, `@vercel/speed-insights` | Google Analytics удалён — не возвращать без согласования |
 | Качество кода | ESLint 9 (`eslint.config.mjs`), Prettier (`.prettierrc`), `tsc` (`tsconfig.typecheck.json`) | |
 
 **Запрещено:** менять стек, добавлять дублирующие библиотеки (второй UI-кит, второй слайдер, второй способ стилизации, axios вместо fetch, `next-sanity`/`sanity` в приложении — Studio-пакеты живут только в `studio/`), включать/обновлять мажорные версии Next/React в рамках фич-задач.
@@ -77,7 +77,7 @@ studio/      — Sanity Studio: схемы контента, отдельный 
 1. **Sanity — единственный источник контента** (новости, статьи, СЭС, вакансии, руководство, данные карт). Контент не хардкодится. Запросы — в `services/` на GROQ через `fetchData` из `lib/sanity-client.ts`; перед написанием нового запроса переиспользовать проекции из `services/fragments.ts` и типы из `interface/`. Схемы контента меняются в `studio/schemaTypes` (после правок: `cd studio && npm run typecheck && npx sanity schema validate`).
 2. Локализация — field-level: один документ на запись, общие поля (slug, даты, обложки/фото) в корне, языки — объекты `en` / `ru` / `uz`; в GROQ язык читается через `localized(...)` / `hasLocale()` из `services/fragments.ts` (`@[$locale]`, `$locale` только через `cmsLocale`). Если перевода на uz ещё нет, использовать откат на en (`loadWithFallback` из `src/lib/cms-locale.ts`, редирект на en на страницах записей). Индексация uz-страниц CMS включается одним местом: `cmsContentLocales` в `src/lib/seo.ts` + правило noindex в `next.config.js`. Стратегию кэширования (теги из `lib/cache-tags.ts`) копировать с соседних сервисов того же раздела.
 3. **Формы обратной связи** — не трогать без необходимости связку: клиент → route handler → валидация env (`src/lib/server-env.ts`) → Turnstile-проверка → rate limit (Upstash) → отправка через Microsoft Graph. При изменении форм все звенья цепочки сохраняются.
-4. **Секреты** — только через переменные окружения из `.env.example` (`NEXT_PUBLIC_SANITY_*`, `SANITY_REVALIDATE_SECRET`, `TURNSTILE_*`, `MS_*`, `UPSTASH_*`, `NEXT_PUBLIC_GA_MEASUREMENT_ID`). Новые секреты добавляются в `.env.example` (без значений) и в валидацию `server-env.ts`. Реальные значения никогда не коммитятся.
+4. **Секреты** — только через переменные окружения из `.env.example` (`NEXT_PUBLIC_SANITY_*`, `SANITY_REVALIDATE_SECRET`, `TURNSTILE_*`, `MS_*`, `UPSTASH_*`). Новые секреты добавляются в `.env.example` (без значений) и в валидацию `server-env.ts`. Реальные значения никогда не коммитятся.
 5. Изображения из CMS и статики — только через `next/image`; новые внешние хосты добавлять в `next.config.js`, а не использовать `<img>`.
 6. Leaflet-компоненты — только client-side (`'use client'` + dynamic import без SSR), иначе билд упадёт.
 

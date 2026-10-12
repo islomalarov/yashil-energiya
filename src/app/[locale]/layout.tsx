@@ -19,9 +19,6 @@ import {
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 import { ThirdPartyScripts } from "@/components/ThirdPartyScripts/ThirdPartyScripts";
 
-const gaMeasurementId =
-  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-Q1YP3BBCL1";
-
 const sofia = Sofia_Sans({
   subsets: ["latin", "cyrillic"],
   weight: ["400", "500", "600", "700"],
@@ -93,7 +90,7 @@ export default async function RootLayout({ children, params }: Props) {
             <TheAssistant />
           </NextIntlClientProvider>
         </div>
-        <ThirdPartyScripts gaMeasurementId={gaMeasurementId} />
+        <ThirdPartyScripts />
       </body>
     </html>
   );
