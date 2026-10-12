@@ -1,8 +1,6 @@
 "use client";
 
 import Script from "next/script";
-import { usePathname, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
 
 type GoogleAnalyticsProps = {
   measurementId: string;
@@ -15,23 +13,10 @@ declare global {
   }
 }
 
+// `config` sends the page_view of the landing page. Client-side navigations
+// are tracked by GA4 enhanced measurement ("Page changes based on browser
+// history events"), so no manual page_view is sent on route changes.
 export function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps) {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
-  useEffect(() => {
-    if (!window.gtag) {
-      return;
-    }
-
-    const query = searchParams.toString();
-    const pagePath = query ? `${pathname}?${query}` : pathname;
-
-    window.gtag("config", measurementId, {
-      page_path: pagePath,
-    });
-  }, [measurementId, pathname, searchParams]);
-
   return (
     <>
       <Script
@@ -43,7 +28,7 @@ export function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps) {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${measurementId}', { send_page_view: false });
+          gtag('config', '${measurementId}');
         `}
       </Script>
     </>
