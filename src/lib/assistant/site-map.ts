@@ -28,7 +28,7 @@ export const COMPANY_CONTACTS = [
   "Head office address: Tashkent, Yunusabad district, Bodomzor street 2B (landmark: UZGIDROMET / Uzhydromet).",
   "Phone: +998 55-514-88-44.",
   "Email: info@yashil-energiya.uz.",
-  "Regional branches are listed on the Branches page; full contact details and a map are on the Contacts page.",
+  "Full contact details and a map are on the Contacts page.",
 ].join(" ");
 
 export const SITE_PAGES: SitePage[] = [
