@@ -109,6 +109,13 @@
   padding-top: 0;
 }
 
+// burger-width header is ~52px tall; full-bleed heroes sit right under it, without a white band
+.main:has(.page-hero) {
+  @media (max-width: 1260px) {
+    padding-top: 52px;
+  }
+}
+
 .taplink-page {
   transition: opacity 0.22s ease, filter 0.22s ease;
 }
