@@ -44,7 +44,7 @@ async function getCmsResults(locale: string): Promise<SearchResult[]> {
   const [news, articles, plants] = await Promise.allSettled([
     loadWithFallback(
       locale,
-      (contentLocale) => NewsService.getAllNews(50, 0, contentLocale),
+      (contentLocale) => NewsService.getAllNews(undefined, 0, contentLocale),
       (data) => data.news.length === 0,
     ).then(({ data }) => data),
     loadWithFallback(
@@ -54,7 +54,7 @@ async function getCmsResults(locale: string): Promise<SearchResult[]> {
     ).then(({ data }) => data),
     loadWithFallback(
       locale,
-      (contentLocale) => PlantService.getAllPlants(50, 0, contentLocale),
+      (contentLocale) => PlantService.getAllPlants(undefined, 0, contentLocale),
       (data) => data.plants.length === 0,
     ).then(({ data }) => data),
   ]);
