@@ -5,6 +5,7 @@ import {
   FormEvent,
   useEffect,
   useId,
+  useRef,
   useState,
 } from "react";
 import dynamic from "next/dynamic";
@@ -13,6 +14,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { CheckCircle2, ChevronLeft, Loader2, Send, X } from "lucide-react";
 import type { Segment } from "interface/solar-calculator.types";
 import s from "./SolarCalculator.module.scss";
+import type { TurnstileInstance } from "@marsidev/react-turnstile";
 
 const Turnstile = dynamic(
   () => import("@marsidev/react-turnstile").then((mod) => mod.Turnstile),
@@ -54,6 +56,8 @@ export const CalculatorLeadModal = ({
   const locale = useLocale();
   const fieldId = useId();
   const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+
+  const turnstileRef = useRef<TurnstileInstance | undefined>(undefined);
 
   const [step, setStep] = useState<Step>("form");
   const [contact, setContact] = useState<Contact>(EMPTY);
@@ -106,6 +110,12 @@ export const CalculatorLeadModal = ({
     if (validateContact()) setStep("confirm");
   };
 
+  // Turnstile tokens are single-use: a failed request burns it.
+  const resetCaptcha = () => {
+    setCaptchaToken("");
+    turnstileRef.current?.reset();
+  };
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setSubmitError("");
@@ -145,10 +155,12 @@ export const CalculatorLeadModal = ({
         setStep("success");
       } else {
         setSubmitError(t("leadForm.errors.submitError"));
+        resetCaptcha();
       }
     } catch (error) {
       console.error("Calculator request error:", error);
       setSubmitError(t("leadForm.errors.submitError"));
+      resetCaptcha();
     } finally {
       setIsSubmitting(false);
     }
@@ -292,6 +304,7 @@ export const CalculatorLeadModal = ({
                 <div className={s.captchaWrapper}>
                   {turnstileSiteKey ? (
                     <Turnstile
+                      ref={turnstileRef}
                       siteKey={turnstileSiteKey}
                       onSuccess={(token) => setCaptchaToken(token)}
                       onExpire={() => setCaptchaToken("")}

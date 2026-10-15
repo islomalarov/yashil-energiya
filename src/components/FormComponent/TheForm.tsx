@@ -15,6 +15,7 @@ import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useLocale, useTranslations } from "next-intl";
+import type { TurnstileInstance } from "@marsidev/react-turnstile";
 
 const Turnstile = dynamic(
   () => import("@marsidev/react-turnstile").then((mod) => mod.Turnstile),
@@ -52,6 +53,7 @@ export const TheForm = () => {
   const fieldId = useId();
   const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
   const captchaRef = useRef<HTMLDivElement | null>(null);
+  const turnstileRef = useRef<TurnstileInstance | undefined>(undefined);
   const fieldRefs = useRef<
     Partial<Record<keyof FormData, HTMLInputElement | HTMLTextAreaElement>>
   >({});
@@ -138,13 +140,21 @@ export const TheForm = () => {
         setIsSuccess(true);
       } else {
         toast.error(t("submitError"));
+        resetCaptcha();
       }
     } catch (error) {
       console.error("Error sending message:", error);
       toast.error(t("submitError"));
+      resetCaptcha();
     } finally {
       setIsSubmitting(false);
     }
+  }
+
+  // Turnstile tokens are single-use: a failed request burns it.
+  function resetCaptcha() {
+    setCaptchaToken("");
+    turnstileRef.current?.reset();
   }
 
   const handleChange = (
@@ -275,6 +285,7 @@ export const TheForm = () => {
         <div ref={captchaRef} className={styles.captchaWrapper}>
           {turnstileSiteKey && shouldLoadCaptcha && (
             <Turnstile
+              ref={turnstileRef}
               siteKey={turnstileSiteKey}
               onSuccess={(token) => setCaptchaToken(token)}
             />
