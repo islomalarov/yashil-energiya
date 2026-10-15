@@ -219,6 +219,8 @@ Studio будет доступна на `https://yashil-energiya.sanity.studio`.
 
 ## Скрипты миграции (`scripts/sanity-migration/`)
 
+> Скрипты удалены после закрытия окна отката (2026-10-08) и перевода всех записей на uz; восстановить их можно из истории git (`git log -- scripts/sanity-migration`).
+
 Plain ESM `.mjs`, без зависимостей, Node 24. Данные — в `.data/` (в `.gitignore`: полный экспорт контента).
 
 | Скрипт | Что делает |
