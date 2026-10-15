@@ -44,6 +44,12 @@ type ContactErrors = Partial<Record<keyof Contact, string>>;
 type Step = "form" | "confirm" | "success";
 
 const EMPTY: Contact = { firstName: "", phone: "", email: "" };
+// Must match the limits in src/app/api/calculator-request/route.ts.
+const MAX_LENGTH: Record<keyof Contact, number> = {
+  firstName: 100,
+  phone: 50,
+  email: 150,
+};
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export const CalculatorLeadModal = ({
@@ -272,6 +278,7 @@ export const CalculatorLeadModal = ({
                       name={name}
                       type={type}
                       autoComplete={autoComplete}
+                      maxLength={MAX_LENGTH[name]}
                       value={contact[name]}
                       onChange={handleChange}
                       aria-invalid={errors[name] ? true : undefined}
