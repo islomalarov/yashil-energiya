@@ -11,7 +11,8 @@
     "start": "next start",
     "typecheck": "tsc --noEmit --project tsconfig.typecheck.json",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "test": "node --test"
   },
   "dependencies": {
     "@azure/msal-node": "^5.2.1",
