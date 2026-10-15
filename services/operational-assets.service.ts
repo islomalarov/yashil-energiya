@@ -27,7 +27,8 @@ type OperationalAssetsResponse<TQueryKey extends string> = {
   [key in TQueryKey]?: RawOperationalAsset[] | null;
 };
 
-const toFiniteNumber = (value: unknown) => {
+// Shared with plant-status.service.ts (same map-asset normalisation).
+export const toFiniteNumber = (value: unknown) => {
   if (typeof value === "number") {
     return Number.isFinite(value) ? value : null;
   }
@@ -40,7 +41,7 @@ const toFiniteNumber = (value: unknown) => {
   return null;
 };
 
-const normalizeCoords = (coords: unknown): [number, number] | null => {
+export const normalizeCoords = (coords: unknown): [number, number] | null => {
   if (!Array.isArray(coords) || coords.length < 2) {
     return null;
   }
@@ -82,7 +83,7 @@ const normalizeOperationalAsset = (
   };
 };
 
-const regionOrder = (region: string) => {
+export const regionOrder = (region: string) => {
   const match = /^region(\d+)$/i.exec(region);
   return match ? Number(match[1]) : Number.MAX_SAFE_INTEGER;
 };
