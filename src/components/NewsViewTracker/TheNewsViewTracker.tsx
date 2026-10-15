@@ -4,12 +4,11 @@ import { useEffect } from "react";
 
 type NewsViewTrackerProps = {
   id: string;
-  slug: string;
 };
 
 const STORAGE_PREFIX = "yashil-energiya:news-view:";
 
-export function TheNewsViewTracker({ id, slug }: NewsViewTrackerProps) {
+export function TheNewsViewTracker({ id }: NewsViewTrackerProps) {
   useEffect(() => {
     const storageKey = `${STORAGE_PREFIX}${id}`;
 
@@ -28,7 +27,7 @@ export function TheNewsViewTracker({ id, slug }: NewsViewTrackerProps) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ id, slug }),
+      body: JSON.stringify({ id }),
       keepalive: true,
     }).catch(() => {
       try {
@@ -37,7 +36,7 @@ export function TheNewsViewTracker({ id, slug }: NewsViewTrackerProps) {
         // No recovery needed when browser storage is unavailable.
       }
     });
-  }, [id, slug]);
+  }, [id]);
 
   return null;
 }

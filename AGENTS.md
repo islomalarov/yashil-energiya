@@ -43,7 +43,7 @@ interface/   — TypeScript-типы и интерфейсы
 lib/         — утилиты
 messages/    — словари переводов next-intl (en, ru, uz)
 public/      — статика (логотипы, socialsLogo/, hero и т.д.)
-scripts/     — служебные скрипты (в т.ч. scripts/sanity-migration — перенос из Hygraph)
+scripts/     — служебные скрипты
 services/    — слой работы с данными (GROQ-запросы к Sanity, общие проекции в services/fragments.ts)
 src/         — приложение (App Router, i18n, server-env и т.д.)
 studio/      — Sanity Studio: схемы контента, отдельный package.json (не входит в сборку сайта)
