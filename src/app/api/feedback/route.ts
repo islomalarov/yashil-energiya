@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import { clientIp } from "@/lib/client-ip";
+import { hasLocale } from "next-intl";
+import { routing } from "@/i18n/routing";
 import { ConfidentialClientApplication } from "@azure/msal-node";
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
@@ -49,11 +52,7 @@ function escapeHtml(value: string) {
 }
 export async function POST(req: NextRequest) {
   try {
-    const ip =
-      req.headers.get("cf-connecting-ip") ??
-      req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
-      req.headers.get("x-real-ip") ??
-      "unknown";
+    const ip = clientIp(req);
 
     const result = await ratelimit.limit(ip);
 
@@ -62,7 +61,11 @@ export async function POST(req: NextRequest) {
     }
 
     const body = (await req.json()) as FeedbackData;
-    const locale = req.headers.get("Content-Language") || "uz";
+    // Echoed into the lead email HTML, so only known locales pass.
+    const requestedLocale = req.headers.get("Content-Language");
+    const locale = hasLocale(routing.locales, requestedLocale)
+      ? requestedLocale
+      : routing.defaultLocale;
 
     const { firstName, phone, email, message, captchaToken } = body;
     if (!firstName || !phone || !email || !message || !captchaToken) {

@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
+import { clientIp } from "@/lib/client-ip";
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
 import { incrementNewsView } from "@/lib/news-views";
+import { NewsService } from "services/news.service";
 
 export const runtime = "nodejs";
 
@@ -42,11 +44,7 @@ function isValidPayload(body: NewsViewRequest): body is { id: string; slug: stri
 
 export async function POST(req: NextRequest) {
   try {
-    const ip =
-      req.headers.get("cf-connecting-ip") ??
-      req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
-      req.headers.get("x-real-ip") ??
-      "unknown";
+    const ip = clientIp(req);
 
     const result = await requestLimit.limit(ip);
 
@@ -56,7 +54,11 @@ export async function POST(req: NextRequest) {
 
     const body = (await req.json()) as NewsViewRequest;
 
-    if (!isValidPayload(body)) {
+    // Unknown ids would otherwise grow the popular-news sets forever.
+    if (
+      !isValidPayload(body) ||
+      !(await NewsService.getAllNewsIds()).includes(body.id)
+    ) {
       return NextResponse.json(
         { error: "Invalid news view payload" },
         { status: 400 },

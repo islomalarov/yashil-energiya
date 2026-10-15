@@ -41,9 +41,9 @@ export function unique<T>(items: T[], getKey: (item: T) => string) {
 }
 
 export async function getSitemapContent(locale: SeoLocale) {
-  const newsData = await NewsService.getAllNews(100, 0, locale);
+  const newsData = await NewsService.getAllNews(undefined, 0, locale);
   const articles = await ArticlesService.getAllArticles(locale);
-  const plantsData = await PlantService.getAllPlants(100, 0, locale);
+  const plantsData = await PlantService.getAllPlants(undefined, 0, locale);
   const vacancies = await VacancyService.getAllVacancies(locale);
 
   return {
