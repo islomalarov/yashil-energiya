@@ -15,6 +15,7 @@ import { CheckCircle2, ChevronLeft, Loader2, Send, X } from "lucide-react";
 import type { Segment } from "interface/solar-calculator.types";
 import s from "./SolarCalculator.module.scss";
 import type { TurnstileInstance } from "@marsidev/react-turnstile";
+import { LEAD_MAX_LENGTH } from "@/lib/lead-limits";
 
 const Turnstile = dynamic(
   () => import("@marsidev/react-turnstile").then((mod) => mod.Turnstile),
@@ -44,12 +45,6 @@ type ContactErrors = Partial<Record<keyof Contact, string>>;
 type Step = "form" | "confirm" | "success";
 
 const EMPTY: Contact = { firstName: "", phone: "", email: "" };
-// Must match the limits in src/app/api/calculator-request/route.ts.
-const MAX_LENGTH: Record<keyof Contact, number> = {
-  firstName: 100,
-  phone: 50,
-  email: 150,
-};
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export const CalculatorLeadModal = ({
@@ -278,7 +273,7 @@ export const CalculatorLeadModal = ({
                       name={name}
                       type={type}
                       autoComplete={autoComplete}
-                      maxLength={MAX_LENGTH[name]}
+                      maxLength={LEAD_MAX_LENGTH[name]}
                       value={contact[name]}
                       onChange={handleChange}
                       aria-invalid={errors[name] ? true : undefined}

@@ -16,6 +16,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useLocale, useTranslations } from "next-intl";
 import type { TurnstileInstance } from "@marsidev/react-turnstile";
+import { LEAD_MAX_LENGTH } from "@/lib/lead-limits";
 
 const Turnstile = dynamic(
   () => import("@marsidev/react-turnstile").then((mod) => mod.Turnstile),
@@ -44,14 +45,6 @@ const FIELD_ORDER: (keyof FormData)[] = [
   "email",
   "message",
 ];
-
-// Must match the limits in src/app/api/feedback/route.ts.
-const MAX_LENGTH: Record<keyof FormData, number> = {
-  firstName: 100,
-  phone: 50,
-  email: 150,
-  message: 3000,
-};
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -246,7 +239,7 @@ export const TheForm = () => {
                 name={name}
                 id={`${fieldId}-${name}`}
                 autoComplete={autoComplete}
-                maxLength={MAX_LENGTH[name]}
+                maxLength={LEAD_MAX_LENGTH[name]}
                 value={feedback[name]}
                 onChange={handleChange}
                 aria-invalid={error ? true : undefined}
@@ -274,7 +267,7 @@ export const TheForm = () => {
             })}
             name="message"
             id={`${fieldId}-message`}
-            maxLength={MAX_LENGTH.message}
+            maxLength={LEAD_MAX_LENGTH.message}
             value={feedback.message}
             onChange={handleChange}
             aria-invalid={errors.message ? true : undefined}
