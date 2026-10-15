@@ -16,6 +16,9 @@ export const TheSlider = async () => {
           contactLabel={t("ctaContact")}
           projectsLabel={t("ctaProjects")}
           calculatorLabel={tHeader("calculator")}
+          ringLabel={t("videoRing")}
+          watchLabel={t("videoWatch")}
+          closeLabel={t("videoClose")}
         />
       </div>
     </section>
