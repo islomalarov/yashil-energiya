@@ -2,10 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import { clientIp } from "@/lib/client-ip";
 import { hasLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
-import { ConfidentialClientApplication } from "@azure/msal-node";
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
 import { serverEnv } from "@/lib/server-env";
+import { escapeHtml } from "@/lib/html";
+import { LEAD_MAX_LENGTH } from "@/lib/lead-limits";
+import { sendLeadMail, verifyTurnstile } from "@/lib/lead-mail";
 
 interface FeedbackData {
   firstName: string;
@@ -23,33 +25,6 @@ const ratelimit = new Ratelimit({
   prefix: "feedback-form",
 });
 
-const msalClient = new ConfidentialClientApplication({
-  auth: {
-    clientId: serverEnv.msClientId,
-    authority: `https://login.microsoftonline.com/${serverEnv.msTenantId}`,
-    clientSecret: serverEnv.msClientSecret,
-  },
-});
-
-async function getAccessToken() {
-  const tokenResponse = await msalClient.acquireTokenByClientCredential({
-    scopes: ["https://graph.microsoft.com/.default"],
-  });
-
-  if (!tokenResponse?.accessToken) {
-    throw new Error("Failed to acquire Microsoft Graph access token");
-  }
-
-  return tokenResponse.accessToken;
-}
-function escapeHtml(value: string) {
-  return value
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
 export async function POST(req: NextRequest) {
   try {
     const ip = clientIp(req);
@@ -75,10 +50,10 @@ export async function POST(req: NextRequest) {
       );
     }
     if (
-      firstName.length > 100 ||
-      phone.length > 50 ||
-      email.length > 150 ||
-      message.length > 3000
+      firstName.length > LEAD_MAX_LENGTH.firstName ||
+      phone.length > LEAD_MAX_LENGTH.phone ||
+      email.length > LEAD_MAX_LENGTH.email ||
+      message.length > LEAD_MAX_LENGTH.message
     ) {
       return NextResponse.json({ error: "Input is too long" }, { status: 400 });
     }
@@ -93,21 +68,10 @@ export async function POST(req: NextRequest) {
     const safeEmail = escapeHtml(email.trim());
     const safeMessage = escapeHtml(message.trim()).replace(/\n/g, "<br />");
 
-    const captchaVerify = await fetch(
-      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: new URLSearchParams({
-          secret: serverEnv.turnstileSecretKey,
-          response: captchaToken,
-        }),
-      },
+    const captchaResult = await verifyTurnstile(
+      captchaToken,
+      serverEnv.turnstileSecretKey,
     );
-
-    const captchaResult = await captchaVerify.json();
 
     if (!captchaResult.success) {
       // Surface the real reason (e.g. invalid-input-secret, hostname-mismatch,
@@ -121,14 +85,9 @@ export async function POST(req: NextRequest) {
         { status: 400 },
       );
     }
-    const accessToken = await getAccessToken();
-
-    const emailPayload = {
-      message: {
-        subject: `New feedback request from yashil-energiya.uz`,
-        body: {
-          contentType: "HTML",
-          content: `
+    const sent = await sendLeadMail({
+      subject: `New feedback request from yashil-energiya.uz`,
+      html: `
             <h2>New feedback request</h2>
             <p><strong>Name:</strong> ${safeFirstName}</p>
             <p><strong>Phone:</strong> ${safePhone}</p>
@@ -137,42 +96,10 @@ export async function POST(req: NextRequest) {
             <p><strong>Message:</strong></p>
             <p>${safeMessage}</p>
           `,
-        },
-        toRecipients: [
-          {
-            emailAddress: {
-              address: serverEnv.msRecipientEmail,
-            },
-          },
-        ],
-        replyTo: [
-          {
-            emailAddress: {
-              address: email.trim().toLowerCase(),
-            },
-          },
-        ],
-      },
-      saveToSentItems: true,
-    };
+      replyTo: email.trim().toLowerCase(),
+    });
 
-    const graphResponse = await fetch(
-      `https://graph.microsoft.com/v1.0/users/${serverEnv.msSenderEmail}/sendMail`,
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(emailPayload),
-      },
-    );
-
-    if (!graphResponse.ok) {
-      const errorText = await graphResponse.text();
-
-      console.error("Microsoft Graph error:", errorText);
-
+    if (!sent) {
       return NextResponse.json(
         { error: "Failed to send email" },
         { status: 500 },
