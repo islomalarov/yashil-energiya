@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./TheAdvantages.module.scss";
-import { useTranslations } from "next-intl";
+import { useFormatter, useTranslations } from "next-intl";
 import { TheMotionWrapper } from "../MotionWrapper/TheMotionWrapper";
 import { useEffect, useRef, useState } from "react";
 import { useLocaleMotionState } from "@/lib/locale-transition";
@@ -85,6 +85,7 @@ export const HTMLContent = ({
   duration,
   skipMotion,
 }: HTMLContentProps) => {
+  const format = useFormatter();
   const target = Number(total);
   const [value, setValue] = useState(skipMotion ? target : 0);
 
@@ -120,11 +121,8 @@ export const HTMLContent = ({
     <li className={styles.adv}>
       <p className={styles.advTitle}>{title}</p>
       <div className={styles.box}>
-        <p className={styles.numb}>{value}</p>
-        <span className={styles.unit}>
-          <sup>+</sup>
-          {unit}
-        </span>
+        <p className={styles.numb}>{format.number(value)}+</p>
+        {unit && <span className={styles.unit}>{unit}</span>}
       </div>
     </li>
   );

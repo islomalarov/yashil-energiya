@@ -145,13 +145,13 @@
     "advantage3": {
       "title": "Сэкономлено угля",
       "total": "50000",
-      "unit": "т.",
+      "unit": "т",
       "duration": "1.2"
     },
     "advantage4": {
       "title": "Количество сохраненного CO₂",
       "total": "45000",
-      "unit": "т.",
+      "unit": "т",
       "duration": "1"
     }
   },
