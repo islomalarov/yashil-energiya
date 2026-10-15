@@ -25,8 +25,25 @@ export const TheDropdownMenu = ({
       className={styles.dropdown}
       onMouseEnter={() => subMenu && setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
+      // focus moving between the trigger and its sub-links neither opens nor closes
+      onFocus={(e) => {
+        if (subMenu && !e.currentTarget.contains(e.relatedTarget)) setIsOpen(true);
+      }}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget)) setIsOpen(false);
+      }}
+      onKeyDown={(e) => {
+        if (e.key !== "Escape" || !isOpen) return;
+        setIsOpen(false);
+        e.currentTarget.querySelector("a")?.focus();
+      }}
     >
-      <Link href={url} className={styles.dropBtn}>
+      <Link
+        href={url}
+        className={styles.dropBtn}
+        aria-haspopup={subMenu ? "true" : undefined}
+        aria-expanded={subMenu ? isOpen : undefined}
+      >
         <div className={styles.active}>
           <span>{t(title)}</span>
           {subMenu && (

@@ -18,11 +18,16 @@ $fab-size: 60px;
   color: $whiteColor;
   box-shadow: $shadow-card-hover;
   cursor: pointer;
-  transition: transform 0.25s ease, background-color 0.25s ease, opacity 0.2s ease;
+  transition:
+    transform 200ms $ease-out,
+    background-color 200ms $ease-out,
+    opacity 200ms $ease-out;
 
-  &:hover {
-    background-color: $green-deep;
-    transform: translateY(-2px);
+  @include hoverable {
+    &:hover {
+      background-color: $green-deep;
+      transform: translateY(-2px);
+    }
   }
 }
 
@@ -48,7 +53,9 @@ $fab-size: 60px;
   opacity: 0;
   transform: translateY(24px) scale(0.98);
   pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition:
+    opacity 250ms $ease-out,
+    transform 250ms $ease-out;
 
   @media (max-width: $sm) {
     right: 0;
@@ -397,9 +404,11 @@ $fab-size: 60px;
 
 @keyframes assistant-badge-pop {
   from {
-    transform: scale(0);
+    opacity: 0;
+    transform: scale(0.6);
   }
   to {
+    opacity: 1;
     transform: scale(1);
   }
 }
@@ -445,5 +454,13 @@ $fab-size: 60px;
   .bubbleEnter,
   .typingDots span {
     animation: none;
+  }
+
+  .fab,
+  .fab:hover,
+  .fabHidden,
+  .panel,
+  .panelOpen {
+    transform: none;
   }
 }

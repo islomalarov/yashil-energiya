@@ -9,16 +9,24 @@
   width: 100%;
   z-index: 1000;
   padding: clamp(4px, 1vw, 5px) 0;
-  transition: all 0.3s linear;
 
-  &.scrolled {
+  // blur lives on a pseudo-element so the scrolled state fades via opacity only
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
     backdrop-filter: blur(50px);
-    padding: 5px;
-    transition: all 0.3s linear;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms $ease-out;
   }
 
-  &.instantState,
-  &.instantState.scrolled,
+  &.scrolled::before {
+    opacity: 1;
+  }
+
+  &.instantState::before,
   &.instantState .logo {
     transition: none;
   }
@@ -59,12 +67,14 @@
   width: clamp(96px, 10vw, 142px);
   max-width: 150px;
   height: auto;
-  transition: all 0.3s linear;
+  transform-origin: left center;
+  transition: transform 200ms $ease-out;
 
+  // shrink only where the logo is wide (desktop menu); below that it is already ~100px
   &.miniLogo {
-    width: 100px;
-    max-width: 100px;
-    transition: all 0.3s linear;
+    @media (min-width: 1261px) {
+      transform: scale(0.75);
+    }
   }
 }
 
@@ -96,5 +106,12 @@
     @media (max-width: $sm) {
       display: none;
     }
+  }
+}
+
+// logo still shrinks on scroll, but snaps instead of animating
+@media (prefers-reduced-motion: reduce) {
+  .logo {
+    transition: none;
   }
 }

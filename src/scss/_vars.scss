@@ -31,3 +31,13 @@ $radius-pill: 999px;
 // shadows
 $shadow-card: 0 8px 24px rgba(7, 19, 13, 0.08);
 $shadow-card-hover: 0 12px 32px rgba(7, 19, 13, 0.14);
+
+// motion
+$ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+
+// hover styles only for real pointers, so taps don't leave a "stuck" hover on touch
+@mixin hoverable {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}

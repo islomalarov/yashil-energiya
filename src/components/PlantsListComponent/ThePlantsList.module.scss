@@ -33,10 +33,12 @@
     border-color 0.3s ease,
     box-shadow 0.3s ease;
 
-  &:hover {
-    transform: translateY(-2px);
-    border-color: rgba(18, 144, 62, 0.42);
-    box-shadow: 0 18px 38px rgba(18, 144, 62, 0.16);
+  @include hoverable {
+    &:hover {
+      transform: translateY(-2px);
+      border-color: rgba(18, 144, 62, 0.42);
+      box-shadow: 0 18px 38px rgba(18, 144, 62, 0.16);
+    }
   }
 
   &:focus-visible {
@@ -58,8 +60,10 @@
   transform: scale(1);
   transition: transform 0.3s ease;
 
-  .card:hover & {
-    transform: scale(1.04);
+  @include hoverable {
+    .card:hover & {
+      transform: scale(1.04);
+    }
   }
 }
 
