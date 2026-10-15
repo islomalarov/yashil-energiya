@@ -4,13 +4,19 @@ import {
   TheContentSections,
   type ContentSection,
 } from "@/components/ContentSectionsComponent/TheContentSections";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import s from "./page.module.scss";
 
 const steps = ["step1", "step2", "step3", "step4"] as const;
 const docs = ["doc1", "doc2", "doc3", "doc4"] as const;
 
-export default async function InstallationRequestPage() {
+export default async function InstallationRequestPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("InstallationPage");
 
   return (

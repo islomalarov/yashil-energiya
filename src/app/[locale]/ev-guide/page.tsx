@@ -7,6 +7,7 @@ import { Link } from "@/i18n/navigation";
 import { absoluteUrl, siteName } from "@/lib/seo";
 import { TaplinkLocaleSwitcher } from "../taplink/TaplinkLocaleSwitcher";
 import s from "../taplink/page.module.scss";
+import { setRequestLocale } from "next-intl/server";
 
 type Locale = "en" | "ru" | "uz";
 
@@ -95,6 +96,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function EvGuidePage({ params }: Props) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = copy[locale] ?? copy.en;
   const backText = backCopy[locale] ?? backCopy.en;
 

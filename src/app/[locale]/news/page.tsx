@@ -3,7 +3,7 @@ import { TheNewsList } from "@/components/NewsListComponent/TheNewsList";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import { NewsService } from "services/news.service";
 import { ThePaginationControls } from "@/components/PaginationComponent/ThePaginationControls";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { redirect } from "@/i18n/navigation";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 import { absoluteUrl, itemListJsonLd, localizedPath } from "@/lib/seo";
@@ -12,6 +12,7 @@ import { getPopularNews, getPopularNewsLabels } from "@/lib/popular-news";
 import type { Metadata } from "next";
 
 type NewsPageProps = {
+  params: Promise<{ locale: string }>;
   searchParams?: Promise<{ page?: string }>;
 };
 
@@ -43,8 +44,9 @@ export async function generateMetadata({
   };
 }
 
-export default async function News({ searchParams }: NewsPageProps) {
-  const locale = await getLocale();
+export default async function News({ params, searchParams }: NewsPageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
 
   const t = await getTranslations("TheLastNews");
   const { page } = (await searchParams) ?? {};

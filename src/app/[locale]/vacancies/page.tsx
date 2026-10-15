@@ -2,15 +2,20 @@ import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import s from "./page.module.scss";
 import { VacancyService } from "services/vacancies.service";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link, redirect } from "@/i18n/navigation";
 import { TheClampedText } from "@/components/ClampedText/TheClampedText";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 import { absoluteUrl, itemListJsonLd, localizedPath } from "@/lib/seo";
 
-export default async function VacanciesPage() {
+export default async function VacanciesPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("VacanciesPage");
-  const locale = await getLocale();
 
   const vacancies = (await VacancyService.getAllVacancies(locale)) ?? [];
 

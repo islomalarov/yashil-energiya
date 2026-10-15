@@ -3,7 +3,7 @@ import NextLink from "next/link";
 import { Link } from "@/i18n/navigation";
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import { TheReveal } from "@/components/ui/Reveal/TheReveal";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { FileText, ExternalLink } from "lucide-react";
 
 type Translations = Awaited<ReturnType<typeof getTranslations>>;
@@ -29,7 +29,13 @@ function cleanTitle(title: string): string {
   return title.replace(/\s+/g, " ").trim();
 }
 
-export default async function DocumentsPage() {
+export default async function DocumentsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("DocumentsPage");
 
   const pvDocuments = Array.from({ length: 13 }, (_, i) => ({

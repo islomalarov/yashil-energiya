@@ -3,7 +3,7 @@ import { TheHero } from "@/components/HeroComponent/TheHero";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import { ThePlantsList } from "@/components/PlantsListComponent/ThePlantsList";
 import { PlantService } from "services/plants.service";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link, redirect } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -68,6 +68,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Plant({ params }: Props) {
   const { id, locale } = await params;
+  setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "PlantDetail" });
   const plant = await PlantService.getPlantById(id, locale);

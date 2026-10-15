@@ -1,5 +1,5 @@
 import { Link } from "@/i18n/navigation";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArticlesService } from "services/articles.service";
 import { NewsService } from "services/news.service";
 import { PlantService } from "services/plants.service";
@@ -8,6 +8,7 @@ import s from "./page.module.scss";
 import { SearchPageForm } from "./SearchPageForm";
 
 type SearchPageProps = {
+  params: Promise<{ locale: string }>;
   searchParams?: Promise<{ q?: string }>;
 };
 
@@ -87,8 +88,12 @@ async function getCmsResults(locale: string): Promise<SearchResult[]> {
   ];
 }
 
-export default async function SearchPage({ searchParams }: SearchPageProps) {
-  const locale = await getLocale();
+export default async function SearchPage({
+  params,
+  searchParams,
+}: SearchPageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("SearchPage");
   const { q } = (await searchParams) ?? {};
   const query = q?.trim() ?? "";

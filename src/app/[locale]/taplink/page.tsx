@@ -13,6 +13,7 @@ import { Link } from "@/i18n/navigation";
 import { absoluteUrl, optimizedOgImagePath, siteName } from "@/lib/seo";
 import { TaplinkLocaleSwitcher } from "./TaplinkLocaleSwitcher";
 import s from "./page.module.scss";
+import { setRequestLocale } from "next-intl/server";
 
 type Locale = "en" | "ru" | "uz";
 
@@ -168,6 +169,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function TaplinkPage({ params }: Props) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = copy[locale] ?? copy.en;
   const evGuide = evGuideCopy[locale] ?? evGuideCopy.en;
   const mapLocale = locale === "uz" ? "uz" : locale;

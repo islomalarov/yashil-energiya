@@ -10,6 +10,7 @@ import ScrollToTopButton from "@/components/ui/ScrollButton/ScrollToTopButton";
 import { TheAssistant } from "@/components/AssistantComponent/TheAssistant";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
+import { setRequestLocale } from "next-intl/server";
 import {
   createStaticMetadata,
   organizationJsonLd,
@@ -33,6 +34,10 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
 };
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 type Props = {
   children: React.ReactNode;
@@ -65,6 +70,8 @@ export default async function RootLayout({ children, params }: Props) {
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+  // Lets next-intl read the locale without headers, so pages can render statically.
+  setRequestLocale(locale);
 
   return (
     <html lang={locale}>

@@ -2,7 +2,7 @@
 import s from "./page.module.scss";
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import { ArticlesService } from "services/articles.service";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import ThePageContent from "@/components/PageContentComponent/ThePageContent";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import { notFound } from "next/navigation";
@@ -64,6 +64,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ArticlePage({ params }: Props) {
   const { slug, locale } = await params;
+  setRequestLocale(locale);
 
   if (!slug) notFound();
   const t = await getTranslations("TheArticlesList");

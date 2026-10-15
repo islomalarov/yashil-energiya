@@ -1,6 +1,6 @@
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import { TheHero } from "@/components/HeroComponent/TheHero";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import s from "./page.module.scss";
 import { VacancyService } from "services/vacancies.service";
 import ThePageContent from "@/components/PageContentComponent/ThePageContent";
@@ -60,10 +60,10 @@ function pickIcon(mime?: string | null) {
 }
 
 export default async function VacancyPage({ params }: Props) {
-  const { id } = await params;
+  const { id, locale } = await params;
+  setRequestLocale(locale);
 
   const t = await getTranslations("VacanciesPage");
-  const locale = await getLocale();
 
   if (!id) notFound();
 
