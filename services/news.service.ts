@@ -77,6 +77,10 @@ export const NewsService = {
     );
   },
 
+  // Every published news id, whatever its languages (news-views validation).
+  getAllNewsIds: async () =>
+    fetchData<string[]>(`*[_type == "news"].entryId`, {}, { tags }),
+
   getLastNews: async (locale: string) => {
     const query = `*[${FILTER}] | order(date desc, _id asc) [0...3]{
       ${CARD_FIELDS},
