@@ -7,8 +7,10 @@
   height: 50px;
   color: $primaryColor;
 
-  &:hover {
-    background-color: $primaryColor;
-    color: $whiteColor;
+  @include hoverable {
+    &:hover {
+      background-color: $primaryColor;
+      color: $whiteColor;
+    }
   }
 }

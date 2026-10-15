@@ -24,7 +24,9 @@
   overscroll-behavior: contain;
   opacity: 0;
   transform: translateX(-100%);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    opacity 250ms $ease-out,
+    transform 250ms $ease-out;
 
   &.open {
     opacity: 1;
@@ -55,7 +57,6 @@
         display: flex;
         align-items: center;
         cursor: pointer;
-        transition: transform 0.3s ease;
         flex: 0 0 auto;
       }
     }
@@ -83,10 +84,12 @@
     font-weight: 400;
     text-transform: uppercase;
     border-bottom: 1px solid #eaeaea;
-    transition: color 0.3s ease;
     opacity: 0;
     transform: translateX(-20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition:
+      opacity 250ms $ease-out,
+      transform 250ms $ease-out,
+      color 150ms $ease-out;
 
     // Цикл для генерации transition-delay для каждого элемента
     @for $i from 1 through 12 {
@@ -100,8 +103,10 @@
       transform: translateX(0);
     }
 
-    &:hover {
-      color: $primaryColor;
+    @include hoverable {
+      &:hover {
+        color: $primaryColor;
+      }
     }
 
     .description {
@@ -129,4 +134,12 @@
 
 .menuItem {
   padding: 10px 0;
+}
+
+// menu and links fade in place instead of sliding
+@media (prefers-reduced-motion: reduce) {
+  .burgerMenu,
+  .burgerMenu .burgerLink {
+    transform: none;
+  }
 }

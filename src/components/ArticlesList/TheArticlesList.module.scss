@@ -21,10 +21,12 @@
     transform 0.22s ease,
     box-shadow 0.22s ease;
 
-  &:hover {
-    z-index: 5;
-    transform: translateY(-6px);
-    box-shadow: 0 16px 36px rgba(18, 144, 62, 0.16);
+  @include hoverable {
+    &:hover {
+      z-index: 5;
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(18, 144, 62, 0.16);
+    }
   }
 
   @media (max-width: 1024px) {
@@ -45,8 +47,10 @@
   height: 100%;
   position: relative;
 
-  &:hover img {
-    transform: scale(1.04);
+  @include hoverable {
+    &:hover img {
+      transform: scale(1.04);
+    }
   }
 }
 
@@ -109,8 +113,10 @@
     color 0.2s ease,
     transform 0.2s ease;
 
-  &:hover {
-    color: color.adjust($primaryColor, $lightness: -7%);
-    transform: translateX(2px);
+  @include hoverable {
+    &:hover {
+      color: color.adjust($primaryColor, $lightness: -7%);
+      transform: translateX(2px);
+    }
   }
 }

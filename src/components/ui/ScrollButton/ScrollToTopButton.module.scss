@@ -18,7 +18,10 @@
   justify-content: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transition:
+    opacity 200ms $ease-out,
+    transform 200ms $ease-out,
+    background-color 150ms $ease-out;
   opacity: 0;
   transform: translateY(20px);
   pointer-events: none;
@@ -29,7 +32,20 @@
     pointer-events: auto;
   }
 
-  &:hover {
-    background-color: $secondaryColor;
+  &:active {
+    transform: scale(0.97);
+  }
+
+  @include hoverable {
+    &:hover {
+      background-color: $secondaryColor;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrollToTop,
+  .scrollToTop:active {
+    transform: none;
   }
 }
