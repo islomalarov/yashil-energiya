@@ -138,19 +138,19 @@
     },
     "advantage2": {
       "title": "Xodimlar",
-      "total": "120",
+      "total": "50",
       "unit": "",
       "duration": "1.5"
     },
     "advantage3": {
-      "title": "Filiallar",
-      "total": "13",
-      "unit": "",
-      "duration": "2"
+      "title": "Tejalgan ko'mir",
+      "total": "50000",
+      "unit": "t",
+      "duration": "1.2"
     },
     "advantage4": {
       "title": "Saqlab qolingan CO₂ miqdori",
-      "total": "28000",
+      "total": "45000",
       "unit": "t",
       "duration": "1"
     }
