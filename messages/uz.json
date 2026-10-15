@@ -120,7 +120,7 @@
       "src": "ph:solar-panel"
     },
     "achievement3": {
-      "description": "1 200 ga yaqin ijtimoiy soha obyektlariga quyosh fotoelektr stansiyasi o'rnatilgan",
+      "description": "2 000 ga yaqin ijtimoiy soha obyektlariga quyosh fotoelektr stansiyasi o'rnatilgan",
       "src": "fluent:building-bank-48-regular"
     },
     "achievement4": {
@@ -1322,7 +1322,6 @@
   "VacanciesPage": {
     "title": "Bo'sh ish o'rinlari",
     "detail": "Ish tafsilotlari",
-    "description": "Ish tavsifi",
     "positionTitle": "Lavozim nomi",
     "references": "Ma'lumotnoma",
     "descriptionTitle": "Tavsif",
