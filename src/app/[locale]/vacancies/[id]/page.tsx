@@ -73,7 +73,7 @@ export default async function VacancyPage({ params }: Props) {
     if (locale === "uz") {
       redirect({ href: `/vacancies/${id}`, locale: "en" });
     }
-    return <div className="container">{t("notFound")}</div>;
+    notFound();
   }
 
   const { title, description, references, attachments } = vacancy;
