@@ -21,4 +21,9 @@ export default defineConfig({
   schema: {
     types: schemaTypes,
   },
+  document: {
+    // Duplicate copies the read-only entryId, which then fails the uniqueness
+    // check, so the copy can never be published.
+    actions: (prev) => prev.filter((a) => a.action !== "duplicate"),
+  },
 });
