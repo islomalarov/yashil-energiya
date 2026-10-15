@@ -8,7 +8,7 @@ export const TheSlider = async () => {
   const tHeader = await getTranslations("Header");
 
   return (
-    <section className={styles.hero}>
+    <section className={`${styles.hero} page-hero`}>
       <div className={styles.bgBlock}>
         <TheVideoPlayer
           title={t("heroTitle")}
@@ -16,6 +16,9 @@ export const TheSlider = async () => {
           contactLabel={t("ctaContact")}
           projectsLabel={t("ctaProjects")}
           calculatorLabel={tHeader("calculator")}
+          ringLabel={t("videoRing")}
+          watchLabel={t("videoWatch")}
+          closeLabel={t("videoClose")}
         />
       </div>
     </section>

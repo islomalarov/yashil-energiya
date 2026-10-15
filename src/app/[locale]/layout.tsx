@@ -25,7 +25,6 @@ const gaMeasurementId =
 
 const sofia = Sofia_Sans({
   subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 

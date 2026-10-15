@@ -35,7 +35,7 @@ export const TheHero = ({
   const TitleTag = titleTag;
 
   return (
-    <div className={styles.hero}>
+    <div className={`${styles.hero} page-hero`}>
       <div className={styles.bgBlock}>
         <Image
           className={styles.bgImage}

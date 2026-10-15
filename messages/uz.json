@@ -38,6 +38,9 @@
     "heroSubtitle": "Barqaror energiya ta'minoti uchun quyosh fotoelektr stansiyalari, mikro GES va elektromobillarni quvvatlash infratuzilmasini rivojlantiramiz.",
     "ctaContact": "Biz bilan bog'lanish",
     "ctaProjects": "Mijozimiz bo'lish",
+    "videoRing": "Yashil Energiya · video",
+    "videoWatch": "Videoni ko'rish",
+    "videoClose": "Videoni yopish",
     "about": "Biz haqimizda sahifasiga o'tish"
   },
   "AboutPage": {
@@ -117,7 +120,7 @@
       "src": "ph:solar-panel"
     },
     "achievement3": {
-      "description": "1 200 ga yaqin ijtimoiy soha obyektlariga quyosh fotoelektr stansiyasi o'rnatilgan",
+      "description": "2 000 ga yaqin ijtimoiy soha obyektlariga quyosh fotoelektr stansiyasi o'rnatilgan",
       "src": "fluent:building-bank-48-regular"
     },
     "achievement4": {
@@ -135,20 +138,20 @@
     },
     "advantage2": {
       "title": "Xodimlar",
-      "total": "120",
+      "total": "50",
       "unit": "",
       "duration": "1.5"
     },
     "advantage3": {
-      "title": "Filiallar",
-      "total": "13",
-      "unit": "",
-      "duration": "2"
+      "title": "Tejalgan ko'mir",
+      "total": "50000",
+      "unit": "t",
+      "duration": "1.2"
     },
     "advantage4": {
       "title": "Saqlab qolingan CO₂ miqdori",
-      "total": "28000",
-      "unit": "ton.",
+      "total": "45000",
+      "unit": "t",
       "duration": "1"
     }
   },
@@ -1319,7 +1322,6 @@
   "VacanciesPage": {
     "title": "Bo'sh ish o'rinlari",
     "detail": "Ish tafsilotlari",
-    "description": "Ish tavsifi",
     "positionTitle": "Lavozim nomi",
     "references": "Ma'lumotnoma",
     "descriptionTitle": "Tavsif",

@@ -13,10 +13,10 @@ type VideoHeroProps = {
   contactLabel: string;
   projectsLabel: string;
   calculatorLabel: string;
+  ringLabel: string;
+  watchLabel: string;
+  closeLabel: string;
 };
-
-const videoLabel = "Watch video";
-const ringLabel = "Yashil Energy Video";
 
 const TheVideoPlayer = ({
   title,
@@ -24,6 +24,9 @@ const TheVideoPlayer = ({
   contactLabel,
   projectsLabel,
   calculatorLabel,
+  ringLabel,
+  watchLabel,
+  closeLabel,
 }: VideoHeroProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const openVideo = () => setIsOpen(true);
@@ -87,7 +90,7 @@ const TheVideoPlayer = ({
           <button
             className={styles.playButton}
             type="button"
-            aria-label={videoLabel}
+            aria-label={watchLabel}
             onClick={openVideo}
             onKeyDown={handleKeyDown}
             onMouseDown={openVideo}
@@ -107,13 +110,19 @@ const TheVideoPlayer = ({
                   />
                 </defs>
                 <text>
-                  <textPath href="#video-action-path" startOffset="0">
-                    {ringLabel} - {ringLabel} -
+                  {/* one label stretched over the ring (2πr ≈ 283) so no locale overlaps itself */}
+                  <textPath
+                    href="#video-action-path"
+                    startOffset="0"
+                    textLength="280"
+                    lengthAdjust="spacing"
+                  >
+                    {ringLabel} •
                   </textPath>
                 </text>
               </svg>
               <span className={styles.playIcon} aria-hidden="true" />
-              <span className={styles.visuallyHidden}>{videoLabel}</span>
+              <span className={styles.visuallyHidden}>{watchLabel}</span>
             </span>
           </button>
         </div>
@@ -129,7 +138,7 @@ const TheVideoPlayer = ({
           <button
             className={styles.closeButton}
             type="button"
-            aria-label="Close video"
+            aria-label={closeLabel}
             onClick={closeVideo}
           />
           <iframe
