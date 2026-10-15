@@ -9,7 +9,7 @@ import {
   leadershipTeam,
   resolveLeadershipMembers,
 } from "@/content/leadership";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ManagerService } from "services/managers.service";
 import type { Manager } from "services/managers.service";
 import s from "./page.module.scss";
@@ -17,8 +17,13 @@ import s from "./page.module.scss";
 // Set to false to render CMS/local leadership photos again.
 const useLeadershipPhotoPlaceholders = false;
 
-export default async function Ceo() {
-  const locale = await getLocale();
+export default async function Ceo({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("CeoPage");
   const aboutT = await getTranslations("AboutPage");
   const managers = await getManagers(locale);

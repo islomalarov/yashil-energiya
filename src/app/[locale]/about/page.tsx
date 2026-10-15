@@ -1,7 +1,7 @@
 import s from "./page.module.scss";
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import {
   BadgeCheck,
@@ -41,7 +41,13 @@ const eventIcons: Record<string, LucideIcon> = {
   event4: Rocket,
 };
 
-export default async function About() {
+export default async function About({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("AboutPage");
   const projects = ["project1", "project2", "project3"] as const;
   const events = ["event1", "event2", "event3", "event4"] as const;

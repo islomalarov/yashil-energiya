@@ -2,7 +2,7 @@
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import { TheForm } from "@/components/FormComponent/TheForm";
 import s from "./page.module.scss";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 const departments = [
   {
@@ -25,8 +25,13 @@ const departments = [
 const mapSrc =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d629.8574893084249!2d69.29235218411685!3d41.32791623011573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef502436398eb%3A0xa40ec419e35355df!2sJV%20%22Yashil%20Energiya%22%20LLC!5e0!3m2!1s{locale}!2s!4v1779561905690!5m2!1s{locale}!2s";
 
-export default async function Contacts() {
-  const locale = await getLocale();
+export default async function Contacts({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("ContactsPage");
   const mapLocale = locale === "uz" ? "uz" : locale;
 

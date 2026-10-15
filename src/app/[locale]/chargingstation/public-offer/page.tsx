@@ -11,6 +11,7 @@ import {
   PUBLIC_OFFER_ROUTE,
 } from "@/content/publicOffer";
 import s from "./page.module.scss";
+import { setRequestLocale } from "next-intl/server";
 
 type PublicOfferPageProps = {
   params: Promise<{ locale: string }>;
@@ -38,6 +39,7 @@ export default async function PublicOfferPage({
   params,
 }: PublicOfferPageProps) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const offer = getPublicOfferContent(locale);
 
   return (

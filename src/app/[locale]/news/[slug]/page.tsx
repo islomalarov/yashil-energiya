@@ -2,7 +2,7 @@
 import s from "./page.module.scss";
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import { NewsService } from "services/news.service";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import ThePageContent from "@/components/PageContentComponent/ThePageContent";
 import { notFound } from "next/navigation";
@@ -70,6 +70,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function NewsPage({ params }: Props) {
   const { locale, slug } = await params;
+  setRequestLocale(locale);
 
   if (!slug) {
     notFound();

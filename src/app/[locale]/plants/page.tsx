@@ -3,7 +3,7 @@ import { TheHero } from "@/components/HeroComponent/TheHero";
 import { TheFeedback } from "@/components/FeedbackComponent/TheFeedback";
 import { PlantService } from "services/plants.service";
 import { PlantsExplorer } from "./PlantsExplorer";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { redirect } from "@/i18n/navigation";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 import { absoluteUrl, itemListJsonLd, localizedPath } from "@/lib/seo";
@@ -13,6 +13,10 @@ import type { Metadata } from "next";
 type PlantsPageProps = {
   searchParams?: Promise<{ page?: string }>;
 };
+
+// PlantsExplorer reads useSearchParams; static rendering would drop the list
+// from the server HTML (client-only bailout), so the page stays dynamic.
+export const dynamic = "force-dynamic";
 
 const ALL_PLANTS_LIMIT = 100;
 
@@ -44,8 +48,13 @@ export async function generateMetadata({
   };
 }
 
-export default async function Plants() {
-  const locale = await getLocale();
+export default async function Plants({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
 
   const t = await getTranslations("TheLastPlants");
   const tSummary = await getTranslations("PlantsPage.summary");
