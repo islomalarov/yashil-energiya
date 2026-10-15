@@ -98,7 +98,7 @@ export default async function NewsPage({ params }: Props) {
 
   return (
     <>
-      <TheNewsViewTracker id={news.id} slug={news.slug} />
+      <TheNewsViewTracker id={news.id} />
       <TheJsonLd
         data={[
           articleJsonLd({

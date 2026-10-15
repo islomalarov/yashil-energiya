@@ -27,19 +27,12 @@ const viewLimit = new Ratelimit({
 
 type NewsViewRequest = {
   id?: unknown;
-  slug?: unknown;
 };
 
 const ID_PATTERN = /^[a-zA-Z0-9_-]{1,128}$/;
-const SLUG_PATTERN = /^[a-zA-Z0-9/_-]{1,256}$/;
 
-function isValidPayload(body: NewsViewRequest): body is { id: string; slug: string } {
-  return (
-    typeof body.id === "string" &&
-    typeof body.slug === "string" &&
-    ID_PATTERN.test(body.id) &&
-    SLUG_PATTERN.test(body.slug)
-  );
+function isValidPayload(body: NewsViewRequest): body is { id: string } {
+  return typeof body.id === "string" && ID_PATTERN.test(body.id);
 }
 
 export async function POST(req: NextRequest) {
@@ -74,10 +67,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const views = await incrementNewsView({
-      id: body.id,
-      slug: body.slug,
-    });
+    const views = await incrementNewsView(body.id);
 
     return NextResponse.json(
       { success: true, counted: true, views },
