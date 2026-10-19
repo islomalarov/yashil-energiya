@@ -8,6 +8,7 @@ import { dataTable } from "./objects/dataTable";
 import { imageBlock } from "./objects/imageBlock";
 import { link, richText } from "./objects/richText";
 import { seo } from "./objects/seo";
+import { youtubeBlock } from "./objects/youtubeBlock";
 
 export const schemaTypes = [
   // documents
@@ -24,5 +25,6 @@ export const schemaTypes = [
   link,
   imageBlock,
   dataTable,
+  youtubeBlock,
   seo,
 ];
