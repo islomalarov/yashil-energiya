@@ -1647,5 +1647,9 @@
     "muteSound": "Mute sound",
     "unmuteSound": "Unmute sound",
     "overloaded": "The assistant is busy right now. Please try again in a moment."
+  },
+  "RichText": {
+    "playVideo": "Play video",
+    "video": "YouTube video"
   }
 }

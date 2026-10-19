@@ -1647,5 +1647,9 @@
     "muteSound": "Ovozni o'chirish",
     "unmuteSound": "Ovozni yoqish",
     "overloaded": "Xizmat hozir band. Iltimos, bir daqiqadan so'ng qayta urinib ko'ring."
+  },
+  "RichText": {
+    "playVideo": "Videoni ko'rish",
+    "video": "YouTube videosi"
   }
 }

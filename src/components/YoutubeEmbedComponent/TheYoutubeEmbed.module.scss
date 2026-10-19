@@ -1,0 +1,97 @@
+@use "@/scss/vars" as *;
+
+.video {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: $radius-card;
+  background: $green-ink;
+}
+
+.player,
+.poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.poster {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+
+  // hqdefault is 4:3 with black bars; cover crops them off in the 16:9 frame
+  .thumbnail {
+    object-fit: cover;
+  }
+
+  &:focus-visible {
+    outline: 3px solid $primaryColor;
+    outline-offset: -3px;
+  }
+
+  @include hoverable {
+    &:hover .playIcon {
+      transform: scale(1.06);
+    }
+  }
+
+  &:active .playIcon {
+    transform: scale(0.97);
+  }
+}
+
+.playIcon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: clamp(56px, 9vw, 76px);
+  height: clamp(56px, 9vw, 76px);
+  border-radius: $radius-pill;
+  background: rgba(18, 144, 62, 0.92);
+  box-shadow: 0 10px 28px rgba(7, 19, 13, 0.35);
+  transition: transform 0.2s $ease-out;
+
+  &::before {
+    content: "";
+    margin-left: 12%;
+    border-top: clamp(10px, 1.6vw, 13px) solid transparent;
+    border-bottom: clamp(10px, 1.6vw, 13px) solid transparent;
+    border-left: clamp(16px, 2.6vw, 21px) solid $whiteColor;
+  }
+}
+
+.caption {
+  color: $gray-green;
+  font-size: 15px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .playIcon {
+    transition: none;
+  }
+
+  .poster {
+    @include hoverable {
+      &:hover .playIcon {
+        transform: none;
+      }
+    }
+
+    &:active .playIcon {
+      transform: none;
+    }
+  }
+}

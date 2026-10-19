@@ -81,6 +81,13 @@ const nextConfig = {
         port: "",
         pathname: "/images/**",
       },
+      // thumbnails of YouTube videos in rich text (TheYoutubeEmbed)
+      {
+        protocol: "https",
+        hostname: "i.ytimg.com",
+        port: "",
+        pathname: "/vi/**",
+      },
     ],
   },
   async headers() {
