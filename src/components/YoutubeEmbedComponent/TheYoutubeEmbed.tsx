@@ -17,6 +17,7 @@ type Props = {
 export default function TheYoutubeEmbed({ value }: Props) {
   const t = useTranslations("RichText");
   const [playing, setPlaying] = useState(false);
+  const [hd, setHd] = useState(true);
   const id = youtubeId(value.url);
   if (!id) return null;
 
@@ -43,11 +44,13 @@ export default function TheYoutubeEmbed({ value }: Props) {
             aria-label={`${t("playVideo")}: ${title}`}
             onClick={() => setPlaying(true)}
           >
-            {/* hqdefault exists for every video; maxresdefault does not */}
+            {/* maxresdefault (1280×720) exists only for HD uploads; on 404
+                fall back to hqdefault (480×360), which every video has */}
             <Image
               className={s.thumbnail}
-              src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
+              src={`https://i.ytimg.com/vi/${id}/${hd ? "maxresdefault" : "hqdefault"}.jpg`}
               alt=""
+              onError={() => setHd(false)}
               fill
               sizes="(max-width: 1024px) 100vw, 800px"
             />
