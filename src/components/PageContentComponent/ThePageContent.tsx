@@ -6,7 +6,12 @@ import {
   type PortableTextComponents,
 } from "@portabletext/react";
 import type { ReactNode } from "react";
-import { isImageElem, type RichText, type RichTextTable } from "@/types/richtext";
+import {
+  isImageElem,
+  type RichText,
+  type RichTextTable,
+  type RichTextYoutube,
+} from "@/types/richtext";
 
 import s from "./ThePageContent.module.scss";
 import paragraph from "../ParagraphComponent/TheParagraph.module.scss";
@@ -14,6 +19,7 @@ import list from "../ListComponent/TheList.module.scss";
 import { richTextMarks } from "../RichText/portableTextMarks";
 import TheImageModal from "../ImageComponent/TheImageModal";
 import TheTable from "../TableComponent/TheTable";
+import TheYoutubeEmbed from "../YoutubeEmbedComponent/TheYoutubeEmbed";
 
 type Props = {
   content?: RichText | null;
@@ -78,6 +84,9 @@ export default function ThePageContent({ content }: Props) {
         );
       },
       dataTable: ({ value }) => <TheTable value={value as RichTextTable} />,
+      youtubeBlock: ({ value }) => (
+        <TheYoutubeEmbed value={value as RichTextYoutube} />
+      ),
     },
   };
 

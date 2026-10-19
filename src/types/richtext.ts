@@ -28,7 +28,17 @@ export type RichTextTable = {
 
 export type RichTextImage = ImageElem & { _type: "imageBlock"; _key: string };
 
-export type RichText = Array<PortableTextBlock | RichTextImage | RichTextTable>;
+// YouTube block: the link as the editor pasted it + optional caption.
+export type RichTextYoutube = {
+  _type: "youtubeBlock";
+  _key: string;
+  url?: string;
+  caption?: string;
+};
+
+export type RichText = Array<
+  PortableTextBlock | RichTextImage | RichTextTable | RichTextYoutube
+>;
 
 export function isImageElem(value: unknown): value is RichTextImage {
   if (typeof value !== "object" || value === null) return false;
