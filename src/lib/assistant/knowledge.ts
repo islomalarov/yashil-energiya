@@ -6,6 +6,7 @@ import { toPlainText, type PortableTextBlock } from "@portabletext/react";
 import { loadWithFallback } from "@/lib/cms-locale";
 import type { RichText, RichTextTable } from "@/types/richtext";
 import { COMPANY_CONTACTS, SITE_PAGES } from "@/lib/assistant/site-map";
+import { routing } from "@/i18n/routing";
 
 /**
  * Knowledge-base layer for the virtual assistant.
@@ -156,4 +157,14 @@ export async function buildKnowledgeBase(locale: string): Promise<string> {
   }
 
   return digest;
+}
+
+/**
+ * Drop the cached digests of every locale, so the next chat message rebuilds
+ * them from the CMS. Called by the Sanity revalidate webhook.
+ */
+export async function invalidateKnowledgeBase(): Promise<void> {
+  await redis.del(
+    ...routing.locales.map((locale) => `${KB_CACHE_PREFIX}:${locale}`),
+  );
 }
