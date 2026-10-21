@@ -1,0 +1,13 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directories: ["/", "/studio"]
+    schedule:
+      interval: weekly
+    groups:
+      minor-and-patch:
+        update-types: [minor, patch]
+    # Major upgrades are a separate task in a chore/ branch (AGENTS.md §6).
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
