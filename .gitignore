@@ -37,3 +37,6 @@ next-env.d.ts
 # trash
 ds
 eslint
+
+# claude code agent worktrees
+.claude/worktrees/

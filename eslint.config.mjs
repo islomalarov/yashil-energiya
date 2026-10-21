@@ -37,6 +37,8 @@ export default [
       "out/**",
       // Separate package with its own deps (`cd studio && npm run typecheck`).
       "studio/**",
+      // Agent worktrees (full repo copies) live under .claude/worktrees.
+      ".claude/**",
     ],
   },
 ];

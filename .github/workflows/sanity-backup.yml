@@ -1,0 +1,21 @@
+name: Sanity backup
+
+# Sanity Free has no backups and keeps history for 3 days. Weekly NDJSON
+# export of published documents; image files are not included.
+on:
+  schedule:
+    - cron: "0 3 * * 1"
+  workflow_dispatch:
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      # The production dataset is public, so no token is needed.
+      - run: curl -fsS --retry 3 -o production.ndjson https://ljlv76fi.api.sanity.io/v2025-02-19/data/export/production
+      - run: test -s production.ndjson && wc -l production.ndjson
+      - uses: actions/upload-artifact@v7
+        with:
+          name: sanity-production-${{ github.run_id }}
+          path: production.ndjson
+          retention-days: 90

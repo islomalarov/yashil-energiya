@@ -3,12 +3,11 @@ import s from "./page.module.scss";
 import { TheHero } from "@/components/HeroComponent/TheHero";
 import { NewsService } from "services/news.service";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import Link from "next/link";
 import ThePageContent from "@/components/PageContentComponent/ThePageContent";
 import { notFound } from "next/navigation";
 import type { Locale } from "next-intl";
 import type { Metadata } from "next";
-import { redirect } from "@/i18n/navigation";
+import { Link, redirect } from "@/i18n/navigation";
 import {
   articleJsonLd,
   breadcrumbJsonLd,
@@ -22,17 +21,11 @@ import { loadWithFallback } from "@/lib/cms-locale";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 import { TheNewsViewTracker } from "@/components/NewsViewTracker/TheNewsViewTracker";
 import { ThePopularNews } from "@/components/PopularNewsComponent/ThePopularNews";
-import { getPopularNews, getPopularNewsLabels } from "@/lib/popular-news";
+import { getPopularNews } from "@/lib/popular-news";
 import { formatPublicationDate } from "@/lib/format-date";
 
 type Props = {
   params: Promise<{ locale: Locale; slug: string }>;
-};
-
-const ogCtaLabels: Record<string, string> = {
-  en: "Read news",
-  ru: "Читать",
-  uz: "O'qish",
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -42,6 +35,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!news) {
     return {};
   }
+
+  const t = await getTranslations({ locale, namespace: "TheLastNews" });
 
   const seo = news.seo;
 
@@ -57,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ),
     image: optimizedOgImagePath(seo?.ogImage?.url ?? news.cover?.url, {
       title: news.title,
-      cta: ogCtaLabels[locale] || ogCtaLabels.en,
+      cta: t("ogCta"),
     }),
     type: "article",
     publishedTime: news.date,
@@ -109,7 +104,7 @@ export default async function NewsPage({ params }: Props) {
             description: news.excerpt,
             image: optimizedOgImagePath(news.seo?.ogImage?.url ?? news.cover?.url, {
               title: news.title,
-              cta: ogCtaLabels[locale] || ogCtaLabels.en,
+              cta: t("ogCta"),
             }),
             publishedTime: news.date,
             modifiedTime: news.updatedAt,
@@ -141,7 +136,7 @@ export default async function NewsPage({ params }: Props) {
                 <ul className={s.list}>
                   {lastNews.map(({ id, title, slug, date }) => (
                     <li key={id}>
-                      <Link className={s.link} href={`/${locale}/news/${slug}`}>
+                      <Link className={s.link} href={`/news/${slug}`}>
                         <div className={s.titleBlock}>
                           {date && (
                             <p className={s.date}>
@@ -160,7 +155,7 @@ export default async function NewsPage({ params }: Props) {
           </div>
           <ThePopularNews
             news={popularNews}
-            labels={getPopularNewsLabels(locale)}
+            labels={{ eyebrow: t("popularEyebrow"), title: t("popularTitle") }}
             locale={locale}
           />
       </div>

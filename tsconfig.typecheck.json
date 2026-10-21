@@ -9,6 +9,7 @@
     "node_modules",
     ".next",
     ".next/dev",
-    "studio"
+    "studio",
+    ".claude"
   ]
 }

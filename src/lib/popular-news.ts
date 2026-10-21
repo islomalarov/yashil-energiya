@@ -16,27 +16,6 @@ export type PopularNewsItem = NewResponse & {
   views: number;
 };
 
-export function getPopularNewsLabels(locale: string) {
-  if (locale === "ru") {
-    return {
-      eyebrow: "В тренде",
-      title: "Популярные новости",
-    };
-  }
-
-  if (locale === "uz") {
-    return {
-      eyebrow: "Trend",
-      title: "Ommabop yangiliklar",
-    };
-  }
-
-  return {
-    eyebrow: "Trending",
-    title: "Popular news",
-  };
-}
-
 export async function getPopularNews(
   locale: string,
   excludeId?: string,
