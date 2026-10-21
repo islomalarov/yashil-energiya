@@ -24,12 +24,6 @@ type Props = {
   params: Promise<{ slug: string; locale: string }>;
 };
 
-const ogCtaLabels: Record<string, string> = {
-  en: "Read article",
-  ru: "Читать",
-  uz: "O'qish",
-};
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = await params;
   const article = await ArticlesService.getOneArticle(slug, locale);
@@ -37,6 +31,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!article) {
     return {};
   }
+
+  const t = await getTranslations({ locale, namespace: "TheArticlesList" });
 
   const seo = article.seo;
 
@@ -52,7 +48,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ),
     image: optimizedOgImagePath(seo?.ogImage?.url ?? article.cover?.url, {
       title: article.title,
-      cta: ogCtaLabels[locale] || ogCtaLabels.en,
+      cta: t("ogCta"),
     }),
     type: "article",
     modifiedTime: article.updatedAt,
@@ -91,7 +87,7 @@ export default async function ArticlePage({ params }: Props) {
               article.seo?.ogImage?.url ?? article.cover?.url,
               {
                 title: article.title,
-                cta: ogCtaLabels[locale] || ogCtaLabels.en,
+                cta: t("ogCta"),
               },
             ),
             modifiedTime: article.updatedAt,
