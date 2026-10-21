@@ -6,6 +6,7 @@ import {
   CACHE_TAGS,
   type SanityDocumentType,
 } from "lib/cache-tags";
+import { invalidateKnowledgeBase } from "@/lib/assistant/knowledge";
 
 export const runtime = "nodejs";
 
@@ -63,6 +64,16 @@ export async function POST(req: NextRequest) {
     // immediate hard purge (no stale-while-revalidate window). The time-based
     // `revalidate` window in lib/sanity-client.ts remains the upper bound.
     revalidateTag(tag, { expire: 0 });
+  }
+
+  // The assistant's digest is built from news and articles and cached in
+  // Redis for an hour; drop it too. A Redis outage must not fail the webhook.
+  if (tags.includes(CACHE_TAGS.news) || tags.includes(CACHE_TAGS.article)) {
+    try {
+      await invalidateKnowledgeBase();
+    } catch (error) {
+      console.error("Revalidate webhook: assistant KB purge failed:", error);
+    }
   }
 
   return NextResponse.json({ revalidated: true, tags });
