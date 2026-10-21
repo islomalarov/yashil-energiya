@@ -165,7 +165,10 @@
     "title": "News",
     "linkTitle": "All news",
     "lastNewsTitle": "Latest news",
-    "link": "Learn More"
+    "link": "Learn More",
+    "popularEyebrow": "Trending",
+    "popularTitle": "Popular news",
+    "ogCta": "Read news"
   },
   "SolarPanelsPage": {
     "heroTitle": "Solar Power Plants",
@@ -1337,7 +1340,8 @@
     "title": "Articles",
     "linkTitle": "All articles",
     "lastArticlesTitle": "Latest articles",
-    "link": "Read more"
+    "link": "Read more",
+    "ogCta": "Read article"
   },
   "NotFoundPage": {
     "title": "Page not found",

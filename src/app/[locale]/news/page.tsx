@@ -8,7 +8,7 @@ import { redirect } from "@/i18n/navigation";
 import { TheJsonLd } from "@/components/JsonLd/TheJsonLd";
 import { absoluteUrl, itemListJsonLd, localizedPath } from "@/lib/seo";
 import { ThePopularNews } from "@/components/PopularNewsComponent/ThePopularNews";
-import { getPopularNews, getPopularNewsLabels } from "@/lib/popular-news";
+import { getPopularNews } from "@/lib/popular-news";
 import type { Metadata } from "next";
 
 type NewsPageProps = {
@@ -84,7 +84,7 @@ export default async function News({ params, searchParams }: NewsPageProps) {
         />
         <ThePopularNews
           news={popularNews}
-          labels={getPopularNewsLabels(locale)}
+          labels={{ eyebrow: t("popularEyebrow"), title: t("popularTitle") }}
           locale={locale}
         />
       </div>

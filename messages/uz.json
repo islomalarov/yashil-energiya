@@ -165,7 +165,10 @@
     "title": "Yangiliklar",
     "linkTitle": "Barcha yangiliklar",
     "lastNewsTitle": "So'nggi yangiliklar",
-    "link": "Batafsil"
+    "link": "Batafsil",
+    "popularEyebrow": "Trend",
+    "popularTitle": "Ommabop yangiliklar",
+    "ogCta": "O'qish"
   },
   "SolarPanelsPage": {
     "heroTitle": "Quyosh fotoelektr stansiyalari",
@@ -1337,7 +1340,8 @@
     "title": "Maqolalar",
     "linkTitle": "Barcha maqolalar",
     "lastArticlesTitle": "So'nggi maqolalar",
-    "link": "Batafsil o'qish"
+    "link": "Batafsil o'qish",
+    "ogCta": "O'qish"
   },
   "NotFoundPage": {
     "title": "Sahifa topilmadi",

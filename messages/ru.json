@@ -165,7 +165,10 @@
     "title": "Новости",
     "linkTitle": "Все новости",
     "lastNewsTitle": "Последние новости",
-    "link": "Узнать больше"
+    "link": "Узнать больше",
+    "popularEyebrow": "В тренде",
+    "popularTitle": "Популярные новости",
+    "ogCta": "Читать"
   },
   "SolarPanelsPage": {
     "heroTitle": "Солнечные электростанции",
@@ -1337,7 +1340,8 @@
     "title": "Статьи",
     "linkTitle": "Все статьи",
     "lastArticlesTitle": "Последние статьи",
-    "link": "Читать далее"
+    "link": "Читать далее",
+    "ogCta": "Читать"
   },
   "NotFoundPage": {
     "title": "Страница не найдена",
