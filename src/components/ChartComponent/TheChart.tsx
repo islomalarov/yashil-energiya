@@ -10,22 +10,17 @@ import {
   Tooltip,
   ResponsiveContainer,
   Cell,
+  type TooltipContentProps,
 } from "recharts";
+import type {
+  NameType,
+  ValueType,
+} from "recharts/types/component/DefaultTooltipContent";
 
 type Datum = {
   year: string;
   power: number;
   color: string;
-};
-
-type TooltipPayloadItem = {
-  value?: number | string;
-};
-
-type CustomTooltipProps = {
-  active?: boolean;
-  payload?: readonly TooltipPayloadItem[];
-  label?: string | number;
 };
 
 type TheChartProps = {
@@ -45,7 +40,7 @@ const makeCustomTooltip = (
   unit: string,
   numberFormatter: Intl.NumberFormat,
 ) => {
-  const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
+  const CustomTooltip = ({ active, payload, label }: TooltipContentProps<ValueType, NameType>) => {
     if (!active || !payload || payload.length === 0) return null;
 
     return (
