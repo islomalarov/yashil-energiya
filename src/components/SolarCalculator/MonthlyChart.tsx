@@ -10,7 +10,12 @@ import {
   Tooltip,
   XAxis,
   YAxis,
+  type TooltipContentProps,
 } from "recharts";
+import type {
+  NameType,
+  ValueType,
+} from "recharts/types/component/DefaultTooltipContent";
 
 type MonthlyChartProps = {
   generation: number[];
@@ -18,20 +23,8 @@ type MonthlyChartProps = {
   unit: string;
 };
 
-type TooltipPayloadItem = {
-  name?: string;
-  value?: number | string;
-  color?: string;
-};
-
-type CustomTooltipProps = {
-  active?: boolean;
-  payload?: readonly TooltipPayloadItem[];
-  label?: string | number;
-};
-
 const makeTooltip = (unit: string, formatter: Intl.NumberFormat) => {
-  const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
+  const CustomTooltip = ({ active, payload, label }: TooltipContentProps<ValueType, NameType>) => {
     if (!active || !payload || payload.length === 0) return null;
     return (
       <div
