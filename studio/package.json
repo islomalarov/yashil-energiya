@@ -15,11 +15,11 @@
   },
   "dependencies": {
     "@sanity/locale-ru-kz": "^1.1.36",
-    "@sanity/table": "^3.1.16",
+    "@sanity/table": "^3.1.20",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "sanity": "^6.16.0",
-    "styled-components": "^6.5.3"
+    "styled-components": "^6.6.0"
   },
   "devDependencies": {
     "@types/react": "^19.3.0",
