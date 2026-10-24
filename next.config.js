@@ -116,7 +116,7 @@ const nextConfig = {
       },
       {
         source:
-          "/:lang(en|ru|uz)/:section(about|ceo|contacts|solarpanels|microges|chargingstation|installation-request|plants|branches|documents|news|articles|procurements|vacancies)",
+          "/:lang(en|ru|uz)/:section(about|ceo|contacts|solarpanels|microges|chargingstation|installation-request|plants|documents|news|articles|procurements|vacancies)",
         headers: staticHtmlCacheHeaders,
       },
       {
@@ -173,6 +173,12 @@ const nextConfig = {
       {
         source: "/jobs",
         destination: "/uz/vacancies",
+        statusCode: 301,
+      },
+      // The regional branches page was removed; the company has no branches.
+      {
+        source: "/:lang(en|ru|uz)/branches",
+        destination: "/:lang/contacts",
         statusCode: 301,
       },
       {
